@@ -384,8 +384,8 @@ python -B experience_returns/transition_schema/test_schema.py -v
 | [E02 观测接口](../../environment_control/observation_interface/README.md) · [人类版占位](../../environment_control/observation_interface/README_HUMAN.md) | **观测源头（待实现）**。负责提供 33 维策略观测与 $C$ 维 Q 特权观测，决定运行时的实际数据内容 |
 | [E03 人类版说明](../../environment_control/action_contract/README_HUMAN.md) | **动作基石（已完成）**。解释 8 维策略动作的物理含义与坐标基准 |
 | [E05 生命周期契约](../../environment_control/episode_lifecycle/README.md) · [人类版占位](../../environment_control/episode_lifecycle/README_HUMAN.md) | **生命周期核心（待实现）**。负责在环境重置前捕获并保护真实末状态，执行“真终止优先”，并向本模块传递数据；当前没有捕获耗时的验证结果 |
-| [D02 经验池契约](../replay_buffer/README.md) · [人类版](../replay_buffer/README_HUMAN.md) | **数据存储（纯数据实现与 CPU 单元验证完成）**。接收本模块的记录，按环境/轮次/步号与写入序号选连续片段；人类版技术初稿完成，待 Gemini 润色，尚无大容量性能验证 |
-| [D03 多步回报契约](../n_step_returns/README.md) · [人类版](../n_step_returns/README_HUMAN.md) | **回报计算（纯数据实现与 CPU 单元验证完成）**。利用原始奖励、尾部 next_* 与本模块 mask 构造多步数据；人类版技术初稿完成，待 Gemini 润色，目标 Q 尚未接入 |
+| [D02 经验池契约](../replay_buffer/README.md) · [人类版](../replay_buffer/README_HUMAN.md) | **数据存储（纯数据实现与 CPU 单元验证完成）**。接收本模块的记录，按环境/轮次/步号与写入序号选连续片段；人类版讲解与技术复核已完成，本轮不再润色，尚无大容量性能验证 |
+| [D03 多步回报契约](../n_step_returns/README.md) · [人类版](../n_step_returns/README_HUMAN.md) | **回报计算（纯数据实现与 CPU 单元验证完成）**。利用原始奖励、尾部 next_* 与本模块 mask 构造多步数据；人类版讲解与技术复核已完成，本轮不再润色，目标 Q 尚未接入 |
 | [大模块人类版](../README_HUMAN.md) · [项目总人类版](../../README_HUMAN.md) | 宏观架构导航页面 |
 
 本说明基于提交版本 `7fe7e93fdd8f032f038f4d014206dcf560c80e6a` 撰写并完成语言润色。后续若底层算法代码发生变动，将按照协作规范先由 Codex 同步技术初稿，再进行后续润色。

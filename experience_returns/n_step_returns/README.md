@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [returns.py](returns.py) 与 [test_returns.py](test_returns.py)，7 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据并经 D02 读取，未接入 N05 目标 Q，未进行训练或性能验证。
 
-[人类版（技术初稿完成，待 Gemini 润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -133,7 +133,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 | 代码版本 | 代码与测试：`c3b2fe09b752cc8f0ee713d674af5b057c675558`（分支 `claude/experience-returns`，基于 `c06509e`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 D03：沿用作者“首个结束之后屏蔽奖励、按首个结束取尾部”的思路，但起点有效性改用 D02 的显式编号，mask 由真终止推导 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；D02 `buffer.py`；带注释的 `returns.py`、`test_returns.py`；作者 `replay_buffer.py` 的 `_generate_batch` 与 `sac.py` 的目标组合。建议 Codex 重点解释 `accumulate_rewards` 中权重的构造、`build_n_step_batch` 的有效性检查，以及尾部为何取第 k-1 条记录的 `next_*` |
-| 人类版 | 技术初稿完成，待 Gemini 润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Codex 技术初稿已完成；待 Gemini 润色同一份人类版，尚未标为已润色 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Gemini 整体润色已完成，Codex 后续技术修正已复核；按用户决定本轮不再局部润色 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
