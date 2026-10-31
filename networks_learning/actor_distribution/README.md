@@ -101,7 +101,7 @@
 运行命令（仓库根目录）：
 
 ```bash
-uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/test_actor.py -v
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/actor_distribution/test_actor.py -v
 ```
 
 ## 故障定位

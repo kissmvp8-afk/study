@@ -42,14 +42,14 @@
 |---|---|---|
 | `frozen_parameters` | 上下文管理器 `(module)` | 临时关闭参数的 `requires_grad`，退出时恢复；输入张量的梯度不受影响 |
 | `make_actor_optimizer` | `(actor, lr=1e-3) -> Adam` | 只含 N03 Actor 参数（编码器、Q、log_alpha 都不在其中） |
-| `compute_actor_loss` | `(actor, critics, features[B,52], q_observation[B,C], alpha, generator=None) -> (L, a, log π)` | 在回放状态上重新采样；L = 平均 [alpha·log π − min(Q1, Q2)]；前向时冻结 Q 参数，保留 Q 对动作的梯度 |
+| `compute_actor_loss` | `(critics, q_observation[B,C], action[B,8], log_prob[B,1], alpha) -> L` | 接收调用方用 `actor.sample_action_and_log_prob(features)` 在回放状态上**同一次采样**的 a 与 log π；L = 平均 [alpha·log π − min(Q1, Q2)]；前向时冻结 Q 参数，保留 Q 对动作的梯度 |
 | `update_actor` | `(actor, optimizer, loss, max_grad_norm=1.0) -> dict` | 反传并更新 Actor |
 | `report_policy_change` | `(actor, features, action, log_prob) -> dict` | 只读：平均内部 std、熵估计 −平均 log π、贴边比例（|tanh u| > 0.99） |
 
 梯度边界：
 - `features` 由 N01 在 `no_grad`、eval 下得到，不更新编码器参数或 BN 统计。
 - alpha 以数值传入，不对 log_alpha 求导。
-- 返回的 `log π` 与 N07 共用同一次采样（与作者相同）。
+- 采样与更新顺序（作者 `sac.py`）：采样一次 → N07 用这次的 log π 更新 alpha → 用**更新后的** alpha 和同一次采样调用 `compute_actor_loss` → `update_actor`。采样放在调用方，正是为了让 Actor 损失能在温度更新之后组装。
 - 作者每 2 次 Critic 更新做一次 Actor 更新（`policy_frequency=2`），具体频率由 T02 决定。
 
 调用方：N08 测试中的完整更新衔接检查。
@@ -97,7 +97,7 @@ Actor 输入特征与 Q 观测为随机人工数据；动作边界为人工对�
 运行命令（仓库根目录）：
 
 ```bash
-uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/test_actor_update.py -v
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/actor_learning/test_actor_update.py -v
 ```
 
 ## 故障定位
@@ -129,7 +129,7 @@ Actor 完全不变时查是否把整个 Q 计算都禁止求梯度；旧行为�
 | 代码注释核对 | 已核对：重新采样的原因、损失的两个方向、冻结 Q 参数但保留动作梯度、编码器与 alpha 的隔离（文件头、`compute_actor_loss`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/actor_learning/test_actor_update.py -v` → `Ran 4 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
 | 未验证项 | 真实 Q 下的训练方向与稳定性；Actor 更新频率（T02）；GPU；仿真、训练与性能 |
-| 代码版本 | 代码与测试：`0b150dc5dc7dfb410485bf6a51197926a7021e7a`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 代码版本 | 代码与测试：`0b150dc5dc7dfb410485bf6a51197926a7021e7a`，审核后修改接口 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N06：沿用作者“冻结 Q 参数、保留动作梯度”的做法；编码器通过 N01 的 no_grad 特征隔离 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `actor_update.py`、`test_actor_update.py`；作者 `sac.py`（actor 更新与冻结 critic）。建议 Codex 重点解释为什么重新采样、`frozen_parameters` 如何保留动作梯度，以及 alpha=0 的对照测试 |
 | 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |

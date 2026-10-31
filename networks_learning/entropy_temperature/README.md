@@ -97,7 +97,7 @@
 运行命令（仓库根目录）：
 
 ```bash
-uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/test_temperature.py -v
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/entropy_temperature/test_temperature.py -v
 ```
 
 ## 故障定位

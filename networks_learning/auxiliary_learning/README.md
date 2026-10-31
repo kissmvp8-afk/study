@@ -75,7 +75,7 @@ BatchNorm 统计何时更新：只在 `update_encoder` 内的两次 train 前向
 | 案例 | 对应测试（[test_auxiliary.py](test_auxiliary.py)） | 结果 |
 |---|---|---|
 | 速度预测正确时平方误差为 0 | `LossTest.test_velocity_loss_zero_when_correct` | 通过 |
-| 常数特征：经 projector 后相关矩阵为 0，对角项 = 64（最大），不会被误认为完美表示；对照“两窗口一致且各维独立”的特征损失接近 0 | `LossTest.test_constant_features_are_not_perfect` | 通过 |
+| 常数特征：经 projector 后相关矩阵为 0，对角项 = 64（远离完美表示的 0；64 不是上界，反相关时可达 256），不会被误认为完美表示；对照“两窗口一致且各维独立”的特征损失接近 0 | `LossTest.test_constant_features_are_not_perfect` | 通过 |
 | 与原 PPO 损失写法（`c.div_`、`diagonal.add_(-1).pow_(2)`）一致 | `LossTest.test_matches_ppo_formula` | 通过 |
 | 辅助更新只改编码器与 projector；优化器参数集合恰好等于二者；Actor 动作头、Q、alpha 的占位模块不变 | `UpdateTest.test_only_encoder_and_projector_change` | 通过 |
 | eval 前向不改 BN 统计，辅助更新改变统计，结束后恢复 eval | `UpdateTest.test_batchnorm_statistics_only_change_during_update` | 通过 |
@@ -88,7 +88,7 @@ BatchNorm 统计何时更新：只在 `update_encoder` 内的两次 train 前向
 运行命令（仓库根目录）：
 
 ```bash
-uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/test_auxiliary.py -v
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/auxiliary_learning/test_auxiliary.py -v
 ```
 
 ## 故障定位
@@ -120,7 +120,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learni
 | 代码注释核对 | 已核对：相关矩阵对角 / 非对角项与常数特征（文件头）；速度标签尺度（文件头、`velocity_loss`）；有效窗口筛选与跳过规则（`update_encoder`）；独立优化器与 BN 模式（文件头、`update_encoder`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/auxiliary_learning/test_auxiliary.py -v` → `Ran 8 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
 | 未验证项 | E02 确认速度标签所在字段；辅助更新频率与 SAC 更新次数之比（T02）；真实数据上的表示质量；GPU；仿真、训练与性能 |
-| 代码版本 | 代码与测试：`2e6c470770fe22458a9412178144d9410c97cf81`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 代码版本 | 代码与测试：`2e6c470770fe22458a9412178144d9410c97cf81`，审核后修正注释 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N02：原 PPO 把辅助损失加入 PPO 总损失并共用一个优化器；SAC 中改为独立优化器与独立更新，并明确 BN 更新时机与有效样本 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `auxiliary.py`、`test_auxiliary.py`；原 PPO `actor_critic.py`（`barlow_twins_loss`、`off_diagonal`）与 `np3o.py`（辅助损失并入总损失）。建议 Codex 重点解释相关矩阵、常数特征为何得到最大损失、有效样本筛选与跳过，以及 train / eval 切换 |
 | 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |

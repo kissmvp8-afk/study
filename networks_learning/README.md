@@ -49,7 +49,7 @@
 
 ## 当前证据
 
-八个小模块都有实现与 CPU 单元检查（需要 PyTorch），全部通过（Python 3.11.17 + torch 2.15.0，人工数据）：N01 7 项、N02 8 项、N03 7 项、N04 5 项、N05 3 项、N06 4 项、N07 4 项、N08 5 项。N08 测试包含一次完整更新衔接检查。证据分别记录在各小模块的“实现证据与文档交接”表中。纯数据检查通过，不等于机器人仿真或 SAC 训练已经完成；本大模块尚无训练曲线或仿真性能结果。后续证据由各小模块记录，本 README 维护整体进度和跨模块问题。
+八个小模块都有实现与 CPU 单元检查（需要 PyTorch），全部通过（Python 3.11.17 + torch 2.15.0，人工数据）：N01 7 项、N02 8 项、N03 7 项、N04 5 项、N05 3 项、N06 4 项、N07 4 项、N08 5 项。N08 测试包含一次完整更新衔接检查，按作者 `sac.py` 的顺序：Critic → 采样一次 → 温度 → Actor（新 alpha、同一次采样）→ 慢更新，再做一次辅助学习。Actor 更新频率（作者 `policy_frequency=2`）留给 T02 配置。证据分别记录在各小模块的“实现证据与文档交接”表中。纯数据检查通过，不等于机器人仿真或 SAC 训练已经完成；本大模块尚无训练曲线或仿真性能结果。后续证据由各小模块记录，本 README 维护整体进度和跨模块问题。
 
 模块之间的实际衔接（一次更新）：
 
@@ -57,9 +57,9 @@
 D03 NStepBatch(first, tail, R, k, γ^k, mask)
   ├─ N05 compute_target：tail.next_* → D04/D05 → N01 features → N03 采样 a'、log π' → N04 目标双 Q → y（no_grad）
   │   update_critics：在线双 Q 评价 first.action → 只更新在线 Q
-  ├─ N06 compute_actor_loss：first.policy_history → N01 features（no_grad, eval）→ N03 重新采样 → 冻结参数的在线双 Q
-  │   update_actor：只更新 Actor；同一次采样的 log π 交给 N07
-  ├─ N07 update_temperature：只更新 log_alpha；目标熵 = −1.0×8（策略动作坐标），同时记录单位区间等价值 −8 − Σ log c
+  ├─ 采样一次：first.policy_history → N01 features（no_grad, eval）→ N03 sample_action_and_log_prob → a、log π
+  ├─ N07 update_temperature(log π)：只更新 log_alpha；目标熵 = −1.0×8（策略动作坐标），同时记录单位区间等价值 −8 − Σ log c
+  ├─ N06 compute_actor_loss(a, log π, 新 alpha)：冻结参数的在线双 Q；update_actor 只更新 Actor
   ├─ N08 soft_update：目标双 Q ← (1−τ)·目标 + τ·在线（τ=0.005，每次 Critic 更新一次）
   └─ N02 update_encoder：D05 有效历史（≥6 帧）→ 编码器 + projector（train 模式仅在此期间）
 ```

@@ -8,7 +8,7 @@
 | 技术核对状态 | 待 Codex 阅读实际代码后核对 |
 | 语言润色状态 | 待技术初稿完成后交 Gemini |
 | 已核对代码版本 | 无 |
-| 待同步代码版本 | 分支 `claude/networks-learning`，代码提交 `7f671f38d31e6a52c8f54acc07440cb2356021e0`：`targets.py`、`test_targets.py`（文档同步在其后的提交中） |
+| 待同步代码版本 | 分支 `claude/networks-learning`，代码提交 `7f671f38d31e6a52c8f54acc07440cb2356021e0`，审核后修改 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`：`targets.py`、`test_targets.py`（文档同步在其后的提交中） |
 | 实际阅读材料 | 待 Codex 记录 |
 | 验证依据与限制 | 尚未编写教学正文。代码侧：5 项 CPU 单元检查通过（Python 3.11 + torch 2.15.0，人工数据），记录见 [AI 规范](README.md#实现证据与文档交接)；未接入仿真或训练。后续人类版面向有 Python 基础的读者 |
 
