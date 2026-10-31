@@ -17,8 +17,8 @@
 不负责：归一化（D04，逐帧变换，与切片先后无关）、历史编码（N01）、辅助损失（N02）、模型导出（T05）。
 
 与原 PPO 的关系：原 actor_critic._split_policy_obs 取 current = obs[:, -1]、hist = obs[:, -6:-1]（t-5..t-1），
-决策窗口由 hist[:, 1:] 拼上 current 得到（t-4..t）；导出包装器 _InferenceWrapper 用另一种切法得到同样结果。
-这里直接给出三段，结果与原 PPO 一致（测试中逐元素比对）。
+决策窗口由 hist[:, 1:] 拼上 current 得到（t-4..t）。
+本模块与原 PPO 训练路径一致；原导出包装器在输入含当前帧的完整历史时会重复当前帧，该问题已记录，留待 T05 处理。
 """
 
 from __future__ import annotations
