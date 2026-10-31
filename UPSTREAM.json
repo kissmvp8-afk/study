@@ -48,6 +48,10 @@
       "T01": "awaiting_codex_draft",
       "T02": "awaiting_codex_draft",
       "T03": "awaiting_codex_draft",
+      "T04": "awaiting_codex_draft",
+      "T05": "awaiting_codex_draft",
+      "T06": "awaiting_codex_draft",
+      "training_validation": "awaiting_codex_draft",
       "others": "placeholders_awaiting_implementation"
     },
     "implementation_author": "Claude",
@@ -78,6 +82,9 @@
     "N08": "unit_verified_cpu",
     "T01": "unit_verified_cpu_fake_env",
     "T02": "unit_verified_cpu_fake_env",
-    "T03": "unit_verified_cpu_fake_env"
+    "T03": "unit_verified_cpu_fake_env",
+    "T04": "unit_verified_cpu",
+    "T05": "unit_verified_cpu",
+    "T06": "unit_verified_cpu"
   }
 }

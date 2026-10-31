@@ -144,7 +144,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码注释核对 | 已核对：检查点版本与格式标记、原子保存、全部训练状态、经验池缺失的恢复限制、原 PPO V 不能加载为 Q、仿真现场未保存（文件头、`restore_checkpoint`、`describe_resume_mode`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/checkpoints/test_checkpoint.py -v` → `Ran 10 tests … OK`（首次实现时为 8 项，问题见上文“调试记录”；审核修复后新增 2 项、改写 1 项）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
 | 未验证项 | Isaac 环境的现场保存与恢复（不在本模块范围内，目前也没有承诺）；大容量经验池的保存耗时与文件大小；跨设备（GPU ↔ CPU）恢复；异常中断后的实际恢复演练 |
-| 代码版本 | `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`；依赖 D02 新增接口 `f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
+| 代码版本 | `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`，审核修复 `d213a24425ab9588fa4e77e64fb87106116dd401`；依赖 D02 新增接口 `f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T03：在作者保存内容的基础上补齐经验池、随机数与调度计数；明确两种恢复语义，以及不恢复仿真现场。审核修复（Codex 复核 `13382f3`）：原实现允许恢复时使用不同的学习配置，但优化器状态与 D04 统计会带回旧的学习率与 eps，导致配置记录与实际运行不一致，再次保存时仍不一致；改 gamma 后仍报告“下一批学习可复现”也不成立。现改为只支持按检查点原有学习配置恢复：不一致时在修改 Trainer 之前报错并列出差异，提示用 `load_checkpoint_config` 重建 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `checkpoint.py`、`test_checkpoint.py`；T02 `runner.py`；D02 `buffer.py` 的 `state_dict`；作者 `sac.py` 的 `save` / `load`。建议 Codex 重点解释原子保存、两种恢复语义、结构检查，以及为什么恢复后旧经历不会与新一轮拼接 |
 | 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
