@@ -21,5 +21,14 @@
     "commit": null,
     "status": "must_pin_before_simulation"
   },
-  "training_verified": false
+  "training_verified": false,
+  "documentation": {
+    "ai_spec_filename": "README.md",
+    "human_guide_filename": "README_HUMAN.md",
+    "pairs": 29,
+    "human_guide_author": "Gemini",
+    "human_guides_status": "placeholders_pending_gemini",
+    "implementation_author": "Claude",
+    "code_comments_required": true
+  }
 }
