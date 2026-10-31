@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "stage": "framework_and_readmes_only",
+  "ppo": {
+    "repository": "DDTRobot/DDT_Lab",
+    "commit": "701a49c6e78dfb93a8b30145f0e7723b22921c0b",
+    "tree": "88bb121c956f8704302cc5fdfae10e614b77c634",
+    "snapshot_repository": "kissmvp8-afk/study",
+    "snapshot_branch": "baseline/ppo",
+    "snapshot_commit": "8fe40aa0ab3afdb8998cab1357f1f795d2cabc3c",
+    "verified_files": 80,
+    "full_upstream_history_imported": false
+  },
+  "sac_reference": {
+    "repository": "leggedrobotics/rsl_rl_sac",
+    "commit": "e0d243aa6d3f8a7231783b7f3cefeaec1b4a5521",
+    "paper": "https://arxiv.org/abs/2605.24975"
+  },
+  "robot_assets": {
+    "repository": "DDTRobot/ddt_ros2_control",
+    "commit": null,
+    "status": "must_pin_before_simulation"
+  },
+  "training_verified": false,
+  "documentation": {
+    "ai_spec_filename": "README.md",
+    "human_guide_filename": "README_HUMAN.md",
+    "pairs": 29,
+    "human_guide_author": "Codex",
+    "human_guides_status": "placeholders_awaiting_implementation",
+    "implementation_author": "Claude",
+    "code_comments_required": true,
+    "human_writing_requires_completed_code": true,
+    "human_guide_language_editor": "Gemini",
+    "human_workflow": [
+      "Claude_implementation",
+      "Codex_code_based_draft",
+      "Gemini_language_polish"
+    ]
+  }
+}
