@@ -316,7 +316,7 @@ def version_report(repo_root: Path = _ROOT) -> dict:
         "git_commit": git("rev-parse", "HEAD") or None,
         "git_tracked_changes": bool(git("status", "--porcelain", "--untracked-files=no")),
         "python": platform.python_version(),
-        "torch": torch.__version__,
+        "torch": str(torch.__version__),  # TorchVersion 是 str 子类，转成普通 str 才能被 weights_only 读取
         "ppo_snapshot_commit": upstream["ppo"]["snapshot_commit"],
         "sac_reference_commit": upstream["sac_reference"]["commit"],
         "robot_assets_commit": upstream["robot_assets"]["commit"] or "未锁定",
