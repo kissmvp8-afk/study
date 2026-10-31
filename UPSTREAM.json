@@ -30,7 +30,12 @@
     "human_guides_status": {
       "E03": "completed_and_polished",
       "E04": "completed_and_polished",
-      "D01": "awaiting_codex_draft",
+      "D01": "completed_and_polished",
+      "D02": "awaiting_codex_draft",
+      "D03": "awaiting_codex_draft",
+      "D04": "awaiting_codex_draft",
+      "D05": "awaiting_codex_draft",
+      "experience_returns": "awaiting_codex_draft",
       "others": "placeholders_awaiting_implementation"
     },
     "implementation_author": "Claude",
@@ -46,6 +51,10 @@
   "implemented_modules": {
     "E03": "unit_verified_pure_data",
     "E04": "unit_verified_pure_data",
-    "D01": "unit_verified_pure_data"
+    "D01": "unit_verified_pure_data",
+    "D02": "unit_verified_pure_data",
+    "D03": "unit_verified_pure_data",
+    "D04": "unit_verified_pure_data",
+    "D05": "unit_verified_pure_data"
   }
 }

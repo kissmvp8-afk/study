@@ -1,8 +1,8 @@
 # 经验与回报｜AI 实施规范
 
-状态：框架与说明已建立；D01 已实现并通过纯数据单元验证，D02–D05 尚未实现，本大模块未完成运行验证。
+状态：框架与说明已建立；D01～D05 都已实现并通过纯数据单元验证（CPU，人工数据，需要 PyTorch）；本大模块未接入仿真或网络，未完成运行验证。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回项目总说明](../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回项目总说明](../README.md)
 
 ## 模块职责与范围
 
@@ -15,10 +15,10 @@
 | 小模块 | 负责的功能 | 状态 |
 |---|---|---|
 | [D01 · 经历记录契约](transition_schema/README.md) | 定义跨环境接口、经验池和训练器共用的数据记录，避免同名字段含义不同。 | 单元验证通过（纯数据，人工数据，未仿真） |
-| [D02 · 经验池写入与抽样](replay_buffer/README.md) | 保存和重复抽取过去的真实经历，同时保持时间关系和容量边界。 | 待实现 |
-| [D03 · 连续多步回报](n_step_returns/README.md) | 累计连续几步的真实奖励，输出用于 Q 目标的奖励部分和正确的尾部状态。 | 待实现 |
-| [D04 · 观测归一化与统计管理](normalization/README.md) | 把不同量级的输入调整到适合网络学习的尺度，并明确什么时候更新统计。 | 待实现 |
-| [D05 · 历史窗口与有效性](history_windows/README.md) | 把环境维护的历史切成当前观测及两段相邻窗口，保证训练和运行读到同样的时间顺序。 | 待实现 |
+| [D02 · 经验池写入与抽样](replay_buffer/README.md) | 保存和重复抽取过去的真实经历，同时保持时间关系和容量边界。 | 单元验证通过（纯数据，人工数据，未仿真） |
+| [D03 · 连续多步回报](n_step_returns/README.md) | 累计连续几步的真实奖励，输出用于 Q 目标的奖励部分和正确的尾部状态。 | 单元验证通过（纯数据，人工数据，未仿真） |
+| [D04 · 观测归一化与统计管理](normalization/README.md) | 把不同量级的输入调整到适合网络学习的尺度，并明确什么时候更新统计。 | 单元验证通过（纯数据，人工数据，未仿真） |
+| [D05 · 历史窗口与有效性](history_windows/README.md) | 把环境维护的历史切成当前观测及两段相邻窗口，保证训练和运行读到同样的时间顺序。 | 单元验证通过（纯数据，人工数据，未仿真） |
 
 ## 边界与协作
 
@@ -46,6 +46,26 @@
 
 ## 当前证据
 
-D01 有实现文件与 20 项 CPU 单元检查（需要 PyTorch），证据记录在 [D01 交接表](transition_schema/README.md#实现证据与文档交接)；其余小模块只有结构与文档。整个大模块尚无训练曲线或仿真性能结果。后续证据由各小模块记录，本 README 维护整体进度和跨模块问题。
+五个小模块都有实现与 CPU 单元检查（需要 PyTorch）：D01 20 项、D02 9 项、D03 7 项、D04 8 项、D05 11 项，全部通过（Python 3.11.17 + torch 2.15.0，人工数据）。证据分别记录在各小模块的“实现证据与文档交接”表中。纯数据检查通过，不等于机器人仿真或 SAC 训练已经完成；整个大模块尚无训练曲线或仿真性能结果。
 
-跨模块待办：D02 将以 D01 的 `TransitionBatch` 作为写入单位，并以 `env_id`、`episode_id`、`step_index` 判断时序；D03 / N05 使用 `derive_bootstrap_mask`。D01 依赖 E05 在重置前提供真实末状态，并把“摔倒又到时”只标为真终止；E05 尚未实现。
+模块之间的实际衔接：
+
+```text
+D01 make_transition ──► D02 ReplayBuffer.append ──► sample_starts(n) / read_sequence(n)
+                                                         │ SequenceBatch [M, n, ...] + valid
+                                                         ▼
+                                       D03 build_n_step_batch ──► NStepBatch(first, tail, R, k, γ^k, mask)
+                                                         │
+     D04 ObservationNormalizers（新采集的批次只更新一次；回放只 normalize）◄┤
+     D05 split_windows / valid_history_mask（first.policy_history、tail.next_policy_history）◄┘
+```
+
+- 有效起点规则只有一处：D02 `valid_starts(n)`（凑满 n 条或在结束边界处停止），D03 用同一个 `SequenceBatch.valid` 再检查一次。
+- D02 直接导入 D01 的内部函数 `_expected_layout` 分配存储。D01 代码未改；建议以后由 D01 正式公开该函数，届时需要同步 D01 人类版。
+- 采集循环对每批新记录依次调用 D01 `make_transition`、D04 `update_from_fresh_data`、D02 `append`；训练时只调用 D04 的 normalize。
+
+跨模块待办：
+- E05 需要在重置前提供真实末状态，并维护 `episode_id`、`step_index`、`history_length`，以及重置填充规则。
+- E02 需要从运行时观测组确定 C（平地预期 54、复杂地形预期 241）。
+- N01 / N02 使用 D04 统计与 D05 窗口；N05 用 D03 的 γ^k 与 mask 组合目标 Q。
+- T03 保存 D04 统计与 D02 经验池（可选）；T05 处理原 PPO 导出包装器重复当前帧的问题（见 D05 测试中的回归记录）。
