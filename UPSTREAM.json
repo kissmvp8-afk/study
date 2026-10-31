@@ -27,8 +27,9 @@
     "human_guide_filename": "README_HUMAN.md",
     "pairs": 29,
     "human_guide_author": "Gemini",
-    "human_guides_status": "placeholders_pending_gemini",
+    "human_guides_status": "placeholders_awaiting_implementation",
     "implementation_author": "Claude",
-    "code_comments_required": true
+    "code_comments_required": true,
+    "human_writing_requires_completed_code": true
   }
 }
