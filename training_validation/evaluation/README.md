@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工记录）。已实现 [evaluate.py](evaluate.py) 与 [test_evaluate.py](test_evaluate.py)，12 项检查通过；真实 PPO / SAC 对照尚未运行，**没有任何性能结论**。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -151,7 +151,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码版本 | `a8a44fc77b387a9d853e4e290843133fadfeb2cc`，预算与随机起点修复 `8ead2dff4b33ed8229ddcc956a567f856d237219`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T04：只提供评价数据接口、指标、报告与对照规则；证据不足时阻断性能结论。审核修复：原 `compare_runs` 只检查预算有没有值，现要求所选预算可比（交互步数相等；耗时在 5% 暂定容差内）；原 `write_report` 按记录条数判断随机起点，现与 `compare_runs` 一样按不同的有效 training_seed 计数 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `evaluate.py`、`test_evaluate.py`；原 PPO `play.py`。建议 Codex 重点解释各指标的口径、摔倒与到时的区别、缺失标记，以及阻断结论的条件 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
