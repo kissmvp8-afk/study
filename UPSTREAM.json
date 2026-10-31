@@ -26,10 +26,16 @@
     "ai_spec_filename": "README.md",
     "human_guide_filename": "README_HUMAN.md",
     "pairs": 29,
-    "human_guide_author": "Gemini",
+    "human_guide_author": "Codex",
     "human_guides_status": "placeholders_awaiting_implementation",
     "implementation_author": "Claude",
     "code_comments_required": true,
-    "human_writing_requires_completed_code": true
+    "human_writing_requires_completed_code": true,
+    "human_guide_language_editor": "Gemini",
+    "human_workflow": [
+      "Claude_implementation",
+      "Codex_code_based_draft",
+      "Gemini_language_polish"
+    ]
   }
 }
