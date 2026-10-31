@@ -128,7 +128,7 @@ python3 -B environment_control/action_contract/test_contract.py -v   # 依赖的
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；边界与 u0 都是长度等于动作维数的 tuple，处于策略动作坐标、无单位；输入的软限位单位为 rad，工作轮速为 rad/s；全部函数无副作用 |
 | 代码注释核对 | 已逐项核对本模块的注释重点：物理限位反推（`derive_bounds` docstring）、轮速独立配置（按控制类型选字典，不读取轮子角度限位）、非对称中心校准（`calibrate_initial_center`）、不可达目标的拒绝（`validate_bounds` 的 L<0<U 检查与校准中的开区间检查），以及与作者 `_compute_action_scaling` 的三处差异（文件头） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.14.5；`python3 -B environment_control/action_bounds/test_bounds.py -v` → `Ran 14 tests … OK`；E03 `test_contract.py` → `Ran 18 tests … OK`；两份文件在 3.11 下语法解析通过，本机没有 3.11 解释器，未实际运行 |
-| 未验证项 | TITA 实际软限位（需要 URDF 与 Isaac Lab 的 `soft_joint_pos_limits`，ddt_ros2_control 版本未锁定）；TITA 工作轮速的取值（需人工确定，不能直接用 30 rad/s）；N03 Actor 接入；随机采样动作的分布与开局姿态；Python 3.11 实际运行；仿真、训练与性能 |
+| 未验证项 | TITA 实际软限位（E01 已锁定资产 e7b32d9 并从运行时 `soft_joint_pos_limits` 读取、与 URDF 推算核对，尚未在 Isaac 中运行）；TITA 工作轮速的取值（E01 给出下限依据约 13.87 rad/s，余量由用户在 [13.87, 30] 内决定）；N03 Actor 接入（已在 N03 / T02 实现）；随机采样动作的分布与开局姿态；Python 3.11 实际运行；仿真、训练与性能 |
 | 代码版本 | 实现与验证代码：`4f0ad6e6ea3a06a786f50f120196bfdedcda51f2`（基于 `752ebbd`，main，含 E03），此后 `bounds.py`、`test_bounds.py` 没有改动。人类版讲解在其后的文档提交中，均在分支 `claude/e04-action-bounds`（PR #3） |
 | 本次改动及理由 | 首次实现 E04：作者的绝对值写法和全局 scale 无法处理默认姿态越界与 TITA 轮速，因此改为每维带符号反推，并校准非对称区间下的初始确定性动作 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E03 AI 规范与 `contract.py`；带注释的 `bounds.py`、`test_bounds.py`；上述验证记录；作者 `sac.py` 中 `_compute_action_scaling` 与 `sac_mlp_model.py` 中 tanh 映射的固定版本。建议 Codex 重点解释 `derive_bounds` 中按控制类型选择范围、`validate_bounds` 中 L<0<U 的含义，以及 `calibrate_initial_center` 中 atanh 反推与“只校准确定性动作”的限制 |

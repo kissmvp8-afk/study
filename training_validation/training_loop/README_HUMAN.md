@@ -4,11 +4,11 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 讲解与技术复核已完成，本轮不再润色 |
+| 文档状态 | 待 Codex 同步（正文保留，按已核对版本编写） |
 | 技术核对状态 | 2026-10-31，Codex 对照实际实现、注释与测试核对职责、调用、形状、单位、代码片段和边界；本次是文档核对，不是全面代码审核 |
-| 语言润色状态 | 本轮由 Codex 完成中文讲解与技术核对，不另交 Gemini |
+| 语言润色状态 | 待技术同步后重做 |
 | 已核对代码版本 | `a07d7b22e5bc2f40c462c01cc3378f7bcf3fe0c7`（`claude/training-core`，PR #7）；读取时与用户验收版本、远端分支一致，无后续源码差异 |
-| 待同步代码版本 | 无 |
+| 待同步代码版本 | 分支 `claude/environment-integration`，提交 `3d4c995b2730b3183614f4cb5b7a62edfa83f927`：`EnvObservation` / `EnvStep` 的定义从 `fake_env.py` 移到 E05 `environment_control/episode_lifecycle/lifecycle.py`，`fake_env.py` 改为导入（字段与语义不变）；`runner.py`、`test_runner.py` 未改动 |
 | 实际阅读材料 | AGENTS.md、CODEX.md、根及本大模块/本目录 AI README；[runner.py](runner.py)、[fake_env.py](fake_env.py)、[test_runner.py](test_runner.py) 全文；T01/T03；E03/E04、D01～D05 实现及 N01、N03、N05～N08 调用路径；依赖与来源详见[大模块阅读记录](../README_HUMAN.md#阅读材料与证据) |
 | 验证依据与限制 | 本目录 AI 交接表记录 9 项 CPU 检查通过（Python 3.11.17 + torch 2.15.0），本次阅读测试、引用既有结果，未重跑算法测试。本轮执行的文档检查见大模块记录；人工数据/假环境不代表 Isaac 仿真、GPU、机器人训练或性能验证 |
 

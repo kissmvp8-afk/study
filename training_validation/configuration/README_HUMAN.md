@@ -4,11 +4,11 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 讲解与技术复核已完成，本轮不再润色 |
+| 文档状态 | 待 Codex 同步（正文保留，按已核对版本编写） |
 | 技术核对状态 | 2026-10-31，Codex 对照实际实现、注释与测试核对职责、调用、形状、单位、代码片段和边界；本次是文档核对，不是全面代码审核 |
-| 语言润色状态 | 本轮由 Codex 完成中文讲解与技术核对，不另交 Gemini |
+| 语言润色状态 | 待技术同步后重做 |
 | 已核对代码版本 | `a07d7b22e5bc2f40c462c01cc3378f7bcf3fe0c7`（`claude/training-core`，PR #7）；读取时与用户验收版本、远端分支一致，无后续源码差异 |
-| 待同步代码版本 | 无 |
+| 待同步代码版本 | 分支 `claude/environment-integration`，提交 `bd99b7b87b09b5fd1124ebdd9d842547910a9831`：`config.py` 中 `isaac_config` 的 `device` 由 `cuda` 改为 `cpu`、`validate_configuration` 新增“学习器设备必须为 cpu”、`TARGET_ENVIRONMENT` 填入资产提交 e7b32d9 并新增 `sim_device`；`test_config.py` 三处断言随之修改（仍为 9 项） |
 | 实际阅读材料 | AGENTS.md、CODEX.md、根及本大模块/本目录 AI README；[config.py](config.py)、[test_config.py](test_config.py) 全文；D01 字段布局、D02 字节估算、T02 配置绑定与 T03 恢复检查；依赖与来源详见[大模块阅读记录](../README_HUMAN.md#阅读材料与证据) |
 | 验证依据与限制 | 本目录 AI 交接表记录 9 项 CPU 检查通过（Python 3.11.17 + torch 2.15.0），本次阅读测试、引用既有结果，未重跑算法测试。本轮执行的文档检查见大模块记录；人工数据/假环境不代表 Isaac 仿真、GPU、机器人训练或性能验证 |
 

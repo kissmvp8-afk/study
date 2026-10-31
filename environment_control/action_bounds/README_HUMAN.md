@@ -4,11 +4,11 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 已完成讲解与润色 |
+| 文档状态 | 待 Codex 同步（正文保留，按已核对版本编写） |
 | 技术核对状态 | 2026-10-31，Codex 已对照实际实现、测试源码及已有交接记录，核对本文的函数、调用关系、公式、数字、单位与限制；未发现影响当前纯数据用法、需要人确认的明确技术问题。本次不开展全面代码审核 |
-| 语言润色状态 | 2026-10-31，Gemini 完成自然语言润色，优化了段落衔接与零 Python 基础阅读体验，消除了生硬行话并规范了术语解释；严格保留全部技术信息、公式、代码片段、数值、单位、执行顺序与验证限制 |
+| 语言润色状态 | 待技术同步后重做 |
 | 已核对代码版本 | 分支 `claude/e04-action-bounds`，提交 `4f0ad6e6ea3a06a786f50f120196bfdedcda51f2`。本次读取的 `bounds.py`、`test_bounds.py` 及依赖 E03 源码均与该提交一致；E03 `contract.py`、`baseline_source.py` 的最近实现提交仍为 `9fdac4e5055989085eafd6b3c988c40d9df61ca9` |
-| 待同步代码版本 | 无；已按上述实际版本完成本次技术说明核对 |
+| 待同步代码版本 | 分支 `claude/environment-integration`：本模块代码未改动；E01 `f3a1c743b8e9992aa77f218e1ef649d638db9796` 锁定了资产、从运行时读取软限位，并给出工作轮速下限依据（约 13.87 rad/s，余量由用户决定）。正文中“尚未锁定 `ddt_ros2_control` 资源版本”等表述需更新 |
 | 实际阅读材料 | [AGENTS.md](../../AGENTS.md)、[CODEX.md](../../CODEX.md)、[根 README.md](../../README.md)、[大模块 README.md](../README.md)、[E04 AI README](README.md)、本文件原占位内容；[bounds.py](bounds.py)、[test_bounds.py](test_bounds.py)、E03 [contract.py](../action_contract/contract.py) 与 [baseline_source.py](../action_contract/baseline_source.py) 全文；[E03 AI README](../action_contract/README.md)、E03 人类版的元数据与导航相关文字；[N03 AI README](../../networks_learning/actor_distribution/README.md) 的职责、接口与算法约定；[UPSTREAM.json](../../UPSTREAM.json)、[GEMINI.md](../../GEMINI.md) |
 | 验证依据与限制 | 已阅读 [E04 交接记录](README.md#实现证据与文档交接) 中的命令、环境及结果摘要，并对照测试源码；记录称 E04 14 项、E03 18 项检查通过。本次未重跑测试、未执行 E04 或 E03 模块；只做文档静态核对。提供的材料中未见独立完整运行日志。未接入 Actor、未验证随机采样分布或真实 TITA 限位、未运行仿真、训练及性能评价；详见“验证与排错” |
 

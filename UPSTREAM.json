@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "stage": "pure_data_modules_in_progress",
+  "stage": "cpu_modules_implemented_isaac_integration_pending",
   "ppo": {
     "repository": "DDTRobot/DDT_Lab",
     "commit": "701a49c6e78dfb93a8b30145f0e7723b22921c0b",
@@ -32,8 +32,12 @@
     "pairs": 29,
     "human_guide_author": "Codex",
     "human_guides_status": {
-      "E03": "completed_and_polished",
-      "E04": "completed_and_polished",
+      "E01": "awaiting_codex_draft",
+      "E02": "awaiting_codex_draft",
+      "E03": "awaiting_codex_sync",
+      "E04": "awaiting_codex_sync",
+      "E05": "awaiting_codex_draft",
+      "environment_control": "awaiting_codex_draft",
       "D01": "completed_and_polished",
       "D02": "completed_technical_review",
       "D03": "completed_technical_review",
@@ -49,14 +53,14 @@
       "N07": "completed_technical_review",
       "N08": "completed_technical_review",
       "networks_learning": "completed_technical_review",
-      "T01": "completed_technical_review",
-      "T02": "completed_technical_review",
+      "T01": "awaiting_codex_sync",
+      "T02": "awaiting_codex_sync",
       "T03": "completed_technical_review",
       "T04": "completed_technical_review",
       "T05": "completed_technical_review",
       "T06": "completed_technical_review",
       "training_validation": "completed_technical_review",
-      "others": "placeholders_awaiting_implementation"
+      "root": "placeholder"
     },
     "implementation_author": "Claude",
     "code_comments_required": true,
@@ -69,8 +73,11 @@
     ]
   },
   "implemented_modules": {
+    "E01": "unit_verified_cpu_isaac_not_run",
+    "E02": "unit_verified_cpu",
     "E03": "unit_verified_pure_data",
     "E04": "unit_verified_pure_data",
+    "E05": "unit_verified_cpu_scripted_hooks",
     "D01": "unit_verified_pure_data",
     "D02": "unit_verified_pure_data",
     "D03": "unit_verified_pure_data",

@@ -2,7 +2,7 @@
 
 状态：框架与说明已建立；T01～T06 六个小模块都已完成 **CPU 实现**并通过单元检查（T02、T03 使用假环境）。Isaac 仿真、真实训练与性能验证都未开始，本大模块未完成运行验证。
 
-[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回项目总说明](../README.md)
+[人类版（待 Codex 同步）](README_HUMAN.md) · [返回项目总说明](../README.md)
 
 ## 模块职责与范围
 
@@ -14,7 +14,7 @@
 
 | 小模块 | 负责的功能 | 状态 |
 |---|---|---|
-| [T01 · 版本、依赖与训练配置](configuration/README.md) | 把环境版本、算法候选设置、调试规模和正式实验设置集中记录。 | 单元验证通过（CPU；Isaac 配置仍有未确定项） |
+| [T01 · 版本、依赖与训练配置](configuration/README.md) | 把环境版本、算法候选设置、调试规模和正式实验设置集中记录。 | 单元验证通过（CPU；Isaac 配置由 E01 用运行时值填写，未仿真） |
 | [T02 · 采集与学习调度](training_loop/README.md) | 把已验证的小模块串起来，明确每一批经历怎样产生以及何时更新各网络。 | 单元验证通过（CPU 假环境，未仿真） |
 | [T03 · 训练进度保存与恢复](checkpoints/README.md) | 让中断后的实验可以有明确语义地恢复，并保留定位变化所需的信息。 | 单元验证通过（CPU 假环境，不保存仿真现场） |
 | [T04 · PPO 与 SAC 对照评价](evaluation/README.md) | 用固定任务和可复查指标判断 SAC 是否学会控制，而非只看训练损失或一段视频。 | 单元验证通过（CPU，人工记录；没有真实对照结果） |
@@ -67,6 +67,8 @@ T06 verify.py：文档 / 单元 / CPU 集成三层可执行；仿真 / 性能两
 ```
 
 跨模块接口变化：D02 新增 `ReplayBuffer.state_dict` / `load_state_dict`，供 T03 保存经验池；写入、连续性与抽样算法没有改动。D02 人类版已同步保存恢复接口与验证说明（核对版本 a07d7b2，本轮不再润色）。T04～T06 没有修改任何已有模块的接口；T04 `run_evaluation` 使用 T02 的环境接口，T05 复用 N01 / N03 的推理函数，T06 只运行已有测试。
+
+环境接入带来的变化（分支 `claude/environment-integration`）：T01 `isaac_config` 的学习器设备由 `cuda` 改为 `cpu`，`validate_configuration` 拒绝其他设备（学习器只实现了 CPU 版本），资产提交填入 e7b32d9（`bd99b7b`）；`EnvObservation` / `EnvStep` 的定义移到 E05 `lifecycle.py`，T02 `fake_env.py` 改为导入，字段与语义不变（`3d4c995`）；E01 `run_sac_isaac.py --mode train` 用真实环境调用 T02 `Trainer` 与 T03 保存恢复（尚未在 Isaac 中运行）。T01、T02 与本大模块人类版待 Codex 同步。
 
 T03 审核修复：恢复时学习配置必须与检查点一致（只有 name、sources、environment 可以不同），否则在修改 Trainer 之前报错，并提示用 `load_checkpoint_config` 重建。“换配置续训”不在本版本范围内。
 

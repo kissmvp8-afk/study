@@ -140,7 +140,7 @@ python3 -B environment_control/action_contract/baseline_source.py
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”两张表；动作为长度 8 的一维序列，无物理单位；目标单位为 rad 或 rad/s；只读调用 git 子进程，没有其他副作用 |
 | 代码注释核对 | 已逐项核对本模块的注释重点：索引与顺序（`TITA_ACTION_LAYOUT`、`parse_action_terms`）、rad 与 rad/s 的区别（`ControlType`）、默认偏移（`build_action_contract` 速度分支）、scale/clip（`ActionEntry`、`action_to_targets`）、零动作不等于零力矩（`action_to_targets` docstring 与零动作测试） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.14.5，仓库位于 exFAT 外置盘；`python3 -B environment_control/action_contract/test_contract.py -v` → `Ran 18 tests … OK`；`baseline_source.py` 打印的表与下方原配置表一致；两项错误注入均被捕获；三份文件在 3.11 下语法解析通过（`ast.parse(feature_version=(3,11))`），本机没有 3.11 解释器，未实际运行 |
-| 未验证项 | Isaac Lab 实际加载后的 `ActionManager` 动作顺序与默认值（需要 E01 环境）；URDF 关节表（ddt_ros2_control 版本尚未锁定）；执行器力矩行为；Python 3.11 实际运行；仿真、训练与性能 |
+| 未验证项 | Isaac Lab 实际加载后的 `ActionManager` 动作顺序与默认值（E01 `compare_with_baseline` 已实现该核对，尚未在 Isaac 中运行）；URDF 关节表（E01 已锁定 ddt_ros2_control e7b32d9，CPU 测试确认 8 个受控关节都在 URDF 中）；执行器力矩行为；Python 3.11 实际运行；仿真、训练与性能 |
 | 代码版本 | 实现与验证代码：`9fdac4e5055989085eafd6b3c988c40d9df61ca9`（基于 `c6078f4`；本目录 3 个 .py 文件，以及本 README、本目录 README_HUMAN.md 元数据、大模块 README 状态、根 README 状态句），此后 3 个 .py 文件没有改动。人类版讲解：`ef7a5f0a7de22da413bc737cbab322e86e3c1f9e`。均在分支 `claude/e03-action-contract`（PR #2） |
 | 本次改动及理由 | 首次实现 E03：用固定快照的原配置作为唯一的数值来源（静态解析，不手抄数值），按 Isaac Lab v2.3.0 的动作语义建表；校验规则对应 README 的“必须成立的规则” |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；带注释的三份代码；上述验证命令与输出；Isaac Lab v2.3.0 的三处语义依据（见“与原 PPO 的关系”）；建议 Codex 重点解释 `build_action_contract` 速度分支的偏移来源、`validate_action_contract` 为何逐索引比较、`action_to_targets` 中先换算再裁剪的顺序，以及 `parse_action_terms` 为何以声明顺序作为动作顺序 |

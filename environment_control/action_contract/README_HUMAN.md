@@ -4,11 +4,11 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 已完成讲解与润色 |
+| 文档状态 | 待 Codex 同步（正文保留，按已核对版本编写） |
 | 技术核对状态 | 2026-10-31，Codex 已对照三份实际源码、固定 PPO 配置与已有验证记录，核对本说明的函数、顺序、数值、单位和计算片段；未发现影响当前纯数据用法、需要人确认的明确技术问题。核对范围不包含全面代码审核或仿真验证 |
-| 语言润色状态 | 2026-10-31，Gemini 完成自然语言润色，优化了段落衔接与零 Python 基础阅读体验，消除了生硬行话；严格保留全部技术信息、公式、代码片段、数值、单位、执行顺序与验证限制 |
+| 语言润色状态 | 待技术同步后重做 |
 | 已核对代码版本 | `9fdac4e5055989085eafd6b3c988c40d9df61ca9`，三份 `.py` 文件在本次读取时均无相对该提交的工作区改动；原 PPO 数值来源为快照 `8fe40aa0ab3afdb8998cab1357f1f795d2cabc3c` |
-| 待同步代码版本 | 无；本次已按上述实际提交完成技术说明核对 |
+| 待同步代码版本 | 分支 `claude/environment-integration`：本模块代码未改动；E01 `f3a1c743b8e9992aa77f218e1ef649d638db9796` 锁定了 ddt_ros2_control e7b32d9 并实现了 `action_manager` 运行时核对（尚未在 Isaac 中运行）。正文中“`ddt_ros2_control` 的版本仍待锁定”等表述需更新 |
 | 实际阅读材料 | [AGENTS.md](../../AGENTS.md)、[CODEX.md](../../CODEX.md)、[根 README.md](../../README.md)、[大模块 README.md](../README.md)、[本模块 README.md](README.md)、本文件原占位内容；[contract.py](contract.py)、[baseline_source.py](baseline_source.py)、[test_contract.py](test_contract.py) 全文；[UPSTREAM.json](../../UPSTREAM.json)、[GEMINI.md](../../GEMINI.md)；E04 契约及 D01、N03 中相关输入输出约定（见文末导航）；通过 `git show` 阅读上述 PPO 快照的 `rough_env_cfg.py` 中 `ActionsCfg`、`ddt_robot.py` 中 TITA 默认状态与执行器配置、`flat_env_cfg.py` 的继承与修改内容 |
 | 验证依据与限制 | 已阅读 [AI 规范交接记录](README.md#实现证据与文档交接) 与测试源码。记录称 18 项纯数据检查通过，本次按任务要求未重跑测试或打印动作表；没有独立原始运行日志附件。Isaac Lab v2.3.0 的动作执行语义沿用交接记录，本次未直接阅读其三份外部源码、未安装或运行 Isaac Lab。未运行仿真、训练或性能评价，也未在 Python 3.11 下实际运行。详见“验证与排错” |
 
