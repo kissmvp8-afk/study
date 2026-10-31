@@ -6,7 +6,8 @@
 数据说明：
     - 慢更新检查用人工小网络与手算平均值。
     - UpdateCycleTest 从 D01/D02 人工经历（D02 测试的 make_records）出发，经 D03 组合、D04 归一化、D05 切片，
-      依次执行 Critic、Actor、温度、目标慢更新与辅助学习更新各一次，并在每一步检查只有负责的参数和统计改变。
+      按作者 sac.py 的顺序执行 Critic 更新 → 采样一次 → 温度更新 → 用新 alpha 与同一次采样更新 Actor → 目标慢更新，
+      再做一次辅助学习更新，并在每一步检查只有负责的参数和统计改变。
       动作表来自 E03 原版快照，软限位与工作轮速是 E04 测试中标注的人工数据；速度标签取 Q 观测前 3 维，
       这是原 PPO 的字段布局（base_lin_vel 为 critic 观测第一项），E02 尚未确认。
     这只是人工数据下的更新衔接检查，不是 T02 训练器，也不代表训练效果。
@@ -157,27 +158,40 @@ class UpdateCycleTest(unittest.TestCase):
         critic_report = update_critics(critics, optimizers["critic"], batch, y, normalizers)
         self.assertEqual(changed(before), {"critics"})
 
-        # 2) Actor：回放状态上重新采样；只更新 Actor。
+        # 2) 在回放状态上只采样一次（作者顺序：采样 → 温度 → Actor）；采样本身不改任何状态。
         before = snapshot()
         features = features_from_history(encoder, normalizers, batch.first.policy_history)
         q_input = normalizers.normalize_q(batch.first.q_observation)
-        actor_loss, _, log_prob = compute_actor_loss(actor, critics, features, q_input, current_alpha(temperature),
-                                                     torch.Generator().manual_seed(3))
+        action, log_prob = actor.sample_action_and_log_prob(features, generator=torch.Generator().manual_seed(3))
+        self.assertEqual(changed(before), set())
+
+        # 3) 温度：使用这次采样的 log π；只更新 log_alpha。
+        before = snapshot()
+        old_alpha = current_alpha(temperature)
+        alpha_report = update_temperature(temperature, optimizers["alpha"], log_prob, target_entropy(bounds.half_width).action_coordinate)
+        new_alpha = current_alpha(temperature)
+        self.assertNotEqual(new_alpha, old_alpha)
+        self.assertEqual(changed(before), {"temperature"})
+
+        # 4) Actor：同一次采样 + 更新后的 alpha 组装损失；只更新 Actor。
+        before = snapshot()
+        actor_loss = compute_actor_loss(critics, q_input, action, log_prob, new_alpha)
+        with torch.no_grad():  # 独立计算：同一组动作与密度，分别配新旧 alpha
+            min_q = torch.min(critics.q1(q_input, action), critics.q2(q_input, action))
+            expected_new = (new_alpha * log_prob - min_q).mean().item()
+            expected_old = (old_alpha * log_prob - min_q).mean().item()
+        self.assertAlmostEqual(actor_loss.item(), expected_new, places=6)
+        self.assertGreater(abs(expected_new - expected_old), 1e-5)  # 两种 alpha 的损失可区分，上一条断言才有意义
         update_actor(actor, optimizers["actor"], actor_loss)
         self.assertEqual(changed(before), {"actor"})
 
-        # 3) 温度：使用同一次采样的 log π；只更新 log_alpha。
-        before = snapshot()
-        alpha_report = update_temperature(temperature, optimizers["alpha"], log_prob, target_entropy(bounds.half_width).action_coordinate)
-        self.assertEqual(changed(before), {"temperature"})
-
-        # 4) 目标慢更新：只改目标 Q。
+        # 5) 目标慢更新：只改目标 Q。
         before = snapshot()
         soft_update(critics, targets, tau=0.005)
         self.assertEqual(changed(before), {"targets"})
         check_target_state(critics, targets, tuple(optimizers.values()))
 
-        # 5) 辅助学习：只改编码器与 projector（含 BN 统计）；速度标签取原始 Q 观测前 3 维（原 PPO 布局，E02 待确认）。
+        # 6) 辅助学习：只改编码器与 projector（含 BN 统计）；速度标签取原始 Q 观测前 3 维（原 PPO 布局，E02 待确认）。
         before = snapshot()
         windows = split_windows(normalizers.normalize_policy(batch.first.policy_history))
         aux_report = update_encoder(encoder, projector, optimizers["aux"], windows, batch.first.history_length,

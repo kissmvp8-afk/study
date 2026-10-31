@@ -61,7 +61,8 @@ class DirectionTest(unittest.TestCase):
         optimizer = make_actor_optimizer(actor, lr=3e-3)
         start = (actor.deterministic_action(features) - PEAK).pow(2).sum(-1).mean().item()
         for step in range(150):
-            loss, _, _ = compute_actor_loss(actor, critics, features, q_obs, alpha=1e-3, generator=torch.Generator().manual_seed(step))
+            action, log_prob = actor.sample_action_and_log_prob(features, generator=torch.Generator().manual_seed(step))
+            loss = compute_actor_loss(critics, q_obs, action, log_prob, alpha=1e-3)
             update_actor(actor, optimizer, loss)
         end = (actor.deterministic_action(features) - PEAK).pow(2).sum(-1).mean().item()
         self.assertLess(end, 0.2 * start)
@@ -81,7 +82,8 @@ class IsolationTest(unittest.TestCase):
         frozen = {name: {k: v.clone() for k, v in m.state_dict().items()} for name, m in
                   (("critics", critics), ("targets", targets), ("encoder", encoder))}
         actor_before = {k: v.clone() for k, v in actor.state_dict().items()}
-        loss, action, log_prob = compute_actor_loss(actor, critics, features, q_obs, alpha=log_alpha.exp().item())
+        action, log_prob = actor.sample_action_and_log_prob(features)
+        loss = compute_actor_loss(critics, q_obs, action, log_prob, alpha=log_alpha.exp().item())
         update_actor(actor, make_actor_optimizer(actor), loss)
         self.assertTrue(any(not torch.equal(v, actor_before[k]) for k, v in actor.state_dict().items()))
         for name, module in (("critics", critics), ("targets", targets), ("encoder", encoder)):
@@ -94,14 +96,16 @@ class IsolationTest(unittest.TestCase):
     def test_q_gradient_reaches_actor_without_entropy_term(self) -> None:
         # alpha=0 时损失只剩 −min(Q)，若 Q 对动作的梯度被切断，Actor 将得不到任何梯度。
         actor, features, q_obs = setup()
-        loss, _, _ = compute_actor_loss(actor, TwinQ(6), features, q_obs, alpha=0.0)
+        action, log_prob = actor.sample_action_and_log_prob(features)
+        loss = compute_actor_loss(TwinQ(6), q_obs, action, log_prob, alpha=0.0)
         loss.backward()
         self.assertGreater(actor.mean_head.weight.grad.abs().sum().item(), 0.0)
 
     def test_replayed_actions_differ_from_new_samples(self) -> None:
         actor, features, q_obs = setup()
         replayed = torch.rand(64, 8) * 2 - 1  # 回放中的旧动作（不参与 Actor 损失）
-        loss, action, log_prob = compute_actor_loss(actor, TwinQ(6), features, q_obs, alpha=0.05)
+        action, log_prob = actor.sample_action_and_log_prob(features)
+        loss = compute_actor_loss(TwinQ(6), q_obs, action, log_prob, alpha=0.05)
         self.assertFalse(torch.allclose(action, replayed))
         update_actor(actor, make_actor_optimizer(actor), loss)
         report = report_policy_change(actor, features, action.detach(), log_prob.detach())

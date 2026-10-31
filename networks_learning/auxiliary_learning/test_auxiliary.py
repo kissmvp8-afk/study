@@ -62,7 +62,7 @@ class LossTest(unittest.TestCase):
         self.assertGreater(velocity_loss(label + 0.1, label).item(), 0.0)
 
     def test_constant_features_are_not_perfect(self) -> None:
-        # 常数特征经 projector 末层 BatchNorm（train 模式）后为 0，相关矩阵为 0，对角项损失 = 64（最大）。
+        # 常数特征经 projector 末层 BatchNorm（train 模式）后为 0，相关矩阵为 0，对角项损失 = 64（不是上界，反相关时可达 256）。
         projector = BarlowProjector()
         projector.train()
         z = projector(torch.full((16, 16), 3.0))

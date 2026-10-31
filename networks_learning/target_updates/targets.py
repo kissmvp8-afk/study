@@ -10,8 +10,9 @@ tau 与更新频率共同决定跟随速度：每 update_every 次在线 Q 更�
 非参数缓冲状态的规则：
     - 当前 N04 双 Q 不含缓冲（无 BatchNorm），观测归一化由外部 D04 统计负责，在线与目标 Q 共用同一份统计、
       同一个 normalize_q，因此无需在目标网络中另存统计。
-    - 若之后在 Q 中加入带缓冲的层，soft_update 对缓冲执行原样复制（不做平均）：运行统计与计数不是可以线性插值的权重，
-      平均 running_var 或 num_batches_tracked 没有意义。check_target_state 会列出这些缓冲，提示需要确认该规则。
+    - 若之后在 Q 中加入带缓冲的层，soft_update 对缓冲执行原样复制（不做平均），这是本项目的明确约定：
+      浮点运行统计（如 running_mean、running_var）也可以另定平均规则，但整数计数（num_batches_tracked）不能插值，
+      统一复制最简单且与在线网络一致。check_target_state 会列出这些缓冲，提示需要确认该规则。
 """
 
 from __future__ import annotations
@@ -43,7 +44,7 @@ def validate_target_structure(online: nn.Module, target: nn.Module) -> None:
 def soft_update(online: nn.Module, target: nn.Module, tau: float = TAU) -> None:
     """target ← (1 − tau) × target + tau × online（参数）；缓冲原样复制。不修改在线网络。
 
-    tau=0 时目标不变，tau=1 时完整复制在线参数。
+    tau=0 时目标参数不变，tau=1 时完整复制在线参数；两种情况下缓冲都会被复制。
     """
     if not 0.0 <= tau <= 1.0:
         raise TargetUpdateError(f"tau={tau} 必须在 [0, 1]")
