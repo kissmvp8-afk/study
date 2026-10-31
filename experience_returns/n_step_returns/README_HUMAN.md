@@ -4,25 +4,26 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 已完成讲解与润色 |
-| 技术核对状态 | 已核对实际函数、7 项测试、D02 有效片段规则和 D01 终止开关；未开展全面代码审核 |
-| 语言润色状态 | 2026-10-31，Gemini 完成自然语言润色，面向具备 Python 基础、正在学习强化学习与机器人控制的读者，阐明了 n 步贝尔曼目标累计、动态截断步数 k 与真终止优先自举机制；严格保留全部技术信息、公式、张量形状、容差分析与验证限制 |
-| 已核对代码版本 | 审核基准 `7071e41f27f0b5e56b9bed3ef3e796741f96ee40`；实现/测试来自 `c3b2fe09b752cc8f0ee713d674af5b057c675558`，读取时无后续源码变化 |
-| 待同步代码版本 | 无 |
-| 实际阅读材料 | 本目录 AI README、[returns.py](returns.py)、[test_returns.py](test_returns.py) 全文；D01/D02 实现与测试，D04/D05 衔接测试；固定 PPO `rollout_storage.py` 的 `compute_returns`。全局材料见[大模块阅读记录](../README_HUMAN.md#阅读材料与证据) |
-| 验证依据与限制 | 用户报告 55 项 CPU 检查独立通过；本模块 7 项原结果见 [PR #5](https://github.com/kissmvp8-afk/study/pull/5) 与 [AI 交接表](README.md#实现证据与文档交接)。人工数据，无目标 Q、仿真或训练；本次未重跑算法测试 |
+| 文档状态 | 技术复核修正完成，待 Gemini 局部润色 |
+| 技术核对状态 | 2026-10-31，Codex 已复核多步奖励、尾部 next_*、结束边界与 7 项既有测试内容；按 N05 修正 SAC 目标示意，并保留末状态来源限制；只核对文档与源码，不开展全面代码审核 |
+| 语言润色状态 | 2026-10-31，Gemini 已完成整体语言润色（`d29af80`）；本次 Codex 技术修正与补充段落待局部润色，保留其余润色内容 |
+| 已核对代码版本 | 审核基准 `7071e41f27f0b5e56b9bed3ef3e796741f96ee40`；实现/测试来自 `c3b2fe09b752cc8f0ee713d674af5b057c675558`，读取时无后续源码变化；本次实际读取 `d29af80b06d941a0d4d11c1be63c9ecbbb975640`，实现/测试与 `5b47469` 一致 |
+| 待同步代码版本 | 无；本次仅修正文档，未修改实现或测试 |
+| 实际阅读材料 | 本目录 AI README、[returns.py](returns.py)、[test_returns.py](test_returns.py) 全文；D01/D02 实现与测试，D04/D05 衔接测试；固定 PPO `rollout_storage.py` 的 `compute_returns`。全局材料见[大模块阅读记录](../README_HUMAN.md#阅读材料与工程验证证据)；本次另对照 E02、E05、N04、N05、T05 契约及 `5b47469`→`d29af80` 文档差异 |
+| 验证依据与限制 | 用户报告 55 项 CPU 检查独立通过；本模块 7 项原结果见 [PR #5](https://github.com/kissmvp8-afk/study/pull/5) 与 [AI 交接表](README.md#实现证据与文档交接)。人工数据，无目标 Q、仿真或训练；本次未重跑算法测试；修正后检查本地链接/锚点、函数覆盖和代码片段，并核对修改范围，不重跑算法测试 |
 
 ## n 步回报解决什么问题
 
-在标准的时间差分学习（TD-Learning）中，单步 Q 学习（1-step TD）只看眼前一步的即时奖励，随后立即使用神经网络的价值估计进行自举（Bootstrap）：
-$$y_t = r_t + \gamma Q(s_{t+1}, a_{t+1})$$
-这种做法的局限在于**奖励信号传播极其缓慢**。在机器人复杂的运动控制中（例如机器人在连续跑出 10 步后才因为一次成功越障获得显著奖励），单步 TD 需要极多次训练才能把这一关键奖励逐步倒推传回初始动作。
+时间差分学习（TD-Learning）用实际奖励与下一状态的价值预测共同构造学习目标；使用预测补上尚未观察到的未来，称为自举（Bootstrap）。在正常未结束的一步中，可示意为：
+$$y_t = r_t + \gamma V(s_{t+1})$$
+这里 $V$ 暂指后续价值估计。单步目标只直接使用一步真实奖励；例如奖励在连续执行 10 次动作后才出现，较早的动作主要依赖网络估值逐步传递这个信号。
 
 为了加速价值传播、减少对初始随机 Q 网络的过度依赖，强化学习普遍引入了 **n 步回报（n-step Returns）**机制：
 我们将连续发生的多个时间步的即时奖励进行带折扣的累计，直到第 $k$ 步（$1 \le k \le n$）再接入价值自举：
 $$R = \sum_{j=0}^{k-1} \gamma^j r_j = r_0 + \gamma r_1 + \gamma^2 r_2 + \dots + \gamma^{k-1} r_{k-1}$$
-对应在下游 N05 价值更新中，完整的贝尔曼目标为：
-$$y = R + \gamma^k \times \text{mask} \times Q(\text{尾部到达状态}, a^*)$$
+后续目标的示意形式为 $y = R + \gamma^k \times \text{mask} \times V(s_{t+k})$。按 [N05 契约](../../networks_learning/critic_learning/README.md)，SAC 的具体形式为：
+$$y = R + \gamma^k \times \text{mask} \times \left[\min_{i=1,2}\bar Q_i(s_{t+k},a')-\alpha\log\pi(a'\mid s_{t+k})\right]$$
+其中 $\bar Q_1,\bar Q_2$ 是两个目标 Q，取较小评分；$a'$ 由当前 Actor 在尾部观测上重新采样，不是经验中的旧动作或求最大值得到的动作。$\log\pi$ 是该动作的对数概率密度，$\alpha$ 是熵项权重。此处状态符号概括契约要求的尾部输入；D03 只提供数据，这些网络计算尚未实现。真终止时直接取 $y=R$，无需计算尾部价值。
 
 这里有两点极为重要的时序概念：
 1. **时间流动方向的区别**：在 D05 模块中，历史观测窗口是**向后看过去**（覆盖时刻 $t-4 \dots t$）；而在本模块 D03 中，n 步回报是**向前看未来**（从当前动作开始累计未来的连续收益）。两者的物理时间轴方向相反，切勿混为一谈。
@@ -41,7 +42,7 @@ D03 接收由 D02 经验池输出的连续时序矩阵 `SequenceBatch`（包含 
 | `first` | 标准 D01 记录批次，`[M, ...]` | 起始时刻的转移快照。Q 网络评估当前选定动作时读取 `first.q_observation` 与 `first.action`；策略网络编码器使用其 `first.policy_history` |
 | `tail` | 标准 D01 记录批次，`[M, ...]` | 整个片段中的**第 $k-1$ 步转移记录**（即最后一次真实发生的动作转移） |
 | `reward_sum` | `[M, 1]`，`float32` | 累计折算后的即时奖励标量 $R$ |
-| `steps` | `[M]`，`int64` | 每个样本在遭遇物理终止前实际有效推进的动作步数 $k$（$1 \le k \le n$） |
+| `steps` | `[M]`，`int64` | 累计到首个真终止或纯截断的动作步数 $k$；没有边界则为 $n$（$1 \le k \le n$） |
 | `discount` | `[M, 1]`，`float32` | 实际应用的衰减折扣因子 $\gamma^k$（当提前结束时 $k < n$，必须用 $\gamma^k$ 而不能套用 $\gamma^n$） |
 | `bootstrap_mask` | `[M, 1]`，`float32` | 尾部自举开关。若尾部遭遇物理真终止则输出 0.0，超时截断或未结束输出 1.0 |
 
@@ -59,7 +60,7 @@ D03 接收由 D02 经验池输出的连续时序矩阵 `SequenceBatch`（包含 
 |---|---|---|
 | `NStepReturnError` | 继承 `ValueError` | 专用异常类。当折扣因子 $\gamma \notin (0, 1]$、读取长度不匹配或有效前缀断裂时抛出 |
 | `NStepBatch` | `@dataclass(frozen=True)` | 数据容器，严格封装上述六个字段；冻结类属性，但内部张量只读仍需调用方自觉遵守 |
-| `accumulate_rewards` | `(rewards, boundary, gamma) -> (R, steps)` | 纯张量矢量化运算：输入 `rewards[M, n, 1]` 与终止边界掩码 `boundary[M, n]`，定位每行的截断点 $k$，输出加权累计回报 $R[M, 1]$ 与各样本步数 $k[M]$ |
+| `accumulate_rewards` | `(rewards, boundary, gamma) -> (R, steps)` | 输入 `rewards[M,n,1]`、`boundary[M,n]` 与 $0<\gamma\le1$，定位首边界，输出 $R[M,1]$ 与 $k[M]$；布局由上游保证，不重复 D01 全字段校验 |
 | `select_tail` | `(sequence, steps) -> TransitionBatch` | 调用 `sequence.at(steps - 1)`，从各时序矩阵中准确定位并抽取出第 $k-1$ 步记录作为 `tail` |
 | `build_n_step_batch` | `(sequence, gamma, n_steps) -> NStepBatch` | 顶层串联入口：核验参数、校验有效前缀完整性、调用奖励加权折算、提取 `first` 与 `tail`，并通过 D01 推导尾部自举开关 |
 
@@ -109,6 +110,8 @@ $$R = 1 + 0.9 \times 2 + 0.9^2 \times 3 + 0.9^3 \times 4 + 0.9^4 \times 5 = 1 + 
   - **真终止（翻车摔倒）**：物理生命周期结束，`mask = 0.0`，完全舍弃末尾的 $Q$ 预估值；
   - **纯时间截断（超时到期）**：机器人运动状态完好，`mask = 1.0`，算法依然会以重置前真实到达的末状态 `tail.next_*` 为依据，接续最新 Q 网络对未来的预测！
 
+这里的真实末状态是上游必须满足的条件，不是 D03 能从数值中证明的事实。E05 仍须在自动重置前捕获完整 `next_policy_history[B,10,33]`、`next_q_observation[B,C]` 与 `next_history_length[B]`，并保证历史只推进一次；若环境已在 `step` 返回前重置，仅复制返回观测来不及恢复末状态。`terminal_observation` 可以是未来传递快照的方式，但当前 E05 尚无实现，也未规定这样的现有键名。D01 的复制与长度检查不能代替正确捕获。
+
 ## 数据不足为什么不能被视为一种结束
 
 在 `build_n_step_batch` 中，有一段关键的前缀完整性防线：
@@ -116,39 +119,46 @@ $$R = 1 + 0.9 \times 2 + 0.9^2 \times 3 + 0.9^3 \times 4 + 0.9^4 \times 5 = 1 + 
 ```python
 needed = torch.arange(n_steps, device=steps.device).unsqueeze(0) < steps.unsqueeze(1)
 missing = (needed & ~sequence.valid).any(dim=1)
-if bool(missing.any()):
-    raise NStepReturnError(...)
 ```
 
-代码根据计算出的步数 $k$，严格校验从索引 0 到 $k-1$ 的所有槽位在 D02 中是否被标记为 `valid`（连续有效）。
+第一行标出前 k 条必须存在的记录，第二行找出这些位置中含无效项的样本。随后若 `bool(missing.any())` 为真，就抛出 `NStepReturnError`，即要求索引 0 到 $k-1$ 全部为 `valid`。
 如果当前样本既没有遇到摔倒，也没有遇到超时，仅仅是因为经验池刚刚开跑、后继数据暂时不足（例如只写了 3 步），算法**坚决报错拦截，绝不私自将 $k$ 缩小为 3 来迁就数据缺失**！
-因为如果随意见缝插针地缩小 $k$，就会人为扭曲训练样本的折扣因子分布，破坏强化学习的数学收敛性。
+因为本模块约定只有“凑满 n 步”或“合法到达结束边界”才能确定 k，普通数据暂缺不满足其中任何一种条件。这里说明的是当前接口规则，不据此作数学收敛性结论。
+
+通过前缀检查后，实际折扣按各行的 k 计算：
+
+```python
+discount=(gamma ** steps.to(torch.float64)).to(torch.float32).unsqueeze(1),
+```
+
+先用 float64 求幂，再转回 float32，并保留 `[M,1]` 形状。提前结束时必须使用 $\gamma^k$；统一使用 $\gamma^n$ 会把尾部价值的权重算错。
 
 ## 与 PPO、开源 SAC 的设计差异
 
 1. **与原 PPO 的差异**：原版 PPO 在 `compute_returns` 中逆向推导广义优势估计（GAE），主要服务于短期策略梯度的方差折中；而 D03 是直接从可回放的长周期轨迹中，为 Q 价值网络构建前向多步训练目标。
-2. **与开源 SAC 参考实现（`rsl_rl_sac`）的差异**：参考实现虽然也在遇到第一个结束时屏蔽奖励，但其 mask 计算公式会将双真冲突错算为 1；而 D03 引入了 D01 的互斥检查与真终止优先原则，并结合 D02 的连续性掩码过滤掉了所有无效跨代内存。
+2. **与作者 SAC 固定参考版本（`rsl_rl_sac e0d243a`）的关系**：按本地文件头与 AI 规范记录，作者也在首个结束后屏蔽奖励、按结束位置选下一观测。本项目沿用这一思路，但以 D02 显式编号和覆盖序号确认有效前缀，再调用 D01 推导 mask。D01 拒绝 `terminated` 与 `time_out` 同时为真，真正终止的优先分类由 E05 负责。本次没有独立读取外部作者源码，也未验证 TITA 上的训练效果。
 
 > [!NOTE]
 > **关于离策略偏差（Off-Policy Bias）**：
-> 强化学习理论指出，当 $n > 1$ 时，由于连续片段中间的过渡动作是过去旧策略生成的，较大的 $n$ 可能会引入轻微的离策略分布偏差。因此，在实践中 $n$ 并非越大越好（本项目默认候选 $n=5$），需要结合具体训练表现进行实验。
+> 当 $n>1$ 时，连续片段中间的动作来自过去的策略，未经校正的多步目标可能与当前策略不一致。当前没有证据量化偏差大小，不能称其“轻微”；n 也不是越大越好。n=1 可作排查对照，n=5 是论文候选值，接口本身没有默认 n，训练效果仍待实验。
 
 ## `test_returns.py`：7 项测试与容差调试经验
 
-测试脚本通过 `buffer_with_episode` 人工构造标准轮次与带有 $10^6$ 极端奖励的新轮次，测试覆盖全部关键分支：
+`buffer_with_episode(rewards, terminal_at, time_out_at, next_episode_steps)` 经 D01/D02 构造第 0 轮，再按需追加奖励为 `HUGE=1e6` 的下一轮。`n_step_from_episode_start(buffer,n,gamma)` 调用 `valid_starts` 找第 0 轮 step 0，再读取 n 条并交给 `build_n_step_batch`。两者复用 D02 的 `make_records`，只是人工轨迹生成与取样工具，不是仿真。测试覆盖如下：
 
 | 测试类与具体用例名称 | 独立检验标准与覆盖逻辑 |
 |---|---|
 | `AccumulateTest.test_known_sequence_without_boundary` | 5 步正常递推：核对精确回报 11.4265、步数 5、折扣 0.59049，确认末状态指向步号 4 的 `next_*` |
 | `AccumulateTest.test_n_equals_one_is_single_step` | 单步退化：验证 $n=1$ 时输出 $R=7.0, k=1, \text{discount}=0.99$ |
-| `AccumulateTest.test_invalid_gamma` | 防御性测试：验证 $\gamma \le 0$ 时报错拒绝 |
+| `AccumulateTest.test_invalid_gamma` | 传入 $\gamma=0$，验证报错拒绝；代码允许范围为 $(0,1]$ |
 | `BoundaryTest.test_boundaries_at_steps_1_2_n` | 组合测试：核对第 1/2/5 步分别发生真终止与纯截断共 6 种情形的回报、步数与 mask，确认排除下一轮 $10^6$ 干扰 |
 | `MissingSuccessorTest.test_start_without_enough_successors` | 边界测试：验证未结束但步数不足时报错拒绝；补全步数后顺利通过 |
 | `MissingSuccessorTest.test_length_must_match_n` | 维度校验：声明 $n=3$ 但序列长度传入 2 时报错拦截 |
 | `SampledBatchTest.test_sampled_starts_from_mixed_buffer` | 综合实测：在经历多环境循环覆盖的复杂经验池中随机抽取 50 个样本，逐行比对手算 R、步数与 mask |
 
-在开发调试该模块时，工程团队曾遭遇一次极具代表性的数值问题：
-在执行包含 $10^6$ 干扰项的测试时，最初设定的断言绝对容差为 `1e-3` 导致测试偶发失败。深入排查发现：在 IEEE 754 标准下，单精度浮点数（`float32`）的尾数有效位仅约 24 位，在数值达到 $10^6$ 附近时，两个相邻可表示浮点数的最小间距（Machine Epsilon）约为 **0.0625**！此时要求 `1e-3` 的绝对精度已经违背了硬件浮点表示规律。随后测试改为与量级匹配的相对容差后，7 项测试完全稳定通过。
+原交接记录了首次 `SampledBatchTest` 因绝对容差 `1e-3` 过严而失败：float32 在 $10^6$ 附近的相邻可表示数间距约为 0.0625，比该容差大。这是该量级的一单位末位间距（ULP），不是通常在 1 附近定义的机器 epsilon。现有断言使用 `delta=max(1e-4, abs(expected)*1e-6)`，随数值量级调整容差，修正后七项通过。这是已有调试记录，本次未重现测试，也没有据此证明长期运行稳定性。
+
+脚本入口为 `unittest.main()`。现有证据只覆盖人工 CPU 数据和数据模块衔接，未覆盖目标 Q 计算、GPU、离策略偏差影响、仿真、训练或性能。
 
 本地复现测试命令：
 ```bash

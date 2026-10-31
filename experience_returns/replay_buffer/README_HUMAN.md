@@ -4,13 +4,13 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 已完成讲解与润色 |
-| 技术核对状态 | 已对照实际实现、9 项测试及 D01/D03 调用核对接口、形状、复制与覆盖规则；本次不扩展为全面代码审核 |
-| 语言润色状态 | 2026-10-31，Gemini 完成自然语言润色，面向具备 Python 基础、正在学习强化学习与机器人控制的读者，阐明了多环境环形队列管理、覆盖代数追踪与 n 步连续片段检索机制；严格保留全部技术信息、公式、张量形状、槽位运算与验证限制 |
-| 已核对代码版本 | 审核基准 `7071e41f27f0b5e56b9bed3ef3e796741f96ee40`；实现与测试来自 `3838fe4a0d00bf2e8e102edda39a58d5c21e9f0c`，读取时无后续源码变化 |
-| 待同步代码版本 | 无 |
-| 实际阅读材料 | 根规范、上层及本目录 AI README；[buffer.py](buffer.py)、[test_buffer.py](test_buffer.py) 全文；D01 `schema.py`/测试、D03 `returns.py`/测试，D04/D05 衔接测试；固定 PPO `rollout_storage.py` 相关片段。全局材料见[大模块阅读记录](../README_HUMAN.md#阅读材料与证据) |
-| 验证依据与限制 | 用户报告 D01～D05 共 55 项 CPU 检查已独立通过；本模块 9 项的既有结果见 [PR #5](https://github.com/kissmvp8-afk/study/pull/5) 和 [AI 交接表](README.md#实现证据与文档交接)。本次只核对文档，不重跑算法测试；人工数据，未接入仿真或训练 |
+| 文档状态 | 技术复核修正完成，待 Gemini 局部润色 |
+| 技术核对状态 | 2026-10-31，Codex 已复核函数签名、连续性代码片段、容量范围与 9 项既有测试内容；修正覆盖/抽样次数并补回测试辅助函数说明；只核对文档与源码，不开展全面代码审核 |
+| 语言润色状态 | 2026-10-31，Gemini 已完成整体语言润色（`d29af80`）；本次 Codex 技术修正与补充段落待局部润色，保留其余润色内容 |
+| 已核对代码版本 | 审核基准 `7071e41f27f0b5e56b9bed3ef3e796741f96ee40`；实现与测试来自 `3838fe4a0d00bf2e8e102edda39a58d5c21e9f0c`，读取时无后续源码变化；本次实际读取 `d29af80b06d941a0d4d11c1be63c9ecbbb975640`，实现/测试与 `5b47469` 一致 |
+| 待同步代码版本 | 无；本次仅修正文档，未修改实现或测试 |
+| 实际阅读材料 | 根规范、上层及本目录 AI README；[buffer.py](buffer.py)、[test_buffer.py](test_buffer.py) 全文；D01 `schema.py`/测试、D03 `returns.py`/测试，D04/D05 衔接测试；固定 PPO `rollout_storage.py` 相关片段。全局材料见[大模块阅读记录](../README_HUMAN.md#阅读材料与工程验证证据)；本次另对照 E02、E05、N04、N05、T05 契约及 `5b47469`→`d29af80` 文档差异 |
+| 验证依据与限制 | 用户报告 D01～D05 共 55 项 CPU 检查已独立通过；本模块 9 项的既有结果见 [PR #5](https://github.com/kissmvp8-afk/study/pull/5) 和 [AI 交接表](README.md#实现证据与文档交接)。本次只核对文档，不重跑算法测试；人工数据，未接入仿真或训练；修正后检查本地链接/锚点、函数覆盖和代码片段，并核对修改范围，不重跑算法测试 |
 
 ## 要解决的问题
 
@@ -38,7 +38,7 @@
 | 处理环节 | 对应数据对象 | 字段形状与类型特征 | 业务含义与说明 |
 |---|---|---|---|
 | **D01 采集输入** | 单步转移批次 `TransitionBatch` | 包含 13 个字段，各字段批维均为 $B$：<br>策略历史 `[B, 10, 33]`、Q 观测 `[B, C]`、动作 `[B, 8]`、奖励 `[B, 1]` 等 | $B$ 为当前步参与写入的记录数（$1 \le B \le E$）。同一批内 `env_id` 必须严格唯一 |
-| **池内底层存储** | 经验池预分配内部张量 | 每个字段扩展为 `[E, K, *字段形状]`：<br>如历史为 `[E, K, 10, 33]`，编号为 `[E, K]`，`_write_seq` 为 `[E, K]` | 在内存中为每个环境开辟固定的 $K$ 个槽位。**槽位索引（Slot）是物理内存地址，不等于动作步号** |
+| **池内底层存储** | 经验池预分配内部张量 | 每个字段扩展为 `[E, K, *字段形状]`：<br>如历史为 `[E, K, 10, 33]`，编号为 `[E, K]`，`_write_seq` 为 `[E, K]` | 为每个环境分配固定的 $K$ 个槽位。**槽位索引（Slot）是数组中的位置编号，不等于动作步号或内存地址** |
 | **有效起点检索** | `(env_ids, slots)` | 形状均为 `[M]`（`int64`） | 抽样选中的 $M$ 个起始位置，代表能够合法延伸出有效片段的物理槽位 |
 | **D02 连续片段读取** | `SequenceBatch.fields` | 13 个字段在第 1 维展开为长度 $L$：<br>如策略历史为 `[M, L, 10, 33]`，奖励为 `[M, L, 1]` | 从指定起点沿着环形槽位向前连读 $L$ 步所构成的轨迹矩阵 |
 | | `SequenceBatch.valid` | 形状为 `[M, L]`（`bool`） | 逐项标记从起点到当前步是否在物理时序上完全连续、同轮次且未被覆盖 |
@@ -67,8 +67,8 @@ D03 build_n_step_batch (下游接收 SequenceBatch，折算 n 步折扣回报)
 |---|---|---|
 | `ReplayBufferError` | 继承 `ValueError` | 经验池专用的异常类。当容量配置非正、抽样参数越界、多环境 ID 冲突或读取无效槽位时抛出 |
 | `WRITE_SEQ_DTYPE` | `torch.int64` | 槽位写入序号的数据类型；数值为 -1 时代表该槽位为空、尚未写入任何数据 |
-| `bytes_per_record` | `(q_dim: int) -> int` | 计算单条经历（含 13 个字段和 1 个写入序号）占用的静态内存字节数，不进行内存分配 |
-| `estimate_storage_bytes` | `(num_envs, capacity_per_env, q_dim) -> int` | 预先估算经验池全量张量所需的内存字节数（$E \times K \times \text{单条字节}$），辅助配置显存与内存预算 |
+| `bytes_per_record` | `(q_dim: int) -> int` | 复用 D01 `_expected_layout`，按各字段元素数与 dtype 字节数求和，再加一个写入序号；不分配整座经验池 |
+| `estimate_storage_bytes` | `(num_envs, capacity_per_env, q_dim) -> int` | 返回 $E \times K \times \text{单条字节}$，不含逐环境写入计数器和分配器等额外开销 |
 | `ReplayBuffer.__init__` | `(num_envs, capacity_per_env, q_dim, device='cpu')` | 构造函数。检查 $E, K > 0$，一次性预先分配全部张量底座、代数矩阵 `_write_seq[E, K]` 与各环境写入计数器 `_writes[E]` |
 | `ReplayBuffer.size` | 属性，返回 `int` | 当前经验池中已写入且尚未被丢弃的有效记录总条数（不等于有效 n 步起点的数量） |
 | `ReplayBuffer.storage_bytes` | 属性，返回 `int` | 精确统计池内所有张量（含写指针）实际占用的显存/内存物理字节数 |
@@ -77,8 +77,9 @@ D03 build_n_step_batch (下游接收 SequenceBatch，折算 n 步折扣回报)
 | `ReplayBuffer.valid_starts` | `(n_steps: int) -> tuple[Tensor, Tensor]` | 核心检索算法。输入 $1 \le n \le K$，返回所有能够向前构成合法 n 步片段的 `(env_ids, slots)` 起点坐标 |
 | `ReplayBuffer.sample_starts` | `(batch_size, n_steps, generator=None)` | 依托 `valid_starts` 检索候选集，进行有放回均匀随机抽样；支持传入 `torch.Generator` 以实现确定性复现 |
 | `ReplayBuffer.read_sequence`| `(env_ids, slots, length: int) -> SequenceBatch` | 给定起点和读取长度 $L$，沿环形槽位提取连续矩阵，并输出 `valid` 连续性掩码 |
+| `SequenceBatch` | 冻结数据类 | 保存 `fields`、`valid`、起点 `env_ids[M]` 与读出槽位 `slots[M,L]`；冻结属性不使内部张量只读 |
 | `SequenceBatch.length` | 属性，返回 `int` | 当前时序矩阵的跨度长度 $L$（即 `valid.shape[1]`） |
-| `SequenceBatch.at` | `(offsets: Sequence | Tensor) -> TransitionBatch` | 传入针对各采样子序列的相对时间步偏移 `[M]`，提取对应位置的单步快照，组装为 D01 标准记录输出 |
+| `SequenceBatch.at` | `(offsets: Tensor) -> TransitionBatch` | 输入各行相对偏移 `[M]`，检查越界与 `valid`，通过高级索引复制并组装单步记录；不再执行 D01 全字段校验 |
 
 ## 环形槽位为什么还需要写入序号
 
@@ -104,16 +105,18 @@ slot = seq % self.capacity_per_env
 
 ```python
 present = self._write_seq >= 0
+nxt = (torch.arange(self.capacity_per_env, device=self.device) + 1) % self.capacity_per_env
+episode = self._storage["episode_id"]
+step = self._storage["step_index"]
 linked = (
     present
-    & torch.roll(present, shifts=-1, dims=1)
-    & (torch.roll(self._write_seq, shifts=-1, dims=1) == self._write_seq + 1)
-    & (torch.roll(episode, shifts=-1, dims=1) == episode)
-    & (torch.roll(step, shifts=-1, dims=1) == step + 1)
+    & (self._write_seq[:, nxt] == self._write_seq + 1)
+    & (episode[:, nxt] == episode)
+    & (step[:, nxt] == step + 1)
 )
 ```
 
-1. **前后均已写入**：当前槽位与下一个槽位均包含有效数据；
+1. **当前已写入**：`present` 排除当前空槽；下一槽位若为空，其序号为 -1，也不可能通过随后“序号加一”的判断；
 2. **写入序号严格递增 1**：下一个格子的 `_write_seq` 必须恰好比当前大 1（彻底阻断槽位 1 跳回槽位 2 的跨代倒流）；
 3. **轮次完全相同**：下一个格子的 `episode_id` 必须与当前一致（阻断跨轮次拼接）；
 4. **步数严格自增 1**：下一个格子的 `step_index` 必须正好自增 1（阻断丢步或重复步）。
@@ -132,11 +135,13 @@ open_ &= link_j & ~torch.roll(boundary, shifts=-(j + 1), dims=1)
 
 算法通过循环推进两个布尔状态集合：
 - `ok`：标记哪些槽位可以作为合格的起点；
-- `open_`：标记哪些起点在当前步**尚未遇到物理终止**、因而必须要求后继步骤存在。
+- `open_`：标记哪些起点在当前步**尚未遇到真终止或纯时间截断**、因而仍需后继记录。
+
+`link_j` 将第 j 条与下一条的连接标记移到起点位置；`~open_ | link_j` 表示只有仍开放的起点才需要这条连接。最后一行在连接断开或下一条到达结束边界时关闭 `open_`，已经合法结束的起点不再要求更多数据。
 
 这带来了极为关键的工程判定：
 - **情况 A（未遇到终止，但数据不足）**：在上文容量 $K=4$ 且没有结束的例子中，如果算法请求 $n=3$ 的片段，只有步数 6 和 7 属于有效起点；步数 8 和 9 后面缺乏足够的数据步，属于“未来数据暂缺”，**绝对不能因为只剩 2 条或 1 条就强行拿去训练**！
-- **情况 B（中途遭遇物理终止）**：如果机器人在步数 7 发生了真终止（翻车），此时从步数 6 开始往后走，虽然物理上总共只有 2 步数据（步数 6 和 7），但因为其已经合法到达了任务终点，它依然被判定为**合法的 3 步起点**（在读取的序列中表现为 `valid = [True, True, False]`）。
+- **情况 B（合法提前结束）**：另取只写到步号 7、且 7 为真终止的情形。从步号 6 开始只有两条记录，但已经到达结束边界，仍是**合法的 3 步起点**，读出 `valid = [True, True, False]`。纯时间截断也允许提前闭合，后续自举开关由 D03 区分。
 
 读取出的序列中，`valid` 为 `False` 的位置可能是尚未写入的空槽、另一轮的数据或旧一代残留，绝对不能直接将整个矩阵丢进损失函数。调用方必须通过 D03 截取有效前缀，或通过 `SequenceBatch.at` 提取定点记录。
 
@@ -156,21 +161,27 @@ $$\text{bytes\_per\_record}(C) = 2640 + 8C + 32 + 4 + 2 + 40 + 8 = 2726 + 8C \te
 当 $C = 241$ 时，仅静态字段数据就将占用约 **23.3 GB 内存**（按十进制计算）。
 函数 `estimate_storage_bytes` 与属性 `storage_bytes` 能帮助工程师在经验池构建之初精确预判显存与内存开销，防止训练中途发生崩溃。
 
+两者的范围不同：估算值不含 `_writes[E]`，`storage_bytes` 则计入这 $8E$ 字节；两者都不含分配器、临时计算张量与网络的额外开销。这里是按字段计算的容量预算，不是五百万条数据的实际性能测量。
+
 ## `test_buffer.py`：9 项单元测试的验证范围
 
-测试脚本通过 `code_of(env, episode, step) = env * 10000 + episode * 100 + step` 这一数学编码，将环境号、轮次号和步数编号无损压缩为一个独立的浮点标记，并将其填充进奖励与传感器观测中，从而能以最高精度核验每一步的数据归属：
+测试脚本用 `code_of(env, episode, step) = env * 10000 + episode * 100 + step` 生成可辨识的人工标记。在现有测试的小整数范围内，可据此核对数据归属；该编码不是任意大编号的无损编码，也不是真实机器人观测。
+
+测试辅助函数的调用关系如下：`make_records(entries, terminated, time_out, rewards, q_dim)` 按编号构造 13 个字段，再交给 D01 `make_transition`；`terminated` / `time_out` 集合指定批次中的行号。`write_episode(buffer, env, episode, steps, terminal_at, time_out_at)` 逐步调用它并 `append`；`start_steps(buffer, n)` 将 `valid_starts` 的槽位经 `read_sequence` 换算成 `(env, episode, step)` 列表，供断言使用。D03～D05 衔接测试也复用 `make_records`；默认人工 Q 维数为 6，不代表真实 C。
 
 | 测试类与具体用例名称 | 核心验证逻辑与覆盖边界 |
 |---|---|
 | `WriteReadTest.test_round_trip_all_fields` | 写入两条记录，经 `read_sequence` 和 `at` 提取后比对全部 13 个 D01 字段，确认完全无损还原 |
 | `WriteReadTest.test_copies_on_write_and_read` | 写入后原地篡改外部来源张量，读取后原地篡改读出张量；断言池内核心存储原封不动 |
 | `OverwriteTest.test_wrapped_ring_keeps_only_valid_starts` | 在容量 4 的队列中连续压入 10 步数据，严密验证槽位绕回后仅暴露步数 6..9，并核对 n=3 和 n=4 的有效起点 |
-| `OverwriteTest.test_sampled_sequences_are_consecutive_after_many_overwrites` | 在经历数千次覆盖后执行 64 次抽样，核验所有抽出的片段均满足同环境、同轮次且步数严格连续 |
+| `OverwriteTest.test_sampled_sequences_are_consecutive_after_many_overwrites` | 两个环境各写入 23 次，每环境容量为 5；一次抽取 64 个起点，核对各片段有效前缀的环境、轮次与步数连续性 |
 | `MultiEnvAndBoundaryTest.test_interleaved_envs_only_join_same_env` | 多个环境以异步步调交错写入，确认时序链接绝不会跨环境串线 |
 | `MultiEnvAndBoundaryTest.test_episode_boundaries` | 验证物理真终止和超时截断能使片段合法提前闭合，而新一轮未填满的起点被精准过滤 |
 | `MultiEnvAndBoundaryTest.test_reproducible_sampling` | 验证固定随机种子下，`sample_starts` 能够产生 100% 确定性的抽样结果 |
 | `CapacityAndErrorTest.test_bytes_follow_actual_fields` | 核对手算内存字节数公式，并验证包含写指针开销后的精确内存统计 |
 | `CapacityAndErrorTest.test_rejects_bad_writes_and_reads` | 防御性测试：拦截重复环境号写入、拦截越界环境号、拦截空起点抽样、拦截无效偏移访问 |
+
+脚本入口为 `unittest.main()`。表中通过结果来自既有 CPU 记录，本次只静态核对测试内容。
 
 复现测试时，可在仓库根目录执行：
 ```bash
