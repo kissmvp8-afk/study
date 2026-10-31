@@ -1,8 +1,8 @@
 # N06 · Actor 的参数更新｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（CPU、人工数据）。已实现 [actor_update.py](actor_update.py) 与 [test_actor_update.py](test_actor_update.py)，4 项检查通过；未接入仿真或训练。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -17,7 +17,7 @@
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py)
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/actor_critic.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/actor_critic.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已实现纯数据部分，尚未在仿真或训练中验证。
 
 ## 作者实现参考
 
@@ -32,18 +32,27 @@
 | 输入 | 回放中的状态、当前 Actor、在线双 Q、alpha、隔离梯度的历史特征。 |
 | 输出 | Actor 目标、动作分布变化和更新后的动作网络参数。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可），与 D01～D05 相同；仓库尚无统一依赖文件（T01）。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [actor_update.py](actor_update.py)
+
+| 符号 | 签名 | 职责、形状、副作用 |
 |---|---|---|
-| `actor_update.py` | `compute_actor_loss` | 计算 alpha×log_prob - min(Q1,Q2) 的批次平均 |
-| `actor_update.py` | `update_actor` | 利用 Q 对动作的变化趋势更新 Actor |
-| `actor_update.py` | `report_policy_change` | 报告随机程度和动作贴边比例 |
-| `test_actor_update.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| `frozen_parameters` | 上下文管理器 `(module)` | 临时关闭参数的 `requires_grad`，退出时恢复；输入张量的梯度不受影响 |
+| `make_actor_optimizer` | `(actor, lr=1e-3) -> Adam` | 只含 N03 Actor 参数（编码器、Q、log_alpha 都不在其中） |
+| `compute_actor_loss` | `(actor, critics, features[B,52], q_observation[B,C], alpha, generator=None) -> (L, a, log π)` | 在回放状态上重新采样；L = 平均 [alpha·log π − min(Q1, Q2)]；前向时冻结 Q 参数，保留 Q 对动作的梯度 |
+| `update_actor` | `(actor, optimizer, loss, max_grad_norm=1.0) -> dict` | 反传并更新 Actor |
+| `report_policy_change` | `(actor, features, action, log_prob) -> dict` | 只读：平均内部 std、熵估计 −平均 log π、贴边比例（|tanh u| > 0.99） |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+梯度边界：
+- `features` 由 N01 在 `no_grad`、eval 下得到，不更新编码器参数或 BN 统计。
+- alpha 以数值传入，不对 log_alpha 求导。
+- 返回的 `log π` 与 N07 共用同一次采样（与作者相同）。
+- 作者每 2 次 Critic 更新做一次 Actor 更新（`policy_frequency=2`），具体频率由 T02 决定。
+
+调用方：N08 测试中的完整更新衔接检查。
 
 ## 必须成立的规则
 
@@ -74,13 +83,22 @@
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，CPU、人工数据）
 
-- 构造已知峰值的假 Q，验证 Actor 更新有正确方向，而不是只检查损失有数值。
-- Actor 更新后 Q、目标 Q、编码器的状态保持约定不变。
-- 回放动作与新采样动作不同也可正常更新。
+Actor 输入特征与 Q 观测为随机人工数据；动作边界为人工对称区间 [−1, 1]。
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+| 案例 | 对应测试（[test_actor_update.py](test_actor_update.py)） | 结果 |
+|---|---|---|
+| 已知峰值的假 Q（−‖a − a*‖²）：150 次更新后确定性动作到 a* 的平方距离降到初始的 20% 以下；Q 的占位参数没有梯度，退出后恢复 `requires_grad` | `DirectionTest.test_moves_toward_peak` | 通过 |
+| 只有 Actor 改变；真实 TwinQ、目标 Q、编码器（含 BN 统计）不变；Q 参数无梯度；log_alpha 无梯度 | `IsolationTest.test_only_actor_changes` | 通过 |
+| alpha = 0 时损失只剩 −min Q，Actor 仍得到梯度，说明 Q 对动作的梯度没有被切断 | `IsolationTest.test_q_gradient_reaches_actor_without_entropy_term` | 通过 |
+| 回放动作与新采样动作不同时可正常更新；报告的平均 std ≈ 0.15 | `IsolationTest.test_replayed_actions_differ_from_new_samples` | 通过 |
+
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/test_actor_update.py -v
+```
 
 ## 故障定位
 
@@ -104,17 +122,17 @@ Actor 完全不变时查是否把整个 Q 计算都禁止求梯度；旧行为�
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（CPU、人工数据）；集成验证未开始 |
+| 实际文件、函数签名与调用关系 | [actor_update.py](actor_update.py)：`compute_actor_loss`、`update_actor`、`report_policy_change`、`make_actor_optimizer`、`frozen_parameters`；依赖 N04 `evaluate_q_pair`，使用 N03 Actor。[test_actor_update.py](test_actor_update.py)：2 个测试类共 4 项 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`update_actor` 只修改 Actor 参数与优化器；`compute_actor_loss` 临时改变并恢复 Q 参数的 `requires_grad` |
+| 代码注释核对 | 已核对：重新采样的原因、损失的两个方向、冻结 Q 参数但保留动作梯度、编码器与 alpha 的隔离（文件头、`compute_actor_loss`） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/actor_learning/test_actor_update.py -v` → `Ran 4 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 未验证项 | 真实 Q 下的训练方向与稳定性；Actor 更新频率（T02）；GPU；仿真、训练与性能 |
+| 代码版本 | 代码与测试：`0b150dc5dc7dfb410485bf6a51197926a7021e7a`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 N06：沿用作者“冻结 Q 参数、保留动作梯度”的做法；编码器通过 N01 的 no_grad 特征隔离 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `actor_update.py`、`test_actor_update.py`；作者 `sac.py`（actor 更新与冻结 critic）。建议 Codex 重点解释为什么重新采样、`frozen_parameters` 如何保留动作梯度，以及 alpha=0 的对照测试 |
+| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

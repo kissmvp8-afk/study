@@ -36,6 +36,15 @@
       "D04": "awaiting_gemini_polish",
       "D05": "awaiting_gemini_polish",
       "experience_returns": "awaiting_gemini_polish",
+      "N01": "awaiting_codex_draft",
+      "N02": "awaiting_codex_draft",
+      "N03": "awaiting_codex_draft",
+      "N04": "awaiting_codex_draft",
+      "N05": "awaiting_codex_draft",
+      "N06": "awaiting_codex_draft",
+      "N07": "awaiting_codex_draft",
+      "N08": "awaiting_codex_draft",
+      "networks_learning": "awaiting_codex_draft",
       "others": "placeholders_awaiting_implementation"
     },
     "implementation_author": "Claude",
@@ -55,6 +64,14 @@
     "D02": "unit_verified_pure_data",
     "D03": "unit_verified_pure_data",
     "D04": "unit_verified_pure_data",
-    "D05": "unit_verified_pure_data"
+    "D05": "unit_verified_pure_data",
+    "N01": "unit_verified_cpu",
+    "N02": "unit_verified_cpu",
+    "N03": "unit_verified_cpu",
+    "N04": "unit_verified_cpu",
+    "N05": "unit_verified_cpu",
+    "N06": "unit_verified_cpu",
+    "N07": "unit_verified_cpu",
+    "N08": "unit_verified_cpu"
   }
 }

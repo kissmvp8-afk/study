@@ -1,8 +1,8 @@
 # N05 · Q 的训练目标与更新｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（CPU、人工数据）。已实现 [critic_update.py](critic_update.py) 与 [test_critic_update.py](test_critic_update.py)，3 项检查通过；未接入仿真或训练。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -17,7 +17,7 @@
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py)
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/rollout_storage.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/rollout_storage.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已实现纯数据部分，尚未在仿真或训练中验证。
 
 ## 作者实现参考
 
@@ -32,18 +32,30 @@
 | 输入 | D03 奖励和、有效 k、末状态和开关，当前 Actor、目标 Q、alpha。 |
 | 输出 | 冻结的本次目标 y、两个 Q 的误差、在线 Q 更新及数值诊断。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可），与 D01～D05 相同；仓库尚无统一依赖文件（T01）。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [critic_update.py](critic_update.py)
+
+| 符号 | 签名 | 职责、形状、副作用 |
 |---|---|---|
-| `critic_update.py` | `compute_target` | 以当前 Actor 的尾部动作和较小目标 Q 构造 y |
-| `critic_update.py` | `critic_loss` | 比较记录中旧动作的 Q 与 y |
-| `critic_update.py` | `update_critics` | 只更新在线 Q 并记录目标量级 |
-| `test_critic_update.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| `make_critic_optimizer` | `(critics, lr=1e-3) -> Adam` | 只含在线双 Q 参数 |
+| `compute_target` | `(batch: NStepBatch, encoder, actor, target_critics, normalizers, alpha, generator=None) -> y[M,1]` | `no_grad` 下计算：y = R + γ^k·mask·(min 目标 Q(s_tail, a') − alpha·log π(a')) |
+| `critic_loss` | `(critics, batch, target, normalizers) -> (L_Q, q1, q2)` | 在线双 Q 评价记录里的旧动作 `first.action`；L_Q = 0.5·[MSE(q1, y) + MSE(q2, y)] |
+| `update_critics` | `(critics, optimizer, batch, target, normalizers, max_grad_norm=1.0) -> dict` | 只更新在线 Q；返回损失、q1/q2 均值、目标均值与绝对值最大值 |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+计算目标时的约定：
+- 直接使用 D03 `NStepBatch` 的 `reward_sum`、`discount`（γ^k）、`bootstrap_mask` 和 `tail.next_*`（重置前的真实状态）。
+- s_tail 经 N01 `features_from_history` 编码；a' 由当前 Actor 重新采样，不用记录里的动作。
+- 尾部 Q 观测用 D04 统计归一化，与在线 Q 一致。
+- alpha 以数值传入。
+
+两种动作：记录中的旧动作只用于在线 Q 的预测；尾部动作 a' 由当前 Actor 在 s_tail 上重新生成。
+
+真终止样本（mask = 0）走显式分支：y = R，不计算尾部 Q 与密度，避免 0 × NaN 传播。
+
+调用方：N08 测试中的完整更新衔接检查；正式调度由 T02 实现。
 
 ## 必须成立的规则
 
@@ -76,13 +88,23 @@
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，CPU、人工数据）
 
-- 用固定数值的假评分器验证正常、终止、截断和 k<n 的目标。
-- 损失下降的一次更新只改变在线 Q；目标副本此时保持不变。
-- 对不存在的尾部值使用显式分支，避免 0×NaN 仍传播 NaN。
+经历为人工数据，经 D02 写入读取、D03 组合；假 Actor 恒输出 log π = −2，假目标 Q 恒为 5 和 7。
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+| 案例 | 对应测试（[test_critic_update.py](test_critic_update.py)） | 结果 |
+|---|---|---|
+| 正常（k=3）、真终止（k=2, mask=0）、纯截断（k=2, mask=1）的 y 与手算一致（软价值 = min(5,7) − 0.1×(−2) = 5.2）；只为 2 个非终止样本采样尾部动作；y 不带梯度 | `TargetTest.test_targets_by_case` | 通过 |
+| 假目标 Q 返回 NaN：真终止样本 y 仍为 1.9，非终止样本为 NaN（对照） | `TargetTest.test_terminal_branch_blocks_nan` | 通过 |
+| 一次更新后，同一 y 下损失下降；只有在线 Q 改变，目标 Q、Actor、编码器不变；计算目标时 Actor 没有梯度 | `UpdateTest.test_update_changes_only_online_q` | 通过 |
+
+调试记录：首次运行时 `UpdateTest` 失败，损失从 1.2e5 升到 4.2e8。原因是人工观测编码数值约 2e4，而 D04 统计未更新，Q 输入未缩放，学习率 1e-2 下一步发散。实现本身无误；改为先用这批记录更新 D04 统计、使用默认学习率 1e-3 后通过。
+
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/test_critic_update.py -v
+```
 
 ## 故障定位
 
@@ -108,17 +130,17 @@ Q 爆大先检查原始奖励量级、gamma^k、密度项及结束标记，再�
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（CPU、人工数据）；集成验证未开始 |
+| 实际文件、函数签名与调用关系 | [critic_update.py](critic_update.py)：`compute_target`、`critic_loss`、`update_critics`、`make_critic_optimizer`；依赖 N01 `features_from_history`、N04 `evaluate_q_pair` / `list_critic_parameters`，使用 D03 `NStepBatch`、D04 `ObservationNormalizers`、N03 Actor。[test_critic_update.py](test_critic_update.py)：2 个测试类共 3 项 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`compute_target` 无梯度、只消耗 generator 随机状态；`update_critics` 只修改在线 Q 与优化器 |
+| 代码注释核对 | 已核对：旧动作与尾部新动作的用途、γ^k、终止开关与显式分支、熵项符号、目标停止求梯度（文件头、`compute_target`） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/critic_learning/test_critic_update.py -v` → `Ran 3 tests … OK`（首次运行有 1 项因测试数据未归一化而失败，见上文“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 未验证项 | 真实尺度下的目标量级与稳定性；n=1 与 n=5 的对照；更新频率（T02）；GPU；仿真、训练与性能 |
+| 代码版本 | 代码与测试：`e43b4ea2f227ed3392b1a0438fb36f63f6711365`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 N05：按规范公式直接使用 D03 的结果；真终止样本走显式分支 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `critic_update.py`、`test_critic_update.py`；D03 `returns.py`；作者 `sac.py`（target_q 与 critic 损失）。建议 Codex 重点解释两种动作的用途、显式分支与 0×NaN，以及为什么 y 不求梯度 |
+| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

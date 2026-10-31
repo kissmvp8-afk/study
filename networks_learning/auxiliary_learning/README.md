@@ -1,8 +1,8 @@
 # N02 · 速度监督与 Barlow Twins｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（CPU、人工数据）。已实现 [auxiliary.py](auxiliary.py) 与 [test_auxiliary.py](test_auxiliary.py)，8 项检查通过；未接入仿真或训练。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -17,7 +17,7 @@
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/actor_critic.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/actor_critic.py)
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已实现纯数据部分，尚未在仿真或训练中验证。
 
 ## 输入与输出契约
 
@@ -26,18 +26,26 @@
 | 输入 | 有效的相邻历史窗口、缩放一致的真实速度标签、N01 编码器与训练用转换模块。 |
 | 输出 | 速度误差、一致性误差、去重复误差、辅助更新后的编码器参数和可读日志。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可），与 D01～D05 相同；仓库尚无统一依赖文件（T01）。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [auxiliary.py](auxiliary.py)
+
+| 符号 | 签名 | 职责、形状、副作用 |
 |---|---|---|
-| `auxiliary.py` | `velocity_loss` | 比较速度预测与真实标签 |
-| `auxiliary.py` | `barlow_loss` | 经训练用 64 维转换计算跨窗口相关性 |
-| `auxiliary.py` | `update_encoder` | 只更新编码器、相关分支和训练用转换模块 |
-| `test_auxiliary.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| 常量 | `PROJECTOR_DIM=64`、`OFF_DIAGONAL_WEIGHT=5e-3`、`AUXILIARY_LEARNING_RATE=1e-3`、`MAX_GRAD_NORM=1.0`、`MIN_VALID_SAMPLES=2` | 前四项取自原 PPO 配置，作为起点；最后一项是 train 模式下 BatchNorm 的最低样本数 |
+| `BarlowProjector` | `()`；`forward(hidden[N,16]) -> [N,64]` | 训练用 64 维转换：16→64（无偏置, BN, ELU）→64（无偏置）→ `BatchNorm1d(64, affine=False)`；构造后为 eval；不进入 Actor 输入 |
+| `velocity_loss` | `(predicted[N,3], label[N,3]) -> 标量` | 均方误差；预测与标签都是 2.0 缩放后的值 |
+| `barlow_loss` | `(z1[N,64], z2[N,64], off_diagonal_weight=5e-3) -> (总损失, 对角项, 非对角项)` | `c = z1ᵀz2/N`，Σ(c_ii−1)² + 0.005·Σ_{i≠j} c_ij²，与原 PPO 一致 |
+| `make_auxiliary_optimizer` | `(encoder, projector, lr=1e-3) -> Adam` | 独立优化器，只含编码器与 projector 的参数 |
+| `update_encoder` | `(encoder, projector, optimizer, windows, history_length[B], velocity_label[B,3], max_grad_norm=1.0) -> dict` | 按 D05 `valid_history_mask(..., 6)` 筛选；有效样本 < 2 时跳过，不改任何状态；否则 train 模式前向两个窗口、计算 L_bt + L_vel、更新，**结束后恢复 eval**。返回 `skipped`、`valid_samples` 与各项损失 |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+BatchNorm 统计何时更新：只在 `update_encoder` 内的两次 train 前向中更新（与原 PPO 相同，一次辅助更新会前向两个窗口）。采集、Critic、Actor 更新都在 eval 下进行，不会改动统计。
+
+速度标签：时刻 t 的原始（未归一化）训练侧身体线速度，即乘过 2.0 的 base_lin_vel，由调用方显式传入。原 PPO 取 critic 观测前 3 维，E02 尚未确认该布局。
+
+调用方：目前是本目录测试与 N08 测试中的完整更新衔接检查。辅助更新的频率由 T02 决定，与 SAC 回放更新分开。
 
 ## 必须成立的规则
 
@@ -62,13 +70,26 @@
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，CPU、人工数据）
 
-- 构造正确速度预测时，速度平方误差为零。
-- 构造退化的常数特征，辅助目标不能把它误认为完美表示。
-- 辅助更新后 Actor 动作头、Q 和 alpha 的参数不因这一步被修改。
+| 案例 | 对应测试（[test_auxiliary.py](test_auxiliary.py)） | 结果 |
+|---|---|---|
+| 速度预测正确时平方误差为 0 | `LossTest.test_velocity_loss_zero_when_correct` | 通过 |
+| 常数特征：经 projector 后相关矩阵为 0，对角项 = 64（最大），不会被误认为完美表示；对照“两窗口一致且各维独立”的特征损失接近 0 | `LossTest.test_constant_features_are_not_perfect` | 通过 |
+| 与原 PPO 损失写法（`c.div_`、`diagonal.add_(-1).pow_(2)`）一致 | `LossTest.test_matches_ppo_formula` | 通过 |
+| 辅助更新只改编码器与 projector；优化器参数集合恰好等于二者；Actor 动作头、Q、alpha 的占位模块不变 | `UpdateTest.test_only_encoder_and_projector_change` | 通过 |
+| eval 前向不改 BN 统计，辅助更新改变统计，结束后恢复 eval | `UpdateTest.test_batchnorm_statistics_only_change_during_update` | 通过 |
+| 有效历史不足（0 条、1 条）时跳过：参数、BN 统计、优化器状态都不变 | `UpdateTest.test_insufficient_valid_history_is_skipped` | 通过 |
+| 无效行（长度 < 6）的窗口填 NaN，损失与参数仍为有限值，说明它们没有参与计算 | `UpdateTest.test_invalid_rows_are_not_used` | 通过 |
+| 同一批数据重复更新 30 次，损失下降 | `UpdateTest.test_repeated_updates_reduce_loss` | 通过 |
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+调试记录：第一次运行时 8 项都通过，但 torch 对 `float(loss)` 给出“张量仍带梯度”的警告；改用 `.item()` 后重跑，输出中已无警告。
+
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/test_auxiliary.py -v
+```
 
 ## 故障定位
 
@@ -92,17 +113,17 @@
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（CPU、人工数据）；集成验证未开始 |
+| 实际文件、函数签名与调用关系 | [auxiliary.py](auxiliary.py)：`BarlowProjector`、`velocity_loss`、`barlow_loss`、`make_auxiliary_optimizer`、`update_encoder`；依赖 N01 `HistoryEncoder`、D05 `valid_history_mask`。[test_auxiliary.py](test_auxiliary.py)：2 个测试类共 8 项 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`update_encoder` 修改编码器与 projector 的参数、BN 统计和优化器状态，跳过时不修改 |
+| 代码注释核对 | 已核对：相关矩阵对角 / 非对角项与常数特征（文件头）；速度标签尺度（文件头、`velocity_loss`）；有效窗口筛选与跳过规则（`update_encoder`）；独立优化器与 BN 模式（文件头、`update_encoder`） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/auxiliary_learning/test_auxiliary.py -v` → `Ran 8 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 未验证项 | E02 确认速度标签所在字段；辅助更新频率与 SAC 更新次数之比（T02）；真实数据上的表示质量；GPU；仿真、训练与性能 |
+| 代码版本 | 代码与测试：`2e6c470770fe22458a9412178144d9410c97cf81`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 N02：原 PPO 把辅助损失加入 PPO 总损失并共用一个优化器；SAC 中改为独立优化器与独立更新，并明确 BN 更新时机与有效样本 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `auxiliary.py`、`test_auxiliary.py`；原 PPO `actor_critic.py`（`barlow_twins_loss`、`off_diagonal`）与 `np3o.py`（辅助损失并入总损失）。建议 Codex 重点解释相关矩阵、常数特征为何得到最大损失、有效样本筛选与跳过，以及 train / eval 切换 |
+| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
