@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "mode": "train",
+  "directory": "C:\\Users\\86193\\tita-check\\runs\\flat-train",
+  "task": "isaac_flat",
+  "num_envs": 1,
+  "q_dim": 54,
+  "action_order": [
+    "joint_left_leg_1",
+    "joint_left_leg_2",
+    "joint_left_leg_3",
+    "joint_left_leg_4",
+    "joint_right_leg_1",
+    "joint_right_leg_2",
+    "joint_right_leg_3",
+    "joint_right_leg_4"
+  ],
+  "timing": {
+    "physics_dt": 0.005,
+    "decimation": 4,
+    "step_dt": 0.02,
+    "max_episode_length": 1000
+  },
+  "json_numbers_finite": true,
+  "train": {
+    "checkpoint": "C:\\Users\\86193\\tita-check\\runs\\flat-train\\checkpoint.pt",
+    "checkpoint_counters": {
+      "iterations": 3,
+      "env_steps": 24,
+      "transitions": 24,
+      "critic_updates": 3,
+      "actor_updates": 2,
+      "alpha_updates": 3,
+      "target_updates": 3,
+      "auxiliary_updates": 3,
+      "auxiliary_skipped": 0,
+      "replay_samples": 768,
+      "auxiliary_samples": 393,
+      "learning_skipped_iterations": 0
+    },
+    "after_resume_counters": {
+      "iterations": 4,
+      "env_steps": 32,
+      "transitions": 32,
+      "critic_updates": 4,
+      "actor_updates": 2,
+      "alpha_updates": 4,
+      "target_updates": 4,
+      "auxiliary_updates": 4,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1024,
+      "auxiliary_samples": 527,
+      "learning_skipped_iterations": 0
+    },
+    "optimizer_steps": {
+      "critic": {
+        "updates": 3,
+        "step_min": 3.0,
+        "step_max": 3.0,
+        "optimizer_state_entries": 16,
+        "nonzero_gradient_moment": true
+      },
+      "actor": {
+        "updates": 2,
+        "step_min": 2.0,
+        "step_max": 2.0,
+        "optimizer_state_entries": 10,
+        "nonzero_gradient_moment": true
+      },
+      "alpha": {
+        "updates": 3,
+        "step_min": 3.0,
+        "step_max": 3.0,
+        "optimizer_state_entries": 1,
+        "nonzero_gradient_moment": true
+      },
+      "auxiliary": {
+        "updates": 3,
+        "step_min": 3.0,
+        "step_max": 3.0,
+        "optimizer_state_entries": 20,
+        "nonzero_gradient_moment": true
+      }
+    },
+    "checkpoint_tensors_finite": true,
+    "resume_mode": "exact_replay",
+    "simulation_state_restored": false,
+    "wheel_speed_limit_rad_s": 20,
+    "wheel_speed_choice": "首次仿真调试选择，尚未验证",
+    "note": "One resumed iteration need not increment Actor updates: its schedule can skip that iteration."
+  }
+}

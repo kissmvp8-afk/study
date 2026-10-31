@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "method": "counter_advanced_real_physics_timeout",
+  "limitation": "提前设置计数器触发真实截断，不证明稳定运行完整20秒",
+  "attempts": [
+    {
+      "attempt": 1,
+      "counter_after_reset": 0,
+      "injected_counter": 998,
+      "steps": [
+        {
+          "terminated": false,
+          "time_out": false,
+          "counter_at_termination": 999,
+          "manager_terms": {
+            "time_out": [
+              false
+            ],
+            "base_contact": [
+              false
+            ]
+          }
+        },
+        {
+          "terminated": false,
+          "time_out": true,
+          "counter_at_termination": 1000,
+          "manager_terms": {
+            "time_out": [
+              true
+            ],
+            "base_contact": [
+              false
+            ]
+          }
+        }
+      ],
+      "pure_timeout": true
+    }
+  ],
+  "terminated": false,
+  "time_out": true,
+  "actual_physics_steps_to_timeout": 8,
+  "actual_seconds_to_timeout": 0.04,
+  "old_episode_id": [
+    0
+  ],
+  "new_episode_id": [
+    1
+  ],
+  "new_history_length": [
+    1
+  ],
+  "new_step_index": [
+    0
+  ],
+  "next_matches_captured_pre_reset": true,
+  "observation_matches_captured_post_reset": true,
+  "saved_final_state_unchanged_after_following_steps": 3,
+  "d01_bootstrap_mask": [
+    [
+      1.0
+    ]
+  ],
+  "d03": {
+    "steps": [
+      2
+    ],
+    "reward_sum": [
+      [
+        -0.009830326773226261
+      ]
+    ],
+    "expected_old_episode_reward_sum": [
+      [
+        -0.009830326773226261
+      ]
+    ],
+    "discount": [
+      [
+        0.9409000277519226
+      ]
+    ],
+    "bootstrap_mask": [
+      [
+        1.0
+      ]
+    ],
+    "tail_episode_id": [
+      0
+    ],
+    "sequence_valid": [
+      [
+        true,
+        true,
+        false
+      ]
+    ],
+    "excluded_new_episode_reward": [
+      [
+        -0.024698738008737564
+      ]
+    ]
+  },
+  "fsWatcherEnabled": false,
+  "formal_episode_length_s_unchanged": 20
+}

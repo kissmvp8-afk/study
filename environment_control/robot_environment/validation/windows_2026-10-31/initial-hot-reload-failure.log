@@ -1,0 +1,9 @@
+2026-10-31T14:00:39Z [18,883ms] [Info] [omni.ext.plugin] [ext: omni.graph.visualization.nodes-2.1.3] FS Change triggers reloading: c:/users/86193/tita-check/.venv/lib/site-packages/isaacsim/extscache/omni.graph.visualization.nodes-2.1.3/omni/graph/visualization/nodes/tests/__init__.py
+2026-10-31T14:00:39Z [18,903ms] [Info] [omni.ext.plugin] [ext: omni.kit.widget.stage-3.1.4] FS Change triggers reloading: c:/users/86193/tita-check/.venv/lib/site-packages/isaacsim/extscache/omni.kit.widget.stage-3.1.4+69cbf6ad/omni/kit/widget/stage/type_column_delegate.py
+2026-10-31T14:00:39Z [18,907ms] [Info] [omni.ext.plugin] [ext: omni.kit.window.file-2.0.5] FS Change triggers reloading: c:/users/86193/tita-check/.venv/lib/site-packages/isaacsim/extscache/omni.kit.window.file-2.0.5+69cbf6ad/omni/kit/window/file/tests/__init__.py
+2026-10-31T14:00:39Z [18,911ms] [Info] [omni.ext.plugin] [ext: omni.kit.window.popup_dialog-2.0.24] FS Change triggers reloading: c:/users/86193/tita-check/.venv/lib/site-packages/isaacsim/extscache/omni.kit.window.popup_dialog-2.0.24+69cbf6ad/omni/kit/window/popup_dialog/tests/__init__.py
+2026-10-31T14:00:39Z [18,913ms] [Info] [omni.ext.plugin] Processing ext disable request: 'omni.graph.visualization.nodes-2.1.3'
+2026-10-31T14:00:40Z [19,990ms] [Info] [omni.ext.plugin] Processing ext disable request: 'omni.kit.widget.stage-3.1.4'
+2026-10-31T14:00:41Z [20,564ms] [Info] [omni.ext.plugin] Processing ext disable request: 'omni.kit.window.file-2.0.5'
+2026-10-31T14:00:41Z [21,456ms] [Info] [omni.ext.plugin] Processing ext disable request: 'omni.kit.window.popup_dialog-2.0.24'
+2026-10-31T14:00:54Z [1,382ms] [Fatal] [carb.crashreporter-breakpad.plugin] [crash] Crash detected in pid 22128 thread 23524

@@ -55,7 +55,7 @@ INTEGRATION_CHECKS = (
      ("RunConfigTest.test_trainer_runs_on_filled_config",)),
 )
 NOT_RUN_LEVELS = {
-    "simulation": "E01 / E02 / E05 接入代码已实现，真实仿真未验证（需在 Windows + Isaac Lab 2.3.0 上运行 E01 run_sac_isaac.py）",
+    "simulation": "本入口未执行 Isaac 仿真；独立 Windows 平地单环境与截断证据见 E01 验证记录，不能由 CPU 结果推定本层通过",
     "performance": "尚未进行 PPO / SAC 训练对照；T04 只提供评价与报告工具",
 }
 

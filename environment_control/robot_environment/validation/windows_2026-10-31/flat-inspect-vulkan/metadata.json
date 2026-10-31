@@ -1,0 +1,176 @@
+{
+  "mode": "inspect",
+  "task": "isaac_flat",
+  "task_id": "Tita-SAC-Velocity-Flat-v0",
+  "sim_device": "cuda:0",
+  "learner_device": "cpu",
+  "num_envs": 1,
+  "q_dim": 54,
+  "robot_asset": {
+    "commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+    "urdf": "C:\\Users\\86193\\tita-check\\DDT_Lab\\ddt_ros2_control\\urdfs\\tita_description\\urdf\\robot.urdf",
+    "sha256_check": "exact"
+  },
+  "joint_names_articulation_order": [
+    "joint_left_leg_1",
+    "joint_right_leg_1",
+    "joint_left_leg_2",
+    "joint_right_leg_2",
+    "joint_left_leg_3",
+    "joint_right_leg_3",
+    "joint_left_leg_4",
+    "joint_right_leg_4"
+  ],
+  "action_order": [
+    "joint_left_leg_1",
+    "joint_left_leg_2",
+    "joint_left_leg_3",
+    "joint_left_leg_4",
+    "joint_right_leg_1",
+    "joint_right_leg_2",
+    "joint_right_leg_3",
+    "joint_right_leg_4"
+  ],
+  "default_joint_pos": {
+    "joint_left_leg_1": 0.10000000149011612,
+    "joint_right_leg_1": 0.10000000149011612,
+    "joint_left_leg_2": 0.800000011920929,
+    "joint_right_leg_2": 0.800000011920929,
+    "joint_left_leg_3": -1.5,
+    "joint_right_leg_3": -1.5,
+    "joint_left_leg_4": 0.0,
+    "joint_right_leg_4": 0.0
+  },
+  "soft_joint_pos_limits": {
+    "joint_left_leg_1": [
+      -0.7068581581115723,
+      0.7068581581115723
+    ],
+    "joint_right_leg_1": [
+      -0.7068581581115723,
+      0.7068581581115723
+    ],
+    "joint_left_leg_2": [
+      -1.6493356227874756,
+      3.22013258934021
+    ],
+    "joint_right_leg_2": [
+      -1.6493356227874756,
+      3.22013258934021
+    ],
+    "joint_left_leg_3": [
+      -2.571742534637451,
+      -0.7967431545257568
+    ],
+    "joint_right_leg_3": [
+      -2.571742534637451,
+      -0.7967431545257568
+    ],
+    "joint_left_leg_4": [
+      -56548.66015625,
+      56548.66015625
+    ],
+    "joint_right_leg_4": [
+      -56548.66015625,
+      56548.66015625
+    ]
+  },
+  "joint_vel_limits": {
+    "joint_left_leg_1": 14.999999046325684,
+    "joint_right_leg_1": 14.999999046325684,
+    "joint_left_leg_2": 14.999999046325684,
+    "joint_right_leg_2": 14.999999046325684,
+    "joint_left_leg_3": 14.999999046325684,
+    "joint_right_leg_3": 14.999999046325684,
+    "joint_left_leg_4": 30.0,
+    "joint_right_leg_4": 30.0
+  },
+  "timing": {
+    "physics_dt": 0.005,
+    "decimation": 4,
+    "step_dt": 0.02,
+    "max_episode_length": 1000
+  },
+  "command_ranges": {
+    "lin_vel_x": [
+      -1.0,
+      1.0
+    ],
+    "lin_vel_y": [
+      -0.0,
+      0.0
+    ],
+    "ang_vel_z": [
+      -1.0,
+      1.0
+    ]
+  },
+  "obs_term_dims": {
+    "policy": [
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ]
+    ],
+    "critic": [
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ]
+    ],
+    "priv": [
+      [
+        2
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ]
+    ]
+  },
+  "sac_vs_ppo_cfg_differences": {
+    "observations.policy.history_length": [
+      10,
+      0
+    ]
+  },
+  "wheel_speed_basis": {
+    "half_track_m": 0.2825308269103354,
+    "wheel_radius_m": 0.0925,
+    "required_rad_s": 13.865198128760381,
+    "model_limit_rad_s": 30.0
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "mode": "train",
+  "task": "isaac_flat",
+  "task_id": "Tita-SAC-Velocity-Flat-v0",
+  "sim_device": "cuda:0",
+  "learner_device": "cpu",
+  "num_envs": 1,
+  "q_dim": 54,
+  "robot_asset": {
+    "commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+    "urdf": "C:\\Users\\86193\\tita-check\\DDT_Lab\\ddt_ros2_control\\urdfs\\tita_description\\urdf\\robot.urdf",
+    "sha256_check": "exact"
+  },
+  "joint_names_articulation_order": [
+    "joint_left_leg_1",
+    "joint_right_leg_1",
+    "joint_left_leg_2",
+    "joint_right_leg_2",
+    "joint_left_leg_3",
+    "joint_right_leg_3",
+    "joint_left_leg_4",
+    "joint_right_leg_4"
+  ],
+  "action_order": [
+    "joint_left_leg_1",
+    "joint_left_leg_2",
+    "joint_left_leg_3",
+    "joint_left_leg_4",
+    "joint_right_leg_1",
+    "joint_right_leg_2",
+    "joint_right_leg_3",
+    "joint_right_leg_4"
+  ],
+  "default_joint_pos": {
+    "joint_left_leg_1": 0.10000000149011612,
+    "joint_right_leg_1": 0.10000000149011612,
+    "joint_left_leg_2": 0.800000011920929,
+    "joint_right_leg_2": 0.800000011920929,
+    "joint_left_leg_3": -1.5,
+    "joint_right_leg_3": -1.5,
+    "joint_left_leg_4": 0.0,
+    "joint_right_leg_4": 0.0
+  },
+  "soft_joint_pos_limits": {
+    "joint_left_leg_1": [
+      -0.7068581581115723,
+      0.7068581581115723
+    ],
+    "joint_right_leg_1": [
+      -0.7068581581115723,
+      0.7068581581115723
+    ],
+    "joint_left_leg_2": [
+      -1.6493356227874756,
+      3.22013258934021
+    ],
+    "joint_right_leg_2": [
+      -1.6493356227874756,
+      3.22013258934021
+    ],
+    "joint_left_leg_3": [
+      -2.571742534637451,
+      -0.7967431545257568
+    ],
+    "joint_right_leg_3": [
+      -2.571742534637451,
+      -0.7967431545257568
+    ],
+    "joint_left_leg_4": [
+      -56548.66015625,
+      56548.66015625
+    ],
+    "joint_right_leg_4": [
+      -56548.66015625,
+      56548.66015625
+    ]
+  },
+  "joint_vel_limits": {
+    "joint_left_leg_1": 14.999999046325684,
+    "joint_right_leg_1": 14.999999046325684,
+    "joint_left_leg_2": 14.999999046325684,
+    "joint_right_leg_2": 14.999999046325684,
+    "joint_left_leg_3": 14.999999046325684,
+    "joint_right_leg_3": 14.999999046325684,
+    "joint_left_leg_4": 30.0,
+    "joint_right_leg_4": 30.0
+  },
+  "timing": {
+    "physics_dt": 0.005,
+    "decimation": 4,
+    "step_dt": 0.02,
+    "max_episode_length": 1000
+  },
+  "command_ranges": {
+    "lin_vel_x": [
+      -1.0,
+      1.0
+    ],
+    "lin_vel_y": [
+      -0.0,
+      0.0
+    ],
+    "ang_vel_z": [
+      -1.0,
+      1.0
+    ]
+  },
+  "obs_term_dims": {
+    "policy": [
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ]
+    ],
+    "critic": [
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ]
+    ],
+    "priv": [
+      [
+        2
+      ],
+      [
+        8
+      ],
+      [
+        8
+      ]
+    ]
+  },
+  "sac_vs_ppo_cfg_differences": {
+    "observations.policy.history_length": [
+      10,
+      0
+    ]
+  },
+  "wheel_speed_basis": {
+    "half_track_m": 0.2825308269103354,
+    "wheel_radius_m": 0.0925,
+    "required_rad_s": 13.865198128760381,
+    "model_limit_rad_s": 30.0
+  },
+  "train": {
+    "debug_sizes": true,
+    "iterations": 3,
+    "logs": [
+      {
+        "iteration": 0,
+        "collect": {
+          "reward_mean": -0.038758908267482184,
+          "terminated": 0,
+          "time_out": 0
+        },
+        "learn": {
+          "skipped": false,
+          "critic_loss": 0.02658618986606598,
+          "discount_max": 0.8587340116500854,
+          "alpha": 0.049998994916677475,
+          "actor_loss": -0.4298121929168701
+        },
+        "auxiliary": [
+          {
+            "skipped": false,
+            "valid_samples": 103,
+            "loss": 106.63323974609375,
+            "velocity_loss": 0.6001569032669067,
+            "on_diagonal": 95.87791442871094,
+            "off_diagonal": 2031.0330810546875
+          }
+        ],
+        "counters": {
+          "iterations": 1,
+          "env_steps": 8,
+          "transitions": 8,
+          "critic_updates": 1,
+          "actor_updates": 1,
+          "alpha_updates": 1,
+          "target_updates": 1,
+          "auxiliary_updates": 1,
+          "auxiliary_skipped": 0,
+          "replay_samples": 256,
+          "auxiliary_samples": 103,
+          "learning_skipped_iterations": 0
+        }
+      },
+      {
+        "iteration": 1,
+        "collect": {
+          "reward_mean": -0.05994336277944967,
+          "terminated": 1,
+          "time_out": 0
+        },
+        "learn": {
+          "skipped": false,
+          "critic_loss": 0.05356457084417343,
+          "discount_max": 0.9700000286102295,
+          "alpha": 0.04999799653887749
+        },
+        "auxiliary": [
+          {
+            "skipped": false,
+            "valid_samples": 142,
+            "loss": 59.945823669433594,
+            "velocity_loss": 0.9454969763755798,
+            "on_diagonal": 56.13771057128906,
+            "off_diagonal": 572.5233154296875
+          }
+        ],
+        "counters": {
+          "iterations": 2,
+          "env_steps": 16,
+          "transitions": 16,
+          "critic_updates": 2,
+          "actor_updates": 1,
+          "alpha_updates": 2,
+          "target_updates": 2,
+          "auxiliary_updates": 2,
+          "auxiliary_skipped": 0,
+          "replay_samples": 512,
+          "auxiliary_samples": 245,
+          "learning_skipped_iterations": 0
+        }
+      },
+      {
+        "iteration": 2,
+        "collect": {
+          "reward_mean": -0.041946352808736265,
+          "terminated": 0,
+          "time_out": 0
+        },
+        "learn": {
+          "skipped": false,
+          "critic_loss": 0.0325470045208931,
+          "discount_max": 0.9700000286102295,
+          "alpha": 0.0499969944357872,
+          "actor_loss": -0.38850894570350647
+        },
+        "auxiliary": [
+          {
+            "skipped": false,
+            "valid_samples": 148,
+            "loss": 31.330135345458984,
+            "velocity_loss": 1.0200897455215454,
+            "on_diagonal": 27.680286407470703,
+            "off_diagonal": 525.9517822265625
+          }
+        ],
+        "counters": {
+          "iterations": 3,
+          "env_steps": 24,
+          "transitions": 24,
+          "critic_updates": 3,
+          "actor_updates": 2,
+          "alpha_updates": 3,
+          "target_updates": 3,
+          "auxiliary_updates": 3,
+          "auxiliary_skipped": 0,
+          "replay_samples": 768,
+          "auxiliary_samples": 393,
+          "learning_skipped_iterations": 0
+        }
+      }
+    ],
+    "checkpoint": "C:\\Users\\86193\\tita-check\\runs\\flat-train\\checkpoint.pt",
+    "resume_mode": "exact_replay",
+    "after_resume": [
+      {
+        "iteration": 3,
+        "collect": {
+          "reward_mean": -0.016242705867625773,
+          "terminated": 0,
+          "time_out": 0
+        },
+        "learn": {
+          "skipped": false,
+          "critic_loss": 0.023691922426223755,
+          "discount_max": 0.9700000286102295,
+          "alpha": 0.049995992332696915
+        },
+        "auxiliary": [
+          {
+            "skipped": false,
+            "valid_samples": 134,
+            "loss": 20.430030822753906,
+            "velocity_loss": 1.0139961242675781,
+            "on_diagonal": 16.984495162963867,
+            "off_diagonal": 486.307861328125
+          }
+        ],
+        "counters": {
+          "iterations": 4,
+          "env_steps": 32,
+          "transitions": 32,
+          "critic_updates": 4,
+          "actor_updates": 2,
+          "alpha_updates": 4,
+          "target_updates": 4,
+          "auxiliary_updates": 4,
+          "auxiliary_skipped": 0,
+          "replay_samples": 1024,
+          "auxiliary_samples": 527,
+          "learning_skipped_iterations": 0
+        }
+      }
+    ]
+  }
+}

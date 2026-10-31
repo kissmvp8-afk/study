@@ -1,0 +1,11 @@
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "environment_control\\robot_environment\\diagnose_timeout_isaac.py", "--headless", "--kit_args=--vulkan --/app/extensions/fsWatcherEnabled=false", "--output_dir", "C:\\Users\\86193\\tita-check\\runs\\flat-timeout-diagnostic"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T22:23:41.018189"}
+2026-10-31T14:23:50Z [9,507ms] [Error] [gpu.foundation.plugin] DriverShaderCacheManager::init() called with a different graphics interface, without a shutdown()!
+2026-10-31T14:23:51Z [10,136ms] [Warning] [carb.graphics-vulkan.plugin] Aftermath Error 0xbad00009
+  "status": "passed",
+  "method": "counter_advanced_real_physics_timeout",
+          "time_out": true,
+      "pure_timeout": true
+  "time_out": true,
+  "actual_seconds_to_timeout": 0.04,
+  "fsWatcherEnabled": false,
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "environment_control\\robot_environment\\diagnose_timeout_isaac.py", "--headless", "--kit_args=--vulkan --/app/extensions/fsWatcherEnabled=false", "--output_dir", "C:\\Users\\86193\\tita-check\\runs\\flat-timeout-diagnostic"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T22:23:41.018189", "exit_code": 0, "seconds": 16.61, "finished": "2026-10-31T22:23:57.635134"}

@@ -1,0 +1,5 @@
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "environment_control\\robot_environment\\run_sac_isaac.py", "--task", "isaac_flat", "--mode", "inspect", "--num_envs", "1", "--headless", "--output_dir", "C:\\Users\\86193\\tita-check\\runs\\flat-inspect"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T22:00:20.180116"}
+2026-10-31T14:00:30Z [9,914ms] [Error] [gpu.foundation.plugin] DriverShaderCacheManager::init() called with a different graphics interface, without a shutdown()!
+2026-10-31T14:00:31Z [10,843ms] [Warning] [carb.graphics-vulkan.plugin] Aftermath Error 0xbad00009
+Windows fatal exception: access violation
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "environment_control\\robot_environment\\run_sac_isaac.py", "--task", "isaac_flat", "--mode", "inspect", "--num_envs", "1", "--headless", "--output_dir", "C:\\Users\\86193\\tita-check\\runs\\flat-inspect"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T22:00:20.180116", "exit_code": 3221225477, "seconds": 34.5, "finished": "2026-10-31T22:00:54.674007"}

@@ -1,0 +1,15 @@
+{
+  "task": "isaac_flat",
+  "num_envs": 1,
+  "learner_device": "cpu",
+  "sim_device": "cuda:0",
+  "wheel_speed_limit_rad_s": 20,
+  "wheel_speed_selection_status": "首次仿真调试选择，尚未验证",
+  "wheel_speed_is_code_default": false,
+  "iterations": 3,
+  "steps_per_iteration": 8,
+  "capacity_per_env": 200,
+  "resume_iterations": 1,
+  "randomize_initial_episode_length": false,
+  "kit_args": "--vulkan --/app/extensions/fsWatcherEnabled=false"
+}
