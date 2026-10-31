@@ -29,7 +29,7 @@
     "human_guide_author": "Codex",
     "human_guides_status": {
       "E03": "completed_and_polished",
-      "E04": "awaiting_codex_draft",
+      "E04": "completed_and_polished",
       "others": "placeholders_awaiting_implementation"
     },
     "implementation_author": "Claude",

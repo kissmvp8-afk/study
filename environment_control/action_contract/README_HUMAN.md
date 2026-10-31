@@ -426,7 +426,7 @@ git fetch origin baseline/ppo
 | 下一站模块 | 与本模块 E03 的衔接关系 | 当前实现状态 |
 |---|---|---|
 | [同目录 AI 规范](README.md) | 查看严谨的技术实施约束、原始提交记录与交接证据 | 单元验证已通过（纯数据范围） |
-| [E04 动作边界契约](../action_bounds/README.md) · [人类版占位](../action_bounds/README_HUMAN.md) | **直属下游**。将读取本模块的 scale、默认目标和控制类型，反推策略动作的合法取值范围和初始中心点 | 待实现 |
+| [E04 动作边界契约](../action_bounds/README.md) · [人类版占位](../action_bounds/README_HUMAN.md) | **直属下游**。将读取本模块的 scale、默认目标和控制类型，反推策略动作的合法取值范围和初始中心点 | 纯数据实现与单元验证完成，人类版按实际进度记录 |
 | [D01 经历记录契约](../../experience_returns/transition_schema/README.md) · [人类版占位](../../experience_returns/transition_schema/README_HUMAN.md) | 规范经验回放池的数据格式，确保记录的动作为无量纲的策略动作坐标，与本模块定义严格保持一致 | 待实现 |
 | [N03 SAC 动作分布契约](../../networks_learning/actor_distribution/README.md) · [人类版占位](../../networks_learning/actor_distribution/README_HUMAN.md) | SAC 算法的策略网络（Actor），负责依据 E04 边界输出八维动作向量。不能把本模块的换算函数误当作 Actor | 待实现 |
 | [E01 机器人环境契约](../robot_environment/README.md) | 真实仿真环境接入。接入后将从物理引擎的 `env.action_manager` 中读取实际动作项，最终核验顺序与默认值 | 待实现 |

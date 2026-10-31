@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [bounds.py](bounds.py) 与 [test_bounds.py](test_bounds.py)，14 项无仿真检查通过；软限位与工作轮速仍是调用方传入的人工数据，未接入仿真或 Actor，未进行训练或性能验证。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（已完成讲解与润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -129,10 +129,10 @@ python3 -B environment_control/action_contract/test_contract.py -v   # 依赖的
 | 代码注释核对 | 已逐项核对本模块的注释重点：物理限位反推（`derive_bounds` docstring）、轮速独立配置（按控制类型选字典，不读取轮子角度限位）、非对称中心校准（`calibrate_initial_center`）、不可达目标的拒绝（`validate_bounds` 的 L<0<U 检查与校准中的开区间检查），以及与作者 `_compute_action_scaling` 的三处差异（文件头） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.14.5；`python3 -B environment_control/action_bounds/test_bounds.py -v` → `Ran 14 tests … OK`；E03 `test_contract.py` → `Ran 18 tests … OK`；两份文件在 3.11 下语法解析通过，本机没有 3.11 解释器，未实际运行 |
 | 未验证项 | TITA 实际软限位（需要 URDF 与 Isaac Lab 的 `soft_joint_pos_limits`，ddt_ros2_control 版本未锁定）；TITA 工作轮速的取值（需人工确定，不能直接用 30 rad/s）；N03 Actor 接入；随机采样动作的分布与开局姿态；Python 3.11 实际运行；仿真、训练与性能 |
-| 代码版本 | 基于 `752ebbd`（main，含 E03）；提交号以本分支 `claude/e04-action-bounds` 的 PR 记录为准 |
+| 代码版本 | 实现与验证代码：`4f0ad6e6ea3a06a786f50f120196bfdedcda51f2`（基于 `752ebbd`，main，含 E03），此后 `bounds.py`、`test_bounds.py` 没有改动。人类版讲解在其后的文档提交中，均在分支 `claude/e04-action-bounds`（PR #3） |
 | 本次改动及理由 | 首次实现 E04：作者的绝对值写法和全局 scale 无法处理默认姿态越界与 TITA 轮速，因此改为每维带符号反推，并校准非对称区间下的初始确定性动作 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E03 AI 规范与 `contract.py`；带注释的 `bounds.py`、`test_bounds.py`；上述验证记录；作者 `sac.py` 中 `_compute_action_scaling` 与 `sac_mlp_model.py` 中 tanh 映射的固定版本。建议 Codex 重点解释 `derive_bounds` 中按控制类型选择范围、`validate_bounds` 中 L<0<U 的含义，以及 `calibrate_initial_center` 中 atanh 反推与“只校准确定性动作”的限制 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| 人类版 | 已完成讲解与润色；状态与核对范围以 [README_HUMAN.md](README_HUMAN.md) 的元数据为准 |
+| 技术初稿 / 语言润色 | Codex 已依据 `4f0ad6e` 完成技术初稿与核对，Gemini 已完成语言润色；两者都不包含仿真验证或重跑测试 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
