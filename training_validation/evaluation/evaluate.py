@@ -20,8 +20,14 @@
       无单位；不跨 episode 求差。
     - 力矩：|τ| 的平均与 τ² 的平均（N·m、N²·m²），按步与关节平均。
     - 耗时与内存：记录中的墙钟时间（s）与峰值内存（字节），缺失则 missing。
-对照（compare_runs）：两组运行（建议各至少 3 个训练随机起点）按交互步数或实际耗时两种预算分别比较；
+对照（compare_runs）：两组运行（各至少 3 个不同的有效训练随机起点）按交互步数或实际耗时两种预算之一比较。
+所选预算必须满足可比条件，否则只展示差异、不判定：
+    - interaction_steps：两组全部记录的交互步数必须相等（固定配置下可精确控制）；
+    - wall_time：两组全部记录的墙钟时间满足 最大值 ≤ 最小值 × (1 + WALL_TIME_RELATIVE_TOLERANCE)，
+      容差 5% 是本项目暂定的约定（未经验证），写入结果的 budget_check 中。
 验收阈值必须在得到 PPO 波动范围后、正式 SAC 比较前固定，未给出阈值时只报告差异，不判定优劣。
+随机起点按有效（非空）且互不相同的 training_seed 计数（distinct_training_seeds），不按记录条数；
+compare_runs 与 write_report 使用同一口径。
 """
 
 from __future__ import annotations
@@ -36,6 +42,7 @@ import torch
 END_REASONS = ("terminated", "time_out", "unfinished")
 REQUIRED_PROVENANCE = ("algorithm", "model_source", "config_name", "code_commit", "training_seed")
 MIN_RECOMMENDED_SEEDS = 3
+WALL_TIME_RELATIVE_TOLERANCE = 0.05  # 耗时预算的相对容差：本项目暂定约定，未经验证
 CONTROL_DT = 0.02  # 策略周期 0.02 s（50 Hz），根 README 统一约定
 
 
@@ -140,6 +147,35 @@ def compute_metrics(record: EvaluationRecord) -> dict[str, MetricValue]:
     return metrics
 
 
+def distinct_training_seeds(records: list[EvaluationRecord]) -> list:
+    """有效（非 None、非空字符串）且互不相同的训练随机起点，按字符串排序。重复种子的多份记录只算一个起点。"""
+    seeds = {r.provenance.get("training_seed") for r in records}
+    return sorted((s for s in seeds if s not in (None, "")), key=str)
+
+
+def check_budget(baseline: list[EvaluationRecord], candidate: list[EvaluationRecord], budget: str) -> dict:
+    """检查所选预算在两组全部记录之间是否可比，返回 {rule, values, comparable, reason}。
+
+    interaction_steps 必须全部相等；wall_time 要求 最大值 ≤ 最小值 × (1 + WALL_TIME_RELATIVE_TOLERANCE)。
+    任一记录缺少该预算时不可比。
+    """
+    field = "interaction_steps" if budget == "interaction_steps" else "wall_time_s"
+    values = {"baseline": [getattr(r, field) for r in baseline], "candidate": [getattr(r, field) for r in candidate]}
+    flat = values["baseline"] + values["candidate"]
+    if budget == "interaction_steps":
+        rule = "两组全部记录的交互步数相等"
+    else:
+        rule = f"最大墙钟时间 ≤ 最小墙钟时间 × (1 + {WALL_TIME_RELATIVE_TOLERANCE})（暂定容差）"
+    if not flat or any(v is None for v in flat):
+        return {"rule": rule, "values": values, "comparable": False, "reason": f"有记录缺少 {budget} 预算"}
+    if budget == "interaction_steps":
+        comparable = len(set(flat)) == 1
+    else:
+        comparable = min(flat) > 0 and max(flat) <= min(flat) * (1 + WALL_TIME_RELATIVE_TOLERANCE)
+    reason = None if comparable else f"{budget} 预算不满足可比条件：{rule}；实际 {values}"
+    return {"rule": rule, "values": values, "comparable": comparable, "reason": reason}
+
+
 def missing_provenance(record: EvaluationRecord) -> list[str]:
     """缺少的来源字段（模型来源、配置、代码版本、训练随机起点等）。"""
     return [key for key in REQUIRED_PROVENANCE if record.provenance.get(key) in (None, "")]
@@ -200,27 +236,29 @@ def summarize_runs(records: list[EvaluationRecord]) -> dict:
         else:
             summary[name] = {"status": "measured", "values": values, "mean": mean(values),
                              "std": pstdev(values) if len(values) > 1 else None, "unit": per_run[0][name].unit}
-    seeds = sorted({r.provenance.get("training_seed") for r in records}, key=str)
-    return {"runs": len(records), "training_seeds": seeds, "metrics": summary}
+    return {"runs": len(records), "training_seeds": distinct_training_seeds(records), "metrics": summary}
 
 
 def compare_runs(baseline: list[EvaluationRecord], candidate: list[EvaluationRecord], budget: str,
                  thresholds: dict[str, float] | None = None) -> dict:
-    """比较两组运行（例如 PPO 与 SAC）。budget 为 "interaction_steps" 或 "wall_time"，必须在两组记录中都有值。
+    """比较两组运行（例如 PPO 与 SAC）。budget 为 "interaction_steps" 或 "wall_time"，须满足 check_budget 的可比条件。
 
     thresholds：{指标名: 允许的 candidate − baseline 上限}，必须在正式比较前固定；None 时只报告差异、不判定。
-    返回各指标的两组均值、差值、判定（或“阈值未固定”）以及阻止下结论的原因列表。
+    任一阻断条件成立（随机起点不足、缺来源、预算不可比、阈值未固定）时仍返回各指标差异，
+    但 conclusion_allowed=False、全部 verdict 为 None，并在 conclusion_blockers 中写明原因。
     """
     if budget not in ("interaction_steps", "wall_time"):
         raise ValueError("budget 必须是 interaction_steps 或 wall_time")
     blockers = []
     for label, group in (("baseline", baseline), ("candidate", candidate)):
-        if len({r.provenance.get("training_seed") for r in group}) < MIN_RECOMMENDED_SEEDS:
-            blockers.append(f"{label} 的训练随机起点少于 {MIN_RECOMMENDED_SEEDS} 个")
+        seeds = distinct_training_seeds(group)
+        if len(seeds) < MIN_RECOMMENDED_SEEDS:
+            blockers.append(f"{label} 只有 {len(seeds)} 个不同的有效训练随机起点（{len(group)} 份记录），少于 {MIN_RECOMMENDED_SEEDS} 个")
         if any(missing_provenance(r) for r in group):
             blockers.append(f"{label} 有记录缺少来源信息")
-        if any((r.interaction_steps if budget == "interaction_steps" else r.wall_time_s) is None for r in group):
-            blockers.append(f"{label} 有记录缺少 {budget} 预算")
+    budget_check = check_budget(baseline, candidate, budget)
+    if not budget_check["comparable"]:
+        blockers.append(budget_check["reason"])
     if thresholds is None:
         blockers.append("验收阈值尚未固定（应在获得 PPO 波动范围后、正式 SAC 比较前固定）")
     a, b = summarize_runs(baseline), summarize_runs(candidate)
@@ -235,18 +273,21 @@ def compare_runs(baseline: list[EvaluationRecord], candidate: list[EvaluationRec
         if thresholds is not None and name in thresholds and not blockers:
             verdict = "通过" if diff <= thresholds[name] else "未通过"
         rows[name] = {"baseline_mean": ma["mean"], "candidate_mean": mb["mean"], "difference": diff, "verdict": verdict}
-    return {"budget": budget, "metrics": rows, "conclusion_blockers": blockers, "conclusion_allowed": not blockers}
+    return {"budget": budget, "budget_check": budget_check, "metrics": rows, "conclusion_blockers": blockers,
+            "conclusion_allowed": not blockers}
 
 
 def write_report(records: list[EvaluationRecord], path: Path) -> dict:
     """写出评价报告（JSON）：样本量、各指标（含缺失标记）、多次运行的波动、来源与未验证部分。
 
-    缺少来源信息或训练随机起点不足时，report["performance_conclusion"] 标为不发布，并写明原因。
+    缺少来源信息，或不同的有效训练随机起点少于 3 个（与 compare_runs 同一口径，不按记录条数）时，
+    report["performance_conclusion"] 标为不发布，并写明原因。
     """
     summary = summarize_runs(records)
     blockers = [f"运行 {i} 缺少来源字段 {missing}" for i, r in enumerate(records) if (missing := missing_provenance(r))]
-    if summary["runs"] < MIN_RECOMMENDED_SEEDS:
-        blockers.append(f"只有 {summary['runs']} 次运行，建议至少 {MIN_RECOMMENDED_SEEDS} 个训练随机起点")
+    seeds = distinct_training_seeds(records)
+    if len(seeds) < MIN_RECOMMENDED_SEEDS:
+        blockers.append(f"只有 {len(seeds)} 个不同的有效训练随机起点（{len(records)} 份记录），建议至少 {MIN_RECOMMENDED_SEEDS} 个")
     report = {
         "runs": [{"provenance": r.provenance, "episodes": len(r.episodes), "steps": sum(ep.steps for ep in r.episodes),
                   "metrics": {k: _metric_to_dict(v) for k, v in compute_metrics(r).items()}} for r in records],

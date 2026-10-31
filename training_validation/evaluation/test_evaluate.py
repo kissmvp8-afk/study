@@ -36,7 +36,7 @@ from fake_env import FakeLocomotionEnv  # noqa: E402
 PROVENANCE = {"algorithm": "sac", "model_source": "人工记录", "config_name": "manual", "code_commit": "manual", "training_seed": 0}
 
 
-def manual_record(provenance=PROVENANCE, torques=False) -> EvaluationRecord:
+def manual_record(provenance=PROVENANCE, torques=False, interaction_steps=1000, wall_time_s=12.5) -> EvaluationRecord:
     """三个人工 episode：真终止（2 步）、正常到时（1 步）、未完成（3 步）。"""
     ep1 = EvaluationEpisode(
         actions=torch.stack([torch.zeros(8), torch.ones(8)]), end_reason="terminated",
@@ -51,7 +51,8 @@ def manual_record(provenance=PROVENANCE, torques=False) -> EvaluationRecord:
         actions=torch.stack([torch.zeros(8), torch.full((8,), 0.5), torch.full((8,), 0.5)]), end_reason="unfinished",
         commanded_velocity=torch.zeros(3, 3), measured_velocity=torch.zeros(3, 3),
         joint_torques=torch.zeros(3, 8) if torques else None)
-    return EvaluationRecord(provenance=dict(provenance), episodes=(ep1, ep2, ep3), interaction_steps=1000, wall_time_s=12.5)
+    return EvaluationRecord(provenance=dict(provenance), episodes=(ep1, ep2, ep3), interaction_steps=interaction_steps,
+                            wall_time_s=wall_time_s)
 
 
 class MetricTest(unittest.TestCase):
@@ -126,7 +127,55 @@ class ReportAndComparisonTest(unittest.TestCase):
         self.assertEqual(fixed["metrics"]["torque_abs_mean"], {"status": "missing"})
         no_budget = compare_runs(ppo[:2], sac, "wall_time", thresholds={})
         self.assertFalse(no_budget["conclusion_allowed"])
-        self.assertTrue(any("随机起点少于 3" in b for b in no_budget["conclusion_blockers"]))
+        self.assertTrue(any("2 个不同的有效训练随机起点" in b and "少于 3 个" in b for b in no_budget["conclusion_blockers"]))
+
+
+class BudgetAndSeedRegressionTest(unittest.TestCase):
+    """回归：预算必须可比；随机起点按不同的有效种子计数。"""
+
+    @staticmethod
+    def group(algorithm, seeds=(0, 1, 2), **budget):
+        return [manual_record(dict(PROVENANCE, algorithm=algorithm, training_seed=s), **budget) for s in seeds]
+
+    def assert_blocked(self, result, pattern):
+        self.assertFalse(result["conclusion_allowed"])
+        self.assertTrue(all(row.get("verdict") is None for row in result["metrics"].values()))
+        self.assertTrue(any(pattern in b for b in result["conclusion_blockers"]), result["conclusion_blockers"])
+
+    def test_interaction_steps_differ_by_1000x(self) -> None:
+        result = compare_runs(self.group("ppo", interaction_steps=1_000), self.group("sac", interaction_steps=1_000_000),
+                              "interaction_steps", thresholds={"fall_rate": 0.0})
+        self.assert_blocked(result, "interaction_steps 预算不满足可比条件")
+        self.assertIn("difference", result["metrics"]["fall_rate"])  # 差异照常展示，只是不判定
+        self.assertFalse(result["budget_check"]["comparable"])
+
+    def test_wall_time_outside_tolerance(self) -> None:
+        result = compare_runs(self.group("ppo", wall_time_s=12.5), self.group("sac", wall_time_s=20.0),
+                              "wall_time", thresholds={"fall_rate": 0.0})
+        self.assert_blocked(result, "wall_time 预算不满足可比条件")
+        self.assertIn("0.05", result["budget_check"]["rule"])  # 容差写入结果
+        # 对照：相差 4%（12.5 → 13.0）在 5% 暂定容差内，可以判定。
+        within = compare_runs(self.group("ppo", wall_time_s=12.5), self.group("sac", wall_time_s=13.0),
+                              "wall_time", thresholds={"fall_rate": 0.0})
+        self.assertTrue(within["conclusion_allowed"])
+        self.assertEqual(within["metrics"]["fall_rate"]["verdict"], "通过")
+
+    def test_three_records_with_same_seed_are_one_seed(self) -> None:
+        same = self.group("sac", seeds=(7, 7, 7))
+        with tempfile.TemporaryDirectory() as tmp:
+            report = write_report(same, Path(tmp) / "report.json")
+        self.assertTrue(report["performance_conclusion"].startswith("不发布"))
+        self.assertIn("只有 1 个不同的有效训练随机起点（3 份记录）", report["performance_conclusion"])
+        self.assertEqual(report["summary"]["training_seeds"], [7])
+        self.assert_blocked(compare_runs(self.group("ppo"), same, "interaction_steps", thresholds={"fall_rate": 0.0}),
+                            "candidate 只有 1 个不同的有效训练随机起点")
+
+    def test_matching_budget_and_three_seeds_still_pass(self) -> None:
+        result = compare_runs(self.group("ppo"), self.group("sac"), "interaction_steps", thresholds={"fall_rate": 0.0})
+        self.assertTrue(result["conclusion_allowed"] and result["budget_check"]["comparable"])
+        self.assertEqual(result["metrics"]["fall_rate"]["verdict"], "通过")
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertFalse(write_report(self.group("sac"), Path(tmp) / "r.json")["performance_conclusion"].startswith("不发布"))
 
 
 class RunEvaluationTest(unittest.TestCase):

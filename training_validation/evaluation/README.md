@@ -1,6 +1,6 @@
 # T04 · PPO 与 SAC 对照评价｜AI 实施规范
 
-状态：单元验证通过（CPU、人工记录）。已实现 [evaluate.py](evaluate.py) 与 [test_evaluate.py](test_evaluate.py)，8 项检查通过；真实 PPO / SAC 对照尚未运行，**没有任何性能结论**。
+状态：单元验证通过（CPU、人工记录）。已实现 [evaluate.py](evaluate.py) 与 [test_evaluate.py](test_evaluate.py)，12 项检查通过；真实 PPO / SAC 对照尚未运行，**没有任何性能结论**。
 
 [人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
@@ -40,9 +40,11 @@
 | `validate_record` | `(record) -> None` | 检查结束原因与各信号形状 |
 | `compute_metrics` | `(record) -> dict[str, MetricValue]` | 指标与口径见下表 |
 | `run_evaluation` | `(policy, env, num_steps, provenance, signals=None, control_dt=0.02) -> EvaluationRecord` | 在 T02 `reset` / `step` 接口的环境上运行确定性策略；`signals(step)` 提供速度指令、真实速度、力矩，未提供时为缺失 |
-| `summarize_runs` | `(records) -> dict` | 多次运行（不同训练随机起点）的各次值、均值与总体标准差；任一次缺失则为 missing |
-| `compare_runs` | `(baseline, candidate, budget, thresholds=None) -> dict` | budget 为 `interaction_steps` 或 `wall_time`；阈值未固定、随机起点少于 3、缺少来源或预算时 `conclusion_allowed=False`，不判定 |
-| `write_report` | `(records, path) -> dict` | 写 JSON 报告：样本量、指标（缺失写 null）、波动、来源；缺来源或随机起点不足时 `performance_conclusion` 以“不发布”开头 |
+| `distinct_training_seeds` | `(records) -> list` | 有效（非空）且互不相同的 training_seed；重复种子的多份记录只算一个随机起点 |
+| `check_budget` | `(baseline, candidate, budget) -> dict` | 返回 rule、values、comparable、reason。交互步数：两组全部记录相等；耗时：最大值 ≤ 最小值 × (1 + `WALL_TIME_RELATIVE_TOLERANCE`)，容差 0.05 为本项目暂定约定（未经验证）。缺少预算时不可比 |
+| `summarize_runs` | `(records) -> dict` | 多次运行的各次值、均值与总体标准差；任一次缺失则为 missing；`training_seeds` 为 `distinct_training_seeds` 的结果 |
+| `compare_runs` | `(baseline, candidate, budget, thresholds=None) -> dict` | budget 为 `interaction_steps` 或 `wall_time`。以下任一条件成立时，仍展示各指标差异，但 `conclusion_allowed=False`、全部 verdict 为 None，并在 `conclusion_blockers` 中写明原因：任一组不同的有效训练随机起点少于 3、缺少来源、`check_budget` 不可比、阈值未固定。结果包含 `budget_check` |
+| `write_report` | `(records, path) -> dict` | 写 JSON 报告：样本量、指标（缺失写 null）、波动、来源；缺来源，或不同的有效训练随机起点少于 3（与 `compare_runs` 同一口径，不按记录条数）时，`performance_conclusion` 以“不发布”开头 |
 
 ### 指标与统计口径
 
@@ -59,6 +61,11 @@
 | `wall_time` / `peak_memory` / `interaction_steps` | s / 字节 / 步 | 记录值，缺失为 missing |
 
 只要有一个 episode 缺少某项信号，该指标就整体标为 missing，不对部分 episode 求平均。
+
+对照与报告的口径：
+- 随机起点按 `distinct_training_seeds` 计数：同一个种子的多份记录只算一个起点。
+- 所选预算必须可比：交互步数要求完全相等；耗时允许 5% 的相对差异，这是暂定约定，未经验证，会记录在结果的 `budget_check.rule` 中。
+- 不满足条件时仍展示差异，只是不判定。
 
 ## 必须成立的规则
 
@@ -96,6 +103,10 @@
 | 未知结束原因被拒绝 | `MetricTest.test_rejects_unknown_end_reason` | 通过 |
 | 报告：缺 model_source、只有 1 次运行时“不发布”，JSON 中缺失写 null；3 个随机起点且来源齐全时不再阻断 | `ReportAndComparisonTest.test_report_blocks_conclusion_without_provenance_or_seeds` | 通过 |
 | 对照：阈值未固定时不判定；固定阈值、3 个随机起点、预算齐全时给出判定；随机起点不足或缺预算时阻断 | `ReportAndComparisonTest.test_compare_requires_fixed_thresholds_seeds_and_budget` | 通过 |
+| 回归：两组交互步数相差 1000 倍（1e3 对 1e6）时不判定，verdict 全为 None，差异照常展示 | `BudgetAndSeedRegressionTest.test_interaction_steps_differ_by_1000x` | 通过 |
+| 回归：耗时 12.5 s 对 20.0 s 超出 5% 容差时不判定，容差写入 `budget_check.rule`；12.5 s 对 13.0 s（4%）在容差内，可以判定 | `BudgetAndSeedRegressionTest.test_wall_time_outside_tolerance` | 通过 |
+| 回归：同一个种子的 3 份记录只算 1 个随机起点，报告“不发布”，对照阻断 | `BudgetAndSeedRegressionTest.test_three_records_with_same_seed_are_one_seed` | 通过 |
+| 回归：预算相同、3 个不同种子的正常案例仍可判定，报告不阻断 | `BudgetAndSeedRegressionTest.test_matching_budget_and_three_seeds_still_pass` | 通过 |
 | 假环境评价：结束原因为 2 个真终止、1 个到时、2 个未完成；速度指标在假环境中为 missing，提供 signals 后为 measured | `RunEvaluationTest` | 通过 |
 
 调试记录：首次运行时 1 项失败。原因是人工记录为 float32 张量（0.7、0.4 不能精确表示），9 位小数的比较过严；改为 6 位，实现无改动。
@@ -132,13 +143,13 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
 | 实现状态 | 单元验证通过（CPU）；Isaac 仿真、真实训练与性能验证未开始 |
-| 实际文件、函数签名与调用关系 | [evaluate.py](evaluate.py)：见上表；`run_evaluation` 使用 T02 环境接口（`reset` / `step`）。[test_evaluate.py](test_evaluate.py)：3 个测试类共 8 项 |
+| 实际文件、函数签名与调用关系 | [evaluate.py](evaluate.py)：见上表；`run_evaluation` 使用 T02 环境接口（`reset` / `step`）。[test_evaluate.py](test_evaluate.py)：4 个测试类共 12 项 |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`write_report` 写文件，`run_evaluation` 调用环境；其余函数只读 |
 | 代码注释核对 | 已核对：指标的分母与统计范围、时间截断与摔倒的区别、随机起点与阈值固定的原因（文件头、`compute_metrics`、`compare_runs`） |
-| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/evaluation/test_evaluate.py -v` → `Ran 8 tests … OK`（首次运行有 1 项因测试精度失败，见“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/evaluation/test_evaluate.py -v` → `Ran 12 tests … OK`（首次实现时为 8 项，其中 1 项曾因测试精度失败，见“调试记录”；预算与随机起点修复后新增 4 项回归）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
 | 未验证项 | Isaac 仿真中的 PPO 与 SAC 评价运行（速度指令、真实速度、力矩信号来自 E01 / E02）；评价指令序列与时长；PPO 波动范围与验收阈值；视频记录；真实耗时与内存 |
 | 代码版本 | `a8a44fc77b387a9d853e4e290843133fadfeb2cc`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
-| 本次改动及理由 | 首次实现 T04：只提供评价数据接口、指标、报告与对照规则；证据不足时阻断性能结论 |
+| 本次改动及理由 | 首次实现 T04：只提供评价数据接口、指标、报告与对照规则；证据不足时阻断性能结论。审核修复：原 `compare_runs` 只检查预算有没有值，现要求所选预算可比（交互步数相等；耗时在 5% 暂定容差内）；原 `write_report` 按记录条数判断随机起点，现与 `compare_runs` 一样按不同的有效 training_seed 计数 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `evaluate.py`、`test_evaluate.py`；原 PPO `play.py`。建议 Codex 重点解释各指标的口径、摔倒与到时的区别、缺失标记，以及阻断结论的条件 |
 | 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
