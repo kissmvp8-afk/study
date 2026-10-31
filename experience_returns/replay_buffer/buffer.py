@@ -244,3 +244,28 @@ class ReplayBuffer:
             valid[:, j] = valid[:, j - 1] & linked[rows[:, j - 1], seq_slots[:, j - 1]]
         fields = {name: store[rows, seq_slots] for name, store in self._storage.items()}
         return SequenceBatch(fields=fields, valid=valid, env_ids=env_ids, slots=seq_slots)
+
+    def state_dict(self) -> dict:
+        """导出可保存的完整状态（供 T03 检查点）：形状参数、全部字段存储、写入序号与每环境写入次数，均为副本。
+
+        写入序号与写入次数决定覆盖代次和下一次写入的槽位，缺少它们恢复后会把新旧记录错误连接。
+        """
+        return {
+            "num_envs": self.num_envs,
+            "capacity_per_env": self.capacity_per_env,
+            "q_dim": self.q_dim,
+            "storage": {name: tensor.clone() for name, tensor in self._storage.items()},
+            "write_seq": self._write_seq.clone(),
+            "writes": self._writes.clone(),
+        }
+
+    def load_state_dict(self, state: dict) -> None:
+        """从 state_dict 的结果恢复（复制进本经验池已分配的存储）；形状参数或字段不一致时报错。"""
+        expected = (self.num_envs, self.capacity_per_env, self.q_dim)
+        found = (state["num_envs"], state["capacity_per_env"], state["q_dim"])
+        if found != expected or set(state["storage"]) != set(self._storage):
+            raise ReplayBufferError(f"经验池状态 {found} 与当前 {expected} 不符，或字段不一致")
+        for name, tensor in self._storage.items():
+            tensor.copy_(state["storage"][name])
+        self._write_seq.copy_(state["write_seq"])
+        self._writes.copy_(state["writes"])

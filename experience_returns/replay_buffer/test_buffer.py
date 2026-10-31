@@ -219,5 +219,31 @@ class CapacityAndErrorTest(unittest.TestCase):
             read.at(torch.tensor([1]))
 
 
+class StateTest(unittest.TestCase):
+    """state_dict / load_state_dict：恢复后有效起点、读取与后续写入位置都与原经验池一致。"""
+
+    def test_round_trip_and_continued_writes(self) -> None:
+        original = ReplayBuffer(num_envs=2, capacity_per_env=4, q_dim=Q_DIM)
+        for step in range(6):  # 环境 0 已覆盖一圈半，环境 1 未满
+            original.append(make_records([(0, 0, step)] + ([(1, 2, step)] if step < 3 else [])))
+        state = original.state_dict()
+        restored = ReplayBuffer(num_envs=2, capacity_per_env=4, q_dim=Q_DIM)
+        restored.load_state_dict(state)
+        for n in (1, 2, 3):
+            self.assertTrue(all(torch.equal(a, b) for a, b in zip(original.valid_starts(n), restored.valid_starts(n))))
+        env_ids, slots = original.valid_starts(2)
+        a, b = original.read_sequence(env_ids, slots, 2), restored.read_sequence(env_ids, slots, 2)
+        self.assertTrue(all(torch.equal(a.fields[k], b.fields[k]) for k in a.fields) and torch.equal(a.valid, b.valid))
+        nxt = make_records([(0, 0, 6), (1, 2, 3)])
+        self.assertTrue(torch.equal(original.append(nxt), restored.append(nxt)))  # 下一次写入落在相同槽位
+        state["storage"]["reward"].fill_(-1.0)  # 导出结果是副本
+        self.assertFalse(bool((restored.read_sequence(env_ids, slots, 1).fields["reward"] == -1.0).any()))
+
+    def test_rejects_mismatched_shape(self) -> None:
+        state = ReplayBuffer(num_envs=2, capacity_per_env=4, q_dim=Q_DIM).state_dict()
+        with self.assertRaisesRegex(ReplayBufferError, "不符"):
+            ReplayBuffer(num_envs=2, capacity_per_env=5, q_dim=Q_DIM).load_state_dict(state)
+
+
 if __name__ == "__main__":
     unittest.main()
