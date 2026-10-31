@@ -1,6 +1,6 @@
 # D02 · 经验池写入与抽样｜AI 实施规范
 
-状态：单元验证通过（纯数据范围）。已实现 [buffer.py](buffer.py) 与 [test_buffer.py](test_buffer.py)，9 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入采集循环或仿真，未进行训练或性能验证。
+状态：单元验证通过（纯数据范围）。已实现 [buffer.py](buffer.py) 与 [test_buffer.py](test_buffer.py)，11 项 CPU 检查通过（Python 3.11 + PyTorch；其中 2 项为 T03 所需的保存恢复接口）；使用人工数据，已接入 T02 假环境采集，未接入仿真，未进行训练或性能验证。
 
 [人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
@@ -47,6 +47,7 @@
 | `ReplayBuffer.valid_starts` | `(n_steps) -> (env_ids[K], slots[K])` | n 步片段的全部有效起点：同一轮内连续存在记录，直到遇到真终止 / 纯截断，或凑满 n 条；既不够 n 条又没结束的起点暂不可用。n=1 时任何已写入记录都有效 |
 | `ReplayBuffer.sample_starts` | `(batch_size, n_steps, generator=None) -> (env_ids, slots)` | 从有效起点有放回地均匀抽取；`generator` 为 CPU `torch.Generator`，同种子同内容时结果可复现；没有有效起点时报错 |
 | `ReplayBuffer.read_sequence` | `(env_ids[M], slots[M], length) -> SequenceBatch` | 读取每个起点开始的 L 条记录。**复制**：高级索引返回新张量，修改读出结果不影响池内记录 |
+| `ReplayBuffer.state_dict` / `load_state_dict` | `() -> dict` / `(state) -> None` | 为 T03 检查点补充的最小接口：导出形状参数、全部字段、写入序号与每环境写入次数（均为副本）；恢复时校验形状与字段，复制进已分配的存储。缺少写入序号与写入次数会把新旧记录错误连接 |
 | `SequenceBatch` | 字段 `fields: dict[str, Tensor[M,L,...]]`、`valid: Tensor[M,L] bool`、`env_ids`、`slots`；属性 `length`；方法 `at(offsets[M]) -> TransitionBatch` | `valid[m,j]` 表示第 j 条与起点属于同一环境同一轮且连续未断，断开后全部为 False；`at` 取每行第 offsets[m] 条，指向无效记录时报错 |
 
 ### 存储布局与连续性
@@ -92,6 +93,7 @@
 | 多次覆盖后抽 64 个起点：全部凑满 3 条或在边界结束，编号连续、同环境同一轮 | `OverwriteTest.test_sampled_sequences_are_consecutive_after_many_overwrites` | 通过 |
 | 多环境交错写入只拼同环境片段；真终止 / 纯截断处截断片段；固定种子重复抽样结果相同 | `MultiEnvAndBoundaryTest`（3 项） | 通过 |
 | 字节数与手算一致；重复 env_id、越界、无有效起点、n 超过容量、读取无效记录等报错 | `CapacityAndErrorTest`（2 项） | 通过 |
+| 保存恢复后 n=1/2/3 的有效起点、读取结果与下一次写入槽位都相同，导出结果是副本；形状不符时拒绝恢复 | `StateTest`（2 项，`f81a92a` 新增） | 通过 |
 
 运行命令（仓库根目录）：
 
@@ -121,12 +123,12 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
 | 实现状态 | 单元验证通过（纯数据范围）；集成验证未开始 |
-| 实际文件、函数签名与调用关系 | [buffer.py](buffer.py)：`ReplayBuffer`（`append`、`valid_starts`、`sample_starts`、`read_sequence`）、`SequenceBatch`、`bytes_per_record`、`estimate_storage_bytes`；依赖 D01 `TransitionBatch`、`validate_transition`、`FIELD_NAMES`、`_expected_layout`。[test_buffer.py](test_buffer.py)：4 个测试类共 9 项，其中的 `make_records` 被 D03～D05 测试复用。调用方：D03 |
+| 实际文件、函数签名与调用关系 | [buffer.py](buffer.py)：`ReplayBuffer`（`append`、`valid_starts`、`sample_starts`、`read_sequence`、`state_dict`、`load_state_dict`）、`SequenceBatch`、`bytes_per_record`、`estimate_storage_bytes`；依赖 D01 `TransitionBatch`、`validate_transition`、`FIELD_NAMES`、`_expected_layout`。[test_buffer.py](test_buffer.py)：5 个测试类共 11 项，其中的 `make_records` 被 D03～D05 测试复用。调用方：D03、T02 `Trainer`（写入、抽样、读取）、T03 检查点（`state_dict` / `load_state_dict`） |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；存储布局 `[num_envs, capacity_per_env, ...]`；构造时分配存储，`append` 修改池内存储，其余方法只读 |
 | 代码注释核对 | 已核对：存储布局、容量单位与覆盖代次（文件头、`_continuity`）；不依据数组相邻（文件头）；写入与读取的复制责任（`append`、`read_sequence`）；有效起点规则（`valid_starts`）；与作者全局写指针做法的差异（文件头） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU）；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_returns/replay_buffer/test_buffer.py -v` → `Ran 9 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除，不影响结果 |
 | 未验证项 | 采集循环逐步写入（E05 / T02）；GPU 设备上的存储与抽样速度；大容量下的实际内存占用；与 N05 训练批大小的配合；仿真、训练与性能 |
-| 代码版本 | 代码与测试：`3838fe4a0d00bf2e8e102edda39a58d5c21e9f0c`（分支 `claude/experience-returns`，基于 `c06509e`）；文档同步在其后的提交中 |
+| 代码版本 | 代码与测试：`3838fe4a0d00bf2e8e102edda39a58d5c21e9f0c`（分支 `claude/experience-returns`，基于 `c06509e`）；为 T03 补充 `state_dict` / `load_state_dict` 与 `StateTest`：`f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`，未改动写入、连续性与抽样算法）。补充后 `test_buffer.py` 共 11 项，同一环境下 `Ran 11 tests … OK` |
 | 本次改动及理由 | 首次实现 D02：作者用全局写指针、假定所有环境同步写入，不满足“按显式编号判断连续”；改为逐环境写指针 + 写入序号 + 编号检查 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；带注释的 `buffer.py`、`test_buffer.py`；作者 `rsl_rl_sac` 的 `replay_buffer.py`（`_insert`、`_generate_valid_indices`）。建议 Codex 重点解释 `_continuity` 中的覆盖代次、`valid_starts` 的逐步递推，以及读写两端的复制 |
 | 人类版 | 讲解与技术复核已完成，本轮不再润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |

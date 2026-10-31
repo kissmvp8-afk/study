@@ -1,8 +1,8 @@
 # T03 · 训练进度保存与恢复｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（CPU、假环境）。已实现 [checkpoint.py](checkpoint.py) 与 [test_checkpoint.py](test_checkpoint.py)，8 项检查通过；不保存仿真现场。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -16,7 +16,7 @@
 
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/runner.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/runner.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已在 CPU 假环境中实现，尚未接入 Isaac 仿真。
 
 ## 作者实现参考
 
@@ -32,18 +32,36 @@
 | 输入 | 所有网络、优化器、归一化统计及计数、随机状态、训练配置与可选经验池。 |
 | 输出 | 带格式版本的检查点、恢复报告和一致性检查结果。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可）；仓库尚无统一依赖文件。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。T02、T03 的测试需要本地有 baseline/ppo 快照（E03 从快照读取动作表）。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [checkpoint.py](checkpoint.py)
+
+| 符号 | 签名 | 职责与副作用 |
 |---|---|---|
-| `checkpoint.py` | `save_checkpoint` | 原子性保存模型、统计和来源信息 |
-| `checkpoint.py` | `restore_checkpoint` | 校验兼容性并恢复状态 |
-| `checkpoint.py` | `describe_resume_mode` | 区分完整恢复与重新积累经验的续训 |
-| `test_checkpoint.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| `CHECKPOINT_FORMAT` / `CHECKPOINT_VERSION` | `"tita-sac-checkpoint"` / `1` | 格式标记与版本；没有格式标记的文件（例如原 PPO 模型）一律拒绝 |
+| `STRUCTURAL_FIELDS` | task.task、task.q_dim、collection.num_envs、collection.capacity_per_env、四项网络维数 | 不一致时拒绝加载 |
+| `collect_training_state` | `(trainer, include_replay) -> dict` | 汇总全部训练状态（见下表），只读 |
+| `save_checkpoint` | `(trainer, path, include_replay=True) -> Path` | 先写同目录临时文件并 fsync，再 `os.replace`；失败时删除临时文件，旧检查点不变 |
+| `restore_checkpoint` | `(trainer, path) -> ResumeReport` | `torch.load(weights_only=True)`；校验格式、版本、结构字段、E04 边界与 E03 关节顺序，全部通过后才修改 Trainer；恢复后环境 `reset`，episode_id 从保存时加一 |
+| `ResumeReport` | mode、replay_restored、environment_state_restored（恒为 False）、config_differences、counters、saved_versions | 恢复结果；非结构性配置差异会列出，不静默忽略 |
+| `describe_resume_mode` | `(report) -> str` | `exact_replay`：下一批回放与学习可复现，采集从新一轮开始；`model_only`：经验池为空，需要重新积累，不是精确接续 |
+| `load_checkpoint_config` | `(path) -> RunConfig` | 读取检查点中的生效配置，用于按原配置重建 Trainer |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+### 检查点内容
+
+| 类别 | 内容 |
+|---|---|
+| 网络 | N01 编码器（含 BN 运行统计）、N02 projector、N03 Actor（含 E04 的 b、c 缓冲）、N04 在线与目标双 Q、N07 log_alpha |
+| 优化器 | critic、actor、alpha、auxiliary 四个优化器的状态 |
+| 统计 | D04 两套统计的 mean、var、count、eps |
+| 调度与随机数 | T02 全部计数（决定 Actor 的更新相位与预热）、collect / replay / learn 三个生成器的状态 |
+| 来源 | 生效配置、版本信息、E04 动作边界、E03 关节顺序 |
+| 可选 | D02 经验池（字段、写入序号、写入次数，使用 D02 新增的 `state_dict` 接口） |
+| 不保存 | 环境（仿真）现场：中断时未结束的那一轮不会接着进行；新一轮从 step 0 开始，D02 按显式编号判断连续性，不会与旧经历拼接 |
+
+作者 `SAC.save` 只保存 Actor、Critic、优化器和 alpha，外加迭代号；没有保存经验池、随机数状态和 `update_step` 计数。
 
 ## 必须成立的规则
 
@@ -68,13 +86,28 @@
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，CPU 假环境）
 
-- 保存前后同输入的确定性动作一致，Q 和 alpha 一致。
-- 恢复随机状态和经验池后，可复现下一批抽样；仅模型恢复模式有明确提示。
-- 维数、动作边界或文件版本不匹配时拒绝静默加载。
+Trainer 使用 T01 `cpu_debug_config` 与 T02 `FakeLocomotionEnv`。
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+| 案例 | 对应测试（[test_checkpoint.py](test_checkpoint.py)） | 结果 |
+|---|---|---|
+| 训练 3 轮并做辅助学习后保存，恢复进新 Trainer：同一组固定输入的确定性动作、Q1、Q2、目标 Q1、log_alpha、D04 均值 / 方差 / 计数、编码器 BN 运行均值、四个优化器的 exp_avg、全部计数都完全相等；模式为 exact_replay | `RestoreTest.test_outputs_statistics_and_counters_match` | 通过 |
+| 带经验池恢复：原 Trainer 与恢复后的 Trainer 各再学习 3 次并辅助学习 1 次，全部参数逐位相等，计数相等，下一批抽样的起点相同 | `RestoreTest.test_exact_replay_reproduces_next_learning` | 通过 |
+| 不带经验池：模式为 model_only，经验池为空，说明中含“不是精确接续”；确定性动作一致；学习先被跳过，重新采集后可以继续 | `RestoreTest.test_model_only_requires_new_experience` | 通过 |
+| 恢复后环境开始新一轮（episode_id = 保存时 + 1，step 0，长度 1）；中断时未结束的旧记录不会与新写入的记录连接 | `RestoreTest.test_environment_restarts_without_joining_old_experience` | 通过 |
+| 工作轮速或 Actor 网络维数不同的配置被拒绝，并指出具体字段 | `CompatibilityTest.test_rejects_mismatched_structure` | 通过 |
+| 原 PPO 式的模型文件、版本号不符的检查点被拒绝；可以读回检查点中的配置 | `CompatibilityTest.test_rejects_other_formats_and_versions` | 通过 |
+| 写入中途失败：旧检查点字节不变，没有残留临时文件 | `CompatibilityTest.test_atomic_save_keeps_previous_file` | 通过 |
+| 一次 CPU 流程：训练 4 轮、每 2 轮保存一次 → 按检查点配置重建 → 恢复 → 再训练 2 轮，计数接续（iterations 6，Critic 次数增加 8） | `FullFlowTest.test_train_save_restore_continue` | 通过 |
+
+调试记录：首次运行时 6 项报错、2 项失败。一处是测试的导入顺序问题；另一处是 T01 `version_report` 写入了 `TorchVersion` 对象，`weights_only` 读取按设计拒绝了它。将其改为普通 str 后，T03 的 8 项和 T01 的 9 项全部通过。
+
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/checkpoints/test_checkpoint.py -v
+```
 
 ## 故障定位
 
@@ -102,17 +135,17 @@
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（CPU、假环境、人工数据）；Isaac 仿真集成未开始 |
+| 实际文件、函数签名与调用关系 | [checkpoint.py](checkpoint.py)：`save_checkpoint`、`restore_checkpoint`、`describe_resume_mode`、`collect_training_state`、`load_checkpoint_config`、`ResumeReport`、`CheckpointError`；读取 T02 `Trainer` 的属性（encoder、projector、actor、critics、targets、temperature、optimizers、normalizers、counters、generators、buffer、observation、bounds、contract、config、env），调用 D02 `state_dict` / `load_state_dict`、D04 `export_statistics` / `load_statistics`、T01 `config_to_dict` / `version_report`。[test_checkpoint.py](test_checkpoint.py)：3 个测试类共 8 项 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`save_checkpoint` 写文件；`restore_checkpoint` 修改 Trainer 的全部训练状态并调用 `env.reset` |
+| 代码注释核对 | 已核对：检查点版本与格式标记、原子保存、全部训练状态、经验池缺失的恢复限制、原 PPO V 不能加载为 Q、仿真现场未保存（文件头、`restore_checkpoint`、`describe_resume_mode`） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/checkpoints/test_checkpoint.py -v` → `Ran 8 tests … OK`（首次运行的问题见上文“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 未验证项 | Isaac 环境的现场保存与恢复（不在本模块范围内，目前也没有承诺）；大容量经验池的保存耗时与文件大小；跨设备（GPU ↔ CPU）恢复；异常中断后的实际恢复演练 |
+| 代码版本 | `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`；依赖 D02 新增接口 `f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 T03：在作者保存内容的基础上补齐经验池、随机数与调度计数；明确两种恢复语义，以及不恢复仿真现场 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `checkpoint.py`、`test_checkpoint.py`；T02 `runner.py`；D02 `buffer.py` 的 `state_dict`；作者 `sac.py` 的 `save` / `load`。建议 Codex 重点解释原子保存、两种恢复语义、结构检查，以及为什么恢复后旧经历不会与新一轮拼接 |
+| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

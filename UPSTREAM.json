@@ -31,7 +31,7 @@
       "E03": "completed_and_polished",
       "E04": "completed_and_polished",
       "D01": "completed_and_polished",
-      "D02": "completed_technical_review",
+      "D02": "awaiting_codex_sync",
       "D03": "completed_technical_review",
       "D04": "completed_technical_review",
       "D05": "completed_technical_review",
@@ -45,6 +45,9 @@
       "N07": "completed_technical_review",
       "N08": "completed_technical_review",
       "networks_learning": "completed_technical_review",
+      "T01": "awaiting_codex_draft",
+      "T02": "awaiting_codex_draft",
+      "T03": "awaiting_codex_draft",
       "others": "placeholders_awaiting_implementation"
     },
     "implementation_author": "Claude",
@@ -72,6 +75,9 @@
     "N05": "unit_verified_cpu",
     "N06": "unit_verified_cpu",
     "N07": "unit_verified_cpu",
-    "N08": "unit_verified_cpu"
+    "N08": "unit_verified_cpu",
+    "T01": "unit_verified_cpu_fake_env",
+    "T02": "unit_verified_cpu_fake_env",
+    "T03": "unit_verified_cpu_fake_env"
   }
 }
