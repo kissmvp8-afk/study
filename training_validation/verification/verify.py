@@ -85,13 +85,13 @@ def check_documentation(repo_root: Path = REPO_ROOT) -> list[dict]:
                 continue
             relative = target.split("#", 1)[0]
             if relative and not (path.parent / relative).exists():
-                issues.append({"kind": "broken_link", "file": str(path.relative_to(repo_root)), "target": target})
+                issues.append({"kind": "broken_link", "file": path.relative_to(repo_root).as_posix(), "target": target})
     for module in small_modules(repo_root):
         text = (module / "README.md").read_text(encoding="utf-8")
         status = next((line for line in text.splitlines() if line.startswith("状态：")), "")
         implementation = [p.name for p in module.glob("*.py") if not p.name.startswith(("test_", "._"))]
         tests = [p.name for p in module.glob("test_*.py")]
-        where = str(module.relative_to(repo_root))
+        where = module.relative_to(repo_root).as_posix()  # 报告路径统一用 /，避免 Windows 分隔符破坏结果索引。
         if status.startswith("状态：待实现"):
             if implementation:
                 issues.append({"kind": "status_mismatch", "module": where, "detail": f"状态为待实现，但已有实现文件 {implementation}"})
@@ -129,7 +129,7 @@ def collect_module_results(repo_root: Path = REPO_ROOT, modules: list[Path] | No
     results = []
     for module in modules if modules is not None else small_modules(repo_root):
         tests = sorted(p for p in module.glob("test_*.py") if not p.name.startswith("._"))
-        where = str(module.relative_to(repo_root))
+        where = module.relative_to(repo_root).as_posix()
         if not tests:
             results.append({"module": where, "status": "not_run", "detail": "没有测试文件"})
         for test in tests:
