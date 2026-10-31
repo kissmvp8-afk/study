@@ -156,7 +156,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_con
 | 代码注释核对 | 已核对本模块注释重点：重置前快照时机与锁定版本顺序（文件头、`run_isaac_step`）；真终止优先（`classify_endings`）；历史只推进一次与数据来源（文件头、`build_step_record`）；按维度展开掩码（`build_step_record`）；复制内存的原因（`run_isaac_step` 的 clone、`capture_final_observations`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.11.17：`uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_control/episode_lifecycle/test_lifecycle.py -v` → `Ran 10 tests … OK`；同时回归 T02 9 项、T03 10 项、T04 12 项、T05 6 项均通过；torch 2.7.0（CPU）下全部通过 |
 | 未验证项 | 真实 Isaac 钩子的顺序与数值、重置后观测、GPU→CPU 搬运；仿真、训练与性能 |
-| 代码版本 | `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`），此后 `lifecycle.py`、`test_lifecycle.py` 未改动 |
+| 代码版本 | `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`）；`794cd623de54c75ee3ed96ae6788fb72c5a5cebd` 只修改了 `lifecycle.py` 文件头的设备搬运说明（不改行为），`test_lifecycle.py` 未改动 |
 | 本次改动及理由 | 首次实现 E05：锁定版本在 `step` 返回前就重置，因此拆成钩子并在重置前插入一次观测计算；把公共环境接口 `EnvObservation` / `EnvStep` 从 T02 fake_env.py 移到这里，供假环境与真实环境共用 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E01、E02、T02 AI 规范；带注释的 `lifecycle.py`、`test_lifecycle.py`；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step`。建议 Codex 重点解释：7 步顺序与原 `step` 的对应；`build_step_record` 中结束 / 未结束环境的数据来源与掩码展开；为何每个环境每步只推进一次历史；`EpisodeLifecycle.step` 的重置一致性检查与编号更新 |
 | 人类版 | 待 Codex 编写（代码、注释与 CPU 验证记录已齐备） |

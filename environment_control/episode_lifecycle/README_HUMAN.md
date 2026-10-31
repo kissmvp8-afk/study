@@ -8,7 +8,7 @@
 | 技术核对状态 | 待 Codex 阅读实际代码后核对 |
 | 语言润色状态 | 待技术初稿完成后交 Gemini |
 | 已核对代码版本 | 无 |
-| 待同步代码版本 | 分支 `claude/environment-integration`，代码提交 `3d4c995b2730b3183614f4cb5b7a62edfa83f927`：`lifecycle.py`、`test_lifecycle.py`（文档同步在其后的提交中） |
+| 待同步代码版本 | 分支 `claude/environment-integration`，代码提交 `3d4c995b2730b3183614f4cb5b7a62edfa83f927`：`lifecycle.py`、`test_lifecycle.py`；`794cd623de54c75ee3ed96ae6788fb72c5a5cebd` 修正了 `lifecycle.py` 文件头的设备搬运注释（不改行为）；文档同步在其后的提交中 |
 | 实际阅读材料 | 待 Codex 记录 |
 | 验证依据与限制 | 尚未编写教学正文。代码侧：10 项 CPU 单元检查通过（Python 3.11 + torch 2.15.0 / 2.7.0，人工钩子 `ScriptedSimulation`，不模拟 TITA 动力学），记录见 [AI 规范](README.md#实现证据与文档交接)；真实 Isaac 钩子未运行 |
 

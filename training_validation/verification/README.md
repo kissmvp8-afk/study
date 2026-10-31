@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU）。已实现 [verify.py](verify.py) 与 [test_verify.py](test_verify.py)，6 项检查通过；仿真与性能层级目前没有可执行的检查，记为未执行。
 
-[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 同步）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -128,12 +128,12 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 实际文件、函数签名与调用关系 | [verify.py](verify.py)：见上表；以子进程运行各模块已有的 test_*.py。[test_verify.py](test_verify.py)：4 个测试类共 6 项 |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`main` 可写 JSON；检查本身只读仓库，运行测试时由各测试自行使用临时目录 |
 | 代码注释核对 | 已核对：不同验证层级的证据来源、状态与文件一致性检查、失败 / 跳过 / 未执行的区别（文件头、`_parse_unittest`、`build_summary`） |
-| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/verification/test_verify.py -v` → `Ran 6 tests … OK`（首次运行有 1 项因变异测试复制范围不足而得到 error，见“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/verification/test_verify.py -v` → `Ran 6 tests … OK`（首次运行有 1 项因变异测试复制范围不足而得到 error，见“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除。`794cd62` 之后（分支 `claude/environment-integration`，同一环境）：`test_verify.py -v` → `Ran 6 tests … OK`；`verify.py --docs` → documentation passed；`verify.py --integration` → cpu_integration passed，10 项检查、测试 18 项、跳过 0（新增的 E05 / E01 两项各自通过），simulation / performance not_run |
 | 未验证项 | 仿真集成检查与性能评价层级（目前没有可执行的检查）；CI 集成；Windows 等其他平台上的路径处理 |
-| 代码版本 | `c963821163e6b14955c21b987a0972e3216f30aa`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
-| 本次改动及理由 | 首次实现 T06：用一个入口组织已有测试与文档检查，分层记录证据，未执行项明确标出 |
+| 代码版本 | `c963821163e6b14955c21b987a0972e3216f30aa`（分支 `claude/training-core`，PR #7）；纳入 E01 / E05 集成检查与仿真层说明更新在 `794cd623de54c75ee3ed96ae6788fb72c5a5cebd`（分支 `claude/environment-integration`，PR #8）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 T06：用一个入口组织已有测试与文档检查，分层记录证据，未执行项明确标出。`794cd62`：E01 / E05 已有接 Trainer 的 CPU 检查（人工钩子），加入 `INTEGRATION_CHECKS`；仿真层说明由“尚未接入”改为“接入代码已实现，真实仿真未验证”，仍为 not_run |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `verify.py`、`test_verify.py`；各模块 AI README 的验收表。建议 Codex 重点解释五个层级的区别、状态一致性规则，以及为什么不重新实现算法 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
+| 人类版 | 待 Codex 同步：正文按 a07d7b2 编写，需同步 `794cd62` 新增的两项集成检查（共 10 项、18 个测试）与仿真层说明 |
 | 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
