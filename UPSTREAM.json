@@ -30,6 +30,7 @@
     "human_guides_status": {
       "E03": "completed_and_polished",
       "E04": "completed_and_polished",
+      "D01": "awaiting_codex_draft",
       "others": "placeholders_awaiting_implementation"
     },
     "implementation_author": "Claude",
@@ -44,6 +45,7 @@
   },
   "implemented_modules": {
     "E03": "unit_verified_pure_data",
-    "E04": "unit_verified_pure_data"
+    "E04": "unit_verified_pure_data",
+    "D01": "unit_verified_pure_data"
   }
 }
