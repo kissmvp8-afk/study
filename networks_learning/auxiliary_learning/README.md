@@ -122,7 +122,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learni
 | 未验证项 | E02 确认速度标签所在字段；辅助更新频率与 SAC 更新次数之比（T02）；真实数据上的表示质量；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`2e6c470770fe22458a9412178144d9410c97cf81`，审核后修正注释 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N02：原 PPO 把辅助损失加入 PPO 总损失并共用一个优化器；SAC 中改为独立优化器与独立更新，并明确 BN 更新时机与有效样本 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `auxiliary.py`、`test_auxiliary.py`；原 PPO `actor_critic.py`（`barlow_twins_loss`、`off_diagonal`）与 `np3o.py`（辅助损失并入总损失）。建议 Codex 重点解释相关矩阵、常数特征为何得到最大损失、有效样本筛选与跳过，以及 train / eval 切换 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `auxiliary.py`、`test_auxiliary.py`；原 PPO `actor_critic.py`（`barlow_twins_loss`、`off_diagonal`）与 `np3o.py`（辅助损失并入总损失）。建议 Codex 重点解释相关矩阵、常数特征为何不能得到零损失、有效样本筛选与跳过，以及 train / eval 切换 |
 | 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
