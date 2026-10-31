@@ -65,7 +65,8 @@ class PresetTest(unittest.TestCase):
             "task.q_dim", "task.joint_pos_limits", "task.wheel_speed_ranges",
             "collection.steps_per_iteration", "collection.capacity_per_env",
         })
-        self.assertIsNone(flat.environment["robot_assets_commit"])
+        self.assertEqual(flat.environment["robot_assets_commit"], "e7b32d9746df900680641ff2845ffb0b5ffe99ed")  # E01 锁定
+        self.assertEqual(flat.device, "cpu")  # 学习器只实现了 CPU 版本
         with self.assertRaisesRegex(ConfigurationError, "task.q_dim 未确定"):
             validate_configuration(flat)
 
@@ -83,6 +84,7 @@ class PresetTest(unittest.TestCase):
             (replace(debug, task=replace(debug.task, velocity_label_columns=(4, 7))), "超出 q_dim"),
             (replace(debug, sources={k: v for k, v in debug.sources.items() if k != "algorithm.tau"}), "algorithm.tau 缺少来源"),
             (replace(debug, mode="isaac_sim"), "isaac_flat 或 isaac_rough"),
+            (replace(debug, device="cuda"), "学习器只实现了 CPU 版本"),  # 改字符串不等于支持 GPU
         ]
         for config, pattern in cases:
             with self.subTest(pattern=pattern), self.assertRaisesRegex(ConfigurationError, pattern):
@@ -101,7 +103,7 @@ class ExportTest(unittest.TestCase):
                 self.assertEqual(json.loads(path.read_text(encoding="utf-8")), record)
                 head = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
                 self.assertEqual(record["versions"]["git_commit"], head)
-                self.assertEqual(record["versions"]["robot_assets_commit"], "未锁定")
+                self.assertEqual(record["versions"]["robot_assets_commit"], "e7b32d9746df900680641ff2845ffb0b5ffe99ed")
                 self.assertEqual(record["undetermined_fields"], undetermined_fields(config))
 
     def test_rejects_other_format(self) -> None:

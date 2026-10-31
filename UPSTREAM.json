@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "stage": "pure_data_modules_in_progress",
+  "stage": "cpu_modules_implemented_isaac_integration_pending",
   "ppo": {
     "repository": "DDTRobot/DDT_Lab",
     "commit": "701a49c6e78dfb93a8b30145f0e7723b22921c0b",
@@ -18,8 +18,12 @@
   },
   "robot_assets": {
     "repository": "DDTRobot/ddt_ros2_control",
-    "commit": null,
-    "status": "must_pin_before_simulation"
+    "commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+    "urdf_path": "urdfs/tita_description/urdf/robot.urdf",
+    "urdf_sha256": "0941b83136cd5c8c89bbb33165bff515a3a988d33319b67c8b06bfb9c71350ce",
+    "selection": "DDT_Lab 701a49c（2026-06-26）之前 ddt_ros2_control main 的最新提交（2026-05-29）；TITA URDF 与 e62e1aa 相同，之后的 beb05df 修改了 URDF",
+    "license": "未声明；只引用路径、提交与校验值，不复制文件",
+    "status": "pinned_not_simulation_verified"
   },
   "training_verified": false,
   "documentation": {
@@ -28,8 +32,12 @@
     "pairs": 29,
     "human_guide_author": "Codex",
     "human_guides_status": {
-      "E03": "completed_and_polished",
-      "E04": "completed_and_polished",
+      "E01": "completed_technical_review",
+      "E02": "completed_technical_review",
+      "E03": "completed_technical_review",
+      "E04": "completed_technical_review",
+      "E05": "completed_technical_review",
+      "environment_control": "completed_technical_review",
       "D01": "completed_and_polished",
       "D02": "completed_technical_review",
       "D03": "completed_technical_review",
@@ -52,7 +60,7 @@
       "T05": "completed_technical_review",
       "T06": "completed_technical_review",
       "training_validation": "completed_technical_review",
-      "others": "placeholders_awaiting_implementation"
+      "root": "completed_technical_review"
     },
     "implementation_author": "Claude",
     "code_comments_required": true,
@@ -65,8 +73,11 @@
     ]
   },
   "implemented_modules": {
+    "E01": "unit_verified_cpu_isaac_not_run",
+    "E02": "unit_verified_cpu",
     "E03": "unit_verified_pure_data",
     "E04": "unit_verified_pure_data",
+    "E05": "unit_verified_cpu_scripted_hooks",
     "D01": "unit_verified_pure_data",
     "D02": "unit_verified_pure_data",
     "D03": "unit_verified_pure_data",

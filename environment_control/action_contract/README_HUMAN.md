@@ -4,13 +4,13 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 已完成讲解与润色 |
-| 技术核对状态 | 2026-10-31，Codex 已对照三份实际源码、固定 PPO 配置与已有验证记录，核对本说明的函数、顺序、数值、单位和计算片段；未发现影响当前纯数据用法、需要人确认的明确技术问题。核对范围不包含全面代码审核或仿真验证 |
-| 语言润色状态 | 2026-10-31，Gemini 完成自然语言润色，优化了段落衔接与零 Python 基础阅读体验，消除了生硬行话；严格保留全部技术信息、公式、代码片段、数值、单位、执行顺序与验证限制 |
-| 已核对代码版本 | `9fdac4e5055989085eafd6b3c988c40d9df61ca9`，三份 `.py` 文件在本次读取时均无相对该提交的工作区改动；原 PPO 数值来源为快照 `8fe40aa0ab3afdb8998cab1357f1f795d2cabc3c` |
-| 待同步代码版本 | 无；本次已按上述实际提交完成技术说明核对 |
-| 实际阅读材料 | [AGENTS.md](../../AGENTS.md)、[CODEX.md](../../CODEX.md)、[根 README.md](../../README.md)、[大模块 README.md](../README.md)、[本模块 README.md](README.md)、本文件原占位内容；[contract.py](contract.py)、[baseline_source.py](baseline_source.py)、[test_contract.py](test_contract.py) 全文；[UPSTREAM.json](../../UPSTREAM.json)、[GEMINI.md](../../GEMINI.md)；E04 契约及 D01、N03 中相关输入输出约定（见文末导航）；通过 `git show` 阅读上述 PPO 快照的 `rough_env_cfg.py` 中 `ActionsCfg`、`ddt_robot.py` 中 TITA 默认状态与执行器配置、`flat_env_cfg.py` 的继承与修改内容 |
-| 验证依据与限制 | 已阅读 [AI 规范交接记录](README.md#实现证据与文档交接) 与测试源码。记录称 18 项纯数据检查通过，本次按任务要求未重跑测试或打印动作表；没有独立原始运行日志附件。Isaac Lab v2.3.0 的动作执行语义沿用交接记录，本次未直接阅读其三份外部源码、未安装或运行 Isaac Lab。未运行仿真、训练或性能评价，也未在 Python 3.11 下实际运行。详见“验证与排错” |
+| 文档状态 | 讲解与技术复核已完成，本轮不再润色；保留有效正文并同步 PR #8 接入变化 |
+| 技术核对状态 | 2026-10-31，Codex 按实际实现与测试同步资产、设备、公共环境接口或集成检查；本次是文档核对，不扩大代码审核 |
+| 语言润色状态 | 保留已有中文讲解与历史润色记录；本轮由 Codex 技术同步，不再交 Gemini |
+| 已核对代码版本 | 本轮 `a12e69a38c6b9b3a236473a2563e255a9a24e761`（claude/environment-integration，PR #8），fetch 后 git rev-parse HEAD 与已审查/远端版本一致；历史版本见正文与 Git 历史 |
+| 待同步代码版本 | 无 |
+| 实际阅读材料 | 本轮对照本目录实现与测试（源码未变）、E01 assets.py/metadata.py/isaac_env.py/test_environment.py、UPSTREAM.json；保留原动作算例与早期阅读记录；全局材料与本轮检查见[项目阅读记录](../../README_HUMAN.md#阅读材料与验证依据) |
+| 验证依据与限制 | 既有 CPU 结果见本目录 AI 交接表；PR #8 记录全仓库 216 项测试（跳过真实资产 1 项）及 18 项 CPU 集成测试通过，本轮未重跑。只执行 verify.py --docs 与文档静态核对；真实 Isaac、GPU、机器人训练及性能未验证 |
 
 版本说明：同目录 AI 版交接表仍写“基于 `c6078f4`，未提交”。本次读取 Git 历史时，三份实现与测试已收录于 `9fdac4e`，因此上表使用实际读取的提交号；本次只更新本文件，不改 AI 版记录。
 
@@ -21,7 +21,7 @@
 
 如果控制代码和学习算法对这 8 个数字的理解不一致，机器人就会立刻失控摔倒。**E03 模块的核心使命，就是为这 8 个数字立下一份不可动摇的“动作契约（定义表）”**：为每一个数字明确登记它绑定哪个关节、控制什么物理量、基准默认值是多少、放大系数是多少，以及如何一步步换算成真实的电机物理目标。
 
-读完本篇说明，即使你没有 Python 编程经验，也能清楚沿着“配置文件 → 八维定义表 → 动作换算”理清整套逻辑，并明白为什么同样是输入 `0.4`，关节有的变成 `0.2 rad`（角度），有的却变成 `2 rad/s`（角速度）。
+本篇保留动作术语和数值例子，具有 Python 基础的读者可沿着“配置文件 → 八维定义表 → 动作换算”理清整套逻辑，并明白为什么同样是输入 `0.4`，关节有的变成 `0.2 rad`（角度），有的却变成 `2 rad/s`（角速度）。
 
 在深入代码之前，我们先用通俗直白的话了解几个核心术语：
 
@@ -43,11 +43,11 @@
 
 E03 从固定原版的 PPO 配置中完整读取并锁定了这套物理语义，供后续 SAC 算法接入时直接继承使用。
 
-需要特别说明的是：**当前已经实现的全部代码都是“纯数据”处理**。
+需要特别说明的是：**E03 本模块代码是“纯数据”处理**。
 这里的“纯数据”意味着：代码只在文本和数字层面解析配置、建立定义表、校验规则、执行公式换算以及生成可读表格；它不需要启动昂贵的 3D 物理引擎（Isaac Lab），也不加载真实的机器人模型。
 
 > [!IMPORTANT]
-> **E03 提供的是动作的物理接口定义，并未完成 PPO 到 SAC 的算法训练替换；当前阶段 SAC 算法尚未实现，机器人还不能运行训练。**
+> **E03 提供动作定义，不单独完成训练算法替换。当前全仓库 SAC 学习与调度代码已实现并有 CPU 验证，E01 也已提供 Isaac 接入入口；真实仿真、GPU 和训练效果尚未验证。**
 
 后续算法模块（产生动作的 Actor 网络、评估动作好坏的 Q 网络、保存交互记录的 Replay Buffer 经验池）都高度依赖 E03：
 - 如果轮子速度被误当成角度，后续推导出的动作安全范围就会彻底错误；
@@ -242,8 +242,8 @@ for stmt in cls.body:
 紧接着，建表函数 `build_action_contract` 展开两层循环：
 
 ```python
-for term in terms:            # 第一层：按照动作项的声明顺序
-    for joint in term.joint_names:  # 第二层：展开该项包含的关节
+for term in terms:
+    for joint in term.joint_names:
 ```
 
 在为每一个关节创建 `ActionEntry` 记录行时，程序决定该关节索引编号的代码非常简单纯粹：
@@ -395,9 +395,9 @@ git fetch origin baseline/ppo
 |---|---|---|
 | **AI 规范交接记录 (2026-10-31)** | 记录显示在 macOS Darwin 25.4.0、Python 3.14.5、exFAT 盘环境下，18 项测试全部通过（`Ran 18 tests … OK`），打印表格与原版配置完全一致 | 这是前序交接记录，本次任务未重新运行测试，未附带独立的完整终端日志文件 |
 | **错误注入实验记录** | 在临时副本中故意把轮速偏移改用角度、故意将关节按字母排序，均被对应测试精准拦截捕获 | 证明了这套测试对这两类特定错误非常敏感有效，但不能保证能发现所有潜在未知缺陷 |
-| **Python 3.11 兼容性核验** | 记录显示三份源码在 `ast.parse(feature_version=(3,11))` 语法检查中顺利通过 | 仅证明语法结构符合 Python 3.11 规范，尚未在真实的 Python 3.11 解释器下实际运行跑过 |
+| **Python 3.11 兼容性核验** | 记录显示三份源码在 `ast.parse(feature_version=(3,11))` 语法检查中顺利通过 | 这是早期语法检查的证据边界；PR #8 另记录全仓库在 Python 3.11 CPU 下回归通过，本轮没有重跑 |
 | **本次技术初稿与语言润色** | 实际通读并严格核对了三份源码、固定快照配置、测试用例和交接摘要，理顺了教学逻辑与自然语言表达 | **未启动物理仿真，未运行模型训练，未评估运动性能，未进行真机测试** |
-| **后续仍需填补的空白** | 当前静态解析已确认原版配置代码的书写内容 | 仍需在后续 E01 环境中，在 Isaac Lab 真正加载后从 `env.action_manager` 确认运行时的实际顺序；外部资源 `ddt_ros2_control` 的版本仍待锁定 |
+| **后续仍需填补的空白** | 当前静态解析已确认原版配置代码的书写内容 | E01 已实现从 `env.action_manager` 核对实际顺序、类型、scale 和默认角，尚未在 Isaac 执行；外部资产已锁定 e7b32d9，摘要见 UPSTREAM.json；锁定记录不替代加载验证 |
 
 原版配置代码来自开源项目 `DDTRobot/DDT_Lab`（提交 `701a49c`），遵守 BSD-3-Clause 开源协议。Isaac Lab 的执行逻辑语义（先缩放加偏移、再裁剪）依据 Isaac Lab v2.3.0 官方源码确认。这些外部依据不代表本机已完成外部工具的运行验证。
 
@@ -426,10 +426,16 @@ git fetch origin baseline/ppo
 | 下一站模块 | 与本模块 E03 的衔接关系 | 当前实现状态 |
 |---|---|---|
 | [同目录 AI 规范](README.md) | 查看严谨的技术实施约束、原始提交记录与交接证据 | 单元验证已通过（纯数据范围） |
-| [E04 动作边界契约](../action_bounds/README.md) · [人类版占位](../action_bounds/README_HUMAN.md) | **直属下游**。将读取本模块的 scale、默认目标和控制类型，反推策略动作的合法取值范围和初始中心点 | 纯数据实现与单元验证完成，人类版按实际进度记录 |
-| [D01 经历记录契约](../../experience_returns/transition_schema/README.md) · [人类版占位](../../experience_returns/transition_schema/README_HUMAN.md) | 规范经验回放池的数据格式，确保记录的动作为无量纲的策略动作坐标，与本模块定义严格保持一致 | 待实现 |
-| [N03 SAC 动作分布契约](../../networks_learning/actor_distribution/README.md) · [人类版占位](../../networks_learning/actor_distribution/README_HUMAN.md) | SAC 算法的策略网络（Actor），负责依据 E04 边界输出八维动作向量。不能把本模块的换算函数误当作 Actor | 待实现 |
-| [E01 机器人环境契约](../robot_environment/README.md) | 真实仿真环境接入。接入后将从物理引擎的 `env.action_manager` 中读取实际动作项，最终核验顺序与默认值 | 待实现 |
+| [E04 动作边界契约](../action_bounds/README.md) · [人类版](../action_bounds/README_HUMAN.md) | **直属下游**。将读取本模块的 scale、默认目标和控制类型，反推策略动作的合法取值范围和初始中心点 | 纯数据实现与单元验证完成，人类版按实际进度记录 |
+| [D01 经历记录契约](../../experience_returns/transition_schema/README.md) · [人类版](../../experience_returns/transition_schema/README_HUMAN.md) | 规范经验回放池的数据格式，确保记录的动作为无量纲的策略动作坐标，与本模块定义严格保持一致 | 实现与 CPU 验证完成；真实仿真未验证 |
+| [N03 SAC 动作分布契约](../../networks_learning/actor_distribution/README.md) · [人类版](../../networks_learning/actor_distribution/README_HUMAN.md) | SAC 算法的策略网络（Actor），负责依据 E04 边界输出八维动作向量。不能把本模块的换算函数误当作 Actor | 实现与 CPU 验证完成；真实仿真未验证 |
+| [E01 机器人环境契约](../robot_environment/README.md) | 真实仿真环境接入。E01 已实现从 `env.action_manager` 读取实际动作项并核验；尚未在 Isaac 中执行 | 实现与 CPU 验证完成；真实仿真未验证 |
 | [大模块人类版](../README_HUMAN.md) · [项目总人类版](../../README_HUMAN.md) | 上层导航页面，用于纵览整个系统架构 | 框架建设中 |
 
 本说明基于提交版本 `9fdac4e5055989085eafd6b3c988c40d9df61ca9` 撰写并完成语言润色。后续若底层代码或配置发生变动，将按照规则先交由 Codex 同步技术初稿，再进行后续润色。
+
+## 当前接入位置
+
+E01 [metadata.py](../robot_environment/metadata.py) 将运行时动作项与本表逐项对照；T02 记录的动作、N04 Q 的动作输入和 T05 导出输出都使用同一策略坐标。E05 只搬运动作到仿真设备，E01 `TitaSacHooks.apply_action_and_simulate` 把它原样交给 Isaac 动作项执行一次映射。`action_to_targets` 仍是本模块的单条换算/核对工具，不应先换算再送入会再次缩放的动作项。
+
+资产锁定为 `e7b32d9746df900680641ff2845ffb0b5ffe99ed`，不改变本表来自固定 PPO 配置的事实。软限位及关节实际解析仍需运行时核对；E01 CPU 人工元数据测试不等于真实 ActionManager 已经通过。

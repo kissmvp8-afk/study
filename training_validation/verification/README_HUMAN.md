@@ -4,13 +4,13 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 讲解与技术复核已完成，本轮不再润色 |
-| 技术核对状态 | 2026-10-31，Codex 对照实际实现、注释与测试核对职责、调用、形状、单位、代码片段和边界；本次是文档核对，不是全面代码审核 |
-| 语言润色状态 | 本轮由 Codex 完成中文讲解与技术核对，不另交 Gemini |
-| 已核对代码版本 | `a07d7b22e5bc2f40c462c01cc3378f7bcf3fe0c7`（`claude/training-core`，PR #7）；读取时与用户验收版本、远端分支一致，无后续源码差异 |
+| 文档状态 | 讲解与技术复核已完成，本轮不再润色；保留有效正文并同步 PR #8 接入变化 |
+| 技术核对状态 | 2026-10-31，Codex 按实际实现与测试同步资产、设备、公共环境接口或集成检查；本次是文档核对，不扩大代码审核 |
+| 语言润色状态 | 保留已有中文讲解与历史润色记录；本轮由 Codex 技术同步，不再交 Gemini |
+| 已核对代码版本 | 本轮 `a12e69a38c6b9b3a236473a2563e255a9a24e761`（claude/environment-integration，PR #8），fetch 后 git rev-parse HEAD 与已审查/远端版本一致；历史版本见正文与 Git 历史 |
 | 待同步代码版本 | 无 |
-| 实际阅读材料 | AGENTS.md、CODEX.md、根及本大模块/本目录 AI README；[verify.py](verify.py)、[test_verify.py](test_verify.py) 全文；各目标模块 AI 状态/验收表及 INTEGRATION_CHECKS 指向的已有测试用途；依赖与来源详见[大模块阅读记录](../README_HUMAN.md#阅读材料与证据) |
-| 验证依据与限制 | 本目录 AI 交接表记录 6 项 CPU 检查通过（Python 3.11.17 + torch 2.15.0），本次阅读测试、引用既有结果，未重跑算法测试。本轮执行的文档检查见大模块记录；人工数据/假环境不代表 Isaac 仿真、GPU、机器人训练或性能验证 |
+| 实际阅读材料 | 本轮阅读 verify.py/test_verify.py、794cd62 差异、E05 TrainerIntegrationTest 与 E01 RunConfigTest 的实际测试及 AI 运行记录；检查器测试本身未改动；全局材料与本轮检查见[项目阅读记录](../../README_HUMAN.md#阅读材料与验证依据) |
+| 验证依据与限制 | 既有 CPU 结果见本目录 AI 交接表；PR #8 记录全仓库 216 项测试（跳过真实资产 1 项）及 18 项 CPU 集成测试通过，本轮未重跑。只执行 verify.py --docs 与文档静态核对；真实 Isaac、GPU、机器人训练及性能未验证 |
 
 ## 五层证据回答五个不同的问题
 
@@ -21,7 +21,7 @@
 | `documentation` 文档 | 链接、模块状态与文件、失效计划表检查 | 文件与说明是否在结构上同步；不证明公式、单位或全部文字正确 |
 | `unit` 单元 | 各小模块已有 `test_*.py` | 给定人工输入下，局部计算和边界是否符合断言 |
 | `cpu_integration` CPU 集成 | 从已有测试选择跨模块案例 | 假环境结束原因、回报、历史、动作、网络更新、保存恢复能否正确衔接 |
-| `simulation` 仿真 | 当前 `not_run` | 需要 E01/E02/E05 接入 Isaac Lab，现阶段无可执行检查 |
+| `simulation` 仿真 | 当前 `not_run` | E01/E02/E05 接入代码已实现，真实仿真尚未验证；需在 Windows + Isaac Lab 2.3.0 运行 E01 入口，本检查器不自动执行它 |
 | `performance` 性能 | 当前 `not_run` | 需要真实 PPO/SAC 训练对照与 T04 证据，现阶段没有结论 |
 
 运行前三级通过也不能替代后两级。“损失有限”只是数值检查结果，“机器人训练成功”需要独立的环境与任务证据。当前没有仿真或性能层的检查可供入口运行。
@@ -51,7 +51,7 @@
 
 这些函数会实际运行测试；本次写作只使用 `--docs`，没有触发它们。标准输出/错误被捕获后解析，具体复现失败可直接运行结果中的文件及 `tests_selected`；超时等子进程异常需看终端错误，不能误称测试通过。
 
-`INTEGRATION_CHECKS` 当前八项选择：T02 的 `EpisodeBoundaryTest`；D03 的 `BoundaryTest`；D05 的 `SplitWindowsTest`；T05 重复当前帧回归；E03 的 `AcceptanceCaseTest`；T05 单次物理换算；N08 的 `UpdateCycleTest`；T03 的 `FullFlowTest` 与精确回放恢复用例。它们使用现有算法测试，未生成仿真场景。
+`INTEGRATION_CHECKS` 当前十项选择，原八项为：T02 的 `EpisodeBoundaryTest`；D03 的 `BoundaryTest`；D05 的 `SplitWindowsTest`；T05 重复当前帧回归；E03 的 `AcceptanceCaseTest`；T05 单次物理换算；N08 的 `UpdateCycleTest`；T03 的 `FullFlowTest` 与精确回放恢复用例。新增两项是 E05 `test_lifecycle.py` 的 `TrainerIntegrationTest`（2 个测试），以及 E01 `test_environment.py` 的 `RunConfigTest.test_trainer_runs_on_filled_config`（1 个测试）。前者检查末状态进入经验池、D03 回报与 T03 恢复；后者检查运行时元数据填出的 Isaac 模式配置可驱动 Trainer。两者都用 `ScriptedSimulation` 人工钩子，没有运行真实 Isaac。当前共 10 项检查选择、展开 18 个测试。
 
 ### 汇总状态与命令行
 
@@ -109,3 +109,5 @@ T06 自身的测试入口为 `training_validation/verification/test_verify.py -v
 通过记录来自本目录 [AI 交接表](README.md#实现证据与文档交接)，本轮没有重跑这 6 项或完整算法检查。它们不验证 Windows 路径、CI 接入、真实仿真与性能；实际执行的文档检查结果见[大模块证据记录](../README_HUMAN.md#阅读材料与证据)。
 
 断链先看结果的 `file/target`；状态错误看 AI README 的 `状态：` 与文件清单；error 先检查依赖和导入，failed 再按测试名定位断言。修复真实跨模块故障时，回归测试应放回所属模块，再由这里选择组织，不在检查器中复制算法。
+
+PR #8 的 AI 记录在 `794cd623de54c75ee3ed96ae6788fb72c5a5cebd` 后执行 `verify.py --integration`：18 个测试通过、跳过 0，仿真/性能仍 not_run；`test_verify.py` 6 项也通过。这是引用既有结果，本轮只运行 `--docs`，不会借此生成新的单元或集成通过记录。

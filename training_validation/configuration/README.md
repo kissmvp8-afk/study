@@ -1,6 +1,6 @@
 # T01 · 版本、依赖与训练配置｜AI 实施规范
 
-状态：单元验证通过（CPU）。已实现 [config.py](config.py) 与 [test_config.py](test_config.py)，9 项检查通过；Isaac 配置仍有未确定项，当前不能运行。
+状态：单元验证通过（CPU）。已实现 [config.py](config.py) 与 [test_config.py](test_config.py)，9 项检查通过；`isaac_config` 本身仍有未确定项、不能直接运行，由 E01 用运行时元数据与用户设置填齐（尚未在 Isaac 中运行）。
 
 [人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
@@ -48,12 +48,12 @@
 | `RunConfig` | name、mode、seed、device、上述四组、environment、sources | 一次运行的完整配置；`sources` 为“字段路径 → 来源” |
 | `AUTHOR_ALGORITHM` / `PAPER_ALGORITHM` | 作者默认 / 论文候选 | 论文候选：gamma 0.97、n 5、tau 0.003、std 0.15、actor/Q lr 2e-4、alpha lr 2e-5；其余为作者默认 |
 | `cpu_debug_config(seed=0)` | 名称 `cpu-debug-fake-env`，模式 `cpu_debug` | 论文候选的算法值 + 缩小规模（3 环境、每轮 8 步、容量 64、批 16）+ **人工限位**，只用于假环境 |
-| `isaac_config(task="isaac_flat" \| "isaac_rough")` | 名称 `isaac_flat-sac` / `isaac_rough-sac`，模式 `isaac_sim` | q_dim、关节软限位、工作轮速、每轮采集步数、容量都为 None（未确定）；资产版本未锁定 |
+| `isaac_config(task="isaac_flat" \| "isaac_rough")` | 名称 `isaac_flat-sac` / `isaac_rough-sac`，模式 `isaac_sim` | q_dim、关节软限位、工作轮速、每轮采集步数、容量都为 None（未确定）；学习器 `device="cpu"`；`environment` 记录资产提交 e7b32d9，`sim_device` 为 None（创建环境时由 E01 填写）。E01 `fill_isaac_run_config` 用运行时值与用户设置填齐后才能运行 |
 | `undetermined_fields` | `(config) -> list[str]` | 值为 None 的字段路径 |
-| `validate_configuration` | `(config, for_run=True) -> None` | 检查来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置、速度标签列与 q_dim、n_steps ≤ 容量；`for_run=True` 时拒绝未确定项 |
+| `validate_configuration` | `(config, for_run=True) -> None` | 检查来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置、**学习器设备必须为 `cpu`**（只实现了 CPU 学习器，改字符串不等于支持 GPU）、速度标签列与 q_dim、n_steps ≤ 容量；`for_run=True` 时拒绝未确定项 |
 | `estimate_memory` | `(config, q_dim=None, capacity_per_env=None) -> dict` | 按 D01 字段形状与 dtype 估算 D02 经验池：总字节数与按字段降序的分项；未确定时必须显式给出场景值。**范围只含经验池张量** |
 | `check_memory_budget` | `(estimate, available_bytes) -> None` | 超出预算时报错并指出占用最多的字段，不自动缩小规模 |
-| `version_report` | `(repo_root) -> dict` | git 提交、是否有已跟踪文件的改动、Python 与 torch 版本、UPSTREAM.json 中的 PPO / SAC 来源与资产版本（未锁定） |
+| `version_report` | `(repo_root) -> dict` | git 提交、是否有已跟踪文件的改动、Python 与 torch 版本、UPSTREAM.json 中的 PPO / SAC 来源与资产版本（e7b32d9） |
 | `config_to_dict` / `config_from_dict` | | 与 JSON 基本类型互转 |
 | `export_run_configuration` / `load_run_configuration` | `(config, path, repo_root)` / `(path)` | 导出生效配置、来源、未确定项、版本与经验池估算；加载时校验格式版本 |
 
@@ -89,9 +89,9 @@
 | 案例 | 对应测试（[test_config.py](test_config.py)） | 结果 |
 |---|---|---|
 | 调试与仿真配置名称不同、模式不同；调试配置可运行；论文候选与作者默认的取值和来源说明正确 | `PresetTest.test_names_modes_and_sources`、`test_paper_and_author_values` | 通过 |
-| Isaac 配置列出 5 个未确定项并拒绝运行；资产版本为未锁定 | `PresetTest.test_isaac_config_refuses_to_run_with_undetermined_fields` | 通过 |
+| Isaac 配置列出 5 个未确定项并拒绝运行；学习器设备为 cpu；资产提交为 e7b32d9 | `PresetTest.test_isaac_config_refuses_to_run_with_undetermined_fields` | 通过 |
 | 人工限位放进 Isaac 配置时被拒绝 | `PresetTest.test_artificial_limits_rejected_for_simulation` | 通过 |
-| gamma=0、n_steps 超过容量、速度标签超出 q_dim、缺少来源、模式与任务不符时报错 | `PresetTest.test_invalid_combinations` | 通过 |
+| gamma=0、n_steps 超过容量、速度标签超出 q_dim、缺少来源、模式与任务不符、device 为 cuda 时报错 | `PresetTest.test_invalid_combinations` | 通过 |
 | 导出再加载后配置完全相等；版本记录中的 git 提交等于 `git rev-parse HEAD` | `ExportTest`（2 项） | 通过 |
 | 经验池估算与 D02 `estimate_storage_bytes` 一致，指出占用最多的字段（策略历史）；预算不足时报错 | `MemoryTest.test_estimate_matches_buffer_and_names_largest_part` | 通过 |
 | Isaac 场景必须显式给出 q_dim 与容量；241 维、4096×1221 条时为 4096×1221×4654 字节（≈ 23.28 GB） | `MemoryTest.test_isaac_scenario_requires_explicit_values` | 通过 |
@@ -130,11 +130,11 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`export_run_configuration` 写文件，其余函数无副作用 |
 | 代码注释核对 | 已核对：原版值 / 论文候选 / TITA 适配 / 调试值的区分（文件头、`sources`）；参数校验（`validate_configuration`）；版本固定（`version_report`）；内存估算的字段依据与范围（`estimate_memory`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/configuration/test_config.py -v` → `Ran 9 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
-| 未验证项 | Isaac Sim 5.1 / Isaac Lab 2.3.0 下的安装与兼容性；真实 q_dim、限位、轮速、每轮步数与容量；GPU 显存实际占用（估算只含经验池）；资产版本锁定 |
-| 代码版本 | `124d442e8c85feb1370088d6bb6d4032e506f0ac`；`version_report` 的修正在 `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
-| 本次改动及理由 | 首次实现 T01：配置逐字段记录来源，未确定项保持 None 并拒绝运行，人工限位只允许出现在调试配置 |
+| 未验证项 | Isaac Sim 5.1 / Isaac Lab 2.3.0 下的安装与兼容性；真实 q_dim、限位、轮速、每轮步数与容量（由 E01 在运行时填写，尚未在 Isaac 中运行）；GPU 显存实际占用（估算只含经验池）；GPU 学习器（未实现） |
+| 代码版本 | `124d442e8c85feb1370088d6bb6d4032e506f0ac`；`version_report` 的修正在 `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；学习器设备改为 CPU 并锁定资产提交在 `bd99b7b87b09b5fd1124ebdd9d842547910a9831`（分支 `claude/environment-integration`）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 T01：配置逐字段记录来源，未确定项保持 None 并拒绝运行，人工限位只允许出现在调试配置。`bd99b7b`：`isaac_config` 原写 `device="cuda"`，但学习器只在 CPU 上实现，改为 `cpu` 并增加校验，仿真设备另记在 `environment["sim_device"]`；E01 锁定资产后填入 `robot_assets_commit` |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `config.py`、`test_config.py`；作者 `sac.py` / `off_policy_runner.py` 的默认值；原 PPO `np3o_cfg.py`。建议 Codex 重点解释三类来源、未确定项如何阻止运行，以及内存估算的范围 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

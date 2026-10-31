@@ -148,7 +148,9 @@ TITA_NETWORK = NetworkConfig(encoder_backbone_dims=(128, 64), encoder_latent_hid
                              actor_hidden_dims=(512, 256, 128), critic_hidden_dims=(512, 256, 128))
 NETWORK_SOURCES = {f"network.{name}": PPO for name in NetworkConfig.__dataclass_fields__}
 
-TARGET_ENVIRONMENT = {"isaac_sim": "5.1", "isaac_lab": "2.3.0", "python": "3.11", "robot_assets_commit": None}
+# robot_assets_commit 与 E01 assets.ROBOT_ASSET["commit"] 一致（E01 测试核对）；sim_device 在创建环境时由 E01 填写。
+TARGET_ENVIRONMENT = {"isaac_sim": "5.1", "isaac_lab": "2.3.0", "python": "3.11",
+                      "robot_assets_commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed", "sim_device": None}
 
 # CPU 调试用的人工限位：与 E04 测试中的人工数据一致，**不是 TITA 实际限位**。
 _ARTIFICIAL_JOINT_POS_LIMITS = {
@@ -204,10 +206,12 @@ def isaac_config(task: str = "isaac_flat", seed: int = 0) -> RunConfig:
         "task.joint_pos_limits": f"{UNDETERMINED}：需 E01 从 soft_joint_pos_limits 读取",
         "task.wheel_speed_ranges": f"{UNDETERMINED}：需人工确定，不能直接用模型 30 rad/s",
         "task.initial_targets": "E03 默认目标",
-        "seed": TITA, "device": TITA,
+        "seed": TITA,
+        # 学习器（网络、经验池、更新）目前只实现并验证了 CPU 版本；仿真可以在 GPU 上，E05 负责两者之间的搬运。
+        "device": "T01：学习器只支持 CPU；仿真设备记录在 environment[\"sim_device\"]",
     })
     return RunConfig(
-        name=f"{task}-sac", mode="isaac_sim", seed=seed, device="cuda",
+        name=f"{task}-sac", mode="isaac_sim", seed=seed, device="cpu",
         task=TaskConfig(task=task, q_dim=None, velocity_label_columns=(0, 3), joint_pos_limits=None,
                         wheel_speed_ranges=None, action_limits_artificial=False, initial_targets=None),
         algorithm=PAPER_ALGORITHM, network=TITA_NETWORK,
@@ -236,7 +240,7 @@ def undetermined_fields(config: RunConfig) -> list[str]:
 
 
 def validate_configuration(config: RunConfig, for_run: bool = True) -> None:
-    """检查配置：来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置；for_run=True 时拒绝未确定项。
+    """检查配置：来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置、学习器设备为 CPU；for_run=True 时拒绝未确定项。
 
     异常：ConfigurationError，列出全部问题。
     """
@@ -262,6 +266,9 @@ def validate_configuration(config: RunConfig, for_run: bool = True) -> None:
             problems.append("isaac_sim 模式必须使用 isaac_flat 或 isaac_rough")
         if t.action_limits_artificial:
             problems.append("人工限位不能用于 Isaac 仿真配置")
+    if config.device != "cpu":
+        # 只改设备字符串并不会让网络与经验池在 GPU 上正确运行，因此在实现并验证 GPU 学习器之前拒绝其他设备。
+        problems.append(f"device={config.device!r}：学习器只实现了 CPU 版本，必须为 'cpu'")
     if t.velocity_label_columns[1] - t.velocity_label_columns[0] != 3:
         problems.append("速度标签必须是 3 列")
     if t.q_dim is not None and t.velocity_label_columns[1] > t.q_dim:

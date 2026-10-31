@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [contract.py](contract.py)、[baseline_source.py](baseline_source.py) 与 [test_contract.py](test_contract.py)，18 项无仿真检查通过；未在 Isaac Lab 中加载环境核对，未进行训练、仿真或性能验证。
 
-[人类版（已完成讲解与润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -66,7 +66,7 @@
 | `load_baseline_action_contract` | `(repo_dir=REPO_ROOT) -> ActionContract` | 读取 rough/flat/robot 三个文件，确认 rough 与 flat 都没有改写动作，然后建立动作表（不调用 validate） |
 | 命令行 | `python3 -B environment_control/action_contract/baseline_source.py` | 校验并打印由原版配置生成的动作表 |
 
-调用方：目前只有本目录的验证程序。E04 [bounds.py](../action_bounds/bounds.py) 已直接使用 `ActionContract`：逐项读取 `control_type`、`default_target`、`scale`、`joint_name`，并读取 `joint_names`、`default_targets`。D01、Q 网络和导出模块依赖同一索引顺序，这些模块尚未实现，接入时需在各自 README 中登记。
+调用方：本目录验证程序、E01 运行时核对、T02 Trainer 与 T05 导出等已使用；E04 [bounds.py](../action_bounds/bounds.py) 已直接使用 `ActionContract`：逐项读取 `control_type`、`default_target`、`scale`、`joint_name`，并读取 `joint_names`、`default_targets`。D01、Q 网络与导出模块已实现，沿用同一索引顺序；接入代码已有 CPU 证据，真实 Isaac 核对尚未执行。
 
 ## 必须成立的规则
 
@@ -140,12 +140,12 @@ python3 -B environment_control/action_contract/baseline_source.py
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”两张表；动作为长度 8 的一维序列，无物理单位；目标单位为 rad 或 rad/s；只读调用 git 子进程，没有其他副作用 |
 | 代码注释核对 | 已逐项核对本模块的注释重点：索引与顺序（`TITA_ACTION_LAYOUT`、`parse_action_terms`）、rad 与 rad/s 的区别（`ControlType`）、默认偏移（`build_action_contract` 速度分支）、scale/clip（`ActionEntry`、`action_to_targets`）、零动作不等于零力矩（`action_to_targets` docstring 与零动作测试） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.14.5，仓库位于 exFAT 外置盘；`python3 -B environment_control/action_contract/test_contract.py -v` → `Ran 18 tests … OK`；`baseline_source.py` 打印的表与下方原配置表一致；两项错误注入均被捕获；三份文件在 3.11 下语法解析通过（`ast.parse(feature_version=(3,11))`），本机没有 3.11 解释器，未实际运行 |
-| 未验证项 | Isaac Lab 实际加载后的 `ActionManager` 动作顺序与默认值（需要 E01 环境）；URDF 关节表（ddt_ros2_control 版本尚未锁定）；执行器力矩行为；Python 3.11 实际运行；仿真、训练与性能 |
+| 未验证项 | Isaac Lab 实际加载后的 `ActionManager` 动作顺序与默认值（E01 `compare_with_baseline` 已实现该核对，尚未在 Isaac 中运行）；URDF 关节表（E01 已锁定 ddt_ros2_control e7b32d9，CPU 测试确认 8 个受控关节都在 URDF 中）；执行器力矩行为；Python 3.11 实际运行；仿真、训练与性能 |
 | 代码版本 | 实现与验证代码：`9fdac4e5055989085eafd6b3c988c40d9df61ca9`（基于 `c6078f4`；本目录 3 个 .py 文件，以及本 README、本目录 README_HUMAN.md 元数据、大模块 README 状态、根 README 状态句），此后 3 个 .py 文件没有改动。人类版讲解：`ef7a5f0a7de22da413bc737cbab322e86e3c1f9e`。均在分支 `claude/e03-action-contract`（PR #2） |
 | 本次改动及理由 | 首次实现 E03：用固定快照的原配置作为唯一的数值来源（静态解析，不手抄数值），按 Isaac Lab v2.3.0 的动作语义建表；校验规则对应 README 的“必须成立的规则” |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；带注释的三份代码；上述验证命令与输出；Isaac Lab v2.3.0 的三处语义依据（见“与原 PPO 的关系”）；建议 Codex 重点解释 `build_action_contract` 速度分支的偏移来源、`validate_action_contract` 为何逐索引比较、`action_to_targets` 中先换算再裁剪的顺序，以及 `parse_action_terms` 为何以声明顺序作为动作顺序 |
-| 人类版 | 已完成讲解与润色（`ef7a5f0`）；状态与核对范围以 [README_HUMAN.md](README_HUMAN.md) 的元数据为准 |
-| 技术初稿 / 语言润色 | Codex 已依据 `9fdac4e` 完成技术初稿与核对，Gemini 已完成语言润色；两者都不包含仿真验证 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
 

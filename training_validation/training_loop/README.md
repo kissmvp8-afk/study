@@ -41,11 +41,11 @@
 
 | 符号 | 签名 | 说明 |
 |---|---|---|
-| `EnvObservation` | policy_history[E,10,33]、q_observation[E,C]、history_length、env_id、episode_id、step_index | 下一次交互所用的观测与编号 |
-| `EnvStep` | next_policy_history、next_q_observation、next_history_length、reward、terminated、time_out、observation | 重置前的真实下一观测与结束原因，以及重置后的续用观测 |
+| `EnvObservation` | policy_history[E,10,33]、q_observation[E,C]、history_length、env_id、episode_id、step_index | 下一次交互所用的观测与编号（定义在 E05 [lifecycle.py](../../environment_control/episode_lifecycle/lifecycle.py)，本文件导入；字段与语义未变） |
+| `EnvStep` | next_policy_history、next_q_observation、next_history_length、reward、terminated、time_out、observation | 重置前的真实下一观测与结束原因，以及重置后的续用观测（同上，定义在 E05） |
 | `FakeLocomotionEnv` | `(num_envs, q_dim, max_episode_steps, termination_steps)`；`reset(first_episode_ids=None)`、`step(action[E,8])`；`received_actions` | 确定性人工动力学：f' = 0.8 f + 0.2 W a，奖励 1 − 0.1·mean(a²)，Q 观测前 3 列 = 2 × f[0:3]；同一步终止又到时只报真终止；重置帧为 −3 附近 |
 
-这套 `reset` / `step` 接口就是 Trainer 与环境之间的约定。E01 / E05 接入 Isaac Lab 时实现同一接口：重置前保存真实末状态，维护 episode_id、step_index、history_length 和重置填充规则。Trainer 不重复实现这些逻辑。
+这套 `reset` / `step` 接口就是 Trainer 与环境之间的约定。E05 `EpisodeLifecycle`（钩子由 E01 `TitaSacHooks` 用 Isaac 实现，尚未在仿真中运行）实现同一接口：重置前保存真实末状态，维护 episode_id、step_index、history_length 和重置填充规则。Trainer 不重复实现这些逻辑。
 
 ### [runner.py](runner.py)
 
@@ -138,15 +138,15 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
 | 实现状态 | 单元验证通过（CPU、假环境、人工数据）；Isaac 仿真集成未开始 |
-| 实际文件、函数签名与调用关系 | [fake_env.py](fake_env.py)：`FakeLocomotionEnv`、`EnvObservation`、`EnvStep`；[runner.py](runner.py)：`Trainer`、`TrainingCounters`；调用 E03 `load_baseline_action_contract`、E04 `derive_bounds` / `calibrate_initial_center`、D01 `make_transition`、D02、D03 `build_n_step_batch`、D04、D05 `split_windows`、N01～N08 的公开接口，T01 `validate_configuration`，以及按需调用 T03 `save_checkpoint`。[test_runner.py](test_runner.py)：5 个测试类共 9 项 |
+| 实际文件、函数签名与调用关系 | [fake_env.py](fake_env.py)：`FakeLocomotionEnv`（`EnvObservation`、`EnvStep` 自 E05 导入）；[runner.py](runner.py)：`Trainer`、`TrainingCounters`；调用 E03 `load_baseline_action_contract`、E04 `derive_bounds` / `calibrate_initial_center`、D01 `make_transition`、D02、D03 `build_n_step_batch`、D04、D05 `split_windows`、N01～N08 的公开接口，T01 `validate_configuration`，以及按需调用 T03 `save_checkpoint`。[test_runner.py](test_runner.py)：5 个测试类共 9 项 |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`collect_steps` 修改经验池、D04 统计、环境状态与 collect 生成器；`learn_from_replay` 修改在线 / 目标 Q、Actor、log_alpha、对应优化器与 replay / learn 生成器；`auxiliary_update` 修改编码器、projector（含 BN 统计）与辅助优化器 |
 | 代码注释核对 | 已核对：采集 / 回放计数（文件头、`TrainingCounters`）；预热动作来源（`collect_steps`）；各优化器顺序与频率（文件头、`learn_from_replay`）；统计只随新数据更新、编码器模式由 N02 管理、重置数据由环境提供（文件头） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/training_loop/test_runner.py -v` → `Ran 9 tests … OK`（首次运行有 1 项因测试精度写法失败，见上文“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
-| 未验证项 | Isaac Lab 环境（E01 / E02 / E05）接入、自动重置时机与末状态捕获；小规模 Isaac 仿真持续训练与保存；真实奖励与观测尺度下的稳定性；GPU 性能；训练效果 |
-| 代码版本 | `4bf81a5486a8895c8d6a04305b6b7a1702351c9e`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
+| 未验证项 | Isaac Lab 环境接入（E01 / E02 / E05 已实现，CPU 下用人工钩子验证过末状态捕获；真实 Isaac 未运行）；小规模 Isaac 仿真持续训练与保存；真实奖励与观测尺度下的稳定性；GPU 性能；训练效果 |
+| 代码版本 | `4bf81a5486a8895c8d6a04305b6b7a1702351c9e`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；`EnvObservation` / `EnvStep` 移到 E05 在 `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`），`runner.py` 未改动；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T02：调度层只调用已有模块；按作者顺序组织 Critic、alpha、Actor、慢更新；辅助学习按迭代计频；用明确标注的假环境检查数据流程 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `fake_env.py`、`runner.py`、`test_runner.py`；作者 `off_policy_runner.py`（learn 循环、start_training）与 `sac.py`（update 顺序、update_step、policy_frequency）。建议 Codex 重点解释一次 Critic 更新内部的顺序、各计数的含义、预热期为何仍用 Actor，以及假环境与真实 E05 的边界 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

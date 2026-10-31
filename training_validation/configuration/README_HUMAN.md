@@ -4,13 +4,13 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 讲解与技术复核已完成，本轮不再润色 |
-| 技术核对状态 | 2026-10-31，Codex 对照实际实现、注释与测试核对职责、调用、形状、单位、代码片段和边界；本次是文档核对，不是全面代码审核 |
-| 语言润色状态 | 本轮由 Codex 完成中文讲解与技术核对，不另交 Gemini |
-| 已核对代码版本 | `a07d7b22e5bc2f40c462c01cc3378f7bcf3fe0c7`（`claude/training-core`，PR #7）；读取时与用户验收版本、远端分支一致，无后续源码差异 |
+| 文档状态 | 讲解与技术复核已完成，本轮不再润色；保留有效正文并同步 PR #8 接入变化 |
+| 技术核对状态 | 2026-10-31，Codex 按实际实现与测试同步资产、设备、公共环境接口或集成检查；本次是文档核对，不扩大代码审核 |
+| 语言润色状态 | 保留已有中文讲解与历史润色记录；本轮由 Codex 技术同步，不再交 Gemini |
+| 已核对代码版本 | 本轮 `a12e69a38c6b9b3a236473a2563e255a9a24e761`（claude/environment-integration，PR #8），fetch 后 git rev-parse HEAD 与已审查/远端版本一致；历史版本见正文与 Git 历史 |
 | 待同步代码版本 | 无 |
-| 实际阅读材料 | AGENTS.md、CODEX.md、根及本大模块/本目录 AI README；[config.py](config.py)、[test_config.py](test_config.py) 全文；D01 字段布局、D02 字节估算、T02 配置绑定与 T03 恢复检查；依赖与来源详见[大模块阅读记录](../README_HUMAN.md#阅读材料与证据) |
-| 验证依据与限制 | 本目录 AI 交接表记录 9 项 CPU 检查通过（Python 3.11.17 + torch 2.15.0），本次阅读测试、引用既有结果，未重跑算法测试。本轮执行的文档检查见大模块记录；人工数据/假环境不代表 Isaac 仿真、GPU、机器人训练或性能验证 |
+| 实际阅读材料 | 本轮阅读 config.py/test_config.py、E01 fill_isaac_run_config 及其测试、UPSTREAM.json；对照 bd99b7b 的设备和资产差异，保留原配置与内存讲解；全局材料与本轮检查见[项目阅读记录](../../README_HUMAN.md#阅读材料与验证依据) |
+| 验证依据与限制 | 既有 CPU 结果见本目录 AI 交接表；PR #8 记录全仓库 216 项测试（跳过真实资产 1 项）及 18 项 CPU 集成测试通过，本轮未重跑。只执行 verify.py --docs 与文档静态核对；真实 Isaac、GPU、机器人训练及性能未验证 |
 
 ## 为什么先把配置说清楚
 
@@ -53,13 +53,13 @@ Actor 是生成动作的策略网络；Q 网络估计给定状态与动作的未
 
 速度标签列 `(0,3)` 表示左闭右开三列。原 PPO 的身体线速度观测乘过 2.0，标签因此不是直接的 m/s；Isaac 接入时仍需 E02 确认列顺序。位置目标单位 rad，轮速目标单位 rad/s，策略动作本身无物理单位。`initial_targets=None` 明确表示使用 E03 默认目标，不能当作“忘填配置”。
 
-`RunConfig.device` 是记录与后续适配的一部分；当前 T02 构造的是 CPU 对象，不能把字符串改成 `cuda` 就视为已经实现 GPU 调度。
+`RunConfig.device` 明确指学习器设备，当前只能为 `cpu`，`validate_configuration` 对其他字符串报错。E01 的 `--device` 则指仿真设备，记在 `environment["sim_device"]`；E05 搬运数据连接两者。仿真用 GPU 不代表网络和经验池在 GPU 上学习。
 
 ## `config.py` 的函数与关键计算
 
 - `cpu_debug_config(seed)` 返回可执行的 CPU 人工流程配置；`isaac_config(task, seed)` 返回 `isaac_flat` 或 `isaac_rough` 的待补齐配置。未知任务抛 `ConfigurationError`，两者不启动训练。
 - `_field_paths(config)` 列出需说明来源的字段（不含 `name/mode/environment/sources`，人工标记也不单列来源）；`undetermined_fields(config)` 返回其中值为 `None` 的路径，排除有明确语义的 `task.initial_targets`。
-- `validate_configuration(config, for_run=True)` 返回 `None` 或抛异常。它检查来源、折扣/比例/频率/正值、模式与任务、人工限位、三列标签和 `n_steps≤K`。`for_run=False` 允许保存未确定的规划配置；`True` 还拒绝未确定项。它不是完整的物理配置验收器。
+- `validate_configuration(config, for_run=True)` 返回 `None` 或抛异常。它检查来源、折扣/比例/频率/正值、模式与任务、人工限位、学习器设备必须为 cpu、三列标签和 `n_steps≤K`。`for_run=False` 允许保存未确定的规划配置；`True` 还拒绝未确定项。它不是完整的物理配置验收器。
 - `estimate_memory(config, q_dim=None, capacity_per_env=None)` 返回记录数、C、K、总字节与降序字段明细；两个可选参数只用于明确估算场景，不修改配置。
 - `check_memory_budget(estimate, available_bytes)` 超预算时指出最大字段并报错，不自动缩小实验，以免记录的规模与实际运行不符。
 
@@ -93,11 +93,11 @@ total = sum(parts.values())
 
 `isaac_config` 仍有五项 `None`：`task.q_dim`、`task.joint_pos_limits`、`task.wheel_speed_ranges`、`collection.steps_per_iteration`、`collection.capacity_per_env`。平地 C=54、复杂地形 C=241 都只是 E02 预期，需运行时核对。轮子模型上限也不能直接当作工作轮速。
 
-此外 `environment.robot_assets_commit` 尚未锁定，不在 `undetermined_fields` 那五项列表里。目标 Isaac Sim 5.1、Isaac Lab 2.3.0、Python 3.11 是兼容目标，尚无本轮安装或运行证据。当前能运行的是 CPU 调试配置。
+资产提交已在 `TARGET_ENVIRONMENT` 锁定为 `e7b32d9746df900680641ff2845ffb0b5ffe99ed`，并与 UPSTREAM.json/E01 一致；不再是待锁定项。`sim_device=None` 在创建环境时由 E01 填写，也不属于 `undetermined_fields` 的五项。目标 Isaac Sim 5.1、Isaac Lab 2.3.0、Python 3.11 尚无本轮安装/运行证据。CPU 调试配置可用于人工流程；Isaac 模板经 E01 填齐才可交给学习器，真实运行未验证。
 
 ## 测试怎样支持这些说明
 
-[test_config.py](test_config.py) 有 9 项既有测试：`PresetTest` 的五项核对命名/来源、候选与作者值、五项未确定、拒绝人工限位进入仿真配置和非法组合；`ExportTest` 的两项核对往返/版本和拒绝其他格式；`MemoryTest` 的两项核对 D02 字节公式、超预算报错和必须显式给出估算场景。它们用标准 `unittest.main()` 入口，没有自定义测试数据工厂。值是否真的进入优化器由 T02 测试继续验证。
+[test_config.py](test_config.py) 有 9 项既有测试：`PresetTest` 的五项核对命名/来源、候选与作者值、五项未确定、拒绝人工限位进入仿真配置和非法组合（含拒绝 cuda 学习器）；资产与版本断言已改为锁定提交；`ExportTest` 的两项核对往返/版本和拒绝其他格式；`MemoryTest` 的两项核对 D02 字节公式、超预算报错和必须显式给出估算场景。它们用标准 `unittest.main()` 入口，没有自定义测试数据工厂。值是否真的进入优化器由 T02 测试继续验证。
 
 对应上文断言的精确方法名如下。测试方法由 unittest 调用，无业务参数，成功时返回 None；测试工厂与设置/清理方法的职责见上文。
 
@@ -114,3 +114,9 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 ```
 
 配置报错先看异常中的完整字段路径；内存不足先看 `by_field_bytes`，再把训练额外占用算入预算；恢复时学习率“被改回去”先看 [T03 恢复规则](../checkpoints/README_HUMAN.md)。下一步按 [T02](../training_loop/README_HUMAN.md) 看配置怎样实际驱动流程。
+
+## 从 Isaac 模板到本次生效配置
+
+[E01 fill_isaac_run_config](../../environment_control/robot_environment/metadata.py) 先以 `isaac_config` 为模板，用已核对的运行时 C、六腿软限位、实际环境数填值；用户显式工作轮速、每轮步数和每环境容量补齐剩余字段，再校验并导出。`sources` 区分运行时、用户值和接入调试值。默认入口规模 16 环境、8 步/轮、容量 200、训练 3 轮用于接入排查，不能当作正式训练方案。
+
+现有 `config.py` 文件头还保留“UPSTREAM.json 尚未锁定”旧注释，与当前 `TARGET_ENVIRONMENT` 和 UPSTREAM.json 不符；本文已按实际常量更正。该文字残留不影响配置取值，本轮按范围未修改源码。
