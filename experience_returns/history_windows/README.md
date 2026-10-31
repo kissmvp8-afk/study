@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [history.py](history.py) 与 [test_history.py](test_history.py)，11 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入网络或导出入口，未进行训练或性能验证。
 
-[人类版（技术初稿完成，待 Gemini 润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -125,7 +125,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 | 代码版本 | 代码与测试：`807ee636b1d40ff4be86ed27f9ce9ecd9f5afe2a`（分支 `claude/experience-returns`，基于 `c06509e`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 D05：统一训练与运行的切片入口，并把原 PPO 导出包装器在完整历史上重复当前帧的现象记录为 T05 回归依据 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；带注释的 `history.py`、`test_history.py`；原 PPO `actor_critic.py` 的 `_split_policy_obs`、`BarlowTwinsActor.forward`、`_InferenceWrapper`。建议 Codex 重点解释三段切片的索引、辅助学习为什么需要 6 帧，以及原导出包装器重复当前帧的原因 |
-| 人类版 | 技术初稿完成，待 Gemini 润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Codex 技术初稿已完成；待 Gemini 润色同一份人类版，尚未标为已润色 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Gemini 整体润色已完成，Codex 后续技术修正已复核；按用户决定本轮不再局部润色 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

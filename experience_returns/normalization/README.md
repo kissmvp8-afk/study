@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [normalization.py](normalization.py) 与 [test_normalization.py](test_normalization.py)，8 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入网络或采集循环，未进行训练或性能验证。
 
-[人类版（技术初稿完成，待 Gemini 润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -144,7 +144,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 | 代码版本 | 代码与测试：`e77bc66d7878831fb1b5eb19d616785c81f2d251`（分支 `claude/experience-returns`，基于 `c06509e`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 D04：原 PPO 在 forward 中自动更新统计，SAC 回放时会重复计数，因此拆分更新与使用；明确每个真实状态只计一次 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；带注释的 `normalization.py`、`test_normalization.py`；原 PPO `normalizer.py`、`actor_critic.py`（`_normalize`）；作者 `modules/normalization.py` 与 `sac.py` 的 `process_env_step`。建议 Codex 重点解释并行方差合并、`select_fresh_samples` 的计数规则，以及为什么回放只调用 normalize |
-| 人类版 | 技术初稿完成，待 Gemini 润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Codex 技术初稿已完成；待 Gemini 润色同一份人类版，尚未标为已润色 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Gemini 整体润色已完成，Codex 后续技术修正已复核；按用户决定本轮不再局部润色 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
