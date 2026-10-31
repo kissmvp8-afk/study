@@ -2,7 +2,7 @@
 
 状态：框架与说明已建立；T01～T06 六个小模块都已完成 **CPU 实现**并通过单元检查（T02、T03 使用假环境）。Isaac 仿真、真实训练与性能验证都未开始，本大模块未完成运行验证。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回项目总说明](../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回项目总说明](../README.md)
 
 ## 模块职责与范围
 
@@ -66,7 +66,7 @@ T01 cpu_debug_config ──► T02 Trainer（构造时把每个配置值显式�
 T06 verify.py：文档 / 单元 / CPU 集成三层可执行；仿真 / 性能两层为 not_run
 ```
 
-跨模块接口变化：D02 新增 `ReplayBuffer.state_dict` / `load_state_dict`，供 T03 保存经验池；写入、连续性与抽样算法没有改动。D02 人类版因此标为“待 Codex 同步”。T04～T06 没有修改任何已有模块的接口；T04 `run_evaluation` 使用 T02 的环境接口，T05 复用 N01 / N03 的推理函数，T06 只运行已有测试。
+跨模块接口变化：D02 新增 `ReplayBuffer.state_dict` / `load_state_dict`，供 T03 保存经验池；写入、连续性与抽样算法没有改动。D02 人类版已同步保存恢复接口与验证说明（核对版本 a07d7b2，本轮不再润色）。T04～T06 没有修改任何已有模块的接口；T04 `run_evaluation` 使用 T02 的环境接口，T05 复用 N01 / N03 的推理函数，T06 只运行已有测试。
 
 T03 审核修复：恢复时学习配置必须与检查点一致（只有 name、sources、environment 可以不同），否则在修改 Trainer 之前报错，并提示用 `load_checkpoint_config` 重建。“换配置续训”不在本版本范围内。
 

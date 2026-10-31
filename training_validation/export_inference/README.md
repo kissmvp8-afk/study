@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU）。已实现 [export.py](export.py) 与 [test_export.py](test_export.py)，6 项检查通过；导出格式为 TorchScript；CPU 一致性不代表真机部署通过。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -143,7 +143,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码版本 | `82d6e8371daad31e2069d9b726014c0446af2c4c`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T05：导出路径复用训练内推理代码，从结构上避免两条入口切片不一致；输出保持策略坐标，物理换算只在运行端执行一次 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `export.py`、`test_export.py`；N01 `encoder.py`、N03 `actor.py`、D05 `history.py`；原 PPO `actor_critic.py` 的 `_InferenceWrapper`。建议 Codex 重点解释为什么复用训练路径、统计如何冻结、输出与 E03 换算的分工，以及原 PPO 重复当前帧的问题 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

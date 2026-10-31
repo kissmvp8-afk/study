@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、假环境）。已实现 [checkpoint.py](checkpoint.py) 与 [test_checkpoint.py](test_checkpoint.py)，10 项检查通过；只支持按检查点原有学习配置恢复；不保存仿真现场。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -147,7 +147,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码版本 | `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`，审核修复 `d213a24425ab9588fa4e77e64fb87106116dd401`；依赖 D02 新增接口 `f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T03：在作者保存内容的基础上补齐经验池、随机数与调度计数；明确两种恢复语义，以及不恢复仿真现场。审核修复（Codex 复核 `13382f3`）：原实现允许恢复时使用不同的学习配置，但优化器状态与 D04 统计会带回旧的学习率与 eps，导致配置记录与实际运行不一致，再次保存时仍不一致；改 gamma 后仍报告“下一批学习可复现”也不成立。现改为只支持按检查点原有学习配置恢复：不一致时在修改 Trainer 之前报错并列出差异，提示用 `load_checkpoint_config` 重建 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `checkpoint.py`、`test_checkpoint.py`；T02 `runner.py`；D02 `buffer.py` 的 `state_dict`；作者 `sac.py` 的 `save` / `load`。建议 Codex 重点解释原子保存、两种恢复语义、结构检查，以及为什么恢复后旧经历不会与新一轮拼接 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

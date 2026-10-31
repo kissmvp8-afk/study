@@ -4,13 +4,13 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 待 Codex 同步（为 T03 新增 `state_dict` / `load_state_dict` 两个公开方法与 2 项测试；已有正文保留，仍有效） |
-| 技术核对状态 | 2026-10-31，Codex 已复核函数签名、连续性代码片段、容量范围与 9 项既有测试内容；修正覆盖/抽样次数并补回测试辅助函数说明；只核对文档与源码，不开展全面代码审核 |
+| 文档状态 | 讲解与技术复核已完成，本轮不再润色；已补充 T03 保存恢复接口，保留原有效正文 |
+| 技术核对状态 | 2026-10-31，Codex 复核本版本 buffer.py、test_buffer.py，补充 state_dict/load_state_dict、2 项 StateTest 与 T03 调用；既有写入/连续性/抽样讲解保留，本次不开展全面代码审核 |
 | 语言润色状态 | 2026-10-31，Gemini 已完成整体语言润色（`d29af80`）；后续技术修正已复核（`22862f1`）；按用户决定本轮不再进行局部润色，保留已有润色内容 |
-| 已核对代码版本 | 审核基准 `7071e41f27f0b5e56b9bed3ef3e796741f96ee40`；实现与测试来自 `3838fe4a0d00bf2e8e102edda39a58d5c21e9f0c`，读取时无后续源码变化；本次实际读取 `d29af80b06d941a0d4d11c1be63c9ecbbb975640`，实现/测试与 `5b47469` 一致 |
-| 待同步代码版本 | `f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`）：新增 `ReplayBuffer.state_dict` / `load_state_dict` 与 `StateTest`；写入、连续性与抽样算法未改动 |
-| 实际阅读材料 | 根规范、上层及本目录 AI README；[buffer.py](buffer.py)、[test_buffer.py](test_buffer.py) 全文；D01 `schema.py`/测试、D03 `returns.py`/测试，D04/D05 衔接测试；固定 PPO `rollout_storage.py` 相关片段。全局材料见[大模块阅读记录](../README_HUMAN.md#阅读材料与工程验证证据)；本次另对照 E02、E05、N04、N05、T05 契约及 `5b47469`→`d29af80` 文档差异 |
-| 验证依据与限制 | 用户报告 D01～D05 共 55 项 CPU 检查已独立通过；本模块 9 项的既有结果见 [PR #5](https://github.com/kissmvp8-afk/study/pull/5) 和 [AI 交接表](README.md#实现证据与文档交接)。本次只核对文档，不重跑算法测试；人工数据，未接入仿真或训练；修正后检查本地链接/锚点、函数覆盖和代码片段，并核对修改范围，不重跑算法测试 |
+| 已核对代码版本 | 本次 `a07d7b22e5bc2f40c462c01cc3378f7bcf3fe0c7`（claude/training-core，PR #7），包含保存恢复接口提交 `f81a92a2720694b31460f9a9174f758ce9524a55`；与远端及验收版本一致。原正文基于 `7071e41`、后经 `d29af80` / `22862f1` 复核 |
+| 待同步代码版本 | 无；T03 所需接口已同步，写入、连续性与抽样算法未改动 |
+| 实际阅读材料 | 根规范、上层及本目录 AI README；[buffer.py](buffer.py)、[test_buffer.py](test_buffer.py) 全文；D01 `schema.py`/测试、D03 `returns.py`/测试，D04/D05 衔接测试；固定 PPO `rollout_storage.py` 相关片段。全局材料见[大模块阅读记录](../README_HUMAN.md#阅读材料与工程验证证据)；此前另对照 E02、E05、N04、N05、T05 契约及 `5b47469`→`d29af80` 文档差异；本轮实际阅读 T01/T02/T03 实现与测试及 AI 交接表 |
+| 验证依据与限制 | 用户报告 D01～D05 共 55 项 CPU 检查已独立通过；本模块 9 项的既有结果见 [PR #5](https://github.com/kissmvp8-afk/study/pull/5) 和 [AI 交接表](README.md#实现证据与文档交接)。本轮引用 PR #7 的 D02 11 项 CPU 通过记录（其中新增 StateTest 2 项），T03 另有 10 项恢复/流程检查；已在 CPU 假环境衔接，未接入 Isaac 仿真或机器人训练。本次不重跑算法测试，执行 verify.py --docs 并核对接口/片段/链接，结果见 [T 大模块记录](../../training_validation/README_HUMAN.md#阅读材料与证据) |
 
 ## 要解决的问题
 
@@ -77,9 +77,31 @@ D03 build_n_step_batch (下游接收 SequenceBatch，折算 n 步折扣回报)
 | `ReplayBuffer.valid_starts` | `(n_steps: int) -> tuple[Tensor, Tensor]` | 核心检索算法。输入 $1 \le n \le K$，返回所有能够向前构成合法 n 步片段的 `(env_ids, slots)` 起点坐标 |
 | `ReplayBuffer.sample_starts` | `(batch_size, n_steps, generator=None)` | 依托 `valid_starts` 检索候选集，进行有放回均匀随机抽样；支持传入 `torch.Generator` 以实现确定性复现 |
 | `ReplayBuffer.read_sequence`| `(env_ids, slots, length: int) -> SequenceBatch` | 给定起点和读取长度 $L$，沿环形槽位提取连续矩阵，并输出 `valid` 连续性掩码 |
+| `ReplayBuffer.state_dict` | `() -> dict` | 返回 E/K/C、全部字段存储、写入序号和逐环境累计写入次数，张量均为副本，供 T03 保存 |
+| `ReplayBuffer.load_state_dict` | `(state: dict) -> None` | 核对 E/K/C 与存储字段集合，再复制回已分配张量；修改当前经验池，不读取文件或恢复随机数 |
 | `SequenceBatch` | 冻结数据类 | 保存 `fields`、`valid`、起点 `env_ids[M]` 与读出槽位 `slots[M,L]`；冻结属性不使内部张量只读 |
 | `SequenceBatch.length` | 属性，返回 `int` | 当前时序矩阵的跨度长度 $L$（即 `valid.shape[1]`） |
 | `SequenceBatch.at` | `(offsets: Tensor) -> TransitionBatch` | 输入各行相对偏移 `[M]`，检查越界与 `valid`，通过高级索引复制并组装单步记录；不再执行 D01 全字段校验 |
+
+## 供 T03 使用的经验池保存与恢复
+
+T03 的检查点是一次训练状态的文件。D02 只提供内存字典接口，由 [T03 checkpoint.py](../../training_validation/checkpoints/checkpoint.py) 的 `collect_training_state` 调用 `buffer.state_dict()`，`save_checkpoint` 负责写文件；恢复时 `restore_checkpoint` 调用 `buffer.load_state_dict(state["replay"])`。D02 自己不做文件操作。
+
+`state_dict()` 除了保存原始 13 个字段，还必须保存覆盖代次和下一次写入位置：
+
+```python
+"storage": {name: tensor.clone() for name, tensor in self._storage.items()},
+"write_seq": self._write_seq.clone(),
+"writes": self._writes.clone(),
+```
+
+第一行复制全部预分配字段（包括尚未使用的槽位），第二行复制每槽位序号，第三行复制每环境累计写入次数。只存观测而漏掉后两项，恢复后可能覆盖错槽位或错误判断连续性。返回字典另含 `num_envs/capacity_per_env/q_dim`。这些张量与原池不共享存储，但完整复制会增加临时内存占用。
+
+`load_state_dict(state)` 先要求 E/K/C 与当前对象相等，存储字段集合相同，否则抛 `ReplayBufferError`；然后逐字段 `copy_`，再复制 `_write_seq/_writes`，保持当前预分配存储。它是 `state_dict` 输出的配套恢复接口，不是任意外部字典的完整语义验证器。复制完成后，修改传入字典不影响池内容。
+
+新增 `StateTest.test_round_trip_and_continued_writes` 的人工例子是 E=2、K=4、C=6：环境 0 写了 6 次，环境 1 写了 3 次。恢复后下一条分别落在槽位 `6%4=2` 和 `3%4=3`；n=1/2/3 的有效起点、读出字段与 valid 都与原池一致。测试还修改导出的奖励张量，确认已恢复池不受影响。`test_rejects_mismatched_shape` 则核对 K=4 的状态不能装入 K=5 的池。
+
+经验池状态不包含抽样生成器。T02 持有的 replay 随机流由 T03 单独保存；“同池 + 同随机流”才支持下一批抽样复现。带池的 `exact_replay` 恢复已在同配置、CPU、同 PyTorch 版本下验证下一批学习；不带池的 `model_only` 恢复会新建空池。两者都不恢复环境现场，T03 将轮次编号加一，防止新采集与旧回合拼接。详见 [T03 人类版](../../training_validation/checkpoints/README_HUMAN.md)。
 
 ## 环形槽位为什么还需要写入序号
 
@@ -163,7 +185,7 @@ $$\text{bytes\_per\_record}(C) = 2640 + 8C + 32 + 4 + 2 + 40 + 8 = 2726 + 8C \te
 
 两者的范围不同：估算值不含 `_writes[E]`，`storage_bytes` 则计入这 $8E$ 字节；两者都不含分配器、临时计算张量与网络的额外开销。这里是按字段计算的容量预算，不是五百万条数据的实际性能测量。
 
-## `test_buffer.py`：9 项单元测试的验证范围
+## `test_buffer.py`：既有 9 项与新增 2 项保存恢复检查
 
 测试脚本用 `code_of(env, episode, step) = env * 10000 + episode * 100 + step` 生成可辨识的人工标记。在现有测试的小整数范围内，可据此核对数据归属；该编码不是任意大编号的无损编码，也不是真实机器人观测。
 
@@ -181,7 +203,7 @@ $$\text{bytes\_per\_record}(C) = 2640 + 8C + 32 + 4 + 2 + 40 + 8 = 2726 + 8C \te
 | `CapacityAndErrorTest.test_bytes_follow_actual_fields` | 核对手算内存字节数公式，并验证包含写指针开销后的精确内存统计 |
 | `CapacityAndErrorTest.test_rejects_bad_writes_and_reads` | 防御性测试：拦截重复环境号写入、拦截越界环境号、拦截空起点抽样、拦截无效偏移访问 |
 
-脚本入口为 `unittest.main()`。表中通过结果来自既有 CPU 记录，本次只静态核对测试内容。
+上表保留原 9 项；新增 `StateTest` 两项见前文保存恢复小节，目前共 11 项。脚本入口为 `unittest.main()`。通过结果来自既有 CPU 记录，本次只静态核对测试内容。
 
 复现测试时，可在仓库根目录执行：
 ```bash
@@ -190,10 +212,11 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 
 > [!WARNING]
 > **验证边界声明**：
-> 本模块目前的 9 项测试已在 CPU 合成数据下全部通过。尚未在包含 Isaac Lab 物理引擎的真实训练循环中测试显存吞吐性能，也未验证高并发（数千环境实时交互）条件下的多线程与异步读写安全。
+> 本模块目前的 11 项测试已由既有记录报告在 CPU 合成数据下全部通过，本轮未重跑。尚未在包含 Isaac Lab 物理引擎的真实训练循环中测试显存吞吐性能，也未验证高并发（数千环境实时交互）条件下的多线程与异步读写安全。
 
 ## 阅读导航与后续模块
 
 - 深入理解输入的单步转移标准：请参考 [D01 经历记录契约](../transition_schema/README_HUMAN.md)；
 - 查看抽样出的连续片段如何折算为 TD 目标：请继续阅读 [D03 连续多步回报](../n_step_returns/README_HUMAN.md)；
-- 理解读出的观测特征如何进行标准化与窗口切片：请参考 [D04 观测归一化](../normalization/README_HUMAN.md) 与 [D05 历史窗口](../history_windows/README_HUMAN.md)。
+- 理解读出的观测特征如何进行标准化与窗口切片：请参考 [D04 观测归一化](../normalization/README_HUMAN.md) 与 [D05 历史窗口](../history_windows/README_HUMAN.md)；
+- 查看何时写池、何时回放以及保存恢复：请继续阅读 [T02 调度](../../training_validation/training_loop/README_HUMAN.md) 和 [T03 检查点](../../training_validation/checkpoints/README_HUMAN.md)。
