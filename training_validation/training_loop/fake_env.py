@@ -2,7 +2,8 @@
 
 它**不是** Isaac 仿真，也不模拟 TITA 动力学；结果不能称为仿真验证或机器人训练成功。
 
-接口（T02 Trainer 与环境之间的约定，之后由 E01 / E05 在 Isaac Lab 上实现同一接口）：
+接口（T02 Trainer 与环境之间的约定；EnvObservation / EnvStep 定义在 E05 lifecycle.py，
+E05 EpisodeLifecycle 在 Isaac Lab 上实现同一接口）：
     reset(first_episode_ids=None) -> EnvObservation
     step(action [E,8]) -> EnvStep
 EnvStep 同时给出两种观测，这正是 E05 的职责：
@@ -19,37 +20,18 @@ EnvStep 同时给出两种观测，这正是 E05 的职责：
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+import sys
+from pathlib import Path
 from typing import Sequence
 
 import torch
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "environment_control" / "episode_lifecycle"))
+
+# 公共环境数据接口定义在 E05（真实 Isaac 适配器与本假环境共用同一份定义，字段与语义不变）。
+from lifecycle import EnvObservation, EnvStep  # noqa: E402,F401
+
 HISTORY_LENGTH, FRAME_DIM, ACTION_DIM = 10, 33, 8
-
-
-@dataclass(frozen=True)
-class EnvObservation:
-    """下一次交互所用的观测与编号（[E,...]）。"""
-
-    policy_history: torch.Tensor  # [E,10,33] float32
-    q_observation: torch.Tensor  # [E,C] float32
-    history_length: torch.Tensor  # [E] int64
-    env_id: torch.Tensor  # [E] int64
-    episode_id: torch.Tensor  # [E] int64
-    step_index: torch.Tensor  # [E] int64
-
-
-@dataclass(frozen=True)
-class EnvStep:
-    """一步的结果：重置前的真实下一观测、奖励与结束原因，以及（重置后的）下一次交互观测。"""
-
-    next_policy_history: torch.Tensor  # [E,10,33]
-    next_q_observation: torch.Tensor  # [E,C]
-    next_history_length: torch.Tensor  # [E]
-    reward: torch.Tensor  # [E,1]
-    terminated: torch.Tensor  # [E,1] bool
-    time_out: torch.Tensor  # [E,1] bool，与 terminated 互斥
-    observation: EnvObservation
 
 
 class FakeLocomotionEnv:
