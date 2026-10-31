@@ -1,8 +1,8 @@
 # 网络与学习｜AI 实施规范
 
-状态：框架与说明已建立；本大模块尚未实现或完成运行验证。
+状态：框架与说明已建立；N01～N08 都已实现并通过 CPU 单元检查（人工数据，需要 PyTorch）；本大模块未接入仿真或训练，未完成运行验证。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回项目总说明](../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回项目总说明](../README.md)
 
 ## 模块职责与范围
 
@@ -14,14 +14,14 @@
 
 | 小模块 | 负责的功能 | 状态 |
 |---|---|---|
-| [N01 · 历史状态编码](history_encoder/README.md) | 从最近 5 帧中提取共享表示，再输出三维速度估计与 16 维隐藏特征。 | 待实现 |
-| [N02 · 速度监督与 Barlow Twins](auxiliary_learning/README.md) | 为历史编码器提供直接速度标签和无逐项标签的特征学习要求。 | 待实现 |
-| [N03 · SAC 动作分布](actor_distribution/README.md) | 从 52 维状态描述产生有界动作及其密度，支持温和开局与确定性运行。 | 待实现 |
-| [N04 · 双 Q 评分网络](q_networks/README.md) | 分别评价给定状态下的指定动作，供价值学习与策略学习使用。 | 待实现 |
-| [N05 · Q 的训练目标与更新](critic_learning/README.md) | 用真实多步奖励和重新估计的后续价值教会两个 Q。 | 待实现 |
-| [N06 · Actor 的参数更新](actor_learning/README.md) | 利用当前 Q 评价和探索要求，改进当前策略提出的动作。 | 待实现 |
-| [N07 · 探索力度 alpha](entropy_temperature/README.md) | 调节策略中鼓励动作多样性的力度，避免把探索简单理解成越随机越好。 | 待实现 |
-| [N08 · 目标 Q 的慢更新](target_updates/README.md) | 让提供后续估值的参考网络逐渐跟随在线 Q，减缓训练目标的变化。 | 待实现 |
+| [N01 · 历史状态编码](history_encoder/README.md) | 从最近 5 帧中提取共享表示，再输出三维速度估计与 16 维隐藏特征。 | 单元验证通过（CPU，人工数据，未仿真） |
+| [N02 · 速度监督与 Barlow Twins](auxiliary_learning/README.md) | 为历史编码器提供直接速度标签和无逐项标签的特征学习要求。 | 单元验证通过（CPU，人工数据，未仿真） |
+| [N03 · SAC 动作分布](actor_distribution/README.md) | 从 52 维状态描述产生有界动作及其密度，支持温和开局与确定性运行。 | 单元验证通过（CPU，人工数据，未仿真） |
+| [N04 · 双 Q 评分网络](q_networks/README.md) | 分别评价给定状态下的指定动作，供价值学习与策略学习使用。 | 单元验证通过（CPU，人工数据，未仿真） |
+| [N05 · Q 的训练目标与更新](critic_learning/README.md) | 用真实多步奖励和重新估计的后续价值教会两个 Q。 | 单元验证通过（CPU，人工数据，未仿真） |
+| [N06 · Actor 的参数更新](actor_learning/README.md) | 利用当前 Q 评价和探索要求，改进当前策略提出的动作。 | 单元验证通过（CPU，人工数据，未仿真） |
+| [N07 · 探索力度 alpha](entropy_temperature/README.md) | 调节策略中鼓励动作多样性的力度，避免把探索简单理解成越随机越好。 | 单元验证通过（CPU，人工数据，未仿真） |
+| [N08 · 目标 Q 的慢更新](target_updates/README.md) | 让提供后续估值的参考网络逐渐跟随在线 Q，减缓训练目标的变化。 | 单元验证通过（CPU，人工数据，未仿真） |
 
 ## 边界与协作
 
@@ -49,4 +49,40 @@
 
 ## 当前证据
 
-本次只有结构与文档检查；尚无实现文件、算法测试、训练曲线或仿真性能结果。后续证据由各小模块记录，本 README 维护整体进度和跨模块问题。
+八个小模块都有实现与 CPU 单元检查（需要 PyTorch），全部通过（Python 3.11.17 + torch 2.15.0，人工数据）：N01 7 项、N02 8 项、N03 7 项、N04 5 项、N05 3 项、N06 4 项、N07 4 项、N08 5 项。N08 测试包含一次完整更新衔接检查，按作者 `sac.py` 的顺序：Critic → 采样一次 → 温度 → Actor（新 alpha、同一次采样）→ 慢更新，再做一次辅助学习。Actor 更新频率（作者 `policy_frequency=2`）留给 T02 配置。证据分别记录在各小模块的“实现证据与文档交接”表中。纯数据检查通过，不等于机器人仿真或 SAC 训练已经完成；本大模块尚无训练曲线或仿真性能结果。后续证据由各小模块记录，本 README 维护整体进度和跨模块问题。
+
+模块之间的实际衔接（一次更新）：
+
+```text
+D03 NStepBatch(first, tail, R, k, γ^k, mask)
+  ├─ N05 compute_target：tail.next_* → D04/D05 → N01 features → N03 采样 a'、log π' → N04 目标双 Q → y（no_grad）
+  │   update_critics：在线双 Q 评价 first.action → 只更新在线 Q
+  ├─ 采样一次：first.policy_history → N01 features（no_grad, eval）→ N03 sample_action_and_log_prob → a、log π
+  ├─ N07 update_temperature(log π)：只更新 log_alpha；目标熵 = −1.0×8（策略动作坐标），同时记录单位区间等价值 −8 − Σ log c
+  ├─ N06 compute_actor_loss(a, log π, 新 alpha)：冻结参数的在线双 Q；update_actor 只更新 Actor
+  ├─ N08 soft_update：目标双 Q ← (1−τ)·目标 + τ·在线（τ=0.005，每次 Critic 更新一次）
+  └─ N02 update_encoder：D05 有效历史（≥6 帧）→ 编码器 + projector（train 模式仅在此期间）
+```
+
+参数与统计的归属：
+
+| 更新 | 只修改 | 不修改 |
+|---|---|---|
+| N05 Critic | 在线双 Q | Actor、编码器（含 BN 统计）、目标 Q、alpha |
+| N06 Actor | Actor | 在线 / 目标 Q、编码器、alpha |
+| N07 温度 | log_alpha | Actor、Q、编码器 |
+| N08 慢更新 | 目标双 Q | 在线 Q 及其他 |
+| N02 辅助学习 | 编码器、projector（含 BN 统计） | Actor、Q、alpha |
+
+关键实现选择：
+- 网络结构沿用原 PPO 维数：编码器 128/64、隐藏特征 32/16，Actor 与 Q 都是 512/256/128，激活函数为 ELU。
+- 超参数起点沿用作者 SAC：学习率均为 1e-3，梯度裁剪 1.0，alpha 初值 0.05，τ=0.005；规范指定的初始 std 为 0.15。
+- 密度修正用精确恒等式，不用作者的 1e-6 近似。
+- 第一版 Q 不加地形编码层。
+
+跨模块待办：
+- E02 需要确认 C、速度标签字段（原 PPO 布局为 Q 观测前 3 维），以及是否为高度扫描加编码层。
+- E04 需要 TITA 实际软限位与工作轮速；目标熵的单位区间等价值随之确定。
+- T02 需要确定 Critic / Actor / 辅助学习 / 慢更新的频率，以及 n 步数。
+- T03 需要保存编码器、projector、Actor、在线 / 目标双 Q、log_alpha、全部优化器状态与 D04 统计。
+- T05 需要导出 N01 + N03 的确定性路径（使用 D05 切片）。

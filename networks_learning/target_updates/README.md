@@ -1,8 +1,8 @@
 # N08 · 目标 Q 的慢更新｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（CPU、人工数据）。已实现 [targets.py](targets.py) 与 [test_targets.py](test_targets.py)，5 项检查通过（含网络与学习的完整更新衔接检查）；未接入仿真或训练。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -16,7 +16,7 @@ PPO 原路径没有这一套 SAC 目标 Q；新增两个在线 Q 各自的慢更
 
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已实现纯数据部分，尚未在仿真或训练中验证。
 
 ## 作者实现参考
 
@@ -31,18 +31,27 @@ PPO 原路径没有这一套 SAC 目标 Q；新增两个在线 Q 各自的慢更
 | 输入 | 在线 Q 参数、目标 Q 参数、跟随比例 tau，以及明确的统计状态管理约定。 |
 | 输出 | 慢更新后的目标 Q；在线 Q 不被本操作修改。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可），与 D01～D05 相同；仓库尚无统一依赖文件（T01）。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [targets.py](targets.py)
+
+| 符号 | 签名 | 职责、形状、副作用 |
 |---|---|---|
-| `targets.py` | `validate_target_structure` | 核对在线/目标参数一一对应 |
-| `targets.py` | `soft_update` | target=(1-tau)×target+tau×online |
-| `targets.py` | `check_target_state` | 检查冻结状态及额外编码层覆盖 |
-| `test_targets.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| 常量 | `TAU=0.005`、`UPDATE_EVERY=1` | 作者默认：每次 Critic 更新后慢更新一次 |
+| `validate_target_structure` | `(online, target) -> None` | 参数与缓冲按名称、形状、dtype 一一对应，且不共享存储；否则报错 |
+| `soft_update` | `(online, target, tau=0.005) -> None` | 参数：target ← (1 − tau)·target + tau·online（`lerp_`）；缓冲：原样复制（tau=0 时也复制）；不修改在线网络；tau 须在 [0, 1] |
+| `soft_update_due` | `(critic_update_count, update_every=1) -> bool` | 第几次在线 Q 更新之后执行慢更新（从 1 计） |
+| `check_target_state` | `(online, target, optimizers=()) -> dict` | 检查结构、无共享、目标参数不求梯度且不在优化器中；返回原样复制的缓冲名称 |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+tau 与频率的分工：tau 决定每次跟随的比例，`update_every` 决定多久跟随一次，两者都要记录才能复现实验。
+
+非参数缓冲状态：
+- 当前 N04 双 Q 没有缓冲；观测归一化由 D04 负责，在线和目标 Q 共用同一份统计与同一个 `normalize_q`。
+- 如果以后加入带缓冲的层，缓冲原样复制、不做平均，这是本项目的明确约定：浮点运行统计也可以另定平均规则，但整数计数不能插值，统一复制最简单且与在线网络一致。`check_target_state` 会列出这些缓冲，提醒确认这条规则。
+
+调用方：N08 测试中的完整更新衔接检查；正式调度由 T02 实现。
 
 ## 必须成立的规则
 
@@ -73,13 +82,23 @@ PPO 原路径没有这一套 SAC 目标 Q；新增两个在线 Q 各自的慢更
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，CPU、人工数据）
 
-- tau=0 保持目标，tau=1 完整复制在线值。
-- 中间比例与人工算出的参数平均一致。
-- 目标与在线不能指向同一块可变参数存储。
+| 案例 | 对应测试（[test_targets.py](test_targets.py)） | 结果 |
+|---|---|---|
+| tau=0 时目标参数不变（缓冲仍会复制）；tau=0.3 与手算 0.7·target + 0.3·online 一致；tau=1 完整复制；在线网络不变 | `SoftUpdateTest.test_tau_zero_one_and_middle` | 通过 |
+| 目标与在线指向同一存储、结构不一致、tau 越界时报错 | `SoftUpdateTest.test_shared_storage_and_structure_are_rejected` | 通过 |
+| BatchNorm 缓冲原样复制（不是 0.1×4），计数复制，并在检查结果中列出 | `SoftUpdateTest.test_buffers_are_copied_not_averaged` | 通过 |
+| 目标参数出现在优化器中或仍求梯度时报错；频率函数正确 | `SoftUpdateTest.test_target_state_and_frequency` | 通过 |
+| **网络与学习的完整更新衔接检查**：D01/D02 人工经历 → D03（n=3）→ D04 / D05 → N01 → N03 / N04，按作者 `sac.py` 的顺序执行 Critic 更新 → 采样一次 → 温度更新 → 用新 alpha 与同一次采样更新 Actor → 目标慢更新，再做一次辅助学习；每一步改变的模块恰好是 {critics}、∅（采样）、{temperature}、{actor}、{targets}、{encoder, projector}；独立计算确认 Actor 损失使用更新后的 alpha（新旧 alpha 的损失差 > 1e-5，可区分）；池内原始经历不变；所有日志为有限数 | `UpdateCycleTest.test_one_cycle_changes_only_owned_state` | 通过 |
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+衔接检查的数据说明：动作表来自 E03 原版快照；软限位与工作轮速是 E04 测试中标注的人工数据；速度标签取 Q 观测前 3 维，这是原 PPO 的布局，E02 尚未确认。这只是人工数据下的更新衔接检查，不是 T02 训练器，也不代表训练效果。
+
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/target_updates/test_targets.py -v
+```
 
 ## 故障定位
 
@@ -101,17 +120,17 @@ PPO 原路径没有这一套 SAC 目标 Q；新增两个在线 Q 各自的慢更
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（CPU、人工数据）；集成验证未开始 |
+| 实际文件、函数签名与调用关系 | [targets.py](targets.py)：`validate_target_structure`、`soft_update`、`soft_update_due`、`check_target_state`、`TargetUpdateError`。[test_targets.py](test_targets.py)：2 个测试类共 5 项；`UpdateCycleTest` 调用 E03、E04、D02～D05、N01～N07 的实际接口 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`soft_update` 只修改目标网络 |
+| 代码注释核对 | 已核对：tau 与更新频率、完整复制初始化（N04）、目标不参与优化、缓冲的单独处理（文件头、`soft_update`、`check_target_state`） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/target_updates/test_targets.py -v` → `Ran 5 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 未验证项 | 长期训练中的目标稳定性；Q 若加入带缓冲的层时规则是否合适；GPU；仿真、训练与性能 |
+| 代码版本 | 代码与测试：`7f671f38d31e6a52c8f54acc07440cb2356021e0`，审核后修改衔接顺序与缓冲说明 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 N08：按名称覆盖全部参数，明确缓冲复制规则与更新频率；并加入大模块的一次完整更新衔接检查 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `targets.py`、`test_targets.py`；N04 `critics.py`；作者 `sac_mlp_model.py`（`soft_update_target_networks`）。建议 Codex 重点解释 lerp 公式、为什么缓冲复制而不平均，以及衔接检查中每一步只改哪些状态 |
+| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

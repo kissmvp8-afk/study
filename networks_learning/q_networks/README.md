@@ -1,8 +1,8 @@
 # N04 · 双 Q 评分网络｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（CPU、人工数据）。已实现 [critics.py](critics.py) 与 [test_critics.py](test_critics.py)，5 项检查通过；未接入仿真或训练。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -16,7 +16,7 @@
 
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/actor_critic.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/actor_critic.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已实现纯数据部分，尚未在仿真或训练中验证。
 
 ## 作者实现参考
 
@@ -31,18 +31,28 @@
 | 输入 | Q 可见的状态信息、同一坐标下的 8 维策略动作。 |
 | 输出 | 两个各为 [B,1] 的 Q 评分及其对应目标网络结构。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可），与 D01～D05 相同；仓库尚无统一依赖文件（T01）。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [critics.py](critics.py)
+
+| 符号 | 签名 | 职责、形状、副作用 |
 |---|---|---|
-| `critics.py` | `evaluate_q_pair` | 评价同一批状态和动作 |
-| `critics.py` | `initialize_targets` | 复制初始 Q 成为目标副本 |
-| `critics.py` | `list_critic_parameters` | 明确 Q 全部可训练参数的归属 |
-| `test_critics.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| `QNetwork` | `(q_dim, action_dim=8, hidden_dims=(512,256,128))`；`forward(q_observation[B,C], action[B,8]) -> [B,1]` | 输入按 [Q 观测 \| 动作] 拼接，经 ELU MLP 得到评分；前向校验 C 与动作维数 |
+| `TwinQ` | `(q_dim, ...)`；子模块 `q1`、`q2` | 两套独立构造、独立初始化的 Q，不共享层 |
+| `evaluate_q_pair` | `(critics, q_observation, action) -> (q1, q2)` | 同一批状态与动作分别评价 |
+| `initialize_targets` | `(critics) -> TwinQ` | `deepcopy` 完整复制参数与缓冲；参数 `requires_grad=False`、eval 模式 |
+| `list_critic_parameters` | `(critics) -> list[(名称, 参数)]` | 在线双 Q 的全部可训练参数，即 Critic 优化器的参数集合 |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+数据约定：
+- `q_observation` 为 D04 `normalize_q` 后的 Q 观测。C 由 E02 运行时观测组给出（平地预期 54、复杂地形预期 241），构造时固定，本模块不指定最终值。
+- 动作是策略动作坐标，与 E03 / D01 / N03 一致。
+- 网络不含 BatchNorm 等缓冲；在线和目标 Q 共用同一份 D04 统计。
+
+第一版没有地形编码层：187 维高度扫描直接作为 Q 观测的一部分。原 PPO 先用 128/64/32 的 `scan_encoder` 处理高度扫描；如果之后加入，必须作为 `QNetwork` 的子模块，这样才会自动包含在目标副本、N08 慢更新和保存恢复中。
+
+调用方：N05、N06、N08。
 
 ## 必须成立的规则
 
@@ -67,13 +77,21 @@
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，CPU、人工数据）
 
-- 同状态不同动作可以得到不同评分，输入动作不能被遗漏。
-- 更新 Q1 不应直接修改 Q2；目标网络初始化值相同但不共享存储。
-- 平地/复杂地形不同 C 值由配置与观测描述共同校验。
+| 案例 | 对应测试（[test_critics.py](test_critics.py)） | 结果 |
+|---|---|---|
+| 同状态、不同动作得到不同评分 | `EvaluationTest.test_different_actions_give_different_scores` | 通过 |
+| C=54 与 C=241（E02 预期值，仅作维数示例）都可构造；54 维网络拒绝 241 维输入与 7 维动作 | `EvaluationTest.test_q_dim_is_checked` | 通过 |
+| Q1、Q2 初值不同、存储不重叠；只优化 Q1 时 Q2 不变 | `IndependenceTest.test_twins_are_independent` | 通过 |
+| 目标副本数值相同、存储独立、不求梯度、eval；修改在线值不影响目标 | `IndependenceTest.test_targets_copy_values_not_storage` | 通过 |
+| 参数列表覆盖在线双 Q 全部参数、不含目标；与 N01 编码器、N03 Actor 不共享存储 | `IndependenceTest.test_parameter_listing_and_no_sharing_with_actor_encoder` | 通过 |
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/q_networks/test_critics.py -v
+```
 
 ## 故障定位
 
@@ -97,17 +115,17 @@ Q 对所有动作几乎相同，检查动作是否实际拼入、数值尺度及
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（CPU、人工数据）；集成验证未开始 |
+| 实际文件、函数签名与调用关系 | [critics.py](critics.py)：`QNetwork`、`TwinQ`、`evaluate_q_pair`、`initialize_targets`、`list_critic_parameters`。[test_critics.py](test_critics.py)：2 个测试类共 5 项 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`initialize_targets` 分配新存储，其余无副作用 |
+| 代码注释核对 | 已核对：Q 状态与动作的拼接、双网络独立性、训练侧信息边界、地形编码层的保存与目标副本责任（文件头） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/q_networks/test_critics.py -v` → `Ran 5 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 未验证项 | E02 确认的实际 C 与字段；是否需要高度扫描编码层；GPU；仿真、训练与性能 |
+| 代码版本 | 代码与测试：`ef98631024ce4e28f6966a445dc39c710aee349c`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 N04：两套独立 Q 与完整复制的目标副本；暂不加地形编码层，避免在 C 未确认前固定结构 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `critics.py`、`test_critics.py`；作者 `sac_mlp_model.py`（`SACCriticModel`、目标网络）；原 PPO `actor_critic.py`（critic 与 `scan_encoder`）。建议 Codex 重点解释两个 Q 的独立性、目标副本的冻结，以及地形编码层的扩展约定 |
+| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

@@ -1,8 +1,8 @@
 # N07 · 探索力度 alpha｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（CPU、人工数据）。已实现 [temperature.py](temperature.py) 与 [test_temperature.py](test_temperature.py)，4 项检查通过；未接入仿真或训练。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -17,7 +17,7 @@
 - [原 PPO：source/ddt_lab/ddt_lab/tasks/manager_based/locomotion/agents/np3o_cfg.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/tasks/manager_based/locomotion/agents/np3o_cfg.py)
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已实现纯数据部分，尚未在仿真或训练中验证。
 
 ## 作者实现参考
 
@@ -32,18 +32,29 @@
 | 输入 | 当前策略的对数密度、配置的目标熵、当前 log_alpha。 |
 | 输出 | 正数 alpha、温度损失和实际熵相对目标的偏差。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可），与 D01～D05 相同；仓库尚无统一依赖文件（T01）。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [temperature.py](temperature.py)
+
+| 符号 | 签名 | 职责、形状、副作用 |
 |---|---|---|
-| `temperature.py` | `current_alpha` | 由内部参数得到正数探索权重 |
-| `temperature.py` | `temperature_loss` | 以固定的策略密度信号训练探索权重 |
-| `temperature.py` | `update_temperature` | 只更新 alpha 的内部参数 |
-| `test_temperature.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| 常量 | `INITIAL_ALPHA=0.05`、`TARGET_ENTROPY_SCALE=1.0`、`TEMPERATURE_LEARNING_RATE=1e-3` | 作者默认值，作为显式实验起点 |
+| `TargetEntropy` | 冻结 dataclass：`action_coordinate`、`squashed_equivalent`、`log_half_width_sum` | 目标熵及其坐标换算 |
+| `target_entropy` | `(half_width, target_entropy_scale=1.0) -> TargetEntropy` | 策略动作坐标下的目标 = −scale × 8（作者约定）；单位区间等价值 = 该目标 − Σ log c |
+| `Temperature` | `(initial_alpha=0.05)`；参数 `log_alpha` | 只含一个可训练参数，alpha = exp(log_alpha) 恒为正 |
+| `current_alpha` | `(temperature) -> float` | 不带梯度的 alpha 数值，供 N05、N06 使用 |
+| `make_temperature_optimizer` | `(temperature, lr=1e-3) -> Adam` | 只含 log_alpha |
+| `temperature_loss` | `(temperature, log_prob, target) -> 标量` | −平均 [log_alpha × (log π.detach() + target)] |
+| `update_temperature` | `(temperature, optimizer, log_prob, target) -> dict` | 只更新 log_alpha；返回损失、alpha、熵估计与熵差（负数表示偏低） |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+目标熵的坐标约定：
+- N03 的 log π 是在策略动作坐标 a 下计算的，已经包含 −Σ log c。作者的 log π 也减去了 `log_action_range`，坐标一致，所以沿用作者的 −1.0 × 8 = −8。
+- 在单位区间坐标 y = tanh(u) 下，等价目标为 −8 − Σ log c。E04 的半宽改变时，这个等价值随之改变，也就是说探索语义会变。`target_entropy` 同时返回这两个值，供配置与日志记录。
+- 如果希望探索语义不随动作尺度变化，应当固定单位区间的目标，再加上 Σ log c 换算回动作坐标。
+
+调用方：N08 测试中的完整更新衔接检查。
 
 ## 必须成立的规则
 
@@ -74,13 +85,20 @@
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，CPU、人工数据）
 
-- 已知熵低于/高于目标的样例，验证 alpha 的调整方向。
-- alpha 始终为正且数值有限；保存恢复后结果一致。
-- 改变动作尺度时检查密度修正与目标熵约定，不能隐式改变探索语义。
+| 案例 | 对应测试（[test_temperature.py](test_temperature.py)） | 结果 |
+|---|---|---|
+| 熵估计（−20）低于目标（−8）时 alpha 增大，高于目标（30）时减小，熵差符号与之对应 | `DirectionTest.test_alpha_direction` | 通过 |
+| 学习率 0.5 下连续 200 次压低 alpha，结果仍为正的有限数；`state_dict` 保存恢复后 alpha 与损失一致 | `DirectionTest.test_alpha_positive_finite_and_restorable` | 通过 |
+| 温度损失不反传到 Actor，只有 log_alpha 得到梯度 | `BoundaryTest.test_no_gradient_to_actor` | 通过 |
+| 同一网络与噪声，半宽从 1 变为 2：log π 恰好减少 8·log 2；动作坐标目标仍为 −8，单位区间等价目标从 −8 变为 −8 − 8·log 2，熵差也相应改变 | `BoundaryTest.test_action_scale_shifts_density_and_squashed_target` | 通过 |
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/entropy_temperature/test_temperature.py -v
+```
 
 ## 故障定位
 
@@ -102,17 +120,17 @@ alpha 持续异常增长时先检查密度、目标熵和动作变换，再扩�
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（CPU、人工数据）；集成验证未开始 |
+| 实际文件、函数签名与调用关系 | [temperature.py](temperature.py)：`Temperature`、`current_alpha`、`temperature_loss`、`update_temperature`、`make_temperature_optimizer`、`target_entropy`、`TargetEntropy`。[test_temperature.py](test_temperature.py)：2 个测试类共 4 项，用 N03 Actor 检查尺度关系 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`update_temperature` 只修改 log_alpha 与优化器 |
+| 代码注释核对 | 已核对：log_alpha 保证正值、目标熵的坐标约定与换算、detach 边界、熵偏低 / 偏高时的调整方向（文件头） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learning/entropy_temperature/test_temperature.py -v` → `Ran 4 tests … OK`。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 未验证项 | TITA 实际边界下 Σ log c 的取值与目标熵是否合适（需要训练对照）；auto_alpha 关闭时的固定 alpha（T01 配置）；GPU；仿真、训练与性能 |
+| 代码版本 | 代码与测试：`b186639cdd5884c6631e093b04e8d9a6c898c281`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 N07：目标熵沿用作者配置，并明确它与 N03 密度处于同一坐标，同时给出单位区间的等价值，不再无解释地照搬 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `temperature.py`、`test_temperature.py`；N03 `actor.py`；作者 `sac.py`（log_alpha、alpha 损失、target_entropy）。建议 Codex 重点解释两种坐标下的熵差 Σ log c，以及为什么调整方向由 log π + target 的符号决定 |
+| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
