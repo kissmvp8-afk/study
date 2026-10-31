@@ -146,7 +146,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码版本 | `4bf81a5486a8895c8d6a04305b6b7a1702351c9e`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；`EnvObservation` / `EnvStep` 移到 E05 在 `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`），`runner.py` 未改动；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T02：调度层只调用已有模块；按作者顺序组织 Critic、alpha、Actor、慢更新；辅助学习按迭代计频；用明确标注的假环境检查数据流程 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `fake_env.py`、`runner.py`、`test_runner.py`；作者 `off_policy_runner.py`（learn 循环、start_training）与 `sac.py`（update 顺序、update_step、policy_frequency）。建议 Codex 重点解释一次 Critic 更新内部的顺序、各计数的含义、预热期为何仍用 Actor，以及假环境与真实 E05 的边界 |
-| 人类版 | 待 Codex 同步：正文按 a07d7b2 编写，需同步 `3d4c995` 把 `EnvObservation` / `EnvStep` 移到 E05 `lifecycle.py`（`fake_env.py` 改为导入，字段与语义不变；`runner.py` 未改） |
-| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

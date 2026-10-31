@@ -2,7 +2,7 @@
 
 状态：五个小模块均已实现并通过 CPU 单元验证；E01 的 Isaac 接入代码（`isaac_env.py`、`run_sac_isaac.py`）尚未在仿真中运行，等待 Windows + NVIDIA 验证；本大模块未完成运行验证。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回项目总说明](../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回项目总说明](../README.md)
 
 ## 模块职责与范围
 

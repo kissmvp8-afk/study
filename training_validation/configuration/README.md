@@ -134,7 +134,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码版本 | `124d442e8c85feb1370088d6bb6d4032e506f0ac`；`version_report` 的修正在 `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；学习器设备改为 CPU 并锁定资产提交在 `bd99b7b87b09b5fd1124ebdd9d842547910a9831`（分支 `claude/environment-integration`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T01：配置逐字段记录来源，未确定项保持 None 并拒绝运行，人工限位只允许出现在调试配置。`bd99b7b`：`isaac_config` 原写 `device="cuda"`，但学习器只在 CPU 上实现，改为 `cpu` 并增加校验，仿真设备另记在 `environment["sim_device"]`；E01 锁定资产后填入 `robot_assets_commit` |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `config.py`、`test_config.py`；作者 `sac.py` / `off_policy_runner.py` 的默认值；原 PPO `np3o_cfg.py`。建议 Codex 重点解释三类来源、未确定项如何阻止运行，以及内存估算的范围 |
-| 人类版 | 待 Codex 同步：正文按 a07d7b2 编写，需同步 `bd99b7b` 的设备规则与资产提交（受影响：`isaac_config`、`validate_configuration`、`TARGET_ENVIRONMENT`、`test_config.py` 三处断言） |
-| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

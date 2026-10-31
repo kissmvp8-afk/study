@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU）。已实现 [verify.py](verify.py) 与 [test_verify.py](test_verify.py)，6 项检查通过；仿真与性能层级目前没有可执行的检查，记为未执行。
 
-[人类版（待 Codex 同步）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -133,7 +133,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码版本 | `c963821163e6b14955c21b987a0972e3216f30aa`（分支 `claude/training-core`，PR #7）；纳入 E01 / E05 集成检查与仿真层说明更新在 `794cd623de54c75ee3ed96ae6788fb72c5a5cebd`（分支 `claude/environment-integration`，PR #8）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T06：用一个入口组织已有测试与文档检查，分层记录证据，未执行项明确标出。`794cd62`：E01 / E05 已有接 Trainer 的 CPU 检查（人工钩子），加入 `INTEGRATION_CHECKS`；仿真层说明由“尚未接入”改为“接入代码已实现，真实仿真未验证”，仍为 not_run |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `verify.py`、`test_verify.py`；各模块 AI README 的验收表。建议 Codex 重点解释五个层级的区别、状态一致性规则，以及为什么不重新实现算法 |
-| 人类版 | 待 Codex 同步：正文按 a07d7b2 编写，需同步 `794cd62` 新增的两项集成检查（共 10 项、18 个测试）与仿真层说明 |
-| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；按本轮用户要求不再交 Gemini |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

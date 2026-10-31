@@ -2,7 +2,7 @@
 
 状态：代码已实现，CPU 单元验证通过（纯数据范围）。已实现 [observations.py](observations.py) 与 [test_observations.py](test_observations.py)，8 项检查通过；运行时观测组维数与实际数值待 Windows + Isaac 验证（由 E01 `run_sac_isaac.py --mode inspect` 核对）。未进行训练或性能验证。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -148,7 +148,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_con
 | 代码版本 | `8a0ee22937937e9d08ad059e025d416f380d4294`（分支 `claude/environment-integration`），此后 `observations.py`、`test_observations.py` 未改动 |
 | 本次改动及理由 | 首次实现 E02：字段契约与快照逐项比对；为了让 E05 在重置前取得末状态而不重复推进历史，把 10 帧历史从 Isaac 移到本模块并复刻 CircularBuffer 规则 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E01、E05 AI 规范；带注释的 `observations.py`、`test_observations.py`；上述验证记录；Isaac Lab v2.3.0 `circular_buffer.py` 与 `observation_manager.py`。建议 Codex 重点解释：Q 观测的列区间与速度标签；`validate_observations` 为何逐项比较；历史为何不用 Isaac 的 CircularBuffer、`push_frame` 的首帧填满规则 |
-| 人类版 | 待 Codex 编写（代码、注释与 CPU 验证记录已齐备） |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

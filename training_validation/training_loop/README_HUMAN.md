@@ -4,13 +4,13 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 待 Codex 同步（正文保留，按已核对版本编写） |
-| 技术核对状态 | 2026-10-31，Codex 对照实际实现、注释与测试核对职责、调用、形状、单位、代码片段和边界；本次是文档核对，不是全面代码审核 |
-| 语言润色状态 | 待技术同步后重做 |
-| 已核对代码版本 | `a07d7b22e5bc2f40c462c01cc3378f7bcf3fe0c7`（`claude/training-core`，PR #7）；读取时与用户验收版本、远端分支一致，无后续源码差异 |
-| 待同步代码版本 | 分支 `claude/environment-integration`，提交 `3d4c995b2730b3183614f4cb5b7a62edfa83f927`：`EnvObservation` / `EnvStep` 的定义从 `fake_env.py` 移到 E05 `environment_control/episode_lifecycle/lifecycle.py`，`fake_env.py` 改为导入（字段与语义不变）；`runner.py`、`test_runner.py` 未改动 |
-| 实际阅读材料 | AGENTS.md、CODEX.md、根及本大模块/本目录 AI README；[runner.py](runner.py)、[fake_env.py](fake_env.py)、[test_runner.py](test_runner.py) 全文；T01/T03；E03/E04、D01～D05 实现及 N01、N03、N05～N08 调用路径；依赖与来源详见[大模块阅读记录](../README_HUMAN.md#阅读材料与证据) |
-| 验证依据与限制 | 本目录 AI 交接表记录 9 项 CPU 检查通过（Python 3.11.17 + torch 2.15.0），本次阅读测试、引用既有结果，未重跑算法测试。本轮执行的文档检查见大模块记录；人工数据/假环境不代表 Isaac 仿真、GPU、机器人训练或性能验证 |
+| 文档状态 | 讲解与技术复核已完成，本轮不再润色；保留有效正文并同步 PR #8 接入变化 |
+| 技术核对状态 | 2026-10-31，Codex 按实际实现与测试同步资产、设备、公共环境接口或集成检查；本次是文档核对，不扩大代码审核 |
+| 语言润色状态 | 保留已有中文讲解与历史润色记录；本轮由 Codex 技术同步，不再交 Gemini |
+| 已核对代码版本 | 本轮 `a12e69a38c6b9b3a236473a2563e255a9a24e761`（claude/environment-integration，PR #8），fetch 后 git rev-parse HEAD 与已审查/远端版本一致；历史版本见正文与 Git 历史 |
+| 待同步代码版本 | 无 |
+| 实际阅读材料 | 本轮阅读 runner.py/fake_env.py 与已有 test_runner.py 相关断言、E05 lifecycle.py/test_lifecycle.py、E01 启动/填配置及 CPU 衔接测试；runner.py/test_runner.py 未改变；全局材料与本轮检查见[项目阅读记录](../../README_HUMAN.md#阅读材料与验证依据) |
+| 验证依据与限制 | 既有 CPU 结果见本目录 AI 交接表；PR #8 记录全仓库 216 项测试（跳过真实资产 1 项）及 18 项 CPU 集成测试通过，本轮未重跑。只执行 verify.py --docs 与文档静态核对；真实 Isaac、GPU、机器人训练及性能未验证 |
 
 ## 把一个学习步骤变成可重复的训练流程
 
@@ -24,14 +24,14 @@ SAC（软演员—评论家算法）用 Actor 生成动作，用 Q 估计状态�
 
 ## 两份观测，两个用途
 
-[fake_env.py](fake_env.py) 定义调度器与环境的接口。E 是并行环境数，C 是 Q 观测维数；CPU 配置是 E=3、C=6。
+公共数据类 `EnvObservation/EnvStep` 定义在 [E05 lifecycle.py](../../environment_control/episode_lifecycle/lifecycle.py)，[fake_env.py](fake_env.py) 导入复用；E05 `EpisodeLifecycle` 为 E01 真实钩子实现相同 reset/step 接口。E 是并行环境数，C 是 Q 观测维数；CPU 配置是 E=3、C=6。
 
 | 对象 | 字段与含义 |
 |---|---|
 | `EnvObservation` | `policy_history[E,10,33]`、`q_observation[E,C]` 是下次交互所见；`history_length/env_id/episode_id/step_index[E]` 为有效帧数及编号。历史为 float32，编号为 int64 |
 | `EnvStep` | `next_policy_history/next_q_observation/next_history_length` 是动作后、重置前的真实下一状态；`reward[E,1]`、`terminated/time_out[E,1]` 为原始奖励与互斥结束标记；`observation` 是下次交互所用，结束的环境已重置 |
 
-例如第 3 次动作真正终止，记录仍保存这次动作到达的末历史；下次交互使用新一轮的历史、`step_index=0` 和 `history_length=1`。纯时间截断也这样分开保存，但 D03 保留末状态的未来价值；真终止则不接未来价值。D01 的长度检查只能发现部分错误，不能证明观测一定来自重置前；正确捕获仍是环境、将来 E05 的责任。
+例如第 3 次动作真正终止，记录仍保存这次动作到达的末历史；下次交互使用新一轮的历史、`step_index=0` 和 `history_length=1`。纯时间截断也这样分开保存，但 D03 保留末状态的未来价值；真终止则不接未来价值。D01 的长度检查只能发现部分错误，不能证明观测一定来自重置前；正确捕获由 E05 的重置前快照和 E01 钩子负责；代码已实现，真实仿真尚待核对。
 
 ## `FakeLocomotionEnv` 每个方法做什么
 
@@ -141,4 +141,12 @@ if update_index % a.actor_update_every == 0:
 uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/training_loop/test_runner.py -v
 ```
 
-更新次数不对先对 `TrainingCounters` 与相位；一直跳过学习先看 D02 合法起点和 n，辅助跳过再看有效历史和样本数；统计膨胀先检查是否误在回放调用更新；截断价值异常先核对 `next_*` 是否是重置前数据。真实接入仍等待 [E02 观测](../../environment_control/observation_interface/README.md) 与 [E05 生命周期](../../environment_control/episode_lifecycle/README.md)，恢复语义继续读 [T03](../checkpoints/README_HUMAN.md)。
+更新次数不对先对 `TrainingCounters` 与相位；一直跳过学习先看 D02 合法起点和 n，辅助跳过再看有效历史和样本数；统计膨胀先检查是否误在回放调用更新；截断价值异常先核对 `next_*` 是否是重置前数据。真实接入代码见 [E02 观测](../../environment_control/observation_interface/README_HUMAN.md) 与 [E05 生命周期](../../environment_control/episode_lifecycle/README_HUMAN.md)，已用人工钩子核对接口，尚未在 Isaac 运行，恢复语义继续读 [T03](../checkpoints/README_HUMAN.md)。
+
+## 同一个 Trainer 怎样接入真实环境
+
+[E01 启动入口](../../environment_control/robot_environment/run_sac_isaac.py) 先核对资产、动作、周期和运行时观测，再填 T01 的完整配置，构造 `EpisodeLifecycle(TitaSacHooks(env), task, q_dim)`，交给 `Trainer(config,lifecycle,contract)`。`runner.py` 的采集与学习算法没有因此改变；不同的是环境对象现在可来自真实钩子。
+
+配置 `device` 固定为 cpu，E01 `--device` 控制仿真设备。E05 将动作搬到仿真设备，观测、奖励和标记搬回 CPU；不是 GPU 学习器，实际传输/同步开销未测量。train 模式还调用 T03 保存、构造新 Trainer、恢复并续一轮；环境重新 reset，不恢复旧物理现场。
+
+这条接口已有 E05 `TrainerIntegrationTest` 两项与 E01 `RunConfigTest.test_trainer_runs_on_filled_config` 的 CPU 人工钩子检查，T06 已纳入集成入口。它们不执行 `TitaSacHooks` 的真实 Isaac 行为，不代表仿真或机器人训练通过。

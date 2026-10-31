@@ -4,13 +4,13 @@
 
 | 字段 | 当前内容 |
 |---|---|
-| 文档状态 | 待 Codex 同步（正文保留，按已核对版本编写） |
-| 技术核对状态 | 2026-10-31，Codex 已对照实际实现、测试源码及已有交接记录，核对本文的函数、调用关系、公式、数字、单位与限制；未发现影响当前纯数据用法、需要人确认的明确技术问题。本次不开展全面代码审核 |
-| 语言润色状态 | 待技术同步后重做 |
-| 已核对代码版本 | 分支 `claude/e04-action-bounds`，提交 `4f0ad6e6ea3a06a786f50f120196bfdedcda51f2`。本次读取的 `bounds.py`、`test_bounds.py` 及依赖 E03 源码均与该提交一致；E03 `contract.py`、`baseline_source.py` 的最近实现提交仍为 `9fdac4e5055989085eafd6b3c988c40d9df61ca9` |
-| 待同步代码版本 | 分支 `claude/environment-integration`：本模块代码未改动；E01 `f3a1c743b8e9992aa77f218e1ef649d638db9796` 锁定了资产、从运行时读取软限位，并给出工作轮速下限依据（约 13.87 rad/s，余量由用户决定）。正文中“尚未锁定 `ddt_ros2_control` 资源版本”等表述需更新 |
-| 实际阅读材料 | [AGENTS.md](../../AGENTS.md)、[CODEX.md](../../CODEX.md)、[根 README.md](../../README.md)、[大模块 README.md](../README.md)、[E04 AI README](README.md)、本文件原占位内容；[bounds.py](bounds.py)、[test_bounds.py](test_bounds.py)、E03 [contract.py](../action_contract/contract.py) 与 [baseline_source.py](../action_contract/baseline_source.py) 全文；[E03 AI README](../action_contract/README.md)、E03 人类版的元数据与导航相关文字；[N03 AI README](../../networks_learning/actor_distribution/README.md) 的职责、接口与算法约定；[UPSTREAM.json](../../UPSTREAM.json)、[GEMINI.md](../../GEMINI.md) |
-| 验证依据与限制 | 已阅读 [E04 交接记录](README.md#实现证据与文档交接) 中的命令、环境及结果摘要，并对照测试源码；记录称 E04 14 项、E03 18 项检查通过。本次未重跑测试、未执行 E04 或 E03 模块；只做文档静态核对。提供的材料中未见独立完整运行日志。未接入 Actor、未验证随机采样分布或真实 TITA 限位、未运行仿真、训练及性能评价；详见“验证与排错” |
+| 文档状态 | 讲解与技术复核已完成，本轮不再润色；保留有效正文并同步 PR #8 接入变化 |
+| 技术核对状态 | 2026-10-31，Codex 按实际实现与测试同步资产、设备、公共环境接口或集成检查；本次是文档核对，不扩大代码审核 |
+| 语言润色状态 | 保留已有中文讲解与历史润色记录；本轮由 Codex 技术同步，不再交 Gemini |
+| 已核对代码版本 | 本轮 `a12e69a38c6b9b3a236473a2563e255a9a24e761`（claude/environment-integration，PR #8），fetch 后 git rev-parse HEAD 与已审查/远端版本一致；历史版本见正文与 Git 历史 |
+| 待同步代码版本 | 无 |
+| 实际阅读材料 | 本轮对照 bounds.py/test_bounds.py 与 E03（源码未变）、E01 资产/软限位/轮速配置路径及 N03/T02 的实际消费关系；保留原人工算例；全局材料与本轮检查见[项目阅读记录](../../README_HUMAN.md#阅读材料与验证依据) |
+| 验证依据与限制 | 既有 CPU 结果见本目录 AI 交接表；PR #8 记录全仓库 216 项测试（跳过真实资产 1 项）及 18 项 CPU 集成测试通过，本轮未重跑。只执行 verify.py --docs 与文档静态核对；真实 Isaac、GPU、机器人训练及性能未验证 |
 
 ## 学习目标与必要概念
 
@@ -53,7 +53,7 @@ $$\text{物理目标} = \text{default\_target} + \text{scale} \times a$$
 3. **在非对称区间下显式反求内部初始中心 $u_0$**：原作者代码中网络均值层初始化为 0。当动作区间对称时，确定性动作刚好为 0；但在非对称区间下，区间几何中点 $b \neq 0$，如果直接取 $u=0$，映射出的动作就会偏离基准姿态。本项目通过 $\text{atanh}$ 显式反求出对应的 $u_0$，使初始确定性动作精准回到期望姿态。
 
 需要强调的是：**当前 E04 的实现与单元测试仅覆盖纯数据层面的数学运算**。
-代码不读取 URDF 模型文件，不从物理引擎中提取限位，也不替调用方决定工作轮速取值。**当前尚未接入 Actor 网络或仿真环境，PPO 到 SAC 的算法训练替换仍在进行中。**
+代码不读取 URDF 模型文件，不从物理引擎中提取限位，也不替调用方决定工作轮速取值。**N03 Actor 与 T02 已消费本模块的边界和初始中心；E01 的真实环境接入代码也已实现，尚未在 Isaac 中运行。**
 
 ## 输入、输出与调用关系
 
@@ -87,7 +87,7 @@ E03 动作表 + 关节软限位字典 + 工作轮速范围字典
      → E03 action_to_targets() 换算公式：物理目标
      → 对比是否精准回到期望的物理目标
 
-后续规划：由 N03 Actor 网络读取 b、c 设置输出映射，并读取 u0 初始化输出层偏置（当前尚未接入）
+当前下游：N03 Actor 读取 b、c 设置输出映射，并读取 u0 初始化均值头偏置；T02 Trainer 已调用，CPU 验证不代表真实开局效果
 ```
 
 ## 按文件、类与函数阅读代码
@@ -263,7 +263,10 @@ $$u_0 = \text{atanh}(-0.25) \approx -0.255413$$
 ```python
 a0 = (target - e.default_target) / e.scale
 if not low < a0 < high:
-    raise ActionBoundsError(...)
+    raise ActionBoundsError(
+        f"索引 {e.index} ({e.joint_name}) 的初始目标 {target:g} {e.unit} 对应动作 {a0:g}，"
+        f"不在开区间 ({low:g}, {high:g}) 内，tanh 映射无法精确到达"
+    )
 u0.append(math.atanh((a0 - b) / c))
 ```
 
@@ -323,9 +326,9 @@ git fetch origin baseline/ppo
 | 项目 | 已有证据支持的结论 | 明确的限制与未覆盖项 |
 |---|---|---|
 | **E04 实施记录 (2026-10-31)** | macOS Darwin 25.4.0、Python 3.14.5 环境下，E04 14 项测试、E03 18 项测试均顺利通过（`OK`） | 该记录来自前期交接，本次任务未重新跑测，未附带完整的外部终端日志文件 |
-| **Python 3.11 兼容性核验** | 源码通过了 `ast.parse(feature_version=(3,11))` 的语法规则检查 | 仅表明语法兼容 Python 3.11，未在真实的 Python 3.11 解释器下实际运行测试 |
-| **本次技术初稿与润色** | 实际通读并核对了当前提交的实现与测试代码，理顺了数学推导、函数映射逻辑与测试数字对应关系 | **未接入 Actor 网络，未评估随机探索采样分布，未测试仿真或真实机器人的开局姿态与运动表现** |
-| **物理数值来源** | 当前测试仅验证了计算公式的正确性与防御性拦截逻辑 | 软限位与工作轮速均为**人工构造数据**，未从 URDF 提取，尚未锁定 `ddt_ros2_control` 资源版本，不代表真实硬件规格 |
+| **Python 3.11 兼容性核验** | 源码通过了 `ast.parse(feature_version=(3,11))` 的语法规则检查 | 这是早期语法检查的边界；PR #8 另记录 Python 3.11 CPU 全仓库回归，本轮没有重跑 |
+| **本次技术初稿与润色** | 实际通读并核对了当前提交的实现与测试代码，理顺了数学推导、函数映射逻辑与测试数字对应关系 | 早期 E04 记录只覆盖纯数据公式；当前 N03/T02 已有 Actor 衔接和采样的 CPU 检查，仍未验证真实仿真/机器人开局表现 |
+| **物理数值来源** | 当前测试仅验证了计算公式的正确性与防御性拦截逻辑 | 本目录测试范围仍为**人工构造数据**，不代表真实硬件规格；E01 已锁定资产 e7b32d9 并实现运行时软限位读取与核对，工作轮速仍须显式给出，尚未仿真验证 |
 | **外部参考实现** | 参考了 `rsl_rl_sac` 提交 `e0d243a` 的算法思想并进行了针对性适配 | 本次核对以本项目已有代码与交接为准，未独立重读外部开源库源码或论文原文 |
 
 ### 常见问题排查速查表
@@ -352,8 +355,16 @@ git fetch origin baseline/ppo
 |---|---|
 | [E03 人类版说明](../action_contract/README_HUMAN.md) / [E03 AI 契约](../action_contract/README.md) | **上游基础**。提供八维动作表的顺序、控制类型、默认目标与物理换算；已完成实现与讲解 |
 | [同目录 AI 规范](README.md) | 查看技术设计契约、实施交接证据与原始测试记录 |
-| [N03 动作分布 AI 契约](../../networks_learning/actor_distribution/README.md) · [人类版占位](../../networks_learning/actor_distribution/README_HUMAN.md) | **下游消费方（待实现）**。将读取本模块输出的 $b$ 和 $c$ 配置输出层映射，并读取 $u_0$ 设置输出层初始偏置；本模块返回数据不等于已完成网络搭建 |
-| [E01 机器人环境 AI 契约](../robot_environment/README.md) | **仿真环境（待实现）**。后续需在该模块中获取真实的关节软限位，并确定真实的工作轮速 |
+| [N03 动作分布 AI 契约](../../networks_learning/actor_distribution/README.md) · [人类版](../../networks_learning/actor_distribution/README_HUMAN.md) | **下游消费方（已实现并有 CPU 验证）**。读取 $b$、$c$ 设置映射，读取 $u_0$ 设置初始偏置；真实开局效果未验证 |
+| [E01 机器人环境 AI 契约](../robot_environment/README.md) | **接入代码已实现，真实仿真待验证**。从运行时读取六腿软限位，用户给定轮速范围，经 T01/T02 交给 E04 |
 | [大模块人类版](../README_HUMAN.md) · [项目总人类版](../../README_HUMAN.md) | 上层导航页面，用于总览系统整体设计结构 |
 
 本说明基于提交版本 `4f0ad6e6ea3a06a786f50f120196bfdedcda51f2` 撰写并完成语言润色。后续若底层算法代码发生更新，将先由 Codex 同步技术初稿，再安排进一步润色。
+
+## E01 如何提供真实任务的边界输入
+
+E01 在运行时读 `soft_joint_pos_limits`，与锁定 URDF、系数 0.9 推算的软限位对照，只把六个位置关节的结果传入本模块。轮子使用单独的工作轮速范围；按默认姿态几何与最大速度指令，无滑动估算需求约 13.87 rad/s，模型上限参考为 30 rad/s，余量仍需实验决定。
+
+20 rad/s 只是建议的首次仿真调试值，不是代码默认或已验证参数。若使用者显式选 ±20 rad/s，E03 轮速 scale=5，E04 相应得到策略范围 `[−4,4]`、b=0、c=4；这与上文人工测试的非对称 `[−10,20]` rad/s 是不同输入，原测试数字保持不变。初始中心仍只校准确定性动作，不保证随机动作平均值等于目标。
+
+完整路径见 [E01](../robot_environment/README_HUMAN.md) 与 [T01](../../training_validation/configuration/README_HUMAN.md)；代码实现了这条路径，尚无真实 Isaac 执行证据。

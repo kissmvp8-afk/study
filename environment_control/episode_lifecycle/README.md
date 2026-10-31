@@ -2,7 +2,7 @@
 
 状态：代码已实现，CPU 单元验证通过（人工钩子范围）。已实现 [lifecycle.py](lifecycle.py) 与 [test_lifecycle.py](test_lifecycle.py)，10 项检查通过；真实钩子（E01 `TitaSacHooks`）未在 Isaac 中执行，待 Windows + Isaac 验证。未进行训练或性能验证。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -159,7 +159,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_con
 | 代码版本 | `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`）；`794cd623de54c75ee3ed96ae6788fb72c5a5cebd` 只修改了 `lifecycle.py` 文件头的设备搬运说明（不改行为），`test_lifecycle.py` 未改动 |
 | 本次改动及理由 | 首次实现 E05：锁定版本在 `step` 返回前就重置，因此拆成钩子并在重置前插入一次观测计算；把公共环境接口 `EnvObservation` / `EnvStep` 从 T02 fake_env.py 移到这里，供假环境与真实环境共用 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E01、E02、T02 AI 规范；带注释的 `lifecycle.py`、`test_lifecycle.py`；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step`。建议 Codex 重点解释：7 步顺序与原 `step` 的对应；`build_step_record` 中结束 / 未结束环境的数据来源与掩码展开；为何每个环境每步只推进一次历史；`EpisodeLifecycle.step` 的重置一致性检查与编号更新 |
-| 人类版 | 待 Codex 编写（代码、注释与 CPU 验证记录已齐备） |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
