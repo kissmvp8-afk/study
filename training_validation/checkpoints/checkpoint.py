@@ -12,12 +12,16 @@
 新一轮的 episode_id 从保存时的编号加一开始，step_index=0，D02 只按显式编号连接，因此新旧经历不会被拼接。
 
 两种恢复语义（describe_resume_mode 给出说明）：
-    - exact_replay（带经验池）：网络、优化器、统计、计数、随机数与经验池都恢复，下一批回放抽样与学习可复现；
-      采集因环境重新开始而不同。
+    - exact_replay（带经验池）：网络、优化器、统计、计数、随机数与经验池都恢复；在与检查点相同的学习配置下
+      （恢复时强制校验），下一批回放抽样与学习可复现（已在 CPU、同一 PyTorch 版本下验证）；采集因环境重新开始而不同。
     - model_only（不带经验池）：经验池为空，需要重新积累经历后才能学习，**不是精确接续**。
 
-格式与兼容性：文件必须带 format="tita-sac-checkpoint" 与版本号；Q 观测维数、任务、环境数、网络维数、
-E04 动作边界或 E03 关节顺序不一致时拒绝加载，不静默截断或补齐。原 PPO 的 V 网络评价的是状态而非“状态 + 动作”，
+格式与兼容性：文件必须带 format="tita-sac-checkpoint" 与版本号；E04 动作边界或 E03 关节顺序不一致时拒绝加载。
+学习配置必须与检查点完全一致（只有 name、sources、environment 这三项描述性字段可以不同）：
+优化器状态中保存着学习率等超参数，D04 统计中保存着 eps，恢复它们会覆盖当前配置的设置；若允许配置不同，
+配置记录就与实际运行不一致，再次保存时二者仍不一致，“下一批学习可复现”也不再成立。
+因此本版本只支持按检查点原有学习配置恢复：发现差异时在修改 Trainer 之前报错并列出全部差异，
+需要时用 load_checkpoint_config 读取原配置重建 Trainer。微调式的“换配置续训”不在本版本范围内。原 PPO 的 V 网络评价的是状态而非“状态 + 动作”，
 输入维数与含义都不同，不能当作 SAC 的 Q 参数加载；没有上述格式标记的文件一律拒绝。
 读取使用 torch.load(weights_only=True)，只接受张量与基本类型，不执行任意 pickle。
 
@@ -44,10 +48,8 @@ from config import config_from_dict, config_to_dict, version_report  # noqa: E40
 CHECKPOINT_FORMAT = "tita-sac-checkpoint"
 CHECKPOINT_VERSION = 1
 MODULE_NAMES = ("encoder", "projector", "actor", "critics", "targets", "temperature")
-# 不一致时拒绝加载的配置字段：决定张量形状或动作含义。
-STRUCTURAL_FIELDS = ("task.task", "task.q_dim", "collection.num_envs", "collection.capacity_per_env",
-                     "network.encoder_backbone_dims", "network.encoder_latent_hidden_dim",
-                     "network.actor_hidden_dims", "network.critic_hidden_dims")
+# 恢复时允许不同的配置字段：只用于描述（运行名、来源说明、目标软件环境），不影响学习行为。
+DESCRIPTIVE_FIELDS = ("name", "sources", "environment")
 
 
 class CheckpointError(ValueError):
@@ -56,12 +58,11 @@ class CheckpointError(ValueError):
 
 @dataclass(frozen=True)
 class ResumeReport:
-    """恢复结果。mode 为 "exact_replay" 或 "model_only"；config_differences 列出非结构性配置差异。"""
+    """恢复结果。mode 为 "exact_replay" 或 "model_only"；学习配置已校验与检查点一致。"""
 
     mode: str
     replay_restored: bool
     environment_state_restored: bool
-    config_differences: tuple[str, ...]
     counters: dict
     saved_versions: dict
 
@@ -110,16 +111,26 @@ def save_checkpoint(trainer, path: Path, include_replay: bool = True) -> Path:
     return path
 
 
-def _get(config: dict, dotted: str):
-    group, _, name = dotted.partition(".")
-    return config[group][name] if name else config[group]
+def _learning_config_differences(saved: dict, current: dict) -> list[str]:
+    """逐字段比较两份配置（跳过 DESCRIPTIVE_FIELDS），返回 “字段：检查点值，当前值” 列表。"""
+    differences = []
+    for key in sorted(set(saved) | set(current)):
+        if key in DESCRIPTIVE_FIELDS:
+            continue
+        a, b = saved.get(key), current.get(key)
+        if isinstance(a, dict) and isinstance(b, dict):
+            differences += [f"{key}.{name}：检查点 {a.get(name)!r}，当前 {b.get(name)!r}"
+                            for name in sorted(set(a) | set(b)) if a.get(name) != b.get(name)]
+        elif a != b:
+            differences.append(f"{key}：检查点 {a!r}，当前 {b!r}")
+    return differences
 
 
 def restore_checkpoint(trainer, path: Path) -> ResumeReport:
     """把检查点恢复进一个新构造的 Trainer（同配置结构、同环境类型），返回 ResumeReport。
 
-    检查顺序：格式与版本 → 结构性配置 → 动作边界与关节顺序 → 依次恢复网络、优化器、统计、计数、随机数、经验池，
-    最后让环境开始新一轮（episode_id 从保存时加一）。格式、版本与结构检查全部通过之前不修改 Trainer；
+    检查顺序：格式与版本 → 学习配置逐字段一致 → 动作边界与关节顺序 → 依次恢复网络、优化器、统计、计数、随机数、
+    经验池，最后让环境开始新一轮（episode_id 从保存时加一）。全部检查通过之前不修改 Trainer；
     不兼容时抛 CheckpointError。
     """
     try:
@@ -131,20 +142,19 @@ def restore_checkpoint(trainer, path: Path) -> ResumeReport:
     if state.get("version") != CHECKPOINT_VERSION:
         raise CheckpointError(f"检查点版本 {state.get('version')} 与当前 {CHECKPOINT_VERSION} 不符")
 
-    current = config_to_dict(trainer.config)
-    problems = [f"{f}：检查点 {_get(state['config'], f)!r}，当前 {_get(current, f)!r}"
-                for f in STRUCTURAL_FIELDS if _get(state["config"], f) != _get(current, f)]
+    problems = _learning_config_differences(state["config"], config_to_dict(trainer.config))
+    if problems:
+        raise CheckpointError(
+            "当前学习配置与检查点不同，本版本只支持按检查点原有学习配置恢复"
+            "（优化器与 D04 统计会带回旧设置，配置记录将与实际运行不一致）：\n- " + "\n- ".join(problems)
+            + "\n请用 load_checkpoint_config(path) 读取原配置重建 Trainer 后再恢复。"
+        )
     if state["action_bounds"] != _bounds_record(trainer):
         problems.append("E04 动作边界与当前配置推导的不同")
     if state["contract_joint_names"] != list(trainer.contract.joint_names):
         problems.append("E03 关节顺序不同")
     if problems:
         raise CheckpointError("检查点与当前训练结构不兼容：\n- " + "\n- ".join(problems))
-    differences = tuple(sorted(
-        f"{group}.{name}" for group in ("algorithm", "collection", "task")
-        for name in current[group] if f"{group}.{name}" not in STRUCTURAL_FIELDS
-        and state["config"][group][name] != current[group][name]
-    ))
 
     for name in MODULE_NAMES:
         getattr(trainer, name).load_state_dict(state["modules"][name], strict=True)
@@ -165,20 +175,19 @@ def restore_checkpoint(trainer, path: Path) -> ResumeReport:
     return ResumeReport(
         mode="exact_replay" if state["replay"] is not None else "model_only",
         replay_restored=state["replay"] is not None, environment_state_restored=False,
-        config_differences=differences, counters=dict(state["counters"]), saved_versions=dict(state["versions"]),
+        counters=dict(state["counters"]), saved_versions=dict(state["versions"]),
     )
 
 
 def describe_resume_mode(report: ResumeReport) -> str:
     """给出恢复语义的中文说明，供日志记录。"""
     if report.mode == "exact_replay":
-        text = ("带经验池恢复：网络、优化器、统计、计数、随机数与经验池均已恢复，下一批回放抽样与学习可复现；"
+        text = ("带经验池恢复：网络、优化器、统计、计数、随机数与经验池均已恢复；学习配置已校验与检查点一致，"
+                "在此条件下下一批回放抽样与学习可复现（已在 CPU、同一 PyTorch 版本下验证）；"
                 "环境现场未保存，采集从新一轮开始，与中断前继续运行的结果不同。")
     else:
         text = ("仅模型恢复：经验池为空，需要重新积累经历后才能学习，不是精确接续；"
                 "环境现场未保存，采集从新一轮开始。")
-    if report.config_differences:
-        text += f"与检查点不同的非结构性配置：{', '.join(report.config_differences)}。"
     return text
 
 

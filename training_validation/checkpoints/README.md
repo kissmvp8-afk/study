@@ -1,6 +1,6 @@
 # T03 · 训练进度保存与恢复｜AI 实施规范
 
-状态：单元验证通过（CPU、假环境）。已实现 [checkpoint.py](checkpoint.py) 与 [test_checkpoint.py](test_checkpoint.py)，8 项检查通过；不保存仿真现场。
+状态：单元验证通过（CPU、假环境）。已实现 [checkpoint.py](checkpoint.py) 与 [test_checkpoint.py](test_checkpoint.py)，10 项检查通过；只支持按检查点原有学习配置恢复；不保存仿真现场。
 
 [人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
@@ -41,12 +41,12 @@
 | 符号 | 签名 | 职责与副作用 |
 |---|---|---|
 | `CHECKPOINT_FORMAT` / `CHECKPOINT_VERSION` | `"tita-sac-checkpoint"` / `1` | 格式标记与版本；没有格式标记的文件（例如原 PPO 模型）一律拒绝 |
-| `STRUCTURAL_FIELDS` | task.task、task.q_dim、collection.num_envs、collection.capacity_per_env、四项网络维数 | 不一致时拒绝加载 |
+| `DESCRIPTIVE_FIELDS` | `name`、`sources`、`environment` | 恢复时唯一允许与检查点不同的配置字段（只用于描述）；其余配置（algorithm、network、collection、task、mode、seed、device）必须逐字段一致 |
 | `collect_training_state` | `(trainer, include_replay) -> dict` | 汇总全部训练状态（见下表），只读 |
 | `save_checkpoint` | `(trainer, path, include_replay=True) -> Path` | 先写同目录临时文件并 fsync，再 `os.replace`；失败时删除临时文件，旧检查点不变 |
-| `restore_checkpoint` | `(trainer, path) -> ResumeReport` | `torch.load(weights_only=True)`；校验格式、版本、结构字段、E04 边界与 E03 关节顺序，全部通过后才修改 Trainer；恢复后环境 `reset`，episode_id 从保存时加一 |
-| `ResumeReport` | mode、replay_restored、environment_state_restored（恒为 False）、config_differences、counters、saved_versions | 恢复结果；非结构性配置差异会列出，不静默忽略 |
-| `describe_resume_mode` | `(report) -> str` | `exact_replay`：下一批回放与学习可复现，采集从新一轮开始；`model_only`：经验池为空，需要重新积累，不是精确接续 |
+| `restore_checkpoint` | `(trainer, path) -> ResumeReport` | `torch.load(weights_only=True)`；依次校验格式、版本、学习配置逐字段一致、E04 边界与 E03 关节顺序，全部通过后才修改 Trainer。配置不同时报错，列出全部差异，并提示用 `load_checkpoint_config` 重建 Trainer。恢复后环境 `reset`，episode_id 从保存时加一 |
+| `ResumeReport` | mode、replay_restored、environment_state_restored（恒为 False）、counters、saved_versions | 恢复结果；返回时学习配置已校验与检查点一致 |
+| `describe_resume_mode` | `(report) -> str` | `exact_replay`：在学习配置一致（已校验）的条件下，下一批回放与学习可复现（已在 CPU、同一 PyTorch 版本下验证），采集从新一轮开始；`model_only`：经验池为空，需要重新积累，不是精确接续 |
 | `load_checkpoint_config` | `(path) -> RunConfig` | 读取检查点中的生效配置，用于按原配置重建 Trainer |
 
 ### 检查点内容
@@ -96,7 +96,9 @@ Trainer 使用 T01 `cpu_debug_config` 与 T02 `FakeLocomotionEnv`。
 | 带经验池恢复：原 Trainer 与恢复后的 Trainer 各再学习 3 次并辅助学习 1 次，全部参数逐位相等，计数相等，下一批抽样的起点相同 | `RestoreTest.test_exact_replay_reproduces_next_learning` | 通过 |
 | 不带经验池：模式为 model_only，经验池为空，说明中含“不是精确接续”；确定性动作一致；学习先被跳过，重新采集后可以继续 | `RestoreTest.test_model_only_requires_new_experience` | 通过 |
 | 恢复后环境开始新一轮（episode_id = 保存时 + 1，step 0，长度 1）；中断时未结束的旧记录不会与新写入的记录连接 | `RestoreTest.test_environment_restarts_without_joining_old_experience` | 通过 |
-| 工作轮速或 Actor 网络维数不同的配置被拒绝，并指出具体字段 | `CompatibilityTest.test_rejects_mismatched_structure` | 通过 |
+| 学习配置不同（actor_lr、normalizer_eps、gamma、工作轮速、Actor 网络维数，各一例）时，在修改 Trainer 之前拒绝：报错列出对应字段并提示 `load_checkpoint_config`；Actor 参数、优化器学习率、D04 eps、计数都保持构造时的值 | `CompatibilityTest.test_rejects_learning_config_differences_before_changing_state` | 通过 |
+| 用 `load_checkpoint_config` 重建（只改描述性的 name）时可以恢复 | `CompatibilityTest.test_rebuilding_from_checkpoint_config_is_accepted` | 通过 |
+| 检查点中保存的动作边界被篡改时拒绝 | `CompatibilityTest.test_rejects_tampered_action_bounds` | 通过 |
 | 原 PPO 式的模型文件、版本号不符的检查点被拒绝；可以读回检查点中的配置 | `CompatibilityTest.test_rejects_other_formats_and_versions` | 通过 |
 | 写入中途失败：旧检查点字节不变，没有残留临时文件 | `CompatibilityTest.test_atomic_save_keeps_previous_file` | 通过 |
 | 一次 CPU 流程：训练 4 轮、每 2 轮保存一次 → 按检查点配置重建 → 恢复 → 再训练 2 轮，计数接续（iterations 6，Critic 次数增加 8） | `FullFlowTest.test_train_save_restore_continue` | 通过 |
@@ -137,13 +139,13 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
 | 实现状态 | 单元验证通过（CPU、假环境、人工数据）；Isaac 仿真集成未开始 |
-| 实际文件、函数签名与调用关系 | [checkpoint.py](checkpoint.py)：`save_checkpoint`、`restore_checkpoint`、`describe_resume_mode`、`collect_training_state`、`load_checkpoint_config`、`ResumeReport`、`CheckpointError`；读取 T02 `Trainer` 的属性（encoder、projector、actor、critics、targets、temperature、optimizers、normalizers、counters、generators、buffer、observation、bounds、contract、config、env），调用 D02 `state_dict` / `load_state_dict`、D04 `export_statistics` / `load_statistics`、T01 `config_to_dict` / `version_report`。[test_checkpoint.py](test_checkpoint.py)：3 个测试类共 8 项 |
+| 实际文件、函数签名与调用关系 | [checkpoint.py](checkpoint.py)：`save_checkpoint`、`restore_checkpoint`、`describe_resume_mode`、`collect_training_state`、`load_checkpoint_config`、`ResumeReport`、`CheckpointError`；读取 T02 `Trainer` 的属性（encoder、projector、actor、critics、targets、temperature、optimizers、normalizers、counters、generators、buffer、observation、bounds、contract、config、env），调用 D02 `state_dict` / `load_state_dict`、D04 `export_statistics` / `load_statistics`、T01 `config_to_dict` / `version_report`。[test_checkpoint.py](test_checkpoint.py)：3 个测试类共 10 项 |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`save_checkpoint` 写文件；`restore_checkpoint` 修改 Trainer 的全部训练状态并调用 `env.reset` |
 | 代码注释核对 | 已核对：检查点版本与格式标记、原子保存、全部训练状态、经验池缺失的恢复限制、原 PPO V 不能加载为 Q、仿真现场未保存（文件头、`restore_checkpoint`、`describe_resume_mode`） |
-| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/checkpoints/test_checkpoint.py -v` → `Ran 8 tests … OK`（首次运行的问题见上文“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/checkpoints/test_checkpoint.py -v` → `Ran 10 tests … OK`（首次实现时为 8 项，问题见上文“调试记录”；审核修复后新增 2 项、改写 1 项）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
 | 未验证项 | Isaac 环境的现场保存与恢复（不在本模块范围内，目前也没有承诺）；大容量经验池的保存耗时与文件大小；跨设备（GPU ↔ CPU）恢复；异常中断后的实际恢复演练 |
 | 代码版本 | `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`；依赖 D02 新增接口 `f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
-| 本次改动及理由 | 首次实现 T03：在作者保存内容的基础上补齐经验池、随机数与调度计数；明确两种恢复语义，以及不恢复仿真现场 |
+| 本次改动及理由 | 首次实现 T03：在作者保存内容的基础上补齐经验池、随机数与调度计数；明确两种恢复语义，以及不恢复仿真现场。审核修复（Codex 复核 `13382f3`）：原实现允许恢复时使用不同的学习配置，但优化器状态与 D04 统计会带回旧的学习率与 eps，导致配置记录与实际运行不一致，再次保存时仍不一致；改 gamma 后仍报告“下一批学习可复现”也不成立。现改为只支持按检查点原有学习配置恢复：不一致时在修改 Trainer 之前报错并列出差异，提示用 `load_checkpoint_config` 重建 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `checkpoint.py`、`test_checkpoint.py`；T02 `runner.py`；D02 `buffer.py` 的 `state_dict`；作者 `sac.py` 的 `save` / `load`。建议 Codex 重点解释原子保存、两种恢复语义、结构检查，以及为什么恢复后旧经历不会与新一轮拼接 |
 | 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
 | 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |

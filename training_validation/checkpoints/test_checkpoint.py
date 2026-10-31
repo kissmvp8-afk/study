@@ -92,7 +92,6 @@ class RestoreTest(unittest.TestCase):
             sa, sb = original.optimizers[name].state_dict()["state"], restored.optimizers[name].state_dict()["state"]
             self.assertTrue(all(torch.equal(sa[i]["exp_avg"], sb[i]["exp_avg"]) for i in sa), name)
         self.assertEqual((report.mode, report.replay_restored, report.environment_state_restored), ("exact_replay", True, False))
-        self.assertEqual(report.config_differences, ())
 
     def test_exact_replay_reproduces_next_learning(self) -> None:
         original = trained_trainer()
@@ -153,14 +152,44 @@ class CompatibilityTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.tmp.cleanup()
 
-    def test_rejects_mismatched_structure(self) -> None:
+    def test_rejects_learning_config_differences_before_changing_state(self) -> None:
+        # 学习配置不同：优化器与 D04 统计会带回旧设置，配置记录与实际运行不一致，因此必须在修改 Trainer 之前拒绝。
         base = cpu_debug_config(seed=3)
-        other_bounds = replace(base, task=replace(base.task, wheel_speed_ranges={"joint_left_leg_4": (-12.0, 20.0),
-                                                                                 "joint_right_leg_4": (-12.0, 20.0)}))
-        other_network = replace(base, network=replace(base.network, actor_hidden_dims=(256, 128)))
-        for config, pattern in ((other_bounds, "动作边界"), (other_network, "network.actor_hidden_dims")):
-            with self.subTest(pattern=pattern), self.assertRaisesRegex(CheckpointError, pattern):
-                restore_checkpoint(new_trainer(config), self.path)
+        cases = (
+            ("algorithm.actor_lr", replace(base, algorithm=replace(base.algorithm, actor_lr=7e-4))),
+            ("algorithm.normalizer_eps", replace(base, algorithm=replace(base.algorithm, normalizer_eps=0.3))),
+            ("algorithm.gamma", replace(base, algorithm=replace(base.algorithm, gamma=0.9))),
+            ("task.wheel_speed_ranges", replace(base, task=replace(base.task, wheel_speed_ranges={
+                "joint_left_leg_4": (-12.0, 20.0), "joint_right_leg_4": (-12.0, 20.0)}))),
+            ("network.actor_hidden_dims", replace(base, network=replace(base.network, actor_hidden_dims=(256, 128)))),
+        )
+        for field, config in cases:
+            with self.subTest(field=field):
+                trainer = new_trainer(config)
+                before = [t.clone() for t in trainer.actor.state_dict().values()]
+                lrs = [opt.param_groups[0]["lr"] for opt in trainer.optimizers.values()]
+                with self.assertRaises(CheckpointError) as caught:
+                    restore_checkpoint(trainer, self.path)
+                message = str(caught.exception)
+                self.assertIn(field, message)
+                self.assertIn("load_checkpoint_config", message)
+                self.assertTrue(all(torch.equal(a, b) for a, b in zip(before, trainer.actor.state_dict().values())))
+                self.assertEqual(lrs, [opt.param_groups[0]["lr"] for opt in trainer.optimizers.values()])
+                self.assertEqual(trainer.normalizers.policy.eps, config.algorithm.normalizer_eps)
+                self.assertEqual(trainer.counters.env_steps, 0)
+
+    def test_rebuilding_from_checkpoint_config_is_accepted(self) -> None:
+        # 按提示用检查点中的配置重建；只改描述性的 name 也允许。
+        config = replace(load_checkpoint_config(self.path), name="renamed-run")
+        report = restore_checkpoint(new_trainer(config), self.path)
+        self.assertEqual(report.mode, "exact_replay")
+
+    def test_rejects_tampered_action_bounds(self) -> None:
+        state = torch.load(self.path, weights_only=True)
+        state["action_bounds"]["upper"][0] += 1.0
+        torch.save(state, self.dir / "bounds.pt")
+        with self.assertRaisesRegex(CheckpointError, "动作边界"):
+            restore_checkpoint(new_trainer(), self.dir / "bounds.pt")
 
     def test_rejects_other_formats_and_versions(self) -> None:
         ppo_like = self.dir / "ppo_model.pt"
