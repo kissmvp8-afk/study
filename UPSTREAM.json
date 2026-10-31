@@ -45,6 +45,13 @@
       "N07": "completed_technical_review",
       "N08": "completed_technical_review",
       "networks_learning": "completed_technical_review",
+      "T01": "completed_technical_review",
+      "T02": "completed_technical_review",
+      "T03": "completed_technical_review",
+      "T04": "completed_technical_review",
+      "T05": "completed_technical_review",
+      "T06": "completed_technical_review",
+      "training_validation": "completed_technical_review",
       "others": "placeholders_awaiting_implementation"
     },
     "implementation_author": "Claude",
@@ -72,6 +79,12 @@
     "N05": "unit_verified_cpu",
     "N06": "unit_verified_cpu",
     "N07": "unit_verified_cpu",
-    "N08": "unit_verified_cpu"
+    "N08": "unit_verified_cpu",
+    "T01": "unit_verified_cpu_fake_env",
+    "T02": "unit_verified_cpu_fake_env",
+    "T03": "unit_verified_cpu_fake_env",
+    "T04": "unit_verified_cpu",
+    "T05": "unit_verified_cpu",
+    "T06": "unit_verified_cpu"
   }
 }
