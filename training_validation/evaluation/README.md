@@ -148,7 +148,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 代码注释核对 | 已核对：指标的分母与统计范围、时间截断与摔倒的区别、随机起点与阈值固定的原因（文件头、`compute_metrics`、`compare_runs`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/evaluation/test_evaluate.py -v` → `Ran 12 tests … OK`（首次实现时为 8 项，其中 1 项曾因测试精度失败，见“调试记录”；预算与随机起点修复后新增 4 项回归）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除 |
 | 未验证项 | Isaac 仿真中的 PPO 与 SAC 评价运行（速度指令、真实速度、力矩信号来自 E01 / E02）；评价指令序列与时长；PPO 波动范围与验收阈值；视频记录；真实耗时与内存 |
-| 代码版本 | `a8a44fc77b387a9d853e4e290843133fadfeb2cc`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
+| 代码版本 | `a8a44fc77b387a9d853e4e290843133fadfeb2cc`，预算与随机起点修复 `8ead2dff4b33ed8229ddcc956a567f856d237219`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T04：只提供评价数据接口、指标、报告与对照规则；证据不足时阻断性能结论。审核修复：原 `compare_runs` 只检查预算有没有值，现要求所选预算可比（交互步数相等；耗时在 5% 暂定容差内）；原 `write_report` 按记录条数判断随机起点，现与 `compare_runs` 一样按不同的有效 training_seed 计数 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `evaluate.py`、`test_evaluate.py`；原 PPO `play.py`。建议 Codex 重点解释各指标的口径、摔倒与到时的区别、缺失标记，以及阻断结论的条件 |
 | 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
