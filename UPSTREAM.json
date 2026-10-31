@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "stage": "framework_and_readmes_only",
+  "stage": "pure_data_modules_in_progress",
   "ppo": {
     "repository": "DDTRobot/DDT_Lab",
     "commit": "701a49c6e78dfb93a8b30145f0e7723b22921c0b",
@@ -27,7 +27,11 @@
     "human_guide_filename": "README_HUMAN.md",
     "pairs": 29,
     "human_guide_author": "Codex",
-    "human_guides_status": "placeholders_awaiting_implementation",
+    "human_guides_status": {
+      "E03": "completed_and_polished",
+      "E04": "completed_and_polished",
+      "others": "placeholders_awaiting_implementation"
+    },
     "implementation_author": "Claude",
     "code_comments_required": true,
     "human_writing_requires_completed_code": true,
@@ -37,5 +41,9 @@
       "Codex_code_based_draft",
       "Gemini_language_polish"
     ]
+  },
+  "implemented_modules": {
+    "E03": "unit_verified_pure_data",
+    "E04": "unit_verified_pure_data"
   }
 }

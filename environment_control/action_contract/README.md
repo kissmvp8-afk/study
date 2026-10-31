@@ -66,7 +66,7 @@
 | `load_baseline_action_contract` | `(repo_dir=REPO_ROOT) -> ActionContract` | 读取 rough/flat/robot 三个文件，确认 rough 与 flat 都没有改写动作，然后建立动作表（不调用 validate） |
 | 命令行 | `python3 -B environment_control/action_contract/baseline_source.py` | 校验并打印由原版配置生成的动作表 |
 
-调用方：目前只有本目录的验证程序。E04 计划读取 `ActionContract` 的 `scales`、`default_targets`、`indices_of`；D01、Q 网络和导出模块依赖同一索引顺序。这些模块尚未实现，接入时需在各自 README 中登记。
+调用方：目前只有本目录的验证程序。E04 [bounds.py](../action_bounds/bounds.py) 已直接使用 `ActionContract`：逐项读取 `control_type`、`default_target`、`scale`、`joint_name`，并读取 `joint_names`、`default_targets`。D01、Q 网络和导出模块依赖同一索引顺序，这些模块尚未实现，接入时需在各自 README 中登记。
 
 ## 必须成立的规则
 
