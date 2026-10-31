@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [schema.py](schema.py) 与 [test_schema.py](test_schema.py)，20 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入 E05 末状态捕获、D02 经验池或仿真，未进行训练或性能验证。
 
-[人类版（待 Codex 编写）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（已完成讲解与润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -79,7 +79,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 
 与 E05 的分工：E05 负责在重置前捕获真实末状态，并把同一步“摔倒又到时”的情况只标为 `terminated`；D01 接收结果，拒绝两标记同时为真。mask 也只依赖 `terminated`，所以即使绕过校验，结果仍按真终止处理。
 
-调用方：目前只有本目录的验证程序。计划由 E05 / T02 采集循环调用 `make_transition`，D02 写入经验池，D03 / N05 使用 `derive_bootstrap_mask`。这些模块尚未实现。
+调用方：D02 [buffer.py](../replay_buffer/buffer.py) 写入 `TransitionBatch`（并复用 `_expected_layout` 分配存储），D03 [returns.py](../n_step_returns/returns.py) 调用 `derive_bootstrap_mask`，D04、D05 读取字段与常量。计划由 E05 / T02 采集循环调用 `make_transition`、N05 使用 mask，这些模块尚未实现。
 
 ## 必须成立的规则
 
@@ -164,10 +164,10 @@ Q 输入动作与环境实际动作不一致时，沿动作坐标和后续裁剪
 | 代码注释核对 | 已逐项核对本模块的注释重点：逐字段的当前 / 真实下一含义、编号、布尔标记与形状（`TransitionBatch` docstring）；复制责任（`make_transition`）；校验职责与 E05 分工（`validate_transition`、文件头）；真终止优先（`derive_bootstrap_mask`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU）；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_returns/transition_schema/test_schema.py -v` → `Ran 20 tests … OK`。临时环境未装 numpy，torch 打印了一条 numpy 未安装的 UserWarning，不影响结果 |
 | 未验证项 | E05 在 Isaac Lab 中于重置前捕获末状态（含 `[B,10,33]` 历史掩码展开）；实际 C 值（54 / 241）需 E02 从运行时观测组校验；E01/E05 编号来源（episode_id、step_index 由谁维护）；D02 写入与抽样；GPU 设备上的复制；仓库统一依赖配置（T01）；仿真、训练与性能 |
-| 代码版本 | 基于 `759be40`（main，含 E03、E04）；提交号以本分支 `claude/d01-transition-schema` 的 PR 记录为准 |
+| 代码版本 | 实现与验证代码：`7fe7e93fdd8f032f038f4d014206dcf560c80e6a`（PR #4，已合并），此后 `schema.py`、`test_schema.py` 没有改动；人类版讲解在 `0768a3e` |
 | 本次改动及理由 | 首次实现 D01：用 torch 张量作为唯一容器，与环境和经验池一致；为满足真终止优先，以“真终止 + 纯截断”代替作者的 dones + bootstrap；由 `make_transition` 统一复制，防止来源缓冲区的原地修改污染记录 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E02、E03、E05、D02、D03 的接口约定；带注释的 `schema.py`、`test_schema.py`；上述验证记录；原 PPO `np3o.py` 的 time_outs 奖励补偿与 `wrapper.py`，作者 `sac.py` 的 `process_env_step` 与 bootstrap_mask。建议 Codex 重点解释 `make_transition` 的复制、`validate_transition` 中 next_history_length 的规则与两标记互斥，以及 `derive_bootstrap_mask` 与作者公式的差别 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文 |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| 人类版 | 已完成讲解与润色；状态与核对范围以 [README_HUMAN.md](README_HUMAN.md) 的元数据为准 |
+| 技术初稿 / 语言润色 | Codex 已依据 `7fe7e93` 完成技术初稿与复核，Gemini 已完成语言润色；两者都不包含仿真验证 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

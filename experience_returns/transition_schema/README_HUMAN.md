@@ -56,7 +56,7 @@ $$\text{bootstrap\_mask} = \text{bootstrap} + 1 - \text{dones}$$
 本项目确立了**“真终止优先（True Termination Priority）”**的严密规则：只要机器人摔倒了，后续价值必须果断归零。因此 D01 改为只依据 `terminated` 推导 mask，并要求上游模块传递互斥的结束标记。
 
 > [!IMPORTANT]
-> **当前实现边界说明**：D01 目前完成的是纯数据层面的张量容器封装与校验规则；代码不连接仿真引擎，不捕获真实末状态，不重置环境，也不实现经验池或训练更新。**当前尚未接入 E05 结束生命周期、D02 经验池或物理仿真，SAC 训练算法尚未接通。**
+> **当前实现边界说明**：D01 目前完成的是纯数据层面的张量容器封装与校验规则；代码不连接仿真引擎，不捕获真实末状态，不重置环境，也不实现经验池或训练更新。**当前 D01 与 D02～D05 已有纯数据衔接；E05 实际采集、物理仿真与 SAC 训练算法仍未接通。**
 
 ## 一次动作前后：输入、字段与数据流
 
@@ -133,7 +133,7 @@ B 是记录条数，不是帧数，也不要求始终等于固定的并行环境
         │
         ▼
 E05 在重置前捕获并保护策略历史与 Q 观测
-        ├─ 本轮真实到达状态 → next_* → D01 复制、检查 → 后续 D02
+        ├─ 本轮真实到达状态 → next_* → D01 复制、检查 → D02 经验池
         ▼
 结束环境重置 → 新一轮观测 → 下一次决策
 （重置后观测不能填入旧记录的 next_*）
@@ -165,6 +165,8 @@ E05 在重置前捕获并保护策略历史与 Q 观测
 | `_shape_text(shape)`、`_rows(mask)` | 辅助函数：将元组形状格式化为 `[B,...]` 文本；将布尔掩码转换为出错的具体行号列表 | 用于拼接清晰易懂的报错定位日志 |
 | `derive_bootstrap_mask(batch)` | 输入记录对象，输出形状为 `[B, 1]` 的 `float32` 张量 | 核心公式计算：`(~batch.terminated).to(torch.float32)`。真终止输出 0.0，其余输出 1.0；对通过校验的记录，与 `reward` 同设备，不修改记录 |
 | `describe_transition(batch, row=0)` | 输入记录对象与指定行号，返回格式化的可读文本摘要 | 生成编号、有效历史长度、动作、奖励、结束原因、mask、形状及设备文本，自身不打印；调用 `batch_size`、`derive_bootstrap_mask`，行号越界抛 `IndexError` |
+
+调用关系同步（审核基准 `7071e41`）：D02 直接复用本模块的内部 `_expected_layout` 分配存储，并在 append 时调用 `validate_transition`；D03 使用 `derive_bootstrap_mask`；D04/D05 读取记录字段与常量。`_expected_layout` 尚未改成公开接口；本次不改 D01 代码。
 
 正常调用关系是 `make_transition → validate_transition → 返回记录`。直接调用 `TransitionBatch(...)` 会绕过复制与校验；`derive_bootstrap_mask`、`describe_transition` 也不自动校验整份记录。`make_transition` 会分配副本内存，保持来源设备和类型，不自动转换；校验分阶段报告问题。
 
@@ -243,7 +245,7 @@ validate_transition(batch, q_dim)
 return batch
 ```
 
-第一行把各字段副本按名称装入记录；第二行校验复制后的数据；第三行在校验成功后返回。复制不能修正来源时机：若来源在复制前已被重置覆盖，或误把重置后数据填进 `next_*`，它只会复制错误输入。E05 仍须先正确捕获末状态；后续 D02 存储尚未接入。
+第一行把各字段副本按名称装入记录；第二行校验复制后的数据；第三行在校验成功后返回。复制不能修正来源时机：若来源在复制前已被重置覆盖，或误把重置后数据填进 `next_*`，它只会复制错误输入。E05 仍须先正确捕获末状态；D02 存储与读取已有人工 CPU 验证，实际采集循环尚未接入。
 
 ### 2. 冻结数据类为什么不等于张量内容绝对只读
 
@@ -348,7 +350,7 @@ python -B experience_returns/transition_schema/test_schema.py -v
 |---|---|---|
 | **单元测试验证记录 (2026-10-31)** | macOS Darwin 25.4.0、Python 3.11.17 + torch 2.15.0 (CPU) 环境下，20 项测试通过（`OK`）；PR #4 附原运行的各项结果与 `OK` 输出 | 该记录来自原实施验证，PR 输出已去除 numpy 未安装警告；本次文档复核未重跑测试 |
 | **测试数据性质** | 验证了字段完整性、深拷贝独立性、形状与类型约束以及真终止优先逻辑 | 全部使用**人工构造数据**（如 7.0、-3.0 等显眼常数），不代表真实的传感器读数或真实机械轨迹 |
-| **尚未接通的环境与下游** | 确立了数据标准与校验规范 | 未接入 E05 重置前末状态捕获，未连接 D02 经验池存储，未测试 GPU 显存复制，未运行仿真、训练或评估性能 |
+| **尚未接通的环境与下游** | 确立了数据标准与校验规范 | D02～D05 已完成纯数据实现与衔接检查；E05 重置前末状态捕获、GPU、仿真、训练及性能仍未验证 |
 | **外部参考实现** | 依据代码注释与 AI 规范，分析了与原 PPO `np3o.py` 及作者 SAC `rsl_rl_sac` 的核心设计差异 | 未独立重新通读外部开源库全量代码或学术论文，以上述固定版本快照与本地契约为准 |
 
 ### 常见问题排查速查表
@@ -382,8 +384,8 @@ python -B experience_returns/transition_schema/test_schema.py -v
 | [E02 观测接口](../../environment_control/observation_interface/README.md) · [人类版占位](../../environment_control/observation_interface/README_HUMAN.md) | **观测源头（待实现）**。负责提供 33 维策略观测与 $C$ 维 Q 特权观测，决定运行时的实际数据内容 |
 | [E03 人类版说明](../../environment_control/action_contract/README_HUMAN.md) | **动作基石（已完成）**。解释 8 维策略动作的物理含义与坐标基准 |
 | [E05 生命周期契约](../../environment_control/episode_lifecycle/README.md) · [人类版占位](../../environment_control/episode_lifecycle/README_HUMAN.md) | **生命周期核心（待实现）**。负责在环境重置前捕获并保护真实末状态，执行“真终止优先”，并向本模块传递数据；当前没有捕获耗时的验证结果 |
-| [D02 经验池契约](../replay_buffer/README.md) · [人类版占位](../replay_buffer/README_HUMAN.md) | **数据存储（待实现）**。负责接收本模块的记录对象，实现大容量长期存储与有效序列采样 |
-| [D03 多步回报契约](../n_step_returns/README.md) · [人类版占位](../n_step_returns/README_HUMAN.md) | **回报计算（待实现）**。负责利用本模块的原始奖励、末状态与 bootstrap mask 计算多步累计收益 |
+| [D02 经验池契约](../replay_buffer/README.md) · [人类版](../replay_buffer/README_HUMAN.md) | **数据存储（纯数据实现与 CPU 单元验证完成）**。接收本模块的记录，按环境/轮次/步号与写入序号选连续片段；人类版讲解与技术复核已完成，本轮不再润色，尚无大容量性能验证 |
+| [D03 多步回报契约](../n_step_returns/README.md) · [人类版](../n_step_returns/README_HUMAN.md) | **回报计算（纯数据实现与 CPU 单元验证完成）**。利用原始奖励、尾部 next_* 与本模块 mask 构造多步数据；人类版讲解与技术复核已完成，本轮不再润色，目标 Q 尚未接入 |
 | [大模块人类版](../README_HUMAN.md) · [项目总人类版](../../README_HUMAN.md) | 宏观架构导航页面 |
 
 本说明基于提交版本 `7fe7e93fdd8f032f038f4d014206dcf560c80e6a` 撰写并完成语言润色。后续若底层算法代码发生变动，将按照协作规范先由 Codex 同步技术初稿，再进行后续润色。

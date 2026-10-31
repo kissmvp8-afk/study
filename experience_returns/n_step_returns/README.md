@@ -1,8 +1,8 @@
 # D03 · 连续多步回报｜AI 实施规范
 
-状态：待实现。当前只有说明；下面的文件名和函数名是设计约定，尚无实现或测试程序。未进行算法训练、仿真或性能验证。
+状态：单元验证通过（纯数据范围）。已实现 [returns.py](returns.py) 与 [test_returns.py](test_returns.py)，7 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据并经 D02 读取，未接入 N05 目标 Q，未进行训练或性能验证。
 
-[人类版（等待代码完成）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
 
 ## 实施目标与术语
 
@@ -16,7 +16,7 @@
 
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/rollout_storage.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/rollout_storage.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配是待实现、待验证的设计。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块对 TITA 的适配已实现纯数据部分，尚未在仿真或训练中验证。
 
 ## 作者实现参考
 
@@ -32,18 +32,23 @@
 | 输入 | 同环境按时间排列的经历、折扣 gamma、最大步数 n。 |
 | 输出 | 折扣奖励和、有效步数 k、尾部观测、是否接后续价值的开关；本模块不调用 Q。 |
 
-## 计划文件与逐函数职责
+## 实际文件与接口
 
-实际实现和验证代码放在本目录，与本目录两份 README 并列。未来允许本目录增加必要的辅助文件，不能把实现散落到不相关的小模块。
+依赖：PyTorch（CPU 即可），与 D01 相同；仓库尚无统一依赖文件（T01）。各目录不是 Python 包，模块之间通过把相邻目录加入 `sys.path` 互相导入。
 
-| 计划文件 | 计划函数/方法 | 负责的功能 |
+### [returns.py](returns.py)
+
+| 符号 | 签名 | 职责、单位、异常与副作用 |
 |---|---|---|
-| `returns.py` | `accumulate_rewards` | 按 gamma 的幂累计到首个结束边界 |
-| `returns.py` | `select_tail` | 选择第 k 步到达的正确状态 |
-| `returns.py` | `build_n_step_batch` | 组合奖励、步数、尾部和开关 |
-| `test_returns.py` | 验证案例对应的测试 | 检查本模块规则，不重复实现主算法来证明自己 |
+| `NStepReturnError` | `ValueError` 子类 | 输入不符合约定 |
+| `accumulate_rewards` | `(rewards[M,n,1], boundary[M,n] bool, gamma) -> (R[M,1], k[M] int64)` | R = r0 + γ·r1 + … + γ^(k-1)·r(k-1)。k 为首个边界位置 + 1，没有边界时为 n；边界之后（新一轮）的奖励权重为 0。gamma 须在 (0, 1] |
+| `select_tail` | `(sequence: SequenceBatch, steps[M]) -> TransitionBatch` | 取每行第 k-1 条记录；它的 `next_*` 是 k 次动作后的真实状态（纯截断时是重置前末状态） |
+| `build_n_step_batch` | `(sequence, gamma, n_steps) -> NStepBatch` | 检查 `sequence.length == n_steps`，且起点到第 k-1 条全部有效；否则报“数据不足不能当作结束”。mask 调用 D01 `derive_bootstrap_mask(tail)` |
+| `NStepBatch` | `first, tail: TransitionBatch`；`reward_sum[M,1]`、`steps[M]`、`discount[M,1]=γ^k`、`bootstrap_mask[M,1]` | Q 评价 `first.q_observation`、`first.action`；目标用 `tail.next_*`，并按 R + γ^k · mask · V(尾部) 组合（V 由 N05 计算，本模块不调用 Q） |
 
-这些名字目前不可作为已有 API 导入。Claude 实现后必须用真实文件、函数签名及相对链接替换本表的计划信息。
+与 D02 的规则统一：D02 `valid_starts(n)` 只返回“凑满 n 条或在边界结束”的起点；`build_n_step_batch` 用同一个 `SequenceBatch.valid` 再检查一次，任何不满足的起点都会报错，而不是被截短。n=1 时 k 恒为 1，退化为单步。
+
+调用方：目前只有本目录与 D04、D05 的测试。N05 Critic 学习尚未实现。
 
 ## 必须成立的规则
 
@@ -76,13 +81,26 @@
 5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
 6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
-## 验收案例（尚未执行）
+## 验收案例（已执行，纯数据范围）
 
-- 无结束的已知奖励序列，与手算折扣和一致；n=1 退化为单步。
-- 在第 1、2、n 步分别放置真正终止和纯截断，检查 k、尾部及开关。
-- 轮次之间放入极大奖励，确认它不会污染上一轮目标。
+全部使用人工数据，经 D01 `make_transition` 创建，经 D02 写入和读取。
 
-运行命令：待实际文件与项目依赖配置建立后，由 Claude 写入可复制执行的命令。当前不能宣称本目录存在可运行测试。
+| 案例 | 对应测试（[test_returns.py](test_returns.py)） | 结果 |
+|---|---|---|
+| 无结束奖励 1..5、γ=0.9、n=5：R=11.4265（手算），k=5，γ^5=0.59049，mask=1，尾部是 step 4 | `AccumulateTest.test_known_sequence_without_boundary` | 通过 |
+| n=1 退化为单步：R=r0，k=1，discount=γ | `AccumulateTest.test_n_equals_one_is_single_step` | 通过 |
+| 在第 1、2、n 步分别放置真终止和纯截断（共 6 种）：R、k、γ^k 与手算一致；真终止 mask=0，纯截断 mask=1；尾部是第 0 轮末条记录的重置前状态；下一轮的 1e6 奖励未进入 R | `BoundaryTest.test_boundaries_at_steps_1_2_n` | 通过 |
+| 只有 3 步、未结束：n=5 时没有有效起点，强行构造会报错；补写后继后即可使用 | `MissingSuccessorTest`（2 项） | 通过 |
+| D02 → D03：多环境、多轮、下一轮首步大额奖励，抽 50 个起点全部可构造，R、k、尾部编号与 mask 都和手算一致 | `SampledBatchTest` | 通过 |
+| γ 不合法时报错 | `AccumulateTest.test_invalid_gamma` | 通过 |
+
+调试记录：第一次运行时 `SampledBatchTest` 失败。原因是测试容差 1e-3 小于 float32 在 1e6 附近的最小间隔（约 0.06），实现本身无误；改为相对容差后通过。
+
+运行命令（仓库根目录）：
+
+```bash
+uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_returns/n_step_returns/test_returns.py -v
+```
 
 ## 故障定位
 
@@ -105,17 +123,17 @@
 
 | 项目 | 当前内容 |
 |---|---|
-| AI 规范 | 已编写；实现时同步实际接口 |
-| 实现状态 | 待 Claude 实现 |
-| 实际文件、函数签名与调用关系 | 尚无实现；上方仅为计划 |
-| 参数/返回值、形状、单位、异常和副作用 | 按输入输出约定实施后补充真实接口记录 |
-| 代码注释核对 | 待代码存在后检查本模块注释重点 |
-| 验证命令、环境与结果 | 未执行；尚无验证程序 |
-| 未验证项 | 仿真、训练与性能均未验证 |
-| 代码版本 | 尚无实现提交；不得填入虚构提交号 |
-| 本次改动及理由 | 仅建立 AI 规范与人类版分工，未改算法实现 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范、依赖契约、实际带注释代码、验证文件与结果、上述代码版本和变更摘要 |
-| 人类版 | 等待代码完成；当前不编写正文 |
-| 技术初稿 / 语言润色 | 待 Codex 技术初稿；其后由 Gemini 润色同一份人类版 |
+| AI 规范 | 已同步实际接口（见“实际文件与接口”） |
+| 实现状态 | 单元验证通过（纯数据范围）；集成验证未开始 |
+| 实际文件、函数签名与调用关系 | [returns.py](returns.py)：`accumulate_rewards`、`select_tail`、`build_n_step_batch`、`NStepBatch`、`NStepReturnError`；依赖 D02 `SequenceBatch`、D01 `TransitionBatch`、`derive_bootstrap_mask`。[test_returns.py](test_returns.py)：4 个测试类共 7 项 |
+| 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；全部函数无副作用，读取结果本身已是 D02 返回的副本 |
+| 代码注释核对 | 已核对：R 的公式与 γ^k（文件头、`accumulate_rewards`）；遇到真终止或纯截断就停止、下一轮奖励权重为 0（`accumulate_rewards`）；尾部为重置前状态（`select_tail`）；数据不足不当作结束（`build_n_step_batch`）；与作者实现的关系与离策略偏差说明（文件头） |
+| 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU）；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_returns/n_step_returns/test_returns.py -v` → `Ran 7 tests … OK`（首次运行有 1 项因测试容差失败，见上文“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除，不影响结果 |
+| 未验证项 | N05 用目标 Q 组合目标；n=5 与 n=1 的训练对照；离策略多步偏差的影响；GPU；仿真、训练与性能 |
+| 代码版本 | 代码与测试：`c3b2fe09b752cc8f0ee713d674af5b057c675558`（分支 `claude/experience-returns`，基于 `c06509e`）；文档同步在其后的提交中 |
+| 本次改动及理由 | 首次实现 D03：沿用作者“首个结束之后屏蔽奖励、按首个结束取尾部”的思路，但起点有效性改用 D02 的显式编号，mask 由真终止推导 |
+| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；D02 `buffer.py`；带注释的 `returns.py`、`test_returns.py`；作者 `replay_buffer.py` 的 `_generate_batch` 与 `sac.py` 的目标组合。建议 Codex 重点解释 `accumulate_rewards` 中权重的构造、`build_n_step_batch` 的有效性检查，以及尾部为何取第 k-1 条记录的 `next_*` |
+| 人类版 | 讲解与技术复核已完成，本轮不再润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
+| 技术初稿 / 语言润色 | Gemini 整体润色已完成，Codex 后续技术修正已复核；按用户决定本轮不再局部润色 |
 
 Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
