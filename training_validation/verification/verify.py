@@ -4,7 +4,8 @@
     - check_documentation：核对 Markdown 相对链接、各小模块的状态描述与实现 / 测试文件是否一致、已实现模块是否残留计划接口表；
     - collect_module_results：用子进程运行各小模块目录中已有的 test_*.py，解析 unittest 输出；
     - check_integration：运行已有测试中覆盖跨模块风险的指定测试类（结束原因、历史错位、动作单位与物理换算、
-      网络更新衔接、保存恢复流程），作为 CPU 集成检查；
+      网络更新衔接、保存恢复流程、E05 环境适配器接 Trainer、E01 填写的 Isaac 配置驱动 Trainer），作为 CPU 集成检查；
+      E05 / E01 两项用人工钩子代替 Isaac，只检查数据接口衔接，不是仿真检查；
     - build_summary：按层级汇总。仿真与性能层级目前没有可执行的检查，明确记为 not_run，不推测结果。
 层级之间不能互相替代：文档链接通过不等于代码正确；单元测试通过、损失有限不等于机器人会走。
 
@@ -47,9 +48,14 @@ INTEGRATION_CHECKS = (
     ("网络与学习一次完整更新", "networks_learning/target_updates/test_targets.py", ("UpdateCycleTest",)),
     ("训练、保存、恢复与继续训练", "training_validation/checkpoints/test_checkpoint.py",
      ("FullFlowTest", "RestoreTest.test_exact_replay_reproduces_next_learning")),
+    # 以下两项的环境钩子是人工模拟（ScriptedSimulation），检查的是 E05 / E01 与 T02 / D03 / T03 的接口衔接。
+    ("E05 重置前末状态进入经验池，接 Trainer 与保存恢复（人工钩子）", "environment_control/episode_lifecycle/test_lifecycle.py",
+     ("TrainerIntegrationTest",)),
+    ("E01 用运行时元数据填写的 Isaac 配置驱动 Trainer（人工钩子）", "environment_control/robot_environment/test_environment.py",
+     ("RunConfigTest.test_trainer_runs_on_filled_config",)),
 )
 NOT_RUN_LEVELS = {
-    "simulation": "E01 / E02 / E05 尚未接入 Isaac Lab，没有仿真检查可执行",
+    "simulation": "E01 / E02 / E05 接入代码已实现，真实仿真未验证（需在 Windows + Isaac Lab 2.3.0 上运行 E01 run_sac_isaac.py）",
     "performance": "尚未进行 PPO / SAC 训练对照；T04 只提供评价与报告工具",
 }
 

@@ -102,7 +102,7 @@
 |---|---|---|
 | `--num_envs` | 16（接入调试值） | 并行环境数；原 PPO 为 4096 |
 | `--seed` | 0 | 环境与 T01 种子 |
-| `--steps` | 50 | interact 模式交互次数（每次 0.02 s）；1005 次可覆盖一次 1000 步到时 |
+| `--steps` | 50 | interact 模式交互次数（每次 0.02 s）；回合上限 1000 步，所以至少要 1000 次以上才可能出现到时，但不保证（可能先摔倒重置），以输出的 `time_out` 计数为准 |
 | `--wheel_speed_limit` | **无** | 工作轮速上限 rad/s；train 模式必填，启动 Isaac 前就检查 |
 | `--iterations` | 3（接入调试值） | train 轮数 |
 | `--steps_per_iteration` / `--capacity_per_env` | 未给出时用 8 / 200 并标为调试值 | 两者都给出时来源标为“用户设置” |
@@ -116,7 +116,7 @@
 2. `interact`：在 inspect 之后用 `EpisodeLifecycle(TitaSacHooks(env), task, q_dim)` 执行零动作（默认姿态、轮速 0），检查有限值，统计终止 / 到时 / 奖励和，记录观测形状与编号。
 3. `train`：在 inspect 之后 `wheel_speed_ranges` → `fill_isaac_run_config` → `export_run_configuration` → T02 `Trainer(config, lifecycle, contract)` 训练 `--iterations` 轮 → T03 `save_checkpoint` → 新 `Trainer` → `restore_checkpoint` → 再训练 1 轮。
 
-数据搬运：仿真张量在 `--device`（GPU）上；`EpisodeLifecycle.step` 把 CPU 上的动作搬到仿真设备，把重置前 / 后两份观测、奖励与标记搬回 CPU（每步一次 GPU→CPU）。学习器只实现了 CPU 版本：T01 `validate_configuration` 拒绝 `device != "cpu"`，只改配置字符串不会得到 GPU 学习器。4096 个环境时 CPU 学习器可能成为瓶颈，是否实现 GPU 学习器需要另行决定。
+数据搬运：仿真张量在 `--device`（GPU）上；`EpisodeLifecycle.step` 把 CPU 上的动作搬到仿真设备，把重置前 / 后两份观测、奖励与标记搬回 CPU。每步有多次张量搬运：动作 CPU→仿真设备 1 次；仿真设备→CPU 按张量逐个搬，重置前、重置后两份观测各按观测组搬（平地 policy / critic / priv 共 3 个，复杂地形再加 scanner 共 4 个），另加 terminated、time_outs、被重置环境编号与奖励各 1 个，即平地 10 次、复杂地形 12 次；run_isaac_step 中的 nonzero 在 GPU 上还会引起一次同步。实际耗时未测量。学习器只实现了 CPU 版本：T01 `validate_configuration` 拒绝 `device != "cpu"`，只改配置字符串不会得到 GPU 学习器。4096 个环境时 CPU 学习器可能成为瓶颈，是否实现 GPU 学习器需要另行决定。
 
 ## 必须成立的规则
 
@@ -181,7 +181,7 @@
 - `inspect`：加载 TITA 后读到 8 个受控关节，动作顺序 / scale / 默认角与 E03 一致，软限位与 URDF 推算一致；缺失资产时报告具体路径。
 - `inspect`：平地 C=54、无 scanner 组；复杂地形 C=241、scanner 187 维进入 Q；policy 组每项为单帧。
 - `inspect`：`sac_config_differences` 只有 history_length 10→0，即 PPO / SAC 的奖励、指令与物理周期一致。
-- `interact`：形状 [B,10,33] / [B,C]、数值有限、编号随结束递增；`--steps 1005` 时出现到时。
+- `interact`：形状 [B,10,33] / [B,C]、数值有限、编号随结束递增；`--steps 1005` 时检查 `time_out` 计数，大于 0 才说明到时路径被覆盖（机器人可能先摔倒重置，1005 步不保证出现到时）。
 - `train`：短训练 → 保存 → 恢复 → 继续训练 1 轮跑通。只证明流程，不代表机器人学会行走。
 
 运行命令（仓库根目录）：
@@ -243,7 +243,8 @@ python -B environment_control\robot_environment\test_environment.py -v
 python environment_control\robot_environment\run_sac_isaac.py --task isaac_flat  --mode inspect --headless
 python environment_control\robot_environment\run_sac_isaac.py --task isaac_rough --mode inspect --headless
 
-# c. 少量交互；第二条覆盖一次 1000 步到时（约 20 s 仿真时间）
+# c. 少量交互；第二条运行超过 1000 步回合上限（约 20 s 仿真时间），可能出现到时，但不保证：
+#    机器人可能先摔倒并重置。看输出 interact.time_out 是否大于 0 再判断到时路径是否被覆盖
 python environment_control\robot_environment\run_sac_isaac.py --task isaac_flat --mode interact --steps 50 --headless
 python environment_control\robot_environment\run_sac_isaac.py --task isaac_flat --mode interact --steps 1005 --headless
 

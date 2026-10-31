@@ -26,8 +26,11 @@
 编号：env_id 固定为 0..B-1；episode_id 在该环境结束后加一；step_index 是本轮内的动作序号，重置后归零。
 reset(first_episode_ids) 让 T03 恢复训练后编号接着往后排；新一轮从 step 0 开始，D02 不会把它接到旧经历上。
 
-设备：hooks 在仿真设备上（例如 cuda:0）；本类把动作搬到仿真设备，把观测、奖励与标记搬到学习器设备（默认 CPU），
-每步一次 GPU→CPU 传输。学习器目前只在 CPU 上验证。
+设备：hooks 在仿真设备上（例如 cuda:0）；本类把动作搬到仿真设备，把观测、奖励与标记搬到学习器设备（默认 CPU）。
+每步有多次张量搬运：动作 CPU→仿真设备 1 次；仿真设备→CPU 按张量逐个搬——重置前、重置后两份观测各按观测组搬
+（平地 policy / critic / priv 共 3 个，复杂地形再加 scanner 共 4 个），另加 terminated、time_outs、被重置环境编号与奖励
+各 1 个，即平地 10 次、复杂地形 12 次；run_isaac_step 中的 nonzero 在 GPU 上还会引起一次同步。实际耗时未测量。
+学习器目前只在 CPU 上验证。
 """
 
 from __future__ import annotations

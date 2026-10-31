@@ -38,8 +38,8 @@
 | `check_documentation` | `(repo_root) -> list[dict]` | 返回问题列表：根目录与各模块 README / README_HUMAN 中断开的相对链接（去掉 #锚点后检查；外部链接与纯锚点不检查）；小模块“状态：”行与实现 / 测试文件不一致；已实现模块残留“计划文件与逐函数职责”表 |
 | `run_test_file` | `(repo_root, test_file, test_names=(), timeout=600) -> dict` | 用当前解释器在子进程中运行已有测试文件（可指定类或方法），解析 unittest 输出 |
 | `collect_module_results` | `(repo_root, modules=None) -> list[dict]` | 运行每个小模块的 test_*.py；没有测试文件时为 not_run |
-| `INTEGRATION_CHECKS` / `check_integration` | `(repo_root, checks) -> list[dict]` | 跨模块风险 → 已有测试：结束原因与 n 步回报（T02、D03）、历史切片（D05）、导出不重复当前帧（T05）、动作单位与换算（E03、T05）、网络一次完整更新（N08）、训练保存恢复流程（T03） |
-| `build_summary` | `(documentation, unit, integration) -> dict` | 五个层级：documentation、unit、cpu_integration、simulation（not_run：E01/E02/E05 未接入）、performance（not_run：未进行 PPO / SAC 对照） |
+| `INTEGRATION_CHECKS` / `check_integration` | `(repo_root, checks) -> list[dict]` | 跨模块风险 → 已有测试：结束原因与 n 步回报（T02、D03）、历史切片（D05）、导出不重复当前帧（T05）、动作单位与换算（E03、T05）、网络一次完整更新（N08）、训练保存恢复流程（T03）、E05 重置前末状态接 Trainer 与保存恢复（`TrainerIntegrationTest`）、E01 填写的 Isaac 配置驱动 Trainer（`RunConfigTest.test_trainer_runs_on_filled_config`）。后两项的环境钩子是人工模拟，只检查接口衔接，不是仿真检查；共 10 项检查、18 个测试 |
+| `build_summary` | `(documentation, unit, integration) -> dict` | 五个层级：documentation、unit、cpu_integration、simulation（not_run：E01/E02/E05 接入代码已实现，真实仿真未验证）、performance（not_run：未进行 PPO / SAC 对照） |
 | `main` | 命令行 `--docs` / `--unit` / `--integration` / `--json path` | 不带选项时运行前三层；任一已执行层级失败时退出码为 1 |
 
 测试状态的区别：

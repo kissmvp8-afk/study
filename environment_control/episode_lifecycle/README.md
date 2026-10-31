@@ -63,7 +63,7 @@
 
 数据来源：未结束环境的 next_* 与 observation 都来自第 7 步，第 4 步的结果对它们不使用；结束环境的 next_* 来自第 4 步，observation 来自第 7 步。两份数据各采样一次观测噪声。
 
-设备：钩子在仿真设备上（例如 cuda:0），学习器在 CPU 上；每步一次 CPU→GPU（动作）与 GPU→CPU（两份观测、奖励、标记）。
+设备：钩子在仿真设备上（例如 cuda:0），学习器在 CPU 上。每步有多次张量搬运：动作 CPU→仿真设备 1 次；仿真设备→CPU 按张量逐个搬，重置前、重置后两份观测各按观测组搬（平地 policy / critic / priv 共 3 个，复杂地形再加 scanner 共 4 个），另加 terminated、time_outs、被重置环境编号与奖励各 1 个，即平地 10 次、复杂地形 12 次；run_isaac_step 中的 nonzero 在 GPU 上还会引起一次同步。实际耗时未测量。
 
 ## 必须成立的规则
 
@@ -116,7 +116,7 @@ Isaac Lab 的自动重置可能发生在标准 `step` 返回之前，因此只�
 
 ### Windows + Isaac 待验证
 
-- E01 `interact --steps 1005`：真实环境中出现到时；`interact` 中若有摔倒，next_* 与 observation 不同；形状与数值有限。
+- E01 `interact --steps 1005`：形状与数值有限；若有摔倒，next_* 与 observation 不同。1005 步**不保证**出现到时（环境可能先摔倒并重置，新一轮的计数从 0 开始）；是否覆盖了到时路径，以 `summary.json` 中 `interact.time_out` 计数是否大于 0 为准，`interact.terminated` 同理。
 - E01 `train`：真实钩子下采集、学习、保存与恢复跑通。
 
 运行命令（仓库根目录，无需 Isaac Lab）：
