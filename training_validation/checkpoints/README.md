@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、假环境）。已实现 [checkpoint.py](checkpoint.py) 与 [test_checkpoint.py](test_checkpoint.py)，10 项检查通过；只支持按检查点原有学习配置恢复；不保存仿真现场。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -71,7 +71,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释检查点版本、原子保存、全部训练状态、经验池缺失的恢复限制，以及 PPO V 不能直接加载为 Q。
 
@@ -133,5 +133,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 未验证项 | Isaac 环境的现场保存与恢复（不在本模块范围内，目前也没有承诺）；大容量经验池的保存耗时与文件大小；跨设备（GPU ↔ CPU）恢复；异常中断后的实际恢复演练 |
 | 代码版本 | `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`，审核修复 `d213a24425ab9588fa4e77e64fb87106116dd401`；依赖 D02 新增接口 `f81a92a2720694b31460f9a9174f758ce9524a55`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T03：在作者保存内容的基础上补齐经验池、随机数与调度计数；明确两种恢复语义，以及不恢复仿真现场。审核修复（Codex 复核 `13382f3`）：原实现允许恢复时使用不同的学习配置，但优化器状态与 D04 统计会带回旧的学习率与 eps，导致配置记录与实际运行不一致，再次保存时仍不一致；改 gamma 后仍报告“下一批学习可复现”也不成立。现改为只支持按检查点原有学习配置恢复：不一致时在修改 Trainer 之前报错并列出差异，提示用 `load_checkpoint_config` 重建 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `checkpoint.py`、`test_checkpoint.py`；T02 `runner.py`；D02 `buffer.py` 的 `state_dict`；作者 `sac.py` 的 `save` / `load`。建议 Codex 重点解释原子保存、两种恢复语义、结构检查，以及为什么恢复后旧经历不会与新一轮拼接 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `checkpoint.py`、`test_checkpoint.py`；T02 `runner.py`；D02 `buffer.py` 的 `state_dict`；作者 `sac.py` 的 `save` / `load`。重点说明原子保存、两种恢复语义、结构检查，以及为什么恢复后旧经历不会与新一轮拼接 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工数据）。已实现 [critic_update.py](critic_update.py) 与 [test_critic_update.py](test_critic_update.py)，3 项检查通过；未接入仿真或训练。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -73,7 +73,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释旧动作与尾部新动作的不同用途、gamma^k、终止开关、熵项符号及目标停止求梯度的原因。
 
@@ -126,5 +126,5 @@ Q 爆大先检查原始奖励量级、gamma^k、密度项及结束标记，再�
 | 未验证项 | 真实尺度下的目标量级与稳定性；n=1 与 n=5 的对照；更新频率（T02）；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`e43b4ea2f227ed3392b1a0438fb36f63f6711365`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N05：按规范公式直接使用 D03 的结果；真终止样本走显式分支 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `critic_update.py`、`test_critic_update.py`；D03 `returns.py`；作者 `sac.py`（target_q 与 critic 损失）。建议 Codex 重点解释两种动作的用途、显式分支与 0×NaN，以及为什么 y 不求梯度 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `critic_update.py`、`test_critic_update.py`；D03 `returns.py`；作者 `sac.py`（target_q 与 critic 损失）。重点说明两种动作的用途、显式分支与 0×NaN，以及为什么 y 不求梯度 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

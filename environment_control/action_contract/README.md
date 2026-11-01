@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [contract.py](contract.py)、[baseline_source.py](baseline_source.py) 与 [test_contract.py](test_contract.py)，18 项无仿真检查通过；未在 Isaac Lab 中加载环境核对，未进行训练、仿真或性能验证。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -76,7 +76,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：标注八维动作索引、关节顺序、rad 与 rad/s 的区别、默认偏移和 scale；解释零动作为何不等于零力矩。
 
@@ -130,8 +130,8 @@ python3 -B environment_control/action_contract/baseline_source.py
 | 未验证项 | Isaac Lab 实际加载后的 `ActionManager` 动作顺序与默认值（E01 `compare_with_baseline` 已实现该核对，尚未在 Isaac 中运行）；URDF 关节表（E01 已锁定 ddt_ros2_control e7b32d9，CPU 测试确认 8 个受控关节都在 URDF 中）；执行器力矩行为；Python 3.11 实际运行；仿真、训练与性能 |
 | 代码版本 | 实现与验证代码：`9fdac4e5055989085eafd6b3c988c40d9df61ca9`（基于 `c6078f4`；本目录 3 个 .py 文件，以及本 README、本目录 README_HUMAN.md 元数据、大模块 README 状态、根 README 状态句），此后 3 个 .py 文件没有改动。人类版讲解：`ef7a5f0a7de22da413bc737cbab322e86e3c1f9e`。均在分支 `claude/e03-action-contract`（PR #2） |
 | 本次改动及理由 | 首次实现 E03：用固定快照的原配置作为唯一的数值来源（静态解析，不手抄数值），按 Isaac Lab v2.3.0 的动作语义建表；校验规则对应 README 的“必须成立的规则” |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；带注释的三份代码；上述验证命令与输出；Isaac Lab v2.3.0 的三处语义依据（见“与原 PPO 的关系”）；建议 Codex 重点解释 `build_action_contract` 速度分支的偏移来源、`validate_action_contract` 为何逐索引比较、`action_to_targets` 中先换算再裁剪的顺序，以及 `parse_action_terms` 为何以声明顺序作为动作顺序 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；带注释的三份代码；上述验证命令与输出；Isaac Lab v2.3.0 的三处语义依据（见“与原 PPO 的关系”）；重点说明 `build_action_contract` 速度分支的偏移来源、`validate_action_contract` 为何逐索引比较、`action_to_targets` 中先换算再裁剪的顺序，以及 `parse_action_terms` 为何以声明顺序作为动作顺序 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |
 
 
 ## 已核对的原配置动作表

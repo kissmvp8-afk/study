@@ -14,6 +14,8 @@
 
 ## Windows 验证记录（2026-10-31）
 
+首次复查可从[首页的单环境运行步骤](../../README.md#3-使用-windows--nvidia-验证真实最小流程)开始；安装说明使用当前 `main`。下面保留当时的运行记录与边界，不把 CPU 检查和训练表现混为同一结论。
+
 Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。 [精简报告、命令与 JSON 证据](validation/windows_2026-10-31/REPORT.md)。
 
 真实截断诊断在正常 reset 后仅把 `episode_length_buf` 从 0 提前设为 998，保留正式 20 s / 1000 步上限和 `base_contact` 真终止项。随后 2 个策略步（8 个物理步、0.04 s）由原管理器给出 `terminated=False,time_out=True`，首次尝试通过。

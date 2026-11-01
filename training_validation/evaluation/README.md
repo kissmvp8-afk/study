@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工记录）。已实现 [evaluate.py](evaluate.py) 与 [test_evaluate.py](test_evaluate.py)，12 项检查通过；真实 PPO / SAC 对照尚未运行，**没有任何性能结论**。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -75,7 +75,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释评价指标的分母与统计范围、随机起点、时间截断和摔倒的区别，以及对照设置固定的原因。
 
@@ -137,5 +137,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 未验证项 | Isaac 仿真中的 PPO 与 SAC 评价运行（速度指令、真实速度、力矩信号来自 E01 / E02）；评价指令序列与时长；PPO 波动范围与验收阈值；视频记录；真实耗时与内存 |
 | 代码版本 | `a8a44fc77b387a9d853e4e290843133fadfeb2cc`，预算与随机起点修复 `8ead2dff4b33ed8229ddcc956a567f856d237219`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T04：只提供评价数据接口、指标、报告与对照规则；证据不足时阻断性能结论。审核修复：原 `compare_runs` 只检查预算有没有值，现要求所选预算可比（交互步数相等；耗时在 5% 暂定容差内）；原 `write_report` 按记录条数判断随机起点，现与 `compare_runs` 一样按不同的有效 training_seed 计数 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `evaluate.py`、`test_evaluate.py`；原 PPO `play.py`。建议 Codex 重点解释各指标的口径、摔倒与到时的区别、缺失标记，以及阻断结论的条件 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `evaluate.py`、`test_evaluate.py`；原 PPO `play.py`。重点说明各指标的口径、摔倒与到时的区别、缺失标记，以及阻断结论的条件 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工数据）。已实现 [actor.py](actor.py) 与 [test_actor.py](test_actor.py)，7 项检查通过；未接入仿真或训练。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -67,7 +67,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释可求梯度的采样路径、tanh 和每维缩放的密度修正、log_std 限制、初始中心和确定性输出。
 
@@ -122,5 +122,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learni
 | 未验证项 | TITA 实际边界（E04 人工数据）下的探索幅度；训练中贴边比例；导出（T05）；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`a7a469ef3c21411a52920f523cb3b5488ee44258`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N03：沿用作者的 tanh 变换与各维缩放，均值偏置改用 E04 校准的 u0；密度修正改用精确恒等式，避免 1e-6 近似 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `actor.py`、`test_actor.py`；E04 `bounds.py`；作者 `sac_mlp_model.py`（初始化、`sample_action_logp`）。建议 Codex 重点解释重参数化、三项密度修正的来源、精确恒等式，以及 u0 如何保证温和开局 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `actor.py`、`test_actor.py`；E04 `bounds.py`；作者 `sac_mlp_model.py`（初始化、`sample_action_logp`）。重点说明重参数化、三项密度修正的来源、精确恒等式，以及 u0 如何保证温和开局 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

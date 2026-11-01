@@ -30,7 +30,7 @@
     "ai_spec_filename": "README.md",
     "human_guide_filename": "README_HUMAN.md",
     "pairs": 29,
-    "human_guide_author": "Codex",
+    "human_guide_author": "code_change_author",
     "human_guides_status": {
       "E01": "completed_technical_review",
       "E02": "completed_technical_review",
@@ -62,15 +62,16 @@
       "training_validation": "completed_technical_review",
       "root": "completed_technical_review"
     },
-    "implementation_author": "Claude",
+    "implementation_author": "code_change_author",
     "code_comments_required": true,
     "human_writing_requires_completed_code": true,
     "human_guide_language_editor": null,
     "human_workflow": [
       "implementation_and_validation",
-      "code_based_guide",
+      "same_change_ai_and_human_readme_update",
       "technical_review"
-    ]
+    ],
+    "maintenance_rules": "README.md#项目维护规则"
   },
   "implemented_modules": {
     "E01": "unit_verified_cpu_isaac_not_run",

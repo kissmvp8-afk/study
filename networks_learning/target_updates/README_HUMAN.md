@@ -1,6 +1,6 @@
 # N08 · 目标 Q 的慢更新｜人类阅读版
 
-[AI 实施规范](README.md) · [返回大模块](../README_HUMAN.md) · [Codex 写作约定](../../CODEX.md)
+[AI 实施规范](README.md) · [返回大模块](../README_HUMAN.md) · [项目维护规则](../../README.md#项目维护规则)
 
 | 字段 | 当前内容 |
 |---|---|

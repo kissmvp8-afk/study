@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工数据）。已实现 [actor_update.py](actor_update.py) 与 [test_actor_update.py](test_actor_update.py)，4 项检查通过；未接入仿真或训练。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -68,7 +68,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释为何重新采样、Actor 损失的两个方向、冻结 Q 参数但保留动作梯度，以及编码器/alpha 的隔离。
 
@@ -118,5 +118,5 @@ Actor 完全不变时查是否把整个 Q 计算都禁止求梯度；旧行为�
 | 未验证项 | 真实 Q 下的训练方向与稳定性；Actor 更新频率（T02）；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`0b150dc5dc7dfb410485bf6a51197926a7021e7a`，审核后修改接口 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N06：沿用作者“冻结 Q 参数、保留动作梯度”的做法；编码器通过 N01 的 no_grad 特征隔离 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `actor_update.py`、`test_actor_update.py`；作者 `sac.py`（actor 更新与冻结 critic）。建议 Codex 重点解释为什么重新采样、`frozen_parameters` 如何保留动作梯度，以及 alpha=0 的对照测试 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `actor_update.py`、`test_actor_update.py`；作者 `sac.py`（actor 更新与冻结 critic）。重点说明为什么重新采样、`frozen_parameters` 如何保留动作梯度，以及 alpha=0 的对照测试 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

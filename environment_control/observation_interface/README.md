@@ -2,7 +2,7 @@
 
 状态：代码已实现，CPU 单元验证通过（纯数据范围）。已实现 [observations.py](observations.py) 与 [test_observations.py](test_observations.py)，8 项检查通过；运行时观测组维数与实际数值待 Windows + Isaac 验证（由 E01 `run_sac_isaac.py --mode inspect` 核对）。未进行训练或性能验证。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -73,7 +73,7 @@ joint_pos / joint_vel 按 articulation 关节顺序（`joint_names=".*"`、`pres
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：标注每组观测的形状、字段顺序和缩放；解释真实速度为何只进入 Q/监督标签，不能泄漏给 Actor。
 
@@ -134,5 +134,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_con
 | 未验证项 | Isaac 运行时的字段名称与维数、实际数值与噪声；articulation 关节顺序；仿真、训练与性能 |
 | 代码版本 | `8a0ee22937937e9d08ad059e025d416f380d4294`（分支 `claude/environment-integration`），此后 `observations.py`、`test_observations.py` 未改动 |
 | 本次改动及理由 | 首次实现 E02：字段契约与快照逐项比对；为了让 E05 在重置前取得末状态而不重复推进历史，把 10 帧历史从 Isaac 移到本模块并复刻 CircularBuffer 规则 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E01、E05 AI 规范；带注释的 `observations.py`、`test_observations.py`；上述验证记录；Isaac Lab v2.3.0 `circular_buffer.py` 与 `observation_manager.py`。建议 Codex 重点解释：Q 观测的列区间与速度标签；`validate_observations` 为何逐项比较；历史为何不用 Isaac 的 CircularBuffer、`push_frame` 的首帧填满规则 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；E01、E05 AI 规范；带注释的 `observations.py`、`test_observations.py`；上述验证记录；Isaac Lab v2.3.0 `circular_buffer.py` 与 `observation_manager.py`。重点说明：Q 观测的列区间与速度标签；`validate_observations` 为何逐项比较；历史为何不用 Isaac 的 CircularBuffer、`push_frame` 的首帧填满规则 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

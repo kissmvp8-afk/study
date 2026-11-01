@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [history.py](history.py) 与 [test_history.py](test_history.py)，11 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入网络或导出入口，未进行训练或性能验证。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -57,7 +57,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：标注 t-4..t 与 t-5..t-1 的切片含义、当前帧已包含的前提、重置填充和有效样本判定。
 
@@ -111,5 +111,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 | 未验证项 | T05 导出入口与训练窗口的一致性；N01 / N02 的实际使用；E05 重置填充规则与 `history_length` 的来源；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`807ee636b1d40ff4be86ed27f9ce9ecd9f5afe2a`（分支 `claude/experience-returns`，基于 `c06509e`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 D05：统一训练与运行的切片入口，并把原 PPO 导出包装器在完整历史上重复当前帧的现象记录为 T05 回归依据 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；带注释的 `history.py`、`test_history.py`；原 PPO `actor_critic.py` 的 `_split_policy_obs`、`BarlowTwinsActor.forward`、`_InferenceWrapper`。建议 Codex 重点解释三段切片的索引、辅助学习为什么需要 6 帧，以及原导出包装器重复当前帧的原因 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；带注释的 `history.py`、`test_history.py`；原 PPO `actor_critic.py` 的 `_split_policy_obs`、`BarlowTwinsActor.forward`、`_InferenceWrapper`。重点说明三段切片的索引、辅助学习为什么需要 6 帧，以及原导出包装器重复当前帧的原因 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

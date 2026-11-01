@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU）。已实现 [export.py](export.py) 与 [test_export.py](test_export.py)，6 项检查通过；导出格式为 TorchScript；CPU 一致性不代表真机部署通过。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -73,7 +73,7 @@ targets = action_to_targets(contract, action[0].tolist())  # E03：物理目标�
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释训练和导出历史对齐、确定性动作的统一映射、输入统计冻结和误差容限；保留原历史重复问题的回归说明。
 
@@ -129,5 +129,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 未验证项 | 真机或仿真中的部署运行；目标运行端（C++ / ONNX 等）的加载；物理单位、关节顺序与 50 Hz 周期在真机上的确认；GPU 上的数值差异；torch.export 格式 |
 | 代码版本 | `82d6e8371daad31e2069d9b726014c0446af2c4c`（分支 `claude/training-core`，PR #7）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T05：导出路径复用训练内推理代码，从结构上避免两条入口切片不一致；输出保持策略坐标，物理换算只在运行端执行一次 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `export.py`、`test_export.py`；N01 `encoder.py`、N03 `actor.py`、D05 `history.py`；原 PPO `actor_critic.py` 的 `_InferenceWrapper`。建议 Codex 重点解释为什么复用训练路径、统计如何冻结、输出与 E03 换算的分工，以及原 PPO 重复当前帧的问题 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；核对版本 a07d7b2，材料、证据及限制见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `export.py`、`test_export.py`；N01 `encoder.py`、N03 `actor.py`、D05 `history.py`；原 PPO `actor_critic.py` 的 `_InferenceWrapper`。重点说明为什么复用训练路径、统计如何冻结、输出与 E03 换算的分工，以及原 PPO 重复当前帧的问题 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

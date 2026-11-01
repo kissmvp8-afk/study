@@ -1,6 +1,6 @@
 # 网络与学习｜人类阅读版
 
-[AI 实施规范](README.md) · [项目人类版](../README_HUMAN.md) · [Codex 写作约定](../CODEX.md)
+[AI 实施规范](README.md) · [项目人类版](../README_HUMAN.md) · [项目维护规则](../README.md#项目维护规则)
 
 | 字段 | 当前内容 |
 |---|---|

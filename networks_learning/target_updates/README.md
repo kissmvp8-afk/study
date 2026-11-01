@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工数据）。已实现 [targets.py](targets.py) 与 [test_targets.py](test_targets.py)，5 项检查通过（含网络与学习的完整更新衔接检查）；未接入仿真或训练。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -67,7 +67,7 @@ tau 与频率的分工：tau 决定每次跟随的比例，`update_every` 决定
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释 tau 与更新频率、初始化完整复制、目标不参与优化及缓冲统计的单独处理。
 
@@ -116,5 +116,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learni
 | 未验证项 | 长期训练中的目标稳定性；Q 若加入带缓冲的层时规则是否合适；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`7f671f38d31e6a52c8f54acc07440cb2356021e0`，审核后修改衔接顺序与缓冲说明 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N08：按名称覆盖全部参数，明确缓冲复制规则与更新频率；并加入大模块的一次完整更新衔接检查 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `targets.py`、`test_targets.py`；N04 `critics.py`；作者 `sac_mlp_model.py`（`soft_update_target_networks`）。建议 Codex 重点解释 lerp 公式、为什么缓冲复制而不平均，以及衔接检查中每一步只改哪些状态 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `targets.py`、`test_targets.py`；N04 `critics.py`；作者 `sac_mlp_model.py`（`soft_update_target_networks`）。重点说明 lerp 公式、为什么缓冲复制而不平均，以及衔接检查中每一步只改哪些状态 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

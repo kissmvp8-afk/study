@@ -31,7 +31,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 BIG_MODULES = ("environment_control", "experience_returns", "networks_learning", "training_validation")
-ROOT_DOCUMENTS = ("README.md", "README_HUMAN.md", "AGENTS.md", "CLAUDE.md", "CODEX.md")
+ROOT_DOCUMENTS = ("README.md", "README_HUMAN.md", "AGENTS.md")
 LINK_PATTERN = re.compile(r"\]\(([^)\s]+)\)")
 PLAN_SECTION = "## 计划文件与逐函数职责"
 

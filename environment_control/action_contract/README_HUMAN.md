@@ -1,6 +1,6 @@
 # E03 · 八维动作定义表｜人类阅读版
 
-[同目录 AI 实施规范](README.md) · [Codex 初稿任务](../../CODEX.md) · [返回上层人类版](../README_HUMAN.md)
+[同目录 AI 实施规范](README.md) · [项目维护规则](../../README.md#项目维护规则) · [返回上层人类版](../README_HUMAN.md)
 
 | 字段 | 当前内容 |
 |---|---|
@@ -425,7 +425,7 @@ git fetch origin baseline/ppo
 | [E01 机器人环境契约](../robot_environment/README.md) | 真实仿真环境接入。E01 已实现从 `env.action_manager` 读取实际动作项并核验；尚未在 Isaac 中执行 | 实现与 CPU 验证完成；真实仿真未验证 |
 | [大模块人类版](../README_HUMAN.md) · [项目总人类版](../../README_HUMAN.md) | 上层导航页面，用于纵览整个系统架构 | 框架建设中 |
 
-本说明基于提交版本 `9fdac4e5055989085eafd6b3c988c40d9df61ca9` 撰写并完成语言润色。后续若底层代码或配置发生变动，将按照规则先交由 Codex 同步技术初稿，再进行后续润色。
+本说明基于提交版本 `9fdac4e5055989085eafd6b3c988c40d9df61ca9` 撰写并完成语言润色。后续代码或配置变化时，由本次修改者同步两份 README，执行[项目维护规则](../../README.md#项目维护规则)。
 
 ## 当前接入位置
 

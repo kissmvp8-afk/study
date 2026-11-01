@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工数据）。已实现 [encoder.py](encoder.py) 与 [test_encoder.py](test_encoder.py)，7 项检查通过；未接入仿真或训练。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -53,7 +53,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：标注历史展平顺序、3/16/52 维的组成和速度缩放；解释编码器梯度与 BatchNorm 统计管理边界。
 
@@ -101,5 +101,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learni
 | 未验证项 | 真实观测尺度下的编码；N02 训练后的表示质量；导出（T05）；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`7e7d34a63ddbe20201ffbdf37e9923c50c1bcc73`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N01：保留原 PPO 编码器结构，使旧权重可以直接对应；把 Actor 梯度隔离与 BN 模式写成可检查的约束 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `encoder.py`、`test_encoder.py`；原 PPO `actor_critic.py`（`MlpBarlowTwinsActor`）与 `common_modules.py`（`mlp_batchnorm_factory`）。建议 Codex 重点解释展平顺序、52 维拼接，以及为什么特征在 `no_grad`、eval 下计算 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `encoder.py`、`test_encoder.py`；原 PPO `actor_critic.py`（`MlpBarlowTwinsActor`）与 `common_modules.py`（`mlp_batchnorm_factory`）。重点说明展平顺序、52 维拼接，以及为什么特征在 `no_grad`、eval 下计算 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工数据）。已实现 [critics.py](critics.py) 与 [test_critics.py](test_critics.py)，5 项检查通过；未接入仿真或训练。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -62,7 +62,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：标注 Q 状态和动作的拼接、双网络参数独立性、训练侧信息边界与地形编码的保存/目标副本责任。
 
@@ -111,5 +111,5 @@ Q 对所有动作几乎相同，检查动作是否实际拼入、数值尺度及
 | 未验证项 | E02 确认的实际 C 与字段；是否需要高度扫描编码层；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`ef98631024ce4e28f6966a445dc39c710aee349c`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N04：两套独立 Q 与完整复制的目标副本；暂不加地形编码层，避免在 C 未确认前固定结构 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `critics.py`、`test_critics.py`；作者 `sac_mlp_model.py`（`SACCriticModel`、目标网络）；原 PPO `actor_critic.py`（critic 与 `scan_encoder`）。建议 Codex 重点解释两个 Q 的独立性、目标副本的冻结，以及地形编码层的扩展约定 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `critics.py`、`test_critics.py`；作者 `sac_mlp_model.py`（`SACCriticModel`、目标网络）；原 PPO `actor_critic.py`（critic 与 `scan_encoder`）。重点说明两个 Q 的独立性、目标副本的冻结，以及地形编码层的扩展约定 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU）。已实现 [verify.py](verify.py) 与 [test_verify.py](test_verify.py)，6 项检查通过；仿真与性能层级目前没有可执行的检查，记为未执行。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## Windows 路径兼容与外部仿真证据（2026-10-31）
 
@@ -38,6 +38,8 @@ Windows 平地单环境最小闭环及提前计数真实纯截断的独立证据
 
 ### [verify.py](verify.py)
 
+根文档检查入口为 `README.md`、`README_HUMAN.md`、`AGENTS.md`；专属代理规则文件已删除，所有 AI 共用[项目维护规则](../../README.md#项目维护规则)。
+
 | 符号 | 签名 | 职责与说明 |
 |---|---|---|
 | `small_modules` | `(repo_root) -> list[Path]` | 四个大模块下含 README.md 的小模块目录（共 24 个） |
@@ -70,11 +72,11 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 
 - 文档链接通过不等于代码正确；损失有限不等于机器人会走。
 - 修复真实故障后增加能重现该故障的回归检查。
-- Claude 必须同步 AI 规范、代码注释与验证证据，并记录人类版待 Codex 同步；不保留失效的计划接口。
+- 修改代码的人或 AI 必须在同次修改中同步本模块 AI 版与人类版 README、代码注释和验证记录；不保留失效的计划接口。
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释不同验证层级的证据来源、状态与文件一致性检查，以及测试失败/跳过/未执行的区别。
 
@@ -125,5 +127,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 未验证项 | 本入口未执行仿真与性能评价；CI 集成；Windows 以外平台的本轮回归。Windows 三处路径修复已通过 6 项自检 |
 | 代码版本 | `c963821163e6b14955c21b987a0972e3216f30aa`（分支 `claude/training-core`，PR #7）；纳入 E01 / E05 集成检查与仿真层说明更新在 `794cd623de54c75ee3ed96ae6788fb72c5a5cebd`（分支 `claude/environment-integration`，PR #8）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T06：用一个入口组织已有测试与文档检查，分层记录证据，未执行项明确标出。`794cd62`：E01 / E05 已有接 Trainer 的 CPU 检查（人工钩子），加入 `INTEGRATION_CHECKS`；仿真层说明由“尚未接入”改为“接入代码已实现，真实仿真未验证”，仍为 not_run |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `verify.py`、`test_verify.py`；各模块 AI README 的验收表。建议 Codex 重点解释五个层级的区别、状态一致性规则，以及为什么不重新实现算法 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `verify.py`、`test_verify.py`；各模块 AI README 的验收表。重点说明五个层级的区别、状态一致性规则，以及为什么不重新实现算法 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |
