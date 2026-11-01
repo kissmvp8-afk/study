@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [bounds.py](bounds.py) 与 [test_bounds.py](test_bounds.py)，14 项无仿真检查通过；软限位与工作轮速仍是调用方传入的人工数据，未接入仿真或 Actor，未进行训练或性能验证。
 
-[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
 
 ## 实施目标与术语
 
@@ -44,7 +44,7 @@ PPO 的宽动作裁剪不能直接作为 SAC 分布的物理边界；作者的�
 | `validate_bounds` | `(contract, bounds) -> None` | 检查关节顺序与动作表一致、L/U 有限、c > 0、L < 0 < U（默认目标严格在内部）；列出全部问题后抛 `ActionBoundsError` |
 | `calibrate_initial_center` | `(contract, bounds, initial_targets: Sequence[float] \| None = None) -> tuple[float, ...]` | a0 = (目标 - default_target)/scale，u0 = atanh((a0 - b)/c)；`None` 表示使用默认目标（a0 = 0）。a0 不严格位于 (L, U) 内，或长度不符时抛错；不夹紧，无副作用 |
 
-调用方：目前只有本目录的验证程序。计划由 N03 动作分布读取 `center`、`half_width` 作为 tanh 映射的 b、c，并把 u0 作为均值输出层的初始偏置；该模块尚未实现。
+调用方：[T02 Trainer](../../training_validation/training_loop/runner.py) 调用 `derive_bounds` 与 `calibrate_initial_center`；[N03 Actor](../../networks_learning/actor_distribution/actor.py) 读取 `center`、`half_width` 作为 tanh 映射的 b、c，并把 u0 作为均值输出层的初始偏置。
 
 软限位、工作轮速都由调用方显式传入，本模块不内置 TITA 数值。模型 `velocity_limit_sim=30 rad/s` 不会被自动当作工作轮速。
 
@@ -64,20 +64,9 @@ PPO 的宽动作裁剪不能直接作为 SAC 分布的物理边界；作者的�
 
 ## 代码注释要求
 
-执行[根目录代码注释规范](../../README.md#代码注释规范)。为每个实现文件、类、函数和方法写准确的中文说明；在关键计算或条件分支旁解释原因、前提和错误后果。
+共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
 
 本模块特别需要注释：解释由物理限位反推动作边界、轮速独立配置、非对称范围的中心校准，以及不可达初始目标的拒绝条件。
-
-自检时把这些注释逐项对照实际代码和下方验收案例；修改行为时同次修改注释。Codex 依据带注释的代码撰写人类版，代码中的解释责任仍属于 Claude。
-
-## Claude 实施顺序
-
-1. 先阅读根 README、根 CLAUDE.md、本大模块 README、本文件和下面依赖的契约。
-2. 对照固定原 PPO 来源，确认输入、输出和改动范围。依赖可用明确的假数据验证，但不得把假数据结果称为仿真验证。
-3. 按上表职责逐个实现函数，同时写 docstring 和关键代码注释；必要跨模块改动同步双方契约并说明影响。
-4. 在本目录实现下列验证案例，记录实际命令、依赖条件、输出结果及失败案例。
-5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
-6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
 ## 验收案例（已执行，纯数据范围）
 
@@ -114,17 +103,15 @@ python3 -B environment_control/action_contract/test_contract.py -v   # 依赖的
 
 依赖链接表示必须理解的数据约定，不表示必须同时实现所有相关模块。上游接口改变时，检查本模块的输入说明和验证案例。
 
-## 人类版初稿与润色
-
-对应代码完成后，Codex 按根 CODEX.md 读取真实文件、函数、注释及验证证据，编写本目录 README_HUMAN.md 的技术初稿；Gemini 再按根 GEMINI.md 润色同一份文件。Gemini 保留代码片段、符号、单位、公式、边界条件和验证结论，技术疑问交回 Codex 核对。
-
 ## 实现证据与文档交接
+
+以下保留实现时的版本与验证记录；后续项目进展见[首页](../../README.md#当前状态)。
 
 | 项目 | 当前内容 |
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
 | 实现状态 | 单元验证通过（纯数据范围）；集成验证未开始 |
-| 实际文件、函数签名与调用关系 | [bounds.py](bounds.py)：`derive_bounds`、`validate_bounds`、`calibrate_initial_center`、`ActionBounds`、`ActionBoundsError`，依赖 E03 [contract.py](../action_contract/contract.py)；[test_bounds.py](test_bounds.py)：3 个测试类共 14 项，另用到 E03 的 `action_to_targets`、`build_action_contract`、`load_baseline_action_contract`。目前唯一的调用方是验证程序 |
+| 实际文件、函数签名与调用关系 | [bounds.py](bounds.py)：`derive_bounds`、`validate_bounds`、`calibrate_initial_center`、`ActionBounds`、`ActionBoundsError`，依赖 E03 [contract.py](../action_contract/contract.py)；[test_bounds.py](test_bounds.py)：3 个测试类共 14 项，另用到 E03 的 `action_to_targets`、`build_action_contract`、`load_baseline_action_contract`。该条调用范围为首次实现时记录，当前调用关系见上方接口说明 |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；边界与 u0 都是长度等于动作维数的 tuple，处于策略动作坐标、无单位；输入的软限位单位为 rad，工作轮速为 rad/s；全部函数无副作用 |
 | 代码注释核对 | 已逐项核对本模块的注释重点：物理限位反推（`derive_bounds` docstring）、轮速独立配置（按控制类型选字典，不读取轮子角度限位）、非对称中心校准（`calibrate_initial_center`）、不可达目标的拒绝（`validate_bounds` 的 L<0<U 检查与校准中的开区间检查），以及与作者 `_compute_action_scaling` 的三处差异（文件头） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.14.5；`python3 -B environment_control/action_bounds/test_bounds.py -v` → `Ran 14 tests … OK`；E03 `test_contract.py` → `Ran 18 tests … OK`；两份文件在 3.11 下语法解析通过，本机没有 3.11 解释器，未实际运行 |
@@ -133,6 +120,3 @@ python3 -B environment_control/action_contract/test_contract.py -v   # 依赖的
 | 本次改动及理由 | 首次实现 E04：作者的绝对值写法和全局 scale 无法处理默认姿态越界与 TITA 轮速，因此改为每维带符号反推，并校准非对称区间下的初始确定性动作 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E03 AI 规范与 `contract.py`；带注释的 `bounds.py`、`test_bounds.py`；上述验证记录；作者 `sac.py` 中 `_compute_action_scaling` 与 `sac_mlp_model.py` 中 tanh 映射的固定版本。建议 Codex 重点解释 `derive_bounds` 中按控制类型选择范围、`validate_bounds` 中 L<0<U 的含义，以及 `calibrate_initial_center` 中 atanh 反推与“只校准确定性动作”的限制 |
 | 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
-
-Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

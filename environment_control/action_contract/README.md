@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [contract.py](contract.py)、[baseline_source.py](baseline_source.py) 与 [test_contract.py](test_contract.py)，18 项无仿真检查通过；未在 Isaac Lab 中加载环境核对，未进行训练、仿真或性能验证。
 
-[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
 
 ## 实施目标与术语
 
@@ -76,20 +76,9 @@
 
 ## 代码注释要求
 
-执行[根目录代码注释规范](../../README.md#代码注释规范)。为每个实现文件、类、函数和方法写准确的中文说明；在关键计算或条件分支旁解释原因、前提和错误后果。
+共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
 
 本模块特别需要注释：标注八维动作索引、关节顺序、rad 与 rad/s 的区别、默认偏移和 scale；解释零动作为何不等于零力矩。
-
-自检时把这些注释逐项对照实际代码和下方验收案例；修改行为时同次修改注释。Codex 依据带注释的代码撰写人类版，代码中的解释责任仍属于 Claude。
-
-## Claude 实施顺序
-
-1. 先阅读根 README、根 CLAUDE.md、本大模块 README、本文件和下面依赖的契约。
-2. 对照固定原 PPO 来源，确认输入、输出和改动范围。依赖可用明确的假数据验证，但不得把假数据结果称为仿真验证。
-3. 按上表职责逐个实现函数，同时写 docstring 和关键代码注释；必要跨模块改动同步双方契约并说明影响。
-4. 在本目录实现下列验证案例，记录实际命令、依赖条件、输出结果及失败案例。
-5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
-6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
 ## 验收案例（已执行，纯数据范围）
 
@@ -126,17 +115,15 @@ python3 -B environment_control/action_contract/baseline_source.py
 
 依赖链接表示必须理解的数据约定，不表示必须同时实现所有相关模块。上游接口改变时，检查本模块的输入说明和验证案例。
 
-## 人类版初稿与润色
-
-对应代码完成后，Codex 按根 CODEX.md 读取真实文件、函数、注释及验证证据，编写本目录 README_HUMAN.md 的技术初稿；Gemini 再按根 GEMINI.md 润色同一份文件。Gemini 保留代码片段、符号、单位、公式、边界条件和验证结论，技术疑问交回 Codex 核对。
-
 ## 实现证据与文档交接
+
+以下保留实现时的版本与验证记录；后续项目进展见[首页](../../README.md#当前状态)。
 
 | 项目 | 当前内容 |
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
 | 实现状态 | 单元验证通过（纯数据范围）；集成验证未开始 |
-| 实际文件、函数签名与调用关系 | [contract.py](contract.py)：`build_action_contract`、`validate_action_contract`、`action_to_targets`、`describe_action_contract`、`resolve_joint_values` 及数据类；[baseline_source.py](baseline_source.py)：`read_baseline_file`、`parse_action_terms`、`parse_init_state`、`assert_actions_not_modified`、`load_baseline_action_contract`；[test_contract.py](test_contract.py)：3 个测试类共 18 项。目前唯一的调用方是验证程序 |
+| 实际文件、函数签名与调用关系 | [contract.py](contract.py)：`build_action_contract`、`validate_action_contract`、`action_to_targets`、`describe_action_contract`、`resolve_joint_values` 及数据类；[baseline_source.py](baseline_source.py)：`read_baseline_file`、`parse_action_terms`、`parse_init_state`、`assert_actions_not_modified`、`load_baseline_action_contract`；[test_contract.py](test_contract.py)：3 个测试类共 18 项。该条调用范围为首次实现时记录，当前调用关系见上方接口说明 |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”两张表；动作为长度 8 的一维序列，无物理单位；目标单位为 rad 或 rad/s；只读调用 git 子进程，没有其他副作用 |
 | 代码注释核对 | 已逐项核对本模块的注释重点：索引与顺序（`TITA_ACTION_LAYOUT`、`parse_action_terms`）、rad 与 rad/s 的区别（`ControlType`）、默认偏移（`build_action_contract` 速度分支）、scale/clip（`ActionEntry`、`action_to_targets`）、零动作不等于零力矩（`action_to_targets` docstring 与零动作测试） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.14.5，仓库位于 exFAT 外置盘；`python3 -B environment_control/action_contract/test_contract.py -v` → `Ran 18 tests … OK`；`baseline_source.py` 打印的表与下方原配置表一致；两项错误注入均被捕获；三份文件在 3.11 下语法解析通过（`ast.parse(feature_version=(3,11))`），本机没有 3.11 解释器，未实际运行 |
@@ -145,9 +132,7 @@ python3 -B environment_control/action_contract/baseline_source.py
 | 本次改动及理由 | 首次实现 E03：用固定快照的原配置作为唯一的数值来源（静态解析，不手抄数值），按 Isaac Lab v2.3.0 的动作语义建表；校验规则对应 README 的“必须成立的规则” |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；带注释的三份代码；上述验证命令与输出；Isaac Lab v2.3.0 的三处语义依据（见“与原 PPO 的关系”）；建议 Codex 重点解释 `build_action_contract` 速度分支的偏移来源、`validate_action_contract` 为何逐索引比较、`action_to_targets` 中先换算再裁剪的顺序，以及 `parse_action_terms` 为何以声明顺序作为动作顺序 |
 | 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Codex 已完成中文讲解与技术核对；本轮按用户要求不再交 Gemini，历史润色记录保留 |
 
-Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。
 
 ## 已核对的原配置动作表
 

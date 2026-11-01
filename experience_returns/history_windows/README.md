@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [history.py](history.py) 与 [test_history.py](test_history.py)，11 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入网络或导出入口，未进行训练或性能验证。
 
-[人类版（讲解与技术复核已完成，本轮不再润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
 
 ## 实施目标与术语
 
@@ -41,13 +41,13 @@
 | `validate_time_order` | `(env_id[M,L], episode_id[M,L], step_index[M,L]) -> None` | 每行同一环境、同一轮，step_index 逐条加一；列出跨环境、跨轮次、重复 / 跳跃的行号后报错 |
 
 使用约定：
-- 训练、评分与未来的导出 / 运行入口都调用同一个 `split_windows`。
+- 训练、评分与导出 / 运行入口都调用同一个 `split_windows`。
 - D04 归一化是逐帧变换，先归一化再切片与先切片再归一化结果相同（测试已验证）。
 - 辅助学习样本用 `valid_history_mask(..., 6)` 筛选。
 
 原 PPO 导出问题的回归记录（供 T05）：原 `_InferenceWrapper` 把 `history[:, 1:]` 与 `current` 拼接后取最后 5 帧；如果传入的 `history` 已经包含当前帧，窗口会变成 t-3, t-2, t-1, t, t，当前帧出现两次。训练路径 `_split_policy_obs` 与 `split_windows` 一致。
 
-调用方：目前只有本目录的测试。N01、N02、T05 尚未实现。
+调用方：[N01](../../networks_learning/history_encoder/encoder.py) 调用 `split_windows` 构造 Actor 输入；[T02](../../training_validation/training_loop/runner.py) 将窗口传给 N02 辅助学习；[T05](../../training_validation/export_inference/export.py) 复用同一推理特征路径。
 
 ## 必须成立的规则
 
@@ -57,20 +57,9 @@
 
 ## 代码注释要求
 
-执行[根目录代码注释规范](../../README.md#代码注释规范)。为每个实现文件、类、函数和方法写准确的中文说明；在关键计算或条件分支旁解释原因、前提和错误后果。
+共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
 
 本模块特别需要注释：标注 t-4..t 与 t-5..t-1 的切片含义、当前帧已包含的前提、重置填充和有效样本判定。
-
-自检时把这些注释逐项对照实际代码和下方验收案例；修改行为时同次修改注释。Codex 依据带注释的代码撰写人类版，代码中的解释责任仍属于 Claude。
-
-## Claude 实施顺序
-
-1. 先阅读根 README、根 CLAUDE.md、本大模块 README、本文件和下面依赖的契约。
-2. 对照固定原 PPO 来源，确认输入、输出和改动范围。依赖可用明确的假数据验证，但不得把假数据结果称为仿真验证。
-3. 按上表职责逐个实现函数，同时写 docstring 和关键代码注释；必要跨模块改动同步双方契约并说明影响。
-4. 在本目录实现下列验证案例，记录实际命令、依赖条件、输出结果及失败案例。
-5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
-6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
 ## 验收案例（已执行，纯数据范围）
 
@@ -86,7 +75,7 @@
 | 编号连续时通过；跨环境、跨轮次、重复 / 跳跃时报出对应行 | `TimeOrderTest`（2 项） | 通过 |
 | D02 读出片段的有效前缀编号首尾相接；D03 批次经 D04 归一化后切片，与先切片再归一化相同；辅助有效标记来自 `history_length` / `next_history_length`；原始记录不变 | `ReplayIntegrationTest` | 通过 |
 
-“同一历史经训练内推理和导出入口得到完全相同的窗口”：导出入口（T05）尚未实现。目前能做的是确保只有 `split_windows` 一个切片函数，并与原 PPO 训练路径逐元素比对；导出路径的一致性留待 T05 验证。
+训练内推理与导出一致性的后续检查已位于 [T05 test_export.py](../../training_validation/export_inference/test_export.py)，包括编号帧不重复当前帧的回归。本目录的原始验收仍只代表 D05 切片检查。
 
 运行命令（仓库根目录）：
 
@@ -107,11 +96,9 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 
 依赖链接表示必须理解的数据约定，不表示必须同时实现所有相关模块。上游接口改变时，检查本模块的输入说明和验证案例。
 
-## 人类版初稿与润色
-
-对应代码完成后，Codex 按根 CODEX.md 读取真实文件、函数、注释及验证证据，编写本目录 README_HUMAN.md 的技术初稿；Gemini 再按根 GEMINI.md 润色同一份文件。Gemini 保留代码片段、符号、单位、公式、边界条件和验证结论，技术疑问交回 Codex 核对。
-
 ## 实现证据与文档交接
+
+以下保留实现时的版本与验证记录；后续项目进展见[首页](../../README.md#当前状态)。
 
 | 项目 | 当前内容 |
 |---|---|
@@ -126,6 +113,3 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 | 本次改动及理由 | 首次实现 D05：统一训练与运行的切片入口，并把原 PPO 导出包装器在完整历史上重复当前帧的现象记录为 T05 回归依据 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；D01 `schema.py`；带注释的 `history.py`、`test_history.py`；原 PPO `actor_critic.py` 的 `_split_policy_obs`、`BarlowTwinsActor.forward`、`_InferenceWrapper`。建议 Codex 重点解释三段切片的索引、辅助学习为什么需要 6 帧，以及原导出包装器重复当前帧的原因 |
 | 人类版 | 讲解与技术复核已完成，本轮不再润色；面向有 Python 基础的读者，实际核对版本与限制见本目录 README_HUMAN.md |
-| 技术初稿 / 语言润色 | Gemini 整体润色已完成，Codex 后续技术修正已复核；按用户决定本轮不再局部润色 |
-
-Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

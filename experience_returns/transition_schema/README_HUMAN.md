@@ -1,6 +1,6 @@
 # D01 · 经历记录契约｜人类阅读版
 
-[同目录 AI 实施规范](README.md) · [Codex 初稿任务](../../CODEX.md) · [Gemini 润色任务](../../GEMINI.md) · [返回上层人类版](../README_HUMAN.md)
+[同目录 AI 实施规范](README.md) · [Codex 初稿任务](../../CODEX.md) · [返回上层人类版](../README_HUMAN.md)
 
 | 字段 | 当前内容 |
 |---|---|
@@ -9,7 +9,7 @@
 | 语言润色状态 | 2026-10-31，Gemini 已完成自然语言润色；Codex 随后核对并修正涉及技术含义的文字，保留其余讲解与结构 |
 | 已核对代码版本 | 分支 `claude/d01-transition-schema`，提交 `7fe7e93fdd8f032f038f4d014206dcf560c80e6a`；本次实际读取的 `schema.py`、`test_schema.py` 与该提交一致，无对应源码的工作区变更 |
 | 待同步代码版本 | 无；已按上述实际版本完成本次技术说明核对 |
-| 实际阅读材料 | [AGENTS.md](../../AGENTS.md)、[CODEX.md](../../CODEX.md)、[根 README.md](../../README.md)、[大模块 README.md](../README.md)、[D01 AI README](README.md)、本文件原占位内容；[schema.py](schema.py)、[test_schema.py](test_schema.py) 全文；[E02](../../environment_control/observation_interface/README.md)、[E03](../../environment_control/action_contract/README.md)、[E05](../../environment_control/episode_lifecycle/README.md) 契约，D02、D03 AI README、[UPSTREAM.json](../../UPSTREAM.json)、[GEMINI.md](../../GEMINI.md)；E03 `contract.py` 中 `TITA_ACTION_LAYOUT` 相关片段；通过 `git show` 阅读 PPO 快照 `8fe40aa0ab3afdb8998cab1357f1f795d2cabc3c` 的 `wrapper.py` 结束标记处理、`np3o.py` 的时间截断奖励补偿相关片段 |
+| 实际阅读材料 | [AGENTS.md](../../AGENTS.md)、[CODEX.md](../../CODEX.md)、[根 README.md](../../README.md)、[大模块 README.md](../README.md)、[D01 AI README](README.md)、本文件原占位内容；[schema.py](schema.py)、[test_schema.py](test_schema.py) 全文；[E02](../../environment_control/observation_interface/README.md)、[E03](../../environment_control/action_contract/README.md)、[E05](../../environment_control/episode_lifecycle/README.md) 契约，D02、D03 AI README、[UPSTREAM.json](../../UPSTREAM.json)、[历史润色规则](https://github.com/kissmvp8-afk/study/blob/f6c8b03df961bb233f048796c1509528dd3dfc3d/GEMINI.md)；E03 `contract.py` 中 `TITA_ACTION_LAYOUT` 相关片段；通过 `git show` 阅读 PPO 快照 `8fe40aa0ab3afdb8998cab1357f1f795d2cabc3c` 的 `wrapper.py` 结束标记处理、`np3o.py` 的时间截断奖励补偿相关片段 |
 | 验证依据与限制 | [D01 交接记录](README.md#实现证据与文档交接) 记载 Python 3.11.17、torch 2.15.0 下 20 项 CPU 人工数据检查通过；合并前另读取了 [PR #4](https://github.com/kissmvp8-afk/study/pull/4) 中原运行的 20 项结果与 `OK` 输出（原记录去除了 numpy 警告）。本次未重跑测试、未导入执行 D01，只做文档静态核对。未接入 E05 末状态捕获、D02 经验池或仿真，未验证 GPU 复制、训练及性能，详见“验证与排错” |
 
 ## 学习目标与必要概念
