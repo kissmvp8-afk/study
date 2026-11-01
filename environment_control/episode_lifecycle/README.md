@@ -2,7 +2,7 @@
 
 状态：Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## Windows 验证记录（2026-10-31）
 
@@ -93,7 +93,7 @@ Isaac Lab 的自动重置可能发生在标准 `step` 返回之前，因此只�
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释重置前快照时机、真终止优先级、历史只推进一次、按维度展开掩码与复制内存的原因。
 
@@ -157,5 +157,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_con
 | 未验证项 | 自然稳定运行满 20 秒、复杂地形、长期训练、性能与稳定行走；不从提前计数诊断推断上述能力 |
 | 代码版本 | `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`）；`794cd623de54c75ee3ed96ae6788fb72c5a5cebd` 只修改了 `lifecycle.py` 文件头的设备搬运说明（不改行为），`test_lifecycle.py` 未改动 |
 | 本次改动及理由 | 首次实现 E05：锁定版本在 `step` 返回前就重置，因此拆成钩子并在重置前插入一次观测计算；把公共环境接口 `EnvObservation` / `EnvStep` 从 T02 fake_env.py 移到这里，供假环境与真实环境共用 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E01、E02、T02 AI 规范；带注释的 `lifecycle.py`、`test_lifecycle.py`；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step`。建议 Codex 重点解释：7 步顺序与原 `step` 的对应；`build_step_record` 中结束 / 未结束环境的数据来源与掩码展开；为何每个环境每步只推进一次历史；`EpisodeLifecycle.step` 的重置一致性检查与编号更新 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；E01、E02、T02 AI 规范；带注释的 `lifecycle.py`、`test_lifecycle.py`；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step`。重点说明：7 步顺序与原 `step` 的对应；`build_step_record` 中结束 / 未结束环境的数据来源与掩码展开；为何每个环境每步只推进一次历史；`EpisodeLifecycle.step` 的重置一致性检查与编号更新 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

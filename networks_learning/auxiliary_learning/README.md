@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、人工数据）。已实现 [auxiliary.py](auxiliary.py) 与 [test_auxiliary.py](test_auxiliary.py)，8 项检查通过；未接入仿真或训练。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -55,7 +55,7 @@ BatchNorm 统计何时更新：只在 `update_encoder` 内的两次 train 前向
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释相关性矩阵对角/非对角项、速度监督尺度、有效窗口筛选，以及独立优化器与 BatchNorm 模式。
 
@@ -109,5 +109,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learni
 | 未验证项 | E02 确认速度标签所在字段；辅助更新频率与 SAC 更新次数之比（T02）；真实数据上的表示质量；GPU；仿真、训练与性能 |
 | 代码版本 | 代码与测试：`2e6c470770fe22458a9412178144d9410c97cf81`，审核后修正注释 `bd69772f7e9cb2f6207d025b5c7ce6d906184d13`（分支 `claude/networks-learning`，基于 `5b47469`，即 PR #5 头部）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 N02：原 PPO 把辅助损失加入 PPO 总损失并共用一个优化器；SAC 中改为独立优化器与独立更新，并明确 BN 更新时机与有效样本 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `auxiliary.py`、`test_auxiliary.py`；原 PPO `actor_critic.py`（`barlow_twins_loss`、`off_diagonal`）与 `np3o.py`（辅助损失并入总损失）。建议 Codex 重点解释相关矩阵、常数特征为何不能得到零损失、有效样本筛选与跳过，以及 train / eval 切换 |
-| 人类版 | 待 Codex 编写；本次只更新了元数据，未写正文。人类版面向有 Python 基础的读者 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `auxiliary.py`、`test_auxiliary.py`；原 PPO `actor_critic.py`（`barlow_twins_loss`、`off_diagonal`）与 `np3o.py`（辅助损失并入总损失）。重点说明相关矩阵、常数特征为何不能得到零损失、有效样本筛选与跳过，以及 train / eval 切换 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

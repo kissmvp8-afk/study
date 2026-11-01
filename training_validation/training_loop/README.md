@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU、**假环境**）。已实现 [fake_env.py](fake_env.py)、[runner.py](runner.py) 与 [test_runner.py](test_runner.py)，9 项检查通过；未接入 Isaac 仿真，结果不代表机器人训练成功。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -68,7 +68,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释采集/回放计数、预热动作来源、各优化器顺序与频率，以及模式、统计和重置数据的交接。
 
@@ -132,5 +132,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 未验证项 | Isaac Lab 环境接入（E01 / E02 / E05 已实现，CPU 下用人工钩子验证过末状态捕获；真实 Isaac 未运行）；小规模 Isaac 仿真持续训练与保存；真实奖励与观测尺度下的稳定性；GPU 性能；训练效果 |
 | 代码版本 | `4bf81a5486a8895c8d6a04305b6b7a1702351c9e`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；`EnvObservation` / `EnvStep` 移到 E05 在 `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`），`runner.py` 未改动；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T02：调度层只调用已有模块；按作者顺序组织 Critic、alpha、Actor、慢更新；辅助学习按迭代计频；用明确标注的假环境检查数据流程 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `fake_env.py`、`runner.py`、`test_runner.py`；作者 `off_policy_runner.py`（learn 循环、start_training）与 `sac.py`（update 顺序、update_step、policy_frequency）。建议 Codex 重点解释一次 Critic 更新内部的顺序、各计数的含义、预热期为何仍用 Actor，以及假环境与真实 E05 的边界 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `fake_env.py`、`runner.py`、`test_runner.py`；作者 `off_policy_runner.py`（learn 循环、start_training）与 `sac.py`（update 顺序、update_step、policy_frequency）。重点说明一次 Critic 更新内部的顺序、各计数的含义、预热期为何仍用 Actor，以及假环境与真实 E05 的边界 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

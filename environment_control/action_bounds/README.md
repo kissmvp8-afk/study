@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [bounds.py](bounds.py) 与 [test_bounds.py](test_bounds.py)，14 项无仿真检查通过；软限位与工作轮速仍是调用方传入的人工数据，未接入仿真或 Actor，未进行训练或性能验证。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -64,7 +64,7 @@ PPO 的宽动作裁剪不能直接作为 SAC 分布的物理边界；作者的�
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：解释由物理限位反推动作边界、轮速独立配置、非对称范围的中心校准，以及不可达初始目标的拒绝条件。
 
@@ -118,5 +118,5 @@ python3 -B environment_control/action_contract/test_contract.py -v   # 依赖的
 | 未验证项 | TITA 实际软限位（E01 已锁定资产 e7b32d9 并从运行时 `soft_joint_pos_limits` 读取、与 URDF 推算核对，尚未在 Isaac 中运行）；TITA 工作轮速的取值（E01 给出下限依据约 13.87 rad/s，余量由用户在 [13.87, 30] 内决定）；N03 Actor 接入（已在 N03 / T02 实现）；随机采样动作的分布与开局姿态；Python 3.11 实际运行；仿真、训练与性能 |
 | 代码版本 | 实现与验证代码：`4f0ad6e6ea3a06a786f50f120196bfdedcda51f2`（基于 `752ebbd`，main，含 E03），此后 `bounds.py`、`test_bounds.py` 没有改动。人类版讲解在其后的文档提交中，均在分支 `claude/e04-action-bounds`（PR #3） |
 | 本次改动及理由 | 首次实现 E04：作者的绝对值写法和全局 scale 无法处理默认姿态越界与 TITA 轮速，因此改为每维带符号反推，并校准非对称区间下的初始确定性动作 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E03 AI 规范与 `contract.py`；带注释的 `bounds.py`、`test_bounds.py`；上述验证记录；作者 `sac.py` 中 `_compute_action_scaling` 与 `sac_mlp_model.py` 中 tanh 映射的固定版本。建议 Codex 重点解释 `derive_bounds` 中按控制类型选择范围、`validate_bounds` 中 L<0<U 的含义，以及 `calibrate_initial_center` 中 atanh 反推与“只校准确定性动作”的限制 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；E03 AI 规范与 `contract.py`；带注释的 `bounds.py`、`test_bounds.py`；上述验证记录；作者 `sac.py` 中 `_compute_action_scaling` 与 `sac_mlp_model.py` 中 tanh 映射的固定版本。重点说明 `derive_bounds` 中按控制类型选择范围、`validate_bounds` 中 L<0<U 的含义，以及 `calibrate_initial_center` 中 atanh 反推与“只校准确定性动作”的限制 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

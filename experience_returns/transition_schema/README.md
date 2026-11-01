@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [schema.py](schema.py) 与 [test_schema.py](test_schema.py)，20 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入 E05 末状态捕获、D02 经验池或仿真，未进行训练或性能验证。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -105,7 +105,7 @@ B 表示这一批记录的数量；C 表示 Q 观测的字段总数。真实速�
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：逐字段标注当前/真实下一状态、env/episode/时间编号、布尔标记和数组形状；说明谁负责复制与校验。
 
@@ -153,5 +153,5 @@ Q 输入动作与环境实际动作不一致时，沿动作坐标和后续裁剪
 | 未验证项 | E05 在 Isaac Lab 中于重置前捕获末状态（含 `[B,10,33]` 历史掩码展开）；实际 C 值（54 / 241）需 E02 从运行时观测组校验；E01/E05 编号来源（episode_id、step_index 由谁维护）；D02 写入与抽样；GPU 设备上的复制；仓库统一依赖配置（T01）；仿真、训练与性能 |
 | 代码版本 | 实现与验证代码：`7fe7e93fdd8f032f038f4d014206dcf560c80e6a`（PR #4，已合并），此后 `schema.py`、`test_schema.py` 没有改动；人类版讲解在 `0768a3e` |
 | 本次改动及理由 | 首次实现 D01：用 torch 张量作为唯一容器，与环境和经验池一致；为满足真终止优先，以“真终止 + 纯截断”代替作者的 dones + bootstrap；由 `make_transition` 统一复制，防止来源缓冲区的原地修改污染记录 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E02、E03、E05、D02、D03 的接口约定；带注释的 `schema.py`、`test_schema.py`；上述验证记录；原 PPO `np3o.py` 的 time_outs 奖励补偿与 `wrapper.py`，作者 `sac.py` 的 `process_env_step` 与 bootstrap_mask。建议 Codex 重点解释 `make_transition` 的复制、`validate_transition` 中 next_history_length 的规则与两标记互斥，以及 `derive_bootstrap_mask` 与作者公式的差别 |
-| 人类版 | 已完成讲解与润色；状态与核对范围以 [README_HUMAN.md](README_HUMAN.md) 的元数据为准 |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；E02、E03、E05、D02、D03 的接口约定；带注释的 `schema.py`、`test_schema.py`；上述验证记录；原 PPO `np3o.py` 的 time_outs 奖励补偿与 `wrapper.py`，作者 `sac.py` 的 `process_env_step` 与 bootstrap_mask。重点说明 `make_transition` 的复制、`validate_transition` 中 next_history_length 的规则与两标记互斥，以及 `derive_bootstrap_mask` 与作者公式的差别 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

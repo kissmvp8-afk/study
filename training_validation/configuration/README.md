@@ -2,7 +2,7 @@
 
 状态：单元验证通过（CPU）。已实现 [config.py](config.py) 与 [test_config.py](test_config.py)，9 项检查通过；`isaac_config` 本身仍有未确定项、不能直接运行，由 E01 用运行时元数据与用户设置填齐（尚未在 Isaac 中运行）。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## 实施目标与术语
 
@@ -69,7 +69,7 @@
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：区分原版值、论文候选值与 TITA 适配值；解释参数校验、版本固定及内存估算的字段依据。
 
@@ -120,5 +120,5 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 未验证项 | Isaac Sim 5.1 / Isaac Lab 2.3.0 下的安装与兼容性；真实 q_dim、限位、轮速、每轮步数与容量（由 E01 在运行时填写，尚未在 Isaac 中运行）；GPU 显存实际占用（估算只含经验池）；GPU 学习器（未实现） |
 | 代码版本 | `124d442e8c85feb1370088d6bb6d4032e506f0ac`；`version_report` 的修正在 `90b7d21ce6cbde0d9375e7b5e835c00cb122536c`（分支 `claude/training-core`，基于 PR #6 的已复核版本 `42c07a0`，并已合并 main `e43ee42`）；学习器设备改为 CPU 并锁定资产提交在 `bd99b7b87b09b5fd1124ebdd9d842547910a9831`（分支 `claude/environment-integration`）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T01：配置逐字段记录来源，未确定项保持 None 并拒绝运行，人工限位只允许出现在调试配置。`bd99b7b`：`isaac_config` 原写 `device="cuda"`，但学习器只在 CPU 上实现，改为 `cpu` 并增加校验，仿真设备另记在 `environment["sim_device"]`；E01 锁定资产后填入 `robot_assets_commit` |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `config.py`、`test_config.py`；作者 `sac.py` / `off_policy_runner.py` 的默认值；原 PPO `np3o_cfg.py`。建议 Codex 重点解释三类来源、未确定项如何阻止运行，以及内存估算的范围 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `config.py`、`test_config.py`；作者 `sac.py` / `off_policy_runner.py` 的默认值；原 PPO `np3o_cfg.py`。重点说明三类来源、未确定项如何阻止运行，以及内存估算的范围 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |

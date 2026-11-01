@@ -1,6 +1,6 @@
 # 训练与验证｜人类阅读版
 
-[AI 实施规范](README.md) · [项目说明](../README.md) · [Codex 写作约定](../CODEX.md)
+[AI 实施规范](README.md) · [项目说明](../README.md) · [项目维护规则](../README.md#项目维护规则)
 
 | 字段 | 当前内容 |
 |---|---|

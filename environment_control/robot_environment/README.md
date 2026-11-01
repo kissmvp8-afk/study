@@ -2,7 +2,7 @@
 
 状态：Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。
 
-[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
 
 ## Windows 验证记录（2026-10-31）
 
@@ -155,7 +155,7 @@ E05 的 `next_*` 与同一次计算捕获的重置前末状态相等；`observat
 
 ## 代码注释要求
 
-共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
+共同要求见 [代码注释规范](../../README.md#代码注释规范)。
 
 本模块特别需要注释：标注控制周期与物理步长的关系、资产版本来源、环境注册及奖励配置沿用的范围。
 
@@ -231,7 +231,7 @@ python scripts\list_envs.py   # 原版任务 DDT-Velocity-*-Tita-v0 应出现
 # 5. 本仓库（需要 baseline/ppo 快照对象，供 E03/E02/E01 静态读取原版配置）
 git clone https://github.com/kissmvp8-afk/study.git D:\work\study
 cd D:\work\study
-git checkout claude/environment-integration   # 合并后改用 main
+git checkout main
 git cat-file -t 8fe40aa0ab3afdb8998cab1357f1f795d2cabc3c   # 应输出 commit；否则 git fetch origin baseline/ppo
 ```
 
@@ -295,5 +295,5 @@ python environment_control\robot_environment\run_sac_isaac.py --task isaac_flat 
 | 未验证项 | 复杂地形、长期训练、性能/搬运吞吐、稳定行走、轮速余量；提前计数截断不证明自然运行满 20 秒 |
 | 代码版本 | `f3a1c743b8e9992aa77f218e1ef649d638db9796`（分支 `claude/environment-integration`），T01 配套修改 `bd99b7b87b09b5fd1124ebdd9d842547910a9831` |
 | 本次改动及理由 | 首次实现 E01：锁定并校验资产、从原版读取周期与指令、用运行时值核对原版与 E03、给出工作轮速依据但不替用户定余量、SAC 配置只关闭 Isaac 历史以配合 E05 的重置前捕获、提供 Windows 可用的接入入口 |
-| 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E02、E03、E05、T01 AI 规范；带注释的四个实现文件与测试；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step` / `_reset_idx`。建议 Codex 重点解释：`TitaSacHooks` 与原 `step` 的逐段对应及“为何不调用 env.step”；`required_wheel_speed` 的差速公式和它只是下限；`compare_with_baseline` 核对哪些项；`sac_config_differences` 为何只允许 history_length 一项；Windows 安装中 autocrlf 与校验值的关系 |
-| 人类版 | 讲解与技术复核已完成，本轮不再润色；已按 a12e69a 同步 PR #8 接入变化，材料与证据见本目录 README_HUMAN.md |
+| 阅读重点与材料 | 根/大模块/本模块 AI 规范；E02、E03、E05、T01 AI 规范；带注释的四个实现文件与测试；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step` / `_reset_idx`。重点说明：`TitaSacHooks` 与原 `step` 的逐段对应及“为何不调用 env.step”；`required_wheel_speed` 的差速公式和它只是下限；`compare_with_baseline` 核对哪些项；`sac_config_differences` 为何只允许 history_length 一项；Windows 安装中 autocrlf 与校验值的关系 |
+| 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |
