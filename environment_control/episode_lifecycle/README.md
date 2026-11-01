@@ -1,8 +1,20 @@
 # E05 · 终止、截断与重置前观测｜AI 实施规范
 
-状态：代码已实现，CPU 单元验证通过（人工钩子范围）。已实现 [lifecycle.py](lifecycle.py) 与 [test_lifecycle.py](test_lifecycle.py)，10 项检查通过；真实钩子（E01 `TitaSacHooks`）未在 Isaac 中执行，待 Windows + Isaac 验证。未进行训练或性能验证。
+状态：Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。
 
 [人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+
+## Windows 验证记录（2026-10-31）
+
+Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。 [精简报告、命令与 JSON 证据](../robot_environment/validation/windows_2026-10-31/REPORT.md)。
+
+真实截断诊断在正常 reset 后仅把 `episode_length_buf` 从 0 提前设为 998，保留正式 20 s / 1000 步上限和 `base_contact` 真终止项。随后 2 个策略步（8 个物理步、0.04 s）由原管理器给出 `terminated=False,time_out=True`，首次尝试通过。
+
+E05 的 `next_*` 与同一次计算捕获的重置前末状态相等；`observation` 对应新回合，历史有效长度 1、步号 0、回合编号 0→1。真实记录经过 D01/D02/D03，mask=1、尾部仍属旧回合、排除新回合奖励；后续真实交互 3 步不覆盖已保存末状态。没有手工伪造结束标记，也没有关闭真实终止条件。
+
+此前自然交互 1005 步有 40 次真终止、0 次超时；它没有覆盖超时，本次覆盖来自明确标注的提前计数诊断。短训练为 CPU 学习器 / GPU 仿真，3×8 步保存后恢复续训 1 轮；检查点不保存仿真现场，且续训后未再次保存模型。轮速显式 20 rad/s 仍为“首次仿真调试选择，尚未验证”。
+
+启动使用 `--kit_args="--vulkan --/app/extensions/fsWatcherEnabled=false"`，诊断实际读取到热重载开关为 False。仍有图形接口/Aftermath 告警；未宣称消除所有图形兼容风险。T06 本身未执行这些仿真，因此其 `simulation` / `performance` 仍返回 `not_run`。
 
 ## 实施目标与术语
 
@@ -18,7 +30,7 @@
 - [原 PPO：source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/algorithms/np3o/np3o.py)
 - [原 PPO：source/ddt_lab/ddt_lab/tasks/manager_based/locomotion/robots/tita/rough_env_cfg.py](https://github.com/DDTRobot/DDT_Lab/blob/701a49c6e78dfb93a8b30145f0e7723b22921c0b/source/ddt_lab/ddt_lab/tasks/manager_based/locomotion/robots/tita/rough_env_cfg.py)
 
-原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块的步骤顺序与末状态捕获已实现并用人工钩子验证，尚未在仿真中验证。
+原版快照可在 [baseline/ppo](https://github.com/kissmvp8-afk/study/tree/baseline/ppo) 查看。论文是算法依据；本模块的步骤顺序与末状态捕获已实现并用人工钩子验证，现已用真实平地单环境核对提前计数的纯截断路径，边界见 Windows 验证记录。
 
 ## 作者实现参考
 
@@ -142,7 +154,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_con
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`step` 推进钩子的仿真状态与本对象的历史和编号，返回的张量都是新张量 |
 | 代码注释核对 | 已核对本模块注释重点：重置前快照时机与锁定版本顺序（文件头、`run_isaac_step`）；真终止优先（`classify_endings`）；历史只推进一次与数据来源（文件头、`build_step_record`）；按维度展开掩码（`build_step_record`）；复制内存的原因（`run_isaac_step` 的 clone、`capture_final_observations`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），Python 3.11.17：`uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_control/episode_lifecycle/test_lifecycle.py -v` → `Ran 10 tests … OK`；同时回归 T02 9 项、T03 10 项、T04 12 项、T05 6 项均通过；torch 2.7.0（CPU）下全部通过 |
-| 未验证项 | 真实 Isaac 钩子的顺序与数值、重置后观测、GPU→CPU 搬运；仿真、训练与性能 |
+| 未验证项 | 自然稳定运行满 20 秒、复杂地形、长期训练、性能与稳定行走；不从提前计数诊断推断上述能力 |
 | 代码版本 | `3d4c995b2730b3183614f4cb5b7a62edfa83f927`（分支 `claude/environment-integration`）；`794cd623de54c75ee3ed96ae6788fb72c5a5cebd` 只修改了 `lifecycle.py` 文件头的设备搬运说明（不改行为），`test_lifecycle.py` 未改动 |
 | 本次改动及理由 | 首次实现 E05：锁定版本在 `step` 返回前就重置，因此拆成钩子并在重置前插入一次观测计算；把公共环境接口 `EnvObservation` / `EnvStep` 从 T02 fake_env.py 移到这里，供假环境与真实环境共用 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E01、E02、T02 AI 规范；带注释的 `lifecycle.py`、`test_lifecycle.py`；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step`。建议 Codex 重点解释：7 步顺序与原 `step` 的对应；`build_step_record` 中结束 / 未结束环境的数据来源与掩码展开；为何每个环境每步只推进一次历史；`EpisodeLifecycle.step` 的重置一致性检查与编号更新 |

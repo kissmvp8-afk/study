@@ -1,0 +1,94 @@
+{
+  "source_files": [
+    {
+      "file": "flat-inspect-vulkan/metadata.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-inspect-vulkan\\metadata.json",
+      "source_sha256": "dcdb6260b23c35dd01e07064ae565cd639328e1655e6f047e12f50784ee84515"
+    },
+    {
+      "file": "flat-inspect-vulkan/summary.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-inspect-vulkan\\summary.json",
+      "source_sha256": "dcdb6260b23c35dd01e07064ae565cd639328e1655e6f047e12f50784ee84515"
+    },
+    {
+      "file": "flat-interact-50/metadata.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-interact-50\\metadata.json",
+      "source_sha256": "90d2f44814441ff32a099d355b43c59c6483f63b64dc3784cd59893b057dcdd5"
+    },
+    {
+      "file": "flat-interact-50/summary.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-interact-50\\summary.json",
+      "source_sha256": "9babcb81236bf87a7bce7ef6fa40cf4b2ec47e20dd74ae41b925faea521406dd"
+    },
+    {
+      "file": "flat-interact-1005/metadata.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-interact-1005\\metadata.json",
+      "source_sha256": "90d2f44814441ff32a099d355b43c59c6483f63b64dc3784cd59893b057dcdd5"
+    },
+    {
+      "file": "flat-interact-1005/summary.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-interact-1005\\summary.json",
+      "source_sha256": "8bb104d2055e74bbcca337e71f638d8ae97fa4d585ec462876a313643b85c127"
+    },
+    {
+      "file": "flat-train/metadata.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-train\\metadata.json",
+      "source_sha256": "e8afd7028a40a8fdb6083770214af2e904403da1ee53daa8c3aca764f784f80f"
+    },
+    {
+      "file": "flat-train/summary.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-train\\summary.json",
+      "source_sha256": "e5e8622032742486b08be3e09206728ff7f65911126239fbe30cf4a4d5477da6"
+    },
+    {
+      "file": "flat-train/run_config.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-train\\run_config.json",
+      "source_sha256": "d65ba1e9c1d07ea979b2d4a0d7af2205032315cdf86552fca4c785f25bda0e98"
+    },
+    {
+      "file": "timeout/metadata.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-timeout-diagnostic\\metadata.json",
+      "source_sha256": "0186c5a7f115e3032104ba2c4dd1fa4a6380df80262ccc1ebb5307a0eec14563"
+    },
+    {
+      "file": "timeout/summary.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-timeout-diagnostic\\summary.json",
+      "source_sha256": "ee7c7c2c1b76436938a3b00c3cc1362d78f3573b612caf0d8d531d8d01ad4671"
+    },
+    {
+      "file": "timeout/captured_observations.json",
+      "source": "C:\\Users\\86193\\tita-check\\runs\\flat-timeout-diagnostic\\captured_observations.json",
+      "source_sha256": "ded86e9602e795141d52aa468cd694554356de1cfbe627c0da7744331f95f081"
+    },
+    {
+      "file": "dependency-versions.json",
+      "source": "C:\\Users\\86193\\tita-check\\dependency-versions.json",
+      "source_sha256": "55894159d506db3f11f450dada2b008ebc81bceb51b00151ac40f5fe4fc69322"
+    },
+    {
+      "file": "run-choice.json",
+      "source": "C:\\Users\\86193\\tita-check\\run-choice.json",
+      "source_sha256": "f2bd9163d462b2dfd112f629f6f4ab5d8f167b898786573910aeaa20719f2d9c"
+    },
+    {
+      "file": "t06-final.json",
+      "source": "C:\\Users\\86193\\tita-check\\t06-final.json",
+      "source_sha256": "545488c744fb61b351e72564c3fcb6e344fa4a2f891cb831140e56df84d94cfb"
+    }
+  ],
+  "implementation_base": "f6c8b03df961bb233f048796c1509528dd3dfc3d",
+  "windows_path_fix": "373bb48dd670fa1e5a319deca25458d6a206cc1a",
+  "diagnostic_runtime_read_fswatcher_false": true,
+  "diagnostic_log_has_hot_reload_events": false,
+  "this_round": "Reuse existing environment; only 6 T06 affected tests, docs and new real timeout diagnostic.",
+  "not_submitted": [
+    "venv",
+    "cache",
+    "wheel files",
+    "checkpoint.pt",
+    "crash dumps",
+    "full Kit logs"
+  ],
+  "diagnostic_behavior": "Executed once; only two method docstrings were added after the successful run.",
+  "diagnostic_source_sha256": "cb865e8b68e4c49608f873c7afd56f17205814243d7f0291e50a6a35c0efeeb0"
+}

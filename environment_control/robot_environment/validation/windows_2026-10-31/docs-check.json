@@ -1,0 +1,23 @@
+{
+  "documentation": {
+    "status": "passed",
+    "issues": []
+  },
+  "unit": {
+    "status": "not_run",
+    "detail": "本次未选择该层级"
+  },
+  "cpu_integration": {
+    "status": "not_run",
+    "detail": "本次未选择该层级"
+  },
+  "simulation": {
+    "status": "not_run",
+    "detail": "本入口未执行 Isaac 仿真；独立 Windows 平地单环境与截断证据见 E01 验证记录，不能由 CPU 结果推定本层通过"
+  },
+  "performance": {
+    "status": "not_run",
+    "detail": "尚未进行 PPO / SAC 训练对照；T04 只提供评价与报告工具"
+  },
+  "note": "文档链接通过不等于代码正确；CPU 单元与集成检查通过不等于 Isaac 仿真、训练或性能验证完成"
+}

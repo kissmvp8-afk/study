@@ -1,0 +1,211 @@
+{
+  "A-t06-regression": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\Users\\86193\\tita-check\\recheck_t06.py"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T21:21:27.093279",
+    "exit_code": 0,
+    "seconds": 4.312,
+    "finished": "2026-10-31T21:21:31.409931",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-212127-A-t06-regression.log"
+  },
+  "B-official-empty-clean-close": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\Users\\86193\\tita-check\\run_empty_bounded.py",
+      "--headless"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\IsaacLab",
+    "started": "2026-10-31T21:59:09.349303",
+    "exit_code": 0,
+    "seconds": 12.031,
+    "finished": "2026-10-31T21:59:21.373717",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-215909-B-official-empty-clean-close.log"
+  },
+  "C-flat-inspect": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "environment_control\\robot_environment\\run_sac_isaac.py",
+      "--task",
+      "isaac_flat",
+      "--mode",
+      "inspect",
+      "--num_envs",
+      "1",
+      "--headless",
+      "--output_dir",
+      "C:\\Users\\86193\\tita-check\\runs\\flat-inspect"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:00:20.180116",
+    "exit_code": 3221225477,
+    "seconds": 34.5,
+    "finished": "2026-10-31T22:00:54.674007",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-220020-C-flat-inspect.log"
+  },
+  "C-flat-inspect-vulkan": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "environment_control\\robot_environment\\run_sac_isaac.py",
+      "--task",
+      "isaac_flat",
+      "--mode",
+      "inspect",
+      "--num_envs",
+      "1",
+      "--headless",
+      "--kit_args=--vulkan",
+      "--output_dir",
+      "C:\\Users\\86193\\tita-check\\runs\\flat-inspect-vulkan"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:02:34.373868",
+    "exit_code": 0,
+    "seconds": 17.438,
+    "finished": "2026-10-31T22:02:51.823561",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-220234-C-flat-inspect-vulkan.log"
+  },
+  "C-flat-interact-50": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "environment_control\\robot_environment\\run_sac_isaac.py",
+      "--task",
+      "isaac_flat",
+      "--mode",
+      "interact",
+      "--num_envs",
+      "1",
+      "--steps",
+      "50",
+      "--headless",
+      "--kit_args=--vulkan --/app/extensions/fsWatcherEnabled=false",
+      "--output_dir",
+      "C:\\Users\\86193\\tita-check\\runs\\flat-interact-50"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:04:02.865244",
+    "exit_code": 0,
+    "seconds": 18.5,
+    "finished": "2026-10-31T22:04:21.371957",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-220402-C-flat-interact-50.log"
+  },
+  "C-flat-interact-1005": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "environment_control\\robot_environment\\run_sac_isaac.py",
+      "--task",
+      "isaac_flat",
+      "--mode",
+      "interact",
+      "--num_envs",
+      "1",
+      "--steps",
+      "1005",
+      "--headless",
+      "--kit_args=--vulkan --/app/extensions/fsWatcherEnabled=false",
+      "--output_dir",
+      "C:\\Users\\86193\\tita-check\\runs\\flat-interact-1005"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:05:11.904296",
+    "exit_code": 0,
+    "seconds": 48.344,
+    "finished": "2026-10-31T22:06:00.255194",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-220511-C-flat-interact-1005.log"
+  },
+  "D-flat-short-train": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "environment_control\\robot_environment\\run_sac_isaac.py",
+      "--task",
+      "isaac_flat",
+      "--mode",
+      "train",
+      "--num_envs",
+      "1",
+      "--wheel_speed_limit",
+      "20",
+      "--headless",
+      "--kit_args=--vulkan --/app/extensions/fsWatcherEnabled=false",
+      "--output_dir",
+      "C:\\Users\\86193\\tita-check\\runs\\flat-train"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:06:58.824634",
+    "exit_code": 0,
+    "seconds": 18.031,
+    "finished": "2026-10-31T22:07:16.868194",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-220658-D-flat-short-train.log"
+  },
+  "D-checkpoint-resume-audit": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\Users\\86193\\tita-check\\validate_run.py",
+      "C:\\Users\\86193\\tita-check\\runs\\flat-train",
+      "--mode",
+      "train"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:07:36.954601",
+    "exit_code": 0,
+    "seconds": 2.375,
+    "finished": "2026-10-31T22:07:39.332415",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-220736-D-checkpoint-resume-audit.log"
+  },
+  "timeout-real-isaac": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "environment_control\\robot_environment\\diagnose_timeout_isaac.py",
+      "--headless",
+      "--kit_args=--vulkan --/app/extensions/fsWatcherEnabled=false",
+      "--output_dir",
+      "C:\\Users\\86193\\tita-check\\runs\\flat-timeout-diagnostic"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:23:41.018189",
+    "exit_code": 0,
+    "seconds": 16.61,
+    "finished": "2026-10-31T22:23:57.635134",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-222341-timeout-real-isaac.log"
+  },
+  "pr-t06-six-regression": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "training_validation\\verification\\test_verify.py",
+      "-v"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:25:40.868427",
+    "exit_code": 0,
+    "seconds": 4.781,
+    "finished": "2026-10-31T22:25:45.643494",
+    "source_log": "C:\\Users\\86193\\tita-check\\logs\\20261031-222540-pr-t06-six-regression.log"
+  },
+  "pr-docs-check": {
+    "command": [
+      "C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe",
+      "-B",
+      "training_validation\\verification\\verify.py",
+      "--docs",
+      "--json",
+      "C:\\Users\\86193\\tita-check\\pr-docs.json"
+    ],
+    "cwd": "C:\\Users\\86193\\tita-check\\study",
+    "started": "2026-10-31T22:29:51.622268",
+    "exit_code": 0,
+    "seconds": 0.297,
+    "finished": "2026-10-31T22:29:51.919911"
+  }
+}

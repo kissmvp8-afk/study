@@ -1,0 +1,395 @@
+{
+  "documentation": {
+    "status": "passed",
+    "issues": []
+  },
+  "unit": {
+    "status": "passed",
+    "tests": 216,
+    "skipped": 0,
+    "not_run_items": 0,
+    "failed_items": [],
+    "results": [
+      {
+        "module": "environment_control\\action_bounds",
+        "file": "environment_control\\action_bounds\\test_bounds.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "environment_control\\action_contract",
+        "file": "environment_control\\action_contract\\test_contract.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 18,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "environment_control\\episode_lifecycle",
+        "file": "environment_control\\episode_lifecycle\\test_lifecycle.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "environment_control\\observation_interface",
+        "file": "environment_control\\observation_interface\\test_observations.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "environment_control\\robot_environment",
+        "file": "environment_control\\robot_environment\\test_environment.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "experience_returns\\history_windows",
+        "file": "experience_returns\\history_windows\\test_history.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "experience_returns\\n_step_returns",
+        "file": "experience_returns\\n_step_returns\\test_returns.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "experience_returns\\normalization",
+        "file": "experience_returns\\normalization\\test_normalization.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "experience_returns\\replay_buffer",
+        "file": "experience_returns\\replay_buffer\\test_buffer.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "experience_returns\\transition_schema",
+        "file": "experience_returns\\transition_schema\\test_schema.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 20,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\actor_distribution",
+        "file": "networks_learning\\actor_distribution\\test_actor.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\actor_learning",
+        "file": "networks_learning\\actor_learning\\test_actor_update.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\auxiliary_learning",
+        "file": "networks_learning\\auxiliary_learning\\test_auxiliary.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\critic_learning",
+        "file": "networks_learning\\critic_learning\\test_critic_update.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\entropy_temperature",
+        "file": "networks_learning\\entropy_temperature\\test_temperature.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\history_encoder",
+        "file": "networks_learning\\history_encoder\\test_encoder.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\q_networks",
+        "file": "networks_learning\\q_networks\\test_critics.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "networks_learning\\target_updates",
+        "file": "networks_learning\\target_updates\\test_targets.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "training_validation\\checkpoints",
+        "file": "training_validation\\checkpoints\\test_checkpoint.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "training_validation\\configuration",
+        "file": "training_validation\\configuration\\test_config.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "training_validation\\evaluation",
+        "file": "training_validation\\evaluation\\test_evaluate.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "training_validation\\export_inference",
+        "file": "training_validation\\export_inference\\test_export.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "training_validation\\training_loop",
+        "file": "training_validation\\training_loop\\test_runner.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "module": "training_validation/verification",
+        "file": "training_validation\\verification\\test_verify.py",
+        "tests_selected": [],
+        "status": "passed",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "cpu_integration": {
+    "status": "passed",
+    "tests": 18,
+    "skipped": 0,
+    "not_run_items": 0,
+    "failed_items": [],
+    "results": [
+      {
+        "check": "结束原因、末状态与 n 步回报（T02 假环境）",
+        "file": "training_validation/training_loop/test_runner.py",
+        "tests_selected": [
+          "EpisodeBoundaryTest"
+        ],
+        "status": "passed",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "结束原因与下一轮奖励隔离（D02 → D03）",
+        "file": "experience_returns/n_step_returns/test_returns.py",
+        "tests_selected": [
+          "BoundaryTest"
+        ],
+        "status": "passed",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "历史窗口切片与原 PPO 一致",
+        "file": "experience_returns/history_windows/test_history.py",
+        "tests_selected": [
+          "SplitWindowsTest"
+        ],
+        "status": "passed",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "导出历史不重复当前帧",
+        "file": "training_validation/export_inference/test_export.py",
+        "tests_selected": [
+          "ExportConsistencyTest.test_frame_numbered_history_is_not_duplicated"
+        ],
+        "status": "passed",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "动作单位与物理换算（E03）",
+        "file": "environment_control/action_contract/test_contract.py",
+        "tests_selected": [
+          "AcceptanceCaseTest"
+        ],
+        "status": "passed",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "导出输出到 E03 的单次换算",
+        "file": "training_validation/export_inference/test_export.py",
+        "tests_selected": [
+          "InterfaceTest.test_metadata_and_single_physical_conversion"
+        ],
+        "status": "passed",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "网络与学习一次完整更新",
+        "file": "networks_learning/target_updates/test_targets.py",
+        "tests_selected": [
+          "UpdateCycleTest"
+        ],
+        "status": "passed",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "训练、保存、恢复与继续训练",
+        "file": "training_validation/checkpoints/test_checkpoint.py",
+        "tests_selected": [
+          "FullFlowTest",
+          "RestoreTest.test_exact_replay_reproduces_next_learning"
+        ],
+        "status": "passed",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "E05 重置前末状态进入经验池，接 Trainer 与保存恢复（人工钩子）",
+        "file": "environment_control/episode_lifecycle/test_lifecycle.py",
+        "tests_selected": [
+          "TrainerIntegrationTest"
+        ],
+        "status": "passed",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "check": "E01 用运行时元数据填写的 Isaac 配置驱动 Trainer（人工钩子）",
+        "file": "environment_control/robot_environment/test_environment.py",
+        "tests_selected": [
+          "RunConfigTest.test_trainer_runs_on_filled_config"
+        ],
+        "status": "passed",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "simulation": {
+    "status": "not_run",
+    "detail": "E01 / E02 / E05 接入代码已实现，真实仿真未验证（需在 Windows + Isaac Lab 2.3.0 上运行 E01 run_sac_isaac.py）"
+  },
+  "performance": {
+    "status": "not_run",
+    "detail": "尚未进行 PPO / SAC 训练对照；T04 只提供评价与报告工具"
+  },
+  "note": "文档链接通过不等于代码正确；CPU 单元与集成检查通过不等于 Isaac 仿真、训练或性能验证完成",
+  "provenance": "Reuse prior passing checks; rerun only T06 test_verify.py after POSIX report-path normalization."
+}

@@ -1,0 +1,4 @@
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "C:\\Users\\86193\\tita-check\\run_empty_bounded.py", "--headless"], "cwd": "C:\\Users\\86193\\tita-check\\IsaacLab", "started": "2026-10-31T21:59:09.349303"}
+[VERIFY] Official empty scene completed 120 physics steps.
+[VERIFY] Simulation callbacks and singleton cleared.
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "C:\\Users\\86193\\tita-check\\run_empty_bounded.py", "--headless"], "cwd": "C:\\Users\\86193\\tita-check\\IsaacLab", "started": "2026-10-31T21:59:09.349303", "exit_code": 0, "seconds": 12.031, "finished": "2026-10-31T21:59:21.373717"}

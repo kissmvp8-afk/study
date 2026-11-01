@@ -1,0 +1,10 @@
+{
+  "file": "checkpoint.pt",
+  "submitted": false,
+  "bytes": 9796505,
+  "sha256": "981afda6735995f2c68c6a9115e4e28710d18f915cdcb708d92a5e23c36445ed",
+  "saved_env_steps": 24,
+  "resumed_env_steps_in_summary_only": 32,
+  "environment_state_saved": false,
+  "resume_mode": "exact_replay"
+}

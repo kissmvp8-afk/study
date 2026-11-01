@@ -7,16 +7,28 @@
 | 文档状态 | 讲解与技术复核已完成，本轮不再润色 |
 | 技术核对状态 | 2026-10-31，Codex 对照实际实现、注释与测试核对职责、调用、形状、单位和关键片段；面向有 Python 基础的读者，本次不扩大为全面代码审核 |
 | 语言润色状态 | 本轮由 Codex 完成讲解与技术核对，不再交 Gemini |
-| 已核对代码版本 | `a12e69a38c6b9b3a236473a2563e255a9a24e761`（PR #8，`claude/environment-integration`）；开始时 fetch 后用 `git rev-parse HEAD` 记录，与远端及已审查版本一致 |
+| 已核对代码版本 | 原实现 main `f6c8b03d`；Windows 路径修复 `373bb48d`；新增诊断及本轮证据随本次提交保存，未改算法 |
 | 待同步代码版本 | 无 |
 | 实际阅读材料 | AGENTS.md、CODEX.md、根与环境大模块/本目录 AI README；[assets.py](assets.py)、[metadata.py](metadata.py)、[isaac_env.py](isaac_env.py)、[run_sac_isaac.py](run_sac_isaac.py)、[test_environment.py](test_environment.py) 全文；E02/E03/E04/E05、T01/T02/T03 相关实现与契约；上游片段与依赖见[阅读记录](../README_HUMAN.md#阅读材料与验证依据) |
-| 验证依据与限制 | 本目录 AI 交接表记录 14 项 CPU 测试：未设置 TITA_URDF 时跳过真实文件核对 1 项，另一次设置后 14 项全通过；全仓库 CPU 记录与 T06 集成记录另见根目录。本轮只阅读并引用既有结果，未重跑算法测试；本轮文档检查见根目录记录。真实 Isaac、GPU 搬运、机器人训练效果与性能均未验证 |
+| 验证依据与限制 | 2026-10-31 Windows 真实平地 1 环境的加载、50/1005 步交互、短训练保存恢复及提前计数纯截断通过；历史 CPU 记录保留，本轮不重跑全仓。截断仅实际推进 0.04 s，不证明稳定运行 20 s；复杂地形、长期训练、性能与稳定行走未验证。证据见下方 Windows 验证记录 |
+
+## Windows 验证记录（2026-10-31）
+
+Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。 [精简报告、命令与 JSON 证据](validation/windows_2026-10-31/REPORT.md)。
+
+真实截断诊断在正常 reset 后仅把 `episode_length_buf` 从 0 提前设为 998，保留正式 20 s / 1000 步上限和 `base_contact` 真终止项。随后 2 个策略步（8 个物理步、0.04 s）由原管理器给出 `terminated=False,time_out=True`，首次尝试通过。
+
+E05 的 `next_*` 与同一次计算捕获的重置前末状态相等；`observation` 对应新回合，历史有效长度 1、步号 0、回合编号 0→1。真实记录经过 D01/D02/D03，mask=1、尾部仍属旧回合、排除新回合奖励；后续真实交互 3 步不覆盖已保存末状态。没有手工伪造结束标记，也没有关闭真实终止条件。
+
+此前自然交互 1005 步有 40 次真终止、0 次超时；它没有覆盖超时，本次覆盖来自明确标注的提前计数诊断。短训练为 CPU 学习器 / GPU 仿真，3×8 步保存后恢复续训 1 轮；检查点不保存仿真现场，且续训后未再次保存模型。轮速显式 20 rad/s 仍为“首次仿真调试选择，尚未验证”。
+
+启动使用 `--kit_args="--vulkan --/app/extensions/fsWatcherEnabled=false"`，诊断实际读取到热重载开关为 False。仍有图形接口/Aftermath 告警；未宣称消除所有图形兼容风险。T06 本身未执行这些仿真，因此其 `simulation` / `performance` 仍返回 `not_run`。
 
 ## 把 SAC 学习器接到同一个 TITA 任务
 
 SAC（Soft Actor-Critic，软演员—评论家算法）迁移首先要保证机器人、奖励、指令、执行器和时间尺度可比较。执行器把关节目标转换为驱动力矩；URDF 是机器人连杆、关节与几何的描述文件；元数据是关节顺序、周期、维数等描述运行对象的信息。
 
-E01 负责锁定资产、继承原 PPO 任务、核对实际环境，并把它接到 E05 的生命周期接口和 T02 学习器。代码已经实现；当前 CPU 测试核对纯数据计算、人工运行时元数据和源码结构，**没有执行真实 Isaac 环境**。
+E01 负责锁定资产、继承原 PPO 任务、核对实际环境，并把它接到 E05 的生命周期接口和 T02 学习器。代码已经实现；当前 CPU 测试核对纯数据计算、人工运行时元数据和源码结构，**现已完成 Windows 平地单环境的真实最小验证**。
 
 ## 四个实现文件怎样协作
 
@@ -101,7 +113,7 @@ return (vx + wz * half_track) / wheel_radius
 
 `fill_isaac_run_config` 把 C 和六腿软限位标为运行时来源，轮速标为用户设置；E、每轮步数和容量在 `debug_sizes=True` 时标为接入调试值。资产提交、SAC 任务 id、`sim_device` 写入 environment，学习器 `device='cpu'`。资产固定并未消除每次运行读取实际值的必要。
 
-## `isaac_env.py`：真实钩子已经写好，尚未执行
+## `isaac_env.py`：真实钩子与平地单环境验证
 
 `TitaSacFlatEnvCfg/TitaSacRoughEnvCfg` 分别继承原版任务，两个 `__post_init__` 都先调用父实现，再只赋值 `self.observations.policy.history_length=0`。场景、执行器、奖励、指令、终止、事件、课程与物理周期沿用原版。
 
@@ -110,7 +122,7 @@ return (vx + wz * half_track) / wheel_radius
 - `assert_no_isaac_history(cfg)` 检查组级以及生效的项级历史都关闭，避免 E05 两次 compute 重复推进。
 - `make_sac_cfg(task,num_envs,seed,sim_device)` 新建配置、设置三项运行值并检查历史；`urdf_path_from_cfg(cfg)` 取原配置实际资产路径。
 - `make_env(task,cfg)` 注册后调用 Gym 创建未包装的 `ManagerBasedRLEnv` 并检查类型，有真实仿真创建副作用。
-- `read_runtime_metadata(env,task)` 读取机器人数据与 manager，动作项用 `find_joints(...,preserve_order=...)` 重新解析，用动作类区分位置/速度，检查解析数等于 action_dim，生成 `RuntimeMetadata`。这一步尚无真实运行结果。
+- `read_runtime_metadata(env,task)` 读取机器人数据与 manager，动作项用 `find_joints(...,preserve_order=...)` 重新解析，用动作类区分位置/速度，检查解析数等于 action_dim，生成 `RuntimeMetadata`。这一步已在平地单环境实际核对，复杂地形仍待验证。
 
 `TitaSacHooks.__init__(env,randomize_initial_episode_length=False)` 保存环境、E、设备及最近回合日志；启用 recorder（记录器）的分支未实现，构造时明确拒绝。其余方法对应 E05 所需协议：
 
@@ -150,7 +162,7 @@ train 模式每轮 8 步、3 轮只采集 24 次策略步；即使没有真终�
 
 T03 保存网络、优化器、统计、计数、随机流和经验池；恢复要求学习配置一致。新 Trainer 构造与 restore 都会 reset，旧关节/接触现场不保存，恢复后新轮次编号防止 D02 跨回合拼接。此入口演示保存后立刻恢复并续一轮，尚无命令行加载任意旧检查点的选项。
 
-完成依赖与资产准备后，在仓库根目录可按以下顺序验证；**这些命令本轮均未执行**。完整锁定版本安装与目录步骤见 [AI 运行说明](README.md#windows--nvidia-安装与验证步骤powershell)，不要把 CPU 测试环境的 torch 2.15.0 当作 Isaac 的安装组合。
+完成依赖与资产准备后，在仓库根目录可按以下顺序验证；**本轮执行了平地单环境变体，复杂地形未执行；实际命令与结果见 Windows 验证记录**。完整锁定版本安装与目录步骤见 [AI 运行说明](README.md#windows--nvidia-安装与验证步骤powershell)，不要把 CPU 测试环境的 torch 2.15.0 当作 Isaac 的安装组合。
 
 ```powershell
 python environment_control\robot_environment\run_sac_isaac.py --task isaac_flat --mode inspect --headless
@@ -178,7 +190,7 @@ python environment_control\robot_environment\run_sac_isaac.py --task isaac_flat 
 | `test_task_ids_do_not_override_ppo` | SAC/PPO id 不冲突 |
 | `test_launcher_imports_isaac_modules_after_app_start` | 顶层导入结构正确；`setUpClass` 解析两个文件，不启动应用 |
 
-14 项既有 CPU 记录、设置真实资产后的记录和历史变异检查见 [AI 交接表](README.md#实现证据与文档交接)。本轮只读测试，未下载/验证真实 URDF，未安装 Isaac，未重跑它们。需要复现 CPU 检查时：
+14 项既有 CPU 记录、设置真实资产后的记录和历史变异检查见 [AI 交接表](README.md#实现证据与文档交接)。本轮复用已安装环境与已核对的真实 URDF，不重跑全仓测试；历史 CPU 记录与本次真实仿真证据分开保存。需要复现 CPU 检查时：
 
 ```bash
 uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_control/robot_environment/test_environment.py -v

@@ -4,6 +4,12 @@
 
 [人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
 
+## Windows 路径兼容与外部仿真证据（2026-10-31）
+
+`373bb48d` 仅将三处报告路径改为 `as_posix()`，修复 Windows 分隔符导致的自测索引问题；既有 6 项通过记录保留，本轮在复用环境中同一 6 项再次通过。新增说明只澄清 `simulation` 不由本入口执行，因此仍返回 `not_run`，没有硬编码仿真通过。
+
+Windows 平地单环境最小闭环及提前计数真实纯截断的独立证据见 [E01 精简报告](../../environment_control/robot_environment/validation/windows_2026-10-31/REPORT.md)。本轮不重跑全仓单元与 CPU 集成；复杂地形、长期训练、性能与稳定行走未验证。
+
 ## 实施目标与术语
 
 统一收集各小模块的检查结果，并检查说明与代码是否同步。
@@ -39,7 +45,7 @@
 | `run_test_file` | `(repo_root, test_file, test_names=(), timeout=600) -> dict` | 用当前解释器在子进程中运行已有测试文件（可指定类或方法），解析 unittest 输出 |
 | `collect_module_results` | `(repo_root, modules=None) -> list[dict]` | 运行每个小模块的 test_*.py；没有测试文件时为 not_run |
 | `INTEGRATION_CHECKS` / `check_integration` | `(repo_root, checks) -> list[dict]` | 跨模块风险 → 已有测试：结束原因与 n 步回报（T02、D03）、历史切片（D05）、导出不重复当前帧（T05）、动作单位与换算（E03、T05）、网络一次完整更新（N08）、训练保存恢复流程（T03）、E05 重置前末状态接 Trainer 与保存恢复（`TrainerIntegrationTest`）、E01 填写的 Isaac 配置驱动 Trainer（`RunConfigTest.test_trainer_runs_on_filled_config`）。后两项的环境钩子是人工模拟，只检查接口衔接，不是仿真检查；共 10 项检查、18 个测试 |
-| `build_summary` | `(documentation, unit, integration) -> dict` | 五个层级：documentation、unit、cpu_integration、simulation（not_run：E01/E02/E05 接入代码已实现，真实仿真未验证）、performance（not_run：未进行 PPO / SAC 对照） |
+| `build_summary` | `(documentation, unit, integration) -> dict` | 五个层级：documentation、unit、cpu_integration、simulation（not_run：本入口未执行，外部验证记录另存）、performance（not_run：未进行 PPO / SAC 对照） |
 | `main` | 命令行 `--docs` / `--unit` / `--integration` / `--json path` | 不带选项时运行前三层；任一已执行层级失败时退出码为 1 |
 
 测试状态的区别：
@@ -116,7 +122,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_valida
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；`main` 可写 JSON；检查本身只读仓库，运行测试时由各测试自行使用临时目录 |
 | 代码注释核对 | 已核对：不同验证层级的证据来源、状态与文件一致性检查、失败 / 跳过 / 未执行的区别（文件头、`_parse_unittest`、`build_summary`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU），在独立 worktree 中运行；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B training_validation/verification/test_verify.py -v` → `Ran 6 tests … OK`（首次运行有 1 项因变异测试复制范围不足而得到 error，见“调试记录”）。临时环境未装 numpy，torch 打印的 numpy UserWarning 已从记录中去除。`794cd62` 之后（分支 `claude/environment-integration`，同一环境）：`test_verify.py -v` → `Ran 6 tests … OK`；`verify.py --docs` → documentation passed；`verify.py --integration` → cpu_integration passed，10 项检查、测试 18 项、跳过 0（新增的 E05 / E01 两项各自通过），simulation / performance not_run |
-| 未验证项 | 仿真集成检查与性能评价层级（目前没有可执行的检查）；CI 集成；Windows 等其他平台上的路径处理 |
+| 未验证项 | 本入口未执行仿真与性能评价；CI 集成；Windows 以外平台的本轮回归。Windows 三处路径修复已通过 6 项自检 |
 | 代码版本 | `c963821163e6b14955c21b987a0972e3216f30aa`（分支 `claude/training-core`，PR #7）；纳入 E01 / E05 集成检查与仿真层说明更新在 `794cd623de54c75ee3ed96ae6788fb72c5a5cebd`（分支 `claude/environment-integration`，PR #8）；文档同步在其后的提交中 |
 | 本次改动及理由 | 首次实现 T06：用一个入口组织已有测试与文档检查，分层记录证据，未执行项明确标出。`794cd62`：E01 / E05 已有接 Trainer 的 CPU 检查（人工钩子），加入 `INTEGRATION_CHECKS`；仿真层说明由“尚未接入”改为“接入代码已实现，真实仿真未验证”，仍为 not_run |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `verify.py`、`test_verify.py`；各模块 AI README 的验收表。建议 Codex 重点解释五个层级的区别、状态一致性规则，以及为什么不重新实现算法 |

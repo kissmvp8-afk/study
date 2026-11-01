@@ -1,8 +1,22 @@
 # E01 · 机器人与任务环境｜AI 实施规范
 
-状态：代码已实现，CPU 单元验证通过（纯数据与结构范围）；**Isaac 接入代码未在仿真中执行过**，等待 Windows + NVIDIA + Isaac Lab 2.3.0 验证。已实现 [assets.py](assets.py)、[metadata.py](metadata.py)、[isaac_env.py](isaac_env.py)、[run_sac_isaac.py](run_sac_isaac.py) 与 [test_environment.py](test_environment.py)，14 项 CPU 测试通过（真实 URDF 一项需设置 `TITA_URDF`）。未进行训练或性能验证。
+状态：Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。
 
 [人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
+
+## Windows 验证记录（2026-10-31）
+
+Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。 [精简报告、命令与 JSON 证据](validation/windows_2026-10-31/REPORT.md)。
+
+真实截断诊断在正常 reset 后仅把 `episode_length_buf` 从 0 提前设为 998，保留正式 20 s / 1000 步上限和 `base_contact` 真终止项。随后 2 个策略步（8 个物理步、0.04 s）由原管理器给出 `terminated=False,time_out=True`，首次尝试通过。
+
+E05 的 `next_*` 与同一次计算捕获的重置前末状态相等；`observation` 对应新回合，历史有效长度 1、步号 0、回合编号 0→1。真实记录经过 D01/D02/D03，mask=1、尾部仍属旧回合、排除新回合奖励；后续真实交互 3 步不覆盖已保存末状态。没有手工伪造结束标记，也没有关闭真实终止条件。
+
+此前自然交互 1005 步有 40 次真终止、0 次超时；它没有覆盖超时，本次覆盖来自明确标注的提前计数诊断。短训练为 CPU 学习器 / GPU 仿真，3×8 步保存后恢复续训 1 轮；检查点不保存仿真现场，且续训后未再次保存模型。轮速显式 20 rad/s 仍为“首次仿真调试选择，尚未验证”。
+
+启动使用 `--kit_args="--vulkan --/app/extensions/fsWatcherEnabled=false"`，诊断实际读取到热重载开关为 False。仍有图形接口/Aftermath 告警；未宣称消除所有图形兼容风险。T06 本身未执行这些仿真，因此其 `simulation` / `performance` 仍返回 `not_run`。
+
+独立诊断脚本：[diagnose_timeout_isaac.py](diagnose_timeout_isaac.py)。`parse_args` 限定 headless / 最多三次尝试；`CapturingHooks` 只复制原管理器输出；`main` 核对 E01 元数据并串起 E05→D01/D02/D03，写 metadata、summary 和真实观测/经历 JSON。脚本不训练、不保存检查点；断言失败或未覆盖返回非零。
 
 ## 实施目标与术语
 
@@ -78,7 +92,7 @@
 | `leg_soft_limits` | `(runtime, contract) -> dict` | 只取 6 个位置控制关节的运行时软限位（轮子的位置限位不进入 E04） |
 | `fill_isaac_run_config` | `(runtime, contract, q_dim, wheel_ranges, required_speed, *, seed, steps_per_iteration, capacity_per_env, debug_sizes) -> RunConfig` | 在 T01 `isaac_config` 上填 q_dim、软限位、工作轮速、采集规模、种子，`num_envs` 取实际环境数；来源标为“运行时 / 用户设置 / Windows 接入调试值”；`environment` 记录资产提交、`sim_device`、SAC 任务 id；学习器 `device="cpu"`；最后 `validate_configuration` |
 
-### [isaac_env.py](isaac_env.py)（需要 Isaac；未在仿真中执行）
+### [isaac_env.py](isaac_env.py)（需要 Isaac；平地单环境已验证）
 
 | 符号 | 签名 | 职责 |
 |---|---|---|
@@ -94,7 +108,7 @@
 
 不直接调用 `env.step()`：锁定版本在 `step` 返回前已经重置结束的环境，拿不到重置前末状态。复刻时用到私有成员 `_sim_step_counter` 与 `_reset_idx`，只对 v2.3.0 核对过，升级 Isaac Lab 必须重新核对。
 
-### [run_sac_isaac.py](run_sac_isaac.py)（需要 Isaac；未在仿真中执行）
+### [run_sac_isaac.py](run_sac_isaac.py)（需要 Isaac；平地单环境已验证）
 
 `python environment_control\robot_environment\run_sac_isaac.py --task {isaac_flat,isaac_rough} --mode {inspect,interact,train} [选项] --headless`
 
@@ -165,7 +179,7 @@
 
 另做了 3 个变异检查（临时改代码后跑测试再恢复）：钩子改名、去掉默认角比较、去掉轮速上限检查，都被测试发现。
 
-### Windows + Isaac 待验证（尚未执行）
+### Windows + Isaac 验收范围（平地单环境已验证，复杂地形待验证）
 
 - `inspect`：加载 TITA 后读到 8 个受控关节，动作顺序 / scale / 默认角与 E03 一致，软限位与 URDF 推算一致；缺失资产时报告具体路径。
 - `inspect`：平地 C=54、无 scanner 组；复杂地形 C=241、scanner 187 维进入 Q；policy 组每项为单帧。
@@ -273,12 +287,12 @@ python environment_control\robot_environment\run_sac_isaac.py --task isaac_flat 
 | 项目 | 当前内容 |
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
-| 实现状态 | 代码已实现；CPU 单元验证通过（纯数据与结构范围）；Isaac 接入未执行 |
+| 实现状态 | Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。 |
 | 实际文件、函数签名与调用关系 | [assets.py](assets.py)、[metadata.py](metadata.py)（导入 E02 `validate_observations`、E03 `ActionContract`/`ControlType`/`baseline_source`、T01 `isaac_config`/`validate_configuration`）、[isaac_env.py](isaac_env.py)（导入原版 `TitaFlatEnvCfg`/`TitaRoughEnvCfg` 与 Isaac Lab）、[run_sac_isaac.py](run_sac_isaac.py)（串起 E03 → E01 → E05 → T01 → T02 → T03）、[test_environment.py](test_environment.py)（5 个测试类共 14 项，复用 E05 测试的 `ScriptedSimulation`） |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”；角度 rad、轮速 rad/s、长度 m、时间 s；纯数据函数无副作用（`verify_urdf` 只读文件）；`TitaSacHooks` 原地推进 Isaac 环境；启动入口写输出目录 |
 | 代码注释核对 | 已核对本模块注释重点：控制周期与物理步长（metadata.py 文件头、`baseline_timing`、`apply_action_and_simulate` 循环注释）；资产版本来源（assets.py 文件头与 `ROBOT_ASSET`）；环境注册与配置沿用范围（isaac_env.py 文件头、`register_sac_tasks`、`sac_config_differences`）；奖励沿用与无超时补偿（`compute_rewards`）；轮速依据（metadata.py 文件头、`wheel_speed_ranges`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0，arm64，无 NVIDIA 显卡），Python 3.11.17：`uv run --no-project --python 3.11 --with torch==2.15.0 python -B environment_control/robot_environment/test_environment.py -v` → `Ran 14 tests … OK (skipped=1)`；设置 `TITA_URDF` 指向下载的 e7b32d9 URDF 后 → `Ran 14 tests … OK`。全部 24 个测试文件在 torch 2.15.0 与 torch 2.7.0（CPU）下各跑一遍均通过。pyflakes 检查 isaac_env.py / run_sac_isaac.py 无未定义名称。T06 `verify.py --docs --unit --integration`（torch 2.15.0）→ documentation passed；unit passed，216 项、跳过 1（未设置 `TITA_URDF`）；cpu_integration passed，15 项；simulation / performance not_run。`794cd62` 把本模块 `RunConfigTest.test_trainer_runs_on_filled_config` 与 E05 `TrainerIntegrationTest` 纳入 T06 集成检查后，`verify.py --integration` → passed，18 项 |
-| 未验证项 | isaac_env.py 与 run_sac_isaac.py 的全部实际行为（本机没有 Isaac Sim / NVIDIA，未安装、未运行）；`to_dict()` 比较、私有成员访问、`find_joints` 结果、运行时 C 与周期；GPU→CPU 搬运的实际耗时；工作轮速取值；训练与性能 |
+| 未验证项 | 复杂地形、长期训练、性能/搬运吞吐、稳定行走、轮速余量；提前计数截断不证明自然运行满 20 秒 |
 | 代码版本 | `f3a1c743b8e9992aa77f218e1ef649d638db9796`（分支 `claude/environment-integration`），T01 配套修改 `bd99b7b87b09b5fd1124ebdd9d842547910a9831` |
 | 本次改动及理由 | 首次实现 E01：锁定并校验资产、从原版读取周期与指令、用运行时值核对原版与 E03、给出工作轮速依据但不替用户定余量、SAC 配置只关闭 Isaac 历史以配合 E05 的重置前捕获、提供 Windows 可用的接入入口 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E02、E03、E05、T01 AI 规范；带注释的四个实现文件与测试；上述验证记录；Isaac Lab v2.3.0 `manager_based_rl_env.py` 的 `step` / `_reset_idx`。建议 Codex 重点解释：`TitaSacHooks` 与原 `step` 的逐段对应及“为何不调用 env.step”；`required_wheel_speed` 的差速公式和它只是下限；`compare_with_baseline` 核对哪些项；`sac_config_differences` 为何只允许 history_length 一项；Windows 安装中 autocrlf 与校验值的关系 |

@@ -1,0 +1,9 @@
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "training_validation\\verification\\test_verify.py", "-v"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T22:25:40.868427"}
+test_detects_documentation_problems (__main__.DocumentationTest.test_detects_documentation_problems) ... ok
+test_lists_all_small_modules (__main__.DocumentationTest.test_lists_all_small_modules) ... ok
+test_detects_injected_history_misalignment (__main__.IntegrationTest.test_detects_injected_history_misalignment) ... ok
+test_missing_test_file_is_not_run (__main__.IntegrationTest.test_missing_test_file_is_not_run) ... ok
+test_statuses (__main__.ResultCollectionTest.test_statuses) ... ok
+test_levels (__main__.SummaryTest.test_levels) ... ok
+Ran 6 tests in 4.641s
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "training_validation\\verification\\test_verify.py", "-v"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T22:25:40.868427", "exit_code": 0, "seconds": 4.781, "finished": "2026-10-31T22:25:45.643494"}
