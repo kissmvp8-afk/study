@@ -2,7 +2,7 @@
 
 状态：单元验证通过（纯数据范围）。已实现 [schema.py](schema.py) 与 [test_schema.py](test_schema.py)，20 项 CPU 检查通过（Python 3.11 + PyTorch）；使用人工数据，未接入 E05 末状态捕获、D02 经验池或仿真，未进行训练或性能验证。
 
-[人类版（已完成讲解与润色）](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md)
+[人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../AGENTS.md)
 
 ## 实施目标与术语
 
@@ -79,7 +79,7 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_retu
 
 与 E05 的分工：E05 负责在重置前捕获真实末状态，并把同一步“摔倒又到时”的情况只标为 `terminated`；D01 接收结果，拒绝两标记同时为真。mask 也只依赖 `terminated`，所以即使绕过校验，结果仍按真终止处理。
 
-调用方：D02 [buffer.py](../replay_buffer/buffer.py) 写入 `TransitionBatch`（并复用 `_expected_layout` 分配存储），D03 [returns.py](../n_step_returns/returns.py) 调用 `derive_bootstrap_mask`，D04、D05 读取字段与常量。计划由 E05 / T02 采集循环调用 `make_transition`、N05 使用 mask，这些模块尚未实现。
+调用方：D02 [buffer.py](../replay_buffer/buffer.py) 写入 `TransitionBatch`（并复用 `_expected_layout` 分配存储），D03 [returns.py](../n_step_returns/returns.py) 调用 `derive_bootstrap_mask`，D04、D05 读取字段与常量。[T02 采集循环](../../training_validation/training_loop/runner.py) 将 E05 环境结果传给 `make_transition`；[N05](../../networks_learning/critic_learning/critic_update.py) 使用 D03 提供的自举标记。
 
 ## 必须成立的规则
 
@@ -105,20 +105,9 @@ B 表示这一批记录的数量；C 表示 Q 观测的字段总数。真实速�
 
 ## 代码注释要求
 
-执行[根目录代码注释规范](../../README.md#代码注释规范)。为每个实现文件、类、函数和方法写准确的中文说明；在关键计算或条件分支旁解释原因、前提和错误后果。
+共同要求见 [AGENTS.md](../../AGENTS.md#代码与验证)。
 
 本模块特别需要注释：逐字段标注当前/真实下一状态、env/episode/时间编号、布尔标记和数组形状；说明谁负责复制与校验。
-
-自检时把这些注释逐项对照实际代码和下方验收案例；修改行为时同次修改注释。Codex 依据带注释的代码撰写人类版，代码中的解释责任仍属于 Claude。
-
-## Claude 实施顺序
-
-1. 先阅读根 README、根 CLAUDE.md、本大模块 README、本文件和下面依赖的契约。
-2. 对照固定原 PPO 来源，确认输入、输出和改动范围。依赖可用明确的假数据验证，但不得把假数据结果称为仿真验证。
-3. 按上表职责逐个实现函数，同时写 docstring 和关键代码注释；必要跨模块改动同步双方契约并说明影响。
-4. 在本目录实现下列验证案例，记录实际命令、依赖条件、输出结果及失败案例。
-5. 更新本 AI 版的真实文件链接、函数签名、参数/返回值、单位、异常和副作用，并填写下方交接表。首次实现未完成时，人类版保持等待代码完成；完成后标为待 Codex 编写。已有讲解受影响时标为待 Codex 同步，保留正文。
-6. 记录证据后更新实现状态；对应代码和注释完成后，按根 CODEX.md 把同一版本的实际代码、规范、验证记录和变更说明交给 Codex。人类版同步和代码验证状态分别记录，不把文档编写完成当成验证通过。
 
 ## 验收案例（已执行，纯数据范围）
 
@@ -149,17 +138,15 @@ Q 输入动作与环境实际动作不一致时，沿动作坐标和后续裁剪
 
 依赖链接表示必须理解的数据约定，不表示必须同时实现所有相关模块。上游接口改变时，检查本模块的输入说明和验证案例。
 
-## 人类版初稿与润色
-
-对应代码完成后，Codex 按根 CODEX.md 读取真实文件、函数、注释及验证证据，编写本目录 README_HUMAN.md 的技术初稿；Gemini 再按根 GEMINI.md 润色同一份文件。Gemini 保留代码片段、符号、单位、公式、边界条件和验证结论，技术疑问交回 Codex 核对。
-
 ## 实现证据与文档交接
+
+以下保留实现时的版本与验证记录；后续项目进展见[首页](../../README.md#当前状态)。
 
 | 项目 | 当前内容 |
 |---|---|
 | AI 规范 | 已同步实际接口（见“实际文件与接口”） |
 | 实现状态 | 单元验证通过（纯数据范围）；集成验证未开始 |
-| 实际文件、函数签名与调用关系 | [schema.py](schema.py)：`TransitionBatch`、`make_transition`、`validate_transition`、`derive_bootstrap_mask`、`describe_transition`、`TransitionSchemaError`；[test_schema.py](test_schema.py)：6 个测试类共 20 项，另导入 E03 `TITA_ACTION_LAYOUT`。目前唯一的调用方是验证程序 |
+| 实际文件、函数签名与调用关系 | [schema.py](schema.py)：`TransitionBatch`、`make_transition`、`validate_transition`、`derive_bootstrap_mask`、`describe_transition`、`TransitionSchemaError`；[test_schema.py](test_schema.py)：6 个测试类共 20 项，另导入 E03 `TITA_ACTION_LAYOUT`。该条调用范围为首次实现时记录，当前调用关系见上方接口说明 |
 | 参数/返回值、形状、单位、异常和副作用 | 见“实际文件与接口”两张表；`make_transition` 会分配副本内存，其余函数无副作用 |
 | 代码注释核对 | 已逐项核对本模块的注释重点：逐字段的当前 / 真实下一含义、编号、布尔标记与形状（`TransitionBatch` docstring）；复制责任（`make_transition`）；校验职责与 E05 分工（`validate_transition`、文件头）；真终止优先（`derive_bootstrap_mask`） |
 | 验证命令、环境与结果 | 2026-10-31，macOS（Darwin 25.4.0），uv 临时环境 Python 3.11.17 + torch 2.15.0（CPU）；`uv run --no-project --python 3.11 --with torch==2.15.0 python -B experience_returns/transition_schema/test_schema.py -v` → `Ran 20 tests … OK`。临时环境未装 numpy，torch 打印了一条 numpy 未安装的 UserWarning，不影响结果 |
@@ -168,6 +155,3 @@ Q 输入动作与环境实际动作不一致时，沿动作坐标和后续裁剪
 | 本次改动及理由 | 首次实现 D01：用 torch 张量作为唯一容器，与环境和经验池一致；为满足真终止优先，以“真终止 + 纯截断”代替作者的 dones + bootstrap；由 `make_transition` 统一复制，防止来源缓冲区的原地修改污染记录 |
 | 技术初稿所需材料 | 根/大模块/本模块 AI 规范；E02、E03、E05、D02、D03 的接口约定；带注释的 `schema.py`、`test_schema.py`；上述验证记录；原 PPO `np3o.py` 的 time_outs 奖励补偿与 `wrapper.py`，作者 `sac.py` 的 `process_env_step` 与 bootstrap_mask。建议 Codex 重点解释 `make_transition` 的复制、`validate_transition` 中 next_history_length 的规则与两标记互斥，以及 `derive_bootstrap_mask` 与作者公式的差别 |
 | 人类版 | 已完成讲解与润色；状态与核对范围以 [README_HUMAN.md](README_HUMAN.md) 的元数据为准 |
-| 技术初稿 / 语言润色 | Codex 已依据 `7fe7e93` 完成技术初稿与复核，Gemini 已完成语言润色；两者都不包含仿真验证 |
-
-Claude 每次改动都需更新此表，列出应由 Codex 重点解释的实际文件、函数和计算片段。对应代码未完成时，不启动 Codex 写作并保留占位；代码和注释完成、验证记录齐备后，按 [CODEX.md](../../CODEX.md) 编写或同步 [README_HUMAN.md](README_HUMAN.md)。

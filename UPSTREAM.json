@@ -65,11 +65,11 @@
     "implementation_author": "Claude",
     "code_comments_required": true,
     "human_writing_requires_completed_code": true,
-    "human_guide_language_editor": "Gemini",
+    "human_guide_language_editor": null,
     "human_workflow": [
-      "Claude_implementation",
-      "Codex_code_based_draft",
-      "Gemini_language_polish"
+      "implementation_and_validation",
+      "code_based_guide",
+      "technical_review"
     ]
   },
   "implemented_modules": {

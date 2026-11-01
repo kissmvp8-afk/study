@@ -1,6 +1,6 @@
 # D03 · 连续多步回报｜人类阅读版
 
-[AI 实施规范](README.md) · [返回大模块人类版](../README_HUMAN.md) · [Codex](../../CODEX.md) · [Gemini](../../GEMINI.md)
+[AI 实施规范](README.md) · [返回大模块人类版](../README_HUMAN.md) · [Codex](../../CODEX.md)
 
 | 字段 | 当前内容 |
 |---|---|
@@ -23,7 +23,7 @@ $$y_t = r_t + \gamma V(s_{t+1})$$
 $$R = \sum_{j=0}^{k-1} \gamma^j r_j = r_0 + \gamma r_1 + \gamma^2 r_2 + \dots + \gamma^{k-1} r_{k-1}$$
 后续目标的示意形式为 $y = R + \gamma^k \times \text{mask} \times V(s_{t+k})$。按 [N05 契约](../../networks_learning/critic_learning/README.md)，SAC 的具体形式为：
 $$y = R + \gamma^k \times \text{mask} \times \left[\min_{i=1,2}\bar Q_i(s_{t+k},a')-\alpha\log\pi(a'\mid s_{t+k})\right]$$
-其中 $\bar Q_1,\bar Q_2$ 是两个目标 Q，取较小评分；$a'$ 由当前 Actor 在尾部观测上重新采样，不是经验中的旧动作或求最大值得到的动作。$\log\pi$ 是该动作的对数概率密度，$\alpha$ 是熵项权重。此处状态符号概括契约要求的尾部输入；D03 只提供数据，这些网络计算尚未实现。真终止时直接取 $y=R$，无需计算尾部价值。
+其中 $\bar Q_1,\bar Q_2$ 是两个目标 Q，取较小评分；$a'$ 由当前 Actor 在尾部观测上重新采样，不是经验中的旧动作或求最大值得到的动作。$\log\pi$ 是该动作的对数概率密度，$\alpha$ 是熵项权重。此处状态符号概括契约要求的尾部输入；D03 只提供数据，网络部分由 [N05](../../networks_learning/critic_learning/README_HUMAN.md) 实现。真终止时直接取 $y=R$，无需计算尾部价值。
 
 这里有两点极为重要的时序概念：
 1. **时间流动方向的区别**：在 D05 模块中，历史观测窗口是**向后看过去**（覆盖时刻 $t-4 \dots t$）；而在本模块 D03 中，n 步回报是**向前看未来**（从当前动作开始累计未来的连续收益）。两者的物理时间轴方向相反，切勿混为一谈。

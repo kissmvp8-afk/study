@@ -1,20 +1,20 @@
 # study：从 TITA PPO 到 SAC｜人类阅读版
 
-[AI 实施总规范](README.md) · [环境与动作接口](environment_control/README_HUMAN.md) · [经验与回报](experience_returns/README_HUMAN.md) · [网络与学习](networks_learning/README_HUMAN.md) · [训练与验证](training_validation/README_HUMAN.md)
+[项目入口与公共约定](README.md) · [环境与动作接口](environment_control/README_HUMAN.md) · [经验与回报](experience_returns/README_HUMAN.md) · [网络与学习](networks_learning/README_HUMAN.md) · [训练与验证](training_validation/README_HUMAN.md)
 
 | 字段 | 当前内容 |
 |---|---|
 | 文档状态 | 讲解与技术复核已完成，本轮不再润色；小模块与大模块完成后编写本概览，每目录保留一份人类版 |
 | 技术核对状态 | 2026-10-31，Codex 基于实际实现、测试与既有技术说明核对总数据流、模块边界、接入变化与验证范围；不是全面代码审核 |
 | 语言润色状态 | 本轮由 Codex 完成中文讲解与技术核对，不再交 Gemini |
-| 已核对代码版本 | 原实现 main `f6c8b03d`；Windows 路径修复 `373bb48d`；新增诊断及本轮证据随本次提交保存，未改算法 |
+| 已核对代码版本 | 原实现 main `f6c8b03d`；Windows 路径修复 `373bb48d`；诊断及证据提交 `aa0c2a549dd3b2da61e79d8d1988e019ec25ed37`（PR #9 已合并），未改算法 |
 | 待同步代码版本 | 无 |
 | 实际阅读材料 | AGENTS.md、CODEX.md、根/大模块/目标小模块 AI README、实现/注释/测试与必要依赖；详见文末 |
 | 验证依据与限制 | 2026-10-31 Windows 真实平地 1 环境的加载、50/1005 步交互、短训练保存恢复及提前计数纯截断通过；历史 CPU 记录保留，本轮不重跑全仓。截断仅实际推进 0.04 s，不证明稳定运行 20 s；复杂地形、长期训练、性能与稳定行走未验证。证据见下方 Windows 验证记录 |
 
 ## Windows 验证记录（2026-10-31）
 
-Windows 平地单环境最小闭环已验证；提前设置计数器的真实纯时间截断检查通过。复杂地形、长期训练、性能与稳定行走仍未验证。 [精简报告、命令与 JSON 证据](environment_control/robot_environment/validation/windows_2026-10-31/REPORT.md)。
+该次 Windows 平地单环境最小闭环与提前计数纯时间截断检查已通过，证据随 PR #9 合并入库；该次检查未覆盖复杂地形、长期训练、性能或稳定行走。后续实验进展见[项目当前状态](README.md#当前状态)。[精简报告、命令与 JSON 证据](environment_control/robot_environment/validation/windows_2026-10-31/REPORT.md)。
 
 提前计数截断仅实际推进 0.04 秒，不证明稳定运行满 20 秒。T06 入口本身未执行仿真，simulation/performance 仍为 not_run；详细计数、命令、告警和数据边界见上述证据。
 
@@ -24,7 +24,7 @@ TITA 是同时用腿部关节角和轮子转速控制的轮腿机器人。本项
 
 策略是由观测选择动作的规则，Actor 是实现策略的神经网络；回报是未来奖励的折扣累计，Q 网络估计某状态执行指定动作后的回报；经验回放把旧交互保存下来，供学习反复使用。SAC 还用熵（动作分布多样性的度量）与温度 alpha 调节探索，目标不是让动作越激烈越好。
 
-当前 24 个小模块都有实现和相应 CPU 测试，真实环境入口代码也已经写好。已有 CPU 证据覆盖人工数据、假环境和模拟钩子；它们没有启动真实 Isaac 动力学。现已在 Windows + NVIDIA + 锁定 Isaac 环境完成平地单环境最小闭环与提前计数纯截断；下一步仍需积累长期训练与对照证据。
+当前 24 个小模块都有实现和相应 CPU 测试。下文技术讲解与证据表对应 2026-10-31 的代码核对记录；后续 Windows 实验进展集中见[项目当前状态](README.md#当前状态)，不重复写入各份讲解。CPU 人工数据、真实仿真运行与学会行走是不同层级的证据。
 
 ## PPO → SAC 改了哪些事情
 
@@ -106,7 +106,7 @@ T02 控制频率：默认 Actor 在第 1、3、5…次 Critic 更新后更新，
 
 ## 真实环境、设备与恢复到哪一步
 
-资产已锁定为 ddt_ros2_control `e7b32d9746df900680641ff2845ffb0b5ffe99ed`，URDF 摘要见 [UPSTREAM.json](UPSTREAM.json)。固定版本和文件校验解决可追踪性，真实加载与物理行为仍待验证。
+资产已锁定为 ddt_ros2_control `e7b32d9746df900680641ff2845ffb0b5ffe99ed`，URDF 摘要见 [UPSTREAM.json](UPSTREAM.json)。固定版本和文件校验解决可追踪性；真实运行的进展见[项目当前状态](README.md#当前状态)，本节说明实现约定。
 
 E01 `run_sac_isaac.py` 提供 `inspect/interact/train`：先核对资产、动作、周期、观测和配置差异，再交互或填 T01 配置训练；train 还保存、构造新 Trainer、恢复并续一轮。它复用原任务，只关闭 Isaac 内部 policy 历史，由 E02 保持 10 帧，E05 避免重复推进。
 
@@ -133,7 +133,9 @@ T03 的带池 `exact_replay` 恢复学习状态、统计、计数、随机流和
 
 ## 阅读材料与验证依据
 
-本轮在独立 worktree 阅读实际提交及其与 main 的差异，读 AGENTS.md、CODEX.md、根和四大模块 AI README、五个环境模块及 T01/T02/T06 的相关 AI 契约/交接。重点通读 E01 的四个实现文件与测试、E02/E05 实现与测试；对照 E03/E04 未变实现及测试、T01 配置/测试、T02 runner/fake_env 与测试调用、T03 checkpoint、T06 verify/test_verify 和新增集成测试。
+以下保留 2026-10-31 人类版编写时的核对记录，不代表后续实验的当前状态。
+
+当时在独立 worktree 阅读实际提交及其与 main 的差异，读 AGENTS.md、CODEX.md、根和四大模块 AI README、五个环境模块及 T01/T02/T06 的相关 AI 契约/交接。重点通读 E01 的四个实现文件与测试、E02/E05 实现与测试；对照 E03/E04 未变实现及测试、T01 配置/测试、T02 runner/fake_env 与测试调用、T03 checkpoint、T06 verify/test_verify 和新增集成测试。
 
 D/N 的概览使用既有按实际代码核对的人类版与 AI 契约，必要 D01/D03/D04/D05 实现及网络调用关系另作对照；本分支未修改这些算法，本轮没有扩大为重新审计全部 D/N。固定 PPO 快照与官方 Isaac Lab v2.3.0 的阅读片段见[环境大模块材料](environment_control/README_HUMAN.md#阅读材料与验证依据)。作者 SAC/论文来源沿用固定版本记录，本轮未重新复现论文或验证训练效果。
 

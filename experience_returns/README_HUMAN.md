@@ -1,6 +1,6 @@
 # 经验与回报｜人类阅读版
 
-[AI 实施规范](README.md) · [项目人类版](../README_HUMAN.md) · [Codex](../CODEX.md) · [Gemini](../GEMINI.md)
+[AI 实施规范](README.md) · [项目人类版](../README_HUMAN.md) · [Codex](../CODEX.md)
 
 | 字段 | 当前内容 |
 |---|---|
