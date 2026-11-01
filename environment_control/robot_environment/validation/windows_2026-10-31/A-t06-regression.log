@@ -1,0 +1,3 @@
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "C:\\Users\\86193\\tita-check\\recheck_t06.py"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T21:21:27.093279"}
+    "status": "passed",
+{"command": ["C:\\Users\\86193\\tita-check\\.venv\\Scripts\\python.exe", "-B", "C:\\Users\\86193\\tita-check\\recheck_t06.py"], "cwd": "C:\\Users\\86193\\tita-check\\study", "started": "2026-10-31T21:21:27.093279", "exit_code": 0, "seconds": 4.312, "finished": "2026-10-31T21:21:31.409931"}

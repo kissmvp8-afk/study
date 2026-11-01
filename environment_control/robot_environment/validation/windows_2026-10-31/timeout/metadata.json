@@ -1,0 +1,253 @@
+{
+  "task": "isaac_flat",
+  "num_envs": 1,
+  "sim_device": "cuda:0",
+  "q_dim": 54,
+  "runtime": {
+    "task": "isaac_flat",
+    "num_envs": 1,
+    "sim_device": "cuda:0",
+    "joint_names": [
+      "joint_left_leg_1",
+      "joint_right_leg_1",
+      "joint_left_leg_2",
+      "joint_right_leg_2",
+      "joint_left_leg_3",
+      "joint_right_leg_3",
+      "joint_left_leg_4",
+      "joint_right_leg_4"
+    ],
+    "default_joint_pos": {
+      "joint_left_leg_1": 0.10000000149011612,
+      "joint_right_leg_1": 0.10000000149011612,
+      "joint_left_leg_2": 0.800000011920929,
+      "joint_right_leg_2": 0.800000011920929,
+      "joint_left_leg_3": -1.5,
+      "joint_right_leg_3": -1.5,
+      "joint_left_leg_4": 0.0,
+      "joint_right_leg_4": 0.0
+    },
+    "soft_joint_pos_limits": {
+      "joint_left_leg_1": [
+        -0.7068581581115723,
+        0.7068581581115723
+      ],
+      "joint_right_leg_1": [
+        -0.7068581581115723,
+        0.7068581581115723
+      ],
+      "joint_left_leg_2": [
+        -1.6493356227874756,
+        3.22013258934021
+      ],
+      "joint_right_leg_2": [
+        -1.6493356227874756,
+        3.22013258934021
+      ],
+      "joint_left_leg_3": [
+        -2.571742534637451,
+        -0.7967431545257568
+      ],
+      "joint_right_leg_3": [
+        -2.571742534637451,
+        -0.7967431545257568
+      ],
+      "joint_left_leg_4": [
+        -56548.66015625,
+        56548.66015625
+      ],
+      "joint_right_leg_4": [
+        -56548.66015625,
+        56548.66015625
+      ]
+    },
+    "joint_vel_limits": {
+      "joint_left_leg_1": 14.999999046325684,
+      "joint_right_leg_1": 14.999999046325684,
+      "joint_left_leg_2": 14.999999046325684,
+      "joint_right_leg_2": 14.999999046325684,
+      "joint_left_leg_3": 14.999999046325684,
+      "joint_right_leg_3": 14.999999046325684,
+      "joint_left_leg_4": 30.0,
+      "joint_right_leg_4": 30.0
+    },
+    "action_terms": [
+      [
+        "joint_pos_0",
+        [
+          "joint_left_leg_1"
+        ],
+        0.25,
+        "position"
+      ],
+      [
+        "joint_pos_1",
+        [
+          "joint_left_leg_2"
+        ],
+        0.25,
+        "position"
+      ],
+      [
+        "joint_pos_2",
+        [
+          "joint_left_leg_3"
+        ],
+        0.25,
+        "position"
+      ],
+      [
+        "joint_vel_3",
+        [
+          "joint_left_leg_4"
+        ],
+        5.0,
+        "velocity"
+      ],
+      [
+        "joint_pos_4",
+        [
+          "joint_right_leg_1"
+        ],
+        0.25,
+        "position"
+      ],
+      [
+        "joint_pos_5",
+        [
+          "joint_right_leg_2"
+        ],
+        0.25,
+        "position"
+      ],
+      [
+        "joint_pos_6",
+        [
+          "joint_right_leg_3"
+        ],
+        0.25,
+        "position"
+      ],
+      [
+        "joint_vel_7",
+        [
+          "joint_right_leg_4"
+        ],
+        5.0,
+        "velocity"
+      ]
+    ],
+    "physics_dt": 0.005,
+    "decimation": 4,
+    "step_dt": 0.02,
+    "max_episode_length": 1000,
+    "obs_term_names": {
+      "policy": [
+        "base_ang_vel",
+        "projected_gravity",
+        "velocity_commands",
+        "joint_pos",
+        "joint_vel",
+        "actions"
+      ],
+      "critic": [
+        "base_lin_vel",
+        "base_ang_vel",
+        "projected_gravity",
+        "velocity_commands",
+        "joint_pos",
+        "joint_vel",
+        "actions"
+      ],
+      "priv": [
+        "contact_state",
+        "joint_kp_factor",
+        "joint_kd_factor"
+      ]
+    },
+    "obs_term_dims": {
+      "policy": [
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ]
+      ],
+      "critic": [
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ]
+      ],
+      "priv": [
+        [
+          2
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ]
+      ]
+    },
+    "command_ranges": {
+      "lin_vel_x": [
+        -1.0,
+        1.0
+      ],
+      "lin_vel_y": [
+        -0.0,
+        0.0
+      ],
+      "ang_vel_z": [
+        -1.0,
+        1.0
+      ]
+    }
+  },
+  "asset_check": "exact",
+  "sac_vs_ppo_cfg_differences": {
+    "observations.policy.history_length": [
+      10,
+      0
+    ]
+  },
+  "fsWatcherEnabled": false,
+  "max_episode_length": 1000,
+  "episode_length_s": 20.0,
+  "termination_terms": [
+    "time_out",
+    "base_contact"
+  ]
+}

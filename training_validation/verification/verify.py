@@ -55,7 +55,7 @@ INTEGRATION_CHECKS = (
      ("RunConfigTest.test_trainer_runs_on_filled_config",)),
 )
 NOT_RUN_LEVELS = {
-    "simulation": "E01 / E02 / E05 接入代码已实现，真实仿真未验证（需在 Windows + Isaac Lab 2.3.0 上运行 E01 run_sac_isaac.py）",
+    "simulation": "本入口未执行 Isaac 仿真；独立 Windows 平地单环境与截断证据见 E01 验证记录，不能由 CPU 结果推定本层通过",
     "performance": "尚未进行 PPO / SAC 训练对照；T04 只提供评价与报告工具",
 }
 
@@ -85,13 +85,13 @@ def check_documentation(repo_root: Path = REPO_ROOT) -> list[dict]:
                 continue
             relative = target.split("#", 1)[0]
             if relative and not (path.parent / relative).exists():
-                issues.append({"kind": "broken_link", "file": str(path.relative_to(repo_root)), "target": target})
+                issues.append({"kind": "broken_link", "file": path.relative_to(repo_root).as_posix(), "target": target})
     for module in small_modules(repo_root):
         text = (module / "README.md").read_text(encoding="utf-8")
         status = next((line for line in text.splitlines() if line.startswith("状态：")), "")
         implementation = [p.name for p in module.glob("*.py") if not p.name.startswith(("test_", "._"))]
         tests = [p.name for p in module.glob("test_*.py")]
-        where = str(module.relative_to(repo_root))
+        where = module.relative_to(repo_root).as_posix()  # 报告路径统一用 /，避免 Windows 分隔符破坏结果索引。
         if status.startswith("状态：待实现"):
             if implementation:
                 issues.append({"kind": "status_mismatch", "module": where, "detail": f"状态为待实现，但已有实现文件 {implementation}"})
@@ -129,7 +129,7 @@ def collect_module_results(repo_root: Path = REPO_ROOT, modules: list[Path] | No
     results = []
     for module in modules if modules is not None else small_modules(repo_root):
         tests = sorted(p for p in module.glob("test_*.py") if not p.name.startswith("._"))
-        where = str(module.relative_to(repo_root))
+        where = module.relative_to(repo_root).as_posix()
         if not tests:
             results.append({"module": where, "status": "not_run", "detail": "没有测试文件"})
         for test in tests:
