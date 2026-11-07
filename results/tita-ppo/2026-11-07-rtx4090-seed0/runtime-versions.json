@@ -1,0 +1,36 @@
+{
+  "source": "pip-freeze.txt, strict selected package==version entries or exact pip editable-version comments only",
+  "packages": {
+    "click": "8.1.7",
+    "flatdict": "4.0.1",
+    "gymnasium": "1.2.0",
+    "h5py": "3.16.0",
+    "httpx": "0.28.1",
+    "huggingface-hub": "0.36.0",
+    "idna": "3.10",
+    "isaacsim": "5.1.0.0",
+    "isaacsim-kernel": "5.1.0.0",
+    "matplotlib": "3.10.3",
+    "ml-dtypes": "0.5.4",
+    "numpy": "1.26.0",
+    "onnx": "1.23.2",
+    "rsl-rl-lib": "3.0.1",
+    "scipy": "1.15.3",
+    "tensorboard": "2.21.0",
+    "tensordict": "0.14.3",
+    "torch": "2.7.0+cu128",
+    "torchaudio": "2.7.0",
+    "torchvision": "0.22.0+cu128",
+    "transformers": "4.57.1"
+  },
+  "missing_selected_packages": [
+    "ddt-lab",
+    "isaaclab",
+    "isaaclab-assets",
+    "isaaclab-rl",
+    "isaaclab-tasks",
+    "onnxruntime",
+    "setuptools"
+  ],
+  "omitted_non_pinned_entry_count": 5
+}

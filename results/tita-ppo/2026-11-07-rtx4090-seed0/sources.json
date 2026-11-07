@@ -1,0 +1,18 @@
+{
+  "kissmvp8-afk/study": {
+    "commit": "9c6ad8f8b673d5fbd382f181af80c823935fd2ea",
+    "url": "https://github.com/kissmvp8-afk/study/tree/9c6ad8f8b673d5fbd382f181af80c823935fd2ea"
+  },
+  "DDTRobot/DDT_Lab": {
+    "commit": "701a49c6e78dfb93a8b30145f0e7723b22921c0b",
+    "url": "https://github.com/DDTRobot/DDT_Lab/tree/701a49c6e78dfb93a8b30145f0e7723b22921c0b"
+  },
+  "DDTRobot/ddt_ros2_control": {
+    "commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+    "url": "https://github.com/DDTRobot/ddt_ros2_control/tree/e7b32d9746df900680641ff2845ffb0b5ffe99ed"
+  },
+  "isaac-sim/IsaacLab": {
+    "commit": "3c6e67bb5c7ada942a6d1884ab69338f57596f77",
+    "url": "https://github.com/isaac-sim/IsaacLab/tree/3c6e67bb5c7ada942a6d1884ab69338f57596f77"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "completed_iterations": 1000,
+    "transitions": 24576000,
+    "optimizer_updates": 20000,
+    "sha256": "293990261357c99158f8dfb1cd0e109f1bcc9994f166790c4c374dfd034bf72d",
+    "bytes": 7450913,
+    "validated_readback": true,
+    "seed": 0,
+    "checkpoint": "checkpoints/completed_001000.pt"
+  },
+  {
+    "completed_iterations": 2000,
+    "transitions": 49152000,
+    "optimizer_updates": 40000,
+    "sha256": "156daf993bb04cb74e5b886833a891ee9932d10d4217931d8c39446db030a501",
+    "bytes": 7450913,
+    "validated_readback": true,
+    "seed": 0,
+    "checkpoint": "checkpoints/completed_002000.pt"
+  },
+  {
+    "completed_iterations": 3000,
+    "transitions": 73728000,
+    "optimizer_updates": 60000,
+    "sha256": "1824fa2d175f3acda61bfa73c1d1237c102395ac13bf838558a224c4f0b088db",
+    "bytes": 7450913,
+    "validated_readback": true,
+    "seed": 0,
+    "checkpoint": "checkpoints/completed_003000.pt"
+  }
+]

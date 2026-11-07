@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "reason": "iteration_limit",
+  "selected_completed_iterations": [
+    1000,
+    2000,
+    3000
+  ]
+}

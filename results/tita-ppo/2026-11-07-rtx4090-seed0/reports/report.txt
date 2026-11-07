@@ -1,0 +1,31 @@
+Tita NP3O/PPO training report
+
+Status: completed
+Formal iterations: 3000
+Collected transitions: 73728000
+Parallel environments: 1024
+Training stop reason: iteration_limit
+Selected checkpoints (iteration, not best-score): [1000, 2000, 3000]
+
+Short capacity tests:
+short_1024: status=passed, iterations=20, envs=1024, training+saving_s=28.275687624001876, peak_reserved_bytes=343932928
+short_256: status=passed, iterations=20, envs=256, training+saving_s=29.25170831899959, peak_reserved_bytes=121634816
+short_512: status=passed, iterations=20, envs=512, training+saving_s=29.146572274999926, peak_reserved_bytes=186646528
+Selected capacity: {"num_envs": 1024, "transitions_per_second": 17632.736497418533, "vram_headroom_fraction": 0.8615732784640717}
+
+Evaluation outcomes (missing/skipped is not passed):
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_003000.pt, seed=101, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_003000.pt, seed=102, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_003000.pt, seed=103, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_001000.pt, seed=101, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_001000.pt, seed=102, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_001000.pt, seed=103, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_002000.pt, seed=101, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_002000.pt, seed=102, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+checkpoint=<PROJECT_ROOT>/runs/np3o-24h-20261107-seed0-v3/formal/completed_002000.pt, seed=103, status=passed, actual_steps=600, true_terminations=0, timeouts=0, stage_steps={'idle_before': 100, 'forward': 200, 'idle_between': 100, 'reverse': 200}, absent_stages=[]
+
+Limits: one training seed; short simulation evaluation; early termination may omit later command stages.
+Completion does not demonstrate reliable walking, robustness, real-robot safety, or superiority to SAC/PPO baselines.
+No supplied numerical 64-environment baseline comparison. Hardware and parallel batch changes are confounders.
+Models selected by reached milestone plus final, not best score. See runtime-versions.json and sources.json.
+commands.sanitized.jsonl is explicitly sanitized; raw deployment/transcripts are not published.

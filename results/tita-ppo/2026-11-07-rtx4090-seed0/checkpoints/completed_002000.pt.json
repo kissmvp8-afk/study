@@ -1,0 +1,10 @@
+{
+  "completed_iterations": 2000,
+  "transitions": 49152000,
+  "optimizer_updates": 40000,
+  "sha256": "156daf993bb04cb74e5b886833a891ee9932d10d4217931d8c39446db030a501",
+  "bytes": 7450913,
+  "validated_readback": true,
+  "seed": 0,
+  "checkpoint": "checkpoints/completed_002000.pt"
+}
