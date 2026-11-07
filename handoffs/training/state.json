@@ -43,5 +43,15 @@
     "no_automatic_rental_extension",
     "no_automatic_training_execution_in_reviewer",
     "respect_actual_rental_expiration"
-  ]
+  ],
+  "scheduler": {
+    "status": "enabled",
+    "cadence_minutes": 60,
+    "timezone": "Asia/Kuala_Lumpur",
+    "first_scheduled_run_utc": "2026-11-07T19:30:15Z",
+    "first_scheduled_run_local": "2026-11-08T03:30:15+08:00",
+    "delivery": "current_thread",
+    "model_settings": "unchanged",
+    "server_reported_next_run_time": null
+  }
 }
