@@ -1,0 +1,121 @@
+{
+  "plan_id": "SAC-R1-20261107",
+  "reviewed_commit": "c93d6b7b8caeb1073daee04b7e4a96e00605cf3c",
+  "reviewed_run_id": "np3o-24h-20261107-seed0-v3",
+  "status": "ready_for_dot_not_started_in_this_session",
+  "scope": "bounded simulation diagnostics and SAC training",
+  "max_queue_seconds": 25200,
+  "stop_new_training_hours_before_rental_expiration": 2,
+  "ppo_training_seeds_to_add": [],
+  "ppo_zero_diagnostic": {
+    "model_iterations": 3000,
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "duration_s": 18,
+    "command": [
+      0,
+      0,
+      0
+    ],
+    "factors": [
+      "policy_observation_noise",
+      "reset_external_force_and_torque"
+    ],
+    "common_interval_push_enabled": false
+  },
+  "sac_common": {
+    "training_seed": 0,
+    "num_envs": 16,
+    "steps_per_collection_iteration": 8,
+    "capacity_per_env": 4096,
+    "warmup_iterations": 128,
+    "max_total_collection_iterations": 8192,
+    "max_transitions": 1048576,
+    "max_seconds_per_arm": 7200,
+    "checkpoint_transitions": [
+      262144,
+      524288,
+      1048576
+    ],
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "batch_size": 256,
+    "actor_lr": 0.0002,
+    "critic_lr": 0.0002,
+    "alpha_lr": 0.00002,
+    "auxiliary_lr": 0.001,
+    "initial_alpha": 0.05,
+    "initial_std": 0.15,
+    "target_entropy_scale": 1,
+    "max_grad_norm": 1,
+    "critic_updates_per_iteration": 16,
+    "actor_update_every": 2,
+    "alpha_update_every": 1,
+    "target_update_every": 1,
+    "auxiliary_updates_per_iteration": 16,
+    "auxiliary_batch_size": 256,
+    "wheel_target_limit_rad_s": 20,
+    "rewards": "original task weights, contact=-1, stand_still=0",
+    "learning_device": "cuda if validated within preparation budget, otherwise existing CPU for both arms"
+  },
+  "sac_arms": {
+    "S0": {
+      "rel_standing_envs": 0.02
+    },
+    "S1": {
+      "rel_standing_envs": 0.2,
+      "condition": "at least 2 of 3 P00 seeds have complete 2-10s and 10-18s windows both >0.05 m/s planar speed; remaining budget sufficient"
+    }
+  },
+  "expected_full_counts": {
+    "transitions": 1048576,
+    "vector_env_steps": 65536,
+    "critic_updates": 129024,
+    "actor_updates": 64512,
+    "alpha_updates": 129024,
+    "target_updates": 129024,
+    "auxiliary_update_attempts": 129024
+  },
+  "turn_test": {
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "duration_s": 18,
+    "schedule": [
+      {
+        "until_s": 2,
+        "vx": 0,
+        "wz": 0
+      },
+      {
+        "until_s": 6,
+        "vx": 0.2,
+        "wz": 0.5
+      },
+      {
+        "until_s": 8,
+        "vx": 0,
+        "wz": 0
+      },
+      {
+        "until_s": 12,
+        "vx": 0.2,
+        "wz": -0.5
+      },
+      {
+        "until_s": 18,
+        "vx": 0,
+        "wz": 0
+      }
+    ]
+  },
+  "strong_perturbation_tests": false,
+  "jump_training": false,
+  "main_document": "给Dot-SAC-R1执行计划.txt"
+}

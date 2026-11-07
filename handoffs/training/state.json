@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "repository": "kissmvp8-afk/study",
+  "watched_path": "results",
+  "handoff_path": "handoffs/training",
+  "timezone": "Asia/Kuala_Lumpur",
+  "requested_cadence_minutes": 60,
+  "created_at_utc": "2026-11-07 18:29:24 UTC",
+  "model_settings": "unchanged",
+  "last_reviewed_results_root_entries": [
+    {
+      "path": "results/tita-ppo",
+      "tree_sha": "8b264fbacf8a180eb0001c31891bbc67f7832266"
+    }
+  ],
+  "reviewed_results": [
+    {
+      "run_id": "np3o-24h-20261107-seed0-v3",
+      "result_path": "results/tita-ppo/2026-11-07-rtx4090-seed0",
+      "result_tree_sha": "a1ae4cb5039357306f9b06369205c38819049b53",
+      "evidence_commit": "c93d6b7b8caeb1073daee04b7e4a96e00605cf3c",
+      "result_status": "completed",
+      "review_status": "reviewed_in_previous_turn",
+      "evidence_components": {
+        "reports_tree_sha": "0f8c1e6875d1a5e2eb3cf84f9415f8806b24bdd3",
+        "configs_tree_sha": "3e026db1face04d00db49f771e0652dc5a735f31",
+        "inventory_blob_sha": "5c8adf54a92027110fa2634f9aa2ec20fad83298",
+        "checksums_blob_sha": "6e774ce702728e645ad5395efe7020fe25889bba"
+      },
+      "verified_downloaded_sha256_files": 21,
+      "review_path": "handoffs/training/reviews/ppo-4090-seed0-c93d6b7/review.txt",
+      "next_plan_id": "SAC-R1-20261107",
+      "next_plan_path": "handoffs/training/reviews/ppo-4090-seed0-c93d6b7/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/ppo-4090-seed0-c93d6b7/parameters.json",
+      "plan_execution_status": "unknown_do_not_duplicate_existing_run"
+    }
+  ],
+  "pending_results": [],
+  "latest_plan_id": "SAC-R1-20261107",
+  "restrictions": [
+    "no_new_conversations_or_windows",
+    "no_model_setting_changes",
+    "no_automatic_rental_extension",
+    "no_automatic_training_execution_in_reviewer",
+    "respect_actual_rental_expiration"
+  ]
+}
