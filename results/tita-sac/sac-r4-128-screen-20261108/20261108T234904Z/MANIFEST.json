@@ -1,0 +1,1559 @@
+{
+  "snapshot_utc": "20261108T234904Z",
+  "controller": {
+    "plan_id": "SAC-R4-128-SCREEN-20261108",
+    "status": "completed",
+    "completed_round": 4,
+    "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
+    "active_job": null,
+    "heartbeat_utc": "2026-11-08T23:48:38.976432+00:00",
+    "last_decision": "extra-2.decision.json",
+    "extra_chunks_completed": 2,
+    "final_validation": {
+      "selection_path": "final-selection.json",
+      "candidates": {
+        "primary": {
+          "model_path": "arms/D2-1001/model-learning-936.pt",
+          "model_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+          "stages": {
+            "standard": {
+              "status": "failed",
+              "cases": [
+                {
+                  "execution": "D",
+                  "eval_seed": 201,
+                  "steps_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-201/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-201/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-201/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-201/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.5472729066877389,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.2735330354759935,
+                        "vx_mae": 0.052967577021336185,
+                        "wz_mae": 0.05512467564025428,
+                        "wz": -0.0048301676922710614,
+                        "abs_wz": 0.05512467564025428,
+                        "speed": 0.2748006216924498,
+                        "height": 0.29728754580020905
+                      },
+                      "reverse": {
+                        "vx": -0.27021070692688226,
+                        "vx_mae": 0.04158070411533117,
+                        "wz_mae": 0.05479752719256794,
+                        "wz": 0.03545733496634057,
+                        "abs_wz": 0.05479752719256794,
+                        "speed": 0.2707206844374501,
+                        "height": 0.31013927191495894
+                      },
+                      "stop1": {
+                        "vx": -0.054757113410159944,
+                        "vx_mae": 0.054757113410159944,
+                        "wz_mae": 0.04995911650476046,
+                        "wz": 0.03927953764912672,
+                        "abs_wz": 0.04995911650476046,
+                        "speed": 0.05629628148812779,
+                        "height": 0.3035560858249664
+                      },
+                      "stop2": {
+                        "vx": -0.027031364091672002,
+                        "vx_mae": 0.02715330764185637,
+                        "wz_mae": 0.03961436442565173,
+                        "wz": 0.0138055833382532,
+                        "abs_wz": 0.03961436442565173,
+                        "speed": 0.02958483251473282,
+                        "height": 0.30492657124996186
+                      },
+                      "height": {
+                        "vx": 0.0008172199465334416,
+                        "vx_mae": 0.04750210025254637,
+                        "wz_mae": 0.0536041266793618,
+                        "wz": 0.013978131762356497,
+                        "abs_wz": 0.0536041266793618,
+                        "speed": 0.22863683288232037,
+                        "height": 0.30391132056713105
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 114.6010111381093,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 202,
+                  "steps_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-202/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-202/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-202/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-202/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 1.010609183152554,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.20026938306866213,
+                        "vx_mae": 0.09973062885226681,
+                        "wz_mae": 0.06431258740602061,
+                        "wz": -0.000297493995167315,
+                        "abs_wz": 0.06431258740602061,
+                        "speed": 0.20509487849117433,
+                        "height": 0.30649059295654296
+                      },
+                      "reverse": {
+                        "vx": -0.22061575133353473,
+                        "vx_mae": 0.08476917903870344,
+                        "wz_mae": 0.08322498778114096,
+                        "wz": 0.07299660483608023,
+                        "abs_wz": 0.08322498778114096,
+                        "speed": 0.22227867518600097,
+                        "height": 0.3079210141301155
+                      },
+                      "stop1": {
+                        "vx": -0.0863939118385315,
+                        "vx_mae": 0.0863939118385315,
+                        "wz_mae": 0.06469307695049792,
+                        "wz": 0.0431691676331684,
+                        "abs_wz": 0.06469307695049792,
+                        "speed": 0.08789598157245163,
+                        "height": 0.3085135895013809
+                      },
+                      "stop2": {
+                        "vx": -0.08983303636312484,
+                        "vx_mae": 0.08983303636312484,
+                        "wz_mae": 0.13253843734040857,
+                        "wz": 0.12792520118877293,
+                        "abs_wz": 0.13253843734040857,
+                        "speed": 0.09465434799721423,
+                        "height": 0.30888128638267515
+                      },
+                      "height": {
+                        "vx": -0.018333779678912834,
+                        "vx_mae": 0.09091953194956295,
+                        "wz_mae": 0.08320225524436682,
+                        "wz": 0.05200601690448821,
+                        "abs_wz": 0.08320225524436682,
+                        "speed": 0.18881077797184784,
+                        "height": 0.3078089547157288
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 127.68161864931818,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 203,
+                  "steps_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-203/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-203/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-203/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-D-203/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.6327019038518658,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.3000322552956641,
+                        "vx_mae": 0.032064394112676385,
+                        "wz_mae": 0.08097598016436677,
+                        "wz": -0.016929189838119783,
+                        "abs_wz": 0.08097598016436677,
+                        "speed": 0.3006972181100827,
+                        "height": 0.2860542845726013
+                      },
+                      "reverse": {
+                        "vx": -0.2302461336553097,
+                        "vx_mae": 0.06994503185153007,
+                        "wz_mae": 0.07665250333535369,
+                        "wz": 0.0055742182272661015,
+                        "abs_wz": 0.07665250333535369,
+                        "speed": 0.23058396315108026,
+                        "height": 0.29608624696731567
+                      },
+                      "stop1": {
+                        "vx": -0.039128852770663795,
+                        "vx_mae": 0.03920589355286211,
+                        "wz_mae": 0.0840674859425053,
+                        "wz": 0.07465331314597279,
+                        "abs_wz": 0.0840674859425053,
+                        "speed": 0.03973501974346923,
+                        "height": 0.29776414632797243
+                      },
+                      "stop2": {
+                        "vx": -0.05529569092206657,
+                        "vx_mae": 0.05529569092206657,
+                        "wz_mae": 0.06565602836664766,
+                        "wz": 0.053839290901087224,
+                        "abs_wz": 0.06565602836664766,
+                        "speed": 0.0562421427721934,
+                        "height": 0.2988759481906891
+                      },
+                      "height": {
+                        "vx": 0.02581999136536615,
+                        "vx_mae": 0.05564628815621836,
+                        "wz_mae": 0.08044900934811448,
+                        "wz": 0.006112252237217035,
+                        "abs_wz": 0.08044900934811448,
+                        "speed": 0.2277332795950282,
+                        "height": 0.29242828202247617
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 125.0149954162081,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 201,
+                  "steps_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-201/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-201/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-201/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-201/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.5976851658799165,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.26129037550184875,
+                        "vx_mae": 0.056404976635240016,
+                        "wz_mae": 0.06593071820156184,
+                        "wz": 0.007597993920207955,
+                        "abs_wz": 0.06593071820156184,
+                        "speed": 0.26369611241020297,
+                        "height": 0.2954379257559776
+                      },
+                      "reverse": {
+                        "vx": -0.26962472658604386,
+                        "vx_mae": 0.04860009837895632,
+                        "wz_mae": 0.06245686975948047,
+                        "wz": 0.022720181785407478,
+                        "abs_wz": 0.06245686975948047,
+                        "speed": 0.27024088615062014,
+                        "height": 0.30953714564442636
+                      },
+                      "stop1": {
+                        "vx": -0.05633871268481016,
+                        "vx_mae": 0.05633871268481016,
+                        "wz_mae": 0.053026982345618305,
+                        "wz": 0.027658853731118142,
+                        "abs_wz": 0.053026982345618305,
+                        "speed": 0.059927730743523665,
+                        "height": 0.3022850054502487
+                      },
+                      "stop2": {
+                        "vx": -0.02478772261645645,
+                        "vx_mae": 0.025789093640632928,
+                        "wz_mae": 0.0499289227463305,
+                        "wz": 0.02543008912354708,
+                        "abs_wz": 0.0499289227463305,
+                        "speed": 0.03156854172286364,
+                        "height": 0.30493357181549074
+                      },
+                      "height": {
+                        "vx": -0.004847330625634641,
+                        "vx_mae": 0.05131817207345739,
+                        "wz_mae": 0.06297129122400656,
+                        "wz": 0.016186748615466057,
+                        "abs_wz": 0.06297129122400656,
+                        "speed": 0.22395905042478903,
+                        "height": 0.30284617680311204
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 133.6156330015417,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 202,
+                  "steps_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-202/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-202/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-202/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-202/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 1.1833047207058698,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.22948430779390036,
+                        "vx_mae": 0.07066475269384682,
+                        "wz_mae": 0.07131657231366262,
+                        "wz": 0.01668097800342366,
+                        "abs_wz": 0.07131657231366262,
+                        "speed": 0.2346254501971204,
+                        "height": 0.3049504737555981
+                      },
+                      "reverse": {
+                        "vx": -0.20190682157874107,
+                        "vx_mae": 0.09809319034218789,
+                        "wz_mae": 0.09155298738041892,
+                        "wz": 0.07183981914306059,
+                        "abs_wz": 0.09155298738041892,
+                        "speed": 0.20347666883955948,
+                        "height": 0.30693529337644576
+                      },
+                      "stop1": {
+                        "vx": -0.08099591590464116,
+                        "vx_mae": 0.08099591590464116,
+                        "wz_mae": 0.1097806567326188,
+                        "wz": 0.09171087514609098,
+                        "abs_wz": 0.1097806567326188,
+                        "speed": 0.08291193916783075,
+                        "height": 0.3068449729681015
+                      },
+                      "stop2": {
+                        "vx": -0.12722435891628264,
+                        "vx_mae": 0.12722435891628264,
+                        "wz_mae": 0.16500532254576683,
+                        "wz": 0.16158488586544992,
+                        "abs_wz": 0.16500532254576683,
+                        "speed": 0.13074953602709186,
+                        "height": 0.3062698495388031
+                      },
+                      "height": {
+                        "vx": -0.0034273543781600893,
+                        "vx_mae": 0.08989632391696796,
+                        "wz_mae": 0.09198333238717168,
+                        "wz": 0.06026959577482194,
+                        "abs_wz": 0.09198333238717168,
+                        "speed": 0.19827280501209776,
+                        "height": 0.3062697784304619
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 141.2054588040259,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 203,
+                  "steps_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-203/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-203/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-203/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d/primary/standard-S-203/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.6670784369977162,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.2989913132158108,
+                        "vx_mae": 0.03452943033305928,
+                        "wz_mae": 0.08776158138934989,
+                        "wz": -0.015228718008729629,
+                        "abs_wz": 0.08776158138934989,
+                        "speed": 0.2999001400519978,
+                        "height": 0.2876728142797947
+                      },
+                      "reverse": {
+                        "vx": -0.2276942978799343,
+                        "vx_mae": 0.07249422982335091,
+                        "wz_mae": 0.08589338130375836,
+                        "wz": 0.007795320025761612,
+                        "abs_wz": 0.08589338130375836,
+                        "speed": 0.2283723999313773,
+                        "height": 0.2963028338551521
+                      },
+                      "stop1": {
+                        "vx": -0.0468254479020834,
+                        "vx_mae": 0.0468254479020834,
+                        "wz_mae": 0.09408022299408912,
+                        "wz": 0.07495998620986938,
+                        "abs_wz": 0.09408022299408912,
+                        "speed": 0.04924588068980849,
+                        "height": 0.2987156081199646
+                      },
+                      "stop2": {
+                        "vx": -0.05239322802983224,
+                        "vx_mae": 0.0526124242413789,
+                        "wz_mae": 0.07859421104192733,
+                        "wz": 0.05208010785281658,
+                        "abs_wz": 0.07859421104192733,
+                        "speed": 0.05623133647547755,
+                        "height": 0.29887828588485715
+                      },
+                      "height": {
+                        "vx": 0.02668661671318114,
+                        "vx_mae": 0.05721565910056233,
+                        "wz_mae": 0.08776808130461723,
+                        "wz": 0.006203875547274947,
+                        "abs_wz": 0.08776808130461723,
+                        "speed": 0.22654682884075483,
+                        "height": 0.29321356004476545
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 140.9711312059506,
+                    "recovery_delay_s": null
+                  }
+                }
+              ]
+            },
+            "turn": {
+              "status": "not_run",
+              "cases": []
+            },
+            "pulse": {
+              "status": "not_run",
+              "cases": []
+            }
+          },
+          "passed": false
+        },
+        "secondary": {
+          "model_path": "arms/D2-1002/model-learning-864.pt",
+          "model_sha256": "d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46",
+          "stages": {
+            "standard": {
+              "status": "failed",
+              "cases": [
+                {
+                  "execution": "D",
+                  "eval_seed": 301,
+                  "steps_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-301/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-301/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-301/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-301/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 1.224371872128589,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.3911160969734192,
+                        "vx_mae": 0.09865039020776749,
+                        "wz_mae": 0.11405086181068327,
+                        "wz": -0.0769172975589754,
+                        "abs_wz": 0.11405086181068327,
+                        "speed": 0.39194755220386257,
+                        "height": 0.31434783712029457
+                      },
+                      "reverse": {
+                        "vx": -0.21333124086260796,
+                        "vx_mae": 0.08882136687636376,
+                        "wz_mae": 0.07127908546754043,
+                        "wz": -0.01777803543416667,
+                        "abs_wz": 0.07127908546754043,
+                        "speed": 0.21462222925080815,
+                        "height": 0.3196111398935318
+                      },
+                      "stop1": {
+                        "vx": 0.09294314835220575,
+                        "vx_mae": 0.1131870722398162,
+                        "wz_mae": 0.1494136723689735,
+                        "wz": -0.1276062629185617,
+                        "abs_wz": 0.1494136723689735,
+                        "speed": 0.13577193488628445,
+                        "height": 0.3121834844350815
+                      },
+                      "stop2": {
+                        "vx": 0.12686256870627402,
+                        "vx_mae": 0.12687308356165886,
+                        "wz_mae": 0.08957312946673483,
+                        "wz": -0.05066653786692768,
+                        "abs_wz": 0.08957312946673483,
+                        "speed": 0.13034401472531146,
+                        "height": 0.31671183347702025
+                      },
+                      "height": {
+                        "vx": 0.09385108553804457,
+                        "vx_mae": 0.1013997553307563,
+                        "wz_mae": 0.09282218421337893,
+                        "wz": -0.0481653142272844,
+                        "abs_wz": 0.09282218421337893,
+                        "speed": 0.27021523334555775,
+                        "height": 0.31651411694288256
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 144.62139707164394,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 302,
+                  "steps_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-302/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-302/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-302/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-302/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.6932438511057311,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.3473612303286791,
+                        "vx_mae": 0.08455961786210536,
+                        "wz_mae": 0.10291484395740554,
+                        "wz": -0.08757312939036638,
+                        "abs_wz": 0.10291484395740554,
+                        "speed": 0.34910794412079255,
+                        "height": 0.32566302016377446
+                      },
+                      "reverse": {
+                        "vx": -0.2802616924606264,
+                        "vx_mae": 0.03669256264343858,
+                        "wz_mae": 0.08985936675220728,
+                        "wz": -0.0809922011452727,
+                        "abs_wz": 0.08985936675220728,
+                        "speed": 0.28176609592870655,
+                        "height": 0.32800638899207113
+                      },
+                      "stop1": {
+                        "vx": 0.0493212466686964,
+                        "vx_mae": 0.05584494940936566,
+                        "wz_mae": 0.05433151948731393,
+                        "wz": -0.024929634849540888,
+                        "abs_wz": 0.05433151948731393,
+                        "speed": 0.06143446567314968,
+                        "height": 0.3350703054666519
+                      },
+                      "stop2": {
+                        "vx": 0.04801351733505726,
+                        "vx_mae": 0.04801351733505726,
+                        "wz_mae": 0.07370994594879449,
+                        "wz": -0.058395972056314346,
+                        "abs_wz": 0.07370994594879449,
+                        "speed": 0.051144487711807664,
+                        "height": 0.33427214026451113
+                      },
+                      "height": {
+                        "vx": 0.037538503807969394,
+                        "vx_mae": 0.06234010700602084,
+                        "wz_mae": 0.09267852109065279,
+                        "wz": -0.07602724622795358,
+                        "abs_wz": 0.09267852109065279,
+                        "speed": 0.2672564281106611,
+                        "height": 0.3275328958034515
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 149.21160810376333,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 303,
+                  "steps_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-303/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-303/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-303/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-D-303/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.8288170125797005,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.28592597480863335,
+                        "vx_mae": 0.044433866478502754,
+                        "wz_mae": 0.10615550613263622,
+                        "wz": -0.10398085632594302,
+                        "abs_wz": 0.10615550613263622,
+                        "speed": 0.28800400174477353,
+                        "height": 0.3408657601475716
+                      },
+                      "reverse": {
+                        "vx": -0.3748603695631027,
+                        "vx_mae": 0.09828809052705764,
+                        "wz_mae": 0.13715791221009568,
+                        "wz": 0.12052575960056856,
+                        "abs_wz": 0.13715791221009568,
+                        "speed": 0.3763898894465102,
+                        "height": 0.329143917709589
+                      },
+                      "stop1": {
+                        "vx": -0.08875002086162567,
+                        "vx_mae": 0.08875002086162567,
+                        "wz_mae": 0.039918297463445926,
+                        "wz": 0.004957622336805798,
+                        "abs_wz": 0.039918297463445926,
+                        "speed": 0.08977832487582953,
+                        "height": 0.3421716809272766
+                      },
+                      "stop2": {
+                        "vx": -0.04179912195540965,
+                        "vx_mae": 0.04314801391214132,
+                        "wz_mae": 0.047201678165001794,
+                        "wz": -0.004585488169686869,
+                        "abs_wz": 0.047201678165001794,
+                        "speed": 0.046187605890721434,
+                        "height": 0.3465833115577698
+                      },
+                      "height": {
+                        "vx": -0.0378452492300421,
+                        "vx_mae": 0.06994481894467026,
+                        "wz_mae": 0.1083440460799029,
+                        "wz": 0.006034823811962269,
+                        "abs_wz": 0.1083440460799029,
+                        "speed": 0.27959626589466485,
+                        "height": 0.3372861642241478
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 160.21997825971778,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 301,
+                  "steps_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-301/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-301/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-301/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-301/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 1.1991687052143951,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.3774372543394566,
+                        "vx_mae": 0.08078166678547859,
+                        "wz_mae": 0.10508407808374613,
+                        "wz": -0.05999697518767789,
+                        "abs_wz": 0.10508407808374613,
+                        "speed": 0.3781698344881683,
+                        "height": 0.3125417460501194
+                      },
+                      "reverse": {
+                        "vx": -0.23146929575130343,
+                        "vx_mae": 0.07329510794952512,
+                        "wz_mae": 0.08211920862202532,
+                        "wz": -0.02011263543390669,
+                        "abs_wz": 0.08211920862202532,
+                        "speed": 0.23267567279770923,
+                        "height": 0.3223459231853485
+                      },
+                      "stop1": {
+                        "vx": 0.11414289528504014,
+                        "vx_mae": 0.12001133376732469,
+                        "wz_mae": 0.17380164285190403,
+                        "wz": -0.1563172519672662,
+                        "abs_wz": 0.17380164285190403,
+                        "speed": 0.13516888888533218,
+                        "height": 0.3085149347782135
+                      },
+                      "stop2": {
+                        "vx": 0.11945254171267151,
+                        "vx_mae": 0.11950112031772733,
+                        "wz_mae": 0.08728111506905406,
+                        "wz": -0.057250697598792616,
+                        "abs_wz": 0.08728111506905406,
+                        "speed": 0.12254380065042567,
+                        "height": 0.3191984677314758
+                      },
+                      "height": {
+                        "vx": 0.08040976351499557,
+                        "vx_mae": 0.08528696371242404,
+                        "wz_mae": 0.09337364752404392,
+                        "wz": -0.042646589398384095,
+                        "abs_wz": 0.09337364752404392,
+                        "speed": 0.2695824832149004,
+                        "height": 0.3172923200726509
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 154.7820010096556,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 302,
+                  "steps_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-302/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-302/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-302/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-302/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.6792249134108224,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.335846212990582,
+                        "vx_mae": 0.06531334143131971,
+                        "wz_mae": 0.11133998368342873,
+                        "wz": -0.09614301147928928,
+                        "abs_wz": 0.11133998368342873,
+                        "speed": 0.3376795544671831,
+                        "height": 0.3277866910398006
+                      },
+                      "reverse": {
+                        "vx": -0.2968313898332417,
+                        "vx_mae": 0.0412688840739429,
+                        "wz_mae": 0.08681779404985718,
+                        "wz": -0.05870559541159309,
+                        "abs_wz": 0.08681779404985718,
+                        "speed": 0.29871197263629407,
+                        "height": 0.3309422381222248
+                      },
+                      "stop1": {
+                        "vx": 0.029036754991393535,
+                        "vx_mae": 0.04865782317938283,
+                        "wz_mae": 0.06937739338725805,
+                        "wz": -0.029351848289370538,
+                        "abs_wz": 0.06937739338725805,
+                        "speed": 0.06196500468975365,
+                        "height": 0.33388286411762236
+                      },
+                      "stop2": {
+                        "vx": 0.04446045681834221,
+                        "vx_mae": 0.04446045681834221,
+                        "wz_mae": 0.07855428418144583,
+                        "wz": -0.05737602660432458,
+                        "abs_wz": 0.07855428418144583,
+                        "speed": 0.049359268492125165,
+                        "height": 0.3348142671585083
+                      },
+                      "height": {
+                        "vx": 0.029512927652336658,
+                        "vx_mae": 0.05705384552385658,
+                        "wz_mae": 0.09429074861179106,
+                        "wz": -0.07001615249668248,
+                        "abs_wz": 0.09429074861179106,
+                        "speed": 0.2708871052277672,
+                        "height": 0.3300114732980728
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 157.5305156291576,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 303,
+                  "steps_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-303/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-303/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-303/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46/secondary/standard-S-303/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.8466001049908328,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.2873568672104739,
+                        "vx_mae": 0.04488117216387764,
+                        "wz_mae": 0.10582451081834733,
+                        "wz": -0.10188439885154367,
+                        "abs_wz": 0.10582451081834733,
+                        "speed": 0.2895927200032938,
+                        "height": 0.3413133814930916
+                      },
+                      "reverse": {
+                        "vx": -0.37602402323507705,
+                        "vx_mae": 0.10096570467925631,
+                        "wz_mae": 0.13411214819090675,
+                        "wz": 0.11350035254872637,
+                        "abs_wz": 0.13411214819090675,
+                        "speed": 0.3782647834154575,
+                        "height": 0.32898778304457665
+                      },
+                      "stop1": {
+                        "vx": -0.08821695029735566,
+                        "vx_mae": 0.08821695029735566,
+                        "wz_mae": 0.05053921381244436,
+                        "wz": 0.010411013455595822,
+                        "abs_wz": 0.05053921381244436,
+                        "speed": 0.08946083649999687,
+                        "height": 0.34319003760814665
+                      },
+                      "stop2": {
+                        "vx": -0.03636037453077733,
+                        "vx_mae": 0.03890626269392669,
+                        "wz_mae": 0.054406438699516,
+                        "wz": -0.005903614374401514,
+                        "abs_wz": 0.054406438699516,
+                        "speed": 0.04297764781357154,
+                        "height": 0.34684050023555757
+                      },
+                      "height": {
+                        "vx": -0.03731252618646249,
+                        "vx_mae": 0.07098940141545608,
+                        "wz_mae": 0.10776094215529156,
+                        "wz": 0.0028305703689984513,
+                        "abs_wz": 0.10776094215529156,
+                        "speed": 0.2808841970090044,
+                        "height": 0.3374447792172432
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 174.83183892890003,
+                    "recovery_delay_s": null
+                  }
+                }
+              ]
+            },
+            "turn": {
+              "status": "not_run",
+              "cases": []
+            },
+            "pulse": {
+              "status": "not_run",
+              "cases": []
+            }
+          },
+          "passed": false
+        }
+      }
+    },
+    "archive": {
+      "archive_path": "archive-20261109-074809/evidence.zip",
+      "archive_sha256": "3497a2e0ba1056916a1b6b9ff9b1c7ae166e3843cec5c4609fcb80a21619b6f0",
+      "parts": [
+        {
+          "path": "archive-20261109-074809/evidence.zip.part001",
+          "bytes": 24000000,
+          "sha256": "0daf95c6fcbbcfac2dff59f9c2fa3080b0ee0cf86754ac366224e52ed2fa09a4"
+        },
+        {
+          "path": "archive-20261109-074809/evidence.zip.part002",
+          "bytes": 24000000,
+          "sha256": "ee75afaf84d1e6caea252ee755330b41571bf9fa10306a302c01cf61edba5a8a"
+        },
+        {
+          "path": "archive-20261109-074809/evidence.zip.part003",
+          "bytes": 24000000,
+          "sha256": "9f82475ab0cf73682db85c6b992ec9c8d110b24bb2e913d3869e6b45f6712cfb"
+        },
+        {
+          "path": "archive-20261109-074809/evidence.zip.part004",
+          "bytes": 24000000,
+          "sha256": "d82b99310d739876ff72d300f1e06a7ca966377155dcaf7237e6b74bbc8246a0"
+        },
+        {
+          "path": "archive-20261109-074809/evidence.zip.part005",
+          "bytes": 24000000,
+          "sha256": "9c9b27ed2499d8961746ef8ccb5afc93db972f51ed07f824791337c2a3f29dce"
+        },
+        {
+          "path": "archive-20261109-074809/evidence.zip.part006",
+          "bytes": 24000000,
+          "sha256": "9235769d851060b1d814da8edbf4176f46121a23885c014705c39e04bc089a79"
+        },
+        {
+          "path": "archive-20261109-074809/evidence.zip.part007",
+          "bytes": 24000000,
+          "sha256": "81214deadcd070816bced9eda3f9d61de136bcb3d0aee182808257ea737013e4"
+        },
+        {
+          "path": "archive-20261109-074809/evidence.zip.part008",
+          "bytes": 5034931,
+          "sha256": "8a288a5097e6425856fae01bb2d695e39a6f4c3179fef6531e7b16c3e2f3075b"
+        }
+      ],
+      "local_verified": true,
+      "external_backup": false,
+      "pending_backup_models": [
+        {
+          "path": "preflight/model-learning-64.pt",
+          "bytes": 9167475,
+          "sha256": "a6aba8aedc01b9fa2076e3056dd8205b136e1dcbb1159b1bbb387d48682f5529",
+          "external_backup": false
+        },
+        {
+          "path": "preflight/latest-fullresume.pt",
+          "bytes": 216135765,
+          "sha256": "a9e3d022065262e9d72ebeafe2d8f9d25896fac684c376b1e37e534c3c71901c",
+          "external_backup": false
+        },
+        {
+          "path": "preflight/parent-R20.pt",
+          "bytes": 9153975,
+          "sha256": "9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D5-1002/latest-fullresume.pt",
+          "bytes": 216135829,
+          "sha256": "0daced2e160fe091617e1575ce6c3a267dcb69d62d4414d5174a32a3dada9531",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D5-1002/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "68b10f4846c8f2c4f7fb18e7785676c94e7433921222bf393d1f87b4c0c2ac1e",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1002/model-learning-576.pt",
+          "bytes": 9167539,
+          "sha256": "f8e792bc249584c4aace7928386adf9d9740ab62bf333adb9ac0649fe853afb3",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1002/latest-fullresume.pt",
+          "bytes": 216135829,
+          "sha256": "9bf2522ae56beb25d849a4f6665bd85ae897675925d33723867d618e433cd24e",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1002/model-learning-360.pt",
+          "bytes": 9167539,
+          "sha256": "e76c1e99bc10dab309501e9353e0eca7a01c50dc623df27730f2ea82c687556d",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1002/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "811c56cbd3a5f7c46d646b524dd8f13e6a245da9c86755150eb6eacaefd4b743",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D1-1002/latest-fullresume.pt",
+          "bytes": 216135829,
+          "sha256": "afcd26996004c07ec8e7c93c37333eb0a56835566b4aaaa08562a43cf6c47f5c",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D1-1002/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "320d1bce4d028b3486f456ec3e0d0acb12a4e8a848312cfec4d396539af777e1",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1001/model-learning-936.pt",
+          "bytes": 9167475,
+          "sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1001/model-learning-1008.pt",
+          "bytes": 9167475,
+          "sha256": "b991fd353b642f6ad3a2e6d1ddb5a39a23973ecbf17cfe634f2b19736459f1b1",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1001/model-learning-576.pt",
+          "bytes": 9167475,
+          "sha256": "11e7f2363baa1537cd4470124f796e5144ae8078171a57bafacc41c1e7276832",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1001/latest-fullresume.pt",
+          "bytes": 216135829,
+          "sha256": "14673ec24fdee5132be164c1d0f8b3d52c7f80630d1d6c46317fea883a3e07f3",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1001/model-learning-864.pt",
+          "bytes": 9167475,
+          "sha256": "2cb13fe1e8f20597c36cbf5c639ce9332e035f82e3cef8fd70caf81eda4bb66d",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1001/model-learning-360.pt",
+          "bytes": 9167475,
+          "sha256": "605979f5e58759783d76d5056319375897d6209fb7b5d7fcaca42a8cacfd3d65",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1001/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "cd278797bb098f860764821a588f3e228f0a72bc370a49e89339e37d0bc20828",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D1-1001/latest-fullresume.pt",
+          "bytes": 216135765,
+          "sha256": "3981dc83309896341c70d591c7e110c29f70e68e406f5d3222fff423876250ee",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D1-1001/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "239b762521e54a5bb264cfd9e54d84d15a53a8a92a0b33c454799fd3ba891fe7",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D0-1002/latest-fullresume.pt",
+          "bytes": 216135829,
+          "sha256": "f802af4c3da5d3f8083b94c29ad77722391e0dc3914307fe40545a4cf9ca0e13",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D0-1002/model-learning-360.pt",
+          "bytes": 9167539,
+          "sha256": "85cd316f00184cabba62a4451da9a833d0413bb1e326c3da50e92eee3faab01a",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D0-1002/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "c93c08039b8519dee0f5f8cdd26dc8441add4bff618b9373ce577fe5cb9b680e",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D5-1001/latest-fullresume.pt",
+          "bytes": 216135765,
+          "sha256": "b53b2ab5683fcb2b492ae3409a3de7c2e30ad5a326c98f83cf3c5c22913b7778",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D5-1001/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "0aff66afc3202b0e74dfd3eed35b072dc9df5eb671d0f39312285fe6c20a4e8f",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1002/model-learning-936.pt",
+          "bytes": 9167539,
+          "sha256": "8f7a4e3957a37d54a89944566c3a7329e27afea4b4fe2069b1e3934cfbde8ed3",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1002/model-learning-1008.pt",
+          "bytes": 9167539,
+          "sha256": "c35a3b84dd4fd814d8bca42a074d13ef72ceb55b95be423551f5466bd8342df2",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1002/model-learning-576.pt",
+          "bytes": 9167539,
+          "sha256": "1c4e2e22428f770bd57be98d3eae9faff6b082a24972f52bf926fc208fb10489",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1002/latest-fullresume.pt",
+          "bytes": 216135829,
+          "sha256": "7a1b8fa86342d688054c05f81d365cd42ffee719a13a07c8278ef345aca1d003",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1002/model-learning-864.pt",
+          "bytes": 9167539,
+          "sha256": "d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1002/model-learning-360.pt",
+          "bytes": 9167539,
+          "sha256": "b43bc100df8843e8eed6f59e0e306f8e2471e0b0a491444f6407cd42ca530ec0",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D2-1002/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "05cc952f414db296f257371d8c3e6c9cfe318c3e951a23ce0868ecc87b795794",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D4-1001/latest-fullresume.pt",
+          "bytes": 216135765,
+          "sha256": "2285548f2e2fb5049dea09bf9f22410a1bdb8dfa9efc94e9e1f25d24d0de886e",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D4-1001/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "f091b4c3f6adf13ac548886e20aba3b9e91a998e3f709865a3342676fc405a4a",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D4-1002/latest-fullresume.pt",
+          "bytes": 216135829,
+          "sha256": "e3c9e897c2b86ea9e69a910b85d3e3dff30b6ea324bf3e0e23c21da5da6a8851",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D4-1002/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "1a6274b681351f89940572030a4f55a6f0c81fd7877d6f2700e93f37a3f88c80",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1001/model-learning-576.pt",
+          "bytes": 9167475,
+          "sha256": "fd33aaddc19e933967fcda3e9fc1323ea682c9ce303202c2f29877d3dd1ca448",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1001/latest-fullresume.pt",
+          "bytes": 216135765,
+          "sha256": "41d14213a12cabd99a17536923d71c0d3b868c2fc11c1acc18a42fd8afbe028c",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1001/model-learning-360.pt",
+          "bytes": 9167475,
+          "sha256": "228a82a0c7fc6017bdc0845e684d3d8a0c454a051fc1967144a72789ba5f165f",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D3-1001/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "f9c5f43a9fdb8521ed4588de0a2c68d853c830e403e44dc3bce8475176523016",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D0-1001/latest-fullresume.pt",
+          "bytes": 216135765,
+          "sha256": "19f11315cd1fbcff05ead5ecc83880213f38e171ec3e0164dfc3e13d34bb63fe",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D0-1001/model-learning-360.pt",
+          "bytes": 9167475,
+          "sha256": "af9a63af1cc502ae53c7435a7dcb3c967e14126cdf9ea1ed83801dc9a4efce2b",
+          "external_backup": false
+        },
+        {
+          "path": "arms/D0-1001/model-learning-144.pt",
+          "bytes": 9167475,
+          "sha256": "66a16e8d95dd536a93718194002684f5d0ed258adde0bf2e857223a11f7ce622",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration952-fullresume-68becdf61dcc9e93.pt",
+          "bytes": 216135829,
+          "sha256": "68becdf61dcc9e93d4993aa597e78a5727f9bb773cb5d9c5629899ee49bc3caf",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D5-1001-iteration160-fullresume-b53b2ab5683fcb2b.pt",
+          "bytes": 216135765,
+          "sha256": "b53b2ab5683fcb2b492ae3409a3de7c2e30ad5a326c98f83cf3c5c22913b7778",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration952-model-6129fdcd53192c66.pt",
+          "bytes": 9167475,
+          "sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration160-fullresume-7d1398a34501a6d8.pt",
+          "bytes": 216135765,
+          "sha256": "7d1398a34501a6d853c24d60b4b42a9c2e657be94569eb45560e2e511d64f268",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1001-iteration160-fullresume-374b074b8c553dd1.pt",
+          "bytes": 216135765,
+          "sha256": "374b074b8c553dd15ecebbb4c9f141d40ab4b7cf1f7aca01a374e5bf56ccdf60",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration952-model-8f7a4e3957a37d54.pt",
+          "bytes": 9167539,
+          "sha256": "8f7a4e3957a37d54a89944566c3a7329e27afea4b4fe2069b1e3934cfbde8ed3",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration376-model-605979f5e5875978.pt",
+          "bytes": 9167475,
+          "sha256": "605979f5e58759783d76d5056319375897d6209fb7b5d7fcaca42a8cacfd3d65",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration592-model-1c4e2e22428f770b.pt",
+          "bytes": 9167539,
+          "sha256": "1c4e2e22428f770bd57be98d3eae9faff6b082a24972f52bf926fc208fb10489",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D4-1001-iteration160-model-f091b4c3f6adf13a.pt",
+          "bytes": 9167475,
+          "sha256": "f091b4c3f6adf13ac548886e20aba3b9e91a998e3f709865a3342676fc405a4a",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D5-1002-iteration160-model-68b10f4846c8f2c4.pt",
+          "bytes": 9167475,
+          "sha256": "68b10f4846c8f2c4f7fb18e7785676c94e7433921222bf393d1f87b4c0c2ac1e",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration1024-model-c35a3b84dd4fd814.pt",
+          "bytes": 9167539,
+          "sha256": "c35a3b84dd4fd814d8bca42a074d13ef72ceb55b95be423551f5466bd8342df2",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1002-iteration376-fullresume-f802af4c3da5d3f8.pt",
+          "bytes": 216135829,
+          "sha256": "f802af4c3da5d3f8083b94c29ad77722391e0dc3914307fe40545a4cf9ca0e13",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration880-model-d5ba7344c768a514.pt",
+          "bytes": 9167539,
+          "sha256": "d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D1-1002-iteration160-model-320d1bce4d028b34.pt",
+          "bytes": 9167475,
+          "sha256": "320d1bce4d028b3486f456ec3e0d0acb12a4e8a848312cfec4d396539af777e1",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1002-iteration376-model-85cd316f00184cab.pt",
+          "bytes": 9167539,
+          "sha256": "85cd316f00184cabba62a4451da9a833d0413bb1e326c3da50e92eee3faab01a",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration592-fullresume-e9c01c24ab49ed76.pt",
+          "bytes": 216135829,
+          "sha256": "e9c01c24ab49ed76d9694780ae6ccc05b25b5d22f32442520e0e72d899ddaa49",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration880-fullresume-bcb2a9c4501960f2.pt",
+          "bytes": 216135829,
+          "sha256": "bcb2a9c4501960f2e9b3c7c7dfd19d334cbaf498b70896fbd66a92656f71d19a",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration592-model-11e7f2363baa1537.pt",
+          "bytes": 9167475,
+          "sha256": "11e7f2363baa1537cd4470124f796e5144ae8078171a57bafacc41c1e7276832",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1002-iteration592-fullresume-9bf2522ae56beb25.pt",
+          "bytes": 216135829,
+          "sha256": "9bf2522ae56beb25d849a4f6665bd85ae897675925d33723867d618e433cd24e",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1002-iteration160-model-811c56cbd3a5f7c4.pt",
+          "bytes": 9167475,
+          "sha256": "811c56cbd3a5f7c46d646b524dd8f13e6a245da9c86755150eb6eacaefd4b743",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1002-iteration160-model-c93c08039b8519de.pt",
+          "bytes": 9167475,
+          "sha256": "c93c08039b8519dee0f5f8cdd26dc8441add4bff618b9373ce577fe5cb9b680e",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration376-fullresume-c688765e3ade7760.pt",
+          "bytes": 216135829,
+          "sha256": "c688765e3ade776027fc559e8a648274419e5426f340a1a73eedaeae2d4bab6c",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D1-1001-iteration160-fullresume-3981dc8330989634.pt",
+          "bytes": 216135765,
+          "sha256": "3981dc83309896341c70d591c7e110c29f70e68e406f5d3222fff423876250ee",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D1-1002-iteration160-fullresume-afcd26996004c07e.pt",
+          "bytes": 216135829,
+          "sha256": "afcd26996004c07ec8e7c93c37333eb0a56835566b4aaaa08562a43cf6c47f5c",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1001-iteration160-fullresume-6d0a314aa0dabbc8.pt",
+          "bytes": 216135765,
+          "sha256": "6d0a314aa0dabbc8ab489b9c638bb0b79d21dd7ba9be9139c017eacdee8ad46a",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1001-iteration592-fullresume-41d14213a12cabd9.pt",
+          "bytes": 216135765,
+          "sha256": "41d14213a12cabd99a17536923d71c0d3b868c2fc11c1acc18a42fd8afbe028c",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration160-model-05cc952f414db296.pt",
+          "bytes": 9167475,
+          "sha256": "05cc952f414db296f257371d8c3e6c9cfe318c3e951a23ce0868ecc87b795794",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration592-fullresume-a74abe6b257b108b.pt",
+          "bytes": 216135829,
+          "sha256": "a74abe6b257b108b337ba3e5a9e1eeb3bb37038fcec2b1e0b0bdc1883f20a169",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1002-iteration160-fullresume-4fdb38ec0f93ff8a.pt",
+          "bytes": 216135829,
+          "sha256": "4fdb38ec0f93ff8ac2deafe8527b329e973e7545d9d5af843b5bd623e312338e",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1001-iteration160-model-f9c5f43a9fdb8521.pt",
+          "bytes": 9167475,
+          "sha256": "f9c5f43a9fdb8521ed4588de0a2c68d853c830e403e44dc3bce8475176523016",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration160-model-cd278797bb098f86.pt",
+          "bytes": 9167475,
+          "sha256": "cd278797bb098f860764821a588f3e228f0a72bc370a49e89339e37d0bc20828",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration376-model-b43bc100df8843e8.pt",
+          "bytes": 9167539,
+          "sha256": "b43bc100df8843e8eed6f59e0e306f8e2471e0b0a491444f6407cd42ca530ec0",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1001-iteration376-fullresume-19f11315cd1fbcff.pt",
+          "bytes": 216135765,
+          "sha256": "19f11315cd1fbcff05ead5ecc83880213f38e171ec3e0164dfc3e13d34bb63fe",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration376-fullresume-3dee1a9f0106b4ac.pt",
+          "bytes": 216135765,
+          "sha256": "3dee1a9f0106b4ac905e735a5ab9383f900f50d5d389e0d37a982cfeff3b101a",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1001-iteration376-fullresume-114abeb13c186312.pt",
+          "bytes": 216135765,
+          "sha256": "114abeb13c18631261177720982b6fa8d67f37d2229b2bd6853c9bbbd386f2f4",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1002-iteration160-fullresume-c985d9441655945b.pt",
+          "bytes": 216135829,
+          "sha256": "c985d9441655945b58172e12f067c8e9b85998f9590ffd4a5b59e770c3d9b493",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D1-1001-iteration160-model-239b762521e54a5b.pt",
+          "bytes": 9167475,
+          "sha256": "239b762521e54a5bb264cfd9e54d84d15a53a8a92a0b33c454799fd3ba891fe7",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D4-1002-iteration160-model-1a6274b681351f89.pt",
+          "bytes": 9167475,
+          "sha256": "1a6274b681351f89940572030a4f55a6f0c81fd7877d6f2700e93f37a3f88c80",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D5-1001-iteration160-model-0aff66afc3202b0e.pt",
+          "bytes": 9167475,
+          "sha256": "0aff66afc3202b0e74dfd3eed35b072dc9df5eb671d0f39312285fe6c20a4e8f",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1002-iteration376-fullresume-162ede46dac36ddf.pt",
+          "bytes": 216135829,
+          "sha256": "162ede46dac36ddfce4c16b056ec4e785c7159375056c21bd7f6f814bc9a8236",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1002-iteration376-model-e76c1e99bc10dab3.pt",
+          "bytes": 9167539,
+          "sha256": "e76c1e99bc10dab309501e9353e0eca7a01c50dc623df27730f2ea82c687556d",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1002-iteration592-model-f8e792bc249584c4.pt",
+          "bytes": 9167539,
+          "sha256": "f8e792bc249584c4aace7928386adf9d9740ab62bf333adb9ac0649fe853afb3",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D4-1001-iteration160-fullresume-2285548f2e2fb504.pt",
+          "bytes": 216135765,
+          "sha256": "2285548f2e2fb5049dea09bf9f22410a1bdb8dfa9efc94e9e1f25d24d0de886e",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1001-iteration376-model-228a82a0c7fc6017.pt",
+          "bytes": 9167475,
+          "sha256": "228a82a0c7fc6017bdc0845e684d3d8a0c454a051fc1967144a72789ba5f165f",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D5-1002-iteration160-fullresume-0daced2e160fe091.pt",
+          "bytes": 216135829,
+          "sha256": "0daced2e160fe091617e1575ce6c3a267dcb69d62d4414d5174a32a3dada9531",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D4-1002-iteration160-fullresume-e3c9e897c2b86ea9.pt",
+          "bytes": 216135829,
+          "sha256": "e3c9e897c2b86ea9e69a910b85d3e3dff30b6ea324bf3e0e23c21da5da6a8851",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1001-iteration592-model-fd33aaddc19e9339.pt",
+          "bytes": 9167475,
+          "sha256": "fd33aaddc19e933967fcda3e9fc1323ea682c9ce303202c2f29877d3dd1ca448",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D3-1002-iteration160-fullresume-2bbe9030b481d3c2.pt",
+          "bytes": 216135829,
+          "sha256": "2bbe9030b481d3c2f5eba1d8e77e55bd3588b0ccb8333390a2f96801f8c27a23",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration1024-model-b991fd353b642f6a.pt",
+          "bytes": 9167475,
+          "sha256": "b991fd353b642f6ad3a2e6d1ddb5a39a23973ecbf17cfe634f2b19736459f1b1",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1001-iteration160-model-66a16e8d95dd536a.pt",
+          "bytes": 9167475,
+          "sha256": "66a16e8d95dd536a93718194002684f5d0ed258adde0bf2e857223a11f7ce622",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration1024-fullresume-14673ec24fdee513.pt",
+          "bytes": 216135829,
+          "sha256": "14673ec24fdee5132be164c1d0f8b3d52c7f80630d1d6c46317fea883a3e07f3",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D0-1001-iteration376-model-af9a63af1cc502ae.pt",
+          "bytes": 9167475,
+          "sha256": "af9a63af1cc502ae53c7435a7dcb3c967e14126cdf9ea1ed83801dc9a4efce2b",
+          "external_backup": false
+        },
+        {
+          "path": "model-backup/staging/D2-1001-iteration880-model-2cb13fe1e8f20597.pt",
+          "bytes": 9167475,
+          "sha256": "2cb13fe1e8f20597c36cbf5c639ce9332e035f82e3cef8fd70caf81eda4bb66d",
+          "external_backup": false
+        },
+        {
+          "path": "calibration-extension/model-learning-80.pt",
+          "bytes": 9167475,
+          "sha256": "a419cf5c480d7d27b15cb16a9c4ac4c066847c22da7bb194c22a16bbd60db62f",
+          "external_backup": false
+        },
+        {
+          "path": "calibration-extension/latest-fullresume.pt",
+          "bytes": 216135765,
+          "sha256": "e3ba667e9c6839c4ebd4ddac55e0b0f89bcbac6fc3cae4bcf2936fd9e5a2d763",
+          "external_backup": false
+        }
+      ],
+      "note": "External backup must be separately pushed and remote-verified; local archive is not external backup."
+    },
+    "finished_utc": "2026-11-08T23:48:48.981977+00:00"
+  },
+  "evidence_sha256": "be40d1ccb503a471e9d24d4a37c743c812c512166cfa965f13046f6fcb303e60",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "a09a7d32b3a6817f9363a69c99e4e4c2a605aef77e3f9d021f4af931a545ec30"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 24000000,
+      "sha256": "267b826085e9d2c6dbf4e585c5a188429b62a0bdd516b39f191af94cc9d92de1"
+    },
+    {
+      "file": "evidence.zip.part003",
+      "bytes": 24000000,
+      "sha256": "9e1ae8d77c76aa99ab949634efef3f86c4b672c55dd1e0f91177c6a58dd08a81"
+    },
+    {
+      "file": "evidence.zip.part004",
+      "bytes": 24000000,
+      "sha256": "85adfc6df33ed6f669b67f12c6b3fb3a478d41aa76f48e1a72e75b5992ee7337"
+    },
+    {
+      "file": "evidence.zip.part005",
+      "bytes": 24000000,
+      "sha256": "851e85875016214709515f3ced1499ce875cd1c700a1e5f2c18fdb8a94e5e327"
+    },
+    {
+      "file": "evidence.zip.part006",
+      "bytes": 24000000,
+      "sha256": "bcd733dbf75038f758cf02f1652a98361344f95cb2b69589f1053ed0bcfb3b9b"
+    },
+    {
+      "file": "evidence.zip.part007",
+      "bytes": 24000000,
+      "sha256": "ae0d67df9705e2620b95435ea2186a6e014d2e44913e0307e8301dfb1e3f3188"
+    },
+    {
+      "file": "evidence.zip.part008",
+      "bytes": 4907217,
+      "sha256": "09cf937a36323ca0786d11a20b2fe7b3dca45e604694b9125c6da85f2ad73b70"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
