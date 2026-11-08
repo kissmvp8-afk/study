@@ -1,5 +1,16 @@
 # T02 · 采集与学习调度｜人类阅读版
 
+## SAC-R1-20261107 有界设备适配
+
+仍复用原 SAC 与辅助学习更新公式/顺序，不建立第二套算法。`Trainer.device` 来自 T01；六组网络在优化器构造前迁移。CPU 原始回放记录先按原 D03 计算 n 步，再经 `to_learning_device(value, device)` 递归搬运数据类张量；历史顺序、bool mask、int64 编号、float32 数据均不转换 dtype。D04 统计仍在 CPU，只读归一化按输入设备运算。
+
+采集仅把策略历史送学习设备，Actor 动作有限性检查后转 CPU，E05 再送仿真。三条流依然独立：`collect`/`learn` 在学习设备，`replay` 在 CPU；不保证 CPU/CUDA 同 seed 产生相同噪声。N03 直接在对应设备抽样。回放学习不更新统计，编码器梯度隔离保持不变。新增即时非有限日志检查，Critic 日志保留 Q 与目标均值/极值供诊断。
+
+`device_validation.py --device cpu|cuda:0 --output-json PATH` 检查固定批次/显式噪声的动作、密度、多步目标（rtol/atol 3e-4）、正确模块更新、编码器隔离、带池保存恢复和下一次回放更新一致。CUDA 不可用时报告 `cuda_compared=false`，绝不作为 GPU 验证。`validate_device_parity(trainer, source)` 可作用于真实 Isaac warmup 池，使用独立验证抽样器，不消耗三条训练随机流。对纯截断末状态的完整语义还需现有 E05/D03 检查；抽样报告不能保证恰好覆盖每种终止。
+
+本地仅执行 Python 编译/文档检查，未安装 Torch，CPU/CUDA 数值和真实仿真均须由现有服务器环境执行上述命令及短训练确认。外部本轮入口 `tools/train_sac_r1.py` 对每轮调用 `train(1)`；128 轮 warmup 包含在8192总轮数，16×8采集、每学习轮16 Critic+16辅助更新、Actor每2次。它将模型里程碑与最多一个带池恢复点分开，记录预算、精确计数、内容指纹、每轮 CSV/JSONL，失败标志在 Isaac 关闭之前写盘。
+
+
 [AI 实施规范](README.md) · [返回大模块人类版](../README_HUMAN.md) · [项目维护规则](../../README.md#项目维护规则)
 
 | 字段 | 当前内容 |

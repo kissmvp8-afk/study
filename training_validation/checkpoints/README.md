@@ -1,5 +1,12 @@
 # T03 · 训练进度保存与恢复｜AI 实施规范
 
+## SAC-R1-20261107 同设备恢复与 CPU 读回
+
+检查点格式仍为 v1，学习配置（包括设备）必须一致。`restore_checkpoint` / `load_checkpoint_config` 使用 `torch.load(..., map_location="cpu", weights_only=True)`：先把所有存储读到 CPU，再由已定位的模块和优化器加载到其配置设备；统计和经验池保持 CPU，生成器状态保持 CPU ByteTensor。这样 CUDA 文件也可安全读配置/供 CPU 推理取权重，不等于允许跨设备精确续训。
+
+三条生成器仍保存/恢复；CUDA 训练时 collect/learn 属于 CUDA、replay 属于 CPU，跨设备随机流不是同一序列。本轮 T02 `device_validation.py` 提供同设备更新后保存、读回、再更新的针对性检查。本地只编译通过，未执行 Torch，不把 CPU 历史证据当成新增 CUDA 验证。SAC-R1 外部入口另在原子保存后读回核对格式与计数并记 SHA-256；里程碑不含池，最多一个最终带池恢复文件，不保存仿真现场。
+
+
 状态：单元验证通过（CPU、假环境）。已实现 [checkpoint.py](checkpoint.py) 与 [test_checkpoint.py](test_checkpoint.py)，10 项检查通过；只支持按检查点原有学习配置恢复；不保存仿真现场。
 
 [人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)

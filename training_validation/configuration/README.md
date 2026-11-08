@@ -1,5 +1,12 @@
 # T01 · 版本、依赖与训练配置｜AI 实施规范
 
+## SAC-R1-20261107 设备扩展（本地未执行 Torch）
+
+`RunConfig.device` 现在可为 `cpu` 或 `cuda[:index]`，只指学习器。`validate_configuration(for_run=True)` 对不可用 CUDA/越界设备报错，不隐式回退；其他后端拒绝。`for_run=False` 可记录尚未执行的 CUDA 配置。CPU 仍是默认值，E01 原启动入口仍默认 CPU。
+
+T02 已补齐网络、学习批次与动作的显式搬运，不能仅凭字符串断言 GPU 验证通过。经验池留在 CPU，仿真设备另存 `environment.sim_device`。新增针对性验证在 T02 `device_validation.py`，实际服务器结果应单独归档；这里没有把历史 CPU 结果改写为新 GPU 通过证据。`test_invalid_combinations` 的非法后端改为 `meta`，不再依赖机器是否有 CUDA。
+
+
 状态：单元验证通过（CPU）。已实现 [config.py](config.py) 与 [test_config.py](test_config.py)，9 项检查通过；`isaac_config` 本身仍有未确定项、不能直接运行，由 E01 用运行时元数据与用户设置填齐（尚未在 Isaac 中运行）。
 
 [人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
@@ -50,7 +57,7 @@
 | `cpu_debug_config(seed=0)` | 名称 `cpu-debug-fake-env`，模式 `cpu_debug` | 论文候选的算法值 + 缩小规模（3 环境、每轮 8 步、容量 64、批 16）+ **人工限位**，只用于假环境 |
 | `isaac_config(task="isaac_flat" \| "isaac_rough")` | 名称 `isaac_flat-sac` / `isaac_rough-sac`，模式 `isaac_sim` | q_dim、关节软限位、工作轮速、每轮采集步数、容量都为 None（未确定）；学习器 `device="cpu"`；`environment` 记录资产提交 e7b32d9，`sim_device` 为 None（创建环境时由 E01 填写）。E01 `fill_isaac_run_config` 用运行时值与用户设置填齐后才能运行 |
 | `undetermined_fields` | `(config) -> list[str]` | 值为 None 的字段路径 |
-| `validate_configuration` | `(config, for_run=True) -> None` | 检查来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置、**学习器设备必须为 `cpu`**（只实现了 CPU 学习器，改字符串不等于支持 GPU）、速度标签列与 q_dim、n_steps ≤ 容量；`for_run=True` 时拒绝未确定项 |
+| `validate_configuration` | `(config, for_run=True) -> None` | 检查来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置、**学习器设备为 `cpu` 或可用 `cuda[:index]`**（见 SAC-R1 设备扩展）、速度标签列与 q_dim、n_steps ≤ 容量；`for_run=True` 时拒绝未确定项 |
 | `estimate_memory` | `(config, q_dim=None, capacity_per_env=None) -> dict` | 按 D01 字段形状与 dtype 估算 D02 经验池：总字节数与按字段降序的分项；未确定时必须显式给出场景值。**范围只含经验池张量** |
 | `check_memory_budget` | `(estimate, available_bytes) -> None` | 超出预算时报错并指出占用最多的字段，不自动缩小规模 |
 | `version_report` | `(repo_root) -> dict` | git 提交、是否有已跟踪文件的改动、Python 与 torch 版本、UPSTREAM.json 中的 PPO / SAC 来源与资产版本（e7b32d9） |

@@ -33,7 +33,7 @@ from __future__ import annotations
 
 import math
 import sys
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, fields, is_dataclass
 from pathlib import Path
 
 import torch
@@ -67,6 +67,15 @@ from targets import soft_update, soft_update_due  # noqa: E402
 from temperature import Temperature, current_alpha, make_temperature_optimizer, target_entropy, update_temperature  # noqa: E402
 
 
+def to_learning_device(value, device):
+    """仅搬运批次张量，保持数据类、历史顺序、mask 与 dtype，不修改 CPU 经验池。"""
+    if isinstance(value, torch.Tensor):
+        return value.to(device=device)
+    if is_dataclass(value):
+        return type(value)(**{f.name: to_learning_device(getattr(value, f.name), device) for f in fields(value)})
+    return value
+
+
 @dataclass
 class TrainingCounters:
     """训练进度的分项计数；全部保存在 T03 检查点中。"""
@@ -98,6 +107,7 @@ class Trainer:
     def __init__(self, config: RunConfig, env, contract=None) -> None:
         validate_configuration(config)
         self.config, self.env = config, env
+        self.device = torch.device(config.device)
         a, n, c, t = config.algorithm, config.network, config.collection, config.task
         if env.num_envs != c.num_envs or env.q_dim != t.q_dim:
             raise ValueError(f"环境 ({env.num_envs} 个, C={env.q_dim}) 与配置 ({c.num_envs} 个, C={t.q_dim}) 不符")
@@ -115,6 +125,9 @@ class Trainer:
         self.critics = TwinQ(t.q_dim, hidden_dims=n.critic_hidden_dims)
         self.targets = initialize_targets(self.critics)
         self.temperature = Temperature(a.initial_alpha)
+        # 在构造优化器之前迁移参数和缓冲，优化器绑定正确设备的参数。
+        for name in ("encoder", "projector", "actor", "critics", "targets", "temperature"):
+            getattr(self, name).to(self.device)
         self.optimizers = {
             "critic": make_critic_optimizer(self.critics, lr=a.critic_lr),
             "actor": make_actor_optimizer(self.actor, lr=a.actor_lr),
@@ -122,7 +135,7 @@ class Trainer:
             "auxiliary": make_auxiliary_optimizer(self.encoder, self.projector, lr=a.auxiliary_lr),
         }
         # 三个独立的随机数生成器：采集、回放抽样、学习中的采样（N05 尾部动作与 Actor/alpha 采样）。
-        self.generators = {name: torch.Generator().manual_seed(config.seed + offset)
+        self.generators = {name: torch.Generator(device="cpu" if name == "replay" else self.device).manual_seed(config.seed + offset)
                            for offset, name in enumerate(("collect", "replay", "learn"), start=1)}
         self.counters = TrainingCounters()
         self.observation = env.reset()
@@ -138,8 +151,11 @@ class Trainer:
         for _ in range(num_steps):
             obs = self.observation
             with torch.no_grad():
-                features = features_from_history(self.encoder, self.normalizers, obs.policy_history)
+                features = features_from_history(self.encoder, self.normalizers, obs.policy_history.to(self.device))
                 action, _ = self.actor.sample_action_and_log_prob(features, generator=self.generators["collect"])
+            if not bool(torch.isfinite(action).all()):
+                raise FloatingPointError("采集动作出现非有限数值，未提交到仿真")
+            action = action.cpu()  # E05 与 D01/D02 保持 CPU 契约；E05 再送至仿真设备。
             step = self.env.step(action)
             batch = make_transition({
                 "policy_history": obs.policy_history, "next_policy_history": step.next_policy_history,
@@ -173,12 +189,16 @@ class Trainer:
             update_index = self.counters.critic_updates  # 本次更新之前已完成的 Critic 更新数（作者 update_step）
             env_ids, slots = self.buffer.sample_starts(a.batch_size, a.n_steps, generator=self.generators["replay"])
             batch = build_n_step_batch(self.buffer.read_sequence(env_ids, slots, a.n_steps), a.gamma, a.n_steps)
+            batch = to_learning_device(batch, self.device)
             target = compute_target(batch, self.encoder, self.actor, self.targets, self.normalizers,
                                     current_alpha(self.temperature), generator=self.generators["learn"])
             critic_log = update_critics(self.critics, self.optimizers["critic"], batch, target, self.normalizers, a.max_grad_norm)
+            if not all(math.isfinite(v) for v in critic_log.values()):
+                raise FloatingPointError(f"Critic 更新出现非有限数值：{critic_log}")
             self.counters.critic_updates += 1
             self.counters.replay_samples += a.batch_size
-            logs.setdefault("critic_loss", []).append(critic_log["critic_loss"])
+            for key, value in critic_log.items():
+                logs.setdefault(key, []).append(value)
             logs.setdefault("discount_max", []).append(batch.discount.max().item())
 
             # 在当前状态上只采样一次；alpha 与 Actor 都使用这次采样。
@@ -188,11 +208,15 @@ class Trainer:
             if update_index % a.alpha_update_every == 0:
                 alpha_log = update_temperature(self.temperature, self.optimizers["alpha"], log_prob,
                                                self.target_entropy.action_coordinate)
+                if not all(math.isfinite(v) for v in alpha_log.values()):
+                    raise FloatingPointError(f"alpha 更新出现非有限数值：{alpha_log}")
                 self.counters.alpha_updates += 1
                 logs.setdefault("alpha", []).append(alpha_log["alpha"])
             if update_index % a.actor_update_every == 0:
                 # Actor 损失在 alpha 更新之后组装，因此使用的是新 alpha（作者顺序）。
                 loss = compute_actor_loss(self.critics, q_input, action, log_prob, current_alpha(self.temperature))
+                if not bool(torch.isfinite(loss)):
+                    raise FloatingPointError("Actor 损失出现非有限数值")
                 update_actor(self.actor, self.optimizers["actor"], loss, a.max_grad_norm)
                 self.counters.actor_updates += 1
                 logs.setdefault("actor_loss", []).append(loss.item())
@@ -210,10 +234,13 @@ class Trainer:
             return {"skipped": True, "valid_samples": 0}
         env_ids, slots = self.buffer.sample_starts(a.auxiliary_batch_size, 1, generator=self.generators["replay"])
         first = self.buffer.read_sequence(env_ids, slots, 1).at(torch.zeros_like(env_ids))
+        first = to_learning_device(first, self.device)
         windows = split_windows(self.normalizers.normalize_policy(first.policy_history))
         start, end = t.velocity_label_columns
         report = update_encoder(self.encoder, self.projector, self.optimizers["auxiliary"], windows,
                                 first.history_length, first.q_observation[:, start:end], a.max_grad_norm)
+        if not all(math.isfinite(v) for v in report.values() if isinstance(v, float)):
+            raise FloatingPointError(f"辅助更新出现非有限数值：{report}")
         if report["skipped"]:
             self.counters.auxiliary_skipped += 1
         else:

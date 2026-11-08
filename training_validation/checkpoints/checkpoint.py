@@ -134,7 +134,7 @@ def restore_checkpoint(trainer, path: Path) -> ResumeReport:
     不兼容时抛 CheckpointError。
     """
     try:
-        state = torch.load(Path(path), weights_only=True)
+        state = torch.load(Path(path), map_location="cpu", weights_only=True)
     except Exception as exc:  # 非张量 / 基本类型内容（任意 pickle）也在这里被拒绝
         raise CheckpointError(f"无法以 weights_only 方式读取 {path}：{exc}") from exc
     if not isinstance(state, dict) or state.get("format") != CHECKPOINT_FORMAT:
@@ -193,7 +193,7 @@ def describe_resume_mode(report: ResumeReport) -> str:
 
 def load_checkpoint_config(path: Path):
     """只读取检查点中的生效配置（便于按原配置重建 Trainer 后再恢复）。"""
-    state = torch.load(Path(path), weights_only=True)
+    state = torch.load(Path(path), map_location="cpu", weights_only=True)
     if not isinstance(state, dict) or state.get("format") != CHECKPOINT_FORMAT:
         raise CheckpointError("不是 TITA SAC 检查点")
     return config_from_dict(state["config"])

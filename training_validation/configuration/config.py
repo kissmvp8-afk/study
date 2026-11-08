@@ -240,7 +240,7 @@ def undetermined_fields(config: RunConfig) -> list[str]:
 
 
 def validate_configuration(config: RunConfig, for_run: bool = True) -> None:
-    """检查配置：来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置、学习器设备为 CPU；for_run=True 时拒绝未确定项。
+    """检查配置：来源齐全、数值范围、模式与任务一致、人工限位不进入仿真配置、学习器设备为 CPU 或可用 CUDA；for_run=True 时拒绝未确定项。
 
     异常：ConfigurationError，列出全部问题。
     """
@@ -266,9 +266,18 @@ def validate_configuration(config: RunConfig, for_run: bool = True) -> None:
             problems.append("isaac_sim 模式必须使用 isaac_flat 或 isaac_rough")
         if t.action_limits_artificial:
             problems.append("人工限位不能用于 Isaac 仿真配置")
-    if config.device != "cpu":
-        # 只改设备字符串并不会让网络与经验池在 GPU 上正确运行，因此在实现并验证 GPU 学习器之前拒绝其他设备。
-        problems.append(f"device={config.device!r}：学习器只实现了 CPU 版本，必须为 'cpu'")
+    # T02 显式搬运网络、学习批次与动作；D02 经验池始终留在 CPU。
+    try:
+        learner_device = torch.device(config.device)
+        if learner_device.type not in ("cpu", "cuda"):
+            problems.append("学习器只支持 cpu 或 cuda")
+        elif learner_device.type == "cuda" and for_run:
+            if not torch.cuda.is_available():
+                problems.append("请求 CUDA 学习器，但 CUDA 不可用；不自动伪装为 CPU")
+            elif learner_device.index is not None and learner_device.index >= torch.cuda.device_count():
+                problems.append("请求的 CUDA 设备编号不存在")
+    except (RuntimeError, ValueError):
+        problems.append(f"无效学习器设备 {config.device!r}")
     if t.velocity_label_columns[1] - t.velocity_label_columns[0] != 3:
         problems.append("速度标签必须是 3 列")
     if t.q_dim is not None and t.velocity_label_columns[1] > t.q_dim:

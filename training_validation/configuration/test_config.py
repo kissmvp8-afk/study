@@ -84,7 +84,7 @@ class PresetTest(unittest.TestCase):
             (replace(debug, task=replace(debug.task, velocity_label_columns=(4, 7))), "超出 q_dim"),
             (replace(debug, sources={k: v for k, v in debug.sources.items() if k != "algorithm.tau"}), "algorithm.tau 缺少来源"),
             (replace(debug, mode="isaac_sim"), "isaac_flat 或 isaac_rough"),
-            (replace(debug, device="cuda"), "学习器只实现了 CPU 版本"),  # 改字符串不等于支持 GPU
+            (replace(debug, device="meta"), "学习器只支持 cpu 或 cuda"),  # 拒绝未实现的后端
         ]
         for config, pattern in cases:
             with self.subTest(pattern=pattern), self.assertRaisesRegex(ConfigurationError, pattern):

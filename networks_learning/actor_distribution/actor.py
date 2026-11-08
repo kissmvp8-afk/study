@@ -114,7 +114,7 @@ class SquashedGaussianActor(nn.Module):
         """
         mean, log_std = self.distribution_parameters(features)
         if noise is None:
-            noise = torch.randn(mean.shape, generator=generator, dtype=mean.dtype).to(mean.device)
+            noise = torch.randn(mean.shape, generator=generator, dtype=mean.dtype, device=mean.device)
         return squash_and_log_prob(mean, log_std, noise, self.center, self.half_width)
 
     def deterministic_action(self, features: torch.Tensor) -> torch.Tensor:

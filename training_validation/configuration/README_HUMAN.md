@@ -1,5 +1,12 @@
 # T01 · 版本、依赖与训练配置｜人类阅读版
 
+## SAC-R1-20261107 设备扩展（本地未执行 Torch）
+
+`RunConfig.device` 现在可为 `cpu` 或 `cuda[:index]`，只指学习器。`validate_configuration(for_run=True)` 对不可用 CUDA/越界设备报错，不隐式回退；其他后端拒绝。`for_run=False` 可记录尚未执行的 CUDA 配置。CPU 仍是默认值，E01 原启动入口仍默认 CPU。
+
+T02 已补齐网络、学习批次与动作的显式搬运，不能仅凭字符串断言 GPU 验证通过。经验池留在 CPU，仿真设备另存 `environment.sim_device`。新增针对性验证在 T02 `device_validation.py`，实际服务器结果应单独归档；这里没有把历史 CPU 结果改写为新 GPU 通过证据。`test_invalid_combinations` 的非法后端改为 `meta`，不再依赖机器是否有 CUDA。
+
+
 [AI 实施规范](README.md) · [返回大模块人类版](../README_HUMAN.md) · [项目维护规则](../../README.md#项目维护规则)
 
 | 字段 | 当前内容 |
@@ -53,13 +60,13 @@ Actor 是生成动作的策略网络；Q 网络估计给定状态与动作的未
 
 速度标签列 `(0,3)` 表示左闭右开三列。原 PPO 的身体线速度观测乘过 2.0，标签因此不是直接的 m/s；Isaac 接入时仍需 E02 确认列顺序。位置目标单位 rad，轮速目标单位 rad/s，策略动作本身无物理单位。`initial_targets=None` 明确表示使用 E03 默认目标，不能当作“忘填配置”。
 
-`RunConfig.device` 明确指学习器设备，当前只能为 `cpu`，`validate_configuration` 对其他字符串报错。E01 的 `--device` 则指仿真设备，记在 `environment["sim_device"]`；E05 搬运数据连接两者。仿真用 GPU 不代表网络和经验池在 GPU 上学习。
+`RunConfig.device` 明确指学习器设备，现在支持 `cpu` 或可用 `cuda[:index]`，`validate_configuration` 对其他后端或不可用设备报错。E01 的 `--device` 则指仿真设备，记在 `environment["sim_device"]`；E05 搬运数据连接两者。仿真用 GPU 不代表网络和经验池在 GPU 上学习。
 
 ## `config.py` 的函数与关键计算
 
 - `cpu_debug_config(seed)` 返回可执行的 CPU 人工流程配置；`isaac_config(task, seed)` 返回 `isaac_flat` 或 `isaac_rough` 的待补齐配置。未知任务抛 `ConfigurationError`，两者不启动训练。
 - `_field_paths(config)` 列出需说明来源的字段（不含 `name/mode/environment/sources`，人工标记也不单列来源）；`undetermined_fields(config)` 返回其中值为 `None` 的路径，排除有明确语义的 `task.initial_targets`。
-- `validate_configuration(config, for_run=True)` 返回 `None` 或抛异常。它检查来源、折扣/比例/频率/正值、模式与任务、人工限位、学习器设备必须为 cpu、三列标签和 `n_steps≤K`。`for_run=False` 允许保存未确定的规划配置；`True` 还拒绝未确定项。它不是完整的物理配置验收器。
+- `validate_configuration(config, for_run=True)` 返回 `None` 或抛异常。它检查来源、折扣/比例/频率/正值、模式与任务、人工限位、学习器设备合法且可用、三列标签和 `n_steps≤K`。`for_run=False` 允许保存未确定的规划配置；`True` 还拒绝未确定项。它不是完整的物理配置验收器。
 - `estimate_memory(config, q_dim=None, capacity_per_env=None)` 返回记录数、C、K、总字节与降序字段明细；两个可选参数只用于明确估算场景，不修改配置。
 - `check_memory_budget(estimate, available_bytes)` 超预算时指出最大字段并报错，不自动缩小实验，以免记录的规模与实际运行不符。
 

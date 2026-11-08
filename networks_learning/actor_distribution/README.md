@@ -1,5 +1,12 @@
 # N03 · SAC 动作分布｜AI 实施规范
 
+## SAC-R1-20261107 采样设备
+
+无显式 `noise` 时，`sample_action_and_log_prob` 现在直接在 `features` 所在设备生成标准正态噪声；传入 `generator` 必须属于同一设备。原式先在 CPU 抽样再 `.to(mean.device)` 无法接收 CUDA 生成器，已修正。显式噪声、Actor 特征和参数须在同一设备；动作变换、密度、边界与初始化公式未变。
+
+CPU/CUDA 比较必须给相同显式噪声，不能要求不同设备生成器同 seed 输出逐位一致。T02 `device_validation.py` 覆盖该路径及真实 warmup 批次调用；本地仅编译，未执行 Torch 数值或 GPU 检查。历史验收表不代表本轮新测试通过。
+
+
 状态：单元验证通过（CPU、人工数据）。已实现 [actor.py](actor.py) 与 [test_actor.py](test_actor.py)，7 项检查通过；未接入仿真或训练。
 
 [人类讲解](README_HUMAN.md) · [返回大模块](../README.md) · [返回总说明](../../README.md) · [维护规则](../../README.md#项目维护规则)
