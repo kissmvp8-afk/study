@@ -1,0 +1,42 @@
+{
+  "snapshot_utc": "20261108T201532Z",
+  "controller": {
+    "plan_id": "SAC-R4-128-SCREEN-20261108",
+    "status": "running",
+    "completed_round": 1,
+    "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
+    "active_job": "r2-D0-1002",
+    "heartbeat_utc": "2026-11-08T20:15:31.504621+00:00",
+    "last_decision": "round-1.decision.json"
+  },
+  "evidence_sha256": "07fb4061e0c7ed5d39c57fb6af656e764b4e164feb162223264d7f833041a696",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "e0304c4b5c5b86407a475443ce1710704f12a1ef4d593eb28b05e3bddaf9e925"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 24000000,
+      "sha256": "e6c2d21708745aaa081f7537e2de110a5b8679c7065a89d3bac2f8e6c27c2916"
+    },
+    {
+      "file": "evidence.zip.part003",
+      "bytes": 24000000,
+      "sha256": "6bdde96a8931c9ddb3758a414857c3ebde4fdc99cb8c65010b2e10c2042a63e7"
+    },
+    {
+      "file": "evidence.zip.part004",
+      "bytes": 24000000,
+      "sha256": "91bf7323f88f8a49d3b7b5afc8374634573bacdf5a7fbd109326cee1d51cff8e"
+    },
+    {
+      "file": "evidence.zip.part005",
+      "bytes": 266925,
+      "sha256": "b4b11f3339d7b9f576604e6678917ae281e0006a44045126e73f501d7c530758"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
