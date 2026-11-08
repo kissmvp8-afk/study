@@ -1,0 +1,58 @@
+{
+  "snapshot_utc": "20261108T234532Z",
+  "controller": {
+    "plan_id": "SAC-R4-128-SCREEN-20261108",
+    "status": "running",
+    "completed_round": 4,
+    "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
+    "active_job": "final-validation",
+    "heartbeat_utc": "2026-11-08T23:45:28.931053+00:00",
+    "last_decision": "extra-2.decision.json",
+    "extra_chunks_completed": 2
+  },
+  "evidence_sha256": "41e64008640e8e3e36002c56ee50658074241d2269f8f1945318cccb22575de3",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "acefc18598ef64475418020747662d0d7ee1cd66aac1786aea6a254f6b26d0a3"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 24000000,
+      "sha256": "4f7924bad8bf7feb2b01e1c186a726bd8341872cdeeb9c182d96f7d8b1129812"
+    },
+    {
+      "file": "evidence.zip.part003",
+      "bytes": 24000000,
+      "sha256": "bacec6220cfb352fb69f462f3209f7b6c97dcc16744e2f3526d961a3a703c33c"
+    },
+    {
+      "file": "evidence.zip.part004",
+      "bytes": 24000000,
+      "sha256": "f476d4f333817407b9e443773e82f4d64e3d5f35e81c7d5df59d48f1b90ef652"
+    },
+    {
+      "file": "evidence.zip.part005",
+      "bytes": 24000000,
+      "sha256": "a4b1dde3bc8e06c2fb50bbe5ad7f6d6a5dec7dd46fdf561b090a05959c160dbe"
+    },
+    {
+      "file": "evidence.zip.part006",
+      "bytes": 24000000,
+      "sha256": "2d3b8f67b55d3863b268f00742c794f9a247b998be5de582a1d686370d5d1b49"
+    },
+    {
+      "file": "evidence.zip.part007",
+      "bytes": 24000000,
+      "sha256": "929b3fbd08a0ff413fa56e469c20923e25f3bf94db67d92979d30601e1753698"
+    },
+    {
+      "file": "evidence.zip.part008",
+      "bytes": 2379152,
+      "sha256": "77eeeba0825aaf7422610ea56c69d6ae39bb23af9dab4ba17282d8bfe6667f43"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
