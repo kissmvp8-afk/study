@@ -1,29 +1,29 @@
 {
-  "snapshot_utc": "20261108T181532Z",
+  "snapshot_utc": "20261108T184532Z",
   "controller": {
     "plan_id": "SAC-R4-128-SCREEN-20261108",
     "status": "running",
     "completed_round": 0,
     "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
-    "active_job": "r1-D4-1002",
-    "heartbeat_utc": "2026-11-08T18:15:26.496071+00:00"
+    "active_job": "r1-D5-1002",
+    "heartbeat_utc": "2026-11-08T18:45:26.752930+00:00"
   },
-  "evidence_sha256": "cde3334df1ec0900f87ed8aef593d27bb436571e5b1cbb0e0b5ef233ab7dd456",
+  "evidence_sha256": "925e2d9360b96d80b9b721d64d9d5fb0790d87a2fddcc2ed233f1a0cc1147442",
   "parts": [
     {
       "file": "evidence.zip.part001",
       "bytes": 24000000,
-      "sha256": "5b702c1a71ecae76f052b50426516652955a7150bc966fc6730fa2173c6190b4"
+      "sha256": "438a8a14a3ae4fe81fc62c75cb830426b4eb529630ff051fdcbac1bdd26663d4"
     },
     {
       "file": "evidence.zip.part002",
       "bytes": 24000000,
-      "sha256": "41abf445ed5a0b77f7b62c6770e6086e8682ddb9ad99fac0b1841de2a11bf6fb"
+      "sha256": "5f1198492ef359cda67afad8bdd9a7891149841679c206413bdf586c78e7fd85"
     },
     {
       "file": "evidence.zip.part003",
-      "bytes": 7937549,
-      "sha256": "34f1f432bc4c4591eab8799ac4ecf3efe8ae296808c05c7d807cc8bc098f0a64"
+      "bytes": 18478886,
+      "sha256": "7dd9ffc861d481864d92c7578994bd0cbd890f26b7bf1b4d48414944b9d75520"
     }
   ],
   "model_weights_included": false,
