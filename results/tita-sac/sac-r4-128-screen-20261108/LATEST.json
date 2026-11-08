@@ -1,45 +1,50 @@
 {
-  "snapshot_utc": "20261108T221532Z",
+  "snapshot_utc": "20261108T224532Z",
   "controller": {
     "plan_id": "SAC-R4-128-SCREEN-20261108",
     "status": "running",
     "completed_round": 3,
     "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
-    "active_job": "r4-D2-1002",
-    "heartbeat_utc": "2026-11-08T22:15:25.973627+00:00",
+    "active_job": "r4-D2-1001",
+    "heartbeat_utc": "2026-11-08T22:45:26.230182+00:00",
     "last_decision": "round-3.decision.json"
   },
-  "evidence_sha256": "5f57bac84d02b474a2f19b586f5fe667c24f29560d467ac7ca8b39626ae9f6af",
+  "evidence_sha256": "2a0546d4a67a87416d92694f4628dafe94f62ef96c052fbe2103a9ce0570efbc",
   "parts": [
     {
       "file": "evidence.zip.part001",
       "bytes": 24000000,
-      "sha256": "a883d0b31aca28946792bfb0f19ba09fd0efffff8af0a989274eb8e1db8a7500"
+      "sha256": "27f2bf46b93a5bb64b1da13cd54a8f0c99834dee4287de16e19411e9ca176fcc"
     },
     {
       "file": "evidence.zip.part002",
       "bytes": 24000000,
-      "sha256": "f369684ba2cb3c4be8322daeb634563a406ed3c7d12589602feab1e1ffddc50f"
+      "sha256": "9ae8aee3d9da068807763e9092f5f4a183069240ef2b1993c86f89846bcb15d9"
     },
     {
       "file": "evidence.zip.part003",
       "bytes": 24000000,
-      "sha256": "fb7b667d3b4d14481b48d1865665745575dbfbfac534bedd9bb5f7b509a1a260"
+      "sha256": "2a5286d7259ccd42d00c77bf4d9ce3018b0e0853126afdb773a2552f04f0f0b0"
     },
     {
       "file": "evidence.zip.part004",
       "bytes": 24000000,
-      "sha256": "e31c73adf70e0a1d0e5af30ef132c48c46f2ec8938e94b90b0944dc99fe6937b"
+      "sha256": "2db162a58f2ae6b722aa800690023db949749f9eb878e8b2267108e4fbf754cd"
     },
     {
       "file": "evidence.zip.part005",
       "bytes": 24000000,
-      "sha256": "34fb27359d7c19a54ebaf005604474a5801f4af3aaf18dbd8c3624f3248260c4"
+      "sha256": "a1c4422b9679ea58e7eaba691372cf8592b6179ea497b15b2d6d26358c0fcb5c"
     },
     {
       "file": "evidence.zip.part006",
-      "bytes": 14879599,
-      "sha256": "f99786f0705cc7ecc2b80022b17c210cdee8e2a2c144303f7e6d0fd83e002ccb"
+      "bytes": 24000000,
+      "sha256": "aa66a7df5f1cade585d1fddce93f275cc29f013b954c55f25395d4691ef139ce"
+    },
+    {
+      "file": "evidence.zip.part007",
+      "bytes": 33331,
+      "sha256": "1f280861ea08ef45bd3b0036cefdecf4d939129ac8656f88c258c0a480e74243"
     }
   ],
   "model_weights_included": false,
