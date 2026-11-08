@@ -1,0 +1,26 @@
+{
+  "snapshot_utc": "20261108T171532Z",
+  "controller": {
+    "plan_id": "SAC-R4-128-SCREEN-20261108",
+    "status": "running",
+    "completed_round": 0,
+    "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
+    "active_job": "r1-D2-1002",
+    "heartbeat_utc": "2026-11-08T17:15:25.875948+00:00"
+  },
+  "evidence_sha256": "a67417988a176e8b1f91186da1139c8b1ce13d31f51112b67c663f1eaa8a1be7",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "3eafcfaedaa3816b05d41431eb1695a8a7c437e6c996ab667bf10d7d745d4bd3"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 8898523,
+      "sha256": "eab83c63973c278a403c2a2ec58966b61a4948dd1553ed7a43e894d104428b59"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
