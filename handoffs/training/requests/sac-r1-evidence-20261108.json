@@ -1,0 +1,77 @@
+{
+  "request_id": "SAC-R1-EVIDENCE-20261108",
+  "plan_id": "SAC-R1-20261107",
+  "status": "awaiting_readable_evidence",
+  "purpose": "先交付现有证据供主审阅窗口复核停车尾速和S1随机执行提前终止，再制定SAC下一轮计划。",
+  "evidence_boundary": {
+    "summary_received": true,
+    "full_report_received_in_this_conversation": false,
+    "accessible_github_result_directory_currently": "results/tita-ppo/2026-11-07-rtx4090-seed0",
+    "sac_r1_final_commit": null,
+    "accessible_space_report_located": false,
+    "actual_run_id": null
+  },
+  "reported_not_independently_verified": {
+    "S0": {
+      "collection_iterations": 8192,
+      "transitions": 1048576
+    },
+    "S1": {
+      "collection_iterations": 8192,
+      "transitions": 1048576,
+      "standing_command_fraction": 0.2
+    },
+    "deterministic_evaluations": 18,
+    "stochastic_evaluations": 6,
+    "final_stop_tail_speed_threshold_m_s": 0.05,
+    "final_stop_tail_speed_threshold_met": false,
+    "S1_one_stochastic_termination_s": 1.3,
+    "ppo_diagnostic_cases": 15,
+    "ppo_steps_each": 900
+  },
+  "requested_existing_files": [
+    {
+      "priority": 1,
+      "items": [
+        "完整核验报告（TXT/JSON/可读取PDF）",
+        "每组实际生效训练配置、代码提交/补丁及实际执行脚本",
+        "最终和里程碑检查点清单、SHA256、实际更新计数、学习设备与跳过计数"
+      ]
+    },
+    {
+      "priority": 1,
+      "items": [
+        "24次评价的索引和逐seed阶段表，明确检查点身份、D/S模式、停止原因、停车尾窗定义",
+        "S0/S1最终模型三seed确定性评价的逐控制步已有数据：时间/生效指令/vx/vy/wz/COM位置/姿态高度/动作与物理目标/真实轮速/逐侧接触",
+        "S1在1.30秒提前终止那次评价的完整已有日志、实际终止项、初始根/关节状态、实际执行器增益、施力命令及独立动作噪声种子"
+      ]
+    },
+    {
+      "priority": 2,
+      "items": [
+        "PPO四条件零指令诊断及三次转向评价的条件对照表、窗口统计与已有逐步轨迹",
+        "S1触发条件的核验结果：P00完整2–10秒和10–18秒窗口，不用起步瞬态代替",
+        "训练逐轮CSV或必要分项与alpha/熵/动作标准差/Q和目标统计"
+      ]
+    },
+    {
+      "priority": 1,
+      "items": [
+        "实例当前时间、时区、实际到期时间及剩余资源",
+        "模型与证据的持久备份位置及哈希验证状态"
+      ]
+    }
+  ],
+  "delivery": {
+    "preferred": "先把小型报告、JSON/CSV和文件索引完成GitHub独立SAC-R1结果目录，最后提交明确完成状态和校验清单，回传固定提交SHA。",
+    "alternative": "将报告与关键CSV直接附到当前对话，或提供本会话确实能读取的具体Space页面/文件链接。",
+    "note": "仅称已存Space或给服务器本地路径不能建立读取权限；当前没有收到所称附件。优先报告和关键CSV，不必等待所有大分卷上传。无权重证据包分包<32MiB，索引注明文件名、字节数、SHA256和获取位置。"
+  },
+  "immediate_actions_for_dot": [
+    "只交付已有结果、核对哈希和索引；不要为补报告重训或重复跑24次评价。",
+    "缺失的逐步信号明确标记missing，不补造，不把1.30秒终止归因于尚未核实的因素。",
+    "当前不执行新的SAC训练或奖励/温度调整，不把这份补证据请求当SAC-R2训练计划。",
+    "以真实租用到期时间为准，接近到期优先备份现有最终模型、配置和日志，不自动续费。",
+    "旧PPO结果不得作为本次SAC原始证据，不能据此发布SAC优于PPO结论。"
+  ]
+}
