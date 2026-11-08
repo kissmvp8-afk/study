@@ -1,0 +1,88 @@
+{
+  "request_id": "SAC-R2-EVIDENCE-20261108",
+  "run_id": "SAC-R2-20261108",
+  "status": "blocked_by_32MiB_attachment_transfer_limit",
+  "created_at_utc": "2026-11-08 09:46:13 UTC",
+  "purpose": "取得可读取的现有R2原始结果，复核后制定下一轮算法计划；本请求只处理交付，不授权新训练。",
+  "evidence_boundary": {
+    "archive_manifest_received": true,
+    "archive_manifest_sha256": "2051b44c1b2d76eaeaf189131bb33a87cab790d5cbfa780c5c517ed275b91465",
+    "full_evidence_opened": false,
+    "weights_opened": false,
+    "raw_results_independently_recomputed": false,
+    "phase_c_status_reported_by_manifest": "phase_c_completed_no_D_candidate",
+    "archive_crc_and_model_hashes": "reported_in_manifest_not_verified_by_reviewer",
+    "repository_result_available": false
+  },
+  "archive_manifest_path": "handoffs/training/requests/sac-r2-archive-manifest-20261108.json",
+  "input_archives_reported": [
+    {
+      "file": "/root/rivermind-data/tita-check/sac-r2-20261108/export-001/SAC_R2_Full_Evidence.zip",
+      "bytes": 68043449,
+      "sha256": "c68d3d958f410d6012007e8801d35555f5e075119486794448ef3cfd19c8a456",
+      "entries_without_checksum": 830,
+      "crc_verified": true
+    },
+    {
+      "file": "/root/rivermind-data/tita-check/sac-r2-20261108/export-001/SAC_R2_R20_Weights_And_Resume.zip",
+      "bytes": 78836784,
+      "sha256": "15e56d3fc01ad2a6949bdee5a9b7532b5c5e1b1c0a50e1c7ef92141fb78c51b4",
+      "entries_without_checksum": 5,
+      "crc_verified": true
+    },
+    {
+      "file": "/root/rivermind-data/tita-check/sac-r2-20261108/export-001/SAC_R2_R21_Weights_And_Resume.zip",
+      "bytes": 78844247,
+      "sha256": "e90d5d8ccd8186f8f03e219a44074d3f2ffe50121263ca29c01a125f8ee10c30",
+      "entries_without_checksum": 5,
+      "crc_verified": true
+    }
+  ],
+  "actual_transfer_errors": [
+    {
+      "file": "SAC_R2_Full_Evidence.zip",
+      "sediment_file_id": "file_000000003b9c82118e92e412c4382ec7",
+      "error": "file exceeds the executor transfer limit of 32 MiB"
+    },
+    {
+      "file": "SAC_R2_R20_Weights_And_Resume.zip",
+      "sediment_file_id": "file_00000000f4dc8211977a5c237013606f",
+      "error": "file exceeds the executor transfer limit of 32 MiB"
+    },
+    {
+      "file": "SAC_R2_R21_Weights_And_Resume.zip",
+      "sediment_file_id": "file_00000000145c82079221f47d926f9042",
+      "error": "file exceeds the executor transfer limit of 32 MiB"
+    }
+  ],
+  "delivery": {
+    "instruction_path": "handoffs/training/requests/sac-r2-evidence-20261108.txt",
+    "source_archive_bytes": 68043449,
+    "source_archive_sha256": "c68d3d958f410d6012007e8801d35555f5e075119486794448ef3cfd19c8a456",
+    "raw_chunk_bytes": 26214400,
+    "expected_raw_chunk_sizes": [
+      26214400,
+      26214400,
+      15614649
+    ],
+    "outer_zip_compression": "ZIP_STORED",
+    "outputs": [
+      "SAC_R2_Evidence_Part01.zip",
+      "SAC_R2_Evidence_Part02.zip",
+      "SAC_R2_Evidence_Part03.zip",
+      "PARTS_MANIFEST.json"
+    ],
+    "all_zip_files_below_bytes": 33554432,
+    "weight_archives_needed_now": false
+  },
+  "constraints": {
+    "no_training_or_evaluation_rerun": true,
+    "preserve_original_archive": true,
+    "no_automatic_rental_extension": true,
+    "old_conservative_deadline_epoch": 1794135000,
+    "old_new_training_cutoff_epoch": 1794127800,
+    "old_cutoff_local": "2026-11-08T16:50:00+08:00",
+    "current_lease_status": "unknown_require_dot_current_status",
+    "next_algorithm_plan": "not_issued_pending_readable_evidence_and_resource_check"
+  }
+}

@@ -1,0 +1,61 @@
+给Dot：SAC-R2证据传输补交，不是下一轮训练计划
+
+SAC-R2的ARCHIVE_MANIFEST.json已被主审阅窗口读取。用户上传的Full_Evidence约64.9MiB、R20/R21权重与恢复包各约75.2MiB，均超过本窗口下载工具32MiB单文件传输上限。因此尚未读取报告、训练配置、阶段A分流与阶段C原始评价，不能仅凭清单的phase_c_completed_no_D_candidate制定下一轮奖励或算法参数。
+
+只需交付Full_Evidence的三个独立ZIP分卷；此时不需要重传权重或恢复池，不重跑任何训练或评价，不覆盖原包。模型身份目前只有清单声明，尚未由主审阅窗口核对实际权重字节。
+
+若原服务器租约仍为2026-11-08 18:55:32，沿用此前更早的保守截止18:50与16:50停止新训练规则；当前时间已过该停止启动时刻，不得在该旧租约上启动新训练。不自动续租。如果有已授权的新租约/实例，回传当前时间、实际到期时刻与时区即可，仍先完成证据复核。证据拷贝与备份可以按剩余时间进行。
+
+在原服务器运行以下标准库脚本。它先核对原ZIP的完整SHA256，再将原始字节按25MiB切成三份，每份用ZIP_STORED包为可直接上传的独立ZIP；每包均<32MiB，附带PART_INFO.json。原ZIP内容不变。若服务器已释放，可在已有同SHA本地副本上仅修改source路径运行，不需重新训练。
+
+python3 - <<'PY'
+from pathlib import Path
+import hashlib
+import json
+import tempfile
+import zipfile
+
+source = Path('/root/rivermind-data/tita-check/sac-r2-20261108/export-001/SAC_R2_Full_Evidence.zip')
+expected_size = 68043449
+expected_sha = 'c68d3d958f410d6012007e8801d35555f5e075119486794448ef3cfd19c8a456'
+assert source.stat().st_size == expected_size, '原始ZIP字节数不一致，停止'
+digest = hashlib.sha256()
+with source.open('rb') as file:
+    for block in iter(lambda: file.read(1024 * 1024), b''):
+        digest.update(block)
+assert digest.hexdigest() == expected_sha, '原始ZIP哈希不一致，停止'
+
+output = Path(tempfile.mkdtemp(prefix='readable-r2-', dir=str(source.parent)))
+parts = []
+with source.open('rb') as file:
+    index = 0
+    while True:
+        data = file.read(25 * 1024 * 1024)
+        if not data:
+            break
+        member = f'{source.name}.part-{index:02d}'
+        info = dict(original_file=source.name, original_bytes=expected_size,
+                    original_sha256=expected_sha, part_index=index,
+                    part_member=member, part_bytes=len(data),
+                    part_sha256=hashlib.sha256(data).hexdigest())
+        target = output / f'SAC_R2_Evidence_Part{index + 1:02d}.zip'
+        with zipfile.ZipFile(target, 'x', compression=zipfile.ZIP_STORED) as archive:
+            archive.writestr(member, data)
+            archive.writestr('PART_INFO.json', json.dumps(info, ensure_ascii=False, indent=2) + '\n')
+        assert target.stat().st_size < 32 * 1024 * 1024
+        with zipfile.ZipFile(target) as archive:
+            assert archive.testzip() is None
+        info.update(archive_file=target.name, archive_bytes=target.stat().st_size,
+                    archive_sha256=hashlib.sha256(target.read_bytes()).hexdigest())
+        parts.append(info)
+        index += 1
+assert len(parts) == 3 and sum(item['part_bytes'] for item in parts) == expected_size
+(output / 'PARTS_MANIFEST.json').write_text(json.dumps(parts, ensure_ascii=False, indent=2) + '\n')
+print(output)
+for item in parts:
+    print(item['archive_file'], item['archive_bytes'], item['archive_sha256'])
+PY
+
+交付输出目录中的SAC_R2_Evidence_Part01.zip、Part02.zip、Part03.zip及PARTS_MANIFEST.json到当前对话，或提供本会话可读取的固定GitHub结果提交。主审阅窗口将核对各分卷、拼接回原ZIP并核对原SHA256，然后读取原始结果；分卷不是三次新训练，不改变run_id。
+
+同时回传服务器当前时间、时区、实际租约到期时刻和模型/证据持久备份位置。若原始报告已有当前资源记录可直接交付，不为补报告重跑训练。完成后停止，等待真正的下一轮算法计划。

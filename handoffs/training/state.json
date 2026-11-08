@@ -159,7 +159,7 @@
       "next_plan_id": "SAC-R2-20261108",
       "next_plan_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/next-plan.txt",
       "parameters_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/parameters.json",
-      "plan_execution_status": "issued_not_executed_or_acknowledged_by_dot",
+      "plan_execution_status": "reported_completed_by_R2_archive_manifest_awaiting_readable_raw_evidence",
       "repository_binding_rule": "Compare critical file Git blob SHAs and SHA256 against this uploaded version; bind a fixed result commit for matching content without repeating analysis. Review changed evidence separately.",
       "supplemental_final_models": {
         "receipt_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/supplemental-final-models.json",
@@ -191,6 +191,16 @@
       "key_content_fingerprint": "d6ca353e04c3acc49ed71d8be0127eca5f9aff2e987029271f8c9d7ab70c6fd2",
       "review_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/review.txt",
       "missing": "Final GitHub result commit and matching result tree; model weights were deliberately omitted from uploaded light evidence."
+    },
+    {
+      "run_id": "SAC-R2-20261108",
+      "result_path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0",
+      "status": "awaiting_readable_uploaded_evidence",
+      "archive_manifest_sha256": "2051b44c1b2d76eaeaf189131bb33a87cab790d5cbfa780c5c517ed275b91465",
+      "full_evidence_archive_sha256": "c68d3d958f410d6012007e8801d35555f5e075119486794448ef3cfd19c8a456",
+      "phase_c_status_reported_by_manifest": "phase_c_completed_no_D_candidate",
+      "review_status": "not_reviewed_raw_data_unreadable_transfer_limit",
+      "request_path": "handoffs/training/requests/sac-r2-evidence-20261108.json"
     }
   ],
   "latest_plan_id": "SAC-R2-20261108",
@@ -212,5 +222,5 @@
     "server_reported_next_run_time": null
   },
   "latest_plan_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/next-plan.txt",
-  "updated_at_utc": "2026-11-08 03:38:25 UTC"
+  "updated_at_utc": "2026-11-08 09:46:13 UTC"
 }
