@@ -64,7 +64,7 @@ from normalization import ObservationNormalizers  # noqa: E402
 from returns import build_n_step_batch  # noqa: E402
 from schema import make_transition  # noqa: E402
 from targets import soft_update, soft_update_due  # noqa: E402
-from temperature import Temperature, current_alpha, make_temperature_optimizer, target_entropy, update_temperature  # noqa: E402
+from temperature import Temperature, current_alpha, current_alpha_tensor, make_temperature_optimizer, target_entropy, update_temperature  # noqa: E402
 
 
 def to_learning_device(value, device):
@@ -191,7 +191,7 @@ class Trainer:
             batch = build_n_step_batch(self.buffer.read_sequence(env_ids, slots, a.n_steps), a.gamma, a.n_steps)
             batch = to_learning_device(batch, self.device)
             target = compute_target(batch, self.encoder, self.actor, self.targets, self.normalizers,
-                                    current_alpha(self.temperature), generator=self.generators["learn"])
+                                    current_alpha_tensor(self.temperature), generator=self.generators["learn"])
             critic_log = update_critics(self.critics, self.optimizers["critic"], batch, target, self.normalizers, a.max_grad_norm)
             if not all(math.isfinite(v) for v in critic_log.values()):
                 raise FloatingPointError(f"Critic 更新出现非有限数值：{critic_log}")
@@ -214,7 +214,7 @@ class Trainer:
                 logs.setdefault("alpha", []).append(alpha_log["alpha"])
             if update_index % a.actor_update_every == 0:
                 # Actor 损失在 alpha 更新之后组装，因此使用的是新 alpha（作者顺序）。
-                loss = compute_actor_loss(self.critics, q_input, action, log_prob, current_alpha(self.temperature))
+                loss = compute_actor_loss(self.critics, q_input, action, log_prob, current_alpha_tensor(self.temperature))
                 if not bool(torch.isfinite(loss)):
                     raise FloatingPointError("Actor 损失出现非有限数值")
                 update_actor(self.actor, self.optimizers["actor"], loss, a.max_grad_norm)

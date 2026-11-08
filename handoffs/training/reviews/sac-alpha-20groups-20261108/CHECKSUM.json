@@ -1,0 +1,10 @@
+{
+  "file": "/root/rivermind-data/tita-check/sac-alpha-pilot-twenty-20261108/export-light-001/TITA_SAC_20Groups_LightEvidence.zip",
+  "bytes": 19950923,
+  "sha256": "a6aa96ba781df82d324ee2633c429f1d6ccb510156e890256d0ebb5f127ad96b",
+  "members": 524,
+  "csv_rows": 20,
+  "changed_source_files": 17,
+  "weights_included": false,
+  "verified": true
+}

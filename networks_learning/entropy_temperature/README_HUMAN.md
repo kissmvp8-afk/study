@@ -96,3 +96,22 @@ uv run --no-project --python 3.11 --with torch==2.15.0 python -B networks_learni
 ```
 
 alpha 异常先核对 log π 完整修正、所用坐标、`action_coordinate` 与熵差，再看学习率；不要因熵为负就判错。E04 真实边界尚未确定，−8 是否适合实际任务、固定 alpha 配置、GPU 与训练表现均未验证。与 [N03](../actor_distribution/README_HUMAN.md)、[N06](../actor_learning/README_HUMAN.md) 一起阅读，更新衔接见 [N08](../target_updates/README_HUMAN.md)。
+
+
+## 设备内温度标量迁移（2026-11-08）
+参考官方实现：https://github.com/leggedrobotics/rsl_rl_sac/blob/e0d243aa6d3f8a7231783b7f3cefeaec1b4a5521/rsl_rl/algorithms/sac.py
+仅将目标值与Actor损失计算使用的alpha保留为设备上的无梯度标量张量。
+原float日志接口、更新顺序、目标熵、SAC损失、HIM编码器及Barlow辅助目标保持不变。
+尚未证明性能或控制质量提升。
+外置诊断工具统一部署到 /root/rivermind-data/tita-check/sac-alpha-migration-tools/。
+待执行命令（此处不代表已通过）：
+- python /root/rivermind-data/tita-check/sac-alpha-migration-tools/test_alpha_tensor.py --study-root STUDY --device cpu
+- python /root/rivermind-data/tita-check/sac-alpha-migration-tools/test_alpha_tensor.py --study-root STUDY --device cuda:0
+- python training_validation/verification/verify.py --docs
+- python /root/rivermind-data/tita-check/sac-alpha-migration-tools/run_alpha_two_iterations.py --help
+试跑完整参数由部署者记录到运行目录；128环境，warmup=0仅作兼容诊断，两轮各16次critic与16次辅助更新尝试。
+实际命令、结果和错误须在执行后补记，不可将文档结构检查当成学习测试通过。
+
+
+### 本次实际验证结果
+CPU/CUDA等价测试通过；N07原4项、T02原9项回归通过；文档检查通过。128环境两轮真实更新完成。进一步同seed单次64轮配对最终权重完全相同，600步冻结评价日志完全相同，均未过速度跟踪门槛；不能声称控制改善。学习阶段单次观测少11.76%，存在顺序/缓存/温度混杂，不构成稳定提速结论。完整证据位于服务器 sac-alpha-pilot-20261108/export-001；每轮日志已保存。

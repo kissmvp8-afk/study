@@ -1,0 +1,920 @@
+{
+  "queue_status": "completed",
+  "requested_groups": 20,
+  "requested_pairs": 10,
+  "groups_attempted": 20,
+  "groups_complete": 20,
+  "attempted_groups_not_complete": 0,
+  "groups_not_attempted": 0,
+  "pairs_included": 10,
+  "pairs_not_included": 0,
+  "included_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "excluded_pairs": [],
+  "missing_seeds": [],
+  "metrics": {
+    "learn_s": {
+      "n": 10,
+      "baseline_mean_s": 27.834899608913112,
+      "tensor_mean_s": 27.557883187288827,
+      "mean_difference_s": -0.2770164216242847,
+      "median_difference_s": -1.119402048563643,
+      "sd_difference_s": 4.661539448307074,
+      "differences_s": [
+        5.01798415799567,
+        3.818314031959744,
+        -2.2997060230991337,
+        7.845530906008207,
+        -5.3075162100285525,
+        0.06090192597184796,
+        1.3189589379326208,
+        -3.6495899660076248,
+        -5.3632508689770475,
+        -4.211791107998579
+      ],
+      "ci95_mean_difference_s": [
+        -3.61144918345493,
+        3.0574163402063608
+      ],
+      "t_critical": 2.262,
+      "df": 9,
+      "all_differences_zero": false,
+      "zero_sample_variance": false,
+      "relative_mean_difference": -0.009952125767163904,
+      "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+    },
+    "iteration_wall_s": {
+      "n": 10,
+      "baseline_mean_s": 71.1828509873114,
+      "tensor_mean_s": 69.94231947049703,
+      "mean_difference_s": -1.2405315168143716,
+      "median_difference_s": -3.5505567365544266,
+      "sd_difference_s": 10.162738031092944,
+      "differences_s": [
+        10.500563114022953,
+        6.41077495693753,
+        -6.752566089067841,
+        17.735698092976236,
+        -10.946084572089603,
+        -0.34854738404101226,
+        1.4421321219851961,
+        -9.593111644033343,
+        -11.405431307925028,
+        -9.448742456908803
+      ],
+      "ci95_mean_difference_s": [
+        -8.510011270565094,
+        6.02894823693635
+      ],
+      "t_critical": 2.262,
+      "df": 9,
+      "all_differences_zero": false,
+      "zero_sample_variance": false,
+      "relative_mean_difference": -0.017427392969066396,
+      "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+    },
+    "process_wall_s": {
+      "n": 10,
+      "baseline_mean_s": 89.12095911502838,
+      "tensor_mean_s": 87.5616949558258,
+      "mean_difference_s": -1.5592641592025758,
+      "median_difference_s": -2.500762462615967,
+      "sd_difference_s": 10.683200223427095,
+      "differences_s": [
+        11.605310201644897,
+        6.383849620819092,
+        -5.9104695320129395,
+        17.055030822753906,
+        -11.732795238494873,
+        1.0125694274902344,
+        0.9089446067810059,
+        -12.140145540237427,
+        -12.802302598953247,
+        -9.972633361816406
+      ],
+      "ci95_mean_difference_s": [
+        -9.201034269960456,
+        6.082505951555305
+      ],
+      "t_critical": 2.262,
+      "df": 9,
+      "all_differences_zero": false,
+      "zero_sample_variance": false,
+      "relative_mean_difference": -0.017496043295382787,
+      "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+    }
+  },
+  "order_strata": {
+    "baseline": {
+      "seeds": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "metrics": {
+        "learn_s": {
+          "n": 5,
+          "baseline_mean_s": 27.796829078806333,
+          "tensor_mean_s": 26.470123077571042,
+          "mean_difference_s": -1.3267060012352885,
+          "median_difference_s": -2.2997060230991337,
+          "sd_difference_s": 4.481682430105255,
+          "differences_s": [
+            5.01798415799567,
+            -2.2997060230991337,
+            -5.3075162100285525,
+            1.3189589379326208,
+            -5.3632508689770475
+          ],
+          "ci95_mean_difference_s": [
+            -6.8905576153901436,
+            4.237145612919566
+          ],
+          "t_critical": 2.776,
+          "df": 4,
+          "all_differences_zero": false,
+          "zero_sample_variance": false,
+          "relative_mean_difference": -0.04772868147924233,
+          "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+        },
+        "iteration_wall_s": {
+          "n": 5,
+          "baseline_mean_s": 71.19719262183062,
+          "tensor_mean_s": 67.76491527521576,
+          "mean_difference_s": -3.432277346614865,
+          "median_difference_s": -6.752566089067841,
+          "sd_difference_s": 9.339923867660492,
+          "differences_s": [
+            10.500563114022953,
+            -6.752566089067841,
+            -10.946084572089603,
+            1.4421321219851961,
+            -11.405431307925028
+          ],
+          "ci95_mean_difference_s": [
+            -15.02746538093211,
+            8.162910687702379
+          ],
+          "t_critical": 2.776,
+          "df": 4,
+          "all_differences_zero": false,
+          "zero_sample_variance": false,
+          "relative_mean_difference": -0.048208043326169764,
+          "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+        },
+        "process_wall_s": {
+          "n": 5,
+          "baseline_mean_s": 89.15807371139526,
+          "tensor_mean_s": 85.57181119918823,
+          "mean_difference_s": -3.586262512207031,
+          "median_difference_s": -5.9104695320129395,
+          "sd_difference_s": 10.095718116790383,
+          "differences_s": [
+            11.605310201644897,
+            -5.9104695320129395,
+            -11.732795238494873,
+            0.9089446067810059,
+            -12.802302598953247
+          ],
+          "ci95_mean_difference_s": [
+            -16.11974260950999,
+            8.947217585095931
+          ],
+          "t_critical": 2.776,
+          "df": 4,
+          "all_differences_zero": false,
+          "zero_sample_variance": false,
+          "relative_mean_difference": -0.04022364282808268,
+          "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+        }
+      }
+    },
+    "tensor": {
+      "seeds": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "metrics": {
+        "learn_s": {
+          "n": 5,
+          "baseline_mean_s": 27.87297013901989,
+          "tensor_mean_s": 28.645643297006607,
+          "mean_difference_s": 0.7726731579867192,
+          "median_difference_s": 0.06090192597184796,
+          "sd_difference_s": 5.104144357784449,
+          "differences_s": [
+            3.818314031959744,
+            7.845530906008207,
+            0.06090192597184796,
+            -3.6495899660076248,
+            -4.211791107998579
+          ],
+          "ci95_mean_difference_s": [
+            -5.563943116556286,
+            7.109289432529724
+          ],
+          "t_critical": 2.776,
+          "df": 4,
+          "all_differences_zero": false,
+          "zero_sample_variance": false,
+          "relative_mean_difference": 0.027721235093817277,
+          "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+        },
+        "iteration_wall_s": {
+          "n": 5,
+          "baseline_mean_s": 71.16850935279217,
+          "tensor_mean_s": 72.1197236657783,
+          "mean_difference_s": 0.9512143129861215,
+          "median_difference_s": -0.34854738404101226,
+          "sd_difference_s": 11.538598153137483,
+          "differences_s": [
+            6.41077495693753,
+            17.735698092976236,
+            -0.34854738404101226,
+            -9.593111644033343,
+            -9.448742456908803
+          ],
+          "ci95_mean_difference_s": [
+            -13.373550763666234,
+            15.275979389638476
+          ],
+          "t_critical": 2.776,
+          "df": 4,
+          "all_differences_zero": false,
+          "zero_sample_variance": false,
+          "relative_mean_difference": 0.013365663010740048,
+          "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+        },
+        "process_wall_s": {
+          "n": 5,
+          "baseline_mean_s": 89.0838445186615,
+          "tensor_mean_s": 89.55157871246338,
+          "mean_difference_s": 0.46773419380187986,
+          "median_difference_s": 1.0125694274902344,
+          "sd_difference_s": 12.024928094576165,
+          "differences_s": [
+            6.383849620819092,
+            17.055030822753906,
+            1.0125694274902344,
+            -12.140145540237427,
+            -9.972633361816406
+          ],
+          "ci95_mean_difference_s": [
+            -14.460792454957648,
+            15.396260842561407
+          ],
+          "t_critical": 2.776,
+          "df": 4,
+          "all_differences_zero": false,
+          "zero_sample_variance": false,
+          "relative_mean_difference": 0.005250494029856309,
+          "ci_interpretation": "描述性配对t区间，依赖独立配对与差值分布假设；顺序/温度/缓存混杂仍可能存在。零样本方差不证明总体无不确定性。"
+        }
+      }
+    }
+  },
+  "final_fingerprints_equal_count": 10,
+  "difference_convention": "tensor minus baseline; negative means tensor faster",
+  "previous_single_pair_included": false,
+  "control_evaluation": {
+    "status": "completed",
+    "requested_groups": 20,
+    "groups_attempted": 20,
+    "groups_complete": 20,
+    "attempted_groups_not_complete": 0,
+    "groups_not_attempted": 0,
+    "versions": {
+      "baseline": {
+        "complete": 10,
+        "full_600_steps": 7,
+        "early_or_short": 3,
+        "gate_pass": 0,
+        "gate_fail": 10,
+        "gate_missing": 0,
+        "freeze_verified": 10,
+        "stages": {
+          "forward": {
+            "available_complete_n": 7,
+            "available_complete_mean": 0.29867075106243385,
+            "full_600_frozen_n": 7,
+            "full_600_frozen_mean": 0.29867075106243385
+          },
+          "reverse": {
+            "available_complete_n": 7,
+            "available_complete_mean": 0.30041758417561404,
+            "full_600_frozen_n": 7,
+            "full_600_frozen_mean": 0.30041758417561404
+          }
+        }
+      },
+      "tensor": {
+        "complete": 10,
+        "full_600_steps": 7,
+        "early_or_short": 3,
+        "gate_pass": 0,
+        "gate_fail": 10,
+        "gate_missing": 0,
+        "freeze_verified": 10,
+        "stages": {
+          "forward": {
+            "available_complete_n": 7,
+            "available_complete_mean": 0.29867075106243385,
+            "full_600_frozen_n": 7,
+            "full_600_frozen_mean": 0.29867075106243385
+          },
+          "reverse": {
+            "available_complete_n": 7,
+            "available_complete_mean": 0.30041758417561404,
+            "full_600_frozen_n": 7,
+            "full_600_frozen_mean": 0.30041758417561404
+          }
+        }
+      }
+    },
+    "pairs": [
+      {
+        "seed": 0,
+        "evaluation_seed": 101,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.2974489410864771,
+              "reverse": 0.3015157449140679
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.2974489410864771,
+              "reverse": 0.3015157449140679
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 1,
+        "evaluation_seed": 102,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.2989236520093982,
+              "reverse": 0.30024979959984194
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.2989236520093982,
+              "reverse": 0.30024979959984194
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 2,
+        "evaluation_seed": 103,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.30075401804460855,
+              "reverse": 0.29899971940729303
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.30075401804460855,
+              "reverse": 0.29899971940729303
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 3,
+        "evaluation_seed": 101,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.2977403568253794,
+              "reverse": 0.3007770030555548
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.2977403568253794,
+              "reverse": 0.3007770030555548
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 4,
+        "evaluation_seed": 102,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 38,
+            "full_600_steps": false,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 1,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": null,
+              "reverse": null
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 38,
+            "full_600_steps": false,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 1,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": null,
+              "reverse": null
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": null,
+            "both_full_600_steps": false,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": null,
+            "both_full_600_steps": false,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 5,
+        "evaluation_seed": 103,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 38,
+            "full_600_steps": false,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 1,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": null,
+              "reverse": null
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 38,
+            "full_600_steps": false,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 1,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": null,
+              "reverse": null
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": null,
+            "both_full_600_steps": false,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": null,
+            "both_full_600_steps": false,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 6,
+        "evaluation_seed": 101,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.29712551150179933,
+              "reverse": 0.30134925680336894
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.29712551150179933,
+              "reverse": 0.30134925680336894
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 7,
+        "evaluation_seed": 102,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.29978372659163144,
+              "reverse": 0.2992014122958062
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.29978372659163144,
+              "reverse": 0.2992014122958062
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 8,
+        "evaluation_seed": 103,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 41,
+            "full_600_steps": false,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 1,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": null,
+              "reverse": null
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 41,
+            "full_600_steps": false,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 1,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": null,
+              "reverse": null
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": null,
+            "both_full_600_steps": false,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": null,
+            "both_full_600_steps": false,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      },
+      {
+        "seed": 9,
+        "evaluation_seed": 101,
+        "arms": {
+          "baseline": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.298919051377743,
+              "reverse": 0.30083015315336525
+            }
+          },
+          "tensor": {
+            "complete": true,
+            "steps": 600,
+            "full_600_steps": true,
+            "gate_pass": false,
+            "frozen_verified": true,
+            "true_terminations": 0,
+            "timeouts": 0,
+            "error": null,
+            "vx_mae": {
+              "forward": 0.298919051377743,
+              "reverse": 0.30083015315336525
+            }
+          }
+        },
+        "stage_differences": {
+          "forward": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          },
+          "reverse": {
+            "tensor_minus_baseline": 0.0,
+            "both_full_600_steps": true,
+            "both_freeze_verified": true
+          }
+        },
+        "initial_states_equal": true,
+        "step_logs_identical": true
+      }
+    ],
+    "missing_metrics": [
+      {
+        "seed": 4,
+        "variant": "baseline",
+        "stage": "forward",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 4,
+        "variant": "baseline",
+        "stage": "reverse",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 4,
+        "variant": "tensor",
+        "stage": "forward",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 4,
+        "variant": "tensor",
+        "stage": "reverse",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 5,
+        "variant": "baseline",
+        "stage": "forward",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 5,
+        "variant": "baseline",
+        "stage": "reverse",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 5,
+        "variant": "tensor",
+        "stage": "forward",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 5,
+        "variant": "tensor",
+        "stage": "reverse",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 8,
+        "variant": "baseline",
+        "stage": "forward",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 8,
+        "variant": "baseline",
+        "stage": "reverse",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 8,
+        "variant": "tensor",
+        "stage": "forward",
+        "reason": "missing_or_unreached_stage"
+      },
+      {
+        "seed": 8,
+        "variant": "tensor",
+        "stage": "reverse",
+        "reason": "missing_or_unreached_stage"
+      }
+    ],
+    "initial_states_equal_count": 10,
+    "initial_states_compared_count": 10,
+    "step_logs_identical_count": 10,
+    "step_logs_compared_count": 10,
+    "groups_not_complete": 0,
+    "interpretation": "评价完成不等于600步完成或门槛通过。阶段可用样本均值可能含早停样本；完整600步且冻结验证通过的均值单列。缺失阶段不填0。"
+  },
+  "caveats": [
+    "仅同初始化且完整预算配对参与时间统计；失败与缺失单独报告。",
+    "交替顺序只减轻顺序混杂，不能消除GPU温度、时钟、缓存与时间漂移。",
+    "学习、逐轮、完整进程耗时是不同指标，不可混为训练质量。",
+    "速度变化不代表控制改善；数学等价也不保证GPU仿真轨迹逐位一致。"
+  ],
+  "input_sha256": "05e1b6830c3d942d78c8291b3ab2694e203002db9e911933750cc181f18aa165",
+  "evaluation_input_sha256": "713159d53a18ebd3b985131fed6db6a5e92507b02eb7c3f420c2f41a42e9be81"
+}

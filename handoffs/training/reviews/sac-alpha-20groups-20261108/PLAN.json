@@ -1,0 +1,31 @@
+{
+  "requested_groups": 20,
+  "paired_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "num_envs": 128,
+  "iterations_per_group": 64,
+  "transitions_per_group": 65536,
+  "critic_updates_per_iteration": 16,
+  "auxiliary_attempts_per_iteration": 16,
+  "warmup_iterations": 0,
+  "order": "baseline first for even seed, tensor first for odd seed",
+  "training_deadline": "2026-11-08T20:50:00+08:00",
+  "evaluation_deadline": "2026-11-08T21:05:00+08:00",
+  "evaluation": "20 frozen F01 D standard600; seed=101+trainingseed%3; unchanged physical/observation protocol",
+  "evaluation_source_change": "metadata training_seed=checkpoint config.seed only; no physics or policy changes",
+  "primary_statistic": "paired tensor-minus-baseline learning-wall difference; 95% t confidence interval across completed matched pairs, order-stratified descriptive results",
+  "control_statistic": "gate pass, forward/reverse vx_mae, full duration, within-pair exact initial and trajectory equality",
+  "prior_single_pair_excluded": true,
+  "claim_limit": "short performance/compatibility diagnostic; no proven learned locomotion improvement",
+  "saved_after_queue_start_before_new_pair_results_epoch": 1794139848.2289124
+}

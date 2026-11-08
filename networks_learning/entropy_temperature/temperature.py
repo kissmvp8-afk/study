@@ -62,7 +62,7 @@ class Temperature(nn.Module):
 
 
 def current_alpha(temperature: Temperature) -> float:
-    """当前 alpha 数值（正数）；供 N05 目标与 N06 Actor 损失使用，不带梯度。"""
+    """当前 alpha 的 Python 标量（正数）；用于日志及兼容接口，不带梯度。"""
     return temperature.log_alpha.detach().exp().item()
 
 
@@ -88,3 +88,8 @@ def update_temperature(temperature: Temperature, optimizer: torch.optim.Optimize
     optimizer.step()
     entropy = (-log_prob.detach()).mean().item()
     return {"alpha_loss": loss.item(), "alpha": current_alpha(temperature), "entropy_estimate": entropy, "entropy_gap": entropy - target}
+
+
+def current_alpha_tensor(temperature: Temperature) -> torch.Tensor:
+    """学习计算使用不带梯度的设备标量；日志仍使用原float接口。"""
+    return temperature.log_alpha.detach().exp()

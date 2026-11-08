@@ -118,3 +118,22 @@ alpha 持续异常增长时先检查密度、目标熵和动作变换，再扩�
 | 本次改动及理由 | 首次实现 N07：目标熵沿用作者配置，并明确它与 N03 密度处于同一坐标，同时给出单位区间的等价值，不再无解释地照搬 |
 | 阅读重点与材料 | 根/大模块/本模块 AI 规范；依赖模块的实际代码；带注释的 `temperature.py`、`test_temperature.py`；N03 `actor.py`；作者 `sac.py`（log_alpha、alpha 损失、target_entropy）。重点说明两种坐标下的熵差 Σ log c，以及为什么调整方向由 log π + target 的符号决定 |
 | 人类版 | 已有讲解，见 [README_HUMAN.md](README_HUMAN.md)；版本与验证范围以该文件记录为准 |
+
+
+## 设备内温度标量迁移（2026-11-08）
+参考官方实现：https://github.com/leggedrobotics/rsl_rl_sac/blob/e0d243aa6d3f8a7231783b7f3cefeaec1b4a5521/rsl_rl/algorithms/sac.py
+仅将目标值与Actor损失计算使用的alpha保留为设备上的无梯度标量张量。
+原float日志接口、更新顺序、目标熵、SAC损失、HIM编码器及Barlow辅助目标保持不变。
+尚未证明性能或控制质量提升。
+外置诊断工具统一部署到 /root/rivermind-data/tita-check/sac-alpha-migration-tools/。
+待执行命令（此处不代表已通过）：
+- python /root/rivermind-data/tita-check/sac-alpha-migration-tools/test_alpha_tensor.py --study-root STUDY --device cpu
+- python /root/rivermind-data/tita-check/sac-alpha-migration-tools/test_alpha_tensor.py --study-root STUDY --device cuda:0
+- python training_validation/verification/verify.py --docs
+- python /root/rivermind-data/tita-check/sac-alpha-migration-tools/run_alpha_two_iterations.py --help
+试跑完整参数由部署者记录到运行目录；128环境，warmup=0仅作兼容诊断，两轮各16次critic与16次辅助更新尝试。
+实际命令、结果和错误须在执行后补记，不可将文档结构检查当成学习测试通过。
+
+
+### 本次实际验证结果
+CPU/CUDA等价测试通过；N07原4项、T02原9项回归通过；文档检查通过。128环境两轮真实更新完成。进一步同seed单次64轮配对最终权重完全相同，600步冻结评价日志完全相同，均未过速度跟踪门槛；不能声称控制改善。学习阶段单次观测少11.76%，存在顺序/缓存/温度混杂，不构成稳定提速结论。完整证据位于服务器 sac-alpha-pilot-20261108/export-001；每轮日志已保存。
