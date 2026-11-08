@@ -1,0 +1,143 @@
+{
+  "101": {
+    "P10": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    },
+    "P01": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    },
+    "P11": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    }
+  },
+  "102": {
+    "P10": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    },
+    "P01": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    },
+    "P11": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    }
+  },
+  "103": {
+    "P10": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    },
+    "P01": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    },
+    "P11": {
+      "root_pos_w": true,
+      "root_com_pos_w": true,
+      "root_quat_w": true,
+      "root_lin_vel_w": true,
+      "root_ang_vel_w": true,
+      "joint_pos": true,
+      "joint_vel": true,
+      "material_properties": true,
+      "masses": true,
+      "inertias": true,
+      "coms": true,
+      "explicit_actuators": true,
+      "reset_wrench_pre_intervention_match": true
+    }
+  }
+}

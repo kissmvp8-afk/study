@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R2-20261108",
+  "basis_run_id": "SAC-R1-20261107",
+  "basis_fingerprint": "d6ca353e04c3acc49ed71d8be0127eca5f9aff2e987029271f8c9d7ab70c6fd2",
+  "execution_status": "issued_not_executed_by_reviewer",
+  "mission": "SAC walking/turning/stopping and bounded perturbation recovery; jumping deferred",
+  "compute": {
+    "gpu": "existing RTX4090 24GB",
+    "processes": 1,
+    "learner_device": "cuda:0",
+    "replay_device": "cpu",
+    "estimated_wall_seconds": [
+      18000,
+      24000
+    ],
+    "queue_cap_seconds": 24000,
+    "preparation_cap_seconds": 2700,
+    "phase_a_cap_seconds": 2400,
+    "training_seconds_per_arm": 7200,
+    "final_eval_cap_seconds": 2700,
+    "export_cap_seconds": 1800,
+    "conservative_rental_deadline_epoch": 1794135000,
+    "rental_display": "2026-11-08 18:55:32",
+    "rental_timezone": "unconfirmed; prior assumption Asia/Shanghai",
+    "deadline_rule": "earlier of confirmed actual expiration and conservative_rental_deadline_epoch",
+    "new_arm_start_cutoff_seconds_before_deadline": 7200,
+    "training_hard_stop_seconds_before_deadline": 4500,
+    "require_full_pair_training_and_4500s_reserve_after_phase_a": true,
+    "automatic_rental_extension": false,
+    "automatic_shutdown": false,
+    "disk_stop_new_training_gib": 15,
+    "disk_orderly_stop_gib": 10
+  },
+  "phase_a": {
+    "frozen": true,
+    "seed_list": [
+      101,
+      102,
+      103
+    ],
+    "models": {
+      "S0": {
+        "path": "/root/rivermind-data/tita-check/sac-r1-20261107/runs/training/S0/model_final.pt",
+        "sha256": "e371f57ec23d5c8baee279c6f641007a3bc37cec378a810621a27db7f545d7b1",
+        "bytes": 9152759,
+        "transitions": 1048576,
+        "counters": {
+          "iterations": 8192,
+          "env_steps": 65536,
+          "transitions": 1048576,
+          "critic_updates": 129024,
+          "actor_updates": 64512,
+          "alpha_updates": 129024,
+          "target_updates": 129024,
+          "auxiliary_updates": 129024,
+          "auxiliary_skipped": 0,
+          "replay_samples": 33030144,
+          "auxiliary_samples": 30732588,
+          "learning_skipped_iterations": 0
+        },
+        "includes_replay": false,
+        "readback_verified": true
+      },
+      "S1": {
+        "path": "/root/rivermind-data/tita-check/sac-r1-20261107/runs/training/S1/model_final.pt",
+        "sha256": "d47cf94a4167b4e3032b51c25927d667aa4e52c0ac7c216b89c63a65c06cf1fb",
+        "bytes": 9152759,
+        "transitions": 1048576,
+        "counters": {
+          "iterations": 8192,
+          "env_steps": 65536,
+          "transitions": 1048576,
+          "critic_updates": 129024,
+          "actor_updates": 64512,
+          "alpha_updates": 129024,
+          "target_updates": 129024,
+          "auxiliary_updates": 129024,
+          "auxiliary_skipped": 0,
+          "replay_samples": 33030144,
+          "auxiliary_samples": 31613617,
+          "learning_skipped_iterations": 0
+        },
+        "includes_replay": false,
+        "readback_verified": true
+      }
+    },
+    "conditions": {
+      "F00": {
+        "policy_noise": true,
+        "zero_reset_wrench": false
+      },
+      "F10": {
+        "policy_noise": false,
+        "zero_reset_wrench": false
+      },
+      "F01": {
+        "policy_noise": true,
+        "zero_reset_wrench": true
+      },
+      "F11": {
+        "policy_noise": false,
+        "zero_reset_wrench": true
+      }
+    },
+    "interval_push": false,
+    "deterministic_cases": 24,
+    "stochastic_cases": [
+      {
+        "arm": "S1",
+        "condition": "F00",
+        "seed": 101
+      },
+      {
+        "arm": "S1",
+        "condition": "F10",
+        "seed": 101
+      },
+      {
+        "arm": "S1",
+        "condition": "F01",
+        "seed": 101
+      },
+      {
+        "arm": "S1",
+        "condition": "F11",
+        "seed": 101
+      }
+    ],
+    "command_protocol": "standard_12s",
+    "expected_total_cases": 28,
+    "physical_pairing_required": true,
+    "incomplete_action": "archive_partial_and_stop",
+    "selection_rule": "If F01 all-three-seed D gate passes for any model, select by worst stopping speed, then worst directional MAE, then S0; skip training and enter phase C.",
+    "training_trigger": "Neither model passes F01 D gate AND each model has at least two F01 seeds with stopping tail speed > .05 m/s.",
+    "other_outcome": "archive_phase_a_and_stop_for_evidence_based_replan"
+  },
+  "phase_b": {
+    "conditional": true,
+    "initialization": "fresh_seed0_networks_optimizers_statistics_empty_replay",
+    "training_seed": 0,
+    "training_seeds_per_arm": 1,
+    "common_base_config": {
+      "name": "SAC-R1-20261107",
+      "mode": "isaac_sim",
+      "seed": 0,
+      "device": "cuda:0",
+      "task": {
+        "task": "isaac_flat",
+        "q_dim": 54,
+        "velocity_label_columns": [
+          0,
+          3
+        ],
+        "joint_pos_limits": {
+          "joint_left_leg_1": [
+            -0.7068581581115723,
+            0.7068581581115723
+          ],
+          "joint_left_leg_2": [
+            -1.6493356227874756,
+            3.22013258934021
+          ],
+          "joint_left_leg_3": [
+            -2.571742534637451,
+            -0.7967431545257568
+          ],
+          "joint_right_leg_1": [
+            -0.7068581581115723,
+            0.7068581581115723
+          ],
+          "joint_right_leg_2": [
+            -1.6493356227874756,
+            3.22013258934021
+          ],
+          "joint_right_leg_3": [
+            -2.571742534637451,
+            -0.7967431545257568
+          ]
+        },
+        "wheel_speed_ranges": {
+          "joint_left_leg_4": [
+            -20.0,
+            20.0
+          ],
+          "joint_right_leg_4": [
+            -20.0,
+            20.0
+          ]
+        },
+        "action_limits_artificial": false,
+        "initial_targets": null
+      },
+      "algorithm": {
+        "gamma": 0.97,
+        "n_steps": 5,
+        "tau": 0.003,
+        "target_update_every": 1,
+        "actor_lr": 0.0002,
+        "critic_lr": 0.0002,
+        "alpha_lr": 2e-05,
+        "auxiliary_lr": 0.001,
+        "initial_alpha": 0.05,
+        "target_entropy_scale": 1.0,
+        "initial_std": 0.15,
+        "max_grad_norm": 1.0,
+        "batch_size": 256,
+        "critic_updates_per_iteration": 16,
+        "actor_update_every": 2,
+        "alpha_update_every": 1,
+        "auxiliary_updates_per_iteration": 16,
+        "auxiliary_batch_size": 256,
+        "normalizer_eps": 0.01
+      },
+      "network": {
+        "encoder_backbone_dims": [
+          128,
+          64
+        ],
+        "encoder_latent_hidden_dim": 32,
+        "actor_hidden_dims": [
+          512,
+          256,
+          128
+        ],
+        "critic_hidden_dims": [
+          512,
+          256,
+          128
+        ]
+      },
+      "collection": {
+        "num_envs": 16,
+        "steps_per_iteration": 8,
+        "warmup_iterations": 128,
+        "capacity_per_env": 4096
+      },
+      "environment": {
+        "isaac_sim": "5.1",
+        "isaac_lab": "2.3.0",
+        "python": "3.11",
+        "robot_assets_commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+        "sim_device": "cuda:0",
+        "sac_task_id": "Tita-SAC-Velocity-Flat-v0"
+      },
+      "sources": {
+        "algorithm.gamma": "论文候选",
+        "algorithm.n_steps": "论文候选",
+        "algorithm.tau": "论文候选",
+        "algorithm.target_update_every": "作者：每次 Critic 更新都慢更新",
+        "algorithm.actor_lr": "论文候选",
+        "algorithm.critic_lr": "论文候选",
+        "algorithm.alpha_lr": "论文候选",
+        "algorithm.auxiliary_lr": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） learning_rate 初值",
+        "algorithm.initial_alpha": "作者默认（rsl_rl_sac e0d243a）",
+        "algorithm.target_entropy_scale": "作者默认（rsl_rl_sac e0d243a）",
+        "algorithm.initial_std": "论文候选",
+        "algorithm.max_grad_norm": "作者默认（rsl_rl_sac e0d243a）",
+        "algorithm.batch_size": "作者默认（rsl_rl_sac e0d243a）",
+        "algorithm.critic_updates_per_iteration": "SAC-R1-20261107",
+        "algorithm.actor_update_every": "作者默认（rsl_rl_sac e0d243a）",
+        "algorithm.alpha_update_every": "作者：每次 Critic 更新都更新 alpha",
+        "algorithm.auxiliary_updates_per_iteration": "SAC-R1-20261107",
+        "algorithm.auxiliary_batch_size": "TITA 适配暂定值（未经训练验证）",
+        "algorithm.normalizer_eps": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） 与作者 EmpiricalNormalization 的 eps",
+        "network.encoder_backbone_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+        "network.encoder_latent_hidden_dim": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+        "network.actor_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+        "network.critic_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+        "collection.num_envs": "用户设置（实际创建的环境数）",
+        "collection.steps_per_iteration": "用户设置",
+        "collection.warmup_iterations": "SAC-R1-20261107",
+        "collection.capacity_per_env": "用户设置",
+        "task.task": "E01 平地 / 复杂地形任务（接入前不能运行）",
+        "task.q_dim": "E02 运行时 group_obs_term_dim（validate_observations 核对）",
+        "task.velocity_label_columns": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）：critic 第一项 base_lin_vel × 2.0（E02 运行时核对）",
+        "task.joint_pos_limits": "E01 运行时 soft_joint_pos_limits（factor 0.9）",
+        "task.wheel_speed_ranges": "用户设置 ±20.0 rad/s（跟踪最大指令所需 13.87，模型上限 30.0）",
+        "task.initial_targets": "E03 默认目标",
+        "seed": "用户设置",
+        "device": "SAC-R1-20261107: explicitly selected, independently validated learner"
+      }
+    },
+    "run_config_overrides": {
+      "name": "SAC-R2-20261108",
+      "device": "cuda:0"
+    },
+    "common_environment_overrides": {
+      "commands.base_velocity.rel_standing_envs": 0.2,
+      "observations.policy.enable_corruption": true,
+      "events.base_external_force_torque.params.force_range": [
+        0,
+        0
+      ],
+      "events.base_external_force_torque.params.torque_range": [
+        0,
+        0
+      ],
+      "events.push_robot": null
+    },
+    "arms": {
+      "R20": {
+        "parking_body_velocity.weight": 0
+      },
+      "R21": {
+        "parking_body_velocity.weight": -2
+      }
+    },
+    "reward": {
+      "name": "parking_body_velocity",
+      "function": "I(norm(command_xy)<0.05 AND abs(command_wz)<0.05)*(vx_body^2+vy_body^2+0.25*wz_body^2)",
+      "dt_applied": "once by existing reward manager",
+      "angular_scale": 0.25,
+      "body_velocity_units": "m/s",
+      "yaw_rate_units": "rad/s",
+      "stand_still_original_weight": 0
+    },
+    "target_iterations": 8192,
+    "warmup_included": 128,
+    "target_transitions": 1048576,
+    "checkpoint_transitions": [
+      262144,
+      524288,
+      1048576
+    ],
+    "expected_critic_alpha_target_auxiliary_updates": 129024,
+    "expected_actor_updates": 64512,
+    "arms_compare_at_common_training_count_only": true,
+    "smoke_test_max_iterations": 130,
+    "smoke_test_separate_from_official_counts": true
+  },
+  "evaluation": {
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "sample_generator_seed_offset": 100000,
+    "nominal_environment": "original noise, zero reset wrench, no interval push, all other original randomizations",
+    "standard": {
+      "steps": 600,
+      "dt": 0.02,
+      "commands": [
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          6,
+          0.3,
+          0,
+          0
+        ],
+        [
+          6,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          12,
+          -0.3,
+          0,
+          0
+        ]
+      ]
+    },
+    "deterministic_gate_each_seed": {
+      "no_true_termination": true,
+      "no_timeout": true,
+      "forward_reverse_vx_mae_max": 0.12,
+      "forward_reverse_abs_wz_mean_max": 0.2,
+      "stop_7_8s_planar_speed_mean_max": 0.05,
+      "height_2_12s_mean_min": 0.25,
+      "all_step_base_contact_history_max_N": 1
+    },
+    "stochastic": "native learned std, independent generator; report the same control metrics separately from survival",
+    "turn": {
+      "steps": 900,
+      "commands": [
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          6,
+          0.2,
+          0,
+          0.5
+        ],
+        [
+          6,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          12,
+          0.2,
+          0,
+          -0.5
+        ],
+        [
+          12,
+          18,
+          0,
+          0,
+          0
+        ]
+      ],
+      "vx_mae_max": 0.12,
+      "wz_mae_max": 0.15,
+      "stop_17_18s_speed_max": 0.05,
+      "correct_yaw_sign": true,
+      "no_termination_or_base_contact": true
+    },
+    "original_environment_check": true,
+    "perturbation": {
+      "conditional": "nominal D and native S control gates and D turn gates all pass",
+      "execution": "D",
+      "duration_s": 18,
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "force_body_N": 20,
+      "directions": [
+        "+x",
+        "-x",
+        "+y",
+        "-y"
+      ],
+      "start_s": 4,
+      "duration_force_s": 0.2,
+      "torque_Nm": 0,
+      "total_cases": 12,
+      "force_cleared_after_pulse": true,
+      "recovery": "start of first continuous 1s window with every step planar speed<=.05 and abs(wz)<=.1 occurs within 2s after pulse ends",
+      "command_impulse_Ns": 4,
+      "no_termination_or_base_contact": true
+    },
+    "post_training_case_cap": 39
+  },
+  "stop_on": [
+    "nonfinite",
+    "OOM",
+    "contract/count inconsistency",
+    "source model hash changed",
+    "deadline_or_budget",
+    "both arms fail control after budget"
+  ],
+  "result_directory": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0",
+  "no_third_arm_or_unplanned_hyperparameter_search": true,
+  "no_PPO_training": true,
+  "no_jumping": true,
+  "no_real_robot": true,
+  "source_code_changes": "experimental isolated copy only; include exact diff; no automatic production replacement"
+}

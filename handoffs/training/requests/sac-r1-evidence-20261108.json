@@ -1,15 +1,16 @@
 {
   "request_id": "SAC-R1-EVIDENCE-20261108",
   "plan_id": "SAC-R1-20261107",
-  "status": "awaiting_readable_evidence",
+  "status": "evidence_review_completed_via_uploaded_archives",
   "purpose": "先交付现有证据供主审阅窗口复核停车尾速和S1随机执行提前终止，再制定SAC下一轮计划。",
   "evidence_boundary": {
     "summary_received": true,
-    "full_report_received_in_this_conversation": false,
+    "full_report_received_in_this_conversation": true,
     "accessible_github_result_directory_currently": "results/tita-ppo/2026-11-07-rtx4090-seed0",
     "sac_r1_final_commit": null,
     "accessible_space_report_located": false,
-    "actual_run_id": null
+    "actual_run_id": "SAC-R1-20261107",
+    "readable_original_no_weight_evidence_received": true
   },
   "reported_not_independently_verified": {
     "S0": {
@@ -73,5 +74,14 @@
     "当前不执行新的SAC训练或奖励/温度调整，不把这份补证据请求当SAC-R2训练计划。",
     "以真实租用到期时间为准，接近到期优先备份现有最终模型、配置和日志，不自动续费。",
     "旧PPO结果不得作为本次SAC原始证据，不能据此发布SAC优于PPO结论。"
-  ]
+  ],
+  "resolution": {
+    "review_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/review.txt",
+    "evidence_fingerprint": "d6ca353e04c3acc49ed71d8be0127eca5f9aff2e987029271f8c9d7ab70c6fd2",
+    "independent_audit_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/audit-summary.json",
+    "next_plan_id": "SAC-R2-20261108",
+    "next_plan_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/next-plan.txt",
+    "current_server_lease_and_resource_state": "must_recheck_by_dot_before_execution",
+    "supersedes_old_waiting_instruction": true
+  }
 }

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "run_id": "SAC-R1-20261107",
+  "input_kind": "uploaded_split_zip_evidence",
+  "result_path": "results/tita-sac/2026-11-07-sac-r1-rtx4090-seed0",
+  "evidence_commit": null,
+  "repository_archive_status": "not_present_at_review_start",
+  "repository_head_checked": "bf14596d0380884cd3ba52a1e31d165792466b97",
+  "source_base_commit": "9c6ad8f8b673d5fbd382f181af80c823935fd2ea",
+  "source_actual_diff_sha256": "7727ea2fade5a4d1e060d889d566970ea90d270a6ae1faaa8a4fcdf9ff3ba6fe",
+  "archives": [
+    {
+      "file": "TITA_SAC_R1_Evidence_Part1.zip",
+      "bytes": 19286062,
+      "sha256": "f40d7781f1d340c4dd1bbe73209c48de2970a6181c60242af55ec6685c3895a2"
+    },
+    {
+      "file": "TITA_SAC_R1_Evidence_Part2.zip",
+      "bytes": 19286019,
+      "sha256": "4d3576f8be13ec67e7be5c9812a90ac04a07538d967ec75336cc9ae6702a0dd5"
+    }
+  ],
+  "critical_content_fingerprint": "d6ca353e04c3acc49ed71d8be0127eca5f9aff2e987029271f8c9d7ab70c6fd2",
+  "fingerprint_algorithm": "SHA256(UTF8(concat sorted(relative_path + TAB + file_SHA256 + LF)))",
+  "critical_files": [
+    {
+      "path": "FINAL_REPORT_ZH.md",
+      "bytes": 5661,
+      "sha256": "1d290c14727a2cddb33b605f8a247525bc13ae534303bb53eff492b487a6166a",
+      "git_blob_sha": "3e15c2c0d04aa7965c0e9fc200d1325d4c680f4c"
+    },
+    {
+      "path": "MODEL_REFERENCES.json",
+      "bytes": 3181,
+      "sha256": "0d7ef93f7e47f003aee90c975dc53d8729ee82e6eb5c59af100c60d6da7ff769",
+      "git_blob_sha": "a217518e66c893f41433b11af4ec99700ce09485"
+    },
+    {
+      "path": "STATUS.json",
+      "bytes": 2365,
+      "sha256": "ff71a373bc9ea051d0a9d8ebeb86f7feb765c81c17b450d9720f3bbe236c6ad0",
+      "git_blob_sha": "d7cb9b6f26e52dff9ee4d8ed08d2e7feb02d6a84"
+    },
+    {
+      "path": "results/model-manifest.json",
+      "bytes": 2019,
+      "sha256": "0f0b453993c15ff2728c773eabc4a538e0f3032e63eab089552e77d6080692b6",
+      "git_blob_sha": "927375926746faa7d86734a71993f6bf8129df28"
+    },
+    {
+      "path": "results/source-evidence/actual-source.diff",
+      "bytes": 31566,
+      "sha256": "7727ea2fade5a4d1e060d889d566970ea90d270a6ae1faaa8a4fcdf9ff3ba6fe",
+      "git_blob_sha": "cdd8268ec9b25ca96d210d33935c5be1824a7705"
+    },
+    {
+      "path": "results/source-evidence/source-version.json",
+      "bytes": 932,
+      "sha256": "b106974744955f8217fbe45952926acecd7923f485752ed5cc2ebb98ddbbb87a",
+      "git_blob_sha": "e3a437b1ecd83b437dcbf2c7d4e7e1870425b9e9"
+    },
+    {
+      "path": "results/source-evidence/study/training_validation/training_loop/device_validation.py",
+      "bytes": 6695,
+      "sha256": "e5392f8384af8da27a5b336f0ed5fa885bab0b12a7a83ed24cd2138be581878a",
+      "git_blob_sha": "a6b699443f5e6b6c5db4b03865967f9a3c74962f"
+    },
+    {
+      "path": "results/source-evidence/tools/evaluate_sac_r1.py",
+      "bytes": 18704,
+      "sha256": "652331be08f36cffddbe25c17299d17cfc81167bca35b06c09a2b0f4b63e0e71",
+      "git_blob_sha": "82c5b1687d0e8a7cd3eaa2cba5f7626e340cfada"
+    },
+    {
+      "path": "results/source-evidence/tools/train_sac_r1.py",
+      "bytes": 18290,
+      "sha256": "46f4c8d0f3013ab95ca51db90babcbf9fcd53f259432abbf6cbf0e7a49153c9a",
+      "git_blob_sha": "899af369ef170c81dc3660118c50ae62a7bbfb06"
+    },
+    {
+      "path": "results/training/S0/environment_config.yaml",
+      "bytes": 39854,
+      "sha256": "028ce790d63eb1d2d13e01fff5a9704ab75f8c1229100cc82ef40881317fa344",
+      "git_blob_sha": "01650a68c5a2d882ca0cd4d23a9b14981714113d"
+    },
+    {
+      "path": "results/training/S0/run_config.json",
+      "bytes": 6080,
+      "sha256": "b6c9b0672b3bcc76aa7a4d0032e44716799eb894cbf1b668f1af27785ba7cf13",
+      "git_blob_sha": "d33d4eaab6c8ac3c2d61b2049f543cd439075f0f"
+    },
+    {
+      "path": "results/training/S0/summary.json",
+      "bytes": 5145,
+      "sha256": "a71a6554f1176d8bb32867cb6555a353dd287d861b67bfda0f96fd9f56de717c",
+      "git_blob_sha": "51ee7b721a3c53d76a0557e7ab0e112815804c0b"
+    },
+    {
+      "path": "results/training/S1/environment_config.yaml",
+      "bytes": 39853,
+      "sha256": "1655f6bab6b325adb5e0af9038cdec439837572d5f0ceefed1ab9b9733de5c4f",
+      "git_blob_sha": "bfdc9d4676f9c795938ef944a799cd4322e48a8b"
+    },
+    {
+      "path": "results/training/S1/run_config.json",
+      "bytes": 6080,
+      "sha256": "b6c9b0672b3bcc76aa7a4d0032e44716799eb894cbf1b668f1af27785ba7cf13",
+      "git_blob_sha": "d33d4eaab6c8ac3c2d61b2049f543cd439075f0f"
+    },
+    {
+      "path": "results/training/S1/summary.json",
+      "bytes": 5145,
+      "sha256": "afad3d2f865e306d1b062550acdfcd0250773e2675e9b67ddd75abe83e764b7e",
+      "git_blob_sha": "10a6e640bd06ee2c59b00b86cd0bb0d48794fdbd"
+    }
+  ],
+  "verified_original_files": 535,
+  "omitted_models": [
+    "results/models/S0/model_0262144.pt",
+    "results/models/S0/model_0524288.pt",
+    "results/models/S0/model_1048576.pt",
+    "results/models/S1/model_0262144.pt",
+    "results/models/S1/model_0524288.pt",
+    "results/models/S1/model_1048576.pt"
+  ],
+  "compact_checksum_entries_verified": 536,
+  "merged_unique_files": 541,
+  "review_scope": {
+    "raw_runs": 48,
+    "raw_steps": 29082,
+    "training_csv_rows": 16384,
+    "models_deserialized": false,
+    "simulator_executed": false
+  },
+  "future_repository_binding": "Match critical files and their Git blob SHAs against the uploaded evidence before assigning a fixed repository evidence commit. Do not repeat training review for byte-identical evidence."
+}

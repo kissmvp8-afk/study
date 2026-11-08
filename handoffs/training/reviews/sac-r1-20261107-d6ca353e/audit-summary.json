@@ -1,0 +1,9 @@
+{
+  "runs": 48,
+  "total_steps": 29082,
+  "metric_discrepancies": 0,
+  "training_rows_verified": 16384,
+  "all_ppo_physical_pairs_match": true,
+  "models_deserialized": false,
+  "simulator_executed": false
+}
