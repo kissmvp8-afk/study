@@ -1,0 +1,23 @@
+{
+  "package_members_hashed": 523,
+  "original_execution_files_hashed": 490,
+  "training_groups": 20,
+  "training_iterations_checked": 1280,
+  "timing_rows_checked": 1280,
+  "actual_update_records_match": true,
+  "warmup_iterations": 0,
+  "critic_alpha_target_aux_updates_per_group": 1024,
+  "actor_updates_per_group": 512,
+  "compatible_pairs": 10,
+  "training_log_pairs_byte_equal": 10,
+  "evaluation_pairs_byte_equal": 10,
+  "model_hash_records_pairs_equal": 10,
+  "model_weight_bytes_verified": false,
+  "evaluation_runs": 20,
+  "evaluation_steps": 8634,
+  "complete_600_step_runs": 14,
+  "gate_passes": 0,
+  "metric_discrepancies": 0,
+  "simulator_started": false,
+  "models_deserialized": false
+}

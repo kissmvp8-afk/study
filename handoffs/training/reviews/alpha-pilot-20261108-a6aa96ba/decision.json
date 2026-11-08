@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "review_id": "ALPHA-PILOT-20-20261108",
+  "basis_fingerprint": "ae9cfec6497d84b72e4cc7e0b6f982cf323b29b6062a15cd9ff4075b0d98861d",
+  "run_id": "SAC-ALPHA-PAIRED-PERFORMANCE-20261108",
+  "classification": "short_performance_and_compatibility_diagnostic",
+  "conclusions": {
+    "actual_learning_updates_verified": true,
+    "warmup_only_concern_resolved": true,
+    "paired_training_and_evaluation_byte_compatibility": true,
+    "stable_speedup_demonstrated": false,
+    "control_improvement_observed": false,
+    "full_ETH_algorithm_tested": false
+  },
+  "code_activation": "none_experiment_patch_archived_independently",
+  "next_training_plan_id": "SAC-R3-20261108",
+  "new_plan_created": false,
+  "next_training_plan_commit": "a1e0c51022b68be6ccff5684899db6110ff9ccf1",
+  "next_training_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
+  "next_training_parameters_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/parameters.json",
+  "next_step_addendum": "next-step.txt",
+  "parent_R20_resume_sha256": "d8cd6e61432920de3a9c5e731c6c2a96cad3e9313969e8215646ef6fcd026854",
+  "R3_code_choice": "same reviewed R2 baseline for both arms; tensor engineering patch retained separately",
+  "R3_effective_tf32": {
+    "matmul": false,
+    "cudnn": false
+  },
+  "user_reported_R3_not_forwarded": true,
+  "Dot_acknowledged": false,
+  "server_execution_status": "unconfirmed_no_training_started_by_reviewer",
+  "require_current_authorized_resource_check": true,
+  "automatic_rental_extension": false
+}

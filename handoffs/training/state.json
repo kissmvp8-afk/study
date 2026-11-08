@@ -335,6 +335,130 @@
       "next_plan_parent": "R20 resume_final.pt sha256 d8cd6e61432920de3a9c5e731c6c2a96cad3e9313969e8215646ef6fcd026854",
       "current_resource_status": "unknown_recorded_R2_cutoff_2026_11_08_17_55_UTC8_has_passed",
       "repository_binding_rule": "Match future result critical files against uploaded-evidence SHA256/Git blob SHAs; bind matching archive commit without repeating review. Changed evidence is reviewed separately."
+    },
+    {
+      "run_id": "SAC-ALPHA-PAIRED-PERFORMANCE-20261108",
+      "batch_id": "sac-alpha-pilot-twenty-20261108/run-001",
+      "result_path": null,
+      "result_path_status": "original_result_directory_not_published",
+      "source_server_run_path": "/root/rivermind-data/tita-check/sac-alpha-pilot-twenty-20261108/run-001",
+      "evidence_commit": null,
+      "input_kind": "uploaded_light_evidence_zip",
+      "archive_status": "reviewed_uploaded_light_evidence_and_saved_changed_source_backup",
+      "key_content_fingerprint": "ae9cfec6497d84b72e4cc7e0b6f982cf323b29b6062a15cd9ff4075b0d98861d",
+      "fingerprint_algorithm": "SHA256(UTF8(concat sorted(relative_path + TAB + file_SHA256 + LF)))",
+      "source_archive": {
+        "file": "TITA_SAC_20Groups_LightEvidence.zip",
+        "bytes": 19950923,
+        "sha256": "a6aa96ba781df82d324ee2633c429f1d6ccb510156e890256d0ebb5f127ad96b",
+        "zip_crc_verified": true
+      },
+      "critical_files": [
+        {
+          "path": "metadata/MODEL_MANIFEST.json",
+          "bytes": 3142,
+          "sha256": "9da25163116027149a0a4542fb43d67e36b39d6025bd5b3fb2dcf47536cecf0d",
+          "git_blob_sha": "a384724523751edf1248007bc83a0b0923be2482"
+        },
+        {
+          "path": "metadata/REPORT_ZH.txt",
+          "bytes": 2941,
+          "sha256": "789b74d7c825dc79c2bd823713af4941c56455c54ea6db448e046cc343c6d9f5",
+          "git_blob_sha": "b2ff43c34eec75ed4cc542e443d19c55c827d8d9"
+        },
+        {
+          "path": "metadata/complete-working-tree.patch",
+          "bytes": 50669,
+          "sha256": "c58d31de2e157d334176803d8c4d268f98d5308e585f4b9789f290a44cdf6ba3",
+          "git_blob_sha": "c213f3c36946b5f4b89003402bf0edbfbed40683"
+        },
+        {
+          "path": "metadata/inherited-baseline.patch",
+          "bytes": 38637,
+          "sha256": "ab26ab6a13942e7d8cebf79d07ec888977ad8763da72f5fd9bcf6330a7186bd3",
+          "git_blob_sha": "f58eff26a768bc40f540bb31c711021f9aaf3749"
+        },
+        {
+          "path": "metadata/migration.patch",
+          "bytes": 14449,
+          "sha256": "eca3ad75f78caf29f1aaf83acbfece8d1c2d02f37fd6bda7469686a4ba7818e9",
+          "git_blob_sha": "2c00ab073f744bbcb69d7ab98f85a377ea864476"
+        },
+        {
+          "path": "run-001/PLAN.json",
+          "bytes": 1238,
+          "sha256": "6fd368a2e2a5589d798278953aced02658e95e8368a5bbd181914a40f0577e86",
+          "git_blob_sha": "db7268afa7f1e5a96990b3559089a0f3f4abe925"
+        },
+        {
+          "path": "run-001/final-statistics/statistics.json",
+          "bytes": 27816,
+          "sha256": "9e45b54d654fddc28f12fa3be462da02d33a1f0e6d0c15c3efb2725a0c8633f7",
+          "git_blob_sha": "13264191934bf14a3784e91114b8e40184f4f409"
+        },
+        {
+          "path": "supplement/GROUP_UPDATES_TIMINGS.csv",
+          "bytes": 32504,
+          "sha256": "0f6b06d39d4ea5b108244ca955a6227b3789b11d9be90c1ff7e865a69a11e676",
+          "git_blob_sha": "69dff7b7ae7b30a083572a80d205d9a9de1d2627"
+        },
+        {
+          "path": "supplement/MEMBER_SHA256.json",
+          "bytes": 62100,
+          "sha256": "47acd869e72c08c2447dca8b3156241a66103ee549b417d200ffda5d452c9d6b",
+          "git_blob_sha": "74850323228637772200a578447f3065795971b7"
+        },
+        {
+          "path": "tools/evaluate_twenty_source.py",
+          "bytes": 19557,
+          "sha256": "d2da2c7ef68d4b0db481ad0faeb096e93a080b1196eed8e3c2a01b5dd5c856d6",
+          "git_blob_sha": "500a562f6138c2106ca0ee4002f4b5ea56fb0eba"
+        },
+        {
+          "path": "tools/run_alpha_performance_arm.py",
+          "bytes": 14735,
+          "sha256": "5321d03d626d67a7763ffab3dcea70c3db2bb11cb57ee7a7256b57a92d7d039c",
+          "git_blob_sha": "96192268a4363e49b5d77eb714cc25e5bba2ab30"
+        },
+        {
+          "path": "tools/run_twenty_alpha.py",
+          "bytes": 8516,
+          "sha256": "61242d9f6b2e98d3ec4d92c01682fdf579577253fd5d9c3bb569e8d79543fefd",
+          "git_blob_sha": "f8584f698a1e312aa9599371682082f5be4a838f"
+        }
+      ],
+      "result_status": "completed",
+      "control_acceptance": "failed_short_diagnostic",
+      "review_status": "independently_reviewed_uploaded_light_evidence",
+      "reviewed_at_utc": "2026-11-08 14:47:26 UTC",
+      "verified_package_member_hashes": 523,
+      "training_iterations_checked": 1280,
+      "timing_rows_checked": 1280,
+      "independently_recomputed_evaluation_runs": 20,
+      "independently_recomputed_evaluation_steps": 8634,
+      "warmup_iterations": 0,
+      "actual_updates_per_group": {
+        "critic": 1024,
+        "actor": 512,
+        "alpha": 1024,
+        "target": 1024,
+        "auxiliary": 1024
+      },
+      "paired_training_logs_byte_equal": 10,
+      "paired_evaluation_logs_byte_equal": 10,
+      "model_hash_records_pairs_equal": 10,
+      "model_weight_bytes_verified": false,
+      "source_backup_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/source-backup.zip",
+      "source_reconstruction_matches_supplied_files": 17,
+      "review_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/review.txt",
+      "input_evidence_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/input-evidence.json",
+      "decision_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/decision.json",
+      "next_step_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/next-step.txt",
+      "next_plan_id": "SAC-R3-20261108",
+      "next_plan_reused_not_newly_issued": true,
+      "next_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
+      "plan_delivery_note": "User reported R3 not yet forwarded to Dot; no execution is inferred from this review.",
+      "repository_binding_rule": "No original results path is published yet. Bind future matching raw result/source uploads by batch identity and critical file hashes; do not treat handoff changes as new results."
     }
   ],
   "pending_results": [
@@ -374,5 +498,7 @@
     "server_reported_next_run_time": null
   },
   "latest_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
-  "updated_at_utc": "2026-11-08 11:56:22 UTC"
+  "updated_at_utc": "2026-11-08 14:47:26 UTC",
+  "latest_review_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/review.txt",
+  "latest_plan_addendum_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/next-step.txt"
 }
