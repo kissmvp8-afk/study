@@ -1,35 +1,35 @@
 {
-  "snapshot_utc": "20261108T191532Z",
+  "snapshot_utc": "20261108T194532Z",
   "controller": {
     "plan_id": "SAC-R4-128-SCREEN-20261108",
     "status": "running",
     "completed_round": 1,
     "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
-    "active_job": "r2-D2-1001",
-    "heartbeat_utc": "2026-11-08T19:15:30.978264+00:00",
+    "active_job": "r2-D2-1002",
+    "heartbeat_utc": "2026-11-08T19:45:31.245854+00:00",
     "last_decision": "round-1.decision.json"
   },
-  "evidence_sha256": "fe72f83017ef3393537f6f2ef3a295f912fe42f51be0d74ad89a3edd2ed1278b",
+  "evidence_sha256": "95afe0a7c98da79c8712ef58f4657dfb1237d114cf057aa12f97fa82b608cd90",
   "parts": [
     {
       "file": "evidence.zip.part001",
       "bytes": 24000000,
-      "sha256": "e1e470b6d5a241c240e2dd24e12e6487b310c5e8cf0072a9ea506b874faa6aea"
+      "sha256": "175c4c5c298fbf687a8dab8d62b7bbe0958a5bb41359707b360be48c71f8269c"
     },
     {
       "file": "evidence.zip.part002",
       "bytes": 24000000,
-      "sha256": "8ee70bb54bf784e4b4b8f196b0cf18447b066231af0a5b155114cc49409a6981"
+      "sha256": "24bdbcee7c2d88a065459b6458be26761fe99c86cae48f9947892e4fb0f1a687"
     },
     {
       "file": "evidence.zip.part003",
       "bytes": 24000000,
-      "sha256": "563caeeade2684086abdaaf143b57b794fad511ab2f29dda4706fcda5016d732"
+      "sha256": "94c7e3ef6bd85be5c7d01c06b4bf690382616563cc72c4dcb88b5431012fd9a2"
     },
     {
       "file": "evidence.zip.part004",
-      "bytes": 4878079,
-      "sha256": "fee597dff02e3ad00f7664de8b69f5622151769162db543ca541f6a2c195c195"
+      "bytes": 13945916,
+      "sha256": "4f26e0bd520a15d4e213104ba6ccbbc584a6a991a973be355d01bd82f0c8d313"
     }
   ],
   "model_weights_included": false,
