@@ -1,19 +1,19 @@
 {
-  "snapshot_utc": "20261108T161532Z",
+  "snapshot_utc": "20261108T164532Z",
   "controller": {
     "plan_id": "SAC-R4-128-SCREEN-20261108",
     "status": "running",
     "completed_round": 0,
     "runtime_sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
-    "active_job": "r1-D0-1001",
-    "heartbeat_utc": "2026-11-08T16:15:25.367066+00:00"
+    "active_job": "r1-D1-1002",
+    "heartbeat_utc": "2026-11-08T16:45:25.626746+00:00"
   },
-  "evidence_sha256": "008074fd36e21587958ee7c8cf0e9275f00cd2eb5b1b43752b2b11c647837aae",
+  "evidence_sha256": "aa6918b09f1eeb9a4aaeb958e2bdb5aeb364a634238df2bb5830340bc0b29190",
   "parts": [
     {
       "file": "evidence.zip.part001",
-      "bytes": 8694205,
-      "sha256": "008074fd36e21587958ee7c8cf0e9275f00cd2eb5b1b43752b2b11c647837aae"
+      "bytes": 21234993,
+      "sha256": "aa6918b09f1eeb9a4aaeb958e2bdb5aeb364a634238df2bb5830340bc0b29190"
     }
   ],
   "model_weights_included": false,

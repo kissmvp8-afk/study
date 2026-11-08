@@ -159,3 +159,7 @@ python3 -B training_validation/verification/verify.py --docs
 T06 将文档、单元、CPU 集成、仿真、性能分开报告；`--docs` 通过时，其余层本次均未执行。文档链接存在不证明公式或算法正确，CPU 人工钩子通过也不证明真实 Isaac 或训练成功。评价还需要至少三个不同有效训练种子、固定任务/预算与提前确定的阈值；耗时 5% 容差是项目暂定约定，不是论文结论。
 
 本轮未发现新增实质代码问题。保留一处已确认文字残留：[config.py](training_validation/configuration/config.py) 文件头仍写资产“尚未锁定”，与同文件 `TARGET_ENVIRONMENT` 和 UPSTREAM.json 的已锁定提交相矛盾；人类版按实际常量同步，未修改源码。真实环境执行、GPU 搬运成本、轮速余量、训练效果及性能是后续验证工作。
+
+
+## SAC-R4 independent screening 2026-11-08
+128 environments; fixed plan 1325352f. Actual protocol CPU tests 13 passed, current-event CPU Tensor tests 3 passed, six parent evaluations complete, GPU 16 prefill + 64 learning and strict resume passed. An additional 16 discarded calibration macros correct the plan arithmetic; full-pool iterations65-96 average 4.5374083272809 s. Cache equality failed, so all formal arms disable cache. q=144. Formal status is running only after controller evidence; no control success claimed. Source/config/raw snapshots are under results/tita-sac/sac-r4-128-screen-20261108. Platform lease expiry is unverified; runtime uses an explicitly conservative operational bound and T0+9.5h cap.
