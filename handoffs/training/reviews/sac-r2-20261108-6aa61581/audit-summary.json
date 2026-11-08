@@ -1,0 +1,12 @@
+{
+  "raw_runs": 46,
+  "raw_steps": 24702,
+  "metric_discrepancies": 0,
+  "training_csv_rows": 16384,
+  "training_jsonl_rows": 16384,
+  "physical_pair_groups": 7,
+  "all_physical_pairs_match": true,
+  "models_deserialized": false,
+  "simulation_run": false,
+  "diagnostic_termination_counts_reliable": false
+}

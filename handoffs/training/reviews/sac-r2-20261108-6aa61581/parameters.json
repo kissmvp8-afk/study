@@ -1,0 +1,544 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R3-20261108",
+  "basis_run_id": "SAC-R2-20261108",
+  "basis_fingerprint": "6aa6158114fda586e08344b81891f64dacc45dc47c02c7ae0429ec0c8458bf36",
+  "execution_status": "issued_requires_current_authorized_resource_check_not_started_by_reviewer",
+  "hypothesis": "Reducing the current SAC temperature during learning may improve stopping/yaw and native stochastic control; no inference noise rescaling.",
+  "mission": "SAC locomotion, stop yaw, continuous turns and bounded disturbance recovery; jumping deferred",
+  "resources": {
+    "existing_authorized_gpu_only": true,
+    "gpu": "RTX4090 class 24GB",
+    "single_simulation_process": true,
+    "required_confirmed_remaining_seconds": 14400,
+    "queue_cap_seconds": 11700,
+    "preparation_probe_smoke_cap_seconds": 1200,
+    "training_cap_seconds_per_arm": 2700,
+    "evaluation_cap_seconds": 3600,
+    "archive_cap_seconds": 900,
+    "no_new_training_within_seconds_of_rental_end": 7200,
+    "training_hard_stop_reserve_seconds": 4500,
+    "disk_no_new_training_below_gib": 15,
+    "disk_orderly_stop_below_gib": 10,
+    "last_known_conservative_cutoff": "2026-11-08T17:55:00+08:00",
+    "current_resource_state": "unknown_old_cutoff_passed",
+    "blocked_action": "publish_current_resource_status_and_backup_locations_then_stop",
+    "automatic_rental_extension": false,
+    "automatic_shutdown": false,
+    "model_selector_changes": false
+  },
+  "parent_checkpoint": {
+    "path": "/root/rivermind-data/tita-check/sac-r2-20261108/runs/phase-b-001/R20/resume_final.pt",
+    "sha256": "d8cd6e61432920de3a9c5e731c6c2a96cad3e9313969e8215646ef6fcd026854",
+    "bytes": 216121369,
+    "transitions": 1048576,
+    "counters": {
+      "iterations": 8192,
+      "env_steps": 65536,
+      "transitions": 1048576,
+      "critic_updates": 129024,
+      "actor_updates": 64512,
+      "alpha_updates": 129024,
+      "target_updates": 129024,
+      "auxiliary_updates": 129024,
+      "auxiliary_skipped": 0,
+      "replay_samples": 33030144,
+      "auxiliary_samples": 32206048,
+      "learning_skipped_iterations": 0
+    },
+    "includes_replay": true,
+    "readback_verified": true
+  },
+  "parent_inference_checkpoint": {
+    "path": "/root/rivermind-data/tita-check/sac-r2-20261108/runs/phase-b-001/R20/model_final.pt",
+    "sha256": "9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59",
+    "bytes": 9153975,
+    "transitions": 1048576,
+    "counters": {
+      "iterations": 8192,
+      "env_steps": 65536,
+      "transitions": 1048576,
+      "critic_updates": 129024,
+      "actor_updates": 64512,
+      "alpha_updates": 129024,
+      "target_updates": 129024,
+      "auxiliary_updates": 129024,
+      "auxiliary_skipped": 0,
+      "replay_samples": 33030144,
+      "auxiliary_samples": 32206048,
+      "learning_skipped_iterations": 0
+    },
+    "includes_replay": false,
+    "readback_verified": true
+  },
+  "common_learning_config": {
+    "name": "SAC-R2-20261108",
+    "mode": "isaac_sim",
+    "seed": 0,
+    "device": "cuda:0",
+    "task": {
+      "task": "isaac_flat",
+      "q_dim": 54,
+      "velocity_label_columns": [
+        0,
+        3
+      ],
+      "joint_pos_limits": {
+        "joint_left_leg_1": [
+          -0.7068581581115723,
+          0.7068581581115723
+        ],
+        "joint_left_leg_2": [
+          -1.6493356227874756,
+          3.22013258934021
+        ],
+        "joint_left_leg_3": [
+          -2.571742534637451,
+          -0.7967431545257568
+        ],
+        "joint_right_leg_1": [
+          -0.7068581581115723,
+          0.7068581581115723
+        ],
+        "joint_right_leg_2": [
+          -1.6493356227874756,
+          3.22013258934021
+        ],
+        "joint_right_leg_3": [
+          -2.571742534637451,
+          -0.7967431545257568
+        ]
+      },
+      "wheel_speed_ranges": {
+        "joint_left_leg_4": [
+          -20.0,
+          20.0
+        ],
+        "joint_right_leg_4": [
+          -20.0,
+          20.0
+        ]
+      },
+      "action_limits_artificial": false,
+      "initial_targets": null
+    },
+    "algorithm": {
+      "gamma": 0.97,
+      "n_steps": 5,
+      "tau": 0.003,
+      "target_update_every": 1,
+      "actor_lr": 0.0002,
+      "critic_lr": 0.0002,
+      "alpha_lr": 2e-05,
+      "auxiliary_lr": 0.001,
+      "initial_alpha": 0.05,
+      "target_entropy_scale": 1.0,
+      "initial_std": 0.15,
+      "max_grad_norm": 1.0,
+      "batch_size": 256,
+      "critic_updates_per_iteration": 16,
+      "actor_update_every": 2,
+      "alpha_update_every": 1,
+      "auxiliary_updates_per_iteration": 16,
+      "auxiliary_batch_size": 256,
+      "normalizer_eps": 0.01
+    },
+    "network": {
+      "encoder_backbone_dims": [
+        128,
+        64
+      ],
+      "encoder_latent_hidden_dim": 32,
+      "actor_hidden_dims": [
+        512,
+        256,
+        128
+      ],
+      "critic_hidden_dims": [
+        512,
+        256,
+        128
+      ]
+    },
+    "collection": {
+      "num_envs": 16,
+      "steps_per_iteration": 8,
+      "warmup_iterations": 128,
+      "capacity_per_env": 4096
+    },
+    "environment": {
+      "isaac_sim": "5.1",
+      "isaac_lab": "2.3.0",
+      "python": "3.11",
+      "robot_assets_commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+      "sim_device": "cuda:0",
+      "sac_task_id": "Tita-SAC-Velocity-Flat-v0"
+    },
+    "sources": {
+      "algorithm.gamma": "论文候选",
+      "algorithm.n_steps": "论文候选",
+      "algorithm.tau": "论文候选",
+      "algorithm.target_update_every": "作者：每次 Critic 更新都慢更新",
+      "algorithm.actor_lr": "论文候选",
+      "algorithm.critic_lr": "论文候选",
+      "algorithm.alpha_lr": "论文候选",
+      "algorithm.auxiliary_lr": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） learning_rate 初值",
+      "algorithm.initial_alpha": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.target_entropy_scale": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.initial_std": "论文候选",
+      "algorithm.max_grad_norm": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.batch_size": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "algorithm.critic_updates_per_iteration": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "algorithm.actor_update_every": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.alpha_update_every": "作者：每次 Critic 更新都更新 alpha",
+      "algorithm.auxiliary_updates_per_iteration": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "algorithm.auxiliary_batch_size": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "algorithm.normalizer_eps": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） 与作者 EmpiricalNormalization 的 eps",
+      "network.encoder_backbone_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.encoder_latent_hidden_dim": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.actor_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.critic_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "collection.num_envs": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "collection.steps_per_iteration": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "collection.warmup_iterations": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "collection.capacity_per_env": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "task.task": "E01 平地 / 复杂地形任务（接入前不能运行）",
+      "task.q_dim": "E02 运行时 group_obs_term_dim（validate_observations 核对）",
+      "task.velocity_label_columns": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）：critic 第一项 base_lin_vel × 2.0（E02 运行时核对）",
+      "task.joint_pos_limits": "E01 运行时 soft_joint_pos_limits（factor 0.9）",
+      "task.wheel_speed_ranges": "用户设置 ±20.0 rad/s（跟踪最大指令所需 13.87，模型上限 30.0）",
+      "task.initial_targets": "E03 默认目标",
+      "seed": "用户设置",
+      "device": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "name": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "commands.base_velocity.rel_standing_envs": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "observations.policy.enable_corruption": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "events.base_external_force_torque.params.force_range": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "events.base_external_force_torque.params.torque_range": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "events.push_robot": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+      "rewards.parking_body_velocity": "SAC-R2-20261108: fixed plan d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02"
+    }
+  },
+  "environment": {
+    "base": "R20",
+    "num_envs": 16,
+    "standing_fraction": 0.2,
+    "policy_noise": true,
+    "reset_force_range": [
+      0,
+      0
+    ],
+    "reset_torque_range": [
+      0,
+      0
+    ],
+    "interval_push": false,
+    "parking_reward_weight": 0,
+    "control_dt_s": 0.02,
+    "other_original_randomizations": "unchanged"
+  },
+  "required_logging_fix": {
+    "issue": "IsaacLab2.3 get_term returns retained _term_dones, not per-step event masks",
+    "sole_true_termination_term": "base_contact",
+    "sole_timeout_term": "time_out",
+    "read_current_masks_from": "same compute_terminations return values and clone before reset",
+    "do_not_reevaluate_stateful_termination_functions": true,
+    "per_iteration_diagnostic_counts_equal_collect": true,
+    "regression_cases": [
+      "one true then seven false => count1",
+      "timeout equivalent",
+      "simultaneous true+timeout"
+    ]
+  },
+  "probe": {
+    "source": "restored R20 replay",
+    "target_distinct_histories": 64,
+    "min_history_length": 10,
+    "command_bins": [
+      "near-zero",
+      "forward",
+      "reverse",
+      "turn"
+    ],
+    "target_per_bin": 16,
+    "raw_command_columns": [
+      6,
+      9
+    ],
+    "raw_command_scales": [
+      2,
+      2,
+      0.25
+    ],
+    "samples_per_history": 32,
+    "independent_generator_seed": 303032,
+    "quantities": [
+      "pre-tanh std",
+      "action-coordinate entropy",
+      "physical-target conditional std and quantiles"
+    ],
+    "frozen_modules_statistics_and_training_rng": true,
+    "physics_steps": 0
+  },
+  "restoration": {
+    "api": "load_checkpoint_config + restore_checkpoint",
+    "required_mode": "exact_replay",
+    "replay_restored": true,
+    "environment_state_restored": false,
+    "keep_modules_optimizers_statistics_counters_and_generators": true,
+    "new_episode_ids": "saved next_episode_ids through official restore API",
+    "fresh_physical_initial_state_pairing_required": true,
+    "reset_counters": false,
+    "extra_warmup_iterations": 0,
+    "current_actor_std": "restored learned values; never reset to initial_std",
+    "metadata_name": "SAC-R3-20261108 after successful same-learning-config restore"
+  },
+  "arms": {
+    "R30": {
+      "alpha_multiplier": 1.0,
+      "log_alpha_offset": 0.0
+    },
+    "R31": {
+      "alpha_multiplier": 0.1,
+      "log_alpha_offset": -2.3025850929940455
+    }
+  },
+  "alpha_intervention": {
+    "applied_once_after_restore": true,
+    "preserve_alpha_adam_state": true,
+    "alpha_updates_remain_enabled": true,
+    "alpha_lr": 2e-05,
+    "target_entropy": -8,
+    "use_loaded_exact_current_alpha": true,
+    "multiplier_relative_tolerance": 1e-06,
+    "immediate_inference_outputs_must_match_given_same_history_and_noise": true
+  },
+  "training": {
+    "additional_iterations_per_arm": 2048,
+    "additional_transitions_per_arm": 262144,
+    "additional_vector_steps_per_arm": 16384,
+    "additional_critic_alpha_target_updates": 32768,
+    "additional_auxiliary_attempts": 32768,
+    "expected_auxiliary_updates_if_no_skip": 32768,
+    "additional_actor_updates": 16384,
+    "final_absolute_iterations": 10240,
+    "final_absolute_transitions": 1310720,
+    "final_absolute_critic_alpha_target_updates": 161792,
+    "final_absolute_actor_updates": 80896,
+    "checkpoints_additional_iterations": [
+      512,
+      1024,
+      2048
+    ],
+    "checkpoints_absolute_transitions": [
+      1114112,
+      1179648,
+      1310720
+    ],
+    "smoke_additional_iterations_max": 5,
+    "smoke_not_part_of_formal_training": true,
+    "formal_forks_each_restore_original_parent": true,
+    "no_unsupported_fresh_entry_cli": true,
+    "selection_final_complete_common_budget_only": true
+  },
+  "evaluation": {
+    "development_seeds": [
+      101,
+      102,
+      103
+    ],
+    "heldout_evaluation_seeds": [
+      201,
+      202,
+      203
+    ],
+    "training_seed_lineage": "single seed0 R20 parent; two forks are not independent training seeds",
+    "sampling_generator_seed_offset": 100000,
+    "native_learned_std_only": true,
+    "nominal_environment": "original observation noise, zero reset wrench, no interval push, other original randomizations",
+    "standard": {
+      "steps": 600,
+      "dt": 0.02,
+      "commands_s_vx_vy_wz": [
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          6,
+          0.3,
+          0,
+          0
+        ],
+        [
+          6,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          12,
+          -0.3,
+          0,
+          0
+        ]
+      ]
+    },
+    "old_gate": {
+      "full_protocol": true,
+      "no_termination_or_timeout": true,
+      "directional_vx_mae_max": 0.12,
+      "moving_abs_wz_mean_max": 0.2,
+      "stop_7_8s_planar_speed_mean_max": 0.05,
+      "stable_2_12s_height_mean_min": 0.25,
+      "base_contact_history_max_N": 1
+    },
+    "task_gate_extra": {
+      "stop_windows_s": [
+        [
+          1,
+          2
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "planar_speed_mean_max": 0.05,
+      "abs_wz_mean_max": 0.1
+    },
+    "initial_cases": 24,
+    "heldout_standard_cases": 6,
+    "heldout_turn_cases": 6,
+    "pulse_cases": 12,
+    "total_case_cap": 48,
+    "candidate_requires": "final common-budget D and native S all three development seeds pass old+extra task gates",
+    "tie_break": [
+      "worst stopping speed",
+      "worst stopping yaw",
+      "worst directional MAE",
+      "R30"
+    ],
+    "heldout_required_before_turn": true,
+    "turn": {
+      "steps": 900,
+      "executions": [
+        "D",
+        "S"
+      ],
+      "commands_s_vx_vy_wz": [
+        [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          6,
+          0.2,
+          0,
+          0.5
+        ],
+        [
+          6,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          12,
+          0.2,
+          0,
+          -0.5
+        ],
+        [
+          12,
+          18,
+          0,
+          0,
+          0
+        ]
+      ],
+      "directional_vx_mae_max": 0.12,
+      "directional_wz_mae_max": 0.15,
+      "correct_yaw_sign": true,
+      "stopping_windows_s": [
+        [
+          7,
+          8
+        ],
+        [
+          17,
+          18
+        ]
+      ],
+      "stopping_speed_mean_max": 0.05,
+      "stopping_abs_wz_mean_max": 0.1,
+      "no_termination_timeout_or_base_contact": true,
+      "height_2_18s_mean_min": 0.25
+    },
+    "pulse": {
+      "conditional": "heldout standard D/S and turn D/S all pass and budget fits",
+      "execution": "D",
+      "seeds": [
+        201,
+        202,
+        203
+      ],
+      "directions": [
+        "+x",
+        "-x",
+        "+y",
+        "-y"
+      ],
+      "force_body_N": 20,
+      "torque_Nm": 0,
+      "start_s": 4,
+      "end_s": 4.2,
+      "total_s": 18,
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "command_impulse_Ns": 4,
+      "recovery_window_s": 1,
+      "recovery_window_start_within_s_after_pulse": 2,
+      "recovery_every_step_speed_max": 0.05,
+      "recovery_every_step_abs_wz_max": 0.1,
+      "wrench_zero_outside_pulse": true,
+      "no_termination_timeout_or_base_contact": true
+    }
+  },
+  "delivery": {
+    "result_path": "results/tita-sac/2026-11-08-sac-r3-rtx4090-r20fork",
+    "unique_execution_subrun": true,
+    "separate_light_evidence_and_weights": true,
+    "attachment_max_bytes": 33554432,
+    "byte_volume_limit": 24000000,
+    "include_original_archive_sha": true
+  },
+  "stop_on": [
+    "nonfinite",
+    "OOM",
+    "checkpoint or restore mismatch",
+    "invalid contract or counters",
+    "deadline or budget",
+    "no final qualified candidate"
+  ],
+  "no_third_arm": true,
+  "no_PPO_training": true,
+  "no_jumping": true,
+  "no_real_robot": true,
+  "no_production_replacement": true
+}

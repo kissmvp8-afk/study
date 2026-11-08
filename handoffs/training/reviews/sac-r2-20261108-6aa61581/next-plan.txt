@@ -1,0 +1,85 @@
+给Dot：SAC-R3-20261108，R20同父短续训与温度对照
+
+主目标：SAC行走、停车航向和连续转向，再验证有限短时外力恢复。本轮检验熵正则强度，不做跳跃，不改正式配置，不实机运行。
+先读review.txt和input-evidence.json；本指令替代已解决的SAC-R2分卷交付请求，不是再次执行R2。
+
+一、资源与去重，未满足就交付blocked状态而不启动训练
+
+1. plan_id=SAC-R3-20261108。先检查现有进程和结果目录，同计划已运行/已完成则不重复启动。
+2. 原R2记录的17:55+08保守截止已过；旧18:55显示也不能再假定有效。回传当前UTC/UTC+8时间、活跃实例标识、真实租约到期时刻/时区、nvidia-smi、磁盘和已持久保存的R2证据/权重位置。若旧实例已释放，可在用户已授权的新实例恢复；本计划不授权购买、续租或更改本聊天/定时任务的模型设置。
+3. 仅在已确认的现有资源至少还有4小时、RTX4090级24GB显存、数据盘≥15GiB时启动。优先沿用Torch2.7.0+cu128、IsaacSim5.1、IsaacLab2.3.0；版本不同先记录并验证读回、动作与目标数值和有界烟测，不声称逐位重现。
+4. 总队列硬上限3小时15分。准备/探针/烟测合计≤20分钟；R30/R31每臂核心≤45分钟；全部评价≤60分钟；归档≤15分钟。预计常见耗时约1.5–2.5小时，上限不是必须耗满的目标。
+5. 任何新训练臂必须在真实租期结束前至少2小时启动；各臂硬停止为本臂45分钟、总队列截止、租期结束前75分钟三者较早值，预留保存。数据盘<15GiB不启动新臂，<10GiB有序停止。无自动续费、第三臂或自发加训。
+6. 单卡顺序运行两臂，不同时开启两个Isaac训练进程。非有限值、OOM、检查点身份/恢复语义/动作合同/计数异常时保存可用证据并停止队列，禁止静默丢池、重置优化器、改学习率或缩小std后继续。
+
+二、唯一父检查点及完全匹配的共同环境
+
+父文件：/root/rivermind-data/tita-check/sac-r2-20261108/runs/phase-b-001/R20/resume_final.pt
+bytes=216121369
+SHA256=d8cd6e61432920de3a9c5e731c6c2a96cad3e9313969e8215646ef6fcd026854
+用户提供的R20权重/恢复原ZIP SHA256=15e56d3fc01ad2a6949bdee5a9b7532b5c5e1b1c0a50e1c7ef92141fb78c51b4。
+原路径不在时从同SHA证据包恢复，按哈希定位，不能用R21、PPO或model_final无池文件偷偷替代。
+父模型累计8192轮/1048576 transitions，Critic/alpha/target/auxiliary129024，Actor64512。
+
+共同环境沿用R20：16env，8步/轮，原指令范围与heading机制、standing=.20、原policy观测噪声开启，reset外力/力矩全0，interval push关闭；parking_body_velocity权重0，其他原reward不变。不要再加入R21的-2停车项。
+共同学习参数保持父配置：gamma=.97，n_steps=5，tau=.003，batch256；actor/critic_lr2e-4，alpha_lr2e-5，aux_lr.001；target_entropy_scale1，当前动作坐标目标-8；Critic16/轮、Actor每2Critic、alpha/target每Critic、aux16/轮batch256；capacity4096/env，原网络结构、归一化、控制dt=.02和动作边界不变。
+initial_std=.15和initial_alpha=.05仍是父训练初始化记录，不把已学习的std或当前alpha重置为这些初始值。
+
+三、准备：修正日志并做固定真实历史探针，不改变SAC公式
+
+在数据盘新建sac-r3-20261108独立工作目录/代码副本，保留R2源码、模型和日志原件。核心代码以R2包内study快照为准，R3新增外部入口与R3Hooks，完整记录文件哈希和实际diff；修改代码同时维护说明，固定baseline/ppo不动。
+
+修复分项终止日志：R2Hooks的get_term(name)返回历史标记。R3Hooks覆写compute_terminations，调用原函数一次，保存本步terminated/time_out的clone；在compute_rewards记录后把本步sample的terms改为保存的当步掩码。先断言active terms只有base_contact非timeout项和time_out截断项。于是base_contact映射本步terminated，time_out映射本步timeout，允许两者同时为真。不要重跑终止函数或修改env manager。drain出的分项事件数须逐轮等于collect中的当步聚合数。
+评价器同样从reward hook时的env.reset_terminated/reset_time_outs保存当前信号；上述唯一项配置断言不成立则停止并说明，不能从历史get_term猜分项原因。
+补能捕捉此缺陷的回归：一次base_contact真后连续7步假，计数必须1；timeout同理；同时发生保留两者。旧日志方法应失败。再检查一轮8步真实采集的计数与collect一致。只修日志，不改变训练终止或自举语义。
+
+探针：从父恢复池取64条不同真实历史，history_length≥10，优先每类16条（近零/前进/后退/转向）。指令从原policy_history最后帧6:9按[2,2,.25]反缩放；缺类如实报告，不重复填充冒充不同状态。保存env/episode/write_seq/槽位身份与源历史哈希。
+冻结encoder/Actor/BN/normalizers，在每条历史上用独立种子303032的生成器抽32次原生动作，记录tanh前std、动作坐标熵及物理目标条件std/分位数。物理换算按现有E03合同（轮目标=5×对应action，腿按各自default+.25×action），不能把tanh前std当rad/s。
+探针使用独立对象/生成器，不能消耗正式训练collect/learn/replay RNG，不能更新统计。它不推进仿真，也不改变下一步命令。给出同一历史重复采样的物理方差，区别于跨状态或整段轨迹方差。
+烟测最多5个恢复后的学习轮，独立输出目录/记账，检查新日志、恢复后更新计数、有限值、保存与读回、动作边界；正式两臂都重新恢复原父文件开始。预算不足以完成烟测就停止，不在生产对象上“测完接着算正式”。
+
+四、两路同父分叉：唯一学习干预为当前alpha乘数
+
+用load_checkpoint_config(parent)重建相同学习配置的Trainer及R20物理环境，使用既有restore_checkpoint接口恢复同一完整文件。检查ResumeReport.mode=exact_replay、replay_restored=true；恢复全部模块/优化器/normalizers/counters/三条生成器/回放，验证n步有效起点存在。
+该接口不恢复物理现场，会用保存的next_episode_ids开始新episode；这是预定的同父分叉，不宣称连续原仿真现场的精确接续。两臂都显式使用相同环境初始化种子0，记录并逐字段核对恢复后的物理初态（根/关节状态、材料/质量/惯量/COM、执行器增益和wrench）。不匹配则停止对照并说明，不能仅凭seed相同宣称配对。禁止手动复用旧episode编号。
+可在恢复完成后仅把描述性RunConfig.name/sources和外部plan_id标为R3；学习参数保持与父一致。不要绕过恢复函数的学习配置检查。
+
+R30：恢复后的temperature.log_alpha不变。
+R31：只执行temperature.log_alpha += log(0.1)，在torch.no_grad下修改；保留其Adam step/exp_avg/exp_avg_sq、其余优化器和全部其他状态。alpha学习继续开启，学习率仍2e-5、目标熵仍-8，不改成固定alpha。
+以检查点实际加载的alpha_p为准，不用CSV最后16次更新均值代替；预计alpha_p约.00377，R31进入时约.000377。记录实际干预前后精确值与比例，乘数允许误差1e-6。
+干预瞬间两臂Actor/encoder/critics/targets、normalizer、回放、优化器状态和生成器指纹应相同，只有温度参数不同。同一固定历史和同一显式采样噪声的动作/mu/std/log_prob必须相同；降低alpha不会立即改变推理输出，只有后续学习能改变策略。不得在采集/评价时缩小噪声、夹std或后处理动作。
+
+必须新增支持“相对父轮数”的外部调度入口；旧train_sac_r2.py只支持fresh训练且累计上限8192，不能直接传max_iterations=2048来冒充续训。
+正式每臂新增2048个采集/学习轮，8×16×2048=262144新transitions。完整父池已恢复，不再额外warmup，不清池，不重置计数。
+每臂增加32768 Critic/alpha/target/auxiliary、16384 Actor；最终累计10240轮、1310720 transitions、161792 Critic/alpha/target/auxiliary、80896 Actor，新增vector steps16384。若辅助历史被合法跳过必须保留实际次数和原因，不能把attempts伪装成updates。
+在新增512/1024/2048轮保存模型：累计1114112/1179648/1310720 transitions。每个checkpoint同时记录parent counters、delta counters和absolute counters。最后每臂最多一个完整带池恢复点，原子保存后读回核对计数/哈希。
+训练所有日志沿用R2并修正分项终止语义；逐轮记录alpha、实际动作坐标熵、std、原始物理reward、Q/目标、真实当前终止、命令门控分布、轮目标边界比、elapsed。物理reward与SAC熵正则分开，不能按两臂训练奖励单项排名。
+不因某个半程D评价差而改参数；本轮目标是同预算温度对照。达到delta2048或任一硬预算即停止。若两臂实际训练量不同，比较同delta里程碑，报告预算停止，不把不同最终量硬比。
+
+五、评价、选择与进一步能力检查，总计最多60分钟
+
+所有名义评价：policy噪声开启、reset wrench全0、interval push关闭，其余原物理随机化保留。冻结权重/BN/统计。D原生确定性，S原生学习std和独立采样生成器(eval_seed+100000)，不与物理RNG共享。
+标准12秒/600步：0–2s零，2–6s vx=.3，6–8s零，8–12s vx=-.3，vy=wz=0；遇真终止/timeout立即结束，缺失阶段保留missing。
+先用开发seed101/102/103：两臂三个里程碑各D三seed，共18次；两臂最终S各三seed，共6次。共24次，不用末轮最好的一次录像替代三seed表。
+
+同时报告两套门槛：
+旧R2门槛：完整600步无终止/timeout，前后各vx MAE≤.12、运动平均|wz|≤.20；7–8s平面速度≤.05；2–12s平均高度≥.25；全程base接触max≤1N。
+R3任务门槛：上述全部成立，且1–2s和7–8s的平均平面速度均≤.05、平均|wz|均≤.10。新增停车航向门槛提前固定，不回写旧R2通过状态。
+保存完整逐控制步数据、实际终止掩码、每段和末窗COM行程/净位移、速度/姿态/目标变化率；不拿净位移小或仅存活当控制通过。
+
+只以完整共同delta2048最终模型选择候选。先看每臂D及原生S是否均在三个开发seed上通过R3任务门槛；全不过就交付并停止，不选较早偶然通过的模型追加预算。多个通过时按最差seed停车平面速度、再最差停车|wz|、再最差方向MAE排序，仍平手优先R30。
+候选再用从未用于本轮调参的201/202/203跑标准D/S各三次（6次），同样报告逐seed和任务门槛。允许评价器的seed校验扩展为这六个预定值，禁止借机改物理/动作协议。这是留出评价seed，不是独立训练seed。
+
+留出D/S全部通过才继续转向：同三留出seed，D和S各3次（6次），18秒/900步：0–2s零，2–6s vx=.2/wz=.5，6–8s零，8–12s vx=.2/wz=-.5，12–18s零，vy=0。
+转向每方向vx MAE≤.12、wz MAE≤.15且平均wz方向正确；两停车末窗7–8s/17–18s平面速度≤.05、平均|wz|≤.10；无终止/timeout/base接触，2–18s平均高度≥.25。D/S分别判定，记录变化率和反向瞬态，不把一项均值当“流畅”。
+
+留出转向D/S全部通过且预算允许才进行短脉冲：候选D，全零指令18秒，base_link机身坐标±20N水平力，4.00–4.20s，x+/x-/y+/y-×留出3seed，共12次；无力矩，其他时刻wrench为0，脉冲结束下一个物理子步清零并记录。
+命令冲量4N·s。恢复定义：脉冲结束后2秒内开始一个连续1秒窗口，该窗口每步平面速度≤.05且|wz|≤.10；全程无终止/timeout/base接触。单列最大倾角/最低身高/位移，不能称能抵抗任意外力。预算不足未完成就记partial，不自动提高力度或改为行走推搡。
+最坏48次新评价（24+6+6+12）。若无候选则只需24次。原R1含持续wrench的复杂条件没有本轮通过证据，不能把名义+脉冲通过写成原环境全面成功。
+
+六、交付和停止
+
+输出results/tita-sac/2026-11-08-sac-r3-rtx4090-r20fork/唯一执行子run_id，报告及STATUS分清completed/budget_stopped/failed/blocked_resource，控制通过单独记录。
+交付固定输入版本、当前资源/租期、父检查点身份、恢复语义、alpha干预、修复后计数回归、探针、完整有效配置、实际源码diff/哈希、逐轮/逐步原始记录、失败时序、模型/池清单及SHA。所有成功/失败/缺失阶段均保留。
+轻量证据与模型/池分开打包，上传给主审阅窗口的单个文件<32MiB；大包必须配≤24,000,000字节分卷及完整原包SHA。先备份已有效父模型，禁止删除它腾空间。
+阶段完成即停止队列、提交主审阅。不给自己加第三臂、不追加PPO、不切到跳跃、不覆盖正式配置、不自动关机或续费。下一轮仍为同一训练seed父分叉；以后需另做独立训练seed确认，不能由更多评价seed代替。

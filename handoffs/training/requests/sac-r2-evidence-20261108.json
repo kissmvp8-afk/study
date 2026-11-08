@@ -1,18 +1,19 @@
 {
   "request_id": "SAC-R2-EVIDENCE-20261108",
   "run_id": "SAC-R2-20261108",
-  "status": "blocked_by_32MiB_attachment_transfer_limit",
+  "status": "resolved_full_evidence_received_reassembled_and_independently_reviewed",
   "created_at_utc": "2026-11-08 09:46:13 UTC",
   "purpose": "取得可读取的现有R2原始结果，复核后制定下一轮算法计划；本请求只处理交付，不授权新训练。",
   "evidence_boundary": {
     "archive_manifest_received": true,
     "archive_manifest_sha256": "2051b44c1b2d76eaeaf189131bb33a87cab790d5cbfa780c5c517ed275b91465",
-    "full_evidence_opened": false,
-    "weights_opened": false,
-    "raw_results_independently_recomputed": false,
+    "full_evidence_opened": true,
+    "weights_opened": true,
+    "raw_results_independently_recomputed": true,
     "phase_c_status_reported_by_manifest": "phase_c_completed_no_D_candidate",
-    "archive_crc_and_model_hashes": "reported_in_manifest_not_verified_by_reviewer",
-    "repository_result_available": false
+    "archive_crc_and_model_hashes": "independently_verified_all_3_archive_CRCs_and_10_model_file_hashes",
+    "repository_result_available": false,
+    "model_tensor_deserialization": false
   },
   "archive_manifest_path": "handoffs/training/requests/sac-r2-archive-manifest-20261108.json",
   "input_archives_reported": [
@@ -83,6 +84,28 @@
     "old_new_training_cutoff_epoch": 1794127800,
     "old_cutoff_local": "2026-11-08T16:50:00+08:00",
     "current_lease_status": "unknown_require_dot_current_status",
-    "next_algorithm_plan": "not_issued_pending_readable_evidence_and_resource_check"
+    "next_algorithm_plan": "SAC-R3-20261108 issued; execution requires current authorized resource check"
+  },
+  "resolution": {
+    "received_format": "11 raw byte parts, maximum 24000000 bytes",
+    "archives_sha256": [
+      {
+        "file": "SAC_R2_Full_Evidence.zip",
+        "sha256": "c68d3d958f410d6012007e8801d35555f5e075119486794448ef3cfd19c8a456"
+      },
+      {
+        "file": "SAC_R2_R20_Weights_And_Resume.zip",
+        "sha256": "15e56d3fc01ad2a6949bdee5a9b7532b5c5e1b1c0a50e1c7ef92141fb78c51b4"
+      },
+      {
+        "file": "SAC_R2_R21_Weights_And_Resume.zip",
+        "sha256": "e90d5d8ccd8186f8f03e219a44074d3f2ffe50121263ca29c01a125f8ee10c30"
+      }
+    ],
+    "review_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/review.txt",
+    "evidence_fingerprint": "6aa6158114fda586e08344b81891f64dacc45dc47c02c7ae0429ec0c8458bf36",
+    "next_plan_id": "SAC-R3-20261108",
+    "next_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
+    "resource_confirmation_still_required_before_execution": true
   }
 }

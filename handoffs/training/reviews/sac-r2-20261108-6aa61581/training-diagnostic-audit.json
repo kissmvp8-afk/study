@@ -1,0 +1,16 @@
+[
+  {
+    "arm": "R20",
+    "iterations_checked": 8192,
+    "current_termination_count_disagreement_iterations": 8191,
+    "reward_weight_dt_identity_pass": true,
+    "parking_command_mask_pass": true
+  },
+  {
+    "arm": "R21",
+    "iterations_checked": 8192,
+    "current_termination_count_disagreement_iterations": 8191,
+    "reward_weight_dt_identity_pass": true,
+    "parking_command_mask_pass": true
+  }
+]

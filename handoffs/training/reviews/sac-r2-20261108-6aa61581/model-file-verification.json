@@ -1,0 +1,62 @@
+[
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R20/model_0262144.pt",
+    "bytes": 9153975,
+    "sha256": "971d96c78c59a209b1ee7bc80a1aa1d325d24e0ecbc791ea84b3c479f70226e3",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R20/model_0524288.pt",
+    "bytes": 9153975,
+    "sha256": "ff8bb9ee49c441eced5c27e1bfb6ce2d56d7a5fbe7e458aea11876ed715262e4",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R20/model_1048576.pt",
+    "bytes": 9153975,
+    "sha256": "9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R20/model_final.pt",
+    "bytes": 9153975,
+    "sha256": "9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R20/resume_final.pt",
+    "bytes": 216121369,
+    "sha256": "d8cd6e61432920de3a9c5e731c6c2a96cad3e9313969e8215646ef6fcd026854",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R21/model_0262144.pt",
+    "bytes": 9153975,
+    "sha256": "df3714071d169d2b7c2370d5f5ab9aed6d36c9e646d4f043ffee95caf14e6737",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R21/model_0524288.pt",
+    "bytes": 9153975,
+    "sha256": "aa66a4b57ee796b38863bce3c37c9c25f05d963261304c72c43c4e939aca1605",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R21/model_1048576.pt",
+    "bytes": 9153975,
+    "sha256": "c8163868f787e10563aca9cdccc10ce2d7c1a74753e31e5e9d9945059c9cc097",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R21/model_final.pt",
+    "bytes": 9153975,
+    "sha256": "c8163868f787e10563aca9cdccc10ce2d7c1a74753e31e5e9d9945059c9cc097",
+    "matches_manifest": true
+  },
+  {
+    "path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0/runs/phase-b-001/R21/resume_final.pt",
+    "bytes": 216121369,
+    "sha256": "4d0aef0dbce58f3fbe04694d410792ff55dfe70226a3e8b6fc101fe0376494e5",
+    "matches_manifest": true
+  }
+]

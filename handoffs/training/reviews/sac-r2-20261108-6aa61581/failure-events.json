@@ -1,0 +1,80 @@
+[
+  {
+    "phase": "phase-a-001",
+    "run": "S1_F00_101_S",
+    "seconds": 0.9,
+    "base_contact_N": 4275.15087890625,
+    "last_height_m": 0.2083800882101059,
+    "last_tilt_rad": 0.47695345787904564,
+    "maximum_planar_speed": 1.0986533798813862,
+    "last_termination_terms": {
+      "time_out": false,
+      "base_contact": true
+    }
+  },
+  {
+    "phase": "phase-a-001",
+    "run": "S1_F01_101_S",
+    "seconds": 0.34,
+    "base_contact_N": 903.95458984375,
+    "last_height_m": 0.2263467013835907,
+    "last_tilt_rad": 0.576044148923266,
+    "maximum_planar_speed": 0.6714795571284066,
+    "last_termination_terms": {
+      "time_out": false,
+      "base_contact": true
+    }
+  },
+  {
+    "phase": "phase-a-001",
+    "run": "S1_F10_101_S",
+    "seconds": 1.2,
+    "base_contact_N": 4844.0849609375,
+    "last_height_m": 0.16832482814788818,
+    "last_tilt_rad": 0.29905839667708867,
+    "maximum_planar_speed": 1.805401367543959,
+    "last_termination_terms": {
+      "time_out": false,
+      "base_contact": true
+    }
+  },
+  {
+    "phase": "phase-c-001",
+    "run": "08-final-R21-D-102-standard",
+    "seconds": 0.22,
+    "base_contact_N": 1051.9931640625,
+    "last_height_m": 0.2387295812368393,
+    "last_tilt_rad": 0.8577306297806074,
+    "maximum_planar_speed": 0.8201048098558154,
+    "last_termination_terms": {
+      "time_out": false,
+      "base_contact": true
+    }
+  },
+  {
+    "phase": "phase-c-001",
+    "run": "11-final-R21-S-102-standard",
+    "seconds": 0.42,
+    "base_contact_N": 153.5535125732422,
+    "last_height_m": 0.2183758169412613,
+    "last_tilt_rad": 0.6510187691903631,
+    "maximum_planar_speed": 0.5685596345061659,
+    "last_termination_terms": {
+      "time_out": false,
+      "base_contact": true
+    }
+  },
+  {
+    "phase": "phase-c-001",
+    "run": "16-trend_524288-R21-D-101-standard",
+    "seconds": 10.96,
+    "base_contact_N": 58.065635681152344,
+    "last_height_m": 0.18805280327796936,
+    "last_tilt_rad": 0.4182989848876747,
+    "maximum_planar_speed": 0.6650073428800914,
+    "last_termination_terms": {
+      "time_out": false,
+      "base_contact": true
+    }
+  }
+]

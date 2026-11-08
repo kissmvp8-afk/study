@@ -159,7 +159,7 @@
       "next_plan_id": "SAC-R2-20261108",
       "next_plan_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/next-plan.txt",
       "parameters_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/parameters.json",
-      "plan_execution_status": "reported_completed_by_R2_archive_manifest_awaiting_readable_raw_evidence",
+      "plan_execution_status": "completed_verified_by_uploaded_SAC_R2_evidence",
       "repository_binding_rule": "Compare critical file Git blob SHAs and SHA256 against this uploaded version; bind a fixed result commit for matching content without repeating analysis. Review changed evidence separately.",
       "supplemental_final_models": {
         "receipt_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/supplemental-final-models.json",
@@ -181,6 +181,160 @@
         "models_deserialized_by_reviewer": false,
         "new_result": false
       }
+    },
+    {
+      "run_id": "SAC-R2-20261108",
+      "result_path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0",
+      "result_tree_sha": null,
+      "evidence_commit": null,
+      "input_kind": "reassembled_uploaded_byte_volumes",
+      "archive_status": "reviewed_uploaded_full_evidence_and_weights_repository_binding_pending",
+      "key_content_fingerprint": "6aa6158114fda586e08344b81891f64dacc45dc47c02c7ae0429ec0c8458bf36",
+      "fingerprint_algorithm": "SHA256(UTF8(concat sorted(relative_path + TAB + file_SHA256 + LF)))",
+      "evidence_archives": [
+        {
+          "file": "SAC_R2_Full_Evidence.zip",
+          "sha256": "c68d3d958f410d6012007e8801d35555f5e075119486794448ef3cfd19c8a456",
+          "bytes": 68043449,
+          "crc_verified": true,
+          "files": 831,
+          "expanded_bytes": 269213791
+        },
+        {
+          "file": "SAC_R2_R20_Weights_And_Resume.zip",
+          "sha256": "15e56d3fc01ad2a6949bdee5a9b7532b5c5e1b1c0a50e1c7ef92141fb78c51b4",
+          "bytes": 78836784,
+          "crc_verified": true,
+          "files": 6,
+          "expanded_bytes": 252737786
+        },
+        {
+          "file": "SAC_R2_R21_Weights_And_Resume.zip",
+          "sha256": "e90d5d8ccd8186f8f03e219a44074d3f2ffe50121263ca29c01a125f8ee10c30",
+          "bytes": 78844247,
+          "crc_verified": true,
+          "files": 6,
+          "expanded_bytes": 252737786
+        }
+      ],
+      "critical_files": [
+        {
+          "path": "MODEL_MANIFEST.json",
+          "bytes": 1991,
+          "sha256": "c711c768acea12d07015b0c06dc23b65be44f85e88e40cf1e246a70728a4a15b",
+          "git_blob_sha": "fb7afcfb9b38fad814c83e3576c581c1a91e1bc6"
+        },
+        {
+          "path": "REPORT_ZH.txt",
+          "bytes": 4850,
+          "sha256": "600ae1ee6f16465f9dc18a4a6107fa39558a3a9289c0fe800fee09c69876a987",
+          "git_blob_sha": "7808bf17abd5b890fc10f320ed86fb1a1e67f2fe"
+        },
+        {
+          "path": "STATUS.json",
+          "bytes": 1813,
+          "sha256": "cc40ecbf7b06eb98e9e79c49964ff1b44bd6c889cbfd4ab97bebb90bb071faeb",
+          "git_blob_sha": "af7dbe66454c057eb3cc42d0c303d03074a33c1f"
+        },
+        {
+          "path": "analysis/decision.json",
+          "bytes": 448,
+          "sha256": "8caae6085d57586fb31232ea4d83a553f0b1aa85252dbc40c7fe0df47b18c95d",
+          "git_blob_sha": "ffab5e592fe5d35be877770a577faf3b46fbea7f"
+        },
+        {
+          "path": "runs/phase-b-001/R20/environment_config.yaml",
+          "bytes": 39609,
+          "sha256": "f123e61978a83a35a0333eb9cb1f74fc7244af78cdad74e29951d89d02344f0b",
+          "git_blob_sha": "85c93493e6a2b765ec9b48f7ffd7c557da00eb47"
+        },
+        {
+          "path": "runs/phase-b-001/R20/initial_fingerprints.json",
+          "bytes": 277,
+          "sha256": "8eaae2e6642f74d0242c5f221fa51279835e16e095325f465f657161c41aad1f",
+          "git_blob_sha": "7e7407deb76bde047aca718107ee56a3e9262eea"
+        },
+        {
+          "path": "runs/phase-b-001/R20/run_config.json",
+          "bytes": 7238,
+          "sha256": "645ab03a032a9a5cb634555439ea07f3c805243b7c652284669ed62e969eb52b",
+          "git_blob_sha": "8c7ef23f493b3d74688a411505fb24a99f0aaf40"
+        },
+        {
+          "path": "runs/phase-b-001/R20/summary.json",
+          "bytes": 5187,
+          "sha256": "11ade1a5cb9c65c1d5a0429208b1c0e9d26b49bf904139c7d1357c78a4ec1c2f",
+          "git_blob_sha": "75724c7cd3874e82dcfaa0f74692ba404d2bca78"
+        },
+        {
+          "path": "runs/phase-b-001/R21/environment_config.yaml",
+          "bytes": 39610,
+          "sha256": "bebaf54dcac72a7275ae87c05343191261c1f675e05c1b243e5511954683b320",
+          "git_blob_sha": "79129b661fb86bb1b5192d7a88324348d710ae20"
+        },
+        {
+          "path": "runs/phase-b-001/R21/initial_fingerprints.json",
+          "bytes": 277,
+          "sha256": "8eaae2e6642f74d0242c5f221fa51279835e16e095325f465f657161c41aad1f",
+          "git_blob_sha": "7e7407deb76bde047aca718107ee56a3e9262eea"
+        },
+        {
+          "path": "runs/phase-b-001/R21/run_config.json",
+          "bytes": 7238,
+          "sha256": "645ab03a032a9a5cb634555439ea07f3c805243b7c652284669ed62e969eb52b",
+          "git_blob_sha": "8c7ef23f493b3d74688a411505fb24a99f0aaf40"
+        },
+        {
+          "path": "runs/phase-b-001/R21/summary.json",
+          "bytes": 5187,
+          "sha256": "65782d93e41bd2ee1e35a7c44725f11949f5307865173a0dd644c7ed8f35e3e2",
+          "git_blob_sha": "e10cea997733ae728873a3e2b0ccf07ccb36c1fc"
+        },
+        {
+          "path": "tools/c_metrics.py",
+          "bytes": 12535,
+          "sha256": "a7d042c4baad8cd14ac0fdc19e790c8d31e7a908e0e8eb555891ece36882a471",
+          "git_blob_sha": "128f04a4d90027a8cb3a54affa21e51bc6c327e9"
+        },
+        {
+          "path": "tools/evaluate_sac_r2_c.py",
+          "bytes": 23270,
+          "sha256": "f27a166e120e63d049488110cdbd942018c2e1a27467f89d26e74fef58cf1c4f",
+          "git_blob_sha": "bd909677a9946cc959739ceea3a0850d04980b04"
+        },
+        {
+          "path": "training/r2_extension.py",
+          "bytes": 10018,
+          "sha256": "441998fe66bb574b6bb4ce6cdde7d3ee6bb5740f54186d28193aa8175b5b52f1",
+          "git_blob_sha": "01f30aa6b9b07b32317be372d3f1d2623510c0ca"
+        },
+        {
+          "path": "training/train_sac_r2.py",
+          "bytes": 22006,
+          "sha256": "966190bcb2fde3370946954d7b2877858685036a5576a59e33c86f94a84d0514",
+          "git_blob_sha": "2706fff4583a2fbeaa57cf997978475f7212ee01"
+        }
+      ],
+      "result_status": "completed",
+      "control_acceptance": "failed",
+      "review_status": "independently_reviewed_uploaded_evidence",
+      "reviewed_at_utc": "2026-11-08 11:56:22 UTC",
+      "verified_evidence_file_checksums": 830,
+      "verified_model_file_hashes": 10,
+      "independently_recomputed_raw_runs": 46,
+      "independently_recomputed_raw_steps": 24702,
+      "verified_training_csv_rows": 16384,
+      "verified_training_jsonl_rows": 16384,
+      "models_deserialized_by_reviewer": false,
+      "review_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/review.txt",
+      "input_evidence_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/input-evidence.json",
+      "next_plan_id": "SAC-R3-20261108",
+      "next_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/parameters.json",
+      "plan_execution_status": "issued_not_started_requires_current_authorized_resource_check",
+      "next_plan_parent": "R20 resume_final.pt sha256 d8cd6e61432920de3a9c5e731c6c2a96cad3e9313969e8215646ef6fcd026854",
+      "current_resource_status": "unknown_recorded_R2_cutoff_2026_11_08_17_55_UTC8_has_passed",
+      "repository_binding_rule": "Match future result critical files against uploaded-evidence SHA256/Git blob SHAs; bind matching archive commit without repeating review. Changed evidence is reviewed separately."
     }
   ],
   "pending_results": [
@@ -195,15 +349,13 @@
     {
       "run_id": "SAC-R2-20261108",
       "result_path": "results/tita-sac/2026-11-08-sac-r2-rtx4090-seed0",
-      "status": "awaiting_readable_uploaded_evidence",
-      "archive_manifest_sha256": "2051b44c1b2d76eaeaf189131bb33a87cab790d5cbfa780c5c517ed275b91465",
-      "full_evidence_archive_sha256": "c68d3d958f410d6012007e8801d35555f5e075119486794448ef3cfd19c8a456",
-      "phase_c_status_reported_by_manifest": "phase_c_completed_no_D_candidate",
-      "review_status": "not_reviewed_raw_data_unreadable_transfer_limit",
-      "request_path": "handoffs/training/requests/sac-r2-evidence-20261108.json"
+      "status": "repository_binding_pending_review_completed",
+      "key_content_fingerprint": "6aa6158114fda586e08344b81891f64dacc45dc47c02c7ae0429ec0c8458bf36",
+      "review_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/review.txt",
+      "missing": "Final GitHub raw-result commit/tree; uploaded full evidence and both model archives are readable and reviewed."
     }
   ],
-  "latest_plan_id": "SAC-R2-20261108",
+  "latest_plan_id": "SAC-R3-20261108",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -221,6 +373,6 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/next-plan.txt",
-  "updated_at_utc": "2026-11-08 09:46:13 UTC"
+  "latest_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
+  "updated_at_utc": "2026-11-08 11:56:22 UTC"
 }
