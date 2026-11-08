@@ -160,7 +160,27 @@
       "next_plan_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/next-plan.txt",
       "parameters_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/parameters.json",
       "plan_execution_status": "issued_not_executed_or_acknowledged_by_dot",
-      "repository_binding_rule": "Compare critical file Git blob SHAs and SHA256 against this uploaded version; bind a fixed result commit for matching content without repeating analysis. Review changed evidence separately."
+      "repository_binding_rule": "Compare critical file Git blob SHAs and SHA256 against this uploaded version; bind a fixed result commit for matching content without repeating analysis. Review changed evidence separately.",
+      "supplemental_final_models": {
+        "receipt_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/supplemental-final-models.json",
+        "received_at_utc": "2026-11-08 03:38:25 UTC",
+        "models": [
+          {
+            "arm": "S0",
+            "sha256": "e371f57ec23d5c8baee279c6f641007a3bc37cec378a810621a27db7f545d7b1",
+            "bytes": 9152759,
+            "hash_verified": true
+          },
+          {
+            "arm": "S1",
+            "sha256": "d47cf94a4167b4e3032b51c25927d667aa4e52c0ac7c216b89c63a65c06cf1fb",
+            "bytes": 9152759,
+            "hash_verified": true
+          }
+        ],
+        "models_deserialized_by_reviewer": false,
+        "new_result": false
+      }
     }
   ],
   "pending_results": [
@@ -192,5 +212,5 @@
     "server_reported_next_run_time": null
   },
   "latest_plan_path": "handoffs/training/reviews/sac-r1-20261107-d6ca353e/next-plan.txt",
-  "updated_at_utc": "2026-11-08 03:22:04 UTC"
+  "updated_at_utc": "2026-11-08 03:38:25 UTC"
 }

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "run_id": "SAC-R1-20261107",
+  "received_at_utc": "2026-11-08 03:38:25 UTC",
+  "classification": "supplement_to_already_reviewed_result",
+  "new_training_result": false,
+  "prior_review_commit": "d78cd3f6096fc5ec4fcfbc37e8085799b01c0c02",
+  "prior_evidence_fingerprint": "d6ca353e04c3acc49ed71d8be0127eca5f9aff2e987029271f8c9d7ab70c6fd2",
+  "final_models": [
+    {
+      "arm": "S0",
+      "archive_file": "TITA_SAC_R1_S0_Final_Model.zip",
+      "archive_bytes": 8294580,
+      "archive_sha256": "1cb9ad6b61e29dc22b2dc873e0502096e7412027837bbef8ac4177174267cffb",
+      "archive_crc_verified": true,
+      "archive_checksums_verified": true,
+      "model_member": "S0/model_final.pt",
+      "model_bytes": 9152759,
+      "model_sha256": "e371f57ec23d5c8baee279c6f641007a3bc37cec378a810621a27db7f545d7b1",
+      "transitions": 1048576,
+      "identical_to_prior_final_checkpoint": true,
+      "includes_replay": false
+    },
+    {
+      "arm": "S1",
+      "archive_file": "TITA_SAC_R1_S1_Final_Model.zip",
+      "archive_bytes": 8288472,
+      "archive_sha256": "2a762d92bb2301f10ce8f017db46a536be2392236f5856558151349edbcb249a",
+      "archive_crc_verified": true,
+      "archive_checksums_verified": true,
+      "model_member": "S1/model_final.pt",
+      "model_bytes": 9152759,
+      "model_sha256": "d47cf94a4167b4e3032b51c25927d667aa4e52c0ac7c216b89c63a65c06cf1fb",
+      "transitions": 1048576,
+      "identical_to_prior_final_checkpoint": true,
+      "includes_replay": false
+    }
+  ],
+  "verification_scope": {
+    "zip_crc": true,
+    "archive_checksum_list": true,
+    "exact_model_bytes_sha256_match": true,
+    "model_tensor_deserialization": false,
+    "model_inference_rerun": false,
+    "training_started": false
+  },
+  "decision": {
+    "previous_control_conclusion": "unchanged_not_accepted",
+    "next_plan_id": "SAC-R2-20261108",
+    "next_plan_content_changed": false,
+    "repeat_review_or_notify_as_new_run": false
+  },
+  "remaining_original_omissions": "The four 262144/524288 milestone model files and replay binaries are not included in this supplement; no request to upload them is made by this receipt."
+}
