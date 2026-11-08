@@ -1,0 +1,53 @@
+{
+  "plan_id": "SAC-R4-128-SCREEN-20261108",
+  "files": {
+    "DOT_START_HERE.txt": {
+      "bytes": 2414,
+      "sha256": "a423841bffc34c653ea0a33bbc930d8f3ec5983567df7e8b40efaa53f8eb8a1e"
+    },
+    "README.md": {
+      "bytes": 2348,
+      "sha256": "51246d353453950223c57323b2b89f81c8d0bc2e1b6cb3dc63d1459576c4e1aa"
+    },
+    "README_HUMAN.md": {
+      "bytes": 1065,
+      "sha256": "8984716a3882aecdb6f2246bd32ca326c3e459142710932cc386773cf69ff5a9"
+    },
+    "budget.py": {
+      "bytes": 3027,
+      "sha256": "d5f349705c1fb4da919f04feedb54936a3cf6a69efeb9475841167149a75bc1e"
+    },
+    "execution-plan.txt": {
+      "bytes": 20569,
+      "sha256": "23cabc6adb645bd09c70bdb42473e88aaf4624136a16c4d0f03bfcfd8cdc3eb0"
+    },
+    "night_controller.py": {
+      "bytes": 11381,
+      "sha256": "df24b0493bd09164514bdca12056e2a14b7fe730a2314a1f1c4629fedef05fd2"
+    },
+    "parameters.json": {
+      "bytes": 10173,
+      "sha256": "46628f6f71b5d4747022a788151abc20bd1f7bbda57657db6414f1513686a741"
+    },
+    "runtime.example.json": {
+      "bytes": 488,
+      "sha256": "2b70086278f2e53b6a628c8c6c6e5da9be4c2a3deb7418e977f5a0180280213c"
+    },
+    "selection.py": {
+      "bytes": 14826,
+      "sha256": "df54bfa68229858659e6f90cd888b3f4a3f9eb9bde572dfec3462458d8ea2684"
+    },
+    "test_protocol.py": {
+      "bytes": 11390,
+      "sha256": "5a18886bd3309b72e75fd7a4c19fe3abfa8ece2424e435c7763ca708784e2504"
+    },
+    "training_helpers.py": {
+      "bytes": 7453,
+      "sha256": "ad19c6c57e6f1aa3cfc3d98cc4400953acf98d3025d91cf2dec673d8d33b1e2f"
+    },
+    "verification.txt": {
+      "bytes": 2013,
+      "sha256": "3ed033d05504791a851f41838b16d6ac975f55da58e6260dcc356b7fc6989f2c"
+    }
+  }
+}

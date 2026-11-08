@@ -334,7 +334,8 @@
       "plan_execution_status": "issued_not_started_requires_current_authorized_resource_check",
       "next_plan_parent": "R20 resume_final.pt sha256 d8cd6e61432920de3a9c5e731c6c2a96cad3e9313969e8215646ef6fcd026854",
       "current_resource_status": "unknown_recorded_R2_cutoff_2026_11_08_17_55_UTC8_has_passed",
-      "repository_binding_rule": "Match future result critical files against uploaded-evidence SHA256/Git blob SHAs; bind matching archive commit without repeating review. Changed evidence is reviewed separately."
+      "repository_binding_rule": "Match future result critical files against uploaded-evidence SHA256/Git blob SHAs; bind matching archive commit without repeating review. Changed evidence is reviewed separately.",
+      "next_plan_current_status": "superseded_before_reported_execution_by_SAC_R4_128_SCREEN_20261108"
     },
     {
       "run_id": "SAC-ALPHA-PAIRED-PERFORMANCE-20261108",
@@ -458,7 +459,8 @@
       "next_plan_reused_not_newly_issued": true,
       "next_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
       "plan_delivery_note": "User reported R3 not yet forwarded to Dot; no execution is inferred from this review.",
-      "repository_binding_rule": "No original results path is published yet. Bind future matching raw result/source uploads by batch identity and critical file hashes; do not treat handoff changes as new results."
+      "repository_binding_rule": "No original results path is published yet. Bind future matching raw result/source uploads by batch identity and critical file hashes; do not treat handoff changes as new results.",
+      "next_plan_current_status": "superseded_before_reported_execution_by_SAC_R4_128_SCREEN_20261108"
     }
   ],
   "pending_results": [
@@ -479,7 +481,7 @@
       "missing": "Final GitHub raw-result commit/tree; uploaded full evidence and both model archives are readable and reviewed."
     }
   ],
-  "latest_plan_id": "SAC-R3-20261108",
+  "latest_plan_id": "SAC-R4-128-SCREEN-20261108",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -497,8 +499,39 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/next-plan.txt",
-  "updated_at_utc": "2026-11-08 14:47:26 UTC",
+  "latest_plan_path": "handoffs/training/plans/sac-r4-128-screen-20261108/DOT_START_HERE.txt",
+  "updated_at_utc": "2026-11-08 15:32:09 UTC",
   "latest_review_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/review.txt",
-  "latest_plan_addendum_path": "handoffs/training/reviews/alpha-pilot-20261108-a6aa96ba/next-step.txt"
+  "latest_plan_addendum_path": null,
+  "latest_plan_parameters_path": "handoffs/training/plans/sac-r4-128-screen-20261108/parameters.json",
+  "latest_plan_status": "issued_not_started_Dot_current_lease_and_GPU_worker_preflight_required",
+  "active_plan": {
+    "plan_id": "SAC-R4-128-SCREEN-20261108",
+    "path": "handoffs/training/plans/sac-r4-128-screen-20261108",
+    "supersedes_unexecuted_plan": "SAC-R3-20261108",
+    "user_requested_method": "six directions, two paired warm-start forks each, successive halving 6->3->2->1, autonomous Dot execution within fixed parameters",
+    "num_envs": 128,
+    "fork_seeds": [
+      1001,
+      1002
+    ],
+    "target_wall_seconds": 32400,
+    "hard_cap_wall_seconds": 34200,
+    "parent_model_sha256": "9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59",
+    "requires_current_authorized_resource_check": true,
+    "reviewer_connected_to_server": false,
+    "gpu_worker_deployment_verified": false,
+    "local_CPU_protocol_tests_passed": 13,
+    "issued_at_utc": "2026-11-08 15:32:09 UTC",
+    "execution_status": "unconfirmed_not_started_by_reviewer"
+  },
+  "plan_supersessions": [
+    {
+      "old_plan_id": "SAC-R3-20261108",
+      "new_plan_id": "SAC-R4-128-SCREEN-20261108",
+      "reason": "User requested 128-env overnight multi-direction paired successive-halving before forwarding R3 to Dot",
+      "at_utc": "2026-11-08 15:32:09 UTC",
+      "old_plan_execution_confirmed": false
+    }
+  ]
 }

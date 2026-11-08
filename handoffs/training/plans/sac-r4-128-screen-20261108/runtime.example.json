@@ -1,0 +1,15 @@
+{
+  "workroot": "FILL_ACTUAL_ABSOLUTE_WORKROOT",
+  "parameters_path": "parameters.json",
+  "budget_path": "budget.json",
+  "parent_reference_path": "parent-reference.json",
+  "worker_command": [
+    "FILL_EXISTING_ENV_PYTHON",
+    "FILL_ABSOLUTE_WORKER_PATH"
+  ],
+  "batch_started_at_utc": "FILL_T0_ISO8601_WITH_UTC_OFFSET",
+  "lease_expires_at_utc": "FILL_VERIFIED_LEASE_END_ISO8601_WITH_OFFSET",
+  "eval_case_seconds": null,
+  "startup_seconds": null,
+  "gpu_preflight_passed": false
+}

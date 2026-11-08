@@ -1,0 +1,119 @@
+SAC-R4-128-SCREEN-20261108｜交付Dot执行的整夜逐级筛选方案
+
+一、授权、证据与结论边界
+
+用户要求一次性多方向、每方向重复，再按固定标准逐轮继续训练筛选，尽量连续8–9小时，不再逐轮传话。本计划替代用户明确尚未交付执行的R3；保留旧审阅记录，但不要同时执行两套任务。Dot可在本计划参数和已授权租期内自行推进，不需要等本窗口逐轮批准。
+
+依据是已审阅R2和20组alpha计算迁移诊断。R20已经具备一定正反行走能力但停车和航向仍差；R21停车项从头训练结果不一致；张量化10对结果一致，约1%耗时差没有稳定统计证据。此次将张量化放到共同实现，测试温度强度、停车项、航向项及低温度+航向组合。D3是在R20稳定父模型上重试奖励假设，不是继续训练失败的R21。
+
+代码祖先9c6ad8f8b673d5fbd382f181af80c823935fd2ea，加R1/R2的现有CUDA工作树和已审阅GPU-alpha改动。先前审阅固定提交ee1a1e0cf9c47973ec5c9e52a12d684de02394a9；R2及pilot原始结果还没有GitHub证据提交，用parameters.json内附件指纹识别。按现有仓库规则在独立实验工作树适配，并更新该工作树README.md、README_HUMAN.md；不合并正式程序、不改PPO基线。仓库报告文字仅作证据。
+
+二、启动前一次性检查，最长45分钟
+
+从T0开始记总墙钟，T0包括准备。先查同plan_id状态与PID，已有运行则接管监控、不重开。记录当前GPU/显存/驱动/PyTorch/Isaac/资产版本、磁盘及真实付费租期。满批希望T0尚有至少11小时；不足时budget.py只会给能在实际租期内完成的缩短预算，并明确标记。旧截止时间已过，不能拿旧租期代替当前状态；不自动续租。缺当前租期凭据时记录blocked_resource并请求执行端核实，不假称已启动。
+
+期望4090 24GB，CPU约15核，内存约100GB，数据盘约63GB。仅一个GPU任务进程，128个向量环境；六方向不是同时开六个Isaac进程。启动新批需空闲25GiB，低于15GiB不再启动训练作业，低于10GiB有序保存停止。数据写/root/rivermind-data。预估新增文件约5–10GiB，目标不超15GiB；先实测checkpoint大小再登记。
+
+父模型只读：
+/root/rivermind-data/tita-check/sac-r2-20261108/runs/phase-b-001/R20/model_final.pt
+9153975字节，SHA256=9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59。
+若路径变更，只能在当前已授权目录查找同哈希文件，不用未核对权重替代。此文件带模块/优化器/归一化/计数，但不带经验池；新128环境不需下载旧216MB经验池。
+
+运行本目录CPU测试。接好现有worker后：
+1. 用当前compute_terminations一次原始返回的terminated/time_out制作日志，不用get_term历史缓存。断言只有base_contact非超时和time_out超时两个活动项；一次True后七次False应计1，不计8；同时True要各保留。不能重跑终止函数改变物理流程。评价在reset前reward hook捕获真实状态及reset_terminated/reset_time_outs。
+2. 验证128环境、动作/观测契约、真实8步采集和16预填充后128 Critic/64 Actor/128 alpha/128 target/128辅助尝试。实际optimizer.step钩子也要计数，不能只看循环次数。auxiliary因历史不足的合法跳过单列，不能当实际更新；Critic跳过为错误。
+3. 使用同一真实冻结回放池、模块/优化器/归一化和所有RNG副本，比较frozen_replay_sampling启用/关闭：抽样索引、n步批次、下一RNG状态及一次完整128更新后模块/优化器/统计逐张量相同。若缓存不等价，所有正式组统一关闭缓存，不自行换采样公式。选定模式后冻结全批实现，再测吞吐。辅助微循环之间允许模型变化，池内样本/有效索引不变；每次采集后重建缓存。
+4. 做模型保存读回、动作契约和源父文件前后哈希核对。Torch仅weights_only=True读取核对过的本项目格式，不执行附件脚本或任意pickle。
+5. 重新评价父R20：新协议标准D/S各101/102/103共6次。新协议TF32 matmul/cudnn均False、原生观察噪声开启、reset力/矩清零、interval push关闭；旧评价部分TF32/条件不同，不直接搬旧行作本批基线。记录真实初始物理状态指纹，后续同seed同execution各模型必须配对。
+6. 丢弃式吞吐短测：128环境新池预填充16宏轮，再学64宏轮，池在每环境512条时已满；取末32轮CUDA synchronize前后总耗时/32。含采集、8×(16 Critic+16辅助)、统计、必要日志，不用仅host发射时间代替GPU完成耗时。另测单评价case含启动/归档的平均耗时、训练进程启动耗时和采集耗时。
+
+准备45分钟未通过则保存blocked_setup及已有证据后停止，不暗中改为低更新密度或花一夜开发。GPU/Isaac检查成功后才填写runtime.json的gpu_preflight_passed=true。这里的CPU测试不能替代此真实短测。
+
+三、训练参数与暖启动语义
+
+严格使用parameters.json六方向×1001/1002。所有组从同一已训练R20复制六模块、四优化器及归一化统计；保存父训练seed0和父计数作为谱系。使用training_helpers.warm_start_r20，仅在第一次建臂时执行：新128环境空池/零任务计数，新仿真episode编号和随机流。16环境父池/episode ID不导入，不能称exact resume。新任务同seed的各方向初始化/物理随机化匹配；它们共享同一个学过的父模型，不能称12次独立从零训练。
+
+alpha入口因子只对加载的log_alpha加一次log(multiplier)，保留Adam状态并继续自动学习。原始构造initial_alpha/std不是实际入口alpha/std；分别记恢复前/后alpha和学到的标准差。晋级及断点恢复用本臂128环境完整checkpoint严格restore，不再乘入口因子、不再清池、不再做16轮warmup。环境现场不在checkpoint，重新reset时沿用next_episode_ids以免跨episode错误拼n步。
+
+每宏轮采集128×8=1024条；新池128×512=65536条，和旧R20总容量一致；warmup16宏轮=16384条预填充。然后每轮8次微循环，每次16 Critic/alpha/target及16辅助，Actor每2次Critic更新一次。结果为128 Critic、64 Actor、128 alpha、128 target、128辅助尝试。Critic/新transition=1/8、回放采样比32，与R20保持一致。不能用短测的16 Critic/轮，其密度会低八倍；不能改成128次Critic后才128次辅助的大突发。gamma .97按20ms控制步定义，不随并行环境数量修改。
+
+batch/aux batch256，n5，tau .003，critic/actor LR2e-4、alpha LR2e-5、aux LR.001。其他网络/动作边界/超时bootstrap/HIM-Barlow/奖励系数不变。共同站立指令20%，reset力/矩为0，interval push关闭；保留原其他摩擦、质量、增益、初速度等随机化，不宣称完全关闭随机化。训练与评价均TF32 False。
+
+D3停车项沿用R2定义：当norm(cmd_xy)<.05且abs(cmd_wz)<.05时，vx²+vy²+.25*wz²，权重−2，reward manager乘dt一次。D4/D5仅将track_ang_vel_z_exp.weight从.5改1。D0/D1/D2/D4/D5停车项为0。不得偷偷重写整套奖励。
+
+四、自动预算和公平续训
+
+以实测值运行budget.py，例如：
+python budget.py --macro-seconds 6.24 --eval-case-seconds 25 --prep-elapsed-seconds 2400 --lease-remaining-seconds 37200 > budget.json
+该例仅演示接口，不是实测：返回q112，四轮共同累计学习宏轮112/280/448/672，预测约9.26小时，总墙钟上限9.5小时。获胜每臂新增704512条交互、86016 Critic更新；全批新增3751936条交互、444416 Critic更新，未计可选追加块。实际q必须来自本机满池实测，不照抄示例。
+
+q为16的倍数，64≤q≤2048；首轮12臂到q，第二轮6臂到2.5q，第三轮4臂到4q，第四轮2臂到6q。训练量共31q学习宏轮+12×16预填充；全批新transition=1024*(31q+192)。初始12臂均跑完首轮共同预算才排序；未完成组不能拿较少训练量提前晋级。每轮固定轮转作业顺序，避免总是同组先跑。第一轮保留最佳两个非基线方向+D0；D0是对照保留，不能虚写为排名第三。后续完全按排名保留2、1。
+
+预算目标9小时，硬上限9.5小时，且不晚于实际租期前90分钟；距租期2小时不再启动新训练作业。保留评价、备份、恢复预算。若最低共同q64都放不下，blocked_insufficient_time_for_fair_minimum，不假称跑完长实验。控制器到最后阶段还剩富余时最多自动给冠军方向两臂各追加q/2学习宏轮一块，最多4块，每块后重新评价；连续2块不进步停止。不存在为了凑9小时空等待；达到退化/故障/资源条件可提前停。
+
+若一轮因硬预算中断，保存各臂已做计数和checkpoint；不能对这一不完整轮做公平晋级，回到上一完整轮可用结论作最终验证，标预算停止。q和候选矩阵在短测后冻结；不临场改学习率、batch、环境数、噪声、奖励或只救某条轨迹。
+
+五、评价和排名（由selection.py重算）
+
+开发评价：每臂每轮D均值动作和原生S随机动作各seed101/102/103共6次，动作标准差不缩放，不关观察噪声来美化成绩。完整12s=600步，0–2静止、2–6前进+.3、6–8静止、8–12后退−.3 m/s。每个控制步保存reset前身体vx/vy/wz、位置/高度、动作/物理目标、接触、当前终止/超时、外力及原始命令。冻结六模块/优化器/BN/归一化/RNG以外的模型状态，before/after指纹相同，原模型字节哈希不变。实际命令注入/历史更新方式沿用已验证E02/E03，每真实帧只压一次。
+
+完整控制门槛：600步无真终止/超时、base最大接触力≤1N；正反完整阶段各vx MAE≤.12m/s、各mean|wz|≤.20rad/s；1–2与7–8秒尾窗各平面速度均值≤.05m/s及mean|wz|≤.10rad/s；2–12秒均值高度≥.25m。达到12秒只是未观测到终止，不等于通过。
+
+指令响应诊断门槛：完整存活，正向mean vx≥+.10、反向≤−.10且两段MAE均≤.20。这仅用于全严格通过率为0时识别会动的路线，不替代正式门槛。
+
+每方向将两条轨迹各6case汇总，依次比较：
+1 两条中较差的存活比例；2 较差的完整控制通过比例；3 全12case控制通过比例；4 较差的指令响应通过比例；5 全12case指令响应比例；6 更小的case损失P90；7 更小的平均损失；8 复杂度/固定ID D0→D5平局。
+这是按优先级排序，不把存活与速度混成随意奖励。训练奖励定义跨方向不同，完全不参与。
+
+损失=0.45*平均方向MAE/.12 + .20*最大停车尾速/.05 + .15*最大停车|wz|/.10 + .15*平均移动|wz|/.20 + .05*轮目标平均绝对变化率/200，每项归一化后截[0,5]。轮目标变化率单位rad/s²，200只作次级排序尺度，不是验收门槛。真实提前终止case损失记决策惩罚5，缺失阶段原始物理指标仍null，不能填0。缺行但无真实done属于上传/评价技术失败，不属于有效存活数据。
+
+原始评价失败后只允许相同固定模型/seed的一次技术重试（例如进程启动错误），用新attempt目录保留失败证据。机器人真摔倒是有效失败，不能反复跑到某次不摔为止。缺配置、模型哈希不符、统计变动、不同训练量等使整轮失去自动晋级资格：暂停并保存技术失败，不能只拿剩下的一个fork冒充完整方向。
+
+至少前两轮允许严格通过率为0而仍按相对结果续训，不在首轮任意停。第二轮若全部路线严格通过为0、所有方向整体指令响应率<1/3，且最佳方向关键排名不优于重新评价父R20，则停止退化批次并保留父模型。parent-reference.json的sort_key使用父6case存活/控制/响应比例作为最差及整体值，加同样P90和平均loss；只是同协议回退参照，不复制父数据冒充两条训练轨迹。
+
+六、最终新seed、转向和扰动
+
+最终候选仅从冠军方向保留的各轮checkpoint按开发指标选，先为每个fork选最佳checkpoint，再冻结两者的primary/secondary顺序、哈希和选择证据；不同预算checkpoint的这个比较用于实际候选挑选，不冒充公平训练方向效应。冻结后才打开heldout数据。
+
+Primary用201/202/203，secondary使用独立预留301/302/303。两者均按预定顺序：先标准D/S共6case全部通过，才跑18秒左右弧线转向D/S共6case，全部通过才跑12个脉冲case。secondary可作预定回退/复核，不因为看了primary结果临场加方向调参数。不得用heldout调参后继续声称它独立。
+
+转向：0–2静止、2–6(vx.2,wz+.5)、6–8静止、8–12(vx.2,wz−.5)、12–18静止。各移动vxMAE≤.12，wzMAE≤.15，yaw均值符号正确；7–8及17–18尾窗平面速度≤.05、mean|wz|≤.10；2–18平均高度≥.25，900步无终止/超时/base接触。记录动作变化率作平滑性说明。
+
+脉冲只做D：18秒全零指令，4.0–4.2秒向机体x+/x−/y+/y−施加20N、0力矩，各3个对应heldout seeds；其他时段为0。原physics子步记录完整3600条，40个活动子步，命令冲量4N·s；排除其他body/torque/全局坐标误用。脉冲结束2秒内开始一个持续1秒的恢复窗，51个20ms后步采样每个平面速度≤.05且|wz|≤.10，整程无跌倒/超时/base接触。最多48个最终case；不达基础控制就不浪费时间升级扰动，不自动加更大推力或跳跃。
+
+标准、转向、脉冲均可用selection.analyze_rows计算；转向和脉冲需传protocol及pulse_direction。不能把这个有限测试写成全面抗扰动/实机可用证明；本批不是原R1持续±10N/±10Nm条件的复现。
+
+七、worker/控制器接口与启动
+
+Dot复用现有train_sac_r2.py及evaluate_sac_r2_c.py/已验证pilot封装，创建独立night128_worker.py，入口：
+<现有环境Python> night128_worker.py --request <request.json> --response <response.json>
+禁止虚构不存在的原仓库CLI参数。worker的具体适配属于上述45分钟准备，不需要用户再次决定算法。
+
+request.action=train_evaluate：按direction/fork_seed/target_learning_macros训练到累计目标，round1先新建或恢复本臂latest；后续只从本臂strict128env完整checkpoint继续。使用run_macro，定期≤5分钟原子保存fullresume，目标完成保存model-only并读回，做6个固定开发评价。SIGTERM时在下一可安全宏轮边界保存并退出；不能丢失原完整checkpoint。启动前读取请求deadline，不能自行越期。一次worker内只持有一个Isaac应用，评价可复用进程，但必须重建并核对匹配评价配置；测吞吐按真实实现。结束原子写response：{"arm": <下述arm对象>}。
+
+arm字段：direction、fork_seed、learning_macros、counters、model_path、model_sha256、settings_verified、effective_settings_path、cases。路径均相对于workroot，不能../逃逸。counters为本批计数，不含祖先；auxiliary_updates和auxiliary_skipped分列。effective_settings_path为从实际Trainer/环境/优化器读取的平铺设置，使用parameters.common中所有数值/物理关键字段命名，再加本方向的alpha_entry_multiplier、track_ang_vel_z_exp_weight、parking_body_velocity_weight。真实读取后逐项断言才能settings_verified=true，不可仅回显计划JSON；另存完整生效配置/环境YAML、源码diff及文件哈希。
+
+case字段：execution(D/S)、eval_seed、steps_path、configuration_path、frozen_before_path、frozen_after_path。configuration保留旧完整字段，并添加tf32_matmul=false、tf32_cudnn=false、termination_event_source="current_compute_return"、physical_initial_state_sha256。sha256为实际model-only文件SHA，condition="standard"，policy_noise="on"，zero_reset_wrench=true，interval_push_disabled=true，evaluation_seed对应seed。
+physical_initial_state_sha256为第一步前物理起点的规范序列化哈希：机器人关节位置/速度、root姿态/速度、摩擦/质量/COM/惯量/执行器增益等原随机化物理量；不含模型输出、进程地址、文件路径或策略随机数。每个execution/seed跨所有方向和fork一致。固定seed重建不一致要查出原因，不伪造同一个字符串。
+steps使用旧R2逐步字段，terminated/time_out为本步真实聚合返回；termination_terms仅base_contact/time_out且和聚合一致。支持真实早终止文件，不能自动继续reset补到600步。
+
+request.action=final_validate：读取decision_paths及同名*.manifest.json，在任何新seed评价前写final-selection.json（primary/secondary模型路径、哈希、开发得分、来源轮次/fork）。随后按第六节次序执行，返回完整heldout清单和分别的通过状态；不把未运行测试填为pass。
+request.action=archive：保存中文报告、运行终态、源码/配置/状态/所有round决策和原始轨迹、模型及恢复清单、SHA、资源时序；按既有授权渠道备份，返回外部读取核验事实。上传不成功要明确待备份，不回显成功。训练中可写小状态到results，但整个批次running直到最终终态，避免巡检每轮误当新完整成果。
+
+将计划工具和parameters.json放workroot，复制runtime.example.json为runtime.json，填写绝对路径、显式worker argv、T0、核对后的带时区租期截止、实测eval/startup秒数、budget路径和parent-reference路径。不要用示例占位值启动。
+python -m unittest -v test_protocol.py
+python -m py_compile training_helpers.py selection.py budget.py night_controller.py
+<现有环境Python> night_controller.py <绝对路径runtime.json>
+用现有tmux/systemd启动，输出写controller.log，不绑SSH前台。先做worker联调与小规模模拟调度；控制器含PID文件锁、原子状态、10秒轮询、截止SIGTERM及60秒保存宽限，最终时限预算须将该宽限算入，不能靠宽限突破租期。controller-state的terminal状态阻止意外重跑；technical failure后若确需恢复，Dot先确认无活跃PID、冻结runtime/请求未变、检查最近checkpoint后将恢复操作写audit，不能悄悄重置任务身份。
+
+控制器不在本窗口连接GPU/SSH。其CPU模拟已验证自动各轮推进和终态去重，但真实CUDA、任务保活、SIGTERM保存、外部上传需服务器准备验证。若实际worker在接口上需调整，限定为接线/日志/路径，记录最终源码SHA与本计划差异，不改变实验矩阵/计数/评分。
+
+八、停止与交付
+
+非有限、OOM、模型/动作/观测契约不符、Critic跳过、计数不符或评价冻结证据不符：保存故障定位及最后有效checkpoint，停止自动晋级；不自动减环境数/batch、换奖励或跳过失败轨迹。真实跌倒只计为控制失败，仍按规则完成本轮其他轨迹。硬预算/租期/磁盘不足按budget_stopped归档，保留部分轮事实，不能把没跑完写成completed。
+
+每臂只保留最新fullresume和各阶段model-only、全部日志/配置/失败证据，原始父模型不改不删。不保存每宏轮216MB权重，也不删除别的批次来腾空间。每阶段记开始/结束、实际env/transitions和各optimizer实际步数、吞吐、显存/CPU/RAM/磁盘。新老“轮数”含义不同，不能把16env和128env轮数直接相加；谱系总交互可列父1048576+本臂新增，全批不能把共享父交互重复乘12。
+
+结束报告必须回答：哪个方向相对最好；两条fork是否一致；各轮谁被淘汰及哪项指标决定；primary/secondary来自哪个固定checkpoint；标准/转向/扰动各是否通过/未运行；实际总墙钟和训练核心耗时；是否完整8–9小时还是按规则提前停；是否服务器外备份并读回核验。若无人达标，写“本批相对最佳候选，控制验收失败”，不发布成功模型或覆盖正式配置。
+
+小证据可入results/tita-sac/<unique_run_id>，单个轻证据分卷≤24000000字节，保留合并原包SHA及每卷SHA；模型和经验池分开，通过原有授权途径交付，不能只留即将到期服务器。上传临时失败不阻塞有效本地训练，做有界重试并记待备份清单；到期前优先保住checkpoint、源码配置、原始评价和报告，不自动续租。给用户只发真正启动和最终交付位置；各轮由Dot按本计划自动判断。

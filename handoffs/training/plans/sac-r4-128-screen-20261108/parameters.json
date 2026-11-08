@@ -1,0 +1,374 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R4-128-SCREEN-20261108",
+  "supersedes_unexecuted_plan": "SAC-R3-20261108",
+  "execution_status": "issued_not_started",
+  "purpose": "128-env paired warm-start successive-halving for SAC stop/walk/yaw control; native stochastic validation; bounded perturbation only after control gates",
+  "parent": {
+    "run_id": "SAC-R2-20261108/R20",
+    "model_sha256": "9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59",
+    "bytes": 9153975,
+    "server_path": "/root/rivermind-data/tita-check/sac-r2-20261108/runs/phase-b-001/R20/model_final.pt",
+    "training_seed": 0,
+    "iterations": 8192,
+    "transitions": 1048576,
+    "critic_updates": 129024,
+    "mode": "inherit_modules_optimizers_statistics_new_128env_replay_counters_rng_not_exact_resume"
+  },
+  "input_versions": {
+    "study_base_commit": "9c6ad8f8b673d5fbd382f181af80c823935fd2ea",
+    "r2_key_content_fingerprint": "6aa6158114fda586e08344b81891f64dacc45dc47c02c7ae0429ec0c8458bf36",
+    "alpha_pilot_archive_sha256": "a6aa96ba781df82d324ee2633c429f1d6ccb510156e890256d0ebb5f127ad96b",
+    "review_commit": "ee1a1e0cf9c47973ec5c9e52a12d684de02394a9",
+    "evidence_commit": null,
+    "note": "Original R2/pilot result archives not bound to GitHub commits; attachment hashes identify input. Handoff commit is not a raw result commit."
+  },
+  "directions": [
+    {
+      "id": "D0",
+      "alpha_entry_multiplier": 1,
+      "track_ang_vel_z_exp_weight": 0.5,
+      "parking_body_velocity_weight": 0
+    },
+    {
+      "id": "D1",
+      "alpha_entry_multiplier": 0.3,
+      "track_ang_vel_z_exp_weight": 0.5,
+      "parking_body_velocity_weight": 0
+    },
+    {
+      "id": "D2",
+      "alpha_entry_multiplier": 0.1,
+      "track_ang_vel_z_exp_weight": 0.5,
+      "parking_body_velocity_weight": 0
+    },
+    {
+      "id": "D3",
+      "alpha_entry_multiplier": 1,
+      "track_ang_vel_z_exp_weight": 0.5,
+      "parking_body_velocity_weight": -2
+    },
+    {
+      "id": "D4",
+      "alpha_entry_multiplier": 1,
+      "track_ang_vel_z_exp_weight": 1,
+      "parking_body_velocity_weight": 0
+    },
+    {
+      "id": "D5",
+      "alpha_entry_multiplier": 0.1,
+      "track_ang_vel_z_exp_weight": 1,
+      "parking_body_velocity_weight": 0
+    }
+  ],
+  "fork_seeds": [
+    1001,
+    1002
+  ],
+  "independent_from_scratch_training_seeds": false,
+  "common": {
+    "num_envs": 128,
+    "steps_per_macro": 8,
+    "warmup_macros": 16,
+    "capacity_per_env": 512,
+    "replay_capacity_total": 65536,
+    "critic_updates_per_learning_macro": 128,
+    "actor_updates_per_learning_macro": 64,
+    "alpha_updates_per_learning_macro": 128,
+    "target_updates_per_learning_macro": 128,
+    "auxiliary_attempts_per_learning_macro": 128,
+    "microcycles": 8,
+    "critic_updates_per_microcycle": 16,
+    "auxiliary_attempts_per_microcycle": 16,
+    "batch_size": 256,
+    "auxiliary_batch_size": 256,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "critic_lr": 0.0002,
+    "actor_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001,
+    "standing_command_fraction": 0.2,
+    "policy_observation_noise": "on",
+    "reset_force_N": [
+      0,
+      0
+    ],
+    "reset_torque_Nm": [
+      0,
+      0
+    ],
+    "interval_push": "off",
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "control_dt_s": 0.02,
+    "tf32_matmul": false,
+    "tf32_cudnn": false,
+    "alpha_compute": "GPU_tensor_common_to_all",
+    "normalizers": "inherit_then_update_during_training_freeze_during_eval",
+    "network_reward_action_bounds_timeout_semantics": "R20_except_declared_reward_direction_and_current-event_logging_fix",
+    "initial_std": "restore_learned_value_do_not_reset_or_scale_for_evaluation"
+  },
+  "parking_term": {
+    "mask": "norm(command_xy)<0.05 and abs(command_wz)<0.05",
+    "value": "vx_body**2 + vy_body**2 + 0.25*wz_body**2",
+    "apply_weight_and_control_dt_once": true
+  },
+  "schedule": {
+    "calibration_full_pool_learning_macros": 64,
+    "calibration_timing_last_macros": 32,
+    "q_multiple": 16,
+    "q_min": 64,
+    "q_max": 2048,
+    "learning_macro_levels_in_q": [
+      1,
+      2.5,
+      4,
+      6
+    ],
+    "direction_counts": [
+      6,
+      3,
+      2,
+      1
+    ],
+    "forks_per_direction": 2,
+    "total_learning_macros": "31*q",
+    "total_new_transitions": "1024*(31*q+12*16)",
+    "first_promotion": "best two noncontrol directions plus D0 control when valid",
+    "later_promotions": "top2 then top1",
+    "optional_extension_chunks_max": 4,
+    "extension_learning_macros_per_fork": "q/2",
+    "extension_stop": "two consecutive nonimproving development decisions or time/disk guard",
+    "single_gpu_process_at_once": true
+  },
+  "budget": {
+    "target_wall_s": 32400,
+    "hard_cap_wall_s": 34200,
+    "full_batch_min_authorized_remaining_at_T0_s": 39600,
+    "stop_starting_training_within_lease_s": 7200,
+    "finish_margin_to_lease_s": 5400,
+    "preparation_cap_s": 2700,
+    "reserve_archive_s": 1200,
+    "reserve_recovery_s": 600,
+    "minimum_eval_reserve_s": 4500,
+    "maximum_core_eval_cases": 180,
+    "extra_chunk_eval_cases": 12,
+    "never_sleep_to_fill_time": true,
+    "automatic_purchase_or_renewal": false,
+    "q_source": "budget.py using full-pool synchronized measured time and real current lease"
+  },
+  "evaluation": {
+    "protocol_id": "R4-NOMINAL-TF32OFF-CURRENTDONE-v1",
+    "dev_seeds": [
+      101,
+      102,
+      103
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "standard_seconds": 12,
+    "standard_schedule": [
+      [
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        2,
+        6,
+        0.3,
+        0
+      ],
+      [
+        6,
+        8,
+        0,
+        0
+      ],
+      [
+        8,
+        12,
+        -0.3,
+        0
+      ]
+    ],
+    "paired_initial_physical_state": true,
+    "gate": {
+      "survive_steps": 600,
+      "no_terminated_or_timeout": true,
+      "base_contact_max_N": 1,
+      "each_moving_vx_mae_m_s": 0.12,
+      "each_moving_mean_abs_wz_rad_s": 0.2,
+      "both_stop_tail_mean_planar_m_s": 0.05,
+      "both_stop_tail_mean_abs_wz_rad_s": 0.1,
+      "stop_windows_s": [
+        [
+          1,
+          2
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "stable_2_to_12_mean_height_m": 0.25
+    },
+    "motion_competence": {
+      "full_survival_required": true,
+      "forward_mean_vx_min": 0.1,
+      "reverse_mean_vx_max": -0.1,
+      "each_moving_vx_mae_max": 0.2
+    },
+    "rank_order": [
+      "worst_fork_survival",
+      "worst_fork_task_pass",
+      "overall_task_pass",
+      "worst_fork_motion_competence",
+      "overall_motion_competence",
+      "lower_p90_loss",
+      "lower_mean_loss",
+      "lower_direction_complexity_id"
+    ],
+    "loss_weights": {
+      "mean_direction_mae_over_.12": 0.45,
+      "max_stop_speed_over_.05": 0.2,
+      "max_stop_abswz_over_.10": 0.15,
+      "mean_moving_abswz_over_.20": 0.15,
+      "wheel_target_mean_abs_rate_over_200": 0.05
+    },
+    "loss_component_clip": [
+      0,
+      5
+    ],
+    "incomplete_case_decision_penalty": 5,
+    "raw_missing_metrics": null,
+    "no_training_reward_ranking": true,
+    "heldout_primary_seeds": [
+      201,
+      202,
+      203
+    ],
+    "heldout_secondary_seeds": [
+      301,
+      302,
+      303
+    ],
+    "freeze_primary_backup_before_holdouts": true,
+    "final_gating": "all6 standard D/S pass -> all6 turn D/S pass ->12 D pulse cases; secondary follows same rule with its separate seeds",
+    "turn_schedule": [
+      [
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        2,
+        6,
+        0.2,
+        0.5
+      ],
+      [
+        6,
+        8,
+        0,
+        0
+      ],
+      [
+        8,
+        12,
+        0.2,
+        -0.5
+      ],
+      [
+        12,
+        18,
+        0,
+        0
+      ]
+    ],
+    "turn_gate": {
+      "each_motion_vx_mae_max": 0.12,
+      "each_motion_wz_mae_max": 0.15,
+      "correct_yaw_sign": true,
+      "stop_windows_s": [
+        [
+          7,
+          8
+        ],
+        [
+          17,
+          18
+        ]
+      ],
+      "mean_planar_speed_max": 0.05,
+      "mean_abs_wz_max": 0.1,
+      "mean_height_2_to_18_min": 0.25,
+      "no_termination_timeout_base_contact": true
+    },
+    "pulse": {
+      "duration_s": 18,
+      "command_v": [
+        0,
+        0,
+        0
+      ],
+      "body_frame_force_N": 20,
+      "directions": [
+        "x+",
+        "x-",
+        "y+",
+        "y-"
+      ],
+      "start_s": 4,
+      "end_s": 4.2,
+      "torque_Nm": 0,
+      "recover_window_start_within_s": 2,
+      "recover_continuous_window_s": 1,
+      "recover_samples": 51,
+      "each_speed_max": 0.05,
+      "each_abs_wz_max": 0.1,
+      "no_fall_or_base_contact": true
+    }
+  },
+  "resource_and_stop": {
+    "start_free_disk_GiB": 25,
+    "no_new_arm_below_GiB": 15,
+    "orderly_stop_below_GiB": 10,
+    "new_task_storage_target_max_GiB": 15,
+    "checkpoint_period_s_max": 300,
+    "heartbeat_period_s_max": 30,
+    "new_training_processes_at_once": 1,
+    "critical_errors": [
+      "nonfinite",
+      "OOM",
+      "action_or_observation_contract_mismatch",
+      "counter_mismatch",
+      "missing_or_mutating_evidence",
+      "critic_learning_skip"
+    ],
+    "early_actual_termination_is_valid_failure_not_retry": true,
+    "technical_evaluation_retry_max": 1,
+    "regression_early_stop": "after round2 all task passes0 and every direction overall motion<1/3 and best no better than freshly evaluated parent",
+    "no_success_label_when_all_gates_fail": true
+  },
+  "delivery": {
+    "workroot_template": "/root/rivermind-data/tita-check/sac-r4-128-screen-20261108/<unique_run_id>",
+    "repository_result_template": "results/tita-sac/<run_id>",
+    "state_running_until_batch_terminal": true,
+    "keep_eliminated_models_configs_logs": true,
+    "preserve_parents": true,
+    "keep_latest_full_resume_per_arm": true,
+    "keep_model_only_per_stage": true,
+    "light_evidence_max_part_bytes": 24000000,
+    "backup_hashes_and_external_readback_required": true,
+    "do_not_change_formal_config_or_deploy": true,
+    "do_not_change_chat_automation_or_model": true,
+    "jump_training_in_scope": false
+  }
+}
