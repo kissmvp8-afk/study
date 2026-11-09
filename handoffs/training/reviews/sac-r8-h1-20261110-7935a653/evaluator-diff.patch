@@ -1,0 +1,47 @@
+--- 
++++ 
+@@ -9,7 +9,7 @@
+ from isaaclab.app import AppLauncher
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path('/root/rivermind-data/tita-check'));p.add_argument('--study-root',type=Path);p.add_argument('--checkpoint',type=Path,required=True);p.add_argument('--output_dir',type=Path,required=True);p.add_argument('--eval_seed',type=int,required=True);p.add_argument('--video',action='store_true');p.add_argument('--condition',choices=['standard'],default='standard');p.add_argument('--execution',choices=['D','S'],default='D')
+ p.add_argument('--factor',choices=['F00','F10','F01','F11'],required=True);p.add_argument('--policy-noise',choices=['on','off'],required=True);p.add_argument('--zero-reset-wrench',action='store_true');p.add_argument('--disable-interval-push',action='store_true')
+-p.add_argument('--seed-split',choices=['development'],default='development')
++p.add_argument('--seed-split',choices=['development','heldout'],default='development')
+ p.add_argument('--startup-lock',type=Path)
+ p.add_argument('--pulse-direction',choices=['x+','x-','y+','y-'])
+ AppLauncher.add_app_launcher_args(p);args=prepare_args(p.parse_args());out=args.output_dir;out.mkdir(parents=True,exist_ok=True)
+@@ -23,7 +23,7 @@
+ assert args.condition!='pulse' or (args.factor=='F01' and args.zero_reset_wrench and args.disable_interval_push and args.execution=='D')
+ progress=Progress(out)
+ def write(n,v):write_json(out/n,v)
+-write('metadata.json',{'plan_id':'SAC-R8-ACTOR-RATE-20261109','phase_id':'SAC-R8-L48-FINAL40-20261109','argv':sys.argv,'script':str(Path(__file__).resolve()),'script_sha256':sha256(Path(__file__)),'study_root':str(REPO),'evaluation_seed':args.eval_seed,'condition':args.condition})
++write('metadata.json',{'plan_id':'SAC-R8-H1-FROZEN-HELDOUT-20261109','phase_id':'SAC-R8-H1-FROZEN-HELDOUT-20261109','argv':sys.argv,'script':str(Path(__file__).resolve()),'script_sha256':sha256(Path(__file__)),'study_root':str(REPO),'evaluation_seed':args.eval_seed,'condition':args.condition})
+ app=None;env=None;video=None
+ try:
+     startup_lock=None
+@@ -60,6 +60,8 @@
+         def _update_command(self):self._assign(slice(None))
+     assert not args.condition.startswith('diagnostic_') or args.execution=='D'
+     sha=sha256(args.checkpoint);state=torch.load(args.checkpoint,weights_only=True,map_location='cpu')
++    from h1_controller import model_guard
++    model_guard(args.checkpoint, sha, state['counters'])
+     assert set(state['modules'])=={'encoder','projector','actor','critics','targets','temperature'}
+     for module_name,module_state in state['modules'].items():
+         for tensor_name,tensor in module_state.items():
+@@ -174,7 +176,7 @@
+         assert env._sim_step_counter==physics_start and torch.equal(warm_state,robot.data.root_state_w),'render warmup changed physics state'
+         video=cv2.VideoWriter(str(out/f'SAC-{args.execution}-seed{args.eval_seed}.mp4'),cv2.VideoWriter_fourcc(*'mp4v'),50.,(960,540));assert video.isOpened()
+     write('configuration.json',{'checkpoint':str(args.checkpoint),'sha256':sha,'checkpoint_counters':state['counters'],'execution':args.execution,'evaluation_noise_seed':args.eval_seed+100000,'checkpoint_learning_device':scfg.device,'training_seed':state['config'].get('seed', None),'evaluation_seed':args.eval_seed,
+-        'plan_id':'SAC-R8-ACTOR-RATE-20261109','phase_id':'SAC-R8-L48-FINAL40-20261109','condition':args.condition,'argv':sys.argv,'original_policy_noise':original_noise,'original_push':original_push,
++        'plan_id':'SAC-R8-H1-FROZEN-HELDOUT-20261109','phase_id':'SAC-R8-H1-FROZEN-HELDOUT-20261109','condition':args.condition,'argv':sys.argv,'original_policy_noise':original_noise,'original_push':original_push,
+         'tf32_matmul':torch.backends.cuda.matmul.allow_tf32,'tf32_cudnn':torch.backends.cudnn.allow_tf32,'termination_event_source':'current_compute_return','physical_initial_state_sha256':initial_sha256,'seed_split':args.seed_split,
+         'reset_rng_seed':args.eval_seed,'factor':args.factor,'policy_noise':args.policy_noise,'zero_reset_wrench':args.zero_reset_wrench,'interval_push_disabled':args.disable_interval_push,'reset_wrench_before_intervention':reset_wrench,'contact_names':contact_names,
+         'pulse_protocol':({'direction':args.pulse_direction,'force_body_N':20,'torque_Nm':0,'start_s':4.,'end_s':4.2,'substep_range':[800,840],'command_impulse_Ns':4.} if args.condition=='pulse' else None),
+@@ -286,7 +288,7 @@
+     import csv
+     with (out/'stage-metrics.csv').open('w',newline='') as f:
+         writer=csv.DictWriter(f,fieldnames=list(dict.fromkeys(k for row in metrics for k in row)));writer.writeheader();writer.writerows(metrics)
+-    write('summary.json',{'status':'passed','execution':args.execution,'normalizers_unchanged':True,'development_gate_pass':d_gate(records,metrics) if args.condition=='standard' else None,'condition':args.condition,'plan_id':'SAC-R8-ACTOR-RATE-20261109','phase_id':'SAC-R8-L48-FINAL40-20261109','steps':len(records),'simulated_seconds':len(records)*.02,'evaluation_seed':args.eval_seed,
++    write('summary.json',{'status':'passed','execution':args.execution,'normalizers_unchanged':True,'development_gate_pass':d_gate(records,metrics) if args.condition=='standard' else None,'condition':args.condition,'plan_id':'SAC-R8-H1-FROZEN-HELDOUT-20261109','phase_id':'SAC-R8-H1-FROZEN-HELDOUT-20261109','steps':len(records),'simulated_seconds':len(records)*.02,'evaluation_seed':args.eval_seed,
+         'true_terminations':sum(r['terminated'] for r in records),'timeouts':sum(r['time_out'] for r in records),'elapsed_s':time.perf_counter()-start,
+         'frozen_state_unchanged':True,'checkpoint_unchanged':True,'checkpoint_sha256':sha,'initial_state':initial,'all_finite':True,
+         'physics_steps':env._sim_step_counter-physics_start,'physics_dt':env.physics_dt,'control_dt':env.step_dt,

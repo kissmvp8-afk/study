@@ -1,0 +1,117 @@
+{
+  "fixed_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+  "cases": 20,
+  "physical_heldout_steps": 12000,
+  "compatibility_steps": 1200,
+  "groups": [
+    {
+      "role": "parent",
+      "n": 10,
+      "survived": 10,
+      "passed": 4,
+      "P": 0.057869321128090075,
+      "W": 0.06259614400089777,
+      "Mavg": 0.05324986393196741,
+      "Mmax": 0.06330314575566444,
+      "maxP": 0.0811305729251236
+    },
+    {
+      "role": "candidate",
+      "n": 10,
+      "survived": 10,
+      "passed": 6,
+      "P": 0.04411452749440667,
+      "W": 0.054952106601325795,
+      "Mavg": 0.05547212837388361,
+      "Mmax": 0.06036446835995594,
+      "maxP": 0.05769551616925567
+    }
+  ],
+  "probes": [
+    {
+      "role": "parent",
+      "steps": 600,
+      "raw_trajectory_exact": true,
+      "max_numeric_difference": 0,
+      "trajectory_fields_ignored": [],
+      "restricted_pointer_normalization": true,
+      "nonadapter_sources_equal": true,
+      "old_parent_probe_not_rerun": true
+    },
+    {
+      "role": "candidate",
+      "steps": 600,
+      "raw_trajectory_exact": true,
+      "max_numeric_difference": 0,
+      "trajectory_fields_ignored": [],
+      "restricted_pointer_normalization": true,
+      "nonadapter_sources_equal": true,
+      "old_parent_probe_not_rerun": null
+    }
+  ],
+  "candidate_heldout_passed": false,
+  "candidate_failed_cases": [
+    {
+      "role": "candidate",
+      "seed": 261,
+      "execution": "D",
+      "steps": 600,
+      "survived": true,
+      "passed": false,
+      "P": 0.056373949153263485,
+      "W": 0.04023379414808005,
+      "Mavg": 0.05072996362112463,
+      "Mmax": 0.05969900500029326,
+      "stop1_speed": 0.056373949153263485,
+      "stop2_speed": 0.024509908260986042,
+      "failed_gates": "stop1.speed"
+    },
+    {
+      "role": "candidate",
+      "seed": 261,
+      "execution": "S",
+      "steps": 600,
+      "survived": true,
+      "passed": false,
+      "P": 0.05529711345202557,
+      "W": 0.04962881624349393,
+      "Mavg": 0.05008210980333388,
+      "Mmax": 0.05604919670149684,
+      "stop1_speed": 0.05529711345202557,
+      "stop2_speed": 0.014692843901980428,
+      "failed_gates": "stop1.speed"
+    },
+    {
+      "role": "candidate",
+      "seed": 262,
+      "execution": "D",
+      "steps": 600,
+      "survived": true,
+      "passed": false,
+      "P": 0.05248425585534622,
+      "W": 0.04644631725270301,
+      "Mavg": 0.05338482572376961,
+      "Mmax": 0.05629652886476833,
+      "stop1_speed": 0.05248425585534622,
+      "stop2_speed": 0.038546788999364014,
+      "failed_gates": "stop1.speed"
+    },
+    {
+      "role": "candidate",
+      "seed": 262,
+      "execution": "S",
+      "steps": 600,
+      "survived": true,
+      "passed": false,
+      "P": 0.05769551616925567,
+      "W": 0.05753842578735203,
+      "Mavg": 0.054369180875000894,
+      "Mmax": 0.05580631763019483,
+      "stop1_speed": 0.05769551616925567,
+      "stop2_speed": 0.041294821397256286,
+      "failed_gates": "stop1.speed"
+    }
+  ],
+  "independently_repeated_server_registry_scan": false,
+  "no_new_simulation_or_training": true
+}

@@ -1,0 +1,21 @@
+{
+  "source_R8_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
+  "source_H1_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+  "four_lane_learning_macro_mean_s": [
+    6.572,
+    6.676,
+    6.379,
+    6.477
+  ],
+  "four_lane_learning_macro_p95_s": [
+    6.946,
+    7.377,
+    6.721,
+    6.981
+  ],
+  "eval40_rollout_interval_span_s": 571.86,
+  "eval_span_excludes_first_app_initialization": true,
+  "raw_diagnostic_bytes_per_macro_approx": 2145000,
+  "compression_ratio015_is_assumption_not_measured": true,
+  "new_instrumented_throughput_needs_calibration": true
+}

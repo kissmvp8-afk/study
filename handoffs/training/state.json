@@ -806,6 +806,47 @@
       "next_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
       "next_plan_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
       "parameters_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/parameters.json"
+    },
+    {
+      "run_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109/initial",
+      "result_path": "results/tita-sac/sac-r8-h1-20261109",
+      "evidence_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+      "result_status": "stopped_on_metadata_comparison_then_reused_parent_probe",
+      "review_status": "reviewed_via_preserved_recovery_capture",
+      "review_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
+      "separate_initial_archive_actual_downloaded": false
+    },
+    {
+      "run_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+      "result_path": "results/tita-sac/sac-r8-h1-recovery-20261109",
+      "evidence_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+      "result_status": "completed",
+      "review_status": "independently_recomputed20heldout_cases_two600step_exact_probes_and_source_provenance",
+      "key_content_fingerprint": "2ac65a9b956af00b5bf67d32493ce41829c4cdc589bde44a6dcf484172ccab09",
+      "critical_files_count": 113,
+      "control_acceptance": "failed_candidate6of10_required10of10",
+      "heldout_seeds": [
+        261,
+        262,
+        263,
+        264,
+        265
+      ],
+      "parent_pass_count": 4,
+      "candidate_pass_count": 6,
+      "parent_survival_count": 10,
+      "candidate_survival_count": 10,
+      "raw_heldout_steps": 12000,
+      "compatibility_steps": 1200,
+      "compatibility_numeric_max_difference": 0,
+      "ZIP_members_CRC_checked": 342,
+      "manifest_files_SHA_size_checked": 341,
+      "actual_archive_download_verified": true,
+      "archive_sha256": "a93a21e46c1e08d3adccb5ecfe592507325ede0f53ac6a0612be634b9fab261c",
+      "candidate_failures": "261/262 D/S first-stop speed only",
+      "review_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
+      "reviewed_at_utc": "2026-11-09T16:36:31.481084+00:00",
+      "model_promotion": false
     }
   ],
   "pending_results": [
@@ -868,17 +909,17 @@
     "server_reported_next_run_time": null
   },
   "latest_plan_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
-  "updated_at_utc": "2026-11-09T15:22:45.209742+00:00",
-  "latest_review_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt",
-  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt",
+  "updated_at_utc": "2026-11-09T16:36:31.481084+00:00",
+  "latest_review_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
+  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
   "latest_plan_parameters_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/parameters.json",
-  "latest_plan_status": "issued_conditional_frozen_candidate_new_seed_heldout_not_started",
+  "latest_plan_status": "H1_completed_failed_heldout_R9_proposal_available_not_activated",
   "active_plan": {
-    "plan_id": "SAC-R8-ACTOR-RATE-20261109",
-    "execution_status": "completed_independently_reviewed_development_only_two_phase_L2_reset",
-    "evidence_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
-    "parent_replacement": false,
-    "review_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt"
+    "plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+    "execution_status": "completed_independently_reviewed_candidate_failed10of10_gate",
+    "evidence_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+    "review_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
+    "parent_replacement": false
   },
   "plan_supersessions": [
     {
@@ -898,23 +939,21 @@
       "original_training_started_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+  "latest_proposed_plan_id": "SAC-R9-OVERNIGHT-20261110",
   "latest_issued_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
-    "status": "conditional_source_compatibility_seed_registry_current_resource_verification",
-    "path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
-    "parameters_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/parameters.json",
-    "max_cases": 22,
-    "training_updates_allowed": 0,
-    "heldout_cases": 20,
-    "proposed_seeds": [
-      261,
-      262,
-      263,
-      264,
-      265
-    ]
+    "plan_id": "SAC-R9-OVERNIGHT-20261110",
+    "status": "planning_only_no_auto_dispatch",
+    "path": "handoffs/training/proposals/sac-r9-overnight-20261110/OVERVIEW_ZH.txt",
+    "parameters_path": "handoffs/training/proposals/sac-r9-overnight-20261110/parameters.json",
+    "controller_contract": "handoffs/training/proposals/sac-r9-overnight-20261110/controller-contract.txt",
+    "evidence_contract": "handoffs/training/proposals/sac-r9-overnight-20261110/evidence-contract.txt",
+    "auto_dispatch": false,
+    "executable_ready": false,
+    "parallel_workers": 4,
+    "num_envs_per_worker": 128,
+    "wall_clock_target_hours": 8.5,
+    "wall_clock_hard_cap_hours": 9
   },
   "latest_executed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
   "latest_plan_start_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
@@ -934,8 +973,8 @@
     "current_window_finish_UTC8": "2026-11-09T20:45:00+08:00"
   },
   "pending_candidate": {
-    "model": "A1-1502-L48",
+    "model": "R8 A1/1502-L48",
     "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
-    "status": "frozen_for_H1_not_promoted"
+    "status": "failed_H1_research_warmstart_only_not_promoted"
   }
 }

@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R9-OVERNIGHT-20261110",
+  "status": "proposal_only_user_requested_planning_no_training_started",
+  "executable_implementation_ready": false,
+  "goal": [
+    "startup_stopping",
+    "commanded_forward_reverse_and_smooth_turns",
+    "bounded_external_force_recovery"
+  ],
+  "jump_training": false,
+  "basis": {
+    "R8_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
+    "H1_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+    "H1_raw_cases_independently_recomputed": 20,
+    "H1_candidate_pass": 6,
+    "H1_parent_pass": 4,
+    "H1_candidate_failed_only_first_stop": true
+  },
+  "research_warmstart": {
+    "name": "R8 A1/1502-L48",
+    "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
+    "bytes": 9168307,
+    "status": "research_start_not_promoted",
+    "keep_R6_parent": true
+  },
+  "common": {
+    "num_envs_per_worker": 128,
+    "parallel_workers": 4,
+    "actor_lr": 1e-05,
+    "critic_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001,
+    "replay_capacity_total": 65536,
+    "steps_per_macro": 8,
+    "prefill_macros": 16,
+    "critic_alpha_target_aux_updates_per_learning_macro": 128,
+    "actor_updates_per_learning_macro": 64,
+    "batch_size": 256,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "max_grad_norm": 1.0,
+    "parking_weight": -8,
+    "precision_weight": 0,
+    "observation_noise": "on",
+    "tf32": false,
+    "cache": false,
+    "native_alpha_std_inherited": true
+  },
+  "timeline_minutes": {
+    "preflight_end": 30,
+    "phase_A_latest_end": 180,
+    "training_latest_end": 450,
+    "final_tests_latest_end": 510,
+    "target_done": 510,
+    "hard_stop": 540
+  },
+  "minimum_usable_machine_window_hours": 10,
+  "deployment_preparation_outside_T0": true,
+  "no_automatic_rental_extension": true,
+  "phase_A": {
+    "arms": [
+      {
+        "id": "Z0",
+        "reset_zero_seconds": 0
+      },
+      {
+        "id": "Z1",
+        "reset_zero_seconds": 3
+      }
+    ],
+    "training_forks": [
+      1601,
+      1602
+    ],
+    "task_sampler": "same_original_sampler_standing.20_hold2to4",
+    "estimated_learning_macros": [
+      768,
+      1024
+    ],
+    "early_probe_learning": [
+      64,
+      128
+    ],
+    "early_probe_seeds": [
+      261,
+      262
+    ],
+    "early_probe_executions": [
+      "D",
+      "S"
+    ],
+    "max_extra_early_full_validation_models": 1,
+    "fast_standard_seeds": [
+      231,
+      233,
+      265
+    ],
+    "fast_executions": [
+      "D",
+      "S"
+    ],
+    "full_development_seeds": [
+      231,
+      232,
+      233,
+      234,
+      235,
+      261,
+      262,
+      263,
+      264,
+      265
+    ],
+    "full_development_cases_per_model": 20,
+    "qualification": {
+      "survival": 20,
+      "passes": 20,
+      "max_mean_P": 0.04,
+      "max_mean_W": 0.08,
+      "max_mean_Mavg": 0.08
+    },
+    "direction_signal": {
+      "both_forks_required": true,
+      "first_stop_mean_improvement_mps": 0.005,
+      "passes_and_survival_not_lower": true,
+      "Mavg_degradation_max": 0.01,
+      "mean_W_max": 0.1
+    },
+    "if_no_qualified_model": "continue_phase_A_until_training_deadline_no_phaseB"
+  },
+  "phase_B": {
+    "conditional_on_qualified_A": true,
+    "arms": [
+      {
+        "id": "B0",
+        "training_force": false
+      },
+      {
+        "id": "B1",
+        "training_force": "gated_curriculum"
+      }
+    ],
+    "training_forks": [
+      1701,
+      1702
+    ],
+    "common_selected_parent": true,
+    "new_replay_and_prefill": true,
+    "command_mixture": {
+      "zero": 0.3,
+      "straight": 0.35,
+      "arc": 0.35,
+      "straight_abs_vx_range": [
+        0.15,
+        0.45
+      ],
+      "arc_vx_range": [
+        0.1,
+        0.3
+      ],
+      "arc_abs_wz_range": [
+        0.3,
+        0.7
+      ],
+      "vy": 0,
+      "signs_balanced": true,
+      "hold_seconds": [
+        2,
+        4
+      ]
+    },
+    "force_levels_N": [
+      0,
+      5,
+      10,
+      20
+    ],
+    "force_duration_seconds": 0.2,
+    "force_directions": [
+      "x+",
+      "x-",
+      "y+",
+      "y-"
+    ],
+    "force_frame": "body",
+    "torque_Nm": 0,
+    "interval_seconds": [
+      8,
+      12
+    ],
+    "first_push_after_reset_seconds": 2,
+    "fast_standard_seeds": [
+      231,
+      233,
+      265
+    ],
+    "fast_turn_seeds": [
+      231,
+      233,
+      265
+    ],
+    "fast_push_seed": 235,
+    "fast_cases_per_model": 13,
+    "fast_cases_total": 52,
+    "full_development_cases_per_model": 27,
+    "full_development_cases_total": 108,
+    "full_development_force_N": 20,
+    "estimated_learning_macros": [
+      1280,
+      2048
+    ],
+    "gates": {
+      "enter5N": "bothB1 standard6/6 and turn3/3",
+      "increase": "bothB1 standard6/6 turn3/3 current_force_survival4/4 recovery>=3/4",
+      "any_B1_probe_fall": "reduce_both_B1_one_level_next_stage",
+      "otherwise": "hold_level"
+    }
+  },
+  "budget": {
+    "quantum_learning_macros": 64,
+    "calibration_learning_macros": 32,
+    "calibration_included_in_A": true,
+    "target_macro_time": "max(slowest_mean*1.15,slowest_p90)",
+    "phase_A_reserve_eval_and_IO_minutes": 50,
+    "phase_B_reserve_eval_and_IO_minutes": 80,
+    "max_learning_macros_per_phase": 16384,
+    "equal_macro_endpoint_for_all4": true,
+    "elastic_common_extension_rule": "only_before_final_selection_if_next64_and_all_remaining_eval_backup_fit_phase_deadline",
+    "no_sleep_to_fill_time": true
+  },
+  "checkpoint": {
+    "model_every_learning_macros": 128,
+    "local_full_every_learning_macros": 256,
+    "local_full_max_minutes": 30,
+    "important_remote_versions": [
+      "calibration",
+      "quarter",
+      "half",
+      "three_quarters",
+      "stage_final"
+    ],
+    "resume_semantics": "learner_replay_state_restored_new_physical_episode",
+    "reset_protocol_all_arms_equal": true,
+    "global_rng_and_curriculum_rng_saved": true
+  },
+  "final_test": {
+    "freeze_before_opening": true,
+    "standard_seeds": [
+      271,
+      272,
+      273,
+      274,
+      275
+    ],
+    "turn_seeds": [
+      281,
+      282,
+      283
+    ],
+    "push_seeds": [
+      291,
+      292,
+      293
+    ],
+    "seed_registry_verification_required": true,
+    "retain_both_forks_of_both_directions": true,
+    "standard_models_max": 7,
+    "turn_models_max": 5,
+    "push_models_max": 5,
+    "standard_cases_max": 70,
+    "turn_cases_max": 15,
+    "push_cases_max": 60,
+    "core_cases_max": 145,
+    "optional_stress30N_cases_max": 12,
+    "total_with_stress_max": 157,
+    "standard_executions": [
+      "D",
+      "S"
+    ],
+    "turn_push_executions": [
+      "D"
+    ],
+    "standard_pass": 10,
+    "turn_pass": 3,
+    "push20N_pass": 12,
+    "per_model_gating": true,
+    "selection_from_development_only": true,
+    "old261265_used_for_R9_development_not_new_heldout": true,
+    "stress_not_primary_acceptance": true
+  },
+  "storage": {
+    "recommended_free_GiB": 24,
+    "minimum_free_GiB_with_forecast": 16,
+    "emergency_free_GiB": 8,
+    "compressed_lossless_training_segments": true,
+    "delete_only_this_run_remote_verified_copies": true,
+    "uncompressed_staging_duplicate": false,
+    "expected_artifact_GiB": [
+      10,
+      18
+    ]
+  },
+  "evidence": {
+    "all_macro_records": true,
+    "all_eval_raw": true,
+    "all_eval_exact_noisy_history": true,
+    "max_complete_training_failure_windows_per_arm_per_stage": 50,
+    "all_training_failure_metadata": true,
+    "full_video_replays_max": 8,
+    "unique_final_index": true,
+    "actual_remote_download_and_runtime_resume_for_control_and_curriculum": true
+  },
+  "recovery": {
+    "prephysics_init_retry_per_app": 1,
+    "max_technical_restarts_per_phase": 1,
+    "restart_all_from_last_common_checkpoint": true,
+    "keep_failed_attempts_and_spent_compute": true,
+    "learning_failure_not_retried": true
+  },
+  "formal_model_replacement": false,
+  "real_hardware_acceptance": false
+}

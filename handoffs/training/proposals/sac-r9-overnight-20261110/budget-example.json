@@ -1,0 +1,15 @@
+{
+  "per_trajectory_macro_seconds": 6.7,
+  "forecast_seconds": 7.704999999999999,
+  "four_parallel_slots": 4,
+  "phase_A_learning_macros_per_trajectory": 768,
+  "phase_B_learning_macros_per_trajectory": 1472,
+  "phase_A_budget_minutes": 150,
+  "phase_B_budget_minutes": 270,
+  "total_campaign_transitions": 9306112,
+  "total_critic_updates": 1146880,
+  "total_actor_updates": 573440,
+  "old_uncompressed_diagnostic_GiB": 17.899274826049805,
+  "assumed_stream_compressed_GiB_if_ratio015": 2.6848912239074707,
+  "note": "Four concurrent branches take approximately max(branch_time), not sum. PhaseB has four new forks/warmstarts; retained winning lineage differs from total campaign compute. Actual targets frozen from calibration then common64-block elastic extension before final selection; no minimum-duration sleep."
+}

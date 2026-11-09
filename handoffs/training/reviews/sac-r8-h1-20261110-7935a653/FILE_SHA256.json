@@ -1,0 +1,34 @@
+{
+  "README.md": {
+    "bytes": 616,
+    "sha256": "351f3fd9c2dbb58ba71a200198523ab3cb719fae9e17232556281c05a6d20bb2"
+  },
+  "cases.csv": {
+    "bytes": 3247,
+    "sha256": "500336e7f664eb4a5fee39c5c55da1887d4ef3f137d6dbfc7839a7dddd3e2b39"
+  },
+  "evaluator-diff.patch": {
+    "bytes": 5873,
+    "sha256": "4bb1458a6ba980d2f8cb89b7dccf5472f38a6d7a66fbf7df85ad6e772592a3d4"
+  },
+  "archive-verification.json": {
+    "bytes": 290,
+    "sha256": "770e4bc14ea55dae717f0851bf93398f898e9145f5d421d45e7c2bf5ddac44fe"
+  },
+  "review.txt": {
+    "bytes": 3084,
+    "sha256": "d8b0388ce5bc21dd3926ca42ddaa129abc86174690f4887b8b7d78bb3fdbc17b"
+  },
+  "audit_H1.py": {
+    "bytes": 8004,
+    "sha256": "e06ee78459d464a947c2f7c09bbe0d5d7c80675c36d007b4a4266f1cf422c4c3"
+  },
+  "README_HUMAN.md": {
+    "bytes": 474,
+    "sha256": "aa9e6efdd6f8d0650d8c5a9354ad8702de3390c0302dea5066bf647f9b96edff"
+  },
+  "independent-review.json": {
+    "bytes": 3094,
+    "sha256": "1cca5b8ed50cabc7b57e41596739ea70a20d5c1d7a41ead23deb020887ab238b"
+  }
+}

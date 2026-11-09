@@ -1,0 +1,38 @@
+{
+  "OVERVIEW_ZH.txt": {
+    "bytes": 5142,
+    "sha256": "b1bf14a46abbaf77d6ccf91e9bc1e43017cc6d11c2da7bbd83cf5e4717cb6773"
+  },
+  "README.md": {
+    "bytes": 946,
+    "sha256": "4bcb761425143f56bfffeef5de92d44ce03eedbe620126fec8df0c0a76c4d952"
+  },
+  "README_HUMAN.md": {
+    "bytes": 774,
+    "sha256": "87fb06e082a2aeebaa326ea4f620e613bf4abca6e02b0b0345011c3efa88147f"
+  },
+  "budget-example.json": {
+    "bytes": 821,
+    "sha256": "591426c636200b424204e44be8e3616d528c4e9a6988e0bffb1ee663646cabab"
+  },
+  "budget_calculator.py": {
+    "bytes": 1321,
+    "sha256": "29b257631d58621451eae196c2c211e950da2942e6d7dd4cdf70f6e136464183"
+  },
+  "controller-contract.txt": {
+    "bytes": 10440,
+    "sha256": "af95096402fcec6aec24898d42d3f35f6227257c9f7a53c17459a5bd5045ab65"
+  },
+  "evidence-contract.txt": {
+    "bytes": 5896,
+    "sha256": "f5ccc1fa6803c0441b01e9adbef39640774156c56dd2b81abb4ee547a942690b"
+  },
+  "parameters.json": {
+    "bytes": 7902,
+    "sha256": "9affc72a3147897059ad40d8462d9e7ce68b498f42b6669027cb465f11276649"
+  },
+  "throughput-basis.json": {
+    "bytes": 575,
+    "sha256": "7920c2e9dc9767f47f597a083a5260148b4de184d9b641c34c9ee903bfbcef0f"
+  }
+}
