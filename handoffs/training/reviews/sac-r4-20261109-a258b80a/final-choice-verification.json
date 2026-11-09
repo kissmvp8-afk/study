@@ -1,0 +1,209 @@
+{
+  "chosen": [
+    {
+      "learning_macros": 936,
+      "model_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+      "key": [
+        -1.0,
+        -0.5,
+        -0.5,
+        -1.0,
+        -1.0,
+        0.7613980227325176,
+        0.6349263363517031
+      ],
+      "source": "extra-1.manifest.json",
+      "fork_seed": 1001
+    },
+    {
+      "learning_macros": 864,
+      "model_sha256": "d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46",
+      "key": [
+        -1.0,
+        -0.5,
+        -0.5,
+        -1.0,
+        -1.0,
+        0.9999879955012257,
+        0.7038866568161567
+      ],
+      "source": "round-4.manifest.json",
+      "fork_seed": 1002
+    }
+  ],
+  "options": {
+    "1001": [
+      {
+        "learning_macros": 936,
+        "model_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "key": [
+          -1.0,
+          -0.5,
+          -0.5,
+          -1.0,
+          -1.0,
+          0.7613980227325176,
+          0.6349263363517031
+        ],
+        "source": "extra-1.manifest.json"
+      },
+      {
+        "learning_macros": 1008,
+        "model_sha256": "b991fd353b642f6ad3a2e6d1ddb5a39a23973ecbf17cfe634f2b19736459f1b1",
+        "key": [
+          -1.0,
+          -0.0,
+          -0.0,
+          -1.0,
+          -1.0,
+          1.1720058899169512,
+          0.8598309557779468
+        ],
+        "source": "extra-2.manifest.json"
+      },
+      {
+        "learning_macros": 144,
+        "model_sha256": "cd278797bb098f860764821a588f3e228f0a72bc370a49e89339e37d0bc20828",
+        "key": [
+          -1.0,
+          -0.16666666666666666,
+          -0.16666666666666666,
+          -1.0,
+          -1.0,
+          0.9061648261122519,
+          0.7014388531464423
+        ],
+        "source": "round-1.manifest.json"
+      },
+      {
+        "learning_macros": 360,
+        "model_sha256": "605979f5e58759783d76d5056319375897d6209fb7b5d7fcaca42a8cacfd3d65",
+        "key": [
+          -1.0,
+          -0.5,
+          -0.5,
+          -1.0,
+          -1.0,
+          0.870974255374478,
+          0.7068297525008376
+        ],
+        "source": "round-2.manifest.json"
+      },
+      {
+        "learning_macros": 576,
+        "model_sha256": "11e7f2363baa1537cd4470124f796e5144ae8078171a57bafacc41c1e7276832",
+        "key": [
+          -1.0,
+          -0.0,
+          -0.0,
+          -1.0,
+          -1.0,
+          1.3378229959795342,
+          0.9946978742812166
+        ],
+        "source": "round-3.manifest.json"
+      },
+      {
+        "learning_macros": 864,
+        "model_sha256": "2cb13fe1e8f20597c36cbf5c639ce9332e035f82e3cef8fd70caf81eda4bb66d",
+        "key": [
+          -0.6666666666666666,
+          -0.0,
+          -0.0,
+          -0.6666666666666666,
+          -0.6666666666666666,
+          5.0,
+          2.2494073299656496
+        ],
+        "source": "round-4.manifest.json"
+      }
+    ],
+    "1002": [
+      {
+        "learning_macros": 936,
+        "model_sha256": "8f7a4e3957a37d54a89944566c3a7329e27afea4b4fe2069b1e3934cfbde8ed3",
+        "key": [
+          -1.0,
+          -0.0,
+          -0.0,
+          -1.0,
+          -1.0,
+          1.3393133138626365,
+          1.0463475161723037
+        ],
+        "source": "extra-1.manifest.json"
+      },
+      {
+        "learning_macros": 1008,
+        "model_sha256": "c35a3b84dd4fd814d8bca42a074d13ef72ceb55b95be423551f5466bd8342df2",
+        "key": [
+          -1.0,
+          -0.0,
+          -0.0,
+          -1.0,
+          -1.0,
+          1.7032289874381334,
+          1.4182005648525873
+        ],
+        "source": "extra-2.manifest.json"
+      },
+      {
+        "learning_macros": 144,
+        "model_sha256": "05cc952f414db296f257371d8c3e6c9cfe318c3e951a23ce0868ecc87b795794",
+        "key": [
+          -1.0,
+          -0.16666666666666666,
+          -0.16666666666666666,
+          -1.0,
+          -1.0,
+          0.7475400163663928,
+          0.6641401746312391
+        ],
+        "source": "round-1.manifest.json"
+      },
+      {
+        "learning_macros": 360,
+        "model_sha256": "b43bc100df8843e8eed6f59e0e306f8e2471e0b0a491444f6407cd42ca530ec0",
+        "key": [
+          -0.6666666666666666,
+          -0.0,
+          -0.0,
+          -0.6666666666666666,
+          -0.6666666666666666,
+          5.0,
+          2.2885893303353426
+        ],
+        "source": "round-2.manifest.json"
+      },
+      {
+        "learning_macros": 576,
+        "model_sha256": "1c4e2e22428f770bd57be98d3eae9faff6b082a24972f52bf926fc208fb10489",
+        "key": [
+          -1.0,
+          -0.0,
+          -0.0,
+          -1.0,
+          -1.0,
+          1.5766342188268228,
+          1.4498811455397613
+        ],
+        "source": "round-3.manifest.json"
+      },
+      {
+        "learning_macros": 864,
+        "model_sha256": "d5ba7344c768a514cc43077aafff03f3b2166ca9fa81e3c61718e78d3f302a46",
+        "key": [
+          -1.0,
+          -0.5,
+          -0.5,
+          -1.0,
+          -1.0,
+          0.9999879955012257,
+          0.7038866568161567
+        ],
+        "source": "round-4.manifest.json"
+      }
+    ]
+  },
+  "selection_hashes_match": true
+}

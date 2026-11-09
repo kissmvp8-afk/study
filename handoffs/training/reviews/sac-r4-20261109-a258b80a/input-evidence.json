@@ -1,0 +1,135 @@
+{
+  "evidence_commit": "a258b80a2f47964b8cbb9993a7a326271439e98f",
+  "evidence_path": "results/tita-sac/sac-r4-128-screen-20261108/20261108T234904Z",
+  "archive_sha256": "be40d1ccb503a471e9d24d4a37c743c812c512166cfa965f13046f6fcb303e60",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "a09a7d32b3a6817f9363a69c99e4e4c2a605aef77e3f9d021f4af931a545ec30"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 24000000,
+      "sha256": "267b826085e9d2c6dbf4e585c5a188429b62a0bdd516b39f191af94cc9d92de1"
+    },
+    {
+      "file": "evidence.zip.part003",
+      "bytes": 24000000,
+      "sha256": "9e1ae8d77c76aa99ab949634efef3f86c4b672c55dd1e0f91177c6a58dd08a81"
+    },
+    {
+      "file": "evidence.zip.part004",
+      "bytes": 24000000,
+      "sha256": "85adfc6df33ed6f669b67f12c6b3fb3a478d41aa76f48e1a72e75b5992ee7337"
+    },
+    {
+      "file": "evidence.zip.part005",
+      "bytes": 24000000,
+      "sha256": "851e85875016214709515f3ced1499ce875cd1c700a1e5f2c18fdb8a94e5e327"
+    },
+    {
+      "file": "evidence.zip.part006",
+      "bytes": 24000000,
+      "sha256": "bcd733dbf75038f758cf02f1652a98361344f95cb2b69589f1053ed0bcfb3b9b"
+    },
+    {
+      "file": "evidence.zip.part007",
+      "bytes": 24000000,
+      "sha256": "ae0d67df9705e2620b95435ea2186a6e014d2e44913e0307e8301dfb1e3f3188"
+    },
+    {
+      "file": "evidence.zip.part008",
+      "bytes": 4907217,
+      "sha256": "09cf937a36323ca0786d11a20b2fe7b3dca45e604694b9125c6da85f2ad73b70"
+    }
+  ],
+  "reviewed_at_utc": "2026-11-09T00:19:17.870441+00:00",
+  "default_branch_at_review": "1325352fbdffab6a9714d7ce415fc40453dd93ea",
+  "evidence_not_on_default_branch_at_review": true,
+  "zip_crc_verified": true,
+  "raw_cases": 186,
+  "raw_steps": 104130,
+  "training_macro_rows": 4944,
+  "formal_learning_macros": 4752,
+  "verified_source_hash_records": 732,
+  "binary_models_downloaded_and_CPU_checked": 28,
+  "model_downloaded_total_bytes": 256689812,
+  "latest_full_resume_remote_digest_and_size_checked": 12,
+  "latest_full_resume_bytes_redownloaded": 0,
+  "reader_environment": "Python3.12 Torch2.7.0+cpu weights_only map_location cpu",
+  "CPU_protocol_tests_passed": 21,
+  "Isaac_GPU_replay_or_new_training_run": false,
+  "release_metadata_observation_at_utc": "2026-11-09T00:19:17.870441+00:00",
+  "backup_snapshot_status": "active_with_tail_pending",
+  "backup_current_assets_checked_separately": true,
+  "critical_files": [
+    {
+      "archive_member": "controller-state.json",
+      "sha256": "dac04bc3302ba20ba8e9033765d2e4fc472c52947eb3117ecccf5df2127308e1",
+      "bytes": 67813
+    },
+    {
+      "archive_member": "final-selection.json",
+      "sha256": "89d858dacf224559e92cde46bbb4330bec22d01cd5bdd644bb53414d8a17e93b",
+      "bytes": 27033
+    },
+    {
+      "archive_member": "heldout-results.json",
+      "sha256": "0e904d3a1ae6a3a1d8deb40ee1b831291d4bd5ae78dd87cbd8de3d1255da1898",
+      "bytes": 40626
+    },
+    {
+      "archive_member": "budget.json",
+      "sha256": "29e8661be1f4f7ce39d99d9a83f048a67f2916046088d44429483a2cb81a2e25",
+      "bytes": 907
+    },
+    {
+      "archive_member": "runtime.json",
+      "sha256": "b056c7b00708be6f4fb1d58e28d71252e3c0983f9944be85f2c5ab0c45298c62",
+      "bytes": 879
+    },
+    {
+      "archive_member": "parameters.json",
+      "sha256": "46628f6f71b5d4747022a788151abc20bd1f7bbda57657db6414f1513686a741",
+      "bytes": 10173
+    },
+    {
+      "archive_member": "model-backup/latest-report.json",
+      "sha256": "36939453668dd576d2c8224057aa1672341b265cfc2386b7f6be59161177b883",
+      "bytes": 53120
+    },
+    {
+      "archive_member": "extra-1.decision.json",
+      "sha256": "ecb2ccd3912db9ae2c16afbcc7eb37ad6ece992bf783e7df8c7d3007e145e979",
+      "bytes": 24596
+    },
+    {
+      "archive_member": "extra-2.decision.json",
+      "sha256": "dcfab836d1d6fe030cc5f48b48f089c7292d53e6156fbd1e74cc627ebbe9bb6c",
+      "bytes": 24528
+    },
+    {
+      "archive_member": "round-1.decision.json",
+      "sha256": "3e400e686ccc25093cbdf57279efa7700e319b8982e6a69525fe81aa5946d4d5",
+      "bytes": 138709
+    },
+    {
+      "archive_member": "round-2.decision.json",
+      "sha256": "0070e8a23ca80543b2f2ffe89c0beecc3a48bc90183e552903a03fe531b53a59",
+      "bytes": 65999
+    },
+    {
+      "archive_member": "round-3.decision.json",
+      "sha256": "1dd82eb022a9665dae4d5d8b531e215b60f80aa51400a504f5aaf20aea14ca4d",
+      "bytes": 47373
+    },
+    {
+      "archive_member": "round-4.decision.json",
+      "sha256": "564d829c9c35d007f7d6ef7723d691fdf62320416abc996311b058d49d1e4ce3",
+      "bytes": 21809
+    }
+  ],
+  "key_content_fingerprint": "4568d08be0a687d0841f1893804078d41d7908d84cd400f659504fc59829d5a0",
+  "fingerprint_algorithm": "SHA256(UTF8(concat sorted(archive_member+TAB+file_SHA256+LF))) for parameters, final selection, heldout and all stage decisions; backup-only progress excluded"
+}

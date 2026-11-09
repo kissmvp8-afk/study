@@ -1,0 +1,8 @@
+{
+  "hash_records_per_arm": 61,
+  "arms": 12,
+  "verified_hash_records": 732,
+  "reconstructed_python_files": 55,
+  "matching_previously_supplied_sources": true,
+  "comparison_scope": "Exact bytes only; no supplied script execution"
+}

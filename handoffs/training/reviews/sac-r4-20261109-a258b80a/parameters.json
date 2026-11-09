@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R5-PARK-20261109",
+  "status": "proposal_only_not_implemented_not_started",
+  "execution_authorized_by_this_review": false,
+  "new_training_started": false,
+  "based_on_evidence_commit": "a258b80a2f47964b8cbb9993a7a326271439e98f",
+  "based_on_evidence_zip_sha256": "be40d1ccb503a471e9d24d4a37c743c812c512166cfa965f13046f6fcb303e60",
+  "parent": {
+    "direction": "D2",
+    "fork_seed": 1001,
+    "learning_macros": 936,
+    "sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+    "bytes": 9167475,
+    "release_asset_name": "D2-1001-iteration952-model-6129fdcd53192c66.pt",
+    "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D2-1001-iteration952-model-6129fdcd53192c66.pt",
+    "binary_download_and_CPU_read_verified": true,
+    "effective_alpha": 5.4444077250082046e-05,
+    "mode": "new_task_warm_start_modules_optimizers_normalizers_fresh_replay_counters_rng",
+    "do_not_scale_alpha_or_std": true,
+    "new_bounded_R5_loader_required": true,
+    "ancestor_training_seeds": [
+      0,
+      1001
+    ]
+  },
+  "fork_seeds": [
+    1101,
+    1102
+  ],
+  "independent_from_scratch_seeds": false,
+  "groups": [
+    {
+      "id": "C0",
+      "parking_body_velocity_weight": 0,
+      "command_resampling_time_range_s": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "C1",
+      "parking_body_velocity_weight": -2,
+      "command_resampling_time_range_s": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "C2",
+      "parking_body_velocity_weight": -8,
+      "command_resampling_time_range_s": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "C3",
+      "parking_body_velocity_weight": -8,
+      "command_resampling_time_range_s": [
+        2,
+        4
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "comparison": "C1-C0",
+      "interpretation": "existing parking term in common inherited low-alpha context"
+    },
+    {
+      "comparison": "C2-C1",
+      "interpretation": "parking reward strength"
+    },
+    {
+      "comparison": "C3-C2",
+      "interpretation": "shorter command holding conditional on parking weight -8"
+    }
+  ],
+  "full_factorial": false,
+  "parking_function": {
+    "mask": "norm(cmd_xy)<.05 and abs(cmd_wz)<.05",
+    "value": "vx_body**2+vy_body**2+.25*wz_body**2",
+    "weight_and_dt_once": true
+  },
+  "common": {
+    "num_envs": 128,
+    "steps_per_macro": 8,
+    "control_dt_s": 0.02,
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "capacity_per_env": 512,
+    "warmup_macros": 16,
+    "critic_updates_per_learning_macro": 128,
+    "actor_updates_per_learning_macro": 64,
+    "alpha_updates_per_learning_macro": 128,
+    "target_updates_per_learning_macro": 128,
+    "auxiliary_attempts_per_learning_macro": 128,
+    "microcycles": 8,
+    "critic_and_auxiliary_attempts_per_microcycle": 16,
+    "batch_size": 256,
+    "auxiliary_batch_size": 256,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "critic_lr": 0.0002,
+    "actor_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001,
+    "standing_fraction": 0.2,
+    "heading_command": true,
+    "heading_control_stiffness": 0.5,
+    "rel_heading_envs": 1,
+    "vx_range": [
+      -1,
+      1
+    ],
+    "vy_range": [
+      0,
+      0
+    ],
+    "wz_range": [
+      -1,
+      1
+    ],
+    "track_ang_vel_z_exp_weight": 0.5,
+    "observation_noise": "on",
+    "reset_force_torque": 0,
+    "interval_push": "off",
+    "other_physical_randomization": "unchanged",
+    "tf32_matmul": false,
+    "tf32_cudnn": false,
+    "use_cache": false,
+    "normalizers": "inherited_then_update_during_training_frozen_during_evaluation",
+    "algorithm_network_action_timeout_auxiliary": "unchanged"
+  },
+  "schedule": {
+    "groups_per_stage": 4,
+    "forks_per_group": 2,
+    "common_learning_macro_checkpoints": [
+      144,
+      288,
+      576
+    ],
+    "equal_budget_no_early_direction_elimination": true,
+    "transitions_per_arm": [
+      163840,
+      311296,
+      606208
+    ],
+    "critic_alpha_target_aux_updates_per_arm": [
+      18432,
+      36864,
+      73728
+    ],
+    "actor_updates_per_arm": [
+      9216,
+      18432,
+      36864
+    ],
+    "total_transitions_full": 4849664,
+    "total_critic_alpha_target_aux_updates_full": 589824,
+    "total_actor_updates_full": 294912,
+    "no_automatic_extension_chunks": true,
+    "predeclared_short_budget_endpoint": 384,
+    "short_endpoint_only_selected_before_formal_training": true
+  },
+  "preflight": {
+    "cap_s": 2400,
+    "current_resource_and_real_lease_check": true,
+    "calibration_warmup_macros": 16,
+    "calibration_learning_macros": 80,
+    "calibration_timing_last_full_pool_macros": 32,
+    "calibration_model_discarded": true,
+    "frozen_parent_standard_cases": 6,
+    "frozen_parent_extended_diagnostic_cases": 6,
+    "extended_diagnostics": {
+      "execution": "D",
+      "duration_s": 18,
+      "seeds": [
+        111,
+        112,
+        113
+      ],
+      "protocols": [
+        "all zero",
+        "0-2 zero;2-6 +.3;6-12 zero;12-16 -.3;16-18 zero"
+      ],
+      "does_not_replace_standard_gate": true
+    }
+  },
+  "evaluation": {
+    "development_seeds": [
+      111,
+      112,
+      113
+    ],
+    "heldout_seeds_for_both_finalists": [
+      211,
+      212,
+      213
+    ],
+    "paired_initial_physics": true,
+    "reuse_R4_heldout_as_unseen": false,
+    "executions": [
+      "D",
+      "S"
+    ],
+    "standard_protocol_and_gates": "identical to R4",
+    "freeze_candidate_order_hashes_before_holdouts": true,
+    "gate": {
+      "duration_s": 12,
+      "survival_steps": 600,
+      "no_termination_timeout": true,
+      "base_contact_max_N": 1,
+      "forward_reverse_mae_max": 0.12,
+      "moving_abswz_max": 0.2,
+      "stop_windows_s": [
+        [
+          1,
+          2
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "stop_mean_planar_speed_max": 0.05,
+      "stop_mean_abswz_max": 0.1,
+      "height_mean_2_to_12_min": 0.25
+    },
+    "development_cases_max": 144,
+    "preflight_reference_and_diagnostic_cases": 12,
+    "final_cases_max": 48,
+    "total_cases_max": 204,
+    "final_turn_pulse_gating": "each model all6 standard pass -> all6 turn pass ->12 pulse cases",
+    "turn_pulse_protocols": "R4 unchanged; use new heldout seeds"
+  },
+  "selection": {
+    "rank_order": [
+      "worst_fork_survival",
+      "worst_fork_task_pass",
+      "overall_task_pass",
+      "worst_fork_motion_competence",
+      "lower_worst_fork_parking_P",
+      "lower_parking_abswz",
+      "lower_moving_mae",
+      "fixed_C0_C1_C2_C3_tie"
+    ],
+    "parking_P": "mean_over_6_complete_cases(max(stop1_mean_planar,stop2_mean_planar)); raw null and ranking infinity on incomplete arm",
+    "continue_at_288_A": "an intervention has both forks survival6/6, worst task_pass>=2/6, overall task_pass>=same-stage C0",
+    "continue_at_288_B": "an intervention has both forks survival6/6 and motion6/6; parking P <=0.8*C0 P and <=frozen_parent P; mean moving MAE<=.12; C0 and parent must be complete for this comparison",
+    "on_no_A_or_B": "stop_no_progress_at_288",
+    "if_progress": "continue all8 arms to frozen common endpoint",
+    "percent_improvement_is_significance_claim": false,
+    "accept_direction_reproducibility": "both final forks standard6/6; single-model pass reported separately"
+  },
+  "budget": {
+    "target_total_wall_hours": [
+      8,
+      9
+    ],
+    "hard_cap_s": 34200,
+    "R4_reference_full_pool_macro_s": 4.5374083272809,
+    "R4_reference_case_s": 33.44048591454824,
+    "estimated_formal_learning_hours": 5.807882658919552,
+    "all_preparation_evaluation_archive_included": true,
+    "finish_margin_before_lease_s": 5400,
+    "no_new_training_inside_lease_s": 7200,
+    "auto_purchase_renewal": false,
+    "start_free_disk_GiB": 25,
+    "no_new_job_free_disk_GiB": 15,
+    "save_stop_free_disk_GiB": 10,
+    "max_checkpoint_interval_s": 240
+  },
+  "deliverables": [
+    "per-stage model-only each arm",
+    "one latest full resume per arm with replay/RNG/next_episode_ids",
+    "actual optimizer-step hooks and transition counters",
+    "effective environment/config/source hashes",
+    "per-env current done/episode and command transition logs distinguishing resets",
+    "pre-reset full evaluation trajectories",
+    "encoder vx prediction/label/scales at stops without statistic updates",
+    "all decisions and failure attempts",
+    "heldout per-model gates and not_run states",
+    "model/resume SHA sizes and externally verified backups"
+  ],
+  "prohibitions": [
+    "no new training in current review",
+    "no formal configuration replacement",
+    "no real robot run",
+    "no jump training",
+    "no unvalidated parameter claims",
+    "no alpha/std evaluation manipulation"
+  ]
+}

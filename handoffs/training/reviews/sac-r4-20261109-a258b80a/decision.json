@@ -1,0 +1,27 @@
+{
+  "reviewed_result": "SAC-R4-128-SCREEN-20261108",
+  "evidence_commit": "a258b80a2f47964b8cbb9993a7a326271439e98f",
+  "training_execution": "completed",
+  "selection_recomputed": "matched",
+  "control_acceptance": "failed",
+  "corrected_primary_standard_pass": "0/6",
+  "secondary_standard_pass": "0/6",
+  "primary_survival": "6/6",
+  "secondary_survival": "6/6",
+  "turn": "not_run",
+  "pulse": "not_run",
+  "main_failure": "stop planar speed; some stop yaw",
+  "next_plan_id": "SAC-R5-PARK-20261109",
+  "next_plan_status": "proposal_only_no_start_authorization",
+  "recommended_parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+  "new_training_started": false,
+  "implemented_R5_changes": false,
+  "reviewed_at_utc": "2026-11-09T00:19:17.870441+00:00",
+  "counts": {
+    "critic": 608256,
+    "actor": 304128,
+    "alpha": 608256,
+    "auxiliary": 608256
+  },
+  "new_formal_transitions": 5062656
+}

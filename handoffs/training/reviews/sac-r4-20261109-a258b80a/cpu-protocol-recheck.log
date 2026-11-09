@@ -1,0 +1,30 @@
+/workspace/sac-r4-review/.venv/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+test_budget_counter_identity_and_hard_stop (test_protocol.ProtocolTests.test_budget_counter_identity_and_hard_stop) ... ok
+test_cache_restores_on_exception (test_protocol.ProtocolTests.test_cache_restores_on_exception) ... ok
+test_control_reserved_only_in_round1 (test_protocol.ProtocolTests.test_control_reserved_only_in_round1) ... ok
+test_controller_runs_all_rounds_and_does_not_repeat_terminal_task (test_protocol.ProtocolTests.test_controller_runs_all_rounds_and_does_not_repeat_terminal_task) ... ok
+test_fall_is_failed_with_null_unobserved_stages (test_protocol.ProtocolTests.test_fall_is_failed_with_null_unobserved_stages) ... ok
+test_frozen_cache_is_exact_and_refreshes_after_collection (test_protocol.ProtocolTests.test_frozen_cache_is_exact_and_refreshes_after_collection) ... ok
+test_macro_preserves_eight_aux_refresh_boundaries (test_protocol.ProtocolTests.test_macro_preserves_eight_aux_refresh_boundaries) ... ok
+test_manifest_rejects_unequal_budget_and_wrong_model (test_protocol.ProtocolTests.test_manifest_rejects_unequal_budget_and_wrong_model) ... ok
+test_one_lucky_fork_cannot_win_over_two_survivors (test_protocol.ProtocolTests.test_one_lucky_fork_cannot_win_over_two_survivors) ... ok
+test_retained_terminal_flags_rejected (test_protocol.ProtocolTests.test_retained_terminal_flags_rejected) ... ok
+test_reward_does_not_change_score (test_protocol.ProtocolTests.test_reward_does_not_change_score) ... ok
+test_stationary_is_not_motion_success (test_protocol.ProtocolTests.test_stationary_is_not_motion_success) ... ok
+test_truncated_file_is_not_a_valid_fall (test_protocol.ProtocolTests.test_truncated_file_is_not_a_valid_fall) ... ok
+test_current_events_not_retained_terms (test_evaluation_r4.EvaluationProtocolTests.test_current_events_not_retained_terms) ... ok
+test_evaluator_source (test_evaluation_r4.EvaluationProtocolTests.test_evaluator_source) ... ok
+test_final_freezes_before_heldouts_and_gates (test_evaluation_r4.EvaluationProtocolTests.test_final_freezes_before_heldouts_and_gates) ... ok
+test_fingerprint_order_and_sensitivity (test_evaluation_r4.EvaluationProtocolTests.test_fingerprint_order_and_sensitivity) ... ok
+test_seed_splits (test_evaluation_r4.EvaluationProtocolTests.test_seed_splits) ... ok
+test_current_return_not_retained_history (test_night128_interfaces.Interfaces.test_current_return_not_retained_history) ... ok
+test_no_historical_term_getter (test_night128_interfaces.Interfaces.test_no_historical_term_getter) ... ok
+test_overlap_retained (test_night128_interfaces.Interfaces.test_overlap_retained) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 3.504s
+
+OK
+{"status": "completed", "completed_round": 4}
+Terminal task already recorded; use a new authorized run_id to rerun.

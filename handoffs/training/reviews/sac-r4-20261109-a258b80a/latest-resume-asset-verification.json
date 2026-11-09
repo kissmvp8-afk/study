@@ -1,0 +1,374 @@
+[
+  {
+    "arm": "D0-1001",
+    "checkpoint_record": {
+      "path": "arms/D0-1001/latest-fullresume.pt",
+      "sha256": "19f11315cd1fbcff05ead5ecc83880213f38e171ec3e0164dfc3e13d34bb63fe",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 376,
+        "env_steps": 3008,
+        "transitions": 385024,
+        "critic_updates": 46080,
+        "actor_updates": 23040,
+        "alpha_updates": 46080,
+        "target_updates": 46080,
+        "auxiliary_updates": 46080,
+        "auxiliary_skipped": 0,
+        "replay_samples": 11796480,
+        "auxiliary_samples": 11690886,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 725075841,
+      "name": "D0-1001-iteration376-fullresume-19f11315cd1fbcff.pt",
+      "size": 216135765,
+      "digest": "sha256:19f11315cd1fbcff05ead5ecc83880213f38e171ec3e0164dfc3e13d34bb63fe",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D0-1001-iteration376-fullresume-19f11315cd1fbcff.pt"
+    }
+  },
+  {
+    "arm": "D0-1002",
+    "checkpoint_record": {
+      "path": "arms/D0-1002/latest-fullresume.pt",
+      "sha256": "f802af4c3da5d3f8083b94c29ad77722391e0dc3914307fe40545a4cf9ca0e13",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 376,
+        "env_steps": 3008,
+        "transitions": 385024,
+        "critic_updates": 46080,
+        "actor_updates": 23040,
+        "alpha_updates": 46080,
+        "target_updates": 46080,
+        "auxiliary_updates": 46080,
+        "auxiliary_skipped": 0,
+        "replay_samples": 11796480,
+        "auxiliary_samples": 11685860,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 725146634,
+      "name": "D0-1002-iteration376-fullresume-f802af4c3da5d3f8.pt",
+      "size": 216135829,
+      "digest": "sha256:f802af4c3da5d3f8083b94c29ad77722391e0dc3914307fe40545a4cf9ca0e13",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D0-1002-iteration376-fullresume-f802af4c3da5d3f8.pt"
+    }
+  },
+  {
+    "arm": "D1-1001",
+    "checkpoint_record": {
+      "path": "arms/D1-1001/latest-fullresume.pt",
+      "sha256": "3981dc83309896341c70d591c7e110c29f70e68e406f5d3222fff423876250ee",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4671638,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 724554138,
+      "name": "D1-1001-iteration160-fullresume-3981dc8330989634.pt",
+      "size": 216135765,
+      "digest": "sha256:3981dc83309896341c70d591c7e110c29f70e68e406f5d3222fff423876250ee",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D1-1001-iteration160-fullresume-3981dc8330989634.pt"
+    }
+  },
+  {
+    "arm": "D1-1002",
+    "checkpoint_record": {
+      "path": "arms/D1-1002/latest-fullresume.pt",
+      "sha256": "afcd26996004c07ec8e7c93c37333eb0a56835566b4aaaa08562a43cf6c47f5c",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4668243,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 724630173,
+      "name": "D1-1002-iteration160-fullresume-afcd26996004c07e.pt",
+      "size": 216135829,
+      "digest": "sha256:afcd26996004c07ec8e7c93c37333eb0a56835566b4aaaa08562a43cf6c47f5c",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D1-1002-iteration160-fullresume-afcd26996004c07e.pt"
+    }
+  },
+  {
+    "arm": "D2-1001",
+    "checkpoint_record": {
+      "path": "arms/D2-1001/latest-fullresume.pt",
+      "sha256": "14673ec24fdee5132be164c1d0f8b3d52c7f80630d1d6c46317fea883a3e07f3",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 1024,
+        "env_steps": 8192,
+        "transitions": 1048576,
+        "critic_updates": 129024,
+        "actor_updates": 64512,
+        "alpha_updates": 129024,
+        "target_updates": 129024,
+        "auxiliary_updates": 129024,
+        "auxiliary_skipped": 0,
+        "replay_samples": 33030144,
+        "auxiliary_samples": 32751716,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 725568523,
+      "name": "D2-1001-iteration1024-fullresume-14673ec24fdee513.pt",
+      "size": 216135829,
+      "digest": "sha256:14673ec24fdee5132be164c1d0f8b3d52c7f80630d1d6c46317fea883a3e07f3",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D2-1001-iteration1024-fullresume-14673ec24fdee513.pt"
+    }
+  },
+  {
+    "arm": "D2-1002",
+    "checkpoint_record": {
+      "path": "arms/D2-1002/latest-fullresume.pt",
+      "sha256": "7a1b8fa86342d688054c05f81d365cd42ffee719a13a07c8278ef345aca1d003",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 1024,
+        "env_steps": 8192,
+        "transitions": 1048576,
+        "critic_updates": 129024,
+        "actor_updates": 64512,
+        "alpha_updates": 129024,
+        "target_updates": 129024,
+        "auxiliary_updates": 129024,
+        "auxiliary_skipped": 0,
+        "replay_samples": 33030144,
+        "auxiliary_samples": 32741959,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 725578162,
+      "name": "D2-1002-iteration1024-fullresume-7a1b8fa86342d688.pt",
+      "size": 216135829,
+      "digest": "sha256:7a1b8fa86342d688054c05f81d365cd42ffee719a13a07c8278ef345aca1d003",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D2-1002-iteration1024-fullresume-7a1b8fa86342d688.pt"
+    }
+  },
+  {
+    "arm": "D3-1001",
+    "checkpoint_record": {
+      "path": "arms/D3-1001/latest-fullresume.pt",
+      "sha256": "41d14213a12cabd99a17536923d71c0d3b868c2fc11c1acc18a42fd8afbe028c",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 592,
+        "env_steps": 4736,
+        "transitions": 606208,
+        "critic_updates": 73728,
+        "actor_updates": 36864,
+        "alpha_updates": 73728,
+        "target_updates": 73728,
+        "auxiliary_updates": 73728,
+        "auxiliary_skipped": 0,
+        "replay_samples": 18874368,
+        "auxiliary_samples": 18717324,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 725367558,
+      "name": "D3-1001-iteration592-fullresume-41d14213a12cabd9.pt",
+      "size": 216135765,
+      "digest": "sha256:41d14213a12cabd99a17536923d71c0d3b868c2fc11c1acc18a42fd8afbe028c",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D3-1001-iteration592-fullresume-41d14213a12cabd9.pt"
+    }
+  },
+  {
+    "arm": "D3-1002",
+    "checkpoint_record": {
+      "path": "arms/D3-1002/latest-fullresume.pt",
+      "sha256": "9bf2522ae56beb25d849a4f6665bd85ae897675925d33723867d618e433cd24e",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 592,
+        "env_steps": 4736,
+        "transitions": 606208,
+        "critic_updates": 73728,
+        "actor_updates": 36864,
+        "alpha_updates": 73728,
+        "target_updates": 73728,
+        "auxiliary_updates": 73728,
+        "auxiliary_skipped": 0,
+        "replay_samples": 18874368,
+        "auxiliary_samples": 18715405,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 725368503,
+      "name": "D3-1002-iteration592-fullresume-9bf2522ae56beb25.pt",
+      "size": 216135829,
+      "digest": "sha256:9bf2522ae56beb25d849a4f6665bd85ae897675925d33723867d618e433cd24e",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D3-1002-iteration592-fullresume-9bf2522ae56beb25.pt"
+    }
+  },
+  {
+    "arm": "D4-1001",
+    "checkpoint_record": {
+      "path": "arms/D4-1001/latest-fullresume.pt",
+      "sha256": "2285548f2e2fb5049dea09bf9f22410a1bdb8dfa9efc94e9e1f25d24d0de886e",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4672683,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 724788921,
+      "name": "D4-1001-iteration160-fullresume-2285548f2e2fb504.pt",
+      "size": 216135765,
+      "digest": "sha256:2285548f2e2fb5049dea09bf9f22410a1bdb8dfa9efc94e9e1f25d24d0de886e",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D4-1001-iteration160-fullresume-2285548f2e2fb504.pt"
+    }
+  },
+  {
+    "arm": "D4-1002",
+    "checkpoint_record": {
+      "path": "arms/D4-1002/latest-fullresume.pt",
+      "sha256": "e3c9e897c2b86ea9e69a910b85d3e3dff30b6ea324bf3e0e23c21da5da6a8851",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4667846,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 724860682,
+      "name": "D4-1002-iteration160-fullresume-e3c9e897c2b86ea9.pt",
+      "size": 216135829,
+      "digest": "sha256:e3c9e897c2b86ea9e69a910b85d3e3dff30b6ea324bf3e0e23c21da5da6a8851",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D4-1002-iteration160-fullresume-e3c9e897c2b86ea9.pt"
+    }
+  },
+  {
+    "arm": "D5-1001",
+    "checkpoint_record": {
+      "path": "arms/D5-1001/latest-fullresume.pt",
+      "sha256": "b53b2ab5683fcb2b492ae3409a3de7c2e30ad5a326c98f83cf3c5c22913b7778",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4672904,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 724862032,
+      "name": "D5-1001-iteration160-fullresume-b53b2ab5683fcb2b.pt",
+      "size": 216135765,
+      "digest": "sha256:b53b2ab5683fcb2b492ae3409a3de7c2e30ad5a326c98f83cf3c5c22913b7778",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D5-1001-iteration160-fullresume-b53b2ab5683fcb2b.pt"
+    }
+  },
+  {
+    "arm": "D5-1002",
+    "checkpoint_record": {
+      "path": "arms/D5-1002/latest-fullresume.pt",
+      "sha256": "0daced2e160fe091617e1575ce6c3a267dcb69d62d4414d5174a32a3dada9531",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4669125,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "remote": {
+      "tag": "sac-r4-128-screen-20261108",
+      "id": 724934634,
+      "name": "D5-1002-iteration160-fullresume-0daced2e160fe091.pt",
+      "size": 216135829,
+      "digest": "sha256:0daced2e160fe091617e1575ce6c3a267dcb69d62d4414d5174a32a3dada9531",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r4-128-screen-20261108/D5-1002-iteration160-fullresume-0daced2e160fe091.pt"
+    }
+  }
+]

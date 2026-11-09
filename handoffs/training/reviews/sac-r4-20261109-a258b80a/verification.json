@@ -1,0 +1,13 @@
+{
+  "plan_id": "SAC-R5-PARK-20261109",
+  "review_scope": "independent read-only audit and proposal; no GPU simulation/training/model update",
+  "raw_cases": 186,
+  "raw_steps": 104130,
+  "training_macro_rows": 4944,
+  "CPU_unit_protocol_tests": 21,
+  "binary_models_downloaded_read": 28,
+  "remote_latest_fullresume_digest_size_verified": 12,
+  "R5_counter_arithmetic": "passed",
+  "relative_readme_links": "passed",
+  "recommended_parent_binary_sha": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d"
+}

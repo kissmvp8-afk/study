@@ -1,0 +1,76 @@
+{
+  "files": {
+    "README.md": {
+      "sha256": "6a9663bb00595f22867105f5ca934faba21e95c569819a636aacc0d6fb6c327f",
+      "bytes": 1506
+    },
+    "all-case-metrics.csv": {
+      "sha256": "39143037c5ab4480046c20c98d7c068786b40164625ea2932028f31f6054021e",
+      "bytes": 94301
+    },
+    "cpu-protocol-recheck.log": {
+      "sha256": "6569bd791a51e9f089b41c153004ebf919dfe25c059a668b370aac3f3060a283",
+      "bytes": 3085
+    },
+    "decision.json": {
+      "sha256": "dfc98f2ff0958b3c844372c0515e07e773257056659e6ec754677b6b02925302",
+      "bytes": 936
+    },
+    "final-choice-verification.json": {
+      "sha256": "d37c0d8c2d5576de781e5483ed2d11d377a3d8e9ba9b500fd2c96dba40e700ef",
+      "bytes": 5133
+    },
+    "heldout-aggregate.json": {
+      "sha256": "e81653824ca9c9bfdd06b99e5840ef989b400ed26c6b78734102c39fa3f987d2",
+      "bytes": 1365
+    },
+    "heldout-command-response.png": {
+      "sha256": "eeb94193ad219bdbc9909ee37ae3dabcd0f55c2bf70fd6e279ddc72456d615ab",
+      "bytes": 231451
+    },
+    "heldout-stage-metrics.csv": {
+      "sha256": "3b11fd96f1af6dffda800915a8a328c60e29d90d78b381dd8dada725a6f5ae21",
+      "bytes": 2420
+    },
+    "input-evidence.json": {
+      "sha256": "edef7183a7d51542f5bfc4f8957f52826e1226ce0688e6d40d05162175f68337",
+      "bytes": 4900
+    },
+    "latest-resume-asset-verification.json": {
+      "sha256": "0b8b542c6b36b063558d5b9efbf9535a3ce0dc6d2756f3675125da8f37a0a6ae",
+      "bytes": 13309
+    },
+    "model-state-audit.json": {
+      "sha256": "d7d378c24d013d9fb1cc71a975843069182a60c42869e8172032d23a99fe518b",
+      "bytes": 64482
+    },
+    "next-plan.txt": {
+      "sha256": "7da0bfd70deb8cb665c72f916f3d9223ff4a6eff7da1981ed6b7b8d119d99988",
+      "bytes": 12839
+    },
+    "parameters.json": {
+      "sha256": "1e01748b54911875cd466526a8f1793627b15e7f7f5510bad9b3d234a8adbb69",
+      "bytes": 8766
+    },
+    "recomputed-rankings.json": {
+      "sha256": "c3020f88f99f5766ae520ff3398fb105b57eca35bd8a52927ce3b9ad8d5a6ca8",
+      "bytes": 4383
+    },
+    "review.txt": {
+      "sha256": "151ea66413e5c68646871ff3aa636fa0f8eea3d4ad67e4ab51c76304fb2a7b87",
+      "bytes": 12942
+    },
+    "source-verification-summary.json": {
+      "sha256": "e0a6dd565a945af9d89ade8fd8776ab3bbaecd54a252517902aa80771afc922d",
+      "bytes": 235
+    },
+    "training-audit.json": {
+      "sha256": "762227a8e9997192d14acab7eca1fd1d212429fd3ec12936ca1206bbb3c4bdad",
+      "bytes": 25223
+    },
+    "verification.json": {
+      "sha256": "926cdf983e03b94777fb465c2051f26c714e86fe5a5119ee6525f687edd22c6b",
+      "bytes": 521
+    }
+  }
+}
