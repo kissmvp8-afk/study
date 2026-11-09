@@ -1,0 +1,1043 @@
+{
+  "snapshot_utc": "20261109T040357Z",
+  "controller": {
+    "plan_id": "SAC-R5-PARK-20261109",
+    "status": "completed",
+    "completed_round": 3,
+    "runtime_sha256": "30419fb36f1bd00b9da61b2e0141bbdb64b2b9ee6ff62168fa7cebbce1a16d33",
+    "lease_verified": false,
+    "lease_unknown_user_authorized": true,
+    "hard_deadline_utc": "2026-11-09T10:09:28.263565+00:00",
+    "active_job": null,
+    "heartbeat_utc": "2026-11-09T04:03:28.225690+00:00",
+    "last_decision": "round-3.decision.json",
+    "final_validation": {
+      "selection_path": "final-selection.json",
+      "candidates": {
+        "primary": {
+          "model_path": "arms/C0-1102/model-learning-144.pt",
+          "model_sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+          "stages": {
+            "standard": {
+              "status": "failed",
+              "cases": [
+                {
+                  "execution": "D",
+                  "eval_seed": 211,
+                  "steps_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-211/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-211/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-211/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-211/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": true,
+                    "motion_competent": true,
+                    "loss": 0.39061742372664626,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.27887939427630043,
+                        "vx_mae": 0.04018075074418448,
+                        "wz_mae": 0.06209859322942066,
+                        "wz": -0.02955786850023287,
+                        "abs_wz": 0.06209859322942066,
+                        "speed": 0.28291605705537465,
+                        "height": 0.3043909724056721
+                      },
+                      "reverse": {
+                        "vx": -0.2751295192999532,
+                        "vx_mae": 0.045963426335365515,
+                        "wz_mae": 0.06211913587991148,
+                        "wz": -0.023160530923632905,
+                        "abs_wz": 0.06211913587991148,
+                        "speed": 0.276240054416447,
+                        "height": 0.31957743331789973
+                      },
+                      "stop1": {
+                        "vx": -0.012409942751401105,
+                        "vx_mae": 0.014809833011240699,
+                        "wz_mae": 0.0557755239889957,
+                        "wz": -0.02554433895042166,
+                        "abs_wz": 0.0557755239889957,
+                        "speed": 0.017355114700245488,
+                        "height": 0.3134359359741211
+                      },
+                      "stop2": {
+                        "vx": 0.0026712095201946793,
+                        "vx_mae": 0.012574654121417552,
+                        "wz_mae": 0.04708636561990716,
+                        "wz": -0.005683670243015513,
+                        "abs_wz": 0.04708636561990716,
+                        "speed": 0.014874735071434641,
+                        "height": 0.30568713307380674
+                      },
+                      "height": {
+                        "vx": 0.0037340942397713663,
+                        "vx_mae": 0.04637236445955932,
+                        "wz_mae": 0.05959227342710074,
+                        "wz": -0.0195778693958855,
+                        "abs_wz": 0.05959227342710074,
+                        "speed": 0.23614047918779874,
+                        "height": 0.31062836772203445
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 117.72679400805987,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 212,
+                  "steps_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-212/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-212/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-212/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-212/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.9884788092074734,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.34848820976912975,
+                        "vx_mae": 0.06907989270985126,
+                        "wz_mae": 0.0694834922614973,
+                        "wz": -0.026810659788316114,
+                        "abs_wz": 0.0694834922614973,
+                        "speed": 0.34919929118455445,
+                        "height": 0.30014902099967
+                      },
+                      "reverse": {
+                        "vx": -0.19003319954499603,
+                        "vx_mae": 0.11251953745260834,
+                        "wz_mae": 0.06903881106642075,
+                        "wz": 0.022919343995163217,
+                        "abs_wz": 0.06903881106642075,
+                        "speed": 0.19504116511017316,
+                        "height": 0.300469214618206
+                      },
+                      "stop1": {
+                        "vx": 0.019180541560053825,
+                        "vx_mae": 0.029752943813800812,
+                        "wz_mae": 0.08851801683544182,
+                        "wz": -0.07046310963691212,
+                        "abs_wz": 0.08851801683544182,
+                        "speed": 0.03293692892831386,
+                        "height": 0.3091588419675827
+                      },
+                      "stop2": {
+                        "vx": 0.07460526291280985,
+                        "vx_mae": 0.07460526291280985,
+                        "wz_mae": 0.09535374779719859,
+                        "wz": 0.03900659814942628,
+                        "abs_wz": 0.09535374779719859,
+                        "speed": 0.10627476845260965,
+                        "height": 0.3023223447799683
+                      },
+                      "height": {
+                        "vx": 0.07616812586039305,
+                        "vx_mae": 0.09119975263625384,
+                        "wz_mae": 0.07258213663334027,
+                        "wz": 0.0015226299776695668,
+                        "abs_wz": 0.07258213663334027,
+                        "speed": 0.2403744331368665,
+                        "height": 0.3009287103414536
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 111.61727359462436,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 213,
+                  "steps_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-213/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-213/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-213/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-D-213/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": true,
+                    "motion_competent": true,
+                    "loss": 0.49997900625619607,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.2766445129364729,
+                        "vx_mae": 0.0415895415097475,
+                        "wz_mae": 0.07010528605547733,
+                        "wz": 0.03999366820440628,
+                        "abs_wz": 0.07010528605547733,
+                        "speed": 0.27762207891150104,
+                        "height": 0.3031154166162014
+                      },
+                      "reverse": {
+                        "vx": -0.24163273742422461,
+                        "vx_mae": 0.06214712182059884,
+                        "wz_mae": 0.07956896202478675,
+                        "wz": 0.05778059600546839,
+                        "abs_wz": 0.07956896202478675,
+                        "speed": 0.24400660669701735,
+                        "height": 0.2986446113884449
+                      },
+                      "stop1": {
+                        "vx": 0.029608808709599543,
+                        "vx_mae": 0.031748066167056097,
+                        "wz_mae": 0.0460943441465497,
+                        "wz": 0.013531748428940773,
+                        "abs_wz": 0.0460943441465497,
+                        "speed": 0.037960483862778144,
+                        "height": 0.305735622048378
+                      },
+                      "stop2": {
+                        "vx": 0.005167963642888935,
+                        "vx_mae": 0.01759872612732579,
+                        "wz_mae": 0.04602541847154498,
+                        "wz": 0.002313065817579627,
+                        "abs_wz": 0.04602541847154498,
+                        "speed": 0.023380889625410312,
+                        "height": 0.3058698743581772
+                      },
+                      "height": {
+                        "vx": 0.017542086192479475,
+                        "vx_mae": 0.048522268427026574,
+                        "wz_mae": 0.06990572868502931,
+                        "wz": 0.04069463620026363,
+                        "abs_wz": 0.06990572868502931,
+                        "speed": 0.21695662934663323,
+                        "height": 0.3017983247637749
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 113.44587124304189,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 211,
+                  "steps_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-211/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-211/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-211/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-211/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": true,
+                    "motion_competent": true,
+                    "loss": 0.44735990230930683,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.26980621754191814,
+                        "vx_mae": 0.03972128421999514,
+                        "wz_mae": 0.06790089001893648,
+                        "wz": -0.027940870497986908,
+                        "abs_wz": 0.06790089001893648,
+                        "speed": 0.2731400398841879,
+                        "height": 0.3055282409489155
+                      },
+                      "reverse": {
+                        "vx": -0.29711225628328974,
+                        "vx_mae": 0.047979698186391036,
+                        "wz_mae": 0.07013780844703434,
+                        "wz": -0.012431125358416466,
+                        "abs_wz": 0.07013780844703434,
+                        "speed": 0.2985912280664422,
+                        "height": 0.31587587878108025
+                      },
+                      "stop1": {
+                        "vx": -0.005109022097894922,
+                        "vx_mae": 0.013708863361971453,
+                        "wz_mae": 0.06194703829474747,
+                        "wz": -0.025280447145923972,
+                        "abs_wz": 0.06194703829474747,
+                        "speed": 0.019707544831204262,
+                        "height": 0.316085501909256
+                      },
+                      "stop2": {
+                        "vx": -0.003646405489125755,
+                        "vx_mae": 0.02120622654183535,
+                        "wz_mae": 0.045245001565199346,
+                        "wz": -0.0021973223495297136,
+                        "abs_wz": 0.045245001565199346,
+                        "speed": 0.025898037596495862,
+                        "height": 0.30520191848278044
+                      },
+                      "height": {
+                        "vx": -0.00864518521525315,
+                        "vx_mae": 0.047761514409416124,
+                        "wz_mae": 0.06655194251739886,
+                        "wz": -0.012716190419858322,
+                        "abs_wz": 0.06655194251739886,
+                        "speed": 0.24289566922587563,
+                        "height": 0.3095527515411377
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 138.57336217795617,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 212,
+                  "steps_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-212/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-212/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-212/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-212/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 1.214363498338861,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.3746611949056387,
+                        "vx_mae": 0.092887856438756,
+                        "wz_mae": 0.07207797044888138,
+                        "wz": 0.021364070915151388,
+                        "abs_wz": 0.07207797044888138,
+                        "speed": 0.3760268457017703,
+                        "height": 0.2934020198881626
+                      },
+                      "reverse": {
+                        "vx": -0.19223077398957686,
+                        "vx_mae": 0.1105720232683234,
+                        "wz_mae": 0.10007069504354149,
+                        "wz": 0.03077761145774275,
+                        "abs_wz": 0.10007069504354149,
+                        "speed": 0.20367504753579507,
+                        "height": 0.30116132989525796
+                      },
+                      "stop1": {
+                        "vx": 0.08918448346666992,
+                        "vx_mae": 0.08924678797833621,
+                        "wz_mae": 0.07650997879914939,
+                        "wz": 0.04155565057881176,
+                        "abs_wz": 0.07650997879914939,
+                        "speed": 0.09794277256407435,
+                        "height": 0.3018441593647003
+                      },
+                      "stop2": {
+                        "vx": 0.1410073407739401,
+                        "vx_mae": 0.1410073407739401,
+                        "wz_mae": 0.11165455350652337,
+                        "wz": 0.06226229896768928,
+                        "abs_wz": 0.11165455350652337,
+                        "speed": 0.1420878683087372,
+                        "height": 0.3040922421216965
+                      },
+                      "height": {
+                        "vx": 0.09662174100335687,
+                        "vx_mae": 0.10756361581292004,
+                        "wz_mae": 0.09218732714746147,
+                        "wz": 0.03281500640511513,
+                        "abs_wz": 0.09218732714746147,
+                        "speed": 0.258708087552071,
+                        "height": 0.2984164052605629
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 129.94868333477882,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 213,
+                  "steps_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-213/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-213/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-213/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b/primary/standard-S-213/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": true,
+                    "motion_competent": true,
+                    "loss": 0.5582144855863077,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.25860779378563165,
+                        "vx_mae": 0.05308808263391256,
+                        "wz_mae": 0.08010248717619106,
+                        "wz": 0.04679165679262951,
+                        "abs_wz": 0.08010248717619106,
+                        "speed": 0.2597404982883721,
+                        "height": 0.29836472377181056
+                      },
+                      "reverse": {
+                        "vx": -0.2502853046730161,
+                        "vx_mae": 0.055747316293418406,
+                        "wz_mae": 0.07984714405029081,
+                        "wz": 0.045195618491852656,
+                        "abs_wz": 0.07984714405029081,
+                        "speed": 0.25184952567863994,
+                        "height": 0.2991204887628555
+                      },
+                      "stop1": {
+                        "vx": 0.025529665801441295,
+                        "vx_mae": 0.029079808549722655,
+                        "wz_mae": 0.06544335108017549,
+                        "wz": 0.009738742832560092,
+                        "abs_wz": 0.06544335108017549,
+                        "speed": 0.037182026347288594,
+                        "height": 0.3053089505434036
+                      },
+                      "stop2": {
+                        "vx": -0.017380258115008474,
+                        "vx_mae": 0.021244154437445106,
+                        "wz_mae": 0.07590124801732599,
+                        "wz": 0.053034746488556266,
+                        "abs_wz": 0.07590124801732599,
+                        "speed": 0.027376532484533915,
+                        "height": 0.3035226106643677
+                      },
+                      "height": {
+                        "vx": 0.002447463451651856,
+                        "vx_mae": 0.05082484289188869,
+                        "wz_mae": 0.07895311687747017,
+                        "wz": 0.04803275344567373,
+                        "abs_wz": 0.07895311687747017,
+                        "speed": 0.21414294844060922,
+                        "height": 0.299681976556778
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 126.34809388995221,
+                    "recovery_delay_s": null
+                  }
+                }
+              ]
+            },
+            "turn": {
+              "status": "not_run",
+              "cases": []
+            },
+            "pulse": {
+              "status": "not_run",
+              "cases": []
+            }
+          },
+          "passed": false
+        },
+        "secondary": {
+          "model_path": "arms/C0-1101/model-learning-144.pt",
+          "model_sha256": "9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7",
+          "stages": {
+            "standard": {
+              "status": "failed",
+              "cases": [
+                {
+                  "execution": "D",
+                  "eval_seed": 211,
+                  "steps_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-211/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-211/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-211/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-211/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.537106134743734,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.2902455878490582,
+                        "vx_mae": 0.041714609540067615,
+                        "wz_mae": 0.06754877458675765,
+                        "wz": 0.03981719124945812,
+                        "abs_wz": 0.06754877458675765,
+                        "speed": 0.29574984895281203,
+                        "height": 0.28669760406017303
+                      },
+                      "reverse": {
+                        "vx": -0.27680309893097726,
+                        "vx_mae": 0.04575048385653645,
+                        "wz_mae": 0.07792677739053033,
+                        "wz": -0.0633730010886211,
+                        "abs_wz": 0.07792677739053033,
+                        "speed": 0.2797591333360528,
+                        "height": 0.300994473695755
+                      },
+                      "stop1": {
+                        "vx": -0.0540556064248085,
+                        "vx_mae": 0.0540556064248085,
+                        "wz_mae": 0.040053526773117486,
+                        "wz": 0.013942057057283819,
+                        "abs_wz": 0.040053526773117486,
+                        "speed": 0.0581742382100704,
+                        "height": 0.3012829661369324
+                      },
+                      "stop2": {
+                        "vx": -0.022832298106513917,
+                        "vx_mae": 0.022952023088000716,
+                        "wz_mae": 0.040811939323320987,
+                        "wz": 0.002755738403648138,
+                        "abs_wz": 0.040811939323320987,
+                        "speed": 0.02411813113213937,
+                        "height": 0.2998567569255829
+                      },
+                      "height": {
+                        "vx": 0.005745690723415464,
+                        "vx_mae": 0.05031973681831732,
+                        "wz_mae": 0.06976061071432195,
+                        "wz": -0.009845540366368368,
+                        "abs_wz": 0.06976061071432195,
+                        "speed": 0.24617598932187879,
+                        "height": 0.29486305338144303
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 98.56356323342179,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 212,
+                  "steps_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-212/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-212/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-212/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-212/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.6252992244337148,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.33431678839027884,
+                        "vx_mae": 0.05402525953948498,
+                        "wz_mae": 0.07840305286095826,
+                        "wz": -0.024954143753129755,
+                        "abs_wz": 0.07840305286095826,
+                        "speed": 0.33501904630356777,
+                        "height": 0.291481551527977
+                      },
+                      "reverse": {
+                        "vx": -0.25735245101153853,
+                        "vx_mae": 0.05220826037228107,
+                        "wz_mae": 0.08233368584420532,
+                        "wz": 0.06178298851009458,
+                        "abs_wz": 0.08233368584420532,
+                        "speed": 0.2590965996620637,
+                        "height": 0.3108388221263885
+                      },
+                      "stop1": {
+                        "vx": 0.04810850778827444,
+                        "vx_mae": 0.048334736467804756,
+                        "wz_mae": 0.05538637609686702,
+                        "wz": -0.028704442796297372,
+                        "abs_wz": 0.05538637609686702,
+                        "speed": 0.05075024140362122,
+                        "height": 0.3059502363204956
+                      },
+                      "stop2": {
+                        "vx": 0.05707050088793039,
+                        "vx_mae": 0.05707050088793039,
+                        "wz_mae": 0.047853203886188564,
+                        "wz": 0.011639069593511521,
+                        "abs_wz": 0.047853203886188564,
+                        "speed": 0.0629481975404026,
+                        "height": 0.3048092246055603
+                      },
+                      "height": {
+                        "vx": 0.04226307462528348,
+                        "vx_mae": 0.05742481166496873,
+                        "wz_mae": 0.07846329182683258,
+                        "wz": 0.015170637572009583,
+                        "abs_wz": 0.07846329182683258,
+                        "speed": 0.2536763136683154,
+                        "height": 0.3015131638050079
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 123.85097311122439,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "D",
+                  "eval_seed": 213,
+                  "steps_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-213/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-213/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-213/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-D-213/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": true,
+                    "motion_competent": true,
+                    "loss": 0.5683774668331399,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.23799017868936062,
+                        "vx_mae": 0.06657409526407719,
+                        "wz_mae": 0.06403216974518727,
+                        "wz": -0.04886055443494115,
+                        "abs_wz": 0.06403216974518727,
+                        "speed": 0.23876822369303494,
+                        "height": 0.2923632596433163
+                      },
+                      "reverse": {
+                        "vx": -0.3381177246570587,
+                        "vx_mae": 0.062266082763671876,
+                        "wz_mae": 0.08513880788465031,
+                        "wz": 0.07424723782401997,
+                        "abs_wz": 0.08513880788465031,
+                        "speed": 0.3401849995446932,
+                        "height": 0.30567712277174
+                      },
+                      "stop1": {
+                        "vx": -0.01889782375888899,
+                        "vx_mae": 0.023676090214867145,
+                        "wz_mae": 0.0440630451485049,
+                        "wz": 0.023301173738436775,
+                        "abs_wz": 0.0440630451485049,
+                        "speed": 0.028268855824159025,
+                        "height": 0.3008927589654922
+                      },
+                      "stop2": {
+                        "vx": -0.040522857531905175,
+                        "vx_mae": 0.040522857531905175,
+                        "wz_mae": 0.046706351868342606,
+                        "wz": 0.02821950686397031,
+                        "abs_wz": 0.046706351868342606,
+                        "speed": 0.042935008689606036,
+                        "height": 0.3011657929420471
+                      },
+                      "height": {
+                        "vx": -0.045475393090397116,
+                        "vx_mae": 0.061102545138448476,
+                        "wz_mae": 0.07012846710905432,
+                        "wz": 0.014889322024071588,
+                        "abs_wz": 0.07012846710905432,
+                        "speed": 0.24226354257552132,
+                        "height": 0.29934188121557237
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 116.25381543593348,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 211,
+                  "steps_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-211/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-211/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-211/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-211/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": true,
+                    "motion_competent": true,
+                    "loss": 0.4248192936292,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.28012177082709966,
+                        "vx_mae": 0.03683389720506966,
+                        "wz_mae": 0.06515156319161179,
+                        "wz": 0.013552979880769271,
+                        "abs_wz": 0.06515156319161179,
+                        "speed": 0.2836410157293038,
+                        "height": 0.2888822166621685
+                      },
+                      "reverse": {
+                        "vx": -0.2747238246561028,
+                        "vx_mae": 0.0470847581862472,
+                        "wz_mae": 0.06626722290413455,
+                        "wz": -0.03839574994053692,
+                        "abs_wz": 0.06626722290413455,
+                        "speed": 0.2783132012558902,
+                        "height": 0.3033203944563866
+                      },
+                      "stop1": {
+                        "vx": -0.025484932775143535,
+                        "vx_mae": 0.026163212887477128,
+                        "wz_mae": 0.04249048984376714,
+                        "wz": 0.009775539811234921,
+                        "abs_wz": 0.04249048984376714,
+                        "speed": 0.030683502803111697,
+                        "height": 0.30071029722690584
+                      },
+                      "stop2": {
+                        "vx": -0.0003858580894302577,
+                        "vx_mae": 0.016710530814016238,
+                        "wz_mae": 0.043013728510122744,
+                        "wz": 0.004147470036987216,
+                        "abs_wz": 0.043013728510122744,
+                        "speed": 0.02370140462454513,
+                        "height": 0.29972911715507505
+                      },
+                      "height": {
+                        "vx": 0.005406632088241168,
+                        "vx_mae": 0.047085386288003066,
+                        "wz_mae": 0.06507972024008632,
+                        "wz": -0.009735346179222688,
+                        "abs_wz": 0.06507972024008632,
+                        "speed": 0.23968243174302392,
+                        "height": 0.29671466958522796
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 123.74066402778054,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 212,
+                  "steps_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-212/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-212/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-212/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-212/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.697576970650562,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.3378350908309221,
+                        "vx_mae": 0.05348299764096737,
+                        "wz_mae": 0.08457982791180257,
+                        "wz": -0.019376096549094654,
+                        "abs_wz": 0.08457982791180257,
+                        "speed": 0.3386130517176516,
+                        "height": 0.28970938324928286
+                      },
+                      "reverse": {
+                        "vx": -0.25320667430758476,
+                        "vx_mae": 0.05517374351620674,
+                        "wz_mae": 0.09200724775466369,
+                        "wz": 0.05963298614107771,
+                        "abs_wz": 0.09200724775466369,
+                        "speed": 0.25579830084725935,
+                        "height": 0.3107315005362034
+                      },
+                      "stop1": {
+                        "vx": 0.067020547054708,
+                        "vx_mae": 0.067020547054708,
+                        "wz_mae": 0.07698601554147899,
+                        "wz": -0.054291377561166886,
+                        "abs_wz": 0.07698601554147899,
+                        "speed": 0.06935979147155119,
+                        "height": 0.30385182440280917
+                      },
+                      "stop2": {
+                        "vx": 0.06302377991378308,
+                        "vx_mae": 0.06302377991378308,
+                        "wz_mae": 0.05872189197223634,
+                        "wz": 0.015485429777763784,
+                        "abs_wz": 0.05872189197223634,
+                        "speed": 0.06695717289997907,
+                        "height": 0.3031229728460312
+                      },
+                      "height": {
+                        "vx": 0.04511644597537816,
+                        "vx_mae": 0.058742510009557006,
+                        "wz_mae": 0.08672264974180144,
+                        "wz": 0.01881737770244945,
+                        "abs_wz": 0.08672264974180144,
+                        "speed": 0.2547986836937506,
+                        "height": 0.3005788685679436
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 138.82895363004994,
+                    "recovery_delay_s": null
+                  }
+                },
+                {
+                  "execution": "S",
+                  "eval_seed": 213,
+                  "steps_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-213/attempt-1/steps.jsonl",
+                  "configuration_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-213/attempt-1/configuration.json",
+                  "frozen_before_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-213/attempt-1/frozen-before.json",
+                  "frozen_after_path": "evaluations/9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7/secondary/standard-S-213/attempt-1/frozen-after.json",
+                  "protocol": "standard",
+                  "pulse_direction": null,
+                  "result": {
+                    "steps": 600,
+                    "survived": true,
+                    "task_pass": false,
+                    "motion_competent": true,
+                    "loss": 0.691789023877257,
+                    "loss_is_failure_penalty": false,
+                    "base_contact_max_N": 0.0,
+                    "metrics": {
+                      "forward": {
+                        "vx": 0.2316448687389493,
+                        "vx_mae": 0.07107175391167403,
+                        "wz_mae": 0.06818923016224289,
+                        "wz": -0.047319841434655244,
+                        "abs_wz": 0.06818923016224289,
+                        "speed": 0.2325739386747823,
+                        "height": 0.2926191079616547
+                      },
+                      "reverse": {
+                        "vx": -0.339530766569078,
+                        "vx_mae": 0.06302364561706782,
+                        "wz_mae": 0.08655923336133128,
+                        "wz": 0.07340831162262475,
+                        "abs_wz": 0.08655923336133128,
+                        "speed": 0.3404413738949696,
+                        "height": 0.305490435808897
+                      },
+                      "stop1": {
+                        "vx": -0.01890656167292036,
+                        "vx_mae": 0.020649560563033447,
+                        "wz_mae": 0.06708503402769565,
+                        "wz": 0.0254256022721529,
+                        "abs_wz": 0.06708503402769565,
+                        "speed": 0.028537063266674025,
+                        "height": 0.3009769040346146
+                      },
+                      "stop2": {
+                        "vx": -0.060733271017670634,
+                        "vx_mae": 0.060733271017670634,
+                        "wz_mae": 0.05473968531470746,
+                        "wz": 0.022174121574498714,
+                        "abs_wz": 0.05473968531470746,
+                        "speed": 0.06229916056081373,
+                        "height": 0.3009467756748199
+                      },
+                      "height": {
+                        "vx": -0.053222980084363374,
+                        "vx_mae": 0.06736647587781772,
+                        "wz_mae": 0.07338648633938283,
+                        "wz": 0.015898631350137294,
+                        "abs_wz": 0.07338648633938283,
+                        "speed": 0.24380252464187602,
+                        "height": 0.29938977932929994
+                      }
+                    },
+                    "wheel_target_change_rate_rad_s2": 130.02113061890984,
+                    "recovery_delay_s": null
+                  }
+                }
+              ]
+            },
+            "turn": {
+              "status": "not_run",
+              "cases": []
+            },
+            "pulse": {
+              "status": "not_run",
+              "cases": []
+            }
+          },
+          "passed": false
+        }
+      }
+    },
+    "archive_error": "RuntimeError: Worker failed: archive",
+    "finished_utc": "2026-11-09T04:03:38.231046+00:00"
+  },
+  "evidence_sha256": "5960d5441eabab17c33ae1a14e5c683416a14d171fc807e9d5c50fe6b3de4cce",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "a8ab9a4e0bada00c7126e22e61c2ab7690041fe01e00a08fe4d09b3b935e63ce"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 24000000,
+      "sha256": "5e280b6096530a52d9067fc21671a255264145d57817c267558ec612f89c1d22"
+    },
+    {
+      "file": "evidence.zip.part003",
+      "bytes": 24000000,
+      "sha256": "a3beb9607318ab756a674adbb29549e1076c2e97e090623046fc623cf1077066"
+    },
+    {
+      "file": "evidence.zip.part004",
+      "bytes": 24000000,
+      "sha256": "cfd83975bbcb92ffaacab87b1de2648c7f86976bf0c713f40f2b31a007ab34d1"
+    },
+    {
+      "file": "evidence.zip.part005",
+      "bytes": 24000000,
+      "sha256": "2771df95d6c6968abdde62ecbb9bba88faf0e0dc39dbae725b87c719617cd2a4"
+    },
+    {
+      "file": "evidence.zip.part006",
+      "bytes": 24000000,
+      "sha256": "5b0f42ea72f8906d4c5e73846389c03037a976ef5733812bf028fbddbff2ce83"
+    },
+    {
+      "file": "evidence.zip.part007",
+      "bytes": 24000000,
+      "sha256": "ac9a4f3ec57f73bbe797680ac89248e9e2ca563eac11f47660f7eef8735f8244"
+    },
+    {
+      "file": "evidence.zip.part008",
+      "bytes": 24000000,
+      "sha256": "1ef05e6bed3edcbd7d09e33185529e788b4a94da79cf4e189742f5424b66b28f"
+    },
+    {
+      "file": "evidence.zip.part009",
+      "bytes": 24000000,
+      "sha256": "d32452ff6d9b761a58f022377b56c8ded58521185ac4be76969ae9501c44e96c"
+    },
+    {
+      "file": "evidence.zip.part010",
+      "bytes": 24000000,
+      "sha256": "47af48134919a404b9191b18c159e993f5654c194c0825c2c61dbb99ce8d0365"
+    },
+    {
+      "file": "evidence.zip.part011",
+      "bytes": 24000000,
+      "sha256": "cde835809babcac3d0700159f9b995d55673f510e487406041d579d4dc0be136"
+    },
+    {
+      "file": "evidence.zip.part012",
+      "bytes": 24000000,
+      "sha256": "bd0f9118bcbe07994246e1a94c54d2cac78ddb0f8e46b6d8d01f1ac9eef0d07e"
+    },
+    {
+      "file": "evidence.zip.part013",
+      "bytes": 24000000,
+      "sha256": "c226efd7f29fe16b1c63cbf345dda037711e53e0466ce372a90bec4bef432784"
+    },
+    {
+      "file": "evidence.zip.part014",
+      "bytes": 24000000,
+      "sha256": "b797764f1cbdcab8420ec82143b880722c202233eb41cd8214c5d08f12949721"
+    },
+    {
+      "file": "evidence.zip.part015",
+      "bytes": 24000000,
+      "sha256": "f6e9cfdc6d6350a64ea15386ca627904bb069a75b7b4cdf53bc7b80366d05f7e"
+    },
+    {
+      "file": "evidence.zip.part016",
+      "bytes": 24000000,
+      "sha256": "4145710f22b80f088c3340c45f0a9217eadb8c46fea1aac1c923644e21c90875"
+    },
+    {
+      "file": "evidence.zip.part017",
+      "bytes": 24000000,
+      "sha256": "5c2fd3dd98f865c724b5891ff25b3d4733b5c9006c4327f44986fee2a6f8fe60"
+    },
+    {
+      "file": "evidence.zip.part018",
+      "bytes": 24000000,
+      "sha256": "e5d08162abf9bc5f630ba353991847ee726d229e22828522483985c56836714f"
+    },
+    {
+      "file": "evidence.zip.part019",
+      "bytes": 24000000,
+      "sha256": "3c520723e7b8c90ee571997190c284f63bd923591e8059f52e80cf3e82beb653"
+    },
+    {
+      "file": "evidence.zip.part020",
+      "bytes": 24000000,
+      "sha256": "c4ffb9c6251caf9a4991ac90a60fc166cf089f6751c37ac8bd6b957aeaf10e5b"
+    },
+    {
+      "file": "evidence.zip.part021",
+      "bytes": 24000000,
+      "sha256": "2be984593ce2d25d30dee685b23b80fc7d6b3d755c3aa49cc9eecd12e7a1ca6a"
+    },
+    {
+      "file": "evidence.zip.part022",
+      "bytes": 24000000,
+      "sha256": "ec41e7bcfb68109af216a20bb42989d55fe3239241b9f775a81b8283b9cbb798"
+    },
+    {
+      "file": "evidence.zip.part023",
+      "bytes": 24000000,
+      "sha256": "f69236897f194d7ab6d6dc1dd7e2ebedfd1f0a295126711f69d0d1c324ff227f"
+    },
+    {
+      "file": "evidence.zip.part024",
+      "bytes": 24000000,
+      "sha256": "eab3c25b5bb428f560fd849d51527bcde2e84097ae6ef27416c1e696e30fb8c9"
+    },
+    {
+      "file": "evidence.zip.part025",
+      "bytes": 24000000,
+      "sha256": "92052ea3c658cd2d06553c7c214e11de5047521ac90aa308c5996ef1bc620df2"
+    },
+    {
+      "file": "evidence.zip.part026",
+      "bytes": 24000000,
+      "sha256": "03a1ebd5d7a147e15ed2ad20c16cf303bd07037b96af99c49883bf74a3d720e0"
+    },
+    {
+      "file": "evidence.zip.part027",
+      "bytes": 24000000,
+      "sha256": "c6d95a054a3d1d6ceb9478d4913ab08e24405b786107c0aec3ddc2173dabf46b"
+    },
+    {
+      "file": "evidence.zip.part028",
+      "bytes": 24000000,
+      "sha256": "9b42fc0eb5634f046b50e449d767a8dbe054fb20b6948b695e72422a70d09cee"
+    },
+    {
+      "file": "evidence.zip.part029",
+      "bytes": 24000000,
+      "sha256": "5e1ac68cbcfe54d3b86d6d15cbe59f5b9cf50d21a351b3920ec461ea1b0d389d"
+    },
+    {
+      "file": "evidence.zip.part030",
+      "bytes": 24000000,
+      "sha256": "ff88380adf83d2abd55d131aed26045378f320ae6a9b08b975bb30772766803f"
+    },
+    {
+      "file": "evidence.zip.part031",
+      "bytes": 24000000,
+      "sha256": "28453cda1f35795408063080280e17a09e19fa99bdf5f9472bf5cfa658856f17"
+    },
+    {
+      "file": "evidence.zip.part032",
+      "bytes": 16953079,
+      "sha256": "01cabc78c733202a479282acc412747aaf4142e24634ee1af348f403f23d0e2c"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
