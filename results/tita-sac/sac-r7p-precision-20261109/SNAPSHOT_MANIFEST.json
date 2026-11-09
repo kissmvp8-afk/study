@@ -1,0 +1,774 @@
+{
+  "cutoff_semantics": "per-file captured bytes; append logs can differ from later local state",
+  "epoch": 1794220679.7168355,
+  "files": [
+    {
+      "bytes": 634,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/STATUS.json",
+      "sha256": "186c8a67af22e89983f03c807958a2caa79b9f30e741adcc39a6305fbcc41c32",
+      "source": "arms/P0-1401/STATUS.json"
+    },
+    {
+      "bytes": 1499,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/effective-settings.json",
+      "sha256": "0a92baf9b3e3466ba085cab1a94ad606d66732e97772c03f5ff5071828d382f7",
+      "source": "arms/P0-1401/effective-settings.json"
+    },
+    {
+      "bytes": 3899,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/effective_make_trainer.py",
+      "sha256": "b767d95605ff2098f606ab8fad623d3e94905f2b7468deea662f8cc484ef94d0",
+      "source": "arms/P0-1401/effective_make_trainer.py"
+    },
+    {
+      "bytes": 176,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/entry-exploration-1794220385991779236.json",
+      "sha256": "5fc7c41fca8b885969ab2a8c87b303c0df2122714ff41df1d0ae88a1b54cf52d",
+      "source": "arms/P0-1401/entry-exploration-1794220385991779236.json"
+    },
+    {
+      "bytes": 1604,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/entry-fingerprints-1794220386018393367.json",
+      "sha256": "5fdeaa5afefd59b829a6e369a936e9b2a4c2f6a6139ceff433fc42cf55b30999",
+      "source": "arms/P0-1401/entry-fingerprints-1794220386018393367.json"
+    },
+    {
+      "bytes": 39706,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/environment_config.yaml",
+      "sha256": "e85135f5f0c7b86f363cd79190978bc9aa974b2bd08f99259353ba80f8127dcb",
+      "source": "arms/P0-1401/environment_config.yaml"
+    },
+    {
+      "bytes": 13740,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/first-step-reward-check.json",
+      "sha256": "84db1d71f06492e27e39b882818cf7b38217ae7ee3498de0eadeede5f1e90dac",
+      "source": "arms/P0-1401/first-step-reward-check.json"
+    },
+    {
+      "bytes": 186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/initial-physical-1794220385898795962.json",
+      "sha256": "20b49bf61237a806cd28cd2f75c333d77194bbbd54c37572e44dd85d82f4cd3d",
+      "source": "arms/P0-1401/initial-physical-1794220385898795962.json"
+    },
+    {
+      "bytes": 540,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/latest-fullresume.json",
+      "sha256": "67057d39f1bbe457f2113f00ba74cdc1724df2066e250b940f5e235db73ee634",
+      "source": "arms/P0-1401/latest-fullresume.json"
+    },
+    {
+      "bytes": 4664,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/metadata.json",
+      "sha256": "673dee94d8358f92e2084c771a212ff2cf2972435d9d829970aa7c58356439f9",
+      "source": "arms/P0-1401/metadata.json"
+    },
+    {
+      "bytes": 1186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/node-learning-24.json",
+      "sha256": "d34315248c148b220cf22485297c2344ff60b0012e3141f134fd5097dff0887e",
+      "source": "arms/P0-1401/node-learning-24.json"
+    },
+    {
+      "bytes": 6169,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/run_config.json",
+      "sha256": "dec7429485fe062c1e28d7369aa150d75ae9c36f211fd7d94ae45225201e4f3b",
+      "source": "arms/P0-1401/run_config.json"
+    },
+    {
+      "bytes": 11661,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/source_hashes.json",
+      "sha256": "1a771f02043519a335e687767bf125571cea396ab3b9098758ad1e72ab6e2e42",
+      "source": "arms/P0-1401/source_hashes.json"
+    },
+    {
+      "bytes": 9722,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/timings.jsonl",
+      "sha256": "d5896d272fd53136dad13a11a9406f47db8c865a67e15b2be3a48e6644fb559d",
+      "source": "arms/P0-1401/timings.jsonl"
+    },
+    {
+      "bytes": 845,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1401/warm-start-lineage.json",
+      "sha256": "ba21409e208e418ab127ab18aaea83ddc081cf973b127d622bbc6814e8170ed7",
+      "source": "arms/P0-1401/warm-start-lineage.json"
+    },
+    {
+      "bytes": 633,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/STATUS.json",
+      "sha256": "c163086581c97ad7b17a46aa1d58cea2948f284334de3dbfed4f44f5ecbaac0e",
+      "source": "arms/P0-1402/STATUS.json"
+    },
+    {
+      "bytes": 1499,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/effective-settings.json",
+      "sha256": "0a92baf9b3e3466ba085cab1a94ad606d66732e97772c03f5ff5071828d382f7",
+      "source": "arms/P0-1402/effective-settings.json"
+    },
+    {
+      "bytes": 3899,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/effective_make_trainer.py",
+      "sha256": "b767d95605ff2098f606ab8fad623d3e94905f2b7468deea662f8cc484ef94d0",
+      "source": "arms/P0-1402/effective_make_trainer.py"
+    },
+    {
+      "bytes": 177,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/entry-exploration-1794220431037934341.json",
+      "sha256": "101fd8da8a40964aa4fe1a6c5e4d8167aaf8747679cec0726e5c5f425e1cb3af",
+      "source": "arms/P0-1402/entry-exploration-1794220431037934341.json"
+    },
+    {
+      "bytes": 1604,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/entry-fingerprints-1794220431064458459.json",
+      "sha256": "59a69505ac4db9ac99af7acf5529730e168be58f9152cd0bb2d34a7cfb97755f",
+      "source": "arms/P0-1402/entry-fingerprints-1794220431064458459.json"
+    },
+    {
+      "bytes": 39706,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/environment_config.yaml",
+      "sha256": "b21e3d68a5e2bc571dd995a26df56e38bf4bea7678cf7377c4db93b18e03b45e",
+      "source": "arms/P0-1402/environment_config.yaml"
+    },
+    {
+      "bytes": 13865,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/first-step-reward-check.json",
+      "sha256": "9812f39cea830322c207c4be580fec3fdc78efb5ad2c8836821b5b7ec98d9cef",
+      "source": "arms/P0-1402/first-step-reward-check.json"
+    },
+    {
+      "bytes": 186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/initial-physical-1794220430946105270.json",
+      "sha256": "e0367c2e3af262318f689d5af725e25627ae364d99231ff50c2fe2a6ffee0e6d",
+      "source": "arms/P0-1402/initial-physical-1794220430946105270.json"
+    },
+    {
+      "bytes": 540,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/latest-fullresume.json",
+      "sha256": "c8d5cbf2dc04e50f953f7bc7814772293ddd33d789de8a8cafa4f52b6eb78a30",
+      "source": "arms/P0-1402/latest-fullresume.json"
+    },
+    {
+      "bytes": 4664,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/metadata.json",
+      "sha256": "673dee94d8358f92e2084c771a212ff2cf2972435d9d829970aa7c58356439f9",
+      "source": "arms/P0-1402/metadata.json"
+    },
+    {
+      "bytes": 1186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/node-learning-24.json",
+      "sha256": "8a14415fb1eda26a5361e6fd896053faa460744bbdb0e958d62d04a9d51c9506",
+      "source": "arms/P0-1402/node-learning-24.json"
+    },
+    {
+      "bytes": 6169,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/run_config.json",
+      "sha256": "82821c56cc18a0861e03d299eaab776d3f479b15711b7e704f36ae1ea1e6e2cd",
+      "source": "arms/P0-1402/run_config.json"
+    },
+    {
+      "bytes": 11661,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/source_hashes.json",
+      "sha256": "1a771f02043519a335e687767bf125571cea396ab3b9098758ad1e72ab6e2e42",
+      "source": "arms/P0-1402/source_hashes.json"
+    },
+    {
+      "bytes": 9326,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/timings.jsonl",
+      "sha256": "f3b8a24122519ec0a58c03a3210f91befed17284ad346e256c378ca9b1581bbd",
+      "source": "arms/P0-1402/timings.jsonl"
+    },
+    {
+      "bytes": 845,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P0-1402/warm-start-lineage.json",
+      "sha256": "98892bf8030aac8bdd1f5d88b24a8c49b174661d6ad9afb47a1340a152bef3d4",
+      "source": "arms/P0-1402/warm-start-lineage.json"
+    },
+    {
+      "bytes": 628,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/STATUS.json",
+      "sha256": "9889e412620653ea38c020640cb1f56e17e0c3f87a8df258d0e7da5037fbb49c",
+      "source": "arms/P1-1401/STATUS.json"
+    },
+    {
+      "bytes": 1499,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/effective-settings.json",
+      "sha256": "fad969e81be00e4d831ee5a11af6c1bb1e2a8b1dac5b2474a06edefffa868efc",
+      "source": "arms/P1-1401/effective-settings.json"
+    },
+    {
+      "bytes": 3899,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/effective_make_trainer.py",
+      "sha256": "b767d95605ff2098f606ab8fad623d3e94905f2b7468deea662f8cc484ef94d0",
+      "source": "arms/P1-1401/effective_make_trainer.py"
+    },
+    {
+      "bytes": 176,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/entry-exploration-1794220407873749502.json",
+      "sha256": "5fc7c41fca8b885969ab2a8c87b303c0df2122714ff41df1d0ae88a1b54cf52d",
+      "source": "arms/P1-1401/entry-exploration-1794220407873749502.json"
+    },
+    {
+      "bytes": 1604,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/entry-fingerprints-1794220407900961179.json",
+      "sha256": "5fdeaa5afefd59b829a6e369a936e9b2a4c2f6a6139ceff433fc42cf55b30999",
+      "source": "arms/P1-1401/entry-fingerprints-1794220407900961179.json"
+    },
+    {
+      "bytes": 39706,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/environment_config.yaml",
+      "sha256": "ea941543a65282a8818483849f22dd5e854bbc2389c44548af9da4c2dc46bcb9",
+      "source": "arms/P1-1401/environment_config.yaml"
+    },
+    {
+      "bytes": 13740,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/first-step-reward-check.json",
+      "sha256": "c680aa4904cb488320e583d6d1ea5c1d84e3a3f3d9bc68d7b1ce8aff52f196d7",
+      "source": "arms/P1-1401/first-step-reward-check.json"
+    },
+    {
+      "bytes": 186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/initial-physical-1794220407778927382.json",
+      "sha256": "20b49bf61237a806cd28cd2f75c333d77194bbbd54c37572e44dd85d82f4cd3d",
+      "source": "arms/P1-1401/initial-physical-1794220407778927382.json"
+    },
+    {
+      "bytes": 540,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/latest-fullresume.json",
+      "sha256": "e5f1c15ed85036e215b2f45555959e74553423a998de5b90b9b9448ef668f1fd",
+      "source": "arms/P1-1401/latest-fullresume.json"
+    },
+    {
+      "bytes": 4664,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/metadata.json",
+      "sha256": "673dee94d8358f92e2084c771a212ff2cf2972435d9d829970aa7c58356439f9",
+      "source": "arms/P1-1401/metadata.json"
+    },
+    {
+      "bytes": 1186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/node-learning-24.json",
+      "sha256": "aedd3eb6ef98d445735a8debabc7b6698c9aa53c701a287ac34bd06b259e1dfa",
+      "source": "arms/P1-1401/node-learning-24.json"
+    },
+    {
+      "bytes": 6169,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/run_config.json",
+      "sha256": "dec7429485fe062c1e28d7369aa150d75ae9c36f211fd7d94ae45225201e4f3b",
+      "source": "arms/P1-1401/run_config.json"
+    },
+    {
+      "bytes": 11661,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/source_hashes.json",
+      "sha256": "1a771f02043519a335e687767bf125571cea396ab3b9098758ad1e72ab6e2e42",
+      "source": "arms/P1-1401/source_hashes.json"
+    },
+    {
+      "bytes": 9327,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/timings.jsonl",
+      "sha256": "0416de0ef392771599102cf0e00c33b1665ae53571e8214f9c55938b1745c0c7",
+      "source": "arms/P1-1401/timings.jsonl"
+    },
+    {
+      "bytes": 845,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1401/warm-start-lineage.json",
+      "sha256": "ba21409e208e418ab127ab18aaea83ddc081cf973b127d622bbc6814e8170ed7",
+      "source": "arms/P1-1401/warm-start-lineage.json"
+    },
+    {
+      "bytes": 632,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/STATUS.json",
+      "sha256": "708a6b7bb1c86ccb060155f5155e6d1db23086dab0b1f5417692553679b94430",
+      "source": "arms/P1-1402/STATUS.json"
+    },
+    {
+      "bytes": 1499,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/effective-settings.json",
+      "sha256": "fad969e81be00e4d831ee5a11af6c1bb1e2a8b1dac5b2474a06edefffa868efc",
+      "source": "arms/P1-1402/effective-settings.json"
+    },
+    {
+      "bytes": 3899,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/effective_make_trainer.py",
+      "sha256": "b767d95605ff2098f606ab8fad623d3e94905f2b7468deea662f8cc484ef94d0",
+      "source": "arms/P1-1402/effective_make_trainer.py"
+    },
+    {
+      "bytes": 177,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/entry-exploration-1794220452862662524.json",
+      "sha256": "101fd8da8a40964aa4fe1a6c5e4d8167aaf8747679cec0726e5c5f425e1cb3af",
+      "source": "arms/P1-1402/entry-exploration-1794220452862662524.json"
+    },
+    {
+      "bytes": 1604,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/entry-fingerprints-1794220452889643298.json",
+      "sha256": "59a69505ac4db9ac99af7acf5529730e168be58f9152cd0bb2d34a7cfb97755f",
+      "source": "arms/P1-1402/entry-fingerprints-1794220452889643298.json"
+    },
+    {
+      "bytes": 39706,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/environment_config.yaml",
+      "sha256": "d5c4e45b358cae02156f4007b10d73f387d977dcd29a4b64cd2a46f6aa2c13eb",
+      "source": "arms/P1-1402/environment_config.yaml"
+    },
+    {
+      "bytes": 13865,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/first-step-reward-check.json",
+      "sha256": "9d63562e584f402c3194d1342d00d023cb2b966f6632baf7f9acb21d33f436af",
+      "source": "arms/P1-1402/first-step-reward-check.json"
+    },
+    {
+      "bytes": 186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/initial-physical-1794220452770793027.json",
+      "sha256": "e0367c2e3af262318f689d5af725e25627ae364d99231ff50c2fe2a6ffee0e6d",
+      "source": "arms/P1-1402/initial-physical-1794220452770793027.json"
+    },
+    {
+      "bytes": 540,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/latest-fullresume.json",
+      "sha256": "bdc7bd88af8c5400f06d5b4e3e9251e25222588a065f8f62e225ce370e38a49e",
+      "source": "arms/P1-1402/latest-fullresume.json"
+    },
+    {
+      "bytes": 4664,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/metadata.json",
+      "sha256": "673dee94d8358f92e2084c771a212ff2cf2972435d9d829970aa7c58356439f9",
+      "source": "arms/P1-1402/metadata.json"
+    },
+    {
+      "bytes": 1186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/node-learning-24.json",
+      "sha256": "dc8be6b019e789247d65987bbffd59e0857ad133300478454baedc2978d2d086",
+      "source": "arms/P1-1402/node-learning-24.json"
+    },
+    {
+      "bytes": 6169,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/run_config.json",
+      "sha256": "82821c56cc18a0861e03d299eaab776d3f479b15711b7e704f36ae1ea1e6e2cd",
+      "source": "arms/P1-1402/run_config.json"
+    },
+    {
+      "bytes": 11661,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/source_hashes.json",
+      "sha256": "1a771f02043519a335e687767bf125571cea396ab3b9098758ad1e72ab6e2e42",
+      "source": "arms/P1-1402/source_hashes.json"
+    },
+    {
+      "bytes": 9717,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/timings.jsonl",
+      "sha256": "3b048217987fa13490641ae50be7813c02f7ae69396f686d6fb90e82f11b36cb",
+      "source": "arms/P1-1402/timings.jsonl"
+    },
+    {
+      "bytes": 845,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/arms/P1-1402/warm-start-lineage.json",
+      "sha256": "98892bf8030aac8bdd1f5d88b24a8c49b174661d6ad9afb47a1340a152bef3d4",
+      "source": "arms/P1-1402/warm-start-lineage.json"
+    },
+    {
+      "bytes": 239,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup-command.json",
+      "sha256": "9671a3e15bd9b72e5d7a01e767dfc3afb92f8300ca83082dacc92f0b50b7df54",
+      "source": "backup-command.json"
+    },
+    {
+      "bytes": 563,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup/cpu-tests.txt",
+      "sha256": "1a3db9bd88c51c5496e67c6bdbb3a8dfa113dc4346883d18ac6af1c420e270f6",
+      "source": "backup/cpu-tests.txt"
+    },
+    {
+      "bytes": 907,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup/r7p_backup_once.py",
+      "sha256": "88b6a00d5ab6f5861e73b3cfac93c90fddd75571af6f776af62c241578c20489",
+      "source": "backup/r7p_backup_once.py"
+    },
+    {
+      "bytes": 778,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup/r7p_backup_ops.py",
+      "sha256": "ea288a0cd30dc8dfb21dd53b001d63f2099734d3ee5645e2ee3bfc6972189b1e",
+      "source": "backup/r7p_backup_ops.py"
+    },
+    {
+      "bytes": 10254,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup/r7p_model_backup_loop.py",
+      "sha256": "3693e550b3589e2bb82ff814d17712a8ff2754feb2ec0666bd6c6919a1403dd3",
+      "source": "backup/r7p_model_backup_loop.py"
+    },
+    {
+      "bytes": 14466,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup/r7p_publish.py",
+      "sha256": "460179473a03cdb28de9cbdd20abbd5ea24b652ac1d548caa93d590215f39952",
+      "source": "backup/r7p_publish.py"
+    },
+    {
+      "bytes": 2203,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup/r7p_snapshot.py",
+      "sha256": "fe154734b503d2fa82362c3ad506c55fbcf21f1aa8bc93a1130b781f4ad8b339",
+      "source": "backup/r7p_snapshot.py"
+    },
+    {
+      "bytes": 4028,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/backup/test_r7p_model_backup.py",
+      "sha256": "a64587f4c8973e4e9ee44b7a99939838469610a8869cb7118f0d8c55a0b9a9b7",
+      "source": "backup/test_r7p_model_backup.py"
+    },
+    {
+      "bytes": 729,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/barriers/r7p-four-1794220343952431167/P0-1401.ready.json",
+      "sha256": "9762c26e71b5ee6d8d183dc72d4d741f72c1ff1d0fae90e1ab1ee9f8f4d05c35",
+      "source": "barriers/r7p-four-1794220343952431167/P0-1401.ready.json"
+    },
+    {
+      "bytes": 729,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/barriers/r7p-four-1794220343952431167/P0-1402.ready.json",
+      "sha256": "f6f54a1352be184e81ed5078fd990ceb3a25f4a84bef7f9683111d7f5dd69fed",
+      "source": "barriers/r7p-four-1794220343952431167/P0-1402.ready.json"
+    },
+    {
+      "bytes": 729,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/barriers/r7p-four-1794220343952431167/P1-1401.ready.json",
+      "sha256": "b5abfb883697b388af9a5f8d1b8dc6d4ba2a06595d50ad94c2a6ea22682a3381",
+      "source": "barriers/r7p-four-1794220343952431167/P1-1401.ready.json"
+    },
+    {
+      "bytes": 729,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/barriers/r7p-four-1794220343952431167/P1-1402.ready.json",
+      "sha256": "b4a37865a227f6c8ed229793ed6b5bf560fd815199a064ddc801d33aba6ada81",
+      "source": "barriers/r7p-four-1794220343952431167/P1-1402.ready.json"
+    },
+    {
+      "bytes": 406,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/barriers/r7p-four-1794220343952431167/release.json",
+      "sha256": "0cb8a2a487e4a755c0af53e243077ea071b33524a6ab9bc12dc8dc0321e41f93",
+      "source": "barriers/r7p-four-1794220343952431167/release.json"
+    },
+    {
+      "bytes": 267,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller-state.json",
+      "sha256": "76f98b4fa4322644803056962b4ca3eb0f22181a71ebfe7dace69e198ac3b7c7",
+      "source": "controller-state.json"
+    },
+    {
+      "bytes": 0,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "controller.log"
+    },
+    {
+      "bytes": 3837,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/README.md",
+      "sha256": "d4c7b1ca9687941968ad884d30907def86ddd008c7c26d560f01952c9d12822e",
+      "source": "controller/README.md"
+    },
+    {
+      "bytes": 880,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/README_HUMAN.md",
+      "sha256": "0942c619a1167cd352c4df911875dd0f9d9b495f2dd1725f54a2a67453ff1700",
+      "source": "controller/README_HUMAN.md"
+    },
+    {
+      "bytes": 520,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/cpu-tests.txt",
+      "sha256": "0e552c807c32a3d6a30213d3957710022cd221136efa7de96f2bb35e899d6f1f",
+      "source": "controller/cpu-tests.txt"
+    },
+    {
+      "bytes": 7781,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/r7p_controller.py",
+      "sha256": "60564999ddc0c3cabad258996924f82aadfee7da711a413a714ee77c42489e14",
+      "source": "controller/r7p_controller.py"
+    },
+    {
+      "bytes": 1342,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/r7p_evaluate_endpoint.py",
+      "sha256": "2120e282cbfba3092043b9fea39c649271cf70c7720232df2103629cd0b625a5",
+      "source": "controller/r7p_evaluate_endpoint.py"
+    },
+    {
+      "bytes": 1264,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/r7p_ops.py",
+      "sha256": "8c94d8924d541ebbdfd48b276259db74e488b46336d4312ae80769ca27e2e8d5",
+      "source": "controller/r7p_ops.py"
+    },
+    {
+      "bytes": 4903,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/r7p_prepare.py",
+      "sha256": "858441b30b1d84ac5e427deb2ae5613b51a5c85b4fdbb48c3c6a1a14d7bcf003",
+      "source": "controller/r7p_prepare.py"
+    },
+    {
+      "bytes": 2507,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/controller/test_r7p_controller.py",
+      "sha256": "d5c8e18fe7aff85a2579e7932167d2f7362bd7aaafd6f9c62d141654ddeac7a2",
+      "source": "controller/test_r7p_controller.py"
+    },
+    {
+      "bytes": 3064,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/README.md",
+      "sha256": "08e448910042ed3d8e7a6311b8a67eddfcca9b8808998abfadeef47181371f2b",
+      "source": "evaluation/README.md"
+    },
+    {
+      "bytes": 1204,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/README_HUMAN.md",
+      "sha256": "139d7fb7b7c34bcdb8a22c63d99ad2ff4ae53fe2b90e57844d18de80b2a27563",
+      "source": "evaluation/README_HUMAN.md"
+    },
+    {
+      "bytes": 797,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/cpu-tests.txt",
+      "sha256": "c0647794b10f4161c0e633a721c97e22c780e84b040a3084289f0d209ae0cb1d",
+      "source": "evaluation/cpu-tests.txt"
+    },
+    {
+      "bytes": 28138,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/evaluate_sac_r7p.py",
+      "sha256": "a26828371f858295058613e2113d2144ae2a10e23c84d96bc8c09d2b096a5751",
+      "source": "evaluation/evaluate_sac_r7p.py"
+    },
+    {
+      "bytes": 1277,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/evaluate_with_kit_repair.py",
+      "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c",
+      "source": "evaluation/evaluate_with_kit_repair.py"
+    },
+    {
+      "bytes": 3566,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/evaluation_r7p_helpers.py",
+      "sha256": "9655b006699c9070ffc989a67df18fc1306da8c11051d66821c683770a27c75d",
+      "source": "evaluation/evaluation_r7p_helpers.py"
+    },
+    {
+      "bytes": 6475,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/evaluation_r7p_runner.py",
+      "sha256": "2c51215cba4c117553814edbb7e117d7f049b728131576cbce4d8274b8d53104",
+      "source": "evaluation/evaluation_r7p_runner.py"
+    },
+    {
+      "bytes": 3069,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/kit_command_repair.py",
+      "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22",
+      "source": "evaluation/kit_command_repair.py"
+    },
+    {
+      "bytes": 14827,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/r4_protocol.py",
+      "sha256": "d94d1fd0ab1aef20a09bf5a960c02a89842575f737e3e7e42c8b7f7c755842f6",
+      "source": "evaluation/r4_protocol.py"
+    },
+    {
+      "bytes": 7509,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/r7p_evaluation.py",
+      "sha256": "6105b09c3fddea31cfcb737650f56fd8440f481437f67e4f3d30d7da900ded83",
+      "source": "evaluation/r7p_evaluation.py"
+    },
+    {
+      "bytes": 3133,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/evaluation/test_r7p_evaluation.py",
+      "sha256": "0546c5a58e837b748167d576020079094faf54fe04f1369f7e12296241e00f70",
+      "source": "evaluation/test_r7p_evaluation.py"
+    },
+    {
+      "bytes": 904,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/latest-progress.json",
+      "sha256": "2347e30c1386b4055d36fc6a774caa747155863e765d689d55f3821e7965cc5d",
+      "source": "latest-progress.json"
+    },
+    {
+      "bytes": 594,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/launch-command.json",
+      "sha256": "c546816346cc45948161873ae6634d0f48948059783df25fd287050bf36986fa",
+      "source": "launch-command.json"
+    },
+    {
+      "bytes": 314,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/launch-receipt.json",
+      "sha256": "46e42f4b150e7d3dc30ae8a74bbc29f7493bf760e7949ffdf451cb2a2c406463",
+      "source": "launch-receipt.json"
+    },
+    {
+      "bytes": 662,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/model-backup-config.json",
+      "sha256": "ca3d515c08e485315adfbae59758421500a5d4bcb3c1a701f843d05df66f039d",
+      "source": "model-backup-config.json"
+    },
+    {
+      "bytes": 692,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/paired-learning-starts/1401.json",
+      "sha256": "e030a67284926306a76c012c3fd8b74d88aced4f31703cae3bc49c637aebcf6b",
+      "source": "paired-learning-starts/1401.json"
+    },
+    {
+      "bytes": 692,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/paired-learning-starts/1402.json",
+      "sha256": "e030a67284926306a76c012c3fd8b74d88aced4f31703cae3bc49c637aebcf6b",
+      "source": "paired-learning-starts/1402.json"
+    },
+    {
+      "bytes": 186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/paired-starts/1401.json",
+      "sha256": "20b49bf61237a806cd28cd2f75c333d77194bbbd54c37572e44dd85d82f4cd3d",
+      "source": "paired-starts/1401.json"
+    },
+    {
+      "bytes": 186,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/paired-starts/1402.json",
+      "sha256": "e0367c2e3af262318f689d5af725e25627ae364d99231ff50c2fe2a6ffee0e6d",
+      "source": "paired-starts/1402.json"
+    },
+    {
+      "bytes": 9392,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/parameters.json",
+      "sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+      "source": "parameters.json"
+    },
+    {
+      "bytes": 780,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/parent-selection.json",
+      "sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+      "source": "parent-selection.json"
+    },
+    {
+      "bytes": 904,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/progress/node-1794220377762537148.json",
+      "sha256": "2347e30c1386b4055d36fc6a774caa747155863e765d689d55f3821e7965cc5d",
+      "source": "progress/node-1794220377762537148.json"
+    },
+    {
+      "bytes": 243,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/publication-authorization.json",
+      "sha256": "c7ab02288125c21666e5945dbbb22a5016f169f8f9766618a697b0934343aae2",
+      "source": "publication-authorization.json"
+    },
+    {
+      "bytes": 184,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/publication-initial-hold.json",
+      "sha256": "3895f8a9327258bb6d1980c64db87c27fdc8383358b96c4ee01cde47f095673a",
+      "source": "publication-initial-hold.json"
+    },
+    {
+      "bytes": 543,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P0-1401.json",
+      "sha256": "41b8d90a560a3ce18819667a3b959b980ff034a35b2ba1f32bd5fe4b1956c75b",
+      "source": "requests/P0-1401.json"
+    },
+    {
+      "bytes": 8319,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P0-1401.log",
+      "sha256": "299690b3e6e4b132af59fec7d8b14dec4030d2a8214449f709ac433f25364097",
+      "source": "requests/P0-1401.log"
+    },
+    {
+      "bytes": 543,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P0-1402.json",
+      "sha256": "70ebc97e38c8f6d1d62dc50383768918a8de874d4008a652ed7a5be6fc580a04",
+      "source": "requests/P0-1402.json"
+    },
+    {
+      "bytes": 8264,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P0-1402.log",
+      "sha256": "116d964ed4a185f1af3139b2675a2c7aa095c7fc941e948ad381a41975e641a6",
+      "source": "requests/P0-1402.log"
+    },
+    {
+      "bytes": 543,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P1-1401.json",
+      "sha256": "1952315397b6fa9d4b811b7b7f870c0ac6d27b625f0578f3ce6ebf7babb3e7a5",
+      "source": "requests/P1-1401.json"
+    },
+    {
+      "bytes": 8266,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P1-1401.log",
+      "sha256": "bd83b71bc5ca164d91982c212b5d51cd43f457f507a35a8897eaaff59969f38b",
+      "source": "requests/P1-1401.log"
+    },
+    {
+      "bytes": 543,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P1-1402.json",
+      "sha256": "5e1e90cc007489d300a08f0b74bc2abf41a9108fbe18705ee246ab1332ce040b",
+      "source": "requests/P1-1402.json"
+    },
+    {
+      "bytes": 8264,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/requests/P1-1402.log",
+      "sha256": "dc06e36e2be5cfc38c732bd51539dc9141b19a2cb2270eff561a86aa54edc532",
+      "source": "requests/P1-1402.log"
+    },
+    {
+      "bytes": 3635,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/resources/gpu-samples.csv",
+      "sha256": "bcc55469b8a814ae1be39637f2fc30a61c52779e215a2081a9f7ac1c24ef4b74",
+      "source": "resources/gpu-samples.csv"
+    },
+    {
+      "bytes": 3925,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/runtime.json",
+      "sha256": "0973404fa77a8b5ef591363b3d0a32b777087f52c8d7de9fb604738e66d43b0e",
+      "source": "runtime.json"
+    },
+    {
+      "bytes": 0,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/source-publication.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "source-publication.log"
+    },
+    {
+      "bytes": 4365,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/README.md",
+      "sha256": "1a0461fac5ad017cd587f52bd1a4e3dce9400982b6c723cdb25490c01e0e54ba",
+      "source": "trainer/README.md"
+    },
+    {
+      "bytes": 1058,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/README_HUMAN.md",
+      "sha256": "ba5083676bbf501874b3e4400efb004eb91a79abe168921d207eb66bafb28be8",
+      "source": "trainer/README_HUMAN.md"
+    },
+    {
+      "bytes": 910,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/cpu-tests.txt",
+      "sha256": "5b39b76c912f8a3212ee16d85c01624b519a68bbbb20a63eea8e32bf51ae66d6",
+      "source": "trainer/cpu-tests.txt"
+    },
+    {
+      "bytes": 9394,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/parameters.json",
+      "sha256": "dff70a47db9c045e63ce5a52dc204b09ad3b13005af639a78cd5de8ecd2416de",
+      "source": "trainer/parameters.json"
+    },
+    {
+      "bytes": 317,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/r7p_counts.py",
+      "sha256": "6fb3a4fa13dffdbb5a97b1763e0556470f6f34c2f8b0cf552ead2a46d433474c",
+      "source": "trainer/r7p_counts.py"
+    },
+    {
+      "bytes": 27935,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/r7p_train.py",
+      "sha256": "01b6f5e96d49b387b1e509b3e01887135f2b080d878c14c59433ee170ab511d8",
+      "source": "trainer/r7p_train.py"
+    },
+    {
+      "bytes": 12194,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/r7p_training.py",
+      "sha256": "96c8253c844fba757fd21a8b64a0c15bfcf425968d6156353e17897709a74487",
+      "source": "trainer/r7p_training.py"
+    },
+    {
+      "bytes": 5851,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/trainer/test_r7p.py",
+      "sha256": "c268b93e5fc56a6e5ddbff7366a4c0e460927b4f9bfefc7adf031688812a4ee8",
+      "source": "trainer/test_r7p.py"
+    },
+    {
+      "bytes": 1027,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/user-execution-override.json",
+      "sha256": "f8e3c145f0b472bb1e58cdef4a2a9884a429397ef5b77a741a082a844e985b5e",
+      "source": "user-execution-override.json"
+    },
+    {
+      "bytes": 548,
+      "destination": "results/tita-sac/sac-r7p-precision-20261109/worker-config.json",
+      "sha256": "eba794715d6880d3b8cd92648cae13b204592c920cc7f7f908f00ebd4f85d7cc",
+      "source": "worker-config.json"
+    }
+  ]
+}

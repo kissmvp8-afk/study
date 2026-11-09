@@ -1,0 +1,31 @@
+{
+  "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "status": "running",
+  "epoch": 1794220377.762394,
+  "elapsed_seconds": 6.064463138580322,
+  "soft_target_utc": "2026-11-09T12:45:00Z",
+  "lease_expires_at_utc": "2026-11-09T14:15:00Z",
+  "runtime_sha256": "0973404fa77a8b5ef591363b3d0a32b777087f52c8d7de9fb604738e66d43b0e",
+  "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+  "arms": {
+    "P0-1401": {
+      "STATUS.json": {
+        "status": "starting",
+        "request_sha256": "41b8d90a560a3ce18819667a3b959b980ff034a35b2ba1f32bd5fe4b1956c75b",
+        "direction": "P0",
+        "fork_seed": 1401
+      },
+      "model_nodes_present": []
+    },
+    "P1-1401": {
+      "model_nodes_present": []
+    },
+    "P0-1402": {
+      "model_nodes_present": []
+    },
+    "P1-1402": {
+      "model_nodes_present": []
+    }
+  },
+  "monitoring_not_acceptance": true
+}

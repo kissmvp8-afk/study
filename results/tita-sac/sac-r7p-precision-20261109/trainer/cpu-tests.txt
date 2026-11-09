@@ -1,0 +1,13 @@
+test_counts_prefill24_and48 (test_r7p.Contracts.test_counts_prefill24_and48) ... ok
+test_exact_plan (test_r7p.Contracts.test_exact_plan) ... ok
+test_four_distinct_lane_barrier (test_r7p.Contracts.test_four_distinct_lane_barrier) ... ok
+test_no_old_preflight_gate_and_nodes (test_r7p.Contracts.test_no_old_preflight_gate_and_nodes) ... ok
+test_parent_learning_config_strict (test_r7p.Contracts.test_parent_learning_config_strict) ... ok
+test_plan_undeclared_change_rejected (test_r7p.Contracts.test_plan_undeclared_change_rejected) ... ok
+test_runtime_manager_compute_once_and_reward_add_not_duplicated (test_r7p.Contracts.test_runtime_manager_compute_once_and_reward_add_not_duplicated) ... ok
+test_selection_checks_actual_parent_settings (test_r7p.Contracts.test_selection_checks_actual_parent_settings) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.226s
+
+OK

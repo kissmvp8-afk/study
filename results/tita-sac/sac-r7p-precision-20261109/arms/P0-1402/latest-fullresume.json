@@ -1,0 +1,20 @@
+{
+  "path": "arms/P0-1402/latest-fullresume.pt",
+  "sha256": "9821a8ae76bbc30e861007664c8263740c1a1f8ab224843f7986a2baa9d7c5fe",
+  "bytes": 216136021,
+  "counters": {
+    "iterations": 40,
+    "env_steps": 320,
+    "transitions": 40960,
+    "critic_updates": 3072,
+    "actor_updates": 1536,
+    "alpha_updates": 3072,
+    "target_updates": 3072,
+    "auxiliary_updates": 3072,
+    "auxiliary_skipped": 0,
+    "replay_samples": 786432,
+    "auxiliary_samples": 766865,
+    "learning_skipped_iterations": 0
+  },
+  "readback_verified": true
+}

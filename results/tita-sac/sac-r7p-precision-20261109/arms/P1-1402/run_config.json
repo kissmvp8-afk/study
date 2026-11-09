@@ -1,0 +1,177 @@
+{
+  "format_version": 1,
+  "config": {
+    "name": "SAC-R7P-PRECISION-PILOT-20261109",
+    "mode": "isaac_sim",
+    "seed": 1402,
+    "device": "cuda:0",
+    "task": {
+      "task": "isaac_flat",
+      "q_dim": 54,
+      "velocity_label_columns": [
+        0,
+        3
+      ],
+      "joint_pos_limits": {
+        "joint_left_leg_1": [
+          -0.7068581581115723,
+          0.7068581581115723
+        ],
+        "joint_left_leg_2": [
+          -1.6493356227874756,
+          3.22013258934021
+        ],
+        "joint_left_leg_3": [
+          -2.571742534637451,
+          -0.7967431545257568
+        ],
+        "joint_right_leg_1": [
+          -0.7068581581115723,
+          0.7068581581115723
+        ],
+        "joint_right_leg_2": [
+          -1.6493356227874756,
+          3.22013258934021
+        ],
+        "joint_right_leg_3": [
+          -2.571742534637451,
+          -0.7967431545257568
+        ]
+      },
+      "wheel_speed_ranges": {
+        "joint_left_leg_4": [
+          -20.0,
+          20.0
+        ],
+        "joint_right_leg_4": [
+          -20.0,
+          20.0
+        ]
+      },
+      "action_limits_artificial": false,
+      "initial_targets": null
+    },
+    "algorithm": {
+      "gamma": 0.97,
+      "n_steps": 5,
+      "tau": 0.003,
+      "target_update_every": 1,
+      "actor_lr": 0.0002,
+      "critic_lr": 0.0002,
+      "alpha_lr": 2e-05,
+      "auxiliary_lr": 0.001,
+      "initial_alpha": 0.05,
+      "target_entropy_scale": 1.0,
+      "initial_std": 0.15,
+      "max_grad_norm": 1.0,
+      "batch_size": 256,
+      "critic_updates_per_iteration": 128,
+      "actor_update_every": 2,
+      "alpha_update_every": 1,
+      "auxiliary_updates_per_iteration": 128,
+      "auxiliary_batch_size": 256,
+      "normalizer_eps": 0.01
+    },
+    "network": {
+      "encoder_backbone_dims": [
+        128,
+        64
+      ],
+      "encoder_latent_hidden_dim": 32,
+      "actor_hidden_dims": [
+        512,
+        256,
+        128
+      ],
+      "critic_hidden_dims": [
+        512,
+        256,
+        128
+      ]
+    },
+    "collection": {
+      "num_envs": 128,
+      "steps_per_iteration": 8,
+      "warmup_iterations": 16,
+      "capacity_per_env": 512
+    },
+    "environment": {
+      "isaac_sim": "5.1",
+      "isaac_lab": "2.3.0",
+      "python": "3.11",
+      "robot_assets_commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+      "sim_device": "cuda:0",
+      "sac_task_id": "Tita-SAC-Velocity-Flat-v0"
+    },
+    "sources": {
+      "algorithm.gamma": "论文候选",
+      "algorithm.n_steps": "论文候选",
+      "algorithm.tau": "论文候选",
+      "algorithm.target_update_every": "作者：每次 Critic 更新都慢更新",
+      "algorithm.actor_lr": "论文候选",
+      "algorithm.critic_lr": "论文候选",
+      "algorithm.alpha_lr": "论文候选",
+      "algorithm.auxiliary_lr": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） learning_rate 初值",
+      "algorithm.initial_alpha": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.target_entropy_scale": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.initial_std": "论文候选",
+      "algorithm.max_grad_norm": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.batch_size": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.critic_updates_per_iteration": "SAC-R7P-PRECISION-PILOT-20261109",
+      "algorithm.actor_update_every": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.alpha_update_every": "作者：每次 Critic 更新都更新 alpha",
+      "algorithm.auxiliary_updates_per_iteration": "SAC-R7P-PRECISION-PILOT-20261109",
+      "algorithm.auxiliary_batch_size": "TITA 适配暂定值（未经训练验证）",
+      "algorithm.normalizer_eps": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） 与作者 EmpiricalNormalization 的 eps",
+      "network.encoder_backbone_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.encoder_latent_hidden_dim": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.actor_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.critic_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "collection.num_envs": "用户设置（实际创建的环境数）",
+      "collection.steps_per_iteration": "用户设置",
+      "collection.warmup_iterations": "SAC-R7P-PRECISION-PILOT-20261109",
+      "collection.capacity_per_env": "用户设置",
+      "task.task": "E01 平地 / 复杂地形任务（接入前不能运行）",
+      "task.q_dim": "E02 运行时 group_obs_term_dim（validate_observations 核对）",
+      "task.velocity_label_columns": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）：critic 第一项 base_lin_vel × 2.0（E02 运行时核对）",
+      "task.joint_pos_limits": "E01 运行时 soft_joint_pos_limits（factor 0.9）",
+      "task.wheel_speed_ranges": "用户设置 ±20.0 rad/s（跟踪最大指令所需 13.87，模型上限 30.0）",
+      "task.initial_targets": "E03 默认目标",
+      "seed": "用户设置",
+      "device": "SAC-R7P-PRECISION-PILOT-20261109: explicitly selected, independently validated learner"
+    }
+  },
+  "undetermined_fields": [],
+  "versions": {
+    "git_commit": "0cac03f0869039ece66dd410f66631f61d663195",
+    "git_tracked_changes": false,
+    "python": "3.11.15",
+    "torch": "2.7.0+cu128",
+    "ppo_snapshot_commit": "8fe40aa0ab3afdb8998cab1357f1f795d2cabc3c",
+    "sac_reference_commit": "e0d243aa6d3f8a7231783b7f3cefeaec1b4a5521",
+    "robot_assets_commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed"
+  },
+  "replay_memory_estimate": {
+    "records": 65536,
+    "q_dim": 54,
+    "capacity_per_env": 512,
+    "total_bytes": 206962688,
+    "by_field_bytes": {
+      "policy_history": 86507520,
+      "next_policy_history": 86507520,
+      "q_observation": 14155776,
+      "next_q_observation": 14155776,
+      "action": 2097152,
+      "env_id": 524288,
+      "episode_id": 524288,
+      "step_index": 524288,
+      "history_length": 524288,
+      "next_history_length": 524288,
+      "write_seq": 524288,
+      "reward": 262144,
+      "terminated": 65536,
+      "time_out": 65536
+    },
+    "scope": "仅 D02 经验池张量存储"
+  }
+}

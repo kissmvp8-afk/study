@@ -1,0 +1,10 @@
+test_deploy_before_formal_models (test_r7p_model_backup.Tests.test_deploy_before_formal_models) ... ok
+test_exact_paths (test_r7p_model_backup.Tests.test_exact_paths) ... ok
+test_identity_and_counts (test_r7p_model_backup.Tests.test_identity_and_counts) ... ok
+test_link_cleanup_never_unique (test_r7p_model_backup.Tests.test_link_cleanup_never_unique) ... ok
+test_loop_incremental_and_pending (test_r7p_model_backup.Tests.test_loop_incremental_and_pending) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.007s
+
+OK

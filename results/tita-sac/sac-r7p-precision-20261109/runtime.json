@@ -1,0 +1,91 @@
+{
+  "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "workroot": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109",
+  "python": "/root/rivermind-data/tita-check/.venv/bin/python",
+  "worker_command": [
+    "/root/rivermind-data/tita-check/.venv/bin/python",
+    "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/trainer/r7p_train.py",
+    "--worker-config",
+    "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/worker-config.json",
+    "--headless",
+    "--device",
+    "cuda:0"
+  ],
+  "direct_formal_authorized": true,
+  "barrier_id": "r7p-four-1794220343952431167",
+  "launch_stagger_seconds": 2,
+  "lease_expires_at_utc": "2026-11-09T14:15:00Z",
+  "soft_target_utc": "2026-11-09T12:45:00Z",
+  "lease_source": "latest_user_report_no_renewal",
+  "child_cwd": "/root/rivermind-data/tita-check",
+  "child_env": {
+    "MKL_NUM_THREADS": "2",
+    "OMNI_KIT_ACCEPT_EULA": "YES",
+    "OMP_NUM_THREADS": "2",
+    "PYTHONPATH": "/root/rivermind-data/tita-check/sac-r2-20261108/training:/root/rivermind-data/tita-check/sac-r2-20261108/tools:/root/rivermind-data/tita-check/tools:/root/rivermind-data/tita-check/sac-r1-20261107/tools",
+    "R6_STUDY_ROOT": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+    "VK_DRIVER_FILES": "/root/rivermind-data/tita-check/runs/nvidia-egl-test.json",
+    "VK_ICD_FILENAMES": "/root/rivermind-data/tita-check/runs/nvidia-egl-test.json",
+    "VK_LOADER_LAYERS_DISABLE": "~implicit~"
+  },
+  "child_env_remove": [
+    "LD_LIBRARY_PATH",
+    "LD_PRELOAD"
+  ],
+  "frozen_inputs": [
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/trainer/r7p_train.py",
+      "bytes": 27935,
+      "sha256": "01b6f5e96d49b387b1e509b3e01887135f2b080d878c14c59433ee170ab511d8"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/trainer/r7p_training.py",
+      "bytes": 12194,
+      "sha256": "96c8253c844fba757fd21a8b64a0c15bfcf425968d6156353e17897709a74487"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/trainer/r7p_counts.py",
+      "bytes": 317,
+      "sha256": "6fb3a4fa13dffdbb5a97b1763e0556470f6f34c2f8b0cf552ead2a46d433474c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/parameters.json",
+      "bytes": 9392,
+      "sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/parent-selection.json",
+      "bytes": 780,
+      "sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/worker-config.json",
+      "bytes": 548,
+      "sha256": "eba794715d6880d3b8cd92648cae13b204592c920cc7f7f908f00ebd4f85d7cc"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/user-execution-override.json",
+      "bytes": 1027,
+      "sha256": "f8e3c145f0b472bb1e58cdef4a2a9884a429397ef5b77a741a082a844e985b5e"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/arms/R1-1201/effective-settings.json",
+      "bytes": 1460,
+      "sha256": "8bdd5f1af14ea6d2cd01238064b8eee1bc447617873f917c51b934688edbed6f"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/inputs/parent.pt",
+      "bytes": 9167667,
+      "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+    }
+  ],
+  "backup_command": [
+    "/root/rivermind-data/tita-check/.venv/bin/python",
+    "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/backup/r7p_backup_once.py",
+    "--config",
+    "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup-config.json"
+  ],
+  "preflight": "not_run_per_user_override",
+  "old_budget_gate": "superseded_by_latest_direct_command",
+  "evaluation_cases_expected": 30
+}

@@ -1,0 +1,23 @@
+{
+  "status": "running",
+  "request_sha256": "41b8d90a560a3ce18819667a3b959b980ff034a35b2ba1f32bd5fe4b1956c75b",
+  "direction": "P0",
+  "fork_seed": 1401,
+  "startup_seconds": 14.020915031433105,
+  "counters": {
+    "iterations": 49,
+    "env_steps": 392,
+    "transitions": 50176,
+    "critic_updates": 4224,
+    "actor_updates": 2112,
+    "alpha_updates": 4224,
+    "target_updates": 4224,
+    "auxiliary_updates": 4224,
+    "auxiliary_skipped": 0,
+    "replay_samples": 1081344,
+    "auxiliary_samples": 1055744,
+    "learning_skipped_iterations": 0
+  },
+  "heartbeat_epoch": 1794220674.3090887,
+  "elapsed_s": 302.53746366500854
+}

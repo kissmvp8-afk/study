@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/root/rivermind-data/tita-check/.venv/bin/python",
+    "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/controller/r7p_controller.py",
+    "--runtime",
+    "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/runtime.json"
+  ],
+  "shell_command": "/root/rivermind-data/tita-check/.venv/bin/python /root/rivermind-data/tita-check/sac-r7p-precision-20261109/controller/r7p_controller.py --runtime /root/rivermind-data/tita-check/sac-r7p-precision-20261109/runtime.json",
+  "runtime_sha256": "0973404fa77a8b5ef591363b3d0a32b777087f52c8d7de9fb604738e66d43b0e"
+}

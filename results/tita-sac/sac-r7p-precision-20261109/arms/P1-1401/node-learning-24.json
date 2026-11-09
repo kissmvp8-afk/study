@@ -1,0 +1,42 @@
+{
+  "model": {
+    "path": "arms/P1-1401/model-learning-24.pt",
+    "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+    "bytes": 9167731,
+    "counters": {
+      "iterations": 40,
+      "env_steps": 320,
+      "transitions": 40960,
+      "critic_updates": 3072,
+      "actor_updates": 1536,
+      "alpha_updates": 3072,
+      "target_updates": 3072,
+      "auxiliary_updates": 3072,
+      "auxiliary_skipped": 0,
+      "replay_samples": 786432,
+      "auxiliary_samples": 765729,
+      "learning_skipped_iterations": 0
+    },
+    "readback_verified": true
+  },
+  "full": {
+    "path": "arms/P1-1401/fullresume-learning-24.pt",
+    "sha256": "b6d646cb190f0ecc6e1ffdcd87c95c1160769c1e6b62668cbcf6f86e4c512298",
+    "bytes": 216136021,
+    "counters": {
+      "iterations": 40,
+      "env_steps": 320,
+      "transitions": 40960,
+      "critic_updates": 3072,
+      "actor_updates": 1536,
+      "alpha_updates": 3072,
+      "target_updates": 3072,
+      "auxiliary_updates": 3072,
+      "auxiliary_skipped": 0,
+      "replay_samples": 786432,
+      "auxiliary_samples": 765729,
+      "learning_skipped_iterations": 0
+    },
+    "readback_verified": true
+  }
+}

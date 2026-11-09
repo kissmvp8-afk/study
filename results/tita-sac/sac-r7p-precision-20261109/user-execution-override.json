@@ -1,0 +1,30 @@
+{
+  "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "recorded_epoch": 1794220343.9514563,
+  "source": "latest_explicit_user_instruction",
+  "user_messages": [
+    "？预检和归档了，直接四路开始R7P，这是命令",
+    "别预检和归档了",
+    "做好节点训练信息保存",
+    "每30分钟保存一次训练信息"
+  ],
+  "reviewed_plan_sha256": "dff70a47db9c045e63ce5a52dc204b09ad3b13005af639a78cd5de8ecd2416de",
+  "superseded_launch_restrictions": [
+    "preflight/archive-only status",
+    "old budget/preflight launch gate",
+    "future-window-only restriction",
+    "prediction-only early stopping"
+  ],
+  "scientific_parameters_unchanged": true,
+  "gpu_preflight_status": "not_run_by_latest_user_instruction",
+  "direct_formal_authorized": true,
+  "checkpoint_nodes_learning_macros": [
+    24,
+    48
+  ],
+  "fullresume_interval_seconds": 300,
+  "progress_interval_seconds": 1800,
+  "lease_expires_at_utc": "2026-11-09T14:15:00Z",
+  "soft_target_utc": "2026-11-09T12:45:00Z",
+  "auto_renew": false
+}

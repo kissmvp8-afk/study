@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "status": "current_window_training_blocked_budget_preflight_and_archive_only",
+  "supersedes_original_R7_for_execution": true,
+  "original_R7_status": "withdrawn_parent_environment_config_error_and_insufficient_budget",
+  "original_R7_commit": "f48554774747d3299c594165295e7f360c9c5d8c",
+  "r6_handoff_commit": "f0769575d83d3f3cb4f531296c8ecd9830218fbd",
+  "scope": "separate early parking precision reward ablation; not full R7, not replay capacity study, not final control acceptance",
+  "current_window": {
+    "hard_finish_UTC8": "2026-11-09T20:45:00+08:00",
+    "hard_finish_UTC": "2026-11-09T12:45:00+00:00",
+    "runtime_effective_finish": "min(fixed finish timestamp, verified lease expiration minus90min)",
+    "do_not_roll_deadline_to_next_day": true,
+    "auto_extend_lease": false,
+    "allow_new_formal_training_now": false,
+    "allow_preflight_and_archive": true,
+    "preflight_cap_s": 900,
+    "preflight_completion_is_not_training_start_authorization": true
+  },
+  "future_execution_gate": {
+    "requires_new_explicitly_authorized_and_verified_resource_window": true,
+    "same_window_automatic_reopen": false,
+    "all_required": [
+      "exact source/config/parent identity verified",
+      "13 static reward tests bound to source SHA and logs",
+      "GPU reward and counters/restore smoke tests passed",
+      "four-lane aggregate throughput and evaluation cost conservatively bound",
+      "complete paired48 experiment plus all endpoint evaluation plus archive fits verified deadline with margin"
+    ],
+    "minimum_total_remaining_after_preflight_s": 9720,
+    "formula": "1.20 * max(8100, T_train_p95 + T_startups + T_30_endpoint_cases_p75 + T_checkpoint_readback + T_archive + T_one_technical_retry)",
+    "baseline_8100_seconds_already_includes_archive": true,
+    "implementation_calibration_sunk_before_gate": true,
+    "no_reduction_of_cases_envs_or_thresholds_to_force_start": true
+  },
+  "parent": {
+    "model": "R6/R1-1201/L48",
+    "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+    "bytes": 9167667,
+    "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r6-stability-20261109/R1-1201-learning48-cbcd57a45c5addf7.pt",
+    "native_alpha": 7.544342952314764e-05,
+    "inherit": "modules targets optimizers normalizers and native learned std; fresh replay/counters/fork RNG, new simulator",
+    "physical_state_resume": false,
+    "unique_parent_all_four_workers": true
+  },
+  "common_training_environment": {
+    "num_envs_per_worker": 128,
+    "concurrent_workers": 4,
+    "capacity_per_env": 512,
+    "replay_capacity_total": 65536,
+    "existing_parking_body_velocity_weight": -8.0,
+    "existing_parking_body_velocity_formula": "retain exact R6 term including original mask (previous implementation norm(command_xy)<.05 and abs(command_wz)<.05), body vx^2+vy^2+.25*wz^2; validate actual source, do not rewrite",
+    "command_resampling_time_range_s": [
+      2.0,
+      4.0
+    ],
+    "standing_command_fraction": 0.2,
+    "other_rewards_and_actions": "unchanged from actual R6 training config, not from evaluation defaults",
+    "observation_noise": "on",
+    "reset_wrench": "zero",
+    "interval_push": "off",
+    "TF32": "off",
+    "use_cache": false
+  },
+  "directions": [
+    {
+      "id": "P0",
+      "meaning": "actual-parent-configuration control",
+      "new_parking_precision_weight": 0.0
+    },
+    {
+      "id": "P1",
+      "meaning": "same actual baseline plus precision term",
+      "new_parking_precision_weight": 0.5
+    }
+  ],
+  "fork_seeds": [
+    1401,
+    1402
+  ],
+  "independent_from_scratch_seeds": false,
+  "algorithm": {
+    "core": "existing SAC",
+    "actor_lr": 5e-05,
+    "critic_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "max_grad_norm": 1.0,
+    "batch_size": 256,
+    "representation": "continue existing encoder/projector and both normalizer updates; freeze during evaluation",
+    "actor_update_every": 2,
+    "per_macro": {
+      "new_transitions": 1024,
+      "critic": 128,
+      "actor": 64,
+      "alpha": 128,
+      "target": 128,
+      "auxiliary_attempts": 128
+    },
+    "retain_parent_alpha_and_std": true
+  },
+  "new_precision_term": {
+    "mask": "hypot(command_vx,command_vy)<.001 and abs(command_wz)<.001",
+    "cost": "1-exp(-(vx_body^2+vy_body^2)/.10^2) + .25*(1-exp(-wz_body^2/.20^2))",
+    "extra_reward": "-new_precision_weight*mask*cost*.02",
+    "fixed_weight_from_prefill": true,
+    "apply_dt_once": true,
+    "total_reward": "original complete R6 reward INCLUDING existing -8 parking term + extra_reward",
+    "P0_reward_must_equal_actual_R6": true,
+    "new_term_absolute_step_bound": 0.0125,
+    "not_claimed_potential_based": true
+  },
+  "schedule": {
+    "prefill_macros_per_arm": 16,
+    "learning_macros_per_arm": 48,
+    "single_fixed_endpoint": true,
+    "intermediate_model_only_L24_for_recovery_not_selection": true,
+    "no_pruning_or_extension": true,
+    "learning_macros_total": 192,
+    "new_transitions_including_prefill_total": 262144,
+    "per_arm_critic_alpha_target_auxiliary_attempts": 6144,
+    "per_arm_actor_updates": 3072,
+    "total_critic_alpha_target_auxiliary_attempts": 24576,
+    "total_actor_updates": 12288
+  },
+  "evaluation": {
+    "kind": "fixed endpoint development diagnostic only",
+    "development_seeds": [
+      141,
+      142,
+      143
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "parent_cases": 6,
+    "four_arm_cases": 24,
+    "total_cases": 30,
+    "independent_heldout_run": false,
+    "original_R7_heldout231_235": "remain sealed and unused",
+    "turn": "not_run_by_scope",
+    "pulse": "not_run_by_scope",
+    "standard_duration_s": 12,
+    "commands": [
+      [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        6,
+        0.3,
+        0,
+        0
+      ],
+      [
+        6,
+        8,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        12,
+        -0.3,
+        0,
+        0
+      ]
+    ],
+    "stop_tail_windows_s": [
+      [
+        1,
+        2
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "gate": {
+      "each_moving_mae_m_s_max": 0.12,
+      "each_moving_abs_wz_max": 0.2,
+      "each_stop_tail_planar_m_s_max": 0.05,
+      "each_stop_tail_abs_wz_max": 0.1,
+      "mean_height_2_to_12_min": 0.25,
+      "full600_no_done_or_timeout": true,
+      "base_contact_max_N": 1
+    },
+    "pairing": "actual physical initial-state fingerprint per seed across parent/all arms/D,S; separate action+observation RNG IDs",
+    "freeze_before_after_equal": true,
+    "S_std": "native learned checkpoint std, no rescaling"
+  },
+  "decision": {
+    "interpretation": "exploratory short-budget effect only; no promotion, no acceptance, no replay-capacity claim",
+    "promising_requires_all": [
+      "both P1 forks survive6/6 and preserve motion competence6/6",
+      "P1 worst-fork standard pass count >= P0 worst-fork count",
+      "P1 overall pass >= P0 overall pass",
+      "P1 worst-fork moving MAE <= .12 and <=P0+.01",
+      "P1 parking yaw <=max(.10,P0)"
+    ],
+    "promising_requires_any": [
+      "P1 worst-fork passes at least one more case of6 than P0",
+      "P1 worst-fork P <= .8*P0 AND <=frozen parent P; finite complete positive denominator required"
+    ],
+    "future_action_if_promising": "report as hypothesis for separately budgeted independent test, do not continue automatically",
+    "if_no_signal": "no_progress_short_budget, not proof precision reward is useless"
+  },
+  "stop_conditions": {
+    "current_window": "do not start formal learning; record budget_blocked",
+    "preflight_cap_s": 900,
+    "preflight_one_failure": "stop and archive actual error; do not spend remaining lease debugging repeatedly",
+    "formal_only_future_window": [
+      "nonfinite/OOM/source-config-or-action mismatch",
+      "unexpected Critic/Actor/alpha/target update skips or count mismatch",
+      "auxiliary skip ratio>.01 with causes logged",
+      "time prediction exceeds effective deadline",
+      "free disk<10GiB orderly save; no new jobs below12GiB"
+    ],
+    "actual_fall": "valid failed evaluation, do not retry or substitute seed",
+    "technical_eval_retry_max": 1,
+    "cannot_finish_all_four_same_L48": "incomplete/budget_stopped, do not rank unequal budgets as complete trial"
+  },
+  "delivery": [
+    "withdrawal and corrected baseline/config diff",
+    "source commit, hashes and 13 static-test logs or explicit missing status",
+    "GPU smoke report passed/failed/not_run with exit codes and zero/actual physical steps",
+    "budget table actual remaining time, forecast components and go/no-go decision",
+    "frozen baseline and all arm config JSON/YAML",
+    "if future executed: L48 four model files and latest four full-resume files, attempted/succeeded/skipped updates",
+    "all30 endpoint raw trajectories, per-case failures and paired metrics if executed",
+    "external backup of parent/checkpoints/code/raw evidence with checksum manifest; archive even when budget_blocked"
+  ],
+  "never_claim": [
+    "full R7 completed",
+    "replay capacity comparison completed",
+    "13 static tests imply GPU valid",
+    "development30 cases imply independent acceptance",
+    "survival implies parking/turn/push success"
+  ]
+}
+

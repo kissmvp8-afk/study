@@ -1,0 +1,12 @@
+{
+  "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "status": "running",
+  "started_epoch": 1794220371.697931,
+  "no_preflight_or_old_budget_gate": true,
+  "pids": {
+    "P0-1401": 2058329,
+    "P1-1401": 2058347,
+    "P0-1402": 2058499,
+    "P1-1402": 2058550
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "identity": {
+    "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+    "direction": "P0",
+    "fork_seed": 1401,
+    "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+    "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+    "execution_mode": "four_lane"
+  },
+  "counters": {
+    "iterations": 16,
+    "env_steps": 128,
+    "transitions": 16384,
+    "critic_updates": 0,
+    "actor_updates": 0,
+    "alpha_updates": 0,
+    "target_updates": 0,
+    "auxiliary_updates": 0,
+    "auxiliary_skipped": 0,
+    "replay_samples": 0,
+    "auxiliary_samples": 0,
+    "learning_skipped_iterations": 0
+  },
+  "barrier_id": "r7p-four-1794220343952431167"
+}

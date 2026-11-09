@@ -1,0 +1,15 @@
+{
+  "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "workroot": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109",
+  "parameters_path": "parameters.json",
+  "parent_selection_path": "parent-selection.json",
+  "direction": "P0",
+  "fork_seed": 1401,
+  "target_learning_macros": 48,
+  "action": "train_evaluate",
+  "execution_mode": "four_lane",
+  "barrier_id": "r7p-four-1794220343952431167",
+  "barrier_timeout_s": 1200,
+  "deadline_utc": "2026-11-09T14:14:00+00:00",
+  "latest_user_override_path": "user-execution-override.json"
+}

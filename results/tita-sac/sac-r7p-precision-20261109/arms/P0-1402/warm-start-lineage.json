@@ -1,0 +1,28 @@
+{
+  "mode": "R7P_fixed_R6_parent",
+  "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+  "parent_counters": {
+    "iterations": 64,
+    "env_steps": 512,
+    "transitions": 65536,
+    "critic_updates": 6144,
+    "actor_updates": 3072,
+    "alpha_updates": 6144,
+    "target_updates": 6144,
+    "auxiliary_updates": 6144,
+    "auxiliary_skipped": 0,
+    "replay_samples": 1572864,
+    "auxiliary_samples": 1540774,
+    "learning_skipped_iterations": 0
+  },
+  "parent_alpha": 7.544342952314764e-05,
+  "effective_entry_alpha": 7.544342952314764e-05,
+  "alpha_multiplier": 1.0,
+  "native_learned_std_restored": true,
+  "inherited_optimizer_steps": true,
+  "task_counters_start_at_zero": true,
+  "parent_replay_imported": false,
+  "parent_episode_ids_imported": false,
+  "fork_seed": 1402,
+  "exact_resume": false
+}

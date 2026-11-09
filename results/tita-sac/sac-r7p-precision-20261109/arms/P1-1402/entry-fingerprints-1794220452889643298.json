@@ -1,0 +1,40 @@
+{
+  "modules": {
+    "encoder": "6e21df69fc3c453000bcaf7892d385620ebb346385c4e5e1a47b2587150e7ad0",
+    "projector": "4e762a34778477d415636d8dd9592f18c30b6edc9e58487a0c2201123366917e",
+    "actor": "a5d8c44eedce9ef204324728939a46fad63ad7f3e042991095582e18efea77b4",
+    "critics": "5b854999771afe427b91ad1080b1560ca4c25883f3be69b189b8da3edd2a7db4",
+    "targets": "fd84ea965c057e8289458bad7dd2a15d256d07c1083a6618d3eb8501e73d698c",
+    "temperature": "47d06ff78114472cf4f8460eb9c0dc639aa6227b7747f4fd3cc26a6238b5ad4c"
+  },
+  "optimizers": "2cc276e059cc7437ce0dc96e2b0af738a4db95aedef1bc8d919c9b5afd22339c",
+  "normalizers": "70c38ec8420f419b264f3eccb36db1847bcda65a142ba66da75177839af30474",
+  "entry": {
+    "mode": "R7P_fixed_R6_parent",
+    "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+    "parent_counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1540774,
+      "learning_skipped_iterations": 0
+    },
+    "parent_alpha": 7.544342952314764e-05,
+    "effective_entry_alpha": 7.544342952314764e-05,
+    "alpha_multiplier": 1.0,
+    "native_learned_std_restored": true,
+    "inherited_optimizer_steps": true,
+    "task_counters_start_at_zero": true,
+    "parent_replay_imported": false,
+    "parent_episode_ids_imported": false,
+    "fork_seed": 1402,
+    "exact_resume": false
+  }
+}

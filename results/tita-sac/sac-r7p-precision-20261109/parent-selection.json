@@ -1,0 +1,21 @@
+{
+  "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "selected": {
+    "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/inputs/parent.pt",
+    "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+    "bytes": 9167667,
+    "direction": "R1",
+    "fork_seed": 1201,
+    "learning_macros": 48,
+    "source_config": {
+      "parking_body_velocity_weight": -8.0,
+      "command_resampling_time_range": [
+        2.0,
+        4.0
+      ],
+      "track_ang_vel_z_exp_weight": 0.5
+    }
+  },
+  "parent_effective_settings_path": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/arms/R1-1201/effective-settings.json",
+  "parent_effective_settings_sha256": "8bdd5f1af14ea6d2cd01238064b8eee1bc447617873f917c51b934688edbed6f"
+}

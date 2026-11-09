@@ -1,0 +1,10 @@
+{
+  "root": "/root/rivermind-data/tita-check",
+  "study_root": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+  "python": "/root/rivermind-data/tita-check/.venv/bin/python",
+  "r1_trainer": "/root/rivermind-data/tita-check/sac-r1-20261107/tools/train_sac_r1.py",
+  "r2_tools": "/root/rivermind-data/tita-check/sac-r2-20261108/training",
+  "eval_tools": "/root/rivermind-data/tita-check/sac-r2-20261108/tools",
+  "lock_file": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/training-init.lock",
+  "use_cache": false
+}

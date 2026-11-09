@@ -1,0 +1,15 @@
+# R7P fixed endpoint development evaluator
+
+Plan SAC-R7P-PRECISION-PILOT-20261109. This module adapts only evaluation; it does not implement/override training authorization or resource controls. The parent's latest explicit user instruction supersedes the old preflight-only authorization status. Physics/evaluation thresholds remain unchanged.
+
+API: evaluation_r7p_runner.make_evaluate_case(root,python,evaluator,study_root,data_root,deadline,device='cuda:0',namespace='evaluations',startup_lock=None,bootstrap_env=None). Same callback signature as R6. bootstrap_env optionally has exactly R6_ORIGINAL_EVALUATOR, R6_ORIGINAL_EVALUATOR_SHA256, R6_KIT_PROVIDER_MANIFEST, R6_KIT_PROVIDER_MANIFEST_SHA256. With Kit wrapper, bind ORIGINAL_EVALUATOR to NEW evaluate_sac_r7p.py and its SHA, not the old R6 evaluator. Keep existing verified provider manifest. Original evaluator/runner files from R6 are never overwritten.
+
+r7p_evaluation.development_cases(model_path,model_sha256,callback) runs six standard development cases141/142/143 D/S. run_endpoint(root,parent,arms,callback) requires four models P0/P1×1401/1402, all learning_macros48; parent dict has model_path/model_sha256. Arms additionally direction/fork_seed/learning_macros. Parent SHA cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3 and9167667bytes. Controller owns optimizer/count/settings checks before calling this endpoint. All paths root-confined.
+
+Output endpoint-development.json includes all30 case indexes/results, raw matched-seed comparisons, fork and worst-fork summaries, promising_short_budget/no_progress_short_budget, inconsistent metrics. No selected replacement, promotion, heldout, turn or pulse. Incomplete endpoints are rejected; intermediate written models are marked complete=false. No causal or final acceptance claim.
+
+validate_cases re-reads trajectories, checks successful process exits, frozen before/after, SHA, protocol, independently recorded RNG identities and complete initial physical fingerprint paired by seed across parent/all arms/D,S. Native learned std is loaded without scaling. r4_protocol.py is byte-identical to R6; original600-step commands and gates unchanged. A real fall remains a valid failed case and missing metrics remain null. Technical failure at most one retry, with separate attempt directories; nonfinite/OOM/contracts stop. Cached success requires confirmed process exit0.
+
+Kit bootstrap copied from R6 infrastructure recovery: original AppLauncher initialization is followed by a registry guard before seeding/constructing the environment. No policy/physics changes. Existing successful Kit smoke was no-op registration, so it proved current command availability rather than persistent fault repair. Do not claim new GPU validation from these local tests.
+
+Tests: python -m unittest discover -v ; python -m compileall -q . . These are seven synthetic CPU contracts only. linux_common.py and r1_metrics.py must remain available from the verified deployment, as for R6. Parent/controller own fixed deadlines/disk and node saving.

@@ -1,0 +1,12 @@
+test_exact30_and_parent_first (test_r7p_evaluation.Contracts.test_exact30_and_parent_first) ... ok
+test_fall_never_zero_filled (test_r7p_evaluation.Contracts.test_fall_never_zero_filled) ... ok
+test_incomplete_endpoint_rejected (test_r7p_evaluation.Contracts.test_incomplete_endpoint_rejected) ... ok
+test_only_fixed_development (test_r7p_evaluation.Contracts.test_only_fixed_development) ... ok
+test_original_commands_unchanged (test_r7p_evaluation.Contracts.test_original_commands_unchanged) ... ok
+test_promising_and_motion_gate (test_r7p_evaluation.Contracts.test_promising_and_motion_gate) ... ok
+test_zero_control_no_percent (test_r7p_evaluation.Contracts.test_zero_control_no_percent) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.009s
+
+OK

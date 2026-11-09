@@ -1,0 +1,13 @@
+{
+  "workroot": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109",
+  "model_backup_root": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup",
+  "parameters_path": "parameters.json",
+  "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+  "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+  "execution_mode": "four_lane",
+  "base_commit": "f4ded8b17ae03e941fd7a8032759ed9a0e9c31bf",
+  "gh": "/root/rivermind-data/tita-check/tools/github-cli-v2.103.3/gh",
+  "until_epoch": 1794228300,
+  "max_assets_per_tick": 24,
+  "max_staged_bytes": 4294967296
+}
