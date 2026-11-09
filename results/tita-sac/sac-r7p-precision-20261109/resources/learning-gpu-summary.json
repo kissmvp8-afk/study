@@ -1,0 +1,11 @@
+{
+  "window": "all four workers learning overlap, includes checkpoint pauses",
+  "start_epoch": 1794220464.6683745,
+  "end_epoch": 1794220770.1059093,
+  "sample_interval_s": 5,
+  "samples": 61,
+  "mean": 94.37704918032787,
+  "minimum": 52.0,
+  "maximum": 98.0,
+  "below80": 1
+}
