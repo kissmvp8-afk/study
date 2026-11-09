@@ -1,0 +1,112 @@
+{
+  "fixed_commit": "d504e397ca0b07200abe0f8eb5195773c0ae799d",
+  "L24_cases": 40,
+  "C1_cases": 50,
+  "raw_steps": 52858,
+  "raw_L24_complete": true,
+  "new_archive_files_SHA_size_verified": 316,
+  "summary": [
+    {
+      "arm": "parent",
+      "learning_relative_to_R7P": 0,
+      "n": 10,
+      "survive": 10,
+      "passed": 6,
+      "P": 0.05560245386584361,
+      "W": 0.06754536278545856,
+      "Mavg": 0.05518543734849664,
+      "Mmax": 0.06410342056362424
+    },
+    {
+      "arm": "P0-1401",
+      "learning_relative_to_R7P": 24,
+      "n": 10,
+      "survive": 10,
+      "passed": 4,
+      "P": 0.06562297271348674,
+      "W": 0.10260345676541328,
+      "Mavg": 0.0663067075939034,
+      "Mmax": 0.08150175988127012
+    },
+    {
+      "arm": "P0-1401",
+      "learning_relative_to_R7P": 48,
+      "n": 10,
+      "survive": 10,
+      "passed": 2,
+      "P": 0.07211598139454273,
+      "W": 0.0823289511660114,
+      "Mavg": 0.05871489826877951,
+      "Mmax": 0.07692380177648737
+    },
+    {
+      "arm": "P0-1402",
+      "learning_relative_to_R7P": 24,
+      "n": 10,
+      "survive": 10,
+      "passed": 1,
+      "P": 0.0670217221148716,
+      "W": 0.15684579661744646,
+      "Mavg": 0.08251568792259786,
+      "Mmax": 0.11715108126564883
+    },
+    {
+      "arm": "P0-1402",
+      "learning_relative_to_R7P": 48,
+      "n": 10,
+      "survive": 10,
+      "passed": 2,
+      "P": 0.0717422192439455,
+      "W": 0.09896348029072397,
+      "Mavg": 0.07118545531759446,
+      "Mmax": 0.09237070104165468
+    },
+    {
+      "arm": "P1-1401",
+      "learning_relative_to_R7P": 24,
+      "n": 10,
+      "survive": 10,
+      "passed": 2,
+      "P": 0.06922894412112955,
+      "W": 0.08643189606466331,
+      "Mavg": 0.06728912552227848,
+      "Mmax": 0.08909157767175929
+    },
+    {
+      "arm": "P1-1401",
+      "learning_relative_to_R7P": 48,
+      "n": 10,
+      "survive": 8,
+      "passed": 3,
+      "P": null,
+      "W": null,
+      "Mavg": null,
+      "Mmax": null
+    },
+    {
+      "arm": "P1-1402",
+      "learning_relative_to_R7P": 24,
+      "n": 10,
+      "survive": 10,
+      "passed": 1,
+      "P": 0.11955221435763329,
+      "W": 0.10693294220045209,
+      "Mavg": 0.12383748234536324,
+      "Mmax": 0.188937102973141
+    },
+    {
+      "arm": "P1-1402",
+      "learning_relative_to_R7P": 48,
+      "n": 10,
+      "survive": 10,
+      "passed": 4,
+      "P": 0.06151690078566025,
+      "W": 0.07421946804143954,
+      "Mavg": 0.06293344724702184,
+      "Mmax": 0.08421089306776412
+    }
+  ],
+  "parent_label_zero_means_no_R7P_continuation_not_untrained": true,
+  "C2_raw_archive_still_pending": true,
+  "models_not_promoted": true
+}

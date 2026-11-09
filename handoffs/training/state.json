@@ -720,6 +720,46 @@
       "next_plan_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
       "parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
       "reviewed_at_utc": "2026-11-09T13:12:09.894943+00:00"
+    },
+    {
+      "run_id": "SAC-R7P-L24-234235D-EXPLORATORY-20261109",
+      "result_path": "results/tita-sac/sac-r7p-l24-234235d-explore-20261109",
+      "evidence_commit": "d504e397ca0b07200abe0f8eb5195773c0ae799d",
+      "result_status": "completed",
+      "review_status": "independently_recomputed_all8_cases_and158_archive_files_complete_L24_40_case_review",
+      "key_content_fingerprint": "872c4e0adc1416c437e92a71ffb87a29bd5ea6b38ebe6ee8d34473b2c55f6694",
+      "archive_sha256": "4875eaff89c2cc8d7fb5a86e6c4a50f9e61a29f8e4adcac2ab2ed0669a1b9edb",
+      "verified_downloaded_sha256_files": 158,
+      "cases_recomputed": 8,
+      "steps_recomputed": 4800,
+      "survival_count": 8,
+      "pass_count": 2,
+      "control_acceptance": "exploratory_not_independent_acceptance",
+      "reviewed_at_utc": "2026-11-09T13:28:10.256367+00:00",
+      "review_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
+      "next_plan_id": "SAC-R8-ACTOR-RATE-20261109",
+      "next_plan_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/execution-plan.txt",
+      "parameters_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/parameters.json"
+    },
+    {
+      "run_id": "SAC-R7P-L24-234235S-EXPLORATORY-20261109",
+      "result_path": "results/tita-sac/sac-r7p-l24-234235s-explore-20261109",
+      "evidence_commit": "d504e397ca0b07200abe0f8eb5195773c0ae799d",
+      "result_status": "completed",
+      "review_status": "independently_recomputed_all8_cases_and158_archive_files_complete_L24_40_case_review",
+      "key_content_fingerprint": "fb935e95a085a6c7a56844f552d668b20eed3c1af4b840e2823d3ec2426f5d87",
+      "archive_sha256": "479bb589d4a83ea8fc2d9e30bbc9b769b578043dd81729231d8ae2bbecfac5f9",
+      "verified_downloaded_sha256_files": 158,
+      "cases_recomputed": 8,
+      "steps_recomputed": 4800,
+      "survival_count": 8,
+      "pass_count": 2,
+      "control_acceptance": "exploratory_not_independent_acceptance",
+      "reviewed_at_utc": "2026-11-09T13:28:10.256367+00:00",
+      "review_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
+      "next_plan_id": "SAC-R8-ACTOR-RATE-20261109",
+      "next_plan_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/execution-plan.txt",
+      "parameters_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/parameters.json"
     }
   ],
   "pending_results": [
@@ -761,27 +801,9 @@
       "initial_GPU_PID_check_abort_and_user_approved_retry_reported": true,
       "limited_review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
       "missing": "fixed C2 raw manifest, archive and initial failure/retry provenance"
-    },
-    {
-      "run_id": "SAC-R7P-L24-234235-PAIRED-EXPLORATORY-20261109",
-      "actual_run_identity_not_yet_verified": true,
-      "result_path": null,
-      "evidence_commit": null,
-      "status": "user_reported_running_not_independently_verified",
-      "intended_evaluation_seeds": [
-        234,
-        235
-      ],
-      "intended_executions": [
-        "D",
-        "S"
-      ],
-      "intended_models": 4,
-      "expected_cases_to_complete_L24_suite": 16,
-      "review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt"
     }
   ],
-  "latest_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+  "latest_plan_id": "SAC-R8-ACTOR-RATE-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -799,18 +821,18 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
-  "updated_at_utc": "2026-11-09T13:12:09.894943+00:00",
-  "latest_review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
-  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
-  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
-  "latest_plan_status": "complete_existing_authorized_234235_and_archive_no_new_launch_or_training",
+  "latest_plan_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/execution-plan.txt",
+  "updated_at_utc": "2026-11-09T13:28:10.256367+00:00",
+  "latest_review_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
+  "latest_plan_addendum_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
+  "latest_plan_parameters_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/parameters.json",
+  "latest_plan_status": "R8_training_issued_conditional_implementation_effective_config_and_budget_checks_not_started_by_reviewer",
   "active_plan": {
-    "plan_id": "user_authorized_234235_pairing_actual_manifest_pending",
-    "execution_status": "user_reported_running_unverified",
-    "review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
+    "plan_id": "R7P_L24_all40_matched_diagnostic_cases",
+    "execution_status": "completed_independently_reviewed",
+    "review_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
     "parent_replacement": false,
-    "new_training_started_by_reviewer": false
+    "training_started_by_reviewer": false
   },
   "plan_supersessions": [
     {
@@ -830,18 +852,20 @@
       "original_training_started_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
-  "latest_issued_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+  "latest_proposed_plan_id": "SAC-R8-ACTOR-RATE-20261109",
+  "latest_issued_plan_id": "SAC-R8-ACTOR-RATE-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
-    "status": "await_already_authorized_inflight_234235_complete_matched40_only",
-    "path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
-    "parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
-    "new_gradient_updates_allowed": 0,
-    "new_GPU_cases_issued": 0
+    "plan_id": "SAC-R8-ACTOR-RATE-20261109",
+    "status": "issued_to_Dot_training_if_effective_config_and_budget_checks_pass",
+    "path": "handoffs/training/plans/sac-r8-actor-rate-20261109/execution-plan.txt",
+    "start_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/DOT_START_HERE.txt",
+    "parameters_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/parameters.json",
+    "trajectories": 4,
+    "num_envs_per_trajectory": 128,
+    "max_learning_macros_per_trajectory": 48
   },
   "latest_executed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-  "latest_plan_start_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
+  "latest_plan_start_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/DOT_START_HERE.txt",
   "original_R7_block": {
     "status": "withdrawn_do_not_execute",
     "parent_parking_weight_actual": -8,

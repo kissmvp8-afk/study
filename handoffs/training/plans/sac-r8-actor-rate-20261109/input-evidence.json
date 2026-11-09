@@ -1,0 +1,39 @@
+{
+  "fixed_result_commit": "d504e397ca0b07200abe0f8eb5195773c0ae799d",
+  "manifest_blobs": [
+    {
+      "path": "results/tita-sac/sac-r7p-l24-234235d-explore-20261109/raw-1794229407960322982/manifest.json",
+      "sha": "4ff9913ee27ec65d262009f63d36aec4cb497e85",
+      "size": 54260
+    },
+    {
+      "path": "results/tita-sac/sac-r7p-l24-234235s-explore-20261109/raw-1794229440336970726/manifest.json",
+      "sha": "cfef1641afacbbb109c31ab5985cc533b0b681e0",
+      "size": 54274
+    }
+  ],
+  "archive_receipts": [
+    {
+      "execution": "s",
+      "sha256": "479bb589d4a83ea8fc2d9e30bbc9b769b578043dd81729231d8ae2bbecfac5f9",
+      "bytes": 5816090,
+      "files_SHA_size_verified": 158,
+      "CRC": true,
+      "asset_name": "l24-raw-479bb589d4a83ea8fc2d9e30.zip.part000"
+    },
+    {
+      "execution": "d",
+      "sha256": "4875eaff89c2cc8d7fb5a86e6c4a50f9e61a29f8e4adcac2ab2ed0669a1b9edb",
+      "bytes": 5808547,
+      "files_SHA_size_verified": 158,
+      "CRC": true,
+      "asset_name": "l24-raw-4875eaff89c2cc8d7fb5a86e.zip.part000"
+    }
+  ],
+  "prior_L24_DS_review_commit": "68126fcd6122208dad5ced32178c4bda1058ec7f",
+  "C1_fixed_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+  "complete_cases": 90,
+  "complete_steps": 52858,
+  "R8_training_started": false,
+  "R8_launcher_implemented": false
+}

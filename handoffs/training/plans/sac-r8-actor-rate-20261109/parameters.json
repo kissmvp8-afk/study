@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R8-ACTOR-RATE-20261109",
+  "status": "issued_to_Dot_conditional_effective_config_and_budget_verification_not_started_by_reviewer",
+  "based_on_commits": [
+    "d504e397ca0b07200abe0f8eb5195773c0ae799d",
+    "94ec37af230d8ec0364dece1ee77fa15eacc9eab"
+  ],
+  "purpose": "test smaller Actor step size under paired continuation, no reward or representation factor changes",
+  "parent": {
+    "name": "R6 R1/1201-L48",
+    "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+    "bytes": 9167667,
+    "retain_modules_optimizers_normalizers": true,
+    "retain_native_alpha_std": true,
+    "new_replay": true,
+    "exact_physical_resume": false
+  },
+  "arms": [
+    {
+      "id": "A0",
+      "actor_lr": 5e-05
+    },
+    {
+      "id": "A1",
+      "actor_lr": 1e-05
+    }
+  ],
+  "fork_seeds": [
+    1501,
+    1502
+  ],
+  "training_trajectories": 4,
+  "num_envs_per_trajectory": 128,
+  "execution": "four_lane",
+  "actor_lr_override_after_optimizer_load": true,
+  "optimizer_state_changes_allowed": [
+    "actor.param_groups[*].lr"
+  ],
+  "representation_updates": true,
+  "normalizer_updates": true,
+  "batch_size": 256,
+  "replay_capacity_total": 65536,
+  "steps_per_macro": 8,
+  "prefill_macros": 16,
+  "targets_learning_macros": [
+    2,
+    48
+  ],
+  "maximum_learning_macros": 48,
+  "model_checkpoints_learning": [
+    0,
+    2,
+    12,
+    24,
+    48
+  ],
+  "full_resume_learning": [
+    24,
+    48
+  ],
+  "updates_per_learning_macro": {
+    "critic": 128,
+    "actor": 64,
+    "alpha": 128,
+    "target": 128,
+    "auxiliary": 128
+  },
+  "counters_formula": {
+    "total_macros": "16+L",
+    "transitions": "1024*(16+L)",
+    "env_steps": "8*(16+L)",
+    "critic": "128*L",
+    "actor": "64*L",
+    "alpha": "128*L",
+    "target": "128*L",
+    "auxiliary_attempts": "128*L"
+  },
+  "common": {
+    "critic_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "max_grad_norm": 1.0,
+    "standing_fraction": 0.2,
+    "parking_body_velocity_weight": -8,
+    "precision_weight": 0,
+    "command_hold_seconds": [
+      2,
+      4
+    ],
+    "yaw_tracking_weight": 0.5,
+    "observation_noise": "on",
+    "reset_wrench": 0,
+    "interval_push": false,
+    "tf32": false,
+    "control_dt": 0.02,
+    "cache": false
+  },
+  "intermediate_evaluation": false,
+  "continuous_training_preserves_physics_until_L48": true,
+  "development_eval_L48": {
+    "seeds": [
+      231,
+      232,
+      233,
+      234,
+      235
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "cases_per_model": 10,
+    "total_cases": 40,
+    "independent_acceptance": false
+  },
+  "selection": {
+    "final_stage_fixed": 48,
+    "per_fork_required": true,
+    "direction_reproduced_requires_both_forks": true,
+    "survival_10_of_10": true,
+    "pass_count_at_least_paired_control": true,
+    "pass_count_at_least_parent": 6,
+    "P_improvement_mps_vs_control_and_parent": 0.005,
+    "Mavg_degradation_allowance_vs_control_and_parent": 0.01,
+    "mean_W_max": 0.1,
+    "no_parent_replacement": true,
+    "no_automatic_L96_or_turn_or_push": true
+  },
+  "budget": {
+    "hard_cap_seconds": 1800,
+    "includes_implementation": true,
+    "archive_reserve_seconds": 480,
+    "lease_margin_seconds": 1200,
+    "minimum_remaining_before_start_seconds": 1200,
+    "reference_expiry_UTC8": "2026-11-09T22:15:00+08:00",
+    "reference_finish_UTC8": "2026-11-09T21:55:00+08:00",
+    "must_verify_actual_expiry": true,
+    "no_auto_renew": true,
+    "incomplete_stage_no_selection": true,
+    "free_disk_GiB_min": 12,
+    "additional_artifact_GiB_reserved": 3
+  },
+  "implementation": {
+    "launcher_adapter_not_yet_implemented": true,
+    "GPU_validation_not_performed_by_reviewer": true,
+    "current_R7P_hardcoded_plan_seed_lr_must_be_precisely_adapted": true,
+    "core_SAC_modules_unchanged": true
+  },
+  "parent_reference_metrics": {
+    "P": 0.055602453865843615,
+    "W": 0.06754536278545856,
+    "Mavg": 0.05518543734849664,
+    "Mmax": 0.06410342056362424,
+    "n": 10,
+    "passed": 6,
+    "survived": 10,
+    "source_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab"
+  }
+}

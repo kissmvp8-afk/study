@@ -1,0 +1,17 @@
+{
+  "cases_recomputed": 90,
+  "physical_steps": 52858,
+  "L24_total": 40,
+  "C1_recomputed_cases": 50,
+  "physical_initial_RNG_source_matched": true,
+  "DS_first_inference_equal": true,
+  "raw_noisy_history_present": false,
+  "primary_evaluation_seeds": [
+    231,
+    232,
+    233,
+    234,
+    235
+  ],
+  "additional_temporal_diagnosis_seed": 231
+}

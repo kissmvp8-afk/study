@@ -1,0 +1,18 @@
+[
+  {
+    "execution": "s",
+    "sha256": "479bb589d4a83ea8fc2d9e30bbc9b769b578043dd81729231d8ae2bbecfac5f9",
+    "bytes": 5816090,
+    "files_SHA_size_verified": 158,
+    "CRC": true,
+    "asset_name": "l24-raw-479bb589d4a83ea8fc2d9e30.zip.part000"
+  },
+  {
+    "execution": "d",
+    "sha256": "4875eaff89c2cc8d7fb5a86e6c4a50f9e61a29f8e4adcac2ab2ed0669a1b9edb",
+    "bytes": 5808547,
+    "files_SHA_size_verified": 158,
+    "CRC": true,
+    "asset_name": "l24-raw-4875eaff89c2cc8d7fb5a86e.zip.part000"
+  }
+]
