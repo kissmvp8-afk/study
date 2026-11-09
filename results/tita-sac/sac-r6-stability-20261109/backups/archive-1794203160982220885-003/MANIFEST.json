@@ -1,0 +1,43 @@
+{
+  "created_epoch": 1794203241.8609207,
+  "files": [
+    {
+      "bytes": 732399,
+      "path": "prior-r5-archive-evidence/original-MANIFEST.json",
+      "sha256": "d7ee88d34e6711ba07363c8540d9a2ea94e988e89d58f2d6feeee6552f64025a",
+      "source_mtime_ns": 1794201070356465658
+    },
+    {
+      "bytes": 733035,
+      "path": "prior-r5-archive-evidence/RECOVERY_MANIFEST.json",
+      "sha256": "7ed5a46a0fbb77cabaccb0748c0d6c3d9811d8fa8d9e9e9351afee590e60d0dc",
+      "source_mtime_ns": 1794201070362465907
+    },
+    {
+      "bytes": 863,
+      "path": "prior-r5-archive-evidence/archive-recovery.json",
+      "sha256": "c993048d6ed3c4a79fa01bf7142a2b55d9f4111efb30fdd53d5069fbb404d5ab",
+      "source_mtime_ns": 1794201070365466031
+    },
+    {
+      "bytes": 2899153,
+      "path": "evaluations/41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19/development/standard-S-124/attempt-1/steps.jsonl",
+      "sha256": "0b3881678848c5ada652f43962b3b3bd9d23e86b35cd4402f04e9430e0e53f5b",
+      "source_mtime_ns": 1794203119738991759
+    },
+    {
+      "bytes": 2900323,
+      "path": "evaluations/41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19/development/standard-D-125/attempt-1/steps.jsonl",
+      "sha256": "b2959eb7deb1ab2ca9989ef13f76ad4458e75a6866e49e398b12fe4f28c9b8da",
+      "source_mtime_ns": 1794202975191879755
+    },
+    {
+      "bytes": 2898839,
+      "path": "evaluations/41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19/development/standard-S-125/attempt-1/steps.jsonl",
+      "sha256": "825572e6b655e1ce6ae5a40812543f5a503d349ed3ec460e6f264e17cd93ed48",
+      "source_mtime_ns": 1794203154693468179
+    }
+  ],
+  "policy": "Frozen staging bytes; dynamic receipts are sidecars, not manifest members",
+  "schema": 1
+}
