@@ -1,0 +1,80 @@
+{
+  "created_epoch": 1794215143.536649,
+  "files": [
+    {
+      "bytes": 732399,
+      "cutoff_epoch": 1794215143.5399299,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "prior-r5-archive-evidence/original-MANIFEST.json",
+      "sha256": "d7ee88d34e6711ba07363c8540d9a2ea94e988e89d58f2d6feeee6552f64025a",
+      "source_mtime_ns": 1794201070356465658
+    },
+    {
+      "bytes": 733035,
+      "cutoff_epoch": 1794215143.5429556,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "prior-r5-archive-evidence/RECOVERY_MANIFEST.json",
+      "sha256": "7ed5a46a0fbb77cabaccb0748c0d6c3d9811d8fa8d9e9e9351afee590e60d0dc",
+      "source_mtime_ns": 1794201070362465907
+    },
+    {
+      "bytes": 863,
+      "cutoff_epoch": 1794215143.5433037,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "prior-r5-archive-evidence/archive-recovery.json",
+      "sha256": "c993048d6ed3c4a79fa01bf7142a2b55d9f4111efb30fdd53d5069fbb404d5ab",
+      "source_mtime_ns": 1794201070365466031
+    },
+    {
+      "bytes": 2893359,
+      "cutoff_epoch": 1794215143.5566204,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "recovery/infra-eval96-001/evaluations/0f68ea3ff9aa2ef0b43d38f992a047ad53c402944e7efad1ecf007b527db3955/development/standard-S-123/attempt-1/steps.jsonl",
+      "sha256": "3768a5a9ab7814b0b2a92613b689781cf5955fbacc9a0c8a3e32aefe6c3b347b",
+      "source_mtime_ns": 1794214859218351849
+    },
+    {
+      "bytes": 2897049,
+      "cutoff_epoch": 1794215143.569725,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "recovery/infra-eval96-001/evaluations/0f68ea3ff9aa2ef0b43d38f992a047ad53c402944e7efad1ecf007b527db3955/development/standard-S-124/attempt-1/steps.jsonl",
+      "sha256": "31f2279fab91d72a24b0df3d3e244504c2788bb25b7e6b1e6ced5457589aa8e0",
+      "source_mtime_ns": 1794214895572481886
+    },
+    {
+      "bytes": 2898678,
+      "cutoff_epoch": 1794215143.5796635,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "recovery/infra-eval96-001/evaluations/0f68ea3ff9aa2ef0b43d38f992a047ad53c402944e7efad1ecf007b527db3955/development/standard-S-125/attempt-1/steps.jsonl",
+      "sha256": "0500ccb34f11703d252ea0bae818256ee575b00162f0e0d70215183649dda5b1",
+      "source_mtime_ns": 1794214934343703020
+    },
+    {
+      "bytes": 2893444,
+      "cutoff_epoch": 1794215143.589884,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "recovery/infra-eval96-001/evaluations/86018f4eeca638f87fa1aa637c67c405edc3d4a5eeeb7282064ba2c816bf99a2/development/standard-D-121/attempt-1/steps.jsonl",
+      "sha256": "5f42a27c1641b5794671bad1b65fa2f7837708ca86d28e91d09aed3672a1adc3",
+      "source_mtime_ns": 1794214973048937335
+    },
+    {
+      "bytes": 2895449,
+      "cutoff_epoch": 1794215143.5999858,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "recovery/infra-eval96-001/evaluations/86018f4eeca638f87fa1aa637c67c405edc3d4a5eeeb7282064ba2c816bf99a2/development/standard-D-122/attempt-1/steps.jsonl",
+      "sha256": "3c3c4e2c106c736c9ac59a3abebbffb197f2053c67b6dacb66d707547a65fa2b",
+      "source_mtime_ns": 1794215010070131187
+    },
+    {
+      "bytes": 2896057,
+      "cutoff_epoch": 1794215143.6099486,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "recovery/infra-eval96-001/evaluations/86018f4eeca638f87fa1aa637c67c405edc3d4a5eeeb7282064ba2c816bf99a2/development/standard-D-123/attempt-1/steps.jsonl",
+      "sha256": "a3ee9b4e2356d46bf4cd87967132ae3b8c7d5b407f61847e4bbe595fc3f2ea88",
+      "source_mtime_ns": 1794215046315311675
+    }
+  ],
+  "policy": "Hashes and byte counts describe frozen staging cutoffs, not a claim that live sources still have those bytes; dynamic receipts remain sidecars",
+  "schema": 2,
+  "skipped": []
+}
