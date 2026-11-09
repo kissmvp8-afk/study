@@ -1,0 +1,80 @@
+{
+  "created_epoch": 1794207961.8115947,
+  "files": [
+    {
+      "bytes": 732399,
+      "cutoff_epoch": 1794207961.8164177,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "prior-r5-archive-evidence/original-MANIFEST.json",
+      "sha256": "d7ee88d34e6711ba07363c8540d9a2ea94e988e89d58f2d6feeee6552f64025a",
+      "source_mtime_ns": 1794201070356465658
+    },
+    {
+      "bytes": 733035,
+      "cutoff_epoch": 1794207961.8198578,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "prior-r5-archive-evidence/RECOVERY_MANIFEST.json",
+      "sha256": "7ed5a46a0fbb77cabaccb0748c0d6c3d9811d8fa8d9e9e9351afee590e60d0dc",
+      "source_mtime_ns": 1794201070362465907
+    },
+    {
+      "bytes": 863,
+      "cutoff_epoch": 1794207961.820243,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "prior-r5-archive-evidence/archive-recovery.json",
+      "sha256": "c993048d6ed3c4a79fa01bf7142a2b55d9f4111efb30fdd53d5069fbb404d5ab",
+      "source_mtime_ns": 1794201070365466031
+    },
+    {
+      "bytes": 2893377,
+      "cutoff_epoch": 1794207961.830754,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "evaluations/659cd4c255786a8ba4444032161f9a854a04f23b76699347f55ab2f0bfd842a0/development/standard-S-123/attempt-1/steps.jsonl",
+      "sha256": "0e3bb4aa099f1252177d5abc17ee7740ef579e41b921c6825011e31c02f82a5c",
+      "source_mtime_ns": 1794207056253286799
+    },
+    {
+      "bytes": 2902493,
+      "cutoff_epoch": 1794207961.84291,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "evaluations/659cd4c255786a8ba4444032161f9a854a04f23b76699347f55ab2f0bfd842a0/development/standard-D-124/attempt-1/steps.jsonl",
+      "sha256": "ebd654a9dfbfba00c0264f33c3350adde9b17a265bf07f13c543feb6c9badc43",
+      "source_mtime_ns": 1794206915338960574
+    },
+    {
+      "bytes": 2900711,
+      "cutoff_epoch": 1794207961.855497,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "evaluations/659cd4c255786a8ba4444032161f9a854a04f23b76699347f55ab2f0bfd842a0/development/standard-S-124/attempt-1/steps.jsonl",
+      "sha256": "3a2bbab2a6ede7509e68909c63ca5e40951d81da7202cd1fa527b3ce7e611f7f",
+      "source_mtime_ns": 1794207097493576219
+    },
+    {
+      "bytes": 2901525,
+      "cutoff_epoch": 1794207961.8659656,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "evaluations/659cd4c255786a8ba4444032161f9a854a04f23b76699347f55ab2f0bfd842a0/development/standard-D-125/attempt-1/steps.jsonl",
+      "sha256": "c176db72fe47505de550ed4668e2ef3ed132ccae4cafade58c04876d509b0024",
+      "source_mtime_ns": 1794206950929040453
+    },
+    {
+      "bytes": 69668,
+      "cutoff_epoch": 1794207961.8667407,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "evaluations/659cd4c255786a8ba4444032161f9a854a04f23b76699347f55ab2f0bfd842a0/development/standard-S-125/attempt-1/configuration.json",
+      "sha256": "b72457ce6e3115ffc3dc45de367ed879b45074356e3e9d3609ef8249dc59ee76",
+      "source_mtime_ns": 1794207114291104060
+    },
+    {
+      "bytes": 2900518,
+      "cutoff_epoch": 1794207961.8768787,
+      "cutoff_semantics": "stable_copy_verified_against_source_at_capture",
+      "path": "evaluations/659cd4c255786a8ba4444032161f9a854a04f23b76699347f55ab2f0bfd842a0/development/standard-S-125/attempt-1/steps.jsonl",
+      "sha256": "c48a68955e71135b473f04ef1ff8846231d328e84550d0532e06b13fa4d1ca08",
+      "source_mtime_ns": 1794207132116665800
+    }
+  ],
+  "policy": "Hashes and byte counts describe frozen staging cutoffs, not a claim that live sources still have those bytes; dynamic receipts remain sidecars",
+  "schema": 2,
+  "skipped": []
+}
