@@ -1,19 +1,27 @@
 {
-  "snapshot_utc": "20261109T011012Z",
+  "snapshot_utc": "20261109T011046Z",
   "controller": {
-    "status": "preparing"
+    "plan_id": "SAC-R5-PARK-20261109",
+    "status": "running",
+    "completed_round": 0,
+    "runtime_sha256": "30419fb36f1bd00b9da61b2e0141bbdb64b2b9ee6ff62168fa7cebbce1a16d33",
+    "lease_verified": false,
+    "lease_unknown_user_authorized": true,
+    "hard_deadline_utc": "2026-11-09T10:09:28.263565+00:00",
+    "active_job": "r1-C0-1101",
+    "heartbeat_utc": "2026-11-09T01:10:43.457297+00:00"
   },
-  "evidence_sha256": "276a9e14c7dc77779f26c7851f7337fbafd53b4778e427be4a366dd4d8a6b0be",
+  "evidence_sha256": "1a497a34903b1b960d059d9001e06eb631966f65f8796af43ef057e36df09904",
   "parts": [
     {
       "file": "evidence.zip.part001",
       "bytes": 24000000,
-      "sha256": "d482b44a6b4d667d31c5cda78199bead382cf9ff7fa8ccd5fefe0462434d61f5"
+      "sha256": "4beeefc7d36944fc10c52918d28922107eac998f51042a74f970beef1e611484"
     },
     {
       "file": "evidence.zip.part002",
-      "bytes": 21514534,
-      "sha256": "420812ca0f147667cc0900f39c0f2d73ff35cca5da816e75865146d597f8f7ca"
+      "bytes": 21520683,
+      "sha256": "3d199640d763e99c9571d56070d12e9d5508c84989840a3e11d7352650d25a40"
     }
   ],
   "model_weights_included": false,
