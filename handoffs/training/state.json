@@ -635,6 +635,22 @@
       "next_plan_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
       "parameters_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/parameters.json",
       "next_plan_status": "issued_conditional_four_case_serial_diagnostic_not_started"
+    },
+    {
+      "run_id": "SAC-R7P-L24-EXPLORATORY-20261109",
+      "result_path": "results/tita-sac/sac-r7p-l24-explore-20261109",
+      "evidence_commit": "32f519378e1d55173ceca46984d26ee19d0eb0de",
+      "result_status": "completed",
+      "review_status": "independently_recomputed_all4_D_seed231_cases_2400_steps_and_96_archive_files",
+      "control_acceptance": "not_an_acceptance_set_1of4_single_seed_D_passed",
+      "archive_sha256": "633695d6857e87791bc7e7785194a4c74a1d374b1bd2c6e6ee07e0625502abdf",
+      "verified_downloaded_sha256_files": 96,
+      "models_actually_downloaded_and_CPU_checked": 4,
+      "review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/parameters.json",
+      "next_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
+      "next_plan_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
+      "reviewed_at_utc": "2026-11-09T12:54:32.870157+00:00"
     }
   ],
   "pending_results": [
@@ -664,9 +680,21 @@
       "raw_heldout_steps": 12000,
       "parent_weight_downloaded_CPU_verified": true,
       "missing": "All R6 training attempt/success counters, all original development raw cases, source/recovery equivalence audit not independently audited in this plan turn."
+    },
+    {
+      "run_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+      "result_path": null,
+      "evidence_commit": null,
+      "status": "user_reported_completed_raw_archive_not_independently_verified",
+      "reported_cases": 4,
+      "reported_steps": 1258,
+      "reported_fieldwise_max_difference": 0,
+      "initial_GPU_PID_check_abort_and_user_approved_retry_reported": true,
+      "limited_review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
+      "missing": "fixed C2 raw manifest, archive and initial failure/retry provenance"
     }
   ],
-  "latest_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+  "latest_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -684,19 +712,18 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
-  "updated_at_utc": "2026-11-09T12:16:58.150Z",
-  "latest_review_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/review.txt",
-  "latest_plan_addendum_path": null,
-  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/parameters.json",
-  "latest_plan_status": "issued_conditional_four_case_serial_diagnostic_not_started",
+  "latest_plan_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
+  "updated_at_utc": "2026-11-09T12:54:32.870157+00:00",
+  "latest_review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
+  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
+  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/parameters.json",
+  "latest_plan_status": "inflight_user_authorized_simulation_reported_await_results_no_duplicate_launch",
   "active_plan": {
-    "plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-    "execution_status": "completed_independently_reviewed_control_and_effect_not_reproduced_mode_equivalence_unresolved",
-    "evidence_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
-    "review_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/review.txt",
-    "parent_replacement": false,
-    "training_started_by_reviewer": false
+    "plan_id": "same_condition_simulation_user_reported_inflight_case_manifest_pending",
+    "execution_status": "user_reported_running_explicitly_authorized_this_turn",
+    "review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
+    "training_started_by_reviewer": false,
+    "parent_replacement": false
   },
   "plan_supersessions": [
     {
@@ -716,30 +743,19 @@
       "original_training_started_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
-  "latest_issued_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+  "latest_proposed_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
+  "latest_issued_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
-    "status": "issued_conditional_four_case_serial_diagnostic_not_started",
-    "path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
-    "parameters_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/parameters.json",
-    "case_cap": 4,
-    "mode": "serial",
-    "seed": 231,
-    "models": [
-      "R6-parent-R1-1201-L48",
-      "P1-1401-L48"
-    ],
+    "plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
+    "status": "await_current_authorized_diagnosis_no_additional_launch",
+    "path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
+    "parameters_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/parameters.json",
     "new_gradient_updates_allowed": 0,
-    "does_not_replace_original_C1_cases": true,
-    "phase_started": false,
-    "hard_cap_s": 900,
-    "archive_reserve_s": 300,
-    "fixed_finish_UTC8": "2026-11-09T20:45:00+08:00",
-    "no_auto_renew": true
+    "exact_inflight_manifest_verified": false,
+    "new_cases_launched_by_reviewer": 0
   },
   "latest_executed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-  "latest_plan_start_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
+  "latest_plan_start_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
   "original_R7_block": {
     "status": "withdrawn_do_not_execute",
     "parent_parking_weight_actual": -8,

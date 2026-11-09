@@ -1,0 +1,54 @@
+{
+  "L24-archive-verification.json": {
+    "bytes": 259,
+    "sha256": "3e76bead766a8df44101b34222b17bb58549bf7c68a3ca7dde8ad2dde9ee4d8f"
+  },
+  "L24-independent-review.json": {
+    "bytes": 11143,
+    "sha256": "f5503d2ea05f205e8c2e064e352d6ab269d2ff081feb9e2abafd7c570293ac95"
+  },
+  "L24-verification.json": {
+    "bytes": 3902,
+    "sha256": "efa34da8dcab721ce841b6ece2838f48d04e55304c9891059df808400029de31"
+  },
+  "README.md": {
+    "bytes": 1477,
+    "sha256": "2009330812fa768c41a4d00ccf527095f55d2a7448a989dc96a91dffd657b55d"
+  },
+  "README_HUMAN.md": {
+    "bytes": 891,
+    "sha256": "b8b8a931d80274dad46758c5693ff66d8d13fe61b01fa19dd02792a6687e0124"
+  },
+  "analyze_prefix.py": {
+    "bytes": 10843,
+    "sha256": "00027c874f605084ef954f3b7a22306313c95931834de6ba36aecf59cba745f8"
+  },
+  "audit_l24.py": {
+    "bytes": 6236,
+    "sha256": "a38bbf6aa46d812897282956c7848187abba18176ba73e85c2ed7829b7a42f2b"
+  },
+  "input-files.json": {
+    "bytes": 10241,
+    "sha256": "a1de6e128e7467a89ec00ee6d6de06dc6b090d46ebba6ce59e9ae7f12f377fe3"
+  },
+  "next-plan.txt": {
+    "bytes": 4620,
+    "sha256": "becca50ca92e3bf68bd8e8efb33757550fb9c96a0a78edef28b7412804ff53cb"
+  },
+  "parameters.json": {
+    "bytes": 1973,
+    "sha256": "947d0f4782b7b90f135a9a491decaea5c04bb3abc89fae4eb127cef552e73625"
+  },
+  "prefix-selected.csv": {
+    "bytes": 30763,
+    "sha256": "9ed47b6266035dd2c55acc6246597fc99f39b874e67c5f35971b57afe470ea1a"
+  },
+  "prefix-summary.json": {
+    "bytes": 29894,
+    "sha256": "d89eb6c5082d489e1fab35442acf4091132fbd514c01623443575d451af7e744"
+  },
+  "review.txt": {
+    "bytes": 4944,
+    "sha256": "51aae8cd75b431e780f56c9aa8cc55d436ab9270b53a997c4400823355b3d869"
+  }
+}

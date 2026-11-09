@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
+  "based_on_commits": [
+    "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+    "32f519378e1d55173ceca46984d26ee19d0eb0de"
+  ],
+  "status": "await_authorized_inflight_same_condition_results_do_not_duplicate_launch",
+  "new_training_allowed": false,
+  "parent_replacement": false,
+  "new_simulation_started_by_reviewer": false,
+  "user_authorized_same_condition_simulation_reported_running": true,
+  "exact_inflight_case_manifest_verified": false,
+  "C2_raw_archive_independently_verified": false,
+  "primary_missing_diagnosis": {
+    "model": "P1/1401-L24",
+    "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+    "seed": 231,
+    "executions": [
+      "D",
+      "S"
+    ],
+    "mode": "serial",
+    "max_steps_per_case": 600,
+    "reuse_inflight_if_present": true,
+    "new_case_auto_launch": false
+  },
+  "already_reviewed_L24": {
+    "mode": "four_lane",
+    "seed": 231,
+    "execution": "D",
+    "cases": 4,
+    "steps": 2400,
+    "archive_files_SHA_size_verified": 96,
+    "models_downloaded_CPU_finite_verified": 4,
+    "same_source_physical_initial_RNG_verified": true,
+    "control_pass_count": 1,
+    "survival_count": 4
+  },
+  "constraints": {
+    "existing_authorized_case_list_and_budget_preserved": true,
+    "prior_C2_fixed_finish_does_not_cancel_later_user_authorization": true,
+    "no_assumed_lease_extension": true,
+    "no_automatic_purchase_or_renewal": true,
+    "no_midrun_evaluator_edits": true,
+    "no_duplicate_launch": true,
+    "no_new_seeds_for_selection": true,
+    "actual_termination_preserved": true,
+    "training_updates": 0
+  },
+  "capture_future": {
+    "only_if_separately_budgeted": true,
+    "not_to_modify_running_task": true,
+    "actual_noisy_policy_history_shape": [
+      1,
+      10,
+      33
+    ],
+    "raw_history_absent_in_current_archives": true,
+    "common_input_CPU_differences_not_proof_of_physical_cause": true
+  }
+}
