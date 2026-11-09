@@ -1,0 +1,2144 @@
+{
+  "controller_status": "completed",
+  "disk_estimate": {
+    "files": [
+      {
+        "deflate_bytes": 1017,
+        "path": "H1_HANDOFF.txt",
+        "raw_bytes": 1860
+      },
+      {
+        "deflate_bytes": 11830,
+        "path": "cases/candidate-261-D/configuration.json",
+        "raw_bytes": 69960
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-261-D/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-261-D/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-261-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 490,
+        "path": "cases/candidate-261-D/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 405,
+        "path": "cases/candidate-261-D/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "cases/candidate-261-D/process-result.json",
+        "raw_bytes": 1355
+      },
+      {
+        "deflate_bytes": 1822,
+        "path": "cases/candidate-261-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 637,
+        "path": "cases/candidate-261-D/protocol-result.json",
+        "raw_bytes": 1651
+      },
+      {
+        "deflate_bytes": 1948,
+        "path": "cases/candidate-261-D/stage-metrics.json",
+        "raw_bytes": 7943
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-261-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669199,
+        "path": "cases/candidate-261-D/steps.jsonl",
+        "raw_bytes": 2903190
+      },
+      {
+        "deflate_bytes": 4994,
+        "path": "cases/candidate-261-D/summary.json",
+        "raw_bytes": 19699
+      },
+      {
+        "deflate_bytes": 11833,
+        "path": "cases/candidate-261-S/configuration.json",
+        "raw_bytes": 69961
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-261-S/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-261-S/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-261-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 490,
+        "path": "cases/candidate-261-S/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 405,
+        "path": "cases/candidate-261-S/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "cases/candidate-261-S/process-result.json",
+        "raw_bytes": 1354
+      },
+      {
+        "deflate_bytes": 1767,
+        "path": "cases/candidate-261-S/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 641,
+        "path": "cases/candidate-261-S/protocol-result.json",
+        "raw_bytes": 1650
+      },
+      {
+        "deflate_bytes": 1935,
+        "path": "cases/candidate-261-S/stage-metrics.json",
+        "raw_bytes": 7937
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-261-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670425,
+        "path": "cases/candidate-261-S/steps.jsonl",
+        "raw_bytes": 2902764
+      },
+      {
+        "deflate_bytes": 4981,
+        "path": "cases/candidate-261-S/summary.json",
+        "raw_bytes": 19693
+      },
+      {
+        "deflate_bytes": 11851,
+        "path": "cases/candidate-262-D/configuration.json",
+        "raw_bytes": 69915
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-262-D/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-262-D/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-262-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 491,
+        "path": "cases/candidate-262-D/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 407,
+        "path": "cases/candidate-262-D/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "cases/candidate-262-D/process-result.json",
+        "raw_bytes": 1354
+      },
+      {
+        "deflate_bytes": 1832,
+        "path": "cases/candidate-262-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 626,
+        "path": "cases/candidate-262-D/protocol-result.json",
+        "raw_bytes": 1660
+      },
+      {
+        "deflate_bytes": 1936,
+        "path": "cases/candidate-262-D/stage-metrics.json",
+        "raw_bytes": 7947
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-262-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669630,
+        "path": "cases/candidate-262-D/steps.jsonl",
+        "raw_bytes": 2897566
+      },
+      {
+        "deflate_bytes": 5012,
+        "path": "cases/candidate-262-D/summary.json",
+        "raw_bytes": 19658
+      },
+      {
+        "deflate_bytes": 11852,
+        "path": "cases/candidate-262-S/configuration.json",
+        "raw_bytes": 69913
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-262-S/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-262-S/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-262-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 491,
+        "path": "cases/candidate-262-S/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 407,
+        "path": "cases/candidate-262-S/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "cases/candidate-262-S/process-result.json",
+        "raw_bytes": 1353
+      },
+      {
+        "deflate_bytes": 1767,
+        "path": "cases/candidate-262-S/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 633,
+        "path": "cases/candidate-262-S/protocol-result.json",
+        "raw_bytes": 1658
+      },
+      {
+        "deflate_bytes": 1961,
+        "path": "cases/candidate-262-S/stage-metrics.json",
+        "raw_bytes": 7954
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-262-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670441,
+        "path": "cases/candidate-262-S/steps.jsonl",
+        "raw_bytes": 2896595
+      },
+      {
+        "deflate_bytes": 5024,
+        "path": "cases/candidate-262-S/summary.json",
+        "raw_bytes": 19666
+      },
+      {
+        "deflate_bytes": 11802,
+        "path": "cases/candidate-263-D/configuration.json",
+        "raw_bytes": 69929
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-263-D/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-263-D/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-263-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 490,
+        "path": "cases/candidate-263-D/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 407,
+        "path": "cases/candidate-263-D/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "cases/candidate-263-D/process-result.json",
+        "raw_bytes": 1354
+      },
+      {
+        "deflate_bytes": 1826,
+        "path": "cases/candidate-263-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 641,
+        "path": "cases/candidate-263-D/protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 1955,
+        "path": "cases/candidate-263-D/stage-metrics.json",
+        "raw_bytes": 7962
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-263-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669834,
+        "path": "cases/candidate-263-D/steps.jsonl",
+        "raw_bytes": 2904889
+      },
+      {
+        "deflate_bytes": 4999,
+        "path": "cases/candidate-263-D/summary.json",
+        "raw_bytes": 19688
+      },
+      {
+        "deflate_bytes": 11799,
+        "path": "cases/candidate-263-S/configuration.json",
+        "raw_bytes": 69928
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-263-S/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-263-S/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-263-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 490,
+        "path": "cases/candidate-263-S/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 408,
+        "path": "cases/candidate-263-S/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "cases/candidate-263-S/process-result.json",
+        "raw_bytes": 1354
+      },
+      {
+        "deflate_bytes": 1770,
+        "path": "cases/candidate-263-S/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 645,
+        "path": "cases/candidate-263-S/protocol-result.json",
+        "raw_bytes": 1660
+      },
+      {
+        "deflate_bytes": 1949,
+        "path": "cases/candidate-263-S/stage-metrics.json",
+        "raw_bytes": 7961
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-263-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670300,
+        "path": "cases/candidate-263-S/steps.jsonl",
+        "raw_bytes": 2903239
+      },
+      {
+        "deflate_bytes": 4979,
+        "path": "cases/candidate-263-S/summary.json",
+        "raw_bytes": 19688
+      },
+      {
+        "deflate_bytes": 11732,
+        "path": "cases/candidate-264-D/configuration.json",
+        "raw_bytes": 69897
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-264-D/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-264-D/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-264-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 491,
+        "path": "cases/candidate-264-D/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 407,
+        "path": "cases/candidate-264-D/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "cases/candidate-264-D/process-result.json",
+        "raw_bytes": 1353
+      },
+      {
+        "deflate_bytes": 1827,
+        "path": "cases/candidate-264-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 644,
+        "path": "cases/candidate-264-D/protocol-result.json",
+        "raw_bytes": 1652
+      },
+      {
+        "deflate_bytes": 1984,
+        "path": "cases/candidate-264-D/stage-metrics.json",
+        "raw_bytes": 7946
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-264-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669600,
+        "path": "cases/candidate-264-D/steps.jsonl",
+        "raw_bytes": 2895589
+      },
+      {
+        "deflate_bytes": 4940,
+        "path": "cases/candidate-264-D/summary.json",
+        "raw_bytes": 19642
+      },
+      {
+        "deflate_bytes": 11731,
+        "path": "cases/candidate-264-S/configuration.json",
+        "raw_bytes": 69897
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-264-S/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-264-S/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-264-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 491,
+        "path": "cases/candidate-264-S/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 408,
+        "path": "cases/candidate-264-S/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "cases/candidate-264-S/process-result.json",
+        "raw_bytes": 1355
+      },
+      {
+        "deflate_bytes": 1828,
+        "path": "cases/candidate-264-S/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 645,
+        "path": "cases/candidate-264-S/protocol-result.json",
+        "raw_bytes": 1654
+      },
+      {
+        "deflate_bytes": 1959,
+        "path": "cases/candidate-264-S/stage-metrics.json",
+        "raw_bytes": 7944
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-264-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669692,
+        "path": "cases/candidate-264-S/steps.jsonl",
+        "raw_bytes": 2894727
+      },
+      {
+        "deflate_bytes": 4937,
+        "path": "cases/candidate-264-S/summary.json",
+        "raw_bytes": 19640
+      },
+      {
+        "deflate_bytes": 11804,
+        "path": "cases/candidate-265-D/configuration.json",
+        "raw_bytes": 69940
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-265-D/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-265-D/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-265-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 491,
+        "path": "cases/candidate-265-D/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 407,
+        "path": "cases/candidate-265-D/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "cases/candidate-265-D/process-result.json",
+        "raw_bytes": 1355
+      },
+      {
+        "deflate_bytes": 1836,
+        "path": "cases/candidate-265-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 645,
+        "path": "cases/candidate-265-D/protocol-result.json",
+        "raw_bytes": 1656
+      },
+      {
+        "deflate_bytes": 1970,
+        "path": "cases/candidate-265-D/stage-metrics.json",
+        "raw_bytes": 7960
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-265-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669647,
+        "path": "cases/candidate-265-D/steps.jsonl",
+        "raw_bytes": 2897960
+      },
+      {
+        "deflate_bytes": 4989,
+        "path": "cases/candidate-265-D/summary.json",
+        "raw_bytes": 19698
+      },
+      {
+        "deflate_bytes": 11805,
+        "path": "cases/candidate-265-S/configuration.json",
+        "raw_bytes": 69941
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-265-S/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "cases/candidate-265-S/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/candidate-265-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 491,
+        "path": "cases/candidate-265-S/metadata.json",
+        "raw_bytes": 1309
+      },
+      {
+        "deflate_bytes": 408,
+        "path": "cases/candidate-265-S/outer-command.json",
+        "raw_bytes": 1127
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "cases/candidate-265-S/process-result.json",
+        "raw_bytes": 1355
+      },
+      {
+        "deflate_bytes": 1829,
+        "path": "cases/candidate-265-S/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 651,
+        "path": "cases/candidate-265-S/protocol-result.json",
+        "raw_bytes": 1652
+      },
+      {
+        "deflate_bytes": 1960,
+        "path": "cases/candidate-265-S/stage-metrics.json",
+        "raw_bytes": 7936
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/candidate-265-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670621,
+        "path": "cases/candidate-265-S/steps.jsonl",
+        "raw_bytes": 2897189
+      },
+      {
+        "deflate_bytes": 4994,
+        "path": "cases/candidate-265-S/summary.json",
+        "raw_bytes": 19675
+      },
+      {
+        "deflate_bytes": 11818,
+        "path": "cases/parent-261-D/configuration.json",
+        "raw_bytes": 69932
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-261-D/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-261-D/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-261-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 471,
+        "path": "cases/parent-261-D/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 385,
+        "path": "cases/parent-261-D/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 480,
+        "path": "cases/parent-261-D/process-result.json",
+        "raw_bytes": 1332
+      },
+      {
+        "deflate_bytes": 1769,
+        "path": "cases/parent-261-D/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 643,
+        "path": "cases/parent-261-D/protocol-result.json",
+        "raw_bytes": 1653
+      },
+      {
+        "deflate_bytes": 1952,
+        "path": "cases/parent-261-D/stage-metrics.json",
+        "raw_bytes": 7944
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-261-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 668425,
+        "path": "cases/parent-261-D/steps.jsonl",
+        "raw_bytes": 2900660
+      },
+      {
+        "deflate_bytes": 4993,
+        "path": "cases/parent-261-D/summary.json",
+        "raw_bytes": 19699
+      },
+      {
+        "deflate_bytes": 11817,
+        "path": "cases/parent-261-S/configuration.json",
+        "raw_bytes": 69932
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-261-S/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-261-S/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-261-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 471,
+        "path": "cases/parent-261-S/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 386,
+        "path": "cases/parent-261-S/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 482,
+        "path": "cases/parent-261-S/process-result.json",
+        "raw_bytes": 1332
+      },
+      {
+        "deflate_bytes": 1828,
+        "path": "cases/parent-261-S/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 634,
+        "path": "cases/parent-261-S/protocol-result.json",
+        "raw_bytes": 1652
+      },
+      {
+        "deflate_bytes": 1946,
+        "path": "cases/parent-261-S/stage-metrics.json",
+        "raw_bytes": 7948
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-261-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669116,
+        "path": "cases/parent-261-S/steps.jsonl",
+        "raw_bytes": 2899058
+      },
+      {
+        "deflate_bytes": 4984,
+        "path": "cases/parent-261-S/summary.json",
+        "raw_bytes": 19703
+      },
+      {
+        "deflate_bytes": 11838,
+        "path": "cases/parent-262-D/configuration.json",
+        "raw_bytes": 69886
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-262-D/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-262-D/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-262-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-262-D/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 388,
+        "path": "cases/parent-262-D/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 480,
+        "path": "cases/parent-262-D/process-result.json",
+        "raw_bytes": 1331
+      },
+      {
+        "deflate_bytes": 1825,
+        "path": "cases/parent-262-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 625,
+        "path": "cases/parent-262-D/protocol-result.json",
+        "raw_bytes": 1651
+      },
+      {
+        "deflate_bytes": 1933,
+        "path": "cases/parent-262-D/stage-metrics.json",
+        "raw_bytes": 7936
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-262-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669068,
+        "path": "cases/parent-262-D/steps.jsonl",
+        "raw_bytes": 2897351
+      },
+      {
+        "deflate_bytes": 5002,
+        "path": "cases/parent-262-D/summary.json",
+        "raw_bytes": 19649
+      },
+      {
+        "deflate_bytes": 11837,
+        "path": "cases/parent-262-S/configuration.json",
+        "raw_bytes": 69886
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-262-S/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-262-S/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-262-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-262-S/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 389,
+        "path": "cases/parent-262-S/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 482,
+        "path": "cases/parent-262-S/process-result.json",
+        "raw_bytes": 1332
+      },
+      {
+        "deflate_bytes": 1819,
+        "path": "cases/parent-262-S/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 630,
+        "path": "cases/parent-262-S/protocol-result.json",
+        "raw_bytes": 1656
+      },
+      {
+        "deflate_bytes": 1930,
+        "path": "cases/parent-262-S/stage-metrics.json",
+        "raw_bytes": 7934
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-262-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670070,
+        "path": "cases/parent-262-S/steps.jsonl",
+        "raw_bytes": 2896536
+      },
+      {
+        "deflate_bytes": 5000,
+        "path": "cases/parent-262-S/summary.json",
+        "raw_bytes": 19646
+      },
+      {
+        "deflate_bytes": 11783,
+        "path": "cases/parent-263-D/configuration.json",
+        "raw_bytes": 69900
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-263-D/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-263-D/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-263-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-263-D/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 388,
+        "path": "cases/parent-263-D/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 482,
+        "path": "cases/parent-263-D/process-result.json",
+        "raw_bytes": 1333
+      },
+      {
+        "deflate_bytes": 1832,
+        "path": "cases/parent-263-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 642,
+        "path": "cases/parent-263-D/protocol-result.json",
+        "raw_bytes": 1652
+      },
+      {
+        "deflate_bytes": 1953,
+        "path": "cases/parent-263-D/stage-metrics.json",
+        "raw_bytes": 7946
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-263-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670445,
+        "path": "cases/parent-263-D/steps.jsonl",
+        "raw_bytes": 2902432
+      },
+      {
+        "deflate_bytes": 4972,
+        "path": "cases/parent-263-D/summary.json",
+        "raw_bytes": 19673
+      },
+      {
+        "deflate_bytes": 11784,
+        "path": "cases/parent-263-S/configuration.json",
+        "raw_bytes": 69900
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-263-S/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-263-S/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-263-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-263-S/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 389,
+        "path": "cases/parent-263-S/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 483,
+        "path": "cases/parent-263-S/process-result.json",
+        "raw_bytes": 1332
+      },
+      {
+        "deflate_bytes": 1835,
+        "path": "cases/parent-263-S/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 637,
+        "path": "cases/parent-263-S/protocol-result.json",
+        "raw_bytes": 1649
+      },
+      {
+        "deflate_bytes": 1947,
+        "path": "cases/parent-263-S/stage-metrics.json",
+        "raw_bytes": 7949
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-263-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670954,
+        "path": "cases/parent-263-S/steps.jsonl",
+        "raw_bytes": 2901471
+      },
+      {
+        "deflate_bytes": 4982,
+        "path": "cases/parent-263-S/summary.json",
+        "raw_bytes": 19675
+      },
+      {
+        "deflate_bytes": 11720,
+        "path": "cases/parent-264-D/configuration.json",
+        "raw_bytes": 69868
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-264-D/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-264-D/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-264-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-264-D/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 388,
+        "path": "cases/parent-264-D/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 482,
+        "path": "cases/parent-264-D/process-result.json",
+        "raw_bytes": 1332
+      },
+      {
+        "deflate_bytes": 1824,
+        "path": "cases/parent-264-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 633,
+        "path": "cases/parent-264-D/protocol-result.json",
+        "raw_bytes": 1649
+      },
+      {
+        "deflate_bytes": 1960,
+        "path": "cases/parent-264-D/stage-metrics.json",
+        "raw_bytes": 7939
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-264-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669164,
+        "path": "cases/parent-264-D/steps.jsonl",
+        "raw_bytes": 2899536
+      },
+      {
+        "deflate_bytes": 4932,
+        "path": "cases/parent-264-D/summary.json",
+        "raw_bytes": 19634
+      },
+      {
+        "deflate_bytes": 11719,
+        "path": "cases/parent-264-S/configuration.json",
+        "raw_bytes": 69868
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-264-S/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-264-S/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-264-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-264-S/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 389,
+        "path": "cases/parent-264-S/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 483,
+        "path": "cases/parent-264-S/process-result.json",
+        "raw_bytes": 1332
+      },
+      {
+        "deflate_bytes": 1778,
+        "path": "cases/parent-264-S/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 633,
+        "path": "cases/parent-264-S/protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 1950,
+        "path": "cases/parent-264-S/stage-metrics.json",
+        "raw_bytes": 7939
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-264-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669745,
+        "path": "cases/parent-264-S/steps.jsonl",
+        "raw_bytes": 2896927
+      },
+      {
+        "deflate_bytes": 4919,
+        "path": "cases/parent-264-S/summary.json",
+        "raw_bytes": 19635
+      },
+      {
+        "deflate_bytes": 11789,
+        "path": "cases/parent-265-D/configuration.json",
+        "raw_bytes": 69911
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-265-D/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-265-D/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-265-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-265-D/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 388,
+        "path": "cases/parent-265-D/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 483,
+        "path": "cases/parent-265-D/process-result.json",
+        "raw_bytes": 1333
+      },
+      {
+        "deflate_bytes": 1832,
+        "path": "cases/parent-265-D/process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 630,
+        "path": "cases/parent-265-D/protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 1919,
+        "path": "cases/parent-265-D/stage-metrics.json",
+        "raw_bytes": 7944
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-265-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669898,
+        "path": "cases/parent-265-D/steps.jsonl",
+        "raw_bytes": 2896965
+      },
+      {
+        "deflate_bytes": 4954,
+        "path": "cases/parent-265-D/summary.json",
+        "raw_bytes": 19683
+      },
+      {
+        "deflate_bytes": 11791,
+        "path": "cases/parent-265-S/configuration.json",
+        "raw_bytes": 69911
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-265-S/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "cases/parent-265-S/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "cases/parent-265-S/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 474,
+        "path": "cases/parent-265-S/metadata.json",
+        "raw_bytes": 1293
+      },
+      {
+        "deflate_bytes": 389,
+        "path": "cases/parent-265-S/outer-command.json",
+        "raw_bytes": 1105
+      },
+      {
+        "deflate_bytes": 483,
+        "path": "cases/parent-265-S/process-result.json",
+        "raw_bytes": 1332
+      },
+      {
+        "deflate_bytes": 1771,
+        "path": "cases/parent-265-S/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 635,
+        "path": "cases/parent-265-S/protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 1924,
+        "path": "cases/parent-265-S/stage-metrics.json",
+        "raw_bytes": 7954
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "cases/parent-265-S/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670187,
+        "path": "cases/parent-265-S/steps.jsonl",
+        "raw_bytes": 2896084
+      },
+      {
+        "deflate_bytes": 4968,
+        "path": "cases/parent-265-S/summary.json",
+        "raw_bytes": 19694
+      },
+      {
+        "deflate_bytes": 15327,
+        "path": "controller-state.json",
+        "raw_bytes": 98452
+      },
+      {
+        "deflate_bytes": 2,
+        "path": "controller.log",
+        "raw_bytes": 0
+      },
+      {
+        "deflate_bytes": 283,
+        "path": "h1-summary.json",
+        "raw_bytes": 652
+      },
+      {
+        "deflate_bytes": 74,
+        "path": "latest-gpu.json",
+        "raw_bytes": 106
+      },
+      {
+        "deflate_bytes": 1052,
+        "path": "manifest.json",
+        "raw_bytes": 28087
+      },
+      {
+        "deflate_bytes": 286,
+        "path": "model-allowlist.json",
+        "raw_bytes": 1016
+      },
+      {
+        "deflate_bytes": 1178,
+        "path": "prior-run/code/IMPLEMENTATION.md",
+        "raw_bytes": 2329
+      },
+      {
+        "deflate_bytes": 2117,
+        "path": "prior-run/code/README.md",
+        "raw_bytes": 4220
+      },
+      {
+        "deflate_bytes": 780,
+        "path": "prior-run/code/SHA256SUMS",
+        "raw_bytes": 1273
+      },
+      {
+        "deflate_bytes": 559,
+        "path": "prior-run/code/adapter-provenance.json",
+        "raw_bytes": 1729
+      },
+      {
+        "deflate_bytes": 2262,
+        "path": "prior-run/code/adapter.diff",
+        "raw_bytes": 6508
+      },
+      {
+        "deflate_bytes": 1833,
+        "path": "prior-run/code/c1_metrics.py",
+        "raw_bytes": 4112
+      },
+      {
+        "deflate_bytes": 188,
+        "path": "prior-run/code/cpu-tests.txt",
+        "raw_bytes": 594
+      },
+      {
+        "deflate_bytes": 9011,
+        "path": "prior-run/code/evaluate_sac_r7p.py",
+        "raw_bytes": 28391
+      },
+      {
+        "deflate_bytes": 697,
+        "path": "prior-run/code/evaluate_with_kit_repair.py",
+        "raw_bytes": 1277
+      },
+      {
+        "deflate_bytes": 1453,
+        "path": "prior-run/code/evaluation_r7p_helpers.py",
+        "raw_bytes": 3584
+      },
+      {
+        "deflate_bytes": 2181,
+        "path": "prior-run/code/evaluation_r7p_runner.py",
+        "raw_bytes": 6500
+      },
+      {
+        "deflate_bytes": 5567,
+        "path": "prior-run/code/h1_controller.py",
+        "raw_bytes": 14160
+      },
+      {
+        "deflate_bytes": 1363,
+        "path": "prior-run/code/kit_command_repair.py",
+        "raw_bytes": 3069
+      },
+      {
+        "deflate_bytes": 5160,
+        "path": "prior-run/code/r4_protocol.py",
+        "raw_bytes": 14827
+      },
+      {
+        "deflate_bytes": 596,
+        "path": "prior-run/code/r8-source-provenance.json",
+        "raw_bytes": 1730
+      },
+      {
+        "deflate_bytes": 4138,
+        "path": "prior-run/controller-state.json",
+        "raw_bytes": 39439
+      },
+      {
+        "deflate_bytes": 1020,
+        "path": "prior-run/manifest.json",
+        "raw_bytes": 27398
+      },
+      {
+        "deflate_bytes": 517,
+        "path": "probes/candidate-231-D/compatibility.json",
+        "raw_bytes": 1096
+      },
+      {
+        "deflate_bytes": 11788,
+        "path": "probes/candidate-231-D/configuration.json",
+        "raw_bytes": 69929
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "probes/candidate-231-D/frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "probes/candidate-231-D/frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "probes/candidate-231-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 494,
+        "path": "probes/candidate-231-D/metadata.json",
+        "raw_bytes": 1314
+      },
+      {
+        "deflate_bytes": 412,
+        "path": "probes/candidate-231-D/outer-command.json",
+        "raw_bytes": 1137
+      },
+      {
+        "deflate_bytes": 504,
+        "path": "probes/candidate-231-D/process-result.json",
+        "raw_bytes": 1364
+      },
+      {
+        "deflate_bytes": 1764,
+        "path": "probes/candidate-231-D/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 643,
+        "path": "probes/candidate-231-D/protocol-result.json",
+        "raw_bytes": 1649
+      },
+      {
+        "deflate_bytes": 1950,
+        "path": "probes/candidate-231-D/stage-metrics.json",
+        "raw_bytes": 7931
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "probes/candidate-231-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670744,
+        "path": "probes/candidate-231-D/steps.jsonl",
+        "raw_bytes": 2899509
+      },
+      {
+        "deflate_bytes": 4958,
+        "path": "probes/candidate-231-D/summary.json",
+        "raw_bytes": 19649
+      },
+      {
+        "deflate_bytes": 11759,
+        "path": "probes/parent-231-D/configuration.json",
+        "raw_bytes": 69864
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "probes/parent-231-D/frozen-after.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 1503,
+        "path": "probes/parent-231-D/frozen-before.json",
+        "raw_bytes": 4902
+      },
+      {
+        "deflate_bytes": 527,
+        "path": "probes/parent-231-D/kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 471,
+        "path": "probes/parent-231-D/metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 385,
+        "path": "probes/parent-231-D/outer-command.json",
+        "raw_bytes": 1085
+      },
+      {
+        "deflate_bytes": 479,
+        "path": "probes/parent-231-D/process-result.json",
+        "raw_bytes": 1313
+      },
+      {
+        "deflate_bytes": 1764,
+        "path": "probes/parent-231-D/process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 644,
+        "path": "probes/parent-231-D/protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 1961,
+        "path": "probes/parent-231-D/stage-metrics.json",
+        "raw_bytes": 7928
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "probes/parent-231-D/status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670457,
+        "path": "probes/parent-231-D/steps.jsonl",
+        "raw_bytes": 2897584
+      },
+      {
+        "deflate_bytes": 4981,
+        "path": "probes/parent-231-D/summary.json",
+        "raw_bytes": 19646
+      },
+      {
+        "deflate_bytes": 2288,
+        "path": "recovery-capture-index.json",
+        "raw_bytes": 11725
+      },
+      {
+        "deflate_bytes": 585,
+        "path": "reused-parent-compatibility.json",
+        "raw_bytes": 1192
+      },
+      {
+        "deflate_bytes": 4461,
+        "path": "source/backup/h1_archive.py",
+        "raw_bytes": 12592
+      },
+      {
+        "deflate_bytes": 6301,
+        "path": "source/backup/r8_archive.py",
+        "raw_bytes": 17601
+      },
+      {
+        "deflate_bytes": 506,
+        "path": "source/backup/r8_backup_ops.py",
+        "raw_bytes": 772
+      },
+      {
+        "deflate_bytes": 5253,
+        "path": "source/backup/r8_publish.py",
+        "raw_bytes": 14632
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "source/baseline-kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1178,
+        "path": "source/code/IMPLEMENTATION.md",
+        "raw_bytes": 2329
+      },
+      {
+        "deflate_bytes": 2641,
+        "path": "source/code/README.md",
+        "raw_bytes": 5503
+      },
+      {
+        "deflate_bytes": 2641,
+        "path": "source/code/RECOVERY.md",
+        "raw_bytes": 5503
+      },
+      {
+        "deflate_bytes": 902,
+        "path": "source/code/SHA256SUMS",
+        "raw_bytes": 1532
+      },
+      {
+        "deflate_bytes": 559,
+        "path": "source/code/adapter-provenance.json",
+        "raw_bytes": 1729
+      },
+      {
+        "deflate_bytes": 2262,
+        "path": "source/code/adapter.diff",
+        "raw_bytes": 6508
+      },
+      {
+        "deflate_bytes": 1833,
+        "path": "source/code/c1_metrics.py",
+        "raw_bytes": 4112
+      },
+      {
+        "deflate_bytes": 200,
+        "path": "source/code/cpu-tests.txt",
+        "raw_bytes": 681
+      },
+      {
+        "deflate_bytes": 9011,
+        "path": "source/code/evaluate_sac_r7p.py",
+        "raw_bytes": 28391
+      },
+      {
+        "deflate_bytes": 697,
+        "path": "source/code/evaluate_with_kit_repair.py",
+        "raw_bytes": 1277
+      },
+      {
+        "deflate_bytes": 1453,
+        "path": "source/code/evaluation_r7p_helpers.py",
+        "raw_bytes": 3584
+      },
+      {
+        "deflate_bytes": 2181,
+        "path": "source/code/evaluation_r7p_runner.py",
+        "raw_bytes": 6500
+      },
+      {
+        "deflate_bytes": 6332,
+        "path": "source/code/h1_controller.py",
+        "raw_bytes": 16875
+      },
+      {
+        "deflate_bytes": 1363,
+        "path": "source/code/kit_command_repair.py",
+        "raw_bytes": 3069
+      },
+      {
+        "deflate_bytes": 767,
+        "path": "source/code/offline_compare.py",
+        "raw_bytes": 1562
+      },
+      {
+        "deflate_bytes": 61,
+        "path": "source/code/prior-h1-controller-shas.json",
+        "raw_bytes": 68
+      },
+      {
+        "deflate_bytes": 5160,
+        "path": "source/code/r4_protocol.py",
+        "raw_bytes": 14827
+      },
+      {
+        "deflate_bytes": 596,
+        "path": "source/code/r8-source-provenance.json",
+        "raw_bytes": 1730
+      },
+      {
+        "deflate_bytes": 104565,
+        "path": "source/registry-evidence/000-h1-published-release-coverage.json",
+        "raw_bytes": 917102
+      },
+      {
+        "deflate_bytes": 8180,
+        "path": "source/registry-evidence/001-h1-published-seed-check.json",
+        "raw_bytes": 55592
+      },
+      {
+        "deflate_bytes": 48296,
+        "path": "source/registry-evidence/002-local-seed-check.json",
+        "raw_bytes": 301484
+      },
+      {
+        "deflate_bytes": 521,
+        "path": "source/registry.json",
+        "raw_bytes": 1225
+      },
+      {
+        "deflate_bytes": 1916,
+        "path": "source/source-index.json",
+        "raw_bytes": 9706
+      }
+    ],
+    "manifest_bound_bytes": 3987872,
+    "method": "streamed_raw_deflate_level6_plus_conservative_headers_manifest_and_256MiB_margin",
+    "raw_bytes": 68229404,
+    "required_bytes": 384681654,
+    "zip_bound_bytes": 24008397
+  },
+  "inventory": {
+    "files": [
+      "H1_HANDOFF.txt",
+      "cases/candidate-261-D/configuration.json",
+      "cases/candidate-261-D/frozen-after.json",
+      "cases/candidate-261-D/frozen-before.json",
+      "cases/candidate-261-D/kit-command-repair.json",
+      "cases/candidate-261-D/metadata.json",
+      "cases/candidate-261-D/outer-command.json",
+      "cases/candidate-261-D/process-result.json",
+      "cases/candidate-261-D/process.log",
+      "cases/candidate-261-D/protocol-result.json",
+      "cases/candidate-261-D/stage-metrics.json",
+      "cases/candidate-261-D/status.json",
+      "cases/candidate-261-D/steps.jsonl",
+      "cases/candidate-261-D/summary.json",
+      "cases/candidate-261-S/configuration.json",
+      "cases/candidate-261-S/frozen-after.json",
+      "cases/candidate-261-S/frozen-before.json",
+      "cases/candidate-261-S/kit-command-repair.json",
+      "cases/candidate-261-S/metadata.json",
+      "cases/candidate-261-S/outer-command.json",
+      "cases/candidate-261-S/process-result.json",
+      "cases/candidate-261-S/process.log",
+      "cases/candidate-261-S/protocol-result.json",
+      "cases/candidate-261-S/stage-metrics.json",
+      "cases/candidate-261-S/status.json",
+      "cases/candidate-261-S/steps.jsonl",
+      "cases/candidate-261-S/summary.json",
+      "cases/candidate-262-D/configuration.json",
+      "cases/candidate-262-D/frozen-after.json",
+      "cases/candidate-262-D/frozen-before.json",
+      "cases/candidate-262-D/kit-command-repair.json",
+      "cases/candidate-262-D/metadata.json",
+      "cases/candidate-262-D/outer-command.json",
+      "cases/candidate-262-D/process-result.json",
+      "cases/candidate-262-D/process.log",
+      "cases/candidate-262-D/protocol-result.json",
+      "cases/candidate-262-D/stage-metrics.json",
+      "cases/candidate-262-D/status.json",
+      "cases/candidate-262-D/steps.jsonl",
+      "cases/candidate-262-D/summary.json",
+      "cases/candidate-262-S/configuration.json",
+      "cases/candidate-262-S/frozen-after.json",
+      "cases/candidate-262-S/frozen-before.json",
+      "cases/candidate-262-S/kit-command-repair.json",
+      "cases/candidate-262-S/metadata.json",
+      "cases/candidate-262-S/outer-command.json",
+      "cases/candidate-262-S/process-result.json",
+      "cases/candidate-262-S/process.log",
+      "cases/candidate-262-S/protocol-result.json",
+      "cases/candidate-262-S/stage-metrics.json",
+      "cases/candidate-262-S/status.json",
+      "cases/candidate-262-S/steps.jsonl",
+      "cases/candidate-262-S/summary.json",
+      "cases/candidate-263-D/configuration.json",
+      "cases/candidate-263-D/frozen-after.json",
+      "cases/candidate-263-D/frozen-before.json",
+      "cases/candidate-263-D/kit-command-repair.json",
+      "cases/candidate-263-D/metadata.json",
+      "cases/candidate-263-D/outer-command.json",
+      "cases/candidate-263-D/process-result.json",
+      "cases/candidate-263-D/process.log",
+      "cases/candidate-263-D/protocol-result.json",
+      "cases/candidate-263-D/stage-metrics.json",
+      "cases/candidate-263-D/status.json",
+      "cases/candidate-263-D/steps.jsonl",
+      "cases/candidate-263-D/summary.json",
+      "cases/candidate-263-S/configuration.json",
+      "cases/candidate-263-S/frozen-after.json",
+      "cases/candidate-263-S/frozen-before.json",
+      "cases/candidate-263-S/kit-command-repair.json",
+      "cases/candidate-263-S/metadata.json",
+      "cases/candidate-263-S/outer-command.json",
+      "cases/candidate-263-S/process-result.json",
+      "cases/candidate-263-S/process.log",
+      "cases/candidate-263-S/protocol-result.json",
+      "cases/candidate-263-S/stage-metrics.json",
+      "cases/candidate-263-S/status.json",
+      "cases/candidate-263-S/steps.jsonl",
+      "cases/candidate-263-S/summary.json",
+      "cases/candidate-264-D/configuration.json",
+      "cases/candidate-264-D/frozen-after.json",
+      "cases/candidate-264-D/frozen-before.json",
+      "cases/candidate-264-D/kit-command-repair.json",
+      "cases/candidate-264-D/metadata.json",
+      "cases/candidate-264-D/outer-command.json",
+      "cases/candidate-264-D/process-result.json",
+      "cases/candidate-264-D/process.log",
+      "cases/candidate-264-D/protocol-result.json",
+      "cases/candidate-264-D/stage-metrics.json",
+      "cases/candidate-264-D/status.json",
+      "cases/candidate-264-D/steps.jsonl",
+      "cases/candidate-264-D/summary.json",
+      "cases/candidate-264-S/configuration.json",
+      "cases/candidate-264-S/frozen-after.json",
+      "cases/candidate-264-S/frozen-before.json",
+      "cases/candidate-264-S/kit-command-repair.json",
+      "cases/candidate-264-S/metadata.json",
+      "cases/candidate-264-S/outer-command.json",
+      "cases/candidate-264-S/process-result.json",
+      "cases/candidate-264-S/process.log",
+      "cases/candidate-264-S/protocol-result.json",
+      "cases/candidate-264-S/stage-metrics.json",
+      "cases/candidate-264-S/status.json",
+      "cases/candidate-264-S/steps.jsonl",
+      "cases/candidate-264-S/summary.json",
+      "cases/candidate-265-D/configuration.json",
+      "cases/candidate-265-D/frozen-after.json",
+      "cases/candidate-265-D/frozen-before.json",
+      "cases/candidate-265-D/kit-command-repair.json",
+      "cases/candidate-265-D/metadata.json",
+      "cases/candidate-265-D/outer-command.json",
+      "cases/candidate-265-D/process-result.json",
+      "cases/candidate-265-D/process.log",
+      "cases/candidate-265-D/protocol-result.json",
+      "cases/candidate-265-D/stage-metrics.json",
+      "cases/candidate-265-D/status.json",
+      "cases/candidate-265-D/steps.jsonl",
+      "cases/candidate-265-D/summary.json",
+      "cases/candidate-265-S/configuration.json",
+      "cases/candidate-265-S/frozen-after.json",
+      "cases/candidate-265-S/frozen-before.json",
+      "cases/candidate-265-S/kit-command-repair.json",
+      "cases/candidate-265-S/metadata.json",
+      "cases/candidate-265-S/outer-command.json",
+      "cases/candidate-265-S/process-result.json",
+      "cases/candidate-265-S/process.log",
+      "cases/candidate-265-S/protocol-result.json",
+      "cases/candidate-265-S/stage-metrics.json",
+      "cases/candidate-265-S/status.json",
+      "cases/candidate-265-S/steps.jsonl",
+      "cases/candidate-265-S/summary.json",
+      "cases/parent-261-D/configuration.json",
+      "cases/parent-261-D/frozen-after.json",
+      "cases/parent-261-D/frozen-before.json",
+      "cases/parent-261-D/kit-command-repair.json",
+      "cases/parent-261-D/metadata.json",
+      "cases/parent-261-D/outer-command.json",
+      "cases/parent-261-D/process-result.json",
+      "cases/parent-261-D/process.log",
+      "cases/parent-261-D/protocol-result.json",
+      "cases/parent-261-D/stage-metrics.json",
+      "cases/parent-261-D/status.json",
+      "cases/parent-261-D/steps.jsonl",
+      "cases/parent-261-D/summary.json",
+      "cases/parent-261-S/configuration.json",
+      "cases/parent-261-S/frozen-after.json",
+      "cases/parent-261-S/frozen-before.json",
+      "cases/parent-261-S/kit-command-repair.json",
+      "cases/parent-261-S/metadata.json",
+      "cases/parent-261-S/outer-command.json",
+      "cases/parent-261-S/process-result.json",
+      "cases/parent-261-S/process.log",
+      "cases/parent-261-S/protocol-result.json",
+      "cases/parent-261-S/stage-metrics.json",
+      "cases/parent-261-S/status.json",
+      "cases/parent-261-S/steps.jsonl",
+      "cases/parent-261-S/summary.json",
+      "cases/parent-262-D/configuration.json",
+      "cases/parent-262-D/frozen-after.json",
+      "cases/parent-262-D/frozen-before.json",
+      "cases/parent-262-D/kit-command-repair.json",
+      "cases/parent-262-D/metadata.json",
+      "cases/parent-262-D/outer-command.json",
+      "cases/parent-262-D/process-result.json",
+      "cases/parent-262-D/process.log",
+      "cases/parent-262-D/protocol-result.json",
+      "cases/parent-262-D/stage-metrics.json",
+      "cases/parent-262-D/status.json",
+      "cases/parent-262-D/steps.jsonl",
+      "cases/parent-262-D/summary.json",
+      "cases/parent-262-S/configuration.json",
+      "cases/parent-262-S/frozen-after.json",
+      "cases/parent-262-S/frozen-before.json",
+      "cases/parent-262-S/kit-command-repair.json",
+      "cases/parent-262-S/metadata.json",
+      "cases/parent-262-S/outer-command.json",
+      "cases/parent-262-S/process-result.json",
+      "cases/parent-262-S/process.log",
+      "cases/parent-262-S/protocol-result.json",
+      "cases/parent-262-S/stage-metrics.json",
+      "cases/parent-262-S/status.json",
+      "cases/parent-262-S/steps.jsonl",
+      "cases/parent-262-S/summary.json",
+      "cases/parent-263-D/configuration.json",
+      "cases/parent-263-D/frozen-after.json",
+      "cases/parent-263-D/frozen-before.json",
+      "cases/parent-263-D/kit-command-repair.json",
+      "cases/parent-263-D/metadata.json",
+      "cases/parent-263-D/outer-command.json",
+      "cases/parent-263-D/process-result.json",
+      "cases/parent-263-D/process.log",
+      "cases/parent-263-D/protocol-result.json",
+      "cases/parent-263-D/stage-metrics.json",
+      "cases/parent-263-D/status.json",
+      "cases/parent-263-D/steps.jsonl",
+      "cases/parent-263-D/summary.json",
+      "cases/parent-263-S/configuration.json",
+      "cases/parent-263-S/frozen-after.json",
+      "cases/parent-263-S/frozen-before.json",
+      "cases/parent-263-S/kit-command-repair.json",
+      "cases/parent-263-S/metadata.json",
+      "cases/parent-263-S/outer-command.json",
+      "cases/parent-263-S/process-result.json",
+      "cases/parent-263-S/process.log",
+      "cases/parent-263-S/protocol-result.json",
+      "cases/parent-263-S/stage-metrics.json",
+      "cases/parent-263-S/status.json",
+      "cases/parent-263-S/steps.jsonl",
+      "cases/parent-263-S/summary.json",
+      "cases/parent-264-D/configuration.json",
+      "cases/parent-264-D/frozen-after.json",
+      "cases/parent-264-D/frozen-before.json",
+      "cases/parent-264-D/kit-command-repair.json",
+      "cases/parent-264-D/metadata.json",
+      "cases/parent-264-D/outer-command.json",
+      "cases/parent-264-D/process-result.json",
+      "cases/parent-264-D/process.log",
+      "cases/parent-264-D/protocol-result.json",
+      "cases/parent-264-D/stage-metrics.json",
+      "cases/parent-264-D/status.json",
+      "cases/parent-264-D/steps.jsonl",
+      "cases/parent-264-D/summary.json",
+      "cases/parent-264-S/configuration.json",
+      "cases/parent-264-S/frozen-after.json",
+      "cases/parent-264-S/frozen-before.json",
+      "cases/parent-264-S/kit-command-repair.json",
+      "cases/parent-264-S/metadata.json",
+      "cases/parent-264-S/outer-command.json",
+      "cases/parent-264-S/process-result.json",
+      "cases/parent-264-S/process.log",
+      "cases/parent-264-S/protocol-result.json",
+      "cases/parent-264-S/stage-metrics.json",
+      "cases/parent-264-S/status.json",
+      "cases/parent-264-S/steps.jsonl",
+      "cases/parent-264-S/summary.json",
+      "cases/parent-265-D/configuration.json",
+      "cases/parent-265-D/frozen-after.json",
+      "cases/parent-265-D/frozen-before.json",
+      "cases/parent-265-D/kit-command-repair.json",
+      "cases/parent-265-D/metadata.json",
+      "cases/parent-265-D/outer-command.json",
+      "cases/parent-265-D/process-result.json",
+      "cases/parent-265-D/process.log",
+      "cases/parent-265-D/protocol-result.json",
+      "cases/parent-265-D/stage-metrics.json",
+      "cases/parent-265-D/status.json",
+      "cases/parent-265-D/steps.jsonl",
+      "cases/parent-265-D/summary.json",
+      "cases/parent-265-S/configuration.json",
+      "cases/parent-265-S/frozen-after.json",
+      "cases/parent-265-S/frozen-before.json",
+      "cases/parent-265-S/kit-command-repair.json",
+      "cases/parent-265-S/metadata.json",
+      "cases/parent-265-S/outer-command.json",
+      "cases/parent-265-S/process-result.json",
+      "cases/parent-265-S/process.log",
+      "cases/parent-265-S/protocol-result.json",
+      "cases/parent-265-S/stage-metrics.json",
+      "cases/parent-265-S/status.json",
+      "cases/parent-265-S/steps.jsonl",
+      "cases/parent-265-S/summary.json",
+      "controller-state.json",
+      "controller.log",
+      "h1-summary.json",
+      "latest-gpu.json",
+      "manifest.json",
+      "model-allowlist.json",
+      "prior-run/code/IMPLEMENTATION.md",
+      "prior-run/code/README.md",
+      "prior-run/code/SHA256SUMS",
+      "prior-run/code/adapter-provenance.json",
+      "prior-run/code/adapter.diff",
+      "prior-run/code/c1_metrics.py",
+      "prior-run/code/cpu-tests.txt",
+      "prior-run/code/evaluate_sac_r7p.py",
+      "prior-run/code/evaluate_with_kit_repair.py",
+      "prior-run/code/evaluation_r7p_helpers.py",
+      "prior-run/code/evaluation_r7p_runner.py",
+      "prior-run/code/h1_controller.py",
+      "prior-run/code/kit_command_repair.py",
+      "prior-run/code/r4_protocol.py",
+      "prior-run/code/r8-source-provenance.json",
+      "prior-run/controller-state.json",
+      "prior-run/manifest.json",
+      "probes/candidate-231-D/compatibility.json",
+      "probes/candidate-231-D/configuration.json",
+      "probes/candidate-231-D/frozen-after.json",
+      "probes/candidate-231-D/frozen-before.json",
+      "probes/candidate-231-D/kit-command-repair.json",
+      "probes/candidate-231-D/metadata.json",
+      "probes/candidate-231-D/outer-command.json",
+      "probes/candidate-231-D/process-result.json",
+      "probes/candidate-231-D/process.log",
+      "probes/candidate-231-D/protocol-result.json",
+      "probes/candidate-231-D/stage-metrics.json",
+      "probes/candidate-231-D/status.json",
+      "probes/candidate-231-D/steps.jsonl",
+      "probes/candidate-231-D/summary.json",
+      "probes/parent-231-D/configuration.json",
+      "probes/parent-231-D/frozen-after.json",
+      "probes/parent-231-D/frozen-before.json",
+      "probes/parent-231-D/kit-command-repair.json",
+      "probes/parent-231-D/metadata.json",
+      "probes/parent-231-D/outer-command.json",
+      "probes/parent-231-D/process-result.json",
+      "probes/parent-231-D/process.log",
+      "probes/parent-231-D/protocol-result.json",
+      "probes/parent-231-D/stage-metrics.json",
+      "probes/parent-231-D/status.json",
+      "probes/parent-231-D/steps.jsonl",
+      "probes/parent-231-D/summary.json",
+      "recovery-capture-index.json",
+      "reused-parent-compatibility.json",
+      "source/backup/h1_archive.py",
+      "source/backup/r8_archive.py",
+      "source/backup/r8_backup_ops.py",
+      "source/backup/r8_publish.py",
+      "source/baseline-kit-command-repair.json",
+      "source/code/IMPLEMENTATION.md",
+      "source/code/README.md",
+      "source/code/RECOVERY.md",
+      "source/code/SHA256SUMS",
+      "source/code/adapter-provenance.json",
+      "source/code/adapter.diff",
+      "source/code/c1_metrics.py",
+      "source/code/cpu-tests.txt",
+      "source/code/evaluate_sac_r7p.py",
+      "source/code/evaluate_with_kit_repair.py",
+      "source/code/evaluation_r7p_helpers.py",
+      "source/code/evaluation_r7p_runner.py",
+      "source/code/h1_controller.py",
+      "source/code/kit_command_repair.py",
+      "source/code/offline_compare.py",
+      "source/code/prior-h1-controller-shas.json",
+      "source/code/r4_protocol.py",
+      "source/code/r8-source-provenance.json",
+      "source/registry-evidence/000-h1-published-release-coverage.json",
+      "source/registry-evidence/001-h1-published-seed-check.json",
+      "source/registry-evidence/002-local-seed-check.json",
+      "source/registry.json",
+      "source/source-index.json"
+    ],
+    "not_present": [
+      "h1-controller.log",
+      "controller-process-result.json",
+      "prior-run/controller.log",
+      "prior-run/h1-controller.log",
+      "prior-run/controller-process-result.json",
+      "prior-run/code/prior-h1-controller-shas.json",
+      "prior-run/code/offline_compare.py",
+      "prior-run/code/RECOVERY.md",
+      "probes/parent-231-D/error.json",
+      "probes/parent-231-D/pulse-cleanup.json",
+      "probes/parent-231-D/compatibility.json",
+      "cases/parent-261-D/error.json",
+      "cases/parent-261-D/pulse-cleanup.json",
+      "cases/parent-261-D/compatibility.json",
+      "cases/parent-261-S/error.json",
+      "cases/parent-261-S/pulse-cleanup.json",
+      "cases/parent-261-S/compatibility.json",
+      "cases/parent-262-D/error.json",
+      "cases/parent-262-D/pulse-cleanup.json",
+      "cases/parent-262-D/compatibility.json",
+      "cases/parent-262-S/error.json",
+      "cases/parent-262-S/pulse-cleanup.json",
+      "cases/parent-262-S/compatibility.json",
+      "cases/parent-263-D/error.json",
+      "cases/parent-263-D/pulse-cleanup.json",
+      "cases/parent-263-D/compatibility.json",
+      "cases/parent-263-S/error.json",
+      "cases/parent-263-S/pulse-cleanup.json",
+      "cases/parent-263-S/compatibility.json",
+      "cases/parent-264-D/error.json",
+      "cases/parent-264-D/pulse-cleanup.json",
+      "cases/parent-264-D/compatibility.json",
+      "cases/parent-264-S/error.json",
+      "cases/parent-264-S/pulse-cleanup.json",
+      "cases/parent-264-S/compatibility.json",
+      "cases/parent-265-D/error.json",
+      "cases/parent-265-D/pulse-cleanup.json",
+      "cases/parent-265-D/compatibility.json",
+      "cases/parent-265-S/error.json",
+      "cases/parent-265-S/pulse-cleanup.json",
+      "cases/parent-265-S/compatibility.json",
+      "probes/candidate-231-D/error.json",
+      "probes/candidate-231-D/pulse-cleanup.json",
+      "cases/candidate-261-D/error.json",
+      "cases/candidate-261-D/pulse-cleanup.json",
+      "cases/candidate-261-D/compatibility.json",
+      "cases/candidate-261-S/error.json",
+      "cases/candidate-261-S/pulse-cleanup.json",
+      "cases/candidate-261-S/compatibility.json",
+      "cases/candidate-262-D/error.json",
+      "cases/candidate-262-D/pulse-cleanup.json",
+      "cases/candidate-262-D/compatibility.json",
+      "cases/candidate-262-S/error.json",
+      "cases/candidate-262-S/pulse-cleanup.json",
+      "cases/candidate-262-S/compatibility.json",
+      "cases/candidate-263-D/error.json",
+      "cases/candidate-263-D/pulse-cleanup.json",
+      "cases/candidate-263-D/compatibility.json",
+      "cases/candidate-263-S/error.json",
+      "cases/candidate-263-S/pulse-cleanup.json",
+      "cases/candidate-263-S/compatibility.json",
+      "cases/candidate-264-D/error.json",
+      "cases/candidate-264-D/pulse-cleanup.json",
+      "cases/candidate-264-D/compatibility.json",
+      "cases/candidate-264-S/error.json",
+      "cases/candidate-264-S/pulse-cleanup.json",
+      "cases/candidate-264-S/compatibility.json",
+      "cases/candidate-265-D/error.json",
+      "cases/candidate-265-D/pulse-cleanup.json",
+      "cases/candidate-265-D/compatibility.json",
+      "cases/candidate-265-S/error.json",
+      "cases/candidate-265-S/pulse-cleanup.json",
+      "cases/candidate-265-S/compatibility.json"
+    ],
+    "scope": "Exact H1 source and 2 probe + 20 heldout case names; no model payloads or other run data; incomplete cases retained."
+  },
+  "model_promotion": false,
+  "models_included": false,
+  "plan_commit": "20f911306047deca563da8a2fdb117503071d19e",
+  "remote_readback": "not_performed",
+  "status": "local_verified_only",
+  "training_updates": 0
+}

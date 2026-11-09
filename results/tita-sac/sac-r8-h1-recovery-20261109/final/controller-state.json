@@ -1,0 +1,2670 @@
+{
+  "plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+  "status": "completed",
+  "deadline": 1794240420.0,
+  "training_updates": 0,
+  "model_promotion": false,
+  "cases": [
+    {
+      "task": {
+        "role": "parent",
+        "seed": 231,
+        "split": "development",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/probes/parent-231-D",
+          "--eval_seed",
+          "231",
+          "--seed-split",
+          "development",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ],
+        "reused_completed_probe": true
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 52.389712261996465,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.6166336169662325,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3047085740044713,
+            "vx_mae": 0.049948168210685255,
+            "wz_mae": 0.09991103670559824,
+            "wz": 0.029277034560218452,
+            "abs_wz": 0.09991103670559824,
+            "speed": 0.3070193146854078,
+            "height": 0.30685602113604543
+          },
+          "reverse": {
+            "vx": -0.22556155177764595,
+            "vx_mae": 0.07443846014328301,
+            "wz_mae": 0.0658785301737953,
+            "wz": 0.033848819612758235,
+            "abs_wz": 0.0658785301737953,
+            "speed": 0.22674146027596465,
+            "height": 0.31423781722784044
+          },
+          "stop1": {
+            "vx": 0.03886125041171908,
+            "vx_mae": 0.041140222381800415,
+            "wz_mae": 0.055917975869961084,
+            "wz": -0.03843473341781646,
+            "abs_wz": 0.055917975869961084,
+            "speed": 0.043792192427438315,
+            "height": 0.3224091970920563
+          },
+          "stop2": {
+            "vx": 0.021747832437977194,
+            "vx_mae": 0.023353622863069176,
+            "wz_mae": 0.06845600200816988,
+            "wz": -0.028567049223929643,
+            "abs_wz": 0.06845600200816988,
+            "speed": 0.02611709835769609,
+            "height": 0.3208027106523514
+          },
+          "height": {
+            "vx": 0.03680547686945647,
+            "vx_mae": 0.05560189318563789,
+            "wz_mae": 0.08228815461369231,
+            "wz": 0.018245858923066408,
+            "abs_wz": 0.08228815461369231,
+            "speed": 0.22072692035589062,
+            "height": 0.31231519544124603
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 173.53931400304558,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794238580.6899576,
+      "rollout_finished_unix": 1794238598.3665822,
+      "initialization_seconds": 32.585941314697266,
+      "post_initialization_seconds": 19.903541564941406,
+      "reused_completed_probe": true
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 231,
+        "split": "development",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/probes/candidate-231-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/probes/candidate-231-D",
+          "--eval_seed",
+          "231",
+          "--seed-split",
+          "development",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 36.79137610900216,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.6148806489308598,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.33232307292521,
+            "vx_mae": 0.057840622290968896,
+            "wz_mae": 0.07826138285687194,
+            "wz": -0.02343565911753103,
+            "abs_wz": 0.07826138285687194,
+            "speed": 0.33333093365964683,
+            "height": 0.31141759753227233
+          },
+          "reverse": {
+            "vx": -0.2324467124073999,
+            "vx_mae": 0.06755329951352905,
+            "wz_mae": 0.08554096264997497,
+            "wz": 0.0728247180650942,
+            "abs_wz": 0.08554096264997497,
+            "speed": 0.23326426497758795,
+            "height": 0.32465998709201815
+          },
+          "stop1": {
+            "vx": 0.00033549943007528784,
+            "vx_mae": 0.030562388682737945,
+            "wz_mae": 0.05568197462707758,
+            "wz": 0.03696450289338827,
+            "abs_wz": 0.05568197462707758,
+            "speed": 0.03407695333386684,
+            "height": 0.330608891248703
+          },
+          "stop2": {
+            "vx": 0.029194319052621723,
+            "vx_mae": 0.029577810978516937,
+            "wz_mae": 0.09601143274456263,
+            "wz": 0.09398086417466402,
+            "abs_wz": 0.09601143274456263,
+            "speed": 0.03213547095171589,
+            "height": 0.32792383909225464
+          },
+          "height": {
+            "vx": 0.048418401796603575,
+            "vx_mae": 0.05962643029843457,
+            "wz_mae": 0.08466750810295344,
+            "wz": 0.03554728215932846,
+            "abs_wz": 0.08466750810295344,
+            "speed": 0.23659640210656702,
+            "height": 0.3197014029622078
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 152.06481412018903,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239356.6899843,
+      "rollout_finished_unix": 1794239374.460628,
+      "initialization_seconds": 17.215781211853027,
+      "post_initialization_seconds": 19.684345722198486
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 261,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-261-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-261-D",
+          "--eval_seed",
+          "261",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 38.68549716999405,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.4134409021507137,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.30222649550880304,
+            "vx_mae": 0.05159207993303425,
+            "wz_mae": 0.06550676035578362,
+            "wz": 0.008233982581878081,
+            "abs_wz": 0.06550676035578362,
+            "speed": 0.30343062915209706,
+            "height": 0.3128113690018654
+          },
+          "reverse": {
+            "vx": -0.2680479741841555,
+            "vx_mae": 0.034784238561987875,
+            "wz_mae": 0.09384623797377571,
+            "wz": 0.08403837738675066,
+            "abs_wz": 0.09384623797377571,
+            "speed": 0.2686272160509628,
+            "height": 0.3195057836174965
+          },
+          "stop1": {
+            "vx": -0.008984303886536508,
+            "vx_mae": 0.020363797021564097,
+            "wz_mae": 0.039296277173561975,
+            "wz": 0.016769023678498342,
+            "abs_wz": 0.039296277173561975,
+            "speed": 0.022430176483101735,
+            "height": 0.3167590230703354
+          },
+          "stop2": {
+            "vx": -0.01810063253273256,
+            "vx_mae": 0.019289327719016,
+            "wz_mae": 0.04553996937247575,
+            "wz": -0.0041317050521320195,
+            "abs_wz": 0.04553996937247575,
+            "speed": 0.02259532815138421,
+            "height": 0.31942370653152463
+          },
+          "height": {
+            "vx": 0.019852314861956984,
+            "vx_mae": 0.04528309345827438,
+            "wz_mae": 0.07499416967075376,
+            "wz": 0.0312676537938969,
+            "abs_wz": 0.07499416967075376,
+            "speed": 0.24023976508325787,
+            "height": 0.3170186026096344
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 132.14665573884815,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239392.7434475,
+      "rollout_finished_unix": 1794239413.782314,
+      "initialization_seconds": 16.084734201431274,
+      "post_initialization_seconds": 22.695628881454468
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 261,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-261-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-261-D",
+          "--eval_seed",
+          "261",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 55.579375861998415,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.5746304933480773,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.241987031288445,
+            "vx_mae": 0.05969900500029326,
+            "wz_mae": 0.09514550087129464,
+            "wz": -0.08034607623791089,
+            "abs_wz": 0.09514550087129464,
+            "speed": 0.2425067809631126,
+            "height": 0.3077984893321991
+          },
+          "reverse": {
+            "vx": -0.28142279578372836,
+            "vx_mae": 0.041760922241955996,
+            "wz_mae": 0.07879780842689797,
+            "wz": 0.06908654559403658,
+            "abs_wz": 0.07879780842689797,
+            "speed": 0.2818456124080344,
+            "height": 0.31842336282134054
+          },
+          "stop1": {
+            "vx": 0.05227635930525139,
+            "vx_mae": 0.05480409488780424,
+            "wz_mae": 0.03807384755113162,
+            "wz": -0.002817198025295511,
+            "abs_wz": 0.03807384755113162,
+            "speed": 0.05637394915326348,
+            "height": 0.33019655764102934
+          },
+          "stop2": {
+            "vx": 0.020222685475600882,
+            "vx_mae": 0.02172020102967508,
+            "wz_mae": 0.04023379414808005,
+            "wz": 0.0315800842596218,
+            "abs_wz": 0.04023379414808005,
+            "speed": 0.02450990826098604,
+            "height": 0.32560395658016206
+          },
+          "height": {
+            "vx": -0.009373380361765157,
+            "vx_mae": 0.048073814673756717,
+            "wz_mae": 0.07830117546755355,
+            "wz": 0.001207759635639377,
+            "abs_wz": 0.07830117546755355,
+            "speed": 0.21777558726917903,
+            "height": 0.31514440685510636
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 133.2716037874547,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239406.611832,
+      "rollout_finished_unix": 1794239432.7171044,
+      "initialization_seconds": 27.76996898651123,
+      "post_initialization_seconds": 27.903846502304077
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 261,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-261-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-261-S",
+          "--eval_seed",
+          "261",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 71.36241046298528,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.47795288926896207,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.2979060607159045,
+            "vx_mae": 0.048806378642329944,
+            "wz_mae": 0.06801234292972368,
+            "wz": 0.01005924513854552,
+            "abs_wz": 0.06801234292972368,
+            "speed": 0.2991095822186427,
+            "height": 0.31221948474645617
+          },
+          "reverse": {
+            "vx": -0.2693191975355148,
+            "vx_mae": 0.03583015292882919,
+            "wz_mae": 0.09683200513769406,
+            "wz": 0.08945265475020278,
+            "abs_wz": 0.09683200513769406,
+            "speed": 0.2699317901325615,
+            "height": 0.31914641946554184
+          },
+          "stop1": {
+            "vx": -0.011483255554921926,
+            "vx_mae": 0.021878888770006596,
+            "wz_mae": 0.04415628179674968,
+            "wz": 0.01607753742253408,
+            "abs_wz": 0.04415628179674968,
+            "speed": 0.02866326464637081,
+            "height": 0.316899379491806
+          },
+          "stop2": {
+            "vx": -0.032478569615632294,
+            "vx_mae": 0.032478569615632294,
+            "wz_mae": 0.05405499933520332,
+            "wz": -0.0006792324013076723,
+            "abs_wz": 0.05405499933520332,
+            "speed": 0.0350447336796427,
+            "height": 0.31801472008228304
+          },
+          "height": {
+            "vx": 0.015586446456145495,
+            "vx_mae": 0.04595985771389678,
+            "wz_mae": 0.07751145905139856,
+            "wz": 0.036258243126096205,
+            "abs_wz": 0.07751145905139856,
+            "speed": 0.2404613137924206,
+            "height": 0.31645473062992097
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 144.7253133055252,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239420.6626093,
+      "rollout_finished_unix": 1794239450.4889338,
+      "initialization_seconds": 39.59655833244324,
+      "post_initialization_seconds": 31.84914493560791
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 261,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-261-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-261-S",
+          "--eval_seed",
+          "261",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 84.94427446599002,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.5871997725855643,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.24662758709862828,
+            "vx_mae": 0.05604919670149684,
+            "wz_mae": 0.09651151528873016,
+            "wz": -0.07474369809671771,
+            "abs_wz": 0.09651151528873016,
+            "speed": 0.24717708277690442,
+            "height": 0.30742797553539275
+          },
+          "reverse": {
+            "vx": -0.2826226760074496,
+            "vx_mae": 0.044115022905170914,
+            "wz_mae": 0.0838672423857497,
+            "wz": 0.07129811473365408,
+            "abs_wz": 0.0838672423857497,
+            "speed": 0.283286540331219,
+            "height": 0.31891675263643265
+          },
+          "stop1": {
+            "vx": 0.04529215608781669,
+            "vx_mae": 0.04864329432195518,
+            "wz_mae": 0.043676105882041155,
+            "wz": 0.008679471793584526,
+            "abs_wz": 0.043676105882041155,
+            "speed": 0.055297113452025565,
+            "height": 0.3314528208971024
+          },
+          "stop2": {
+            "vx": -0.008228101062995848,
+            "vx_mae": 0.01051965084814583,
+            "wz_mae": 0.04962881624349393,
+            "wz": 0.030396211702609435,
+            "abs_wz": 0.04962881624349393,
+            "speed": 0.01469284390198043,
+            "height": 0.323450340628624
+          },
+          "height": {
+            "vx": -0.011463874117907835,
+            "vx_mae": 0.04727857679927547,
+            "wz_mae": 0.08249916540214326,
+            "wz": 0.005366753803915344,
+            "abs_wz": 0.08249916540214326,
+            "speed": 0.220213840490333,
+            "height": 0.3149316245317459
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 144.47259408715672,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239434.2946985,
+      "rollout_finished_unix": 1794239466.3484135,
+      "initialization_seconds": 50.99985146522522,
+      "post_initialization_seconds": 34.04473328590393
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 262,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-262-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-262-D",
+          "--eval_seed",
+          "262",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 68.4993002510164,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.6673620701230878,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.2606067565025296,
+            "vx_mae": 0.046891439562896264,
+            "wz_mae": 0.10414544261642732,
+            "wz": -0.07937428935663775,
+            "abs_wz": 0.10414544261642732,
+            "speed": 0.2621089270428799,
+            "height": 0.3205635641515255
+          },
+          "reverse": {
+            "vx": -0.31869108431041243,
+            "vx_mae": 0.03734031595289707,
+            "wz_mae": 0.07476523954537698,
+            "wz": 0.008884920625714585,
+            "abs_wz": 0.07476523954537698,
+            "speed": 0.3194261186762136,
+            "height": 0.32330036371946336
+          },
+          "stop1": {
+            "vx": -0.08059222511947155,
+            "vx_mae": 0.08059222511947155,
+            "wz_mae": 0.04912890346487984,
+            "wz": 0.02965504758292809,
+            "abs_wz": 0.04912890346487984,
+            "speed": 0.08113057292512363,
+            "height": 0.3202482861280441
+          },
+          "stop2": {
+            "vx": -0.07041391023434698,
+            "vx_mae": 0.07041391023434698,
+            "wz_mae": 0.05585658878087998,
+            "wz": -0.03826406104490161,
+            "abs_wz": 0.05585658878087998,
+            "speed": 0.07158044178724465,
+            "height": 0.3215571242570877
+          },
+          "height": {
+            "vx": -0.028819094830891116,
+            "vx_mae": 0.0490943317131605,
+            "wz_mae": 0.08583972296060528,
+            "wz": -0.03502068793342914,
+            "abs_wz": 0.08583972296060528,
+            "speed": 0.24870026077595855,
+            "height": 0.32182082039117815
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 136.11539139393685,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239448.3149767,
+      "rollout_finished_unix": 1794239482.1411598,
+      "initialization_seconds": 32.82436418533325,
+      "post_initialization_seconds": 35.7739474773407
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 262,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-262-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-262-D",
+          "--eval_seed",
+          "262",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 63.64432120899437,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.5542789939304356,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.31213025183882565,
+            "vx_mae": 0.05047312258277088,
+            "wz_mae": 0.05547922542784363,
+            "wz": -0.02889305311604403,
+            "abs_wz": 0.05547922542784363,
+            "speed": 0.3126690365366853,
+            "height": 0.31211465910077096
+          },
+          "reverse": {
+            "vx": -0.3321877753845183,
+            "vx_mae": 0.05629652886476833,
+            "wz_mae": 0.05367043912352529,
+            "wz": 0.0073694804369006306,
+            "abs_wz": 0.05367043912352529,
+            "speed": 0.3329146067031462,
+            "height": 0.3212919072806835
+          },
+          "stop1": {
+            "vx": -0.051476421867264435,
+            "vx_mae": 0.051476421867264435,
+            "wz_mae": 0.04644631725270301,
+            "wz": -0.0009777375916019083,
+            "abs_wz": 0.04644631725270301,
+            "speed": 0.0524842558553462,
+            "height": 0.3207296961545944
+          },
+          "stop2": {
+            "vx": -0.017603054845239968,
+            "vx_mae": 0.036991119852755217,
+            "wz_mae": 0.04074083000421524,
+            "wz": -0.0017397107277065515,
+            "abs_wz": 0.04074083000421524,
+            "speed": 0.038546788999364014,
+            "height": 0.3208349370956421
+          },
+          "height": {
+            "vx": -0.005619954588357359,
+            "vx_mae": 0.05611129075055942,
+            "wz_mae": 0.05343443493137602,
+            "wz": -0.010530984933371656,
+            "abs_wz": 0.05343443493137602,
+            "speed": 0.2720397068303821,
+            "height": 0.3176408499479294
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 134.19309583638727,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239462.0099912,
+      "rollout_finished_unix": 1794239496.2028446,
+      "initialization_seconds": 27.44668436050415,
+      "post_initialization_seconds": 36.29446506500244
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 262,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-262-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-262-S",
+          "--eval_seed",
+          "262",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 59.29031666999799,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.6817754896279862,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.2604623006470501,
+            "vx_mae": 0.05103685839101672,
+            "wz_mae": 0.1100117124686949,
+            "wz": -0.08491003457922489,
+            "abs_wz": 0.1100117124686949,
+            "speed": 0.2624127576563425,
+            "height": 0.32133321061730385
+          },
+          "reverse": {
+            "vx": -0.3204553462192416,
+            "vx_mae": 0.03815146822482347,
+            "wz_mae": 0.07430681752739474,
+            "wz": 0.011277079365681857,
+            "abs_wz": 0.07430681752739474,
+            "speed": 0.32120896263530596,
+            "height": 0.3236777554452419
+          },
+          "stop1": {
+            "vx": -0.07921434201300144,
+            "vx_mae": 0.07921434201300144,
+            "wz_mae": 0.058225570011418315,
+            "wz": 0.031424779111985116,
+            "abs_wz": 0.058225570011418315,
+            "speed": 0.08014863471596183,
+            "height": 0.32094316005706786
+          },
+          "stop2": {
+            "vx": -0.0670418409537524,
+            "vx_mae": 0.0670418409537524,
+            "wz_mae": 0.058985661533661186,
+            "wz": -0.040973156611435115,
+            "abs_wz": 0.058985661533661186,
+            "speed": 0.06991837756146457,
+            "height": 0.32210032403469085
+          },
+          "height": {
+            "vx": -0.02984554848819971,
+            "vx_mae": 0.050666224725544454,
+            "wz_mae": 0.08729972153203562,
+            "wz": -0.036607916802633554,
+            "abs_wz": 0.08729972153203562,
+            "speed": 0.24937251399198485,
+            "height": 0.32240813291072845
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 145.41958924165255,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239475.3196726,
+      "rollout_finished_unix": 1794239509.9620697,
+      "initialization_seconds": 22.754077672958374,
+      "post_initialization_seconds": 36.634084939956665
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 262,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-262-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-262-S",
+          "--eval_seed",
+          "262",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 58.7652669439849,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.6066953052709287,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3127094863343518,
+            "vx_mae": 0.05293204411980696,
+            "wz_mae": 0.06835953527130187,
+            "wz": -0.037493656720034775,
+            "abs_wz": 0.06835953527130187,
+            "speed": 0.31358251607241877,
+            "height": 0.31160686299204826
+          },
+          "reverse": {
+            "vx": -0.33092273324451527,
+            "vx_mae": 0.05580631763019483,
+            "wz_mae": 0.0635074561953661,
+            "wz": 0.011890422910510097,
+            "abs_wz": 0.0635074561953661,
+            "speed": 0.33168635061251855,
+            "height": 0.3209473992884159
+          },
+          "stop1": {
+            "vx": -0.05577016879804433,
+            "vx_mae": 0.05577016879804433,
+            "wz_mae": 0.05753842578735203,
+            "wz": -0.007940687560476363,
+            "abs_wz": 0.05753842578735203,
+            "speed": 0.057695516169255646,
+            "height": 0.32029575169086455
+          },
+          "stop2": {
+            "vx": -0.015009784437716008,
+            "vx_mae": 0.03720809560269117,
+            "wz_mae": 0.04279892318416387,
+            "wz": 0.004715746422298253,
+            "abs_wz": 0.04279892318416387,
+            "speed": 0.041294821397256286,
+            "height": 0.32050288856029513
+          },
+          "height": {
+            "vx": -0.004310791245836299,
+            "vx_mae": 0.056478636541927696,
+            "wz_mae": 0.06384341395704542,
+            "wz": -0.01187093141011428,
+            "abs_wz": 0.06384341395704542,
+            "speed": 0.2718264677850473,
+            "height": 0.31722267603874205
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 145.0842073264972,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239490.15424,
+      "rollout_finished_unix": 1794239524.9542317,
+      "initialization_seconds": 21.76834487915039,
+      "post_initialization_seconds": 37.09992861747742
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 263,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-263-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-263-D",
+          "--eval_seed",
+          "263",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 57.197212730010506,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.5421365162672265,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3210118181281723,
+            "vx_mae": 0.05785790316527709,
+            "wz_mae": 0.07856433598091826,
+            "wz": 0.06624920897884294,
+            "abs_wz": 0.07856433598091826,
+            "speed": 0.32157404725099425,
+            "height": 0.31016064643859864
+          },
+          "reverse": {
+            "vx": -0.3057056362554431,
+            "vx_mae": 0.031201279945671557,
+            "wz_mae": 0.0903756000593421,
+            "wz": 0.07212354721763405,
+            "abs_wz": 0.0903756000593421,
+            "speed": 0.3063705619545996,
+            "height": 0.31334178999066353
+          },
+          "stop1": {
+            "vx": -0.0432034600735642,
+            "vx_mae": 0.04322678927099332,
+            "wz_mae": 0.04790653973817825,
+            "wz": -0.029900749139487745,
+            "abs_wz": 0.04790653973817825,
+            "speed": 0.045962349491766655,
+            "height": 0.31984389185905454
+          },
+          "stop2": {
+            "vx": -0.03399945704266429,
+            "vx_mae": 0.03423349982127547,
+            "wz_mae": 0.059360357942059634,
+            "wz": -0.037881064778193835,
+            "abs_wz": 0.059360357942059634,
+            "speed": 0.03807585644111398,
+            "height": 0.3192269217967987
+          },
+          "height": {
+            "vx": 0.006129511368460953,
+            "vx_mae": 0.04889378449227661,
+            "wz_mae": 0.08269783585623372,
+            "wz": 0.04385562465817202,
+            "abs_wz": 0.08269783585623372,
+            "speed": 0.26559105369817615,
+            "height": 0.31333254063129423
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 155.63254815577613,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239504.2067559,
+      "rollout_finished_unix": 1794239539.7046463,
+      "initialization_seconds": 20.06962490081787,
+      "post_initialization_seconds": 37.22673726081848
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 263,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-263-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-263-D",
+          "--eval_seed",
+          "263",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 58.20192153000971,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.4987318858339344,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.25343763516750184,
+            "vx_mae": 0.05183815045747906,
+            "wz_mae": 0.08037674742867239,
+            "wz": -0.07526215062476695,
+            "abs_wz": 0.08037674742867239,
+            "speed": 0.2538942144932964,
+            "height": 0.3101285657286644
+          },
+          "reverse": {
+            "vx": -0.3176582832634449,
+            "vx_mae": 0.04025301977992058,
+            "wz_mae": 0.0692746621533297,
+            "wz": 0.05226332973921671,
+            "abs_wz": 0.0692746621533297,
+            "speed": 0.317917884340104,
+            "height": 0.322534286826849
+          },
+          "stop1": {
+            "vx": -0.02334372016834095,
+            "vx_mae": 0.023863860375713558,
+            "wz_mae": 0.03526747039053589,
+            "wz": 0.0013772752927616238,
+            "abs_wz": 0.03526747039053589,
+            "speed": 0.027947411347199642,
+            "height": 0.32794997215270993
+          },
+          "stop2": {
+            "vx": -0.04065533185377717,
+            "vx_mae": 0.04065533185377717,
+            "wz_mae": 0.040877867172239346,
+            "wz": -0.0002689522516448051,
+            "abs_wz": 0.040877867172239346,
+            "speed": 0.043541881159200345,
+            "height": 0.32820724487304687
+          },
+          "height": {
+            "vx": -0.029716368157416583,
+            "vx_mae": 0.04837711318954825,
+            "wz_mae": 0.07025452592980583,
+            "wz": -0.012584798804367893,
+            "abs_wz": 0.07025452592980583,
+            "speed": 0.2412357684321908,
+            "height": 0.31838283443450927
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 137.82935060159565,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239517.1585774,
+      "rollout_finished_unix": 1794239554.5555286,
+      "initialization_seconds": 18.803267002105713,
+      "post_initialization_seconds": 39.50393986701965
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 263,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-263-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-263-S",
+          "--eval_seed",
+          "263",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 57.16692412397242,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.5577170335757505,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3215923525206745,
+            "vx_mae": 0.05890596078708768,
+            "wz_mae": 0.09428489857295062,
+            "wz": 0.07326715951261577,
+            "abs_wz": 0.09428489857295062,
+            "speed": 0.32280246732864337,
+            "height": 0.3121952149271965
+          },
+          "reverse": {
+            "vx": -0.30501785382628444,
+            "vx_mae": 0.030842371433973313,
+            "wz_mae": 0.09546159636345691,
+            "wz": 0.07006441840552725,
+            "abs_wz": 0.09546159636345691,
+            "speed": 0.3058209037033792,
+            "height": 0.31322694703936577
+          },
+          "stop1": {
+            "vx": -0.03735356805555057,
+            "vx_mae": 0.038503530031885023,
+            "wz_mae": 0.06580769404303283,
+            "wz": -0.03756260398309678,
+            "abs_wz": 0.06580769404303283,
+            "speed": 0.042764221414424854,
+            "height": 0.31952728927135465
+          },
+          "stop2": {
+            "vx": -0.026575456699356438,
+            "vx_mae": 0.027633930435404182,
+            "wz_mae": 0.06955253160558642,
+            "wz": -0.03620199275203049,
+            "abs_wz": 0.06955253160558642,
+            "speed": 0.03191003692151058,
+            "height": 0.3191980904340744
+          },
+          "height": {
+            "vx": 0.00613703651400283,
+            "vx_mae": 0.04762654502922669,
+            "wz_mae": 0.0924772733587306,
+            "wz": 0.04621600269130431,
+            "abs_wz": 0.0924772733587306,
+            "speed": 0.26409447895695265,
+            "height": 0.3140521863102913
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 171.5931679761171,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239530.6756072,
+      "rollout_finished_unix": 1794239567.0419097,
+      "initialization_seconds": 18.675316095352173,
+      "post_initialization_seconds": 38.59199500083923
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 263,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-263-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-263-S",
+          "--eval_seed",
+          "263",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 52.76950536700315,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.5017783171001733,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.24663384892046453,
+            "vx_mae": 0.05667398296296597,
+            "wz_mae": 0.08865459528693463,
+            "wz": -0.07294006726762746,
+            "abs_wz": 0.08865459528693463,
+            "speed": 0.2473253491116224,
+            "height": 0.3100536873936653
+          },
+          "reverse": {
+            "vx": -0.3153051393851638,
+            "vx_mae": 0.037938854731619356,
+            "wz_mae": 0.07559528881451115,
+            "wz": 0.05201528177829459,
+            "abs_wz": 0.07559528881451115,
+            "speed": 0.3156625900323876,
+            "height": 0.3223916095495224
+          },
+          "stop1": {
+            "vx": -0.02190352523000911,
+            "vx_mae": 0.023784841529559345,
+            "wz_mae": 0.048474466642364857,
+            "wz": 0.0028868366312235594,
+            "abs_wz": 0.048474466642364857,
+            "speed": 0.030015447767554354,
+            "height": 0.3280406308174133
+          },
+          "stop2": {
+            "vx": -0.03053444324992597,
+            "vx_mae": 0.031017972575500607,
+            "wz_mae": 0.054909450374543665,
+            "wz": 0.00030825003981590273,
+            "abs_wz": 0.054909450374543665,
+            "speed": 0.03583184498393172,
+            "height": 0.32909618973731997
+          },
+          "height": {
+            "vx": -0.03152823184337467,
+            "vx_mae": 0.04847386367339641,
+            "wz_mae": 0.07793949962244369,
+            "wz": -0.012017137931426987,
+            "abs_wz": 0.07793949962244369,
+            "speed": 0.23680714759209856,
+            "height": 0.31835230827331545
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 148.3759375489651,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239543.806796,
+      "rollout_finished_unix": 1794239578.3929186,
+      "initialization_seconds": 16.486189365386963,
+      "post_initialization_seconds": 36.38995838165283
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 264,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-264-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-264-D",
+          "--eval_seed",
+          "264",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 56.15248775400687,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.6367727518805396,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.26193455772008745,
+            "vx_mae": 0.04219192697200924,
+            "wz_mae": 0.053362860390916464,
+            "wz": 0.02338010735809803,
+            "abs_wz": 0.053362860390916464,
+            "speed": 0.2643421238449177,
+            "height": 0.2976812815666199
+          },
+          "reverse": {
+            "vx": -0.3299731803871691,
+            "vx_mae": 0.05790321996435523,
+            "wz_mae": 0.09510059971711599,
+            "wz": 0.0683520447066985,
+            "abs_wz": 0.09510059971711599,
+            "speed": 0.33044955713983604,
+            "height": 0.31035275518894195
+          },
+          "stop1": {
+            "vx": -0.06995243206620216,
+            "vx_mae": 0.06995243206620216,
+            "wz_mae": 0.04555298983119428,
+            "wz": 0.010966559899970888,
+            "abs_wz": 0.04555298983119428,
+            "speed": 0.07087409047189028,
+            "height": 0.31009398102760316
+          },
+          "stop2": {
+            "vx": -0.034065541215240955,
+            "vx_mae": 0.035745496787130834,
+            "wz_mae": 0.0499541341024451,
+            "wz": -0.01623463413445279,
+            "abs_wz": 0.0499541341024451,
+            "speed": 0.04083658562717492,
+            "height": 0.30857942581176756
+          },
+          "height": {
+            "vx": -0.02772448474355042,
+            "vx_mae": 0.05328362865932286,
+            "wz_mae": 0.0717141027036123,
+            "wz": 0.030585823486559093,
+            "abs_wz": 0.0717141027036123,
+            "speed": 0.25201293731737445,
+            "height": 0.3049154405593872
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 139.9719631724613,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239562.4525168,
+      "rollout_finished_unix": 1794239595.823259,
+      "initialization_seconds": 20.97979187965393,
+      "post_initialization_seconds": 35.280519247055054
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 264,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-264-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-264-D",
+          "--eval_seed",
+          "264",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 54.6291260579892,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.5479284688396687,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3147341613122262,
+            "vx_mae": 0.059735570733901115,
+            "wz_mae": 0.07802921184978913,
+            "wz": -0.048315183299710046,
+            "abs_wz": 0.07802921184978913,
+            "speed": 0.31636118892805765,
+            "height": 0.312545653283596
+          },
+          "reverse": {
+            "vx": -0.3380948006082326,
+            "vx_mae": 0.07284112493507564,
+            "wz_mae": 0.0644406500144396,
+            "wz": 0.00464073596172966,
+            "abs_wz": 0.0644406500144396,
+            "speed": 0.3409401456465116,
+            "height": 0.321706662774086
+          },
+          "stop1": {
+            "vx": -0.014453939273953437,
+            "vx_mae": 0.01917307833209634,
+            "wz_mae": 0.038293796663638205,
+            "wz": 0.006899646113160998,
+            "abs_wz": 0.038293796663638205,
+            "speed": 0.022943483445823178,
+            "height": 0.31898714244365695
+          },
+          "stop2": {
+            "vx": 0.010053743291646242,
+            "vx_mae": 0.03066570544615388,
+            "wz_mae": 0.04862787176389247,
+            "wz": 0.009886468718759716,
+            "abs_wz": 0.04862787176389247,
+            "speed": 0.03487720501191918,
+            "height": 0.32004898369312285
+          },
+          "height": {
+            "vx": -0.004032838774845004,
+            "vx_mae": 0.06639286992512643,
+            "wz_mae": 0.06763347078463994,
+            "wz": -0.018011324751423672,
+            "abs_wz": 0.06763347078463994,
+            "speed": 0.2772294637036159,
+            "height": 0.3180600022673607
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 133.88135427094448,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239575.6920192,
+      "rollout_finished_unix": 1794239609.0460763,
+      "initialization_seconds": 18.97755527496338,
+      "post_initialization_seconds": 35.77642464637756
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 264,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-264-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-264-S",
+          "--eval_seed",
+          "264",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 56.29708481201669,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.6912255743758733,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3418053706921637,
+            "vx_mae": 0.08791322058066725,
+            "wz_mae": 0.07009573030401953,
+            "wz": 0.024554550616303458,
+            "abs_wz": 0.07009573030401953,
+            "speed": 0.3437058083659656,
+            "height": 0.29971340611577035
+          },
+          "reverse": {
+            "vx": -0.3170946385618299,
+            "vx_mae": 0.0432798329833895,
+            "wz_mae": 0.07747986985283205,
+            "wz": 0.026737882053421345,
+            "abs_wz": 0.07747986985283205,
+            "speed": 0.3176932479443908,
+            "height": 0.3075946745276451
+          },
+          "stop1": {
+            "vx": -0.060360269472002986,
+            "vx_mae": 0.060360269472002986,
+            "wz_mae": 0.048785636620596054,
+            "wz": 0.004201065320521593,
+            "abs_wz": 0.048785636620596054,
+            "speed": 0.06217895915937513,
+            "height": 0.30991230249404905
+          },
+          "stop2": {
+            "vx": -0.029548680479638278,
+            "vx_mae": 0.03714537784922868,
+            "wz_mae": 0.06758123276289553,
+            "wz": -0.03756812224630266,
+            "abs_wz": 0.06758123276289553,
+            "speed": 0.04143026666626153,
+            "height": 0.31176888942718506
+          },
+          "height": {
+            "vx": 0.01356642682151869,
+            "vx_mae": 0.06655187469767407,
+            "wz_mae": 0.07982042033749166,
+            "wz": 0.0033096348888939247,
+            "abs_wz": 0.07982042033749166,
+            "speed": 0.27955056132087946,
+            "height": 0.30554210329055786
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 159.2402524104146,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239589.4337878,
+      "rollout_finished_unix": 1794239623.4469259,
+      "initialization_seconds": 20.114084482192993,
+      "post_initialization_seconds": 36.30521488189697
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 264,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-264-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-264-S",
+          "--eval_seed",
+          "264",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 59.069466424989514,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.5791293253094552,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.31893560684577094,
+            "vx_mae": 0.06147840016230475,
+            "wz_mae": 0.08168664217577316,
+            "wz": -0.044786829593358564,
+            "abs_wz": 0.08168664217577316,
+            "speed": 0.3204455407855795,
+            "height": 0.31236733838915826
+          },
+          "reverse": {
+            "vx": -0.3387961587030441,
+            "vx_mae": 0.0727494955342263,
+            "wz_mae": 0.06483955665258691,
+            "wz": 0.001780403524171561,
+            "abs_wz": 0.06483955665258691,
+            "speed": 0.34130219969083064,
+            "height": 0.3214381515979767
+          },
+          "stop1": {
+            "vx": -0.018516276779118924,
+            "vx_mae": 0.01888001344865188,
+            "wz_mae": 0.04832459582015872,
+            "wz": 0.007989225834608078,
+            "abs_wz": 0.04832459582015872,
+            "speed": 0.025864083370231068,
+            "height": 0.3186428564786911
+          },
+          "stop2": {
+            "vx": 0.007886508889496326,
+            "vx_mae": 0.032252077646553516,
+            "wz_mae": 0.05990056049777195,
+            "wz": 0.005625441416632384,
+            "abs_wz": 0.05990056049777195,
+            "speed": 0.03661285694607069,
+            "height": 0.320090543627739
+          },
+          "height": {
+            "vx": -0.0030261839523445817,
+            "vx_mae": 0.06680668496037834,
+            "wz_mae": 0.07174449911923148,
+            "wz": -0.01940722002252005,
+            "abs_wz": 0.07174449911923148,
+            "speed": 0.27874504546859247,
+            "height": 0.3178290171027184
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 144.80971114753507,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239603.7393723,
+      "rollout_finished_unix": 1794239637.5010395,
+      "initialization_seconds": 23.489659070968628,
+      "post_initialization_seconds": 35.69586992263794
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 265,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-265-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-265-D",
+          "--eval_seed",
+          "265",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 57.420665997982724,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.7960119773561173,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.23442667247727514,
+            "vx_mae": 0.07076666919514536,
+            "wz_mae": 0.09751783750354662,
+            "wz": 0.006766391534911236,
+            "abs_wz": 0.09751783750354662,
+            "speed": 0.2366148166394789,
+            "height": 0.3143825612962246
+          },
+          "reverse": {
+            "vx": -0.21318511576857418,
+            "vx_mae": 0.08681489615235477,
+            "wz_mae": 0.05009197106584907,
+            "wz": -0.010413301864173264,
+            "abs_wz": 0.05009197106584907,
+            "speed": 0.21399826173617853,
+            "height": 0.32366875365376474
+          },
+          "stop1": {
+            "vx": 0.03203503212891519,
+            "vx_mae": 0.03729004788212478,
+            "wz_mae": 0.059546985337510704,
+            "wz": -0.03439353535883129,
+            "abs_wz": 0.059546985337510704,
+            "speed": 0.040306501147272175,
+            "height": 0.3187150150537491
+          },
+          "stop2": {
+            "vx": 0.07127969734370708,
+            "vx_mae": 0.07127969734370708,
+            "wz_mae": 0.07128954218700528,
+            "wz": -0.02479856485500932,
+            "abs_wz": 0.07128954218700528,
+            "speed": 0.07294181165031438,
+            "height": 0.31713728606700897
+          },
+          "height": {
+            "vx": 0.025370152892544864,
+            "vx_mae": 0.07990615634806454,
+            "wz_mae": 0.07471669842646224,
+            "wz": -0.00799146891135024,
+            "abs_wz": 0.07471669842646224,
+            "speed": 0.19745860429155557,
+            "height": 0.3189700766801834
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 185.96521693706288,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239618.162432,
+      "rollout_finished_unix": 1794239652.9088547,
+      "initialization_seconds": 20.37649440765381,
+      "post_initialization_seconds": 37.15922689437866
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 265,
+        "split": "heldout",
+        "execution": "D",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-265-D",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-265-D",
+          "--eval_seed",
+          "265",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 55.159943745005876,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.6079342198365587,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3274360179156065,
+            "vx_mae": 0.06299644269049168,
+            "wz_mae": 0.13436352614779026,
+            "wz": -0.1270289964741096,
+            "abs_wz": 0.13436352614779026,
+            "speed": 0.32933521124350806,
+            "height": 0.33522526159882543
+          },
+          "reverse": {
+            "vx": -0.23716290231794118,
+            "vx_mae": 0.06287265989929437,
+            "wz_mae": 0.10705269180121832,
+            "wz": 0.09941884319181554,
+            "abs_wz": 0.10705269180121832,
+            "speed": 0.23814753636058927,
+            "height": 0.34735429644584653
+          },
+          "stop1": {
+            "vx": 0.011804554159753025,
+            "vx_mae": 0.020821500499732793,
+            "wz_mae": 0.06514018985442817,
+            "wz": 0.0025720077846199275,
+            "abs_wz": 0.06514018985442817,
+            "speed": 0.02571586684396695,
+            "height": 0.35349436938762663
+          },
+          "stop2": {
+            "vx": -0.025941095878370107,
+            "vx_mae": 0.030374277173541485,
+            "wz_mae": 0.05706983922747895,
+            "wz": 0.014994516868609935,
+            "abs_wz": 0.05706983922747895,
+            "speed": 0.03435374342608463,
+            "height": 0.3441269451379776
+          },
+          "height": {
+            "vx": 0.03485521736415103,
+            "vx_mae": 0.06629926124634221,
+            "wz_mae": 0.11136248979927041,
+            "wz": -0.010997597077162937,
+            "abs_wz": 0.11136248979927041,
+            "speed": 0.24402315885376363,
+            "height": 0.34192296481132506
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 185.09324905540302,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239631.058845,
+      "rollout_finished_unix": 1794239664.6421442,
+      "initialization_seconds": 19.537423133850098,
+      "post_initialization_seconds": 35.729527950286865
+    },
+    {
+      "task": {
+        "role": "parent",
+        "seed": 265,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-265-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/parent-265-S",
+          "--eval_seed",
+          "265",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 54.96734954600106,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.8036033437298968,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.24035439712926746,
+            "vx_mae": 0.06757756488397718,
+            "wz_mae": 0.10784371904795989,
+            "wz": -0.008375119029078632,
+            "abs_wz": 0.10784371904795989,
+            "speed": 0.24227790771448546,
+            "height": 0.31485786989331244
+          },
+          "reverse": {
+            "vx": -0.21469051154330374,
+            "vx_mae": 0.08530950037762523,
+            "wz_mae": 0.06790385378408245,
+            "wz": -0.010121363060316071,
+            "abs_wz": 0.06790385378408245,
+            "speed": 0.2158405694933933,
+            "height": 0.32372293427586557
+          },
+          "stop1": {
+            "vx": 0.02943988086655736,
+            "vx_mae": 0.03721245991066098,
+            "wz_mae": 0.0729932809714228,
+            "wz": -0.036637379666790364,
+            "abs_wz": 0.0729932809714228,
+            "speed": 0.041046896749295174,
+            "height": 0.31789215981960295
+          },
+          "stop2": {
+            "vx": 0.06150375831872225,
+            "vx_mae": 0.06150375831872225,
+            "wz_mae": 0.09378642238676548,
+            "wz": -0.025000716783106326,
+            "abs_wz": 0.09378642238676548,
+            "speed": 0.06505250962101711,
+            "height": 0.3172797465324402
+          },
+          "height": {
+            "vx": 0.026927477683871985,
+            "vx_mae": 0.07783313144557177,
+            "wz_mae": 0.09076954629132525,
+            "wz": -0.0144766268231906,
+            "abs_wz": 0.09076954629132525,
+            "speed": 0.20083710326481755,
+            "height": 0.31942984902858734
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 200.58033795263898,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239647.184652,
+      "rollout_finished_unix": 1794239678.9163349,
+      "initialization_seconds": 21.380406379699707,
+      "post_initialization_seconds": 33.68582224845886
+    },
+    {
+      "task": {
+        "role": "candidate",
+        "seed": 265,
+        "split": "heldout",
+        "execution": "S",
+        "output": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-265-S",
+        "command": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/cases/candidate-265-S",
+          "--eval_seed",
+          "265",
+          "--seed-split",
+          "heldout",
+          "--condition",
+          "standard",
+          "--execution",
+          "S",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/evaluation-init.lock"
+        ]
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "full_process_seconds": 50.558158336003544,
+      "retry_allowed": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.6253242615002188,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.3154121982306242,
+            "vx_mae": 0.054238266721367834,
+            "wz_mae": 0.14969233272364363,
+            "wz": -0.1312747042463161,
+            "abs_wz": 0.14969233272364363,
+            "speed": 0.3175751432682249,
+            "height": 0.3320840698480606
+          },
+          "reverse": {
+            "vx": -0.24169117759913206,
+            "vx_mae": 0.05869443882256746,
+            "wz_mae": 0.10987679658806883,
+            "wz": 0.09239192411652766,
+            "abs_wz": 0.10987679658806883,
+            "speed": 0.24279825844826003,
+            "height": 0.3446232555806637
+          },
+          "stop1": {
+            "vx": 0.005406630113720894,
+            "vx_mae": 0.02390415232628584,
+            "wz_mae": 0.07935491675045342,
+            "wz": 0.0019810731476172807,
+            "abs_wz": 0.07935491675045342,
+            "speed": 0.030495772357056795,
+            "height": 0.3491522133350372
+          },
+          "stop2": {
+            "vx": -0.019443227052688597,
+            "vx_mae": 0.028098326921463013,
+            "wz_mae": 0.08621777291875332,
+            "wz": 0.030295262369327246,
+            "abs_wz": 0.08621777291875332,
+            "speed": 0.03407690878696917,
+            "height": 0.3407991874217987
+          },
+          "height": {
+            "vx": 0.02888487889524549,
+            "vx_mae": 0.059885186231695114,
+            "wz_mae": 0.12288296041451395,
+            "wz": -0.011127231081947684,
+            "abs_wz": 0.12288296041451395,
+            "speed": 0.24008506907564386,
+            "height": 0.339035863161087
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 202.41088234976507,
+        "recovery_delay_s": null
+      },
+      "rollout_ready_unix": 1794239663.3986034,
+      "rollout_finished_unix": 1794239688.2567751,
+      "initialization_seconds": 23.9114408493042,
+      "post_initialization_seconds": 26.752199411392212
+    }
+  ],
+  "compatibility": [
+    {
+      "passed": true,
+      "steps": 600,
+      "max_numeric_difference": 0,
+      "trajectory_fields_ignored": [],
+      "pointer_metadata_normalized": [
+        "configuration.reward_terms.*.function hexadecimal process address only",
+        "configuration.original_push push_by_setting_velocity hexadecimal process address only"
+      ],
+      "configuration_metadata_ignored": [
+        "argv",
+        "checkpoint",
+        "phase_id",
+        "plan_id",
+        "rollout_ready_unix",
+        "source_identity"
+      ],
+      "summary_metadata_ignored": [
+        "elapsed_s",
+        "phase_id",
+        "plan_id",
+        "rollout_finished_unix"
+      ],
+      "source_adapter_exceptions": [
+        "c1_metrics.py",
+        "evaluate_sac_r7p.py",
+        "evaluation_r7p_helpers.py",
+        "h1_controller.py"
+      ],
+      "wrapper_source_metadata_exception": "Missing source_identity wrapper key allowed only when both repair reports prove same actual frozen wrapper SHA and identical provider/repair report",
+      "old": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1",
+      "new": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D"
+    },
+    {
+      "passed": true,
+      "steps": 600,
+      "max_numeric_difference": 0,
+      "trajectory_fields_ignored": [],
+      "pointer_metadata_normalized": [
+        "configuration.reward_terms.*.function hexadecimal process address only",
+        "configuration.original_push push_by_setting_velocity hexadecimal process address only"
+      ],
+      "configuration_metadata_ignored": [
+        "argv",
+        "checkpoint",
+        "phase_id",
+        "plan_id",
+        "rollout_ready_unix",
+        "source_identity"
+      ],
+      "summary_metadata_ignored": [
+        "elapsed_s",
+        "phase_id",
+        "plan_id",
+        "rollout_finished_unix"
+      ],
+      "source_adapter_exceptions": [
+        "c1_metrics.py",
+        "evaluate_sac_r7p.py",
+        "evaluation_r7p_helpers.py",
+        "h1_controller.py"
+      ],
+      "wrapper_source_metadata_exception": "Missing source_identity wrapper key allowed only when both repair reports prove same actual frozen wrapper SHA and identical provider/repair report",
+      "old": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D",
+      "new": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/probes/candidate-231-D"
+    }
+  ],
+  "frozen_inputs": [
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-actor-rate-20261109/inputs/parent.pt",
+      "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/stage-metrics.json",
+      "sha256": "ea50fb8d193bb18c4de104a27168d4ccd4767c4d31224892d8f106c4365e3441"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/frozen-before.json",
+      "sha256": "48af5d9a38119fc337e4d6f8903ddad7889a034d11bb0470d75f325ba124eff1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/protocol-result.json",
+      "sha256": "4526c4792b17c34709bce2bcf5f839eae708e342f1f555bc1c28796703765877"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/status.json",
+      "sha256": "62a2ec7ea23aed9b55d5588aa911617482704992eeb912b0d6c9a87ea7f781a1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/configuration.json",
+      "sha256": "28363661ef5f89d39e64fec25362167fbc9d1963a7bc0f463c92b633a04358c1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/summary.json",
+      "sha256": "56f566157160ef6d0460b0a242c5bc4e3aee5be9e90977e381d420bbedb5a2e5"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/progress.json",
+      "sha256": "d9f5cb48037041c0af3fe1c5b47b763425888a63ce65e47f10b05dd3ea8bfd57"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/frozen-after.json",
+      "sha256": "48af5d9a38119fc337e4d6f8903ddad7889a034d11bb0470d75f325ba124eff1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/process-result.json",
+      "sha256": "a02d222e1be4a3d356cac5372aa177b9048c9baaa90b42f86d8cfae4569f1286"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/metadata.json",
+      "sha256": "18a3d300310b18ddb383d6de9b7cd8e8a2ed8dc110670c864428af30eef27cea"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/kit-command-repair.json",
+      "sha256": "c5b3605dd53ded9b16319a20e1a110422090f0653c23e48f0b2240cd38328e8c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/steps.jsonl",
+      "sha256": "c243500be2d267cbc4847edbd04092397a3a41f27ce103771d3815bcd9991354"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-resume-20261109/arms/A1-1502/model-learning-48.pt",
+      "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/stage-metrics.json",
+      "sha256": "02bbc24b7ab3349abeb16cc59e68a880757d2a4047e99838ac865e69f64ec965"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/frozen-before.json",
+      "sha256": "b2daad7821a7a8cc31b6c313f2a150af342f2b81bd42cd7fa96a49f2234c76b1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/protocol-result.json",
+      "sha256": "bea6cfefac280934bf004cfa7618ee0c2d561435b0fbacb67cdea37ae1d46c54"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/status.json",
+      "sha256": "62a2ec7ea23aed9b55d5588aa911617482704992eeb912b0d6c9a87ea7f781a1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/configuration.json",
+      "sha256": "40175efdc5e1452d861989eea30d398ed6c40129124b1475aff24965137f9cb2"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/summary.json",
+      "sha256": "f08e98d2917512be504e261e4fffff9636da880267802686d29cdddd6577994a"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/progress.json",
+      "sha256": "b54af7325d0e47b6e19daeae50d175876c298c074c0c43ee8024971ee4dbaa02"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/frozen-after.json",
+      "sha256": "b2daad7821a7a8cc31b6c313f2a150af342f2b81bd42cd7fa96a49f2234c76b1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/process-result.json",
+      "sha256": "8faf8871b57c7033a135b2b04136e454052f698c14ac451e697cfbd5c8e369d8"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/metadata.json",
+      "sha256": "7b71945c262f6d814e4322818c8fef7091b9ccd12e6c41fd9fcac0f04be1fa67"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/outer-command.json",
+      "sha256": "25a2ee04730bbfa7c4eb07e61fe8e1c65c281d0ef57fa4e1d574ff399d22e092"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/kit-command-repair.json",
+      "sha256": "931a483085baba5249dd701772f0b41a778d3e7ee6bbe9ca9bd1e1108d8d89e1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-final40-20261109/cases/A1-1502-L48-231-D/steps.jsonl",
+      "sha256": "8fabe99bd83e5a5fa59385946df5b06457e0a24b686e836719bfe9b8b296fc50"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/c1_metrics.py",
+      "sha256": "9a95679d85d25612a9f07bc460aad3dc1ef621f5ac902d31634507953a57bf81"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_with_kit_repair.py",
+      "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluation_r7p_helpers.py",
+      "sha256": "a792b7383653d3021b223e1615f6ce9cc147577eb4a9af991e748291ce5b93f1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/r4_protocol.py",
+      "sha256": "d94d1fd0ab1aef20a09bf5a960c02a89842575f737e3e7e42c8b7f7c755842f6"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluate_sac_r7p.py",
+      "sha256": "679c71221fd31fd9994190414b87fc8a762925a48712205bce04c344355356bb"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/offline_compare.py",
+      "sha256": "fb4f6874de166e88d3c3213e5eee63fb0a1ab4ec8eb3ebb1a1b5cd46c949a9a4"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/h1_controller.py",
+      "sha256": "3637b9229b431d6447a03279bd6d54b586fb84b51dbf5409976ff2fbdf6577cc"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/evaluation_r7p_runner.py",
+      "sha256": "a23e4cf8e951a990f83fa8a4902f7cdb06bf650ce1834ea0381c933b1816e633"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/kit_command_repair.py",
+      "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/test_h1.py",
+      "sha256": "d7c83988fc5eb7622d9900716ee596d82aa7edd2ad01b831851f5dc78090554f"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/adapter-provenance.json",
+      "sha256": "dbb153cade68f5442f0484f6bc30c8577bc959b36bb372dd1dc19d8971c59a33"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/r8-source-provenance.json",
+      "sha256": "263f56f929612102b81e2c7efdbb5a1ca7b89386082557a6f64ab5140757faff"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1/sac-r8-h1-evaluation-v3/prior-h1-controller-shas.json",
+      "sha256": "f9dd188b6ca3ebf294c5174df018681ab704874f9ddbb076fb4badb4b8eb16a6"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/kit-repair/providers.json",
+      "sha256": "6bd27e268d0aed41f12e605151d811025dd828863fb0958fb73f7386479320bd"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-proof/seed-registry-check.json",
+      "sha256": "4e6fad2fc8d184cbd9ab60ec6e631ab0eb3e8942345b808cd3ef699967d5749c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/model-allowlist.json",
+      "sha256": "0245dda01f1b966b0e8135ba52357817e932e046e91971730b8b02a1fc1940e1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/stage-metrics.json",
+      "sha256": "ea50fb8d193bb18c4de104a27168d4ccd4767c4d31224892d8f106c4365e3441"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/frozen-before.json",
+      "sha256": "48af5d9a38119fc337e4d6f8903ddad7889a034d11bb0470d75f325ba124eff1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/protocol-result.json",
+      "sha256": "4526c4792b17c34709bce2bcf5f839eae708e342f1f555bc1c28796703765877"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/process.log",
+      "sha256": "bb2fb4babb816f27ae7d5553cd8710a8b2f772574e57337134cd744bb561e556"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/status.json",
+      "sha256": "62a2ec7ea23aed9b55d5588aa911617482704992eeb912b0d6c9a87ea7f781a1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/configuration.json",
+      "sha256": "bc933bd39ff5d610a2ee81993fed67aa808e99b47b4b6d641f416dfc6ae65fc5"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/summary.json",
+      "sha256": "b190fb7790b8a7d60a55be3fbcfdcb059540ebbc94b555865554d9addb797428"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/progress.json",
+      "sha256": "a91b70d416e7fdc19d324a12ef476dc61000cba5907ac1d94335d1ff9f39d408"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/frozen-after.json",
+      "sha256": "48af5d9a38119fc337e4d6f8903ddad7889a034d11bb0470d75f325ba124eff1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/process-result.json",
+      "sha256": "559887a232184bf0f49442a747d1ba742737a77b3f30bd486e0c0a0cfe522267"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/metadata.json",
+      "sha256": "5328ed0b89e70af0c0b2dc848c793459f85f3b1f5423d5a2ccc7f296d0c63c33"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/outer-command.json",
+      "sha256": "0043f8b543fadc4fbb46047f69d0bfb81d8c68c1a7b3c07a584d1cd82919f36d"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/stage-metrics.csv",
+      "sha256": "53355c220ffb0bed423920c52b6017d1341dd549cc61482ea405c0516ee12cbc"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/steps.jsonl",
+      "sha256": "c243500be2d267cbc4847edbd04092397a3a41f27ce103771d3815bcd9991354"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-20261109/probes/parent-231-D/kit-command-repair.json",
+      "sha256": "347755f977805c785969b26a5e2743cd013fed44bf4c45aed0d602d108b90304"
+    }
+  ],
+  "not_started": [],
+  "launched": 21,
+  "ended_epoch": 1794239690.6818469
+}

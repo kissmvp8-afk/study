@@ -1,0 +1,13 @@
+H1 frozen heldout handoff
+Plan 20f911306047deca563da8a2fdb117503071d19e. No training updates or model promotion.
+Original parent probe completed600 steps; original controller stopped on process-address metadata. User approved narrow comparison repair and25-minute budget extension. Original evidence retained.
+Parent probe reused without rerun only after exact600-step comparison and independent original Kit wrapper/provider SHA evidence. All physical/action/reward fields exact; only documented nonphysical metadata normalized.
+Status: completed
+Compatibility checks passed: 2
+Completed heldout cases: 20
+Error: None
+Fixed candidate A1/1502-L48 SHA7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1; parent SHA cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3.
+Seeds261-265 D/S; two models; serial compatibility then up to4 processes with initialization lock. All published current case lists and995 server configurations checked unused before heldout.
+Summary: {"parent": {"survival_count": 10, "pass_count": 4, "motion_count": 10, "parking_P": 0.05786932112809007, "parking_yaw": 0.06259614400089777, "moving_mae": 0.053249863931967414, "moving_Mmax": 0.06330314575566444}, "candidate": {"survival_count": 10, "pass_count": 6, "motion_count": 10, "parking_P": 0.044114527494406655, "parking_yaw": 0.05495210660132579, "moving_mae": 0.0554721283738836, "moving_Mmax": 0.060364468359955924}, "candidate_passed_heldout": false, "training_updates": 0, "model_promotion": false, "low_lr_replication": false, "hardware_acceptance": false}
+New lease duration unspecified: user confirmed renewed and sufficient; no exact new expiry claimed. Evaluation cutoff16:07UTC, archive cutoff16:15UTC. No renewal performed.
+Archive and Release digest/size receipt are separate; not a claim of actual downloaded recovery. Model files unchanged.

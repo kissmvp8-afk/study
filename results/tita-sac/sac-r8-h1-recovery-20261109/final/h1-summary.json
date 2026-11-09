@@ -1,0 +1,25 @@
+{
+  "parent": {
+    "survival_count": 10,
+    "pass_count": 4,
+    "motion_count": 10,
+    "parking_P": 0.05786932112809007,
+    "parking_yaw": 0.06259614400089777,
+    "moving_mae": 0.053249863931967414,
+    "moving_Mmax": 0.06330314575566444
+  },
+  "candidate": {
+    "survival_count": 10,
+    "pass_count": 6,
+    "motion_count": 10,
+    "parking_P": 0.044114527494406655,
+    "parking_yaw": 0.05495210660132579,
+    "moving_mae": 0.0554721283738836,
+    "moving_Mmax": 0.060364468359955924
+  },
+  "candidate_passed_heldout": false,
+  "training_updates": 0,
+  "model_promotion": false,
+  "low_lr_replication": false,
+  "hardware_acceptance": false
+}
