@@ -1,0 +1,14 @@
+{
+  "raw_standard_cases": 162,
+  "raw_diagnostic_cases": 6,
+  "raw_steps": 101418,
+  "training_macro_rows": 3200,
+  "trace_transitions": 3276800,
+  "stage_models_binary_downloaded_CPU_read": 24,
+  "full_resume_remote_digest_size_checked": 8,
+  "full_resume_binary_redownloaded": 0,
+  "CPU_protocol_tests_passed": 43,
+  "CPU_mock_concurrency_tests_passed": 10,
+  "R6_arithmetic_and_relative_links": "passed",
+  "R6_status": "proposal_only_not_implemented_not_started"
+}

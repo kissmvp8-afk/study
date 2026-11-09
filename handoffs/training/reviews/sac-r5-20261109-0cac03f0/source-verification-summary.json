@@ -1,0 +1,7 @@
+{
+  "protected_source_records": 488,
+  "study_python_files_match_R4": 55,
+  "runtime_and_lane_hashes_verified": true,
+  "requested_response_receipts_verified": true,
+  "scope": "Exact source identity and recorded runtime assertions; no new GPU simulation or training was run in this audit"
+}

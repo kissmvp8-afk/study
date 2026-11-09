@@ -1,0 +1,266 @@
+[
+  {
+    "arm": "C0-1101",
+    "checkpoint": {
+      "path": "arms/C0-1101/latest-fullresume.pt",
+      "sha256": "bda51c19a90554bb44e0042b546e05c6d250db96d75e23a4695d071ed5f1aea1",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12459270,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726129581,
+      "name": "C0-1101-iteration400-fullresume-bda51c19a90554bb.pt",
+      "size": 216135765,
+      "digest": "sha256:bda51c19a90554bb44e0042b546e05c6d250db96d75e23a4695d071ed5f1aea1",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C0-1101-iteration400-fullresume-bda51c19a90554bb.pt",
+      "created_at": "2026-11-09T03:49:45Z",
+      "updated_at": "2026-11-09T03:50:04Z"
+    }
+  },
+  {
+    "arm": "C0-1102",
+    "checkpoint": {
+      "path": "arms/C0-1102/latest-fullresume.pt",
+      "sha256": "55db3b79371be0dcef82cce413e1f36ddabf59e8aa91cd4527795f021d05b484",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12463058,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726130418,
+      "name": "C0-1102-iteration400-fullresume-55db3b79371be0dc.pt",
+      "size": 216135829,
+      "digest": "sha256:55db3b79371be0dcef82cce413e1f36ddabf59e8aa91cd4527795f021d05b484",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C0-1102-iteration400-fullresume-55db3b79371be0dc.pt",
+      "created_at": "2026-11-09T03:50:13Z",
+      "updated_at": "2026-11-09T03:50:34Z"
+    }
+  },
+  {
+    "arm": "C1-1101",
+    "checkpoint": {
+      "path": "arms/C1-1101/latest-fullresume.pt",
+      "sha256": "65f5278df5a5c3284f2d9e93e7c2825f4cad885473c6c97fdc76c3ce4e0126e9",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12456270,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726091687,
+      "name": "C1-1101-iteration400-fullresume-65f5278df5a5c328.pt",
+      "size": 216135765,
+      "digest": "sha256:65f5278df5a5c3284f2d9e93e7c2825f4cad885473c6c97fdc76c3ce4e0126e9",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C1-1101-iteration400-fullresume-65f5278df5a5c328.pt",
+      "created_at": "2026-11-09T03:32:13Z",
+      "updated_at": "2026-11-09T03:32:30Z"
+    }
+  },
+  {
+    "arm": "C1-1102",
+    "checkpoint": {
+      "path": "arms/C1-1102/latest-fullresume.pt",
+      "sha256": "7024439cd0fa5196a5f0e97a79c4c01d6916df18b53e9e855368d25e2dfeb3ad",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12463325,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726092610,
+      "name": "C1-1102-iteration400-fullresume-7024439cd0fa5196.pt",
+      "size": 216135829,
+      "digest": "sha256:7024439cd0fa5196a5f0e97a79c4c01d6916df18b53e9e855368d25e2dfeb3ad",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C1-1102-iteration400-fullresume-7024439cd0fa5196.pt",
+      "created_at": "2026-11-09T03:32:40Z",
+      "updated_at": "2026-11-09T03:32:59Z"
+    }
+  },
+  {
+    "arm": "C2-1101",
+    "checkpoint": {
+      "path": "arms/C2-1101/latest-fullresume.pt",
+      "sha256": "67ebca0df86d21a6bb7494b6bd82aef933f1a242959a383b6a93315e5a9e7c1c",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12454884,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726093781,
+      "name": "C2-1101-iteration400-fullresume-67ebca0df86d21a6.pt",
+      "size": 216135765,
+      "digest": "sha256:67ebca0df86d21a6bb7494b6bd82aef933f1a242959a383b6a93315e5a9e7c1c",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C2-1101-iteration400-fullresume-67ebca0df86d21a6.pt",
+      "created_at": "2026-11-09T03:33:10Z",
+      "updated_at": "2026-11-09T03:33:27Z"
+    }
+  },
+  {
+    "arm": "C2-1102",
+    "checkpoint": {
+      "path": "arms/C2-1102/latest-fullresume.pt",
+      "sha256": "4af3157c72b346494eab4dcbddc2c0087760ca2c3c0b511924b09242b49c99be",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12450518,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726094880,
+      "name": "C2-1102-iteration400-fullresume-4af3157c72b34649.pt",
+      "size": 216135829,
+      "digest": "sha256:4af3157c72b346494eab4dcbddc2c0087760ca2c3c0b511924b09242b49c99be",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C2-1102-iteration400-fullresume-4af3157c72b34649.pt",
+      "created_at": "2026-11-09T03:33:36Z",
+      "updated_at": "2026-11-09T03:33:56Z"
+    }
+  },
+  {
+    "arm": "C3-1101",
+    "checkpoint": {
+      "path": "arms/C3-1101/latest-fullresume.pt",
+      "sha256": "d15d4a9ca08a6071a443d6af36679d32be531d2e35317f7e499acf4127c540f2",
+      "bytes": 216135765,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12455740,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726131290,
+      "name": "C3-1101-iteration400-fullresume-d15d4a9ca08a6071.pt",
+      "size": 216135765,
+      "digest": "sha256:d15d4a9ca08a6071a443d6af36679d32be531d2e35317f7e499acf4127c540f2",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C3-1101-iteration400-fullresume-d15d4a9ca08a6071.pt",
+      "created_at": "2026-11-09T03:50:45Z",
+      "updated_at": "2026-11-09T03:51:02Z"
+    }
+  },
+  {
+    "arm": "C3-1102",
+    "checkpoint": {
+      "path": "arms/C3-1102/latest-fullresume.pt",
+      "sha256": "062e8e4bbb8de9f6ca9e789762369410ac89877a75edc3a6f3fa4dbec71ff8c2",
+      "bytes": 216135829,
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12457037,
+        "learning_skipped_iterations": 0
+      },
+      "readback_verified": true
+    },
+    "asset": {
+      "tag": "sac-r5-park-20261109",
+      "id": 726132309,
+      "name": "C3-1102-iteration400-fullresume-062e8e4bbb8de9f6.pt",
+      "size": 216135829,
+      "digest": "sha256:062e8e4bbb8de9f6ca9e789762369410ac89877a75edc3a6f3fa4dbec71ff8c2",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C3-1102-iteration400-fullresume-062e8e4bbb8de9f6.pt",
+      "created_at": "2026-11-09T03:51:12Z",
+      "updated_at": "2026-11-09T03:51:29Z"
+    }
+  }
+]

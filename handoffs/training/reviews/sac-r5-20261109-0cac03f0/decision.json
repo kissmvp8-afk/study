@@ -1,0 +1,29 @@
+{
+  "run_id": "SAC-R5-PARK-20261109",
+  "evidence_commit": "0cac03f0869039ece66dd410f66631f61d663195",
+  "training_status": "completed",
+  "control_acceptance": "failed",
+  "primary_standard_pass": "4/6",
+  "secondary_standard_pass": "2/6",
+  "survival_both": "6/6 each",
+  "turn": "not_run",
+  "pulse": "not_run",
+  "actual_updates": {
+    "critic": 393216,
+    "actor": 196608,
+    "alpha": 393216,
+    "auxiliary": 393216
+  },
+  "updates_and_stage_decisions_recomputed": true,
+  "selection_follows_frozen_rule": true,
+  "selection_not_global_history_optimality_test": true,
+  "concurrency_equal_budget_verified": true,
+  "concurrency_numeric_equivalence_verified": false,
+  "server_local_archive_repair_verified": false,
+  "published_snapshot_hash_CRC_verified": true,
+  "next_plan_id": "SAC-R6-STABILITY-20261109",
+  "next_plan_status": "proposal_only_not_implemented_not_started",
+  "default_next_parent_sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+  "new_training_started": false,
+  "reviewed_at_utc": "2026-11-09T04:46:07.269011+00:00"
+}

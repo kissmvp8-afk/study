@@ -1,0 +1,40 @@
+{
+  "recorded_user_authorization": "嗯，你可以同时开多路跑，最大化利用服务器资源，减少我们的等待时间",
+  "max_workers": 4,
+  "protected_scientific_bytes_match": true,
+  "lane_config_diff_only_execution_paths": true,
+  "request_response_receipts_verified": true,
+  "gpu_average_pct": 93.76666666666667,
+  "sample_count": 30,
+  "observed_sample_span_s": 59.205421924591064,
+  "peak_memory_MiB": 11764,
+  "performance_scope": "first formal four-worker 60-second window; includes any startup/prefill in this window",
+  "throughput": {
+    "60": {
+      "start_epoch": 1794189546.8784351,
+      "end_epoch": 1794189606.8784351,
+      "counts": {
+        "C2-1102": 9,
+        "C3-1101": 8,
+        "C1-1102": 8,
+        "C2-1101": 8
+      },
+      "learning_macros": 33,
+      "speedup_vs_fullpool_baseline": 2.4490595644791484
+    },
+    "120": {
+      "start_epoch": 1794189546.8784351,
+      "end_epoch": 1794189666.8784351,
+      "counts": {
+        "C2-1102": 19,
+        "C3-1101": 17,
+        "C1-1102": 18,
+        "C2-1101": 17
+      },
+      "learning_macros": 71,
+      "speedup_vs_fullpool_baseline": 2.634594379969993
+    }
+  },
+  "numerical_serial_parallel_equivalence_report_present": false,
+  "scientific_caveat": "C0 first stage serial, interventions mostly concurrent; equal-update fairness verified, numerical and simulator equivalence not established"
+}

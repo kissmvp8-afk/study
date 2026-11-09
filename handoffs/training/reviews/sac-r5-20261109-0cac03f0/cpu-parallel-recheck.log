@@ -1,0 +1,15 @@
+test_eval_initialization_serialized_learning_overlaps (test_parallel_worker.Tests.test_eval_initialization_serialized_learning_overlaps) ... ok
+test_four_worker_integration (test_parallel_worker.Tests.test_four_worker_integration) ... ok
+test_future_exact_contract (test_parallel_worker.Tests.test_future_exact_contract) ... ok
+test_lane_derivation_narrow (test_parallel_worker.Tests.test_lane_derivation_narrow) ... ok
+test_last_no_future (test_parallel_worker.Tests.test_last_no_future) ... ok
+test_receipt_refuses_uncertain (test_parallel_worker.Tests.test_receipt_refuses_uncertain) ... ok
+test_rotation (test_parallel_worker.Tests.test_rotation) ... ok
+test_source_hashes_not_disabled (test_parallel_worker.Tests.test_source_hashes_not_disabled) ... ok
+test_training_ready_rejects_stale_request (test_parallel_worker.Tests.test_training_ready_rejects_stale_request) ... ok
+test_two_worker_integration (test_parallel_worker.Tests.test_two_worker_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 6.878s
+
+OK

@@ -1,0 +1,40 @@
+{
+  "rule_champion_final_stage": "C0",
+  "chosen": [
+    {
+      "direction": "C0",
+      "fork_seed": 1102,
+      "learning_macros": 144,
+      "model_sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+      "model_path": "arms/C0-1102/model-learning-144.pt",
+      "source_decision": "round-1.decision.json",
+      "key": [
+        -1.0,
+        -0.3333333333333333,
+        -0.3333333333333333,
+        -1.0,
+        0.04647269546151515,
+        0.05399641791960069,
+        0.05095037628673405
+      ]
+    },
+    {
+      "direction": "C0",
+      "fork_seed": 1101,
+      "learning_macros": 144,
+      "model_sha256": "9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7",
+      "model_path": "arms/C0-1101/model-learning-144.pt",
+      "source_decision": "round-1.decision.json",
+      "key": [
+        -1.0,
+        -0.3333333333333333,
+        -0.3333333333333333,
+        -1.0,
+        0.07003964168984377,
+        0.04783225952841652,
+        0.05934896082423317
+      ]
+    }
+  ],
+  "all_historical_options_available_but_other_directions_excluded": true
+}

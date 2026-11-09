@@ -1,0 +1,1687 @@
+{
+  "reader_torch": "2.7.0+cpu",
+  "map_location": "cpu",
+  "weights_only": true,
+  "records": [
+    {
+      "name": "C0-1101-iteration160-model-9278c0c35e3c9716.pt",
+      "sha256": "9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C0",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4674240,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 5.222117397352122e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C0-1101-iteration304-model-3f0b29f58879b914.pt",
+      "sha256": "3f0b29f58879b914597a7e5234fa5d889c9e15014e5cc1f7e094abc472405c38",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C0",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9350917,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 5.643747135763988e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C0-1101-iteration400-model-a7573e93246392a6.pt",
+      "sha256": "a7573e93246392a6f05a0ce83c2b618d54cb65943d173952ef4eb474789ab657",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C0",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12459270,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 5.3543953981716186e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C0-1102-iteration160-model-1e1a983c0a0e0759.pt",
+      "sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C0",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4676467,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 5.4693406127626076e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C0-1102-iteration304-model-4a0e3805f3d772be.pt",
+      "sha256": "4a0e3805f3d772be929bd5d12b42caa1f5cf99cb1f5eb1f62c64443d637cc9c5",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C0",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9357018,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 5.5776337831048295e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C0-1102-iteration400-model-25375595adfacd9c.pt",
+      "sha256": "25375595adfacd9c7b0e0cbcdfd578f00cfdfa64981f22e84fd573961aa08144",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C0",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12463058,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 5.421796231530607e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C1-1101-iteration160-model-bf422cddf96e5c18.pt",
+      "sha256": "bf422cddf96e5c18389f7f27056f28b9286db4933bd0f8b45bbb1849fd2c07d5",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C1",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4674421,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.116859731264412e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C1-1101-iteration304-model-a94b0d331d2bf18c.pt",
+      "sha256": "a94b0d331d2bf18c57c3f60e1b3a4e53d867e3e0bcb9a0c9cd483c55e08632c6",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C1",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9351527,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.73631438985467e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C1-1101-iteration400-model-a45e2d29137bcce9.pt",
+      "sha256": "a45e2d29137bcce9191d2667e636aabd4462780239726c9c4e7c8d0bfd0a1de4",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C1",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12456270,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.34342068224214e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C1-1102-iteration160-model-5ccf662c5d7666d3.pt",
+      "sha256": "5ccf662c5d7666d3f143a0082cbe7c80489692e84d04ebc6930a6dd68b2cfce6",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C1",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4675520,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.413532537408173e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C1-1102-iteration304-model-b21801d8a89435c2.pt",
+      "sha256": "b21801d8a89435c2f5ef5e9acfc49fe15640a10872596fc6f4a6ef2b7da9c34d",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C1",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9355087,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.148869579192251e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C1-1102-iteration400-model-b207f3b4c6489358.pt",
+      "sha256": "b207f3b4c6489358d7ff04e9684875444bdd998449b7ad164a292969919df3cd",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C1",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12463325,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 5.5707761930534616e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C2-1101-iteration160-model-a2902d68e920dac7.pt",
+      "sha256": "a2902d68e920dac77fc021b331d033701ef177028a8ff03579eb656829c6d117",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C2",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4672661,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.160150562413037e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C2-1101-iteration304-model-16c6025df4c216fa.pt",
+      "sha256": "16c6025df4c216fab66b928eca4d6b863699b1d1eb957b22cb0a9becc64759ad",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C2",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9346542,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.157037180149928e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C2-1101-iteration400-model-ce4378aa1c6ed87d.pt",
+      "sha256": "ce4378aa1c6ed87d720bda3e0e0cc27f929501a6e36a69ca74e4796ee0cbe6c6",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C2",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12454884,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.00592136126943e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C2-1102-iteration160-model-cca5b526aed18c83.pt",
+      "sha256": "cca5b526aed18c83bab2a3e91c877c3bd69e752786f08967ff39665905a0f57e",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C2",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4674852,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.71486632199958e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C2-1102-iteration304-model-41bacf48ea850d6a.pt",
+      "sha256": "41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C2",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9349398,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.593321450054646e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C2-1102-iteration400-model-4faf84a3e23f6527.pt",
+      "sha256": "4faf84a3e23f65278b67bd6b49343d250d76cd4741e2a44d53c5ab22d8fbdc13",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C2",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12450518,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.204680150607601e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C3-1101-iteration160-model-52868414e1d097f0.pt",
+      "sha256": "52868414e1d097f011a4da94b45cd8b0267b705708dec1bd45ad3b58470319f8",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C3",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4673751,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.610667671542615e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C3-1101-iteration304-model-a954876375ccdc35.pt",
+      "sha256": "a954876375ccdc35d53426c2d30b91803167d8fc492be75e2b3dc35bbc728292",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C3",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9349235,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.901891174493358e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C3-1101-iteration400-model-5f48fbdc48345b58.pt",
+      "sha256": "5f48fbdc48345b582f3fd9306efe12894d8e9f462e14f0950300488902775f79",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C3",
+        "fork_seed": 1101,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12455740,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 6.695593037875369e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1101,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C3-1102-iteration160-model-2ba45d6241125b8a.pt",
+      "sha256": "2ba45d6241125b8ab852f0765f17003700faf0b52a573bc3dbcf40ef5f9ae28e",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C3",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 160,
+        "env_steps": 1280,
+        "transitions": 163840,
+        "critic_updates": 18432,
+        "actor_updates": 9216,
+        "alpha_updates": 18432,
+        "target_updates": 18432,
+        "auxiliary_updates": 18432,
+        "auxiliary_skipped": 0,
+        "replay_samples": 4718592,
+        "auxiliary_samples": 4674378,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.508003909606487e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          267264.0
+        ],
+        "actor": [
+          133632.0
+        ],
+        "alpha": [
+          267264.0
+        ],
+        "auxiliary": [
+          267264.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C3-1102-iteration304-model-09ccaf3465e518d1.pt",
+      "sha256": "09ccaf3465e518d1ecdba8fcb742901869f57881e228ce8335d761547e6afef8",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C3",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 304,
+        "env_steps": 2432,
+        "transitions": 311296,
+        "critic_updates": 36864,
+        "actor_updates": 18432,
+        "alpha_updates": 36864,
+        "target_updates": 36864,
+        "auxiliary_updates": 36864,
+        "auxiliary_skipped": 0,
+        "replay_samples": 9437184,
+        "auxiliary_samples": 9350621,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.666752935620025e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          285696.0
+        ],
+        "actor": [
+          142848.0
+        ],
+        "alpha": [
+          285696.0
+        ],
+        "auxiliary": [
+          285696.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    },
+    {
+      "name": "C3-1102-iteration400-model-a49479d45b91c0e2.pt",
+      "sha256": "a49479d45b91c0e2ea80bffe934206bf6c8e636f95c6d221dadb8b99e9237bd0",
+      "identity": {
+        "plan_id": "SAC-R5-PARK-20261109",
+        "direction": "C3",
+        "fork_seed": 1102,
+        "parameters_sha256": "a1fcc6259daf663467e149897b27a319ded0f7ac06c844958ebdc98c1984c687"
+      },
+      "counters": {
+        "iterations": 400,
+        "env_steps": 3200,
+        "transitions": 409600,
+        "critic_updates": 49152,
+        "actor_updates": 24576,
+        "alpha_updates": 49152,
+        "target_updates": 49152,
+        "auxiliary_updates": 49152,
+        "auxiliary_skipped": 0,
+        "replay_samples": 12582912,
+        "auxiliary_samples": 12457037,
+        "learning_skipped_iterations": 0
+      },
+      "learned_alpha": 7.110570732038468e-05,
+      "inherited_entry": {
+        "mode": "R5_fixed_parent_modules_optimizers_statistics_empty_pool",
+        "exact_resume": false,
+        "parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+        "parent_counters": {
+          "iterations": 952,
+          "env_steps": 7616,
+          "transitions": 974848,
+          "critic_updates": 119808,
+          "actor_updates": 59904,
+          "alpha_updates": 119808,
+          "target_updates": 119808,
+          "auxiliary_updates": 119808,
+          "auxiliary_skipped": 0,
+          "replay_samples": 30670848,
+          "auxiliary_samples": 30416658,
+          "learning_skipped_iterations": 0
+        },
+        "inherited_optimizer_steps": true,
+        "task_counters_start_at_zero": true,
+        "parent_replay_imported": false,
+        "parent_episode_ids_imported": false,
+        "fork_seed": 1102,
+        "ancestor_training_seed": 1001,
+        "parent_alpha": 5.444408088806085e-05,
+        "alpha_multiplier": 1.0,
+        "effective_entry_alpha": 5.444408088806085e-05,
+        "native_learned_std_restored": true
+      },
+      "optimizer_lifetime_steps": {
+        "critic": [
+          297984.0
+        ],
+        "actor": [
+          148992.0
+        ],
+        "alpha": [
+          297984.0
+        ],
+        "auxiliary": [
+          297984.0
+        ]
+      },
+      "all_tensors_finite": true,
+      "replay_included": false
+    }
+  ]
+}

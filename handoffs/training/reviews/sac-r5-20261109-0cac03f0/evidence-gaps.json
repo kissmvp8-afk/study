@@ -1,0 +1,45 @@
+{
+  "missing": [
+    {
+      "files": [
+        "server-only local archive repair report (exact name not provided)",
+        "external correction manifest (exact name not provided)",
+        "failed archive-*/MANIFEST.json",
+        "post-correction verifier output bound to original archive SHA"
+      ],
+      "impact": "Cannot independently confirm that local archive repair; published snapshot integrity independently verified."
+    },
+    {
+      "files": [
+        "same-checkpoint same-seed serial versus four-way numeric/trajectory equivalence report"
+      ],
+      "impact": "Equal data/update budgets verified; execution-mode numerical confounding remains."
+    },
+    {
+      "files": [
+        "exact 120-second throughput calculation with start/end timestamps"
+      ],
+      "impact": "Independent fixed window yields2.63459x, supports approximate speedup only."
+    },
+    {
+      "files": [
+        "raw full training initial physical values corresponding to initial-physical-*.json and paired-starts/*.json"
+      ],
+      "impact": "Training hash records match but cannot recompute full initial physics; evaluation raw initial fields are available and verified."
+    }
+  ],
+  "not_run_by_design": [
+    {
+      "models": [
+        "C3 both forks144",
+        "C2 both forks288"
+      ],
+      "missing_evaluation": "final heldout; not selected by original final-stage-direction rule",
+      "impact": "Cannot infer C0 globally best; propose new paired development and untouched final seeds."
+    }
+  ],
+  "not_redownloaded_by_reviewer": [
+    "eight full resume binaries; remote SHA digest and size checked; all24 model-only binaries actually downloaded"
+  ],
+  "nonblocking_for_current_review": "Candidate weights, raw training and evaluation are independently available; none of these gaps justify inventing success or assuming a repair."
+}

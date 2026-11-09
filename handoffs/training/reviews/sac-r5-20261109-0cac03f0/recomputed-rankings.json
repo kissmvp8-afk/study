@@ -1,0 +1,500 @@
+[
+  {
+    "stage": 1,
+    "L": 144,
+    "ranking": [
+      {
+        "direction": "C3",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.5,
+        "overall_pass": 0.5833333333333334,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.5,
+            "motion": 1.0,
+            "parking_P": 0.05043559902592477,
+            "parking_yaw": 0.0652861666722068,
+            "moving_mae": 0.07401141133028431
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.6666666666666666,
+            "motion": 1.0,
+            "parking_P": 0.046878975176853854,
+            "parking_yaw": 0.09960761231700115,
+            "moving_mae": 0.07952941867324019
+          }
+        },
+        "parking_P": 0.05043559902592477,
+        "parking_yaw": 0.09960761231700115,
+        "moving_mae": 0.07952941867324019,
+        "sort_key": [
+          -1.0,
+          -0.5,
+          -0.5833333333333334,
+          -1.0,
+          0.05043559902592477,
+          0.09960761231700115,
+          0.07952941867324019,
+          3
+        ]
+      },
+      {
+        "direction": "C0",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.3333333333333333,
+        "overall_pass": 0.3333333333333333,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.3333333333333333,
+            "motion": 1.0,
+            "parking_P": 0.07003964168984377,
+            "parking_yaw": 0.04783225952841652,
+            "moving_mae": 0.05934896082423317
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.3333333333333333,
+            "motion": 1.0,
+            "parking_P": 0.04647269546151515,
+            "parking_yaw": 0.05399641791960069,
+            "moving_mae": 0.05095037628673405
+          }
+        },
+        "parking_P": 0.07003964168984377,
+        "parking_yaw": 0.05399641791960069,
+        "moving_mae": 0.05934896082423317,
+        "sort_key": [
+          -1.0,
+          -0.3333333333333333,
+          -0.3333333333333333,
+          -1.0,
+          0.07003964168984377,
+          0.05399641791960069,
+          0.05934896082423317,
+          0
+        ]
+      },
+      {
+        "direction": "C1",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.3333333333333333,
+        "overall_pass": 0.3333333333333333,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.3333333333333333,
+            "motion": 1.0,
+            "parking_P": 0.043950419851345436,
+            "parking_yaw": 0.04647098077223442,
+            "moving_mae": 0.06862143928282118
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.3333333333333333,
+            "motion": 1.0,
+            "parking_P": 0.07693293084109921,
+            "parking_yaw": 0.09116102842148394,
+            "moving_mae": 0.09164612187751725
+          }
+        },
+        "parking_P": 0.07693293084109921,
+        "parking_yaw": 0.09116102842148394,
+        "moving_mae": 0.09164612187751725,
+        "sort_key": [
+          -1.0,
+          -0.3333333333333333,
+          -0.3333333333333333,
+          -1.0,
+          0.07693293084109921,
+          0.09116102842148394,
+          0.09164612187751725,
+          1
+        ]
+      },
+      {
+        "direction": "C2",
+        "worst_fork_survival": 0.6666666666666666,
+        "worst_fork_pass": 0.0,
+        "overall_pass": 0.16666666666666666,
+        "worst_fork_motion": 0.6666666666666666,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 1.0,
+            "parking_P": 0.0838364706345402,
+            "parking_yaw": 0.07741920292726717,
+            "moving_mae": 0.09493882112302042
+          },
+          "1102": {
+            "complete": false,
+            "survival": 0.6666666666666666,
+            "task_pass": 0.3333333333333333,
+            "motion": 0.6666666666666666,
+            "parking_P": null,
+            "parking_yaw": null,
+            "moving_mae": null
+          }
+        },
+        "parking_P": null,
+        "parking_yaw": null,
+        "moving_mae": null,
+        "sort_key": [
+          -0.6666666666666666,
+          -0.0,
+          -0.16666666666666666,
+          -0.6666666666666666,
+          1e+300,
+          1e+300,
+          1e+300,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "L": 288,
+    "ranking": [
+      {
+        "direction": "C2",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.5,
+        "overall_pass": 0.5,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.5,
+            "motion": 1.0,
+            "parking_P": 0.07444698507400109,
+            "parking_yaw": 0.05708898073838403,
+            "moving_mae": 0.08692330797222288
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.5,
+            "motion": 1.0,
+            "parking_P": 0.08102112569578827,
+            "parking_yaw": 0.12100367802816132,
+            "moving_mae": 0.0607559366694962
+          }
+        },
+        "parking_P": 0.08102112569578827,
+        "parking_yaw": 0.12100367802816132,
+        "moving_mae": 0.08692330797222288,
+        "sort_key": [
+          -1.0,
+          -0.5,
+          -0.5,
+          -1.0,
+          0.08102112569578827,
+          0.12100367802816132,
+          0.08692330797222288,
+          2
+        ]
+      },
+      {
+        "direction": "C1",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.3333333333333333,
+        "overall_pass": 0.3333333333333333,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.3333333333333333,
+            "motion": 1.0,
+            "parking_P": 0.056998847048431577,
+            "parking_yaw": 0.07260263667286684,
+            "moving_mae": 0.05827821918724415
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.3333333333333333,
+            "motion": 1.0,
+            "parking_P": 0.049269479523652994,
+            "parking_yaw": 0.06986689450917766,
+            "moving_mae": 0.04723483356220337
+          }
+        },
+        "parking_P": 0.056998847048431577,
+        "parking_yaw": 0.07260263667286684,
+        "moving_mae": 0.05827821918724415,
+        "sort_key": [
+          -1.0,
+          -0.3333333333333333,
+          -0.3333333333333333,
+          -1.0,
+          0.056998847048431577,
+          0.07260263667286684,
+          0.05827821918724415,
+          1
+        ]
+      },
+      {
+        "direction": "C3",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.16666666666666666,
+        "overall_pass": 0.16666666666666666,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.16666666666666666,
+            "motion": 1.0,
+            "parking_P": 0.061762601601460417,
+            "parking_yaw": 0.04927229718557404,
+            "moving_mae": 0.08081700514667318
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.16666666666666666,
+            "motion": 1.0,
+            "parking_P": 0.065971511366444,
+            "parking_yaw": 0.04935291920769184,
+            "moving_mae": 0.08080995125113986
+          }
+        },
+        "parking_P": 0.065971511366444,
+        "parking_yaw": 0.04935291920769184,
+        "moving_mae": 0.08081700514667318,
+        "sort_key": [
+          -1.0,
+          -0.16666666666666666,
+          -0.16666666666666666,
+          -1.0,
+          0.065971511366444,
+          0.04935291920769184,
+          0.08081700514667318,
+          3
+        ]
+      },
+      {
+        "direction": "C0",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.0,
+        "overall_pass": 0.08333333333333333,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.16666666666666666,
+            "motion": 1.0,
+            "parking_P": 0.06101087201850378,
+            "parking_yaw": 0.05936664776992984,
+            "moving_mae": 0.05604777309015238
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 1.0,
+            "parking_P": 0.06976483360673515,
+            "parking_yaw": 0.08817830640667429,
+            "moving_mae": 0.04290430111170281
+          }
+        },
+        "parking_P": 0.06976483360673515,
+        "parking_yaw": 0.08817830640667429,
+        "moving_mae": 0.05604777309015238,
+        "sort_key": [
+          -1.0,
+          -0.0,
+          -0.08333333333333333,
+          -1.0,
+          0.06976483360673515,
+          0.08817830640667429,
+          0.05604777309015238,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "L": 384,
+    "ranking": [
+      {
+        "direction": "C0",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.0,
+        "overall_pass": 0.08333333333333333,
+        "worst_fork_motion": 1.0,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.16666666666666666,
+            "motion": 1.0,
+            "parking_P": 0.07905071928228606,
+            "parking_yaw": 0.051842123031577404,
+            "moving_mae": 0.07978449891466881
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 1.0,
+            "parking_P": 0.11850904817648243,
+            "parking_yaw": 0.10469783255403552,
+            "moving_mae": 0.06413599538481018
+          }
+        },
+        "parking_P": 0.11850904817648243,
+        "parking_yaw": 0.10469783255403552,
+        "moving_mae": 0.07978449891466881,
+        "sort_key": [
+          -1.0,
+          -0.0,
+          -0.08333333333333333,
+          -1.0,
+          0.11850904817648243,
+          0.10469783255403552,
+          0.07978449891466881,
+          0
+        ]
+      },
+      {
+        "direction": "C1",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.0,
+        "overall_pass": 0.08333333333333333,
+        "worst_fork_motion": 0.6666666666666666,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.16666666666666666,
+            "motion": 1.0,
+            "parking_P": 0.09945205902213078,
+            "parking_yaw": 0.05398239628256609,
+            "moving_mae": 0.10030029513252277
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 0.6666666666666666,
+            "parking_P": 0.0876946393050196,
+            "parking_yaw": 0.12910404603152226,
+            "moving_mae": 0.08133327116491273
+          }
+        },
+        "parking_P": 0.09945205902213078,
+        "parking_yaw": 0.12910404603152226,
+        "moving_mae": 0.10030029513252277,
+        "sort_key": [
+          -1.0,
+          -0.0,
+          -0.08333333333333333,
+          -0.6666666666666666,
+          0.09945205902213078,
+          0.12910404603152226,
+          0.10030029513252277,
+          1
+        ]
+      },
+      {
+        "direction": "C2",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.0,
+        "overall_pass": 0.0,
+        "worst_fork_motion": 0.5,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 1.0,
+            "parking_P": 0.038750837528097104,
+            "parking_yaw": 0.11434283066162608,
+            "moving_mae": 0.0858607705247899
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 0.5,
+            "parking_P": 0.1218113536106979,
+            "parking_yaw": 0.059362779426543666,
+            "moving_mae": 0.1474247607369519
+          }
+        },
+        "parking_P": 0.1218113536106979,
+        "parking_yaw": 0.11434283066162608,
+        "moving_mae": 0.1474247607369519,
+        "sort_key": [
+          -1.0,
+          -0.0,
+          -0.0,
+          -0.5,
+          0.1218113536106979,
+          0.11434283066162608,
+          0.1474247607369519,
+          2
+        ]
+      },
+      {
+        "direction": "C3",
+        "worst_fork_survival": 1.0,
+        "worst_fork_pass": 0.0,
+        "overall_pass": 0.0,
+        "worst_fork_motion": 0.5,
+        "forks": {
+          "1101": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 0.6666666666666666,
+            "parking_P": 0.09210009238932627,
+            "parking_yaw": 0.1323210336085564,
+            "moving_mae": 0.1170931385097697
+          },
+          "1102": {
+            "complete": true,
+            "survival": 1.0,
+            "task_pass": 0.0,
+            "motion": 0.5,
+            "parking_P": 0.16568216271622896,
+            "parking_yaw": 0.0886396963261844,
+            "moving_mae": 0.1558135404136798
+          }
+        },
+        "parking_P": 0.16568216271622896,
+        "parking_yaw": 0.1323210336085564,
+        "moving_mae": 0.1558135404136798,
+        "sort_key": [
+          -1.0,
+          -0.0,
+          -0.0,
+          -0.5,
+          0.16568216271622896,
+          0.1323210336085564,
+          0.1558135404136798,
+          3
+        ]
+      }
+    ]
+  }
+]

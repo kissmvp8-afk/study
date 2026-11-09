@@ -1,0 +1,22 @@
+[
+  {
+    "seed": 1101,
+    "three_stage_record_hashes": [
+      "fcf400888fe46494d4e18d51b42cd2290f4b6599016a6940be4123be7bd0faf9",
+      "d404ad23aaa4878be758c9d94710b42e2e3bb7c0c7fb84168ab5d8f050857ba0",
+      "d404ad23aaa4878be758c9d94710b42e2e3bb7c0c7fb84168ab5d8f050857ba0"
+    ],
+    "matching_across_four_groups": true,
+    "raw_full_physics_not_in_record": true
+  },
+  {
+    "seed": 1102,
+    "three_stage_record_hashes": [
+      "4279f457e206b1135aaac33183fab23f88213ca20482454c18ef11e62593a71f",
+      "1de1dac1a101be0e7582ceca013249f58c45887428900f40ebf6f6413d2d8a3a",
+      "1de1dac1a101be0e7582ceca013249f58c45887428900f40ebf6f6413d2d8a3a"
+    ],
+    "matching_across_four_groups": true,
+    "raw_full_physics_not_in_record": true
+  }
+]

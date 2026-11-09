@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R6-STABILITY-20261109",
+  "status": "proposal_only_not_implemented_not_started",
+  "execution_authorized_by_this_review": false,
+  "new_training_started": false,
+  "based_on_evidence_commit": "0cac03f0869039ece66dd410f66631f61d663195",
+  "purpose": "preserve and validate early candidates; test Actor update speed versus representation/statistics drift with existing SAC core",
+  "phase_A": {
+    "cap_s": 5400,
+    "original_candidate_pool": [
+      {
+        "direction": "C0",
+        "fork_seed": 1101,
+        "L": 144,
+        "model_path": "arms/C0-1101/model-learning-144.pt",
+        "sha256": "9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7",
+        "asset_name": "C0-1101-iteration160-model-9278c0c35e3c9716.pt",
+        "bytes": 9167411,
+        "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C0-1101-iteration160-model-9278c0c35e3c9716.pt",
+        "parking_weight": 0,
+        "command_holding_s": [
+          10,
+          10
+        ]
+      },
+      {
+        "direction": "C0",
+        "fork_seed": 1102,
+        "L": 144,
+        "model_path": "arms/C0-1102/model-learning-144.pt",
+        "sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+        "asset_name": "C0-1102-iteration160-model-1e1a983c0a0e0759.pt",
+        "bytes": 9167475,
+        "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C0-1102-iteration160-model-1e1a983c0a0e0759.pt",
+        "parking_weight": 0,
+        "command_holding_s": [
+          10,
+          10
+        ]
+      },
+      {
+        "direction": "C3",
+        "fork_seed": 1101,
+        "L": 144,
+        "model_path": "arms/C3-1101/model-learning-144.pt",
+        "sha256": "52868414e1d097f011a4da94b45cd8b0267b705708dec1bd45ad3b58470319f8",
+        "asset_name": "C3-1101-iteration160-model-52868414e1d097f0.pt",
+        "bytes": 9167411,
+        "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C3-1101-iteration160-model-52868414e1d097f0.pt",
+        "parking_weight": -8,
+        "command_holding_s": [
+          2,
+          4
+        ]
+      },
+      {
+        "direction": "C3",
+        "fork_seed": 1102,
+        "L": 144,
+        "model_path": "arms/C3-1102/model-learning-144.pt",
+        "sha256": "2ba45d6241125b8ab852f0765f17003700faf0b52a573bc3dbcf40ef5f9ae28e",
+        "asset_name": "C3-1102-iteration160-model-2ba45d6241125b8a.pt",
+        "bytes": 9167475,
+        "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C3-1102-iteration160-model-2ba45d6241125b8a.pt",
+        "parking_weight": -8,
+        "command_holding_s": [
+          2,
+          4
+        ]
+      },
+      {
+        "direction": "C2",
+        "fork_seed": 1101,
+        "L": 288,
+        "model_path": "arms/C2-1101/model-learning-288.pt",
+        "sha256": "16c6025df4c216fab66b928eca4d6b863699b1d1eb957b22cb0a9becc64759ad",
+        "asset_name": "C2-1101-iteration304-model-16c6025df4c216fa.pt",
+        "bytes": 9167475,
+        "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C2-1101-iteration304-model-16c6025df4c216fa.pt",
+        "parking_weight": -8,
+        "command_holding_s": [
+          10,
+          10
+        ]
+      },
+      {
+        "direction": "C2",
+        "fork_seed": 1102,
+        "L": 288,
+        "model_path": "arms/C2-1102/model-learning-288.pt",
+        "sha256": "41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19",
+        "asset_name": "C2-1102-iteration304-model-41bacf48ea850d6a.pt",
+        "bytes": 9167475,
+        "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C2-1102-iteration304-model-41bacf48ea850d6a.pt",
+        "parking_weight": -8,
+        "command_holding_s": [
+          10,
+          10
+        ]
+      }
+    ],
+    "reference_parent_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
+    "development_seeds": [
+      121,
+      122,
+      123,
+      124,
+      125
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "original_model_cases": 70,
+    "module_swap_diagnostic_new_cases_max": 18,
+    "module_swap_source_early": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+    "module_swap_source_late": "25375595adfacd9c7b0e0cbcdfd578f00cfdfa64981f22e84fd573961aa08144",
+    "module_swap_factors": [
+      "Actor early/late",
+      "encoder+projector+both_normalizers early/late"
+    ],
+    "module_swaps_are_not_acceptance_candidates": true,
+    "serial_parallel_frozen_cases": 18,
+    "serial_parallel_diagnostic_seeds": [
+      121,
+      122,
+      123
+    ],
+    "serial_parallel_diagnostic_execution": "D",
+    "serial_repeats": 2,
+    "parallel_copies": 4,
+    "aggregate_numeric_warning_thresholds": {
+      "velocity_metric_diff_m_s": 0.005,
+      "yaw_metric_diff_rad_s": 0.01,
+      "survival_or_gate_flip": true
+    },
+    "numerical_learning_equivalence_claim": false,
+    "max_evaluation_cases": 106,
+    "discard_calibration_updates": true,
+    "serial_parallel_probe_model": "phase_A_selected_common_parent"
+  },
+  "parent_policy": {
+    "default": {
+      "direction": "C0",
+      "fork_seed": 1102,
+      "L": 144,
+      "model_path": "arms/C0-1102/model-learning-144.pt",
+      "sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+      "asset_name": "C0-1102-iteration160-model-1e1a983c0a0e0759.pt",
+      "bytes": 9167475,
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r5-park-20261109/C0-1102-iteration160-model-1e1a983c0a0e0759.pt",
+      "parking_weight": 0,
+      "command_holding_s": [
+        10,
+        10
+      ]
+    },
+    "allowed_sha256": [
+      "9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7",
+      "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+      "52868414e1d097f011a4da94b45cd8b0267b705708dec1bd45ad3b58470319f8",
+      "2ba45d6241125b8ab852f0765f17003700faf0b52a573bc3dbcf40ef5f9ae28e",
+      "16c6025df4c216fab66b928eca4d6b863699b1d1eb957b22cb0a9becc64759ad",
+      "41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19"
+    ],
+    "selection": "best complete two-fork direction-stage pair on new development by worst survival, worst full pass, overall full pass, worst motion, lower worst parking P, yaw, moving MAE; tie complexity C0/C2/C3; within pair best single fork, tie lower fork_seed",
+    "freeze_parent_selection_json_before_formal_training": true,
+    "all_formal_arms_same_parent": true,
+    "keep_selected_parent_reward_and_command_settings_common": true,
+    "alpha_std": "inherit native values; no scaling or reset",
+    "skip_training_if_pair_both_development_10_of_10": true,
+    "old_and_new_macro_counts_not_independent_from_scratch": true
+  },
+  "groups": [
+    {
+      "id": "R0",
+      "actor_lr": 0.0002,
+      "representation_statistics": "live",
+      "auxiliary_attempts_per_learning_macro": 128
+    },
+    {
+      "id": "R1",
+      "actor_lr": 5e-05,
+      "representation_statistics": "live",
+      "auxiliary_attempts_per_learning_macro": 128
+    },
+    {
+      "id": "R2",
+      "actor_lr": 0.0002,
+      "representation_statistics": "frozen",
+      "auxiliary_attempts_per_learning_macro": 0
+    },
+    {
+      "id": "R3",
+      "actor_lr": 5e-05,
+      "representation_statistics": "frozen",
+      "auxiliary_attempts_per_learning_macro": 0
+    }
+  ],
+  "frozen_bundle": [
+    "encoder parameters and BN buffers",
+    "projector parameters and BN buffers",
+    "policy normalizer mean/var/count/eps",
+    "Q normalizer mean/var/count/eps"
+  ],
+  "fork_seeds": [
+    1201,
+    1202
+  ],
+  "independent_from_scratch_seeds": false,
+  "common": {
+    "num_envs": 128,
+    "steps_per_macro": 8,
+    "warmup_macros": 16,
+    "capacity_per_env": 512,
+    "physics_dt_s": 0.005,
+    "control_dt_s": 0.02,
+    "batch_size": 256,
+    "auxiliary_batch_size": 256,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "critic_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "live_auxiliary_lr": 0.001,
+    "critic_updates_per_learning_macro": 128,
+    "alpha_updates_per_learning_macro": 128,
+    "target_updates_per_learning_macro": 128,
+    "actor_updates_per_learning_macro": 64,
+    "microcycles": 8,
+    "critic_per_microcycle": 16,
+    "auxiliary_per_microcycle_live": 16,
+    "auxiliary_per_microcycle_frozen": 0,
+    "observation_noise": "on",
+    "standing_fraction": 0.2,
+    "reset_force_torque": 0,
+    "interval_push": "off",
+    "other_physical_randomization": "unchanged",
+    "tf32_matmul": false,
+    "tf32_cudnn": false,
+    "use_cache": false,
+    "SAC_loss_action_bounds_network_timeout_semantics": "unchanged"
+  },
+  "warm_start": {
+    "new_bounded_R6_loader_required": true,
+    "inherit_modules_optimizers_normalizers": true,
+    "new_replay_counters_rng_episode_ids": true,
+    "no_old_replay": true,
+    "allowed_learning_changes": [
+      "actor_lr",
+      "declared_auxiliary_disable_and_representation_freeze"
+    ],
+    "set_actual_actor_lr_after_optimizer_restore": true,
+    "later_same_arm_full_resume_only": true
+  },
+  "schedule": {
+    "cumulative_learning_macros": [
+      48,
+      96,
+      144
+    ],
+    "budget_shortened_endpoint_allowed": 96,
+    "endpoint_frozen_before_training": true,
+    "no_direction_pruning": true,
+    "no_mid_batch_concurrency_change": true,
+    "max_workers": 4,
+    "serialized_startup_and_learning_ready_barrier": true,
+    "wave_one_group_each_same_fork": true,
+    "fallback_mode": "entire batch serial if concurrency diagnostic unresolved; recalculate common budget"
+  },
+  "counter_targets": {
+    "new_transitions_per_arm": [
+      65536,
+      114688,
+      163840
+    ],
+    "critic_alpha_target_updates_per_arm": [
+      6144,
+      12288,
+      18432
+    ],
+    "actor_updates_per_arm": [
+      3072,
+      6144,
+      9216
+    ],
+    "live_auxiliary_attempts_per_arm": [
+      6144,
+      12288,
+      18432
+    ],
+    "frozen_auxiliary_attempts_per_arm": [
+      0,
+      0,
+      0
+    ],
+    "full_batch_new_transitions": 1310720,
+    "full_batch_critic_alpha_target_updates": 147456,
+    "full_batch_actor_updates": 73728,
+    "full_batch_live_auxiliary_attempts": 73728,
+    "frozen_auxiliary_skips": 0
+  },
+  "selection": {
+    "all_complete_group_stage_fork_pairs_eligible": true,
+    "do_not_filter_by_final_stage_direction": true,
+    "fixed_single_stage_two_fork_final_pair": true,
+    "P": "mean across complete cases of max(two stop tail mean planar speeds), then worst fork",
+    "missing": "raw null; separate failure rank, never zero",
+    "early_success_stop": "at complete fair stage if any direction both forks development10/10 -> stop learning and frozen final validation",
+    "continue_at_96": "intervention both forks survival and motion10/10, moving MAE<=.12, and either worst pass >= R0 worst pass +.2 or worst P<=.8 R0 P and <=frozen parent P; parking yaw <=max(.10,R0 yaw); percent comparison requires complete positive control P",
+    "no_progress": "stop entire batch at96 if no intervention meets continuation",
+    "percent_improvement_is_significance": false
+  },
+  "evaluation": {
+    "development_seeds": [
+      121,
+      122,
+      123,
+      124,
+      125
+    ],
+    "heldout_seeds_for_both_candidates": [
+      221,
+      222,
+      223,
+      224,
+      225
+    ],
+    "standard_gate": {
+      "steps": 600,
+      "duration_s": 12,
+      "no_term_or_timeout": true,
+      "base_force_max_N": 1,
+      "each_direction_vx_MAE_max": 0.12,
+      "moving_mean_abswz_max": 0.2,
+      "stop_windows_s": [
+        [
+          1,
+          2
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "each_stop_mean_planar_max": 0.05,
+      "each_stop_mean_abswz_max": 0.1,
+      "height_mean_2_to_12_min": 0.25
+    },
+    "paired_initial_full_physics": true,
+    "freeze_models_order_before_holdout": true,
+    "full_stage_development_cases": 240,
+    "final_cases_max": 80,
+    "full_protocol": "per model 10 standard ->10 turn ->20 pulse; gates otherwise not_run",
+    "turn_pulse_physics": "R5/R4 unchanged, new five heldout seeds",
+    "phase_A_plus_B_plus_final_cases_max": 426,
+    "nominal_short_endpoint_cases_max": 346,
+    "no_reuse_R5_heldout_as_unseen": true
+  },
+  "budget": {
+    "expected_total_wall_hours": [
+      3,
+      5
+    ],
+    "hard_cap_s": 21600,
+    "all_preparation_evaluation_archive_included": true,
+    "phase_A_cap_s": 5400,
+    "final_eval_reserve_s": 3600,
+    "archive_reserve_s": 1200,
+    "minimum_start_free_GiB": 25,
+    "no_new_job_below_GiB": 15,
+    "save_stop_below_GiB": 10,
+    "no_new_training_inside_lease_s": 7200,
+    "finish_margin_to_verified_lease_s": 5400,
+    "auto_rental_or_renewal": false,
+    "current_lease_must_be_verified": true,
+    "utilization_not_acceptance_or_idle_padding": true
+  },
+  "delivery": [
+    "parent-selection with all candidate hashes",
+    "all raw read-only candidate and module intervention trajectories",
+    "numeric serial/parallel comparison and effective execution manifest",
+    "all48/96/144 model-only and latest full resume each arm",
+    "optimizer step counts incl deliberate zero-auxiliary groups",
+    "normalizer/BN freeze assertions",
+    "raw episode/command/current-done traces and estimator labels",
+    "all full-history group-stage rankings",
+    "heldout gates and not_run states",
+    "immutable core evidence snapshot plus external dynamic backup receipts",
+    "prior archive failure, external correction manifest and verifier output when supplied"
+  ],
+  "prohibitions": [
+    "no new training in current review",
+    "no applying R6 changes in current review",
+    "no formal model replacement",
+    "no real robot claim",
+    "no jumping before control and robustness gates"
+  ]
+}

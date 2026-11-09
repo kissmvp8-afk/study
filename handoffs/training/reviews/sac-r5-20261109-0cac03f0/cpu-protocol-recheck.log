@@ -1,0 +1,50 @@
+/workspace/sac-r4-review/.venv/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+test_budget_endpoints_and_refusal (test_training_r5.BudgetContract.test_budget_endpoints_and_refusal) ... ok
+test_counts_all_stage_endpoints (test_training_r5.Contract.test_counts_all_stage_endpoints) ... ok
+test_exact_parent_contract (test_training_r5.Contract.test_exact_parent_contract) ... ok
+test_fair_configuration (test_training_r5.Contract.test_fair_configuration) ... ok
+test_reject_changed_algorithm (test_training_r5.Contract.test_reject_changed_algorithm) ... ok
+test_reject_missing_module (test_training_r5.Contract.test_reject_missing_module) ... ok
+test_reject_old_replay (test_training_r5.Contract.test_reject_old_replay) ... ok
+test_reject_wrong_counter (test_training_r5.Contract.test_reject_wrong_counter) ... ok
+test_reject_wrong_fork (test_training_r5.Contract.test_reject_wrong_fork) ... ok
+test_authorized_unknown_lease (test_selection.SelectionTests.test_authorized_unknown_lease) ... ok
+test_b_rejects_bad_motion_or_mae (test_selection.SelectionTests.test_b_rejects_bad_motion_or_mae) ... ok
+test_b_requires_control_both_complete (test_selection.SelectionTests.test_b_requires_control_both_complete) ... ok
+test_condition_a (test_selection.SelectionTests.test_condition_a) ... ok
+test_condition_b (test_selection.SelectionTests.test_condition_b) ... ok
+test_controller_unverified_lease (test_selection.SelectionTests.test_controller_unverified_lease) ... ok
+test_counters (test_selection.SelectionTests.test_counters) ... ok
+test_fixed_tie (test_selection.SelectionTests.test_fixed_tie) ... ok
+test_incomplete_stage_rejected (test_selection.SelectionTests.test_incomplete_stage_rejected) ... ok
+test_known_lease_margins (test_selection.SelectionTests.test_known_lease_margins) ... ok
+test_null_not_zero (test_selection.SelectionTests.test_null_not_zero) ... ok
+test_still_robot_cannot_rank_before_motion (test_selection.SelectionTests.test_still_robot_cannot_rank_before_motion) ... ok
+test_worst_fork (test_selection.SelectionTests.test_worst_fork) ... ok
+test_zero_baseline_no_percent_improvement (test_selection.SelectionTests.test_zero_baseline_no_percent_improvement) ... ok
+test_added_logging_names_bound_before_use (test_evaluation_r5.ProtocolTests.test_added_logging_names_bound_before_use) ... ok
+test_complete_diagnostic (test_evaluation_r5.ProtocolTests.test_complete_diagnostic) ... ok
+test_corrupt_trajectory_rejected (test_evaluation_r5.ProtocolTests.test_corrupt_trajectory_rejected) ... ok
+test_diagnostic_boundaries (test_evaluation_r5.ProtocolTests.test_diagnostic_boundaries) ... ok
+test_early_fall_never_zero_filled (test_evaluation_r5.ProtocolTests.test_early_fall_never_zero_filled) ... ok
+test_final_next_observation_endpoint (test_evaluation_r5.ProtocolTests.test_final_next_observation_endpoint) ... ok
+test_frozen_source (test_evaluation_r5.ProtocolTests.test_frozen_source) ... ok
+test_observation_validator_import_before_call (test_evaluation_r5.ProtocolTests.test_observation_validator_import_before_call) ... ok
+test_seeds (test_evaluation_r5.ProtocolTests.test_seeds) ... ok
+test_standard_unchanged (test_evaluation_r5.ProtocolTests.test_standard_unchanged) ... ok
+test_paired_final_and_gate (test_evaluation_r5_runner.RunnerTests.test_paired_final_and_gate) ... ok
+test_parent_diagnostics_only_six (test_evaluation_r5_runner.RunnerTests.test_parent_diagnostics_only_six) ... ok
+test_current_return_not_retained_history (test_night128_interfaces.Interfaces.test_current_return_not_retained_history) ... ok
+test_no_historical_term_getter (test_night128_interfaces.Interfaces.test_no_historical_term_getter) ... ok
+test_overlap_retained (test_night128_interfaces.Interfaces.test_overlap_retained) ... ok
+test_final_registration_follows_trainer_constructor (test_night128_interfaces.SignalOrdering.test_final_registration_follows_trainer_constructor) ... ok
+test_handler_registration_follows_app_launcher (test_night128_interfaces.SignalOrdering.test_handler_registration_follows_app_launcher) ... ok
+test_named_handler_records_received_signal (test_night128_interfaces.SignalOrdering.test_named_handler_records_received_signal) ... ok
+test_recovery_is_bounded_to_verified_checkpoint95 (test_night128_interfaces.SignalOrdering.test_recovery_is_bounded_to_verified_checkpoint95) ... ok
+test_signal_identity_checked_before_self_signal (test_night128_interfaces.SignalOrdering.test_signal_identity_checked_before_self_signal) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.109s
+
+OK

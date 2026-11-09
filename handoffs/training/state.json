@@ -496,6 +496,52 @@
       "parameters_path": "handoffs/training/reviews/sac-r4-20261109-a258b80a/parameters.json",
       "plan_execution_status": "proposal_only_not_implemented_not_started_no_start_instruction_issued",
       "repository_binding_rule": "Bind matching future default-branch index or archive by fixed evidence commit and result fingerprints; backup-only progress does not warrant repeated control review"
+    },
+    {
+      "run_id": "SAC-R5-PARK-20261109",
+      "result_path": "results/tita-sac/sac-r5-park-20261109/20261109T041342Z",
+      "evidence_commit": "0cac03f0869039ece66dd410f66631f61d663195",
+      "result_branch_note": "Supplied fixed experiment-branch commit; default branch had review documents, not raw R5 result",
+      "result_status": "completed",
+      "control_acceptance": "failed",
+      "review_status": "independently_recomputed_raw_cases_counters_selection_and_downloaded_models",
+      "key_content_fingerprint": "c4ddc4eea8eac57eda859580c831ba78f5b9768e61400950a6bfb4a0b51a2e3c",
+      "fingerprint_algorithm": "SHA256(UTF8(sorted archive_member+TAB+file_SHA256+LF)) over parameters, selection, heldout and stage decisions; backup-only changes excluded",
+      "evidence_archive_sha256": "ea381c0a22195645aca8ea7eb73ecfeb3e384b79b0b30f9bd2b9e77b364b1d56",
+      "reviewed_at_utc": "2026-11-09 04:49:02 UTC",
+      "review_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/review.txt",
+      "input_evidence_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/input-evidence.json",
+      "verified_standard_cases": 162,
+      "verified_diagnostic_cases": 6,
+      "verified_raw_steps": 101418,
+      "verified_training_macro_rows": 3200,
+      "new_transitions": 3276800,
+      "actual_critic_updates": 393216,
+      "actual_actor_updates": 196608,
+      "auxiliary_attempts": 393216,
+      "auxiliary_successes": 393216,
+      "auxiliary_skips": 0,
+      "binary_stage_models_downloaded_hashed_and_CPU_read": 24,
+      "latest_full_resume_assets_digest_size_checked": 8,
+      "latest_full_resume_binaries_redownloaded": 0,
+      "primary_standard_survival": "6/6",
+      "primary_standard_task_pass": "4/6",
+      "secondary_standard_survival": "6/6",
+      "secondary_standard_task_pass": "2/6",
+      "turn": "not_run",
+      "pulse": "not_run",
+      "selection_matches_frozen_rule": true,
+      "selection_scope": "choose last-stage winning direction then its historical checkpoints; earlier other directions not heldout-tested",
+      "concurrency_budget_fairness_verified": true,
+      "concurrency_numeric_equivalence_verified": false,
+      "local_archive_worker": "failed_member_mismatch",
+      "server_only_archive_repair_verified": false,
+      "published_snapshot_SHA_CRC_verified": true,
+      "next_plan_id": "SAC-R6-STABILITY-20261109",
+      "next_plan_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/parameters.json",
+      "next_plan_status": "proposal_only_no_execution_instruction",
+      "repository_binding_rule": "Bind future matching default-branch result index by evidence commit/fingerprint; backup-only receipt changes do not trigger another control review"
     }
   ],
   "pending_results": [
@@ -516,7 +562,7 @@
       "missing": "Final GitHub raw-result commit/tree; uploaded full evidence and both model archives are readable and reviewed."
     }
   ],
-  "latest_plan_id": "SAC-R5-PARK-20261109",
+  "latest_plan_id": "SAC-R6-STABILITY-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -534,34 +580,20 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r4-20261109-a258b80a/next-plan.txt",
-  "updated_at_utc": "2026-11-09 00:21:44 UTC",
-  "latest_review_path": "handoffs/training/reviews/sac-r4-20261109-a258b80a/review.txt",
+  "latest_plan_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/next-plan.txt",
+  "updated_at_utc": "2026-11-09 04:49:02 UTC",
+  "latest_review_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/review.txt",
   "latest_plan_addendum_path": null,
-  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r4-20261109-a258b80a/parameters.json",
+  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/parameters.json",
   "latest_plan_status": "proposal_only_not_implemented_not_started_requires_separate_start_instruction",
   "active_plan": {
-    "plan_id": "SAC-R4-128-SCREEN-20261108",
-    "path": "handoffs/training/plans/sac-r4-128-screen-20261108",
-    "supersedes_unexecuted_plan": "SAC-R3-20261108",
-    "user_requested_method": "six directions, two paired warm-start forks each, successive halving 6->3->2->1, autonomous Dot execution within fixed parameters",
-    "num_envs": 128,
-    "fork_seeds": [
-      1001,
-      1002
-    ],
-    "target_wall_seconds": 32400,
-    "hard_cap_wall_seconds": 34200,
-    "parent_model_sha256": "9552a0a94b1c50d6e4d78b85059f9d6f2ce671f28b2e7bc6589e5fe22d1e1e59",
-    "requires_current_authorized_resource_check": true,
-    "reviewer_connected_to_server": false,
-    "gpu_worker_deployment_verified": false,
-    "local_CPU_protocol_tests_passed": 13,
-    "issued_at_utc": "2026-11-08 15:32:09 UTC",
+    "plan_id": "SAC-R5-PARK-20261109",
     "execution_status": "completed_independently_reviewed_control_failed",
-    "review_evidence_commit": "a258b80a2f47964b8cbb9993a7a326271439e98f",
-    "review_path": "handoffs/training/reviews/sac-r4-20261109-a258b80a/review.txt",
-    "finished_at_utc": "2026-11-08T23:48:48.981977+00:00"
+    "evidence_commit": "0cac03f0869039ece66dd410f66631f61d663195",
+    "review_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/review.txt",
+    "finished_at_utc": "2026-11-09T04:03:38.231046+00:00",
+    "archive_error_recorded": true,
+    "local_repair_unverified": true
   },
   "plan_supersessions": [
     {
@@ -572,25 +604,26 @@
       "old_plan_execution_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R5-PARK-20261109",
+  "latest_proposed_plan_id": "SAC-R6-STABILITY-20261109",
   "latest_issued_plan_id": "SAC-R4-128-SCREEN-20261108",
   "latest_proposal": {
-    "plan_id": "SAC-R5-PARK-20261109",
+    "plan_id": "SAC-R6-STABILITY-20261109",
     "status": "proposal_only",
+    "path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/next-plan.txt",
     "execution_authorized_by_this_review": false,
     "requires_separate_start_instruction": true,
-    "path": "handoffs/training/reviews/sac-r4-20261109-a258b80a/next-plan.txt",
-    "parent_model_sha256": "6129fdcd53192c6605b30538d3de75d37ca00f0cae7a47d1405845f410a2806d",
-    "group_ids": [
-      "C0",
-      "C1",
-      "C2",
-      "C3"
+    "training_started": false,
+    "default_parent_sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+    "allowed_parent_pool_sha256": [
+      "9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7",
+      "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
+      "52868414e1d097f011a4da94b45cd8b0267b705708dec1bd45ad3b58470319f8",
+      "2ba45d6241125b8ab852f0765f17003700faf0b52a573bc3dbcf40ef5f9ae28e",
+      "16c6025df4c216fab66b928eca4d6b863699b1d1eb957b22cb0a9becc64759ad",
+      "41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19"
     ],
-    "fork_seeds": [
-      1101,
-      1102
-    ],
-    "training_started": false
-  }
+    "hard_cap_s": 21600,
+    "phase_A_read_only_first": true
+  },
+  "latest_executed_plan_id": "SAC-R5-PARK-20261109"
 }
