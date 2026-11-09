@@ -1,0 +1,88 @@
+{
+  "files": [
+    {
+      "name": "comparison.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-fair-summary-20261109/comparison.json",
+      "bytes": 218908,
+      "sha256": "a1fc26cfa03df965e17a6b170d4cecb1c29cecaebe7f909fc0f3aa91cd8e56ef"
+    },
+    {
+      "name": "config.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-fair-summary-20261109/config.json",
+      "bytes": 666,
+      "sha256": "d40e171ea3cd3c67cb401dce3d9e58e7b31a37d4958a3bb62d930e9cc5428bb9"
+    },
+    {
+      "name": "summarize_l24_l48.py",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-fair-summary-20261109/summarize_l24_l48.py",
+      "bytes": 9601,
+      "sha256": "bcddd17ad4dc122c9999e6e6aaf58fdcd59fab9d21b894783f61e3aca4e8249b"
+    },
+    {
+      "name": "publish_summary.py",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/../sac-r7p-l24-fair-summary-20261109/publish_summary.py",
+      "bytes": 8047,
+      "sha256": "bea5b4808b46edd9af0c36e0c7bfb8ab2756c6261eaaa2086398e01ceebc9d73"
+    },
+    {
+      "name": "summary_publisher.py",
+      "sha256": "72143a980590c426397888eb85bcfcf62a3a2dcfa59a9558bd625c4ecf397f44",
+      "bytes": 14473,
+      "original_publisher_sha256": "9c139017d3032d8ccb5516695542341db25fcd6cb2273f65ba55c985a1615f58",
+      "change": "Only explicit result PREFIX assignment"
+    },
+    {
+      "name": "r7p_backup_ops.py",
+      "sha256": "ea288a0cd30dc8dfb21dd53b001d63f2099734d3ee5645e2ee3bfc6972189b1e",
+      "bytes": 778
+    },
+    {
+      "name": "node-231D-remote-receipt.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-explore-20261109/archive-backup/latest.json",
+      "bytes": 1541,
+      "sha256": "b80a2144e3e682235a3af5f17d31fd0c329b5c6d36fd47cf5bebf1f4062a6a7b"
+    },
+    {
+      "name": "node-231S-remote-receipt.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24s-explore-20261109/archive-backup/latest.json",
+      "bytes": 1544,
+      "sha256": "5bfad9e65b9d960fac3fcf3e08b5f962146e4f990d2eff1dccfe0f13bde0a48f"
+    },
+    {
+      "name": "node-232233D-remote-receipt.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-232233d-explore-20261109/archive-backup/latest.json",
+      "bytes": 1548,
+      "sha256": "11b56b4407bf05665c4fdef104af7c6282354213d8528cc4a18a02cccc2d249e"
+    },
+    {
+      "name": "node-232233S-remote-receipt.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-232233s-explore-20261109/archive-backup/latest.json",
+      "bytes": 1549,
+      "sha256": "c96878c131c9a6bbccdec9f7d32c1e37cfb676b34f3200ba0ceed7a1b0519617"
+    },
+    {
+      "name": "node-234235D-remote-receipt.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-234235d-explore-20261109/archive-backup/latest.json",
+      "bytes": 1549,
+      "sha256": "416870a121637c78833ef55332d650b61b041553fc2be4ea6155158416689e0d"
+    },
+    {
+      "name": "node-234235S-remote-receipt.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-234235s-explore-20261109/archive-backup/latest.json",
+      "bytes": 1549,
+      "sha256": "96140571efcf89685d4404a2ef5559e1ca40f14d72dee69c7e71e30d429b6cc5"
+    },
+    {
+      "name": "node-commit-index.json",
+      "sha256": "5133de385aafbac9662e1410d1709740e7cdfd618a4c3371a0e248eb48332deb",
+      "bytes": 2245
+    },
+    {
+      "name": "README.txt",
+      "sha256": "9c2bad56c74716300605e352b04e278ec619aad37cfa529dc58e38b9ebff7734",
+      "bytes": 703
+    }
+  ],
+  "policy": "Explicit summary/source/readme/six-node receipts only; no recursion, no C2, no weights",
+  "created_epoch": 1794229691.8427925
+}

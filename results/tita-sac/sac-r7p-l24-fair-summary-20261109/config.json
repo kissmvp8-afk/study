@@ -1,0 +1,12 @@
+{
+ "c1_root":"/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z",
+ "r7p_root":"/root/rivermind-data/tita-check/sac-r7p-precision-20261109",
+ "l24_roots":{
+  "231D":"/root/rivermind-data/tita-check/sac-r7p-l24-explore-20261109",
+  "231S":"/root/rivermind-data/tita-check/sac-r7p-l24s-explore-20261109",
+  "232233D":"/root/rivermind-data/tita-check/sac-r7p-l24-232233d-explore-20261109",
+  "232233S":"/root/rivermind-data/tita-check/sac-r7p-l24-232233s-explore-20261109",
+  "234235D":"/root/rivermind-data/tita-check/sac-r7p-l24-234235d-explore-20261109",
+  "234235S":"/root/rivermind-data/tita-check/sac-r7p-l24-234235s-explore-20261109"
+ }
+}

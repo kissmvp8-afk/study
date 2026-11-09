@@ -1,0 +1,36 @@
+{
+  "archive": "/root/rivermind-data/tita-check/sac-r7p-l24-explore-20261109/archive-backup/raw-1794228279473475656",
+  "ended_epoch": 1794228390.7948508,
+  "plan_sha256": "9fecbbfba143c8c5a1a7d850401ad47365abb3c6af0b0a4b99bebd64f8ec8446",
+  "receipt": {
+    "branch": "experiment/sac-r7p-precision-20261109",
+    "commit_url": "https://github.com/kissmvp8-afk/study/commit/32f519378e1d55173ceca46984d26ee19d0eb0de",
+    "completed_epoch": 1794228390.7929735,
+    "credential_scan": "passed_actual_staging",
+    "files": [
+      {
+        "bytes": 2957835,
+        "name": "l24-raw-633695d6857e87791bc7e778.zip.part000",
+        "sha256": "633695d6857e87791bc7e7785194a4c74a1d374b1bd2c6e6ee07e0625502abdf",
+        "status": "upload_pending"
+      },
+      {
+        "actual_redownload": false,
+        "asset_id": 727461193,
+        "bytes": 2957835,
+        "name": "l24-raw-633695d6857e87791bc7e778.zip.part000",
+        "sha256": "633695d6857e87791bc7e7785194a4c74a1d374b1bd2c6e6ee07e0625502abdf",
+        "status": "remote_digest_size_verified"
+      }
+    ],
+    "parent_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+    "pending_commit": "32f519378e1d55173ceca46984d26ee19d0eb0de",
+    "plan_sha256": "9fecbbfba143c8c5a1a7d850401ad47365abb3c6af0b0a4b99bebd64f8ec8446",
+    "repository": "kissmvp8-afk/study",
+    "started_epoch": 1794228364.4845502,
+    "status": "remote_verified",
+    "tag": "sac-r7p-precision-20261109",
+    "verified_commit": "32f519378e1d55173ceca46984d26ee19d0eb0de"
+  },
+  "status": "remote_verified"
+}

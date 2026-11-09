@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "scope": "231D",
+      "commit_url": "https://github.com/kissmvp8-afk/study/commit/32f519378e1d55173ceca46984d26ee19d0eb0de",
+      "commit": "32f519378e1d55173ceca46984d26ee19d0eb0de",
+      "receipt_file": "node-231D-remote-receipt.json",
+      "receipt_sha256": "b80a2144e3e682235a3af5f17d31fd0c329b5c6d36fd47cf5bebf1f4062a6a7b"
+    },
+    {
+      "scope": "231S",
+      "commit_url": "https://github.com/kissmvp8-afk/study/commit/a7336faca507bd2f4e349edfe9d42ff366da98ef",
+      "commit": "a7336faca507bd2f4e349edfe9d42ff366da98ef",
+      "receipt_file": "node-231S-remote-receipt.json",
+      "receipt_sha256": "5bfad9e65b9d960fac3fcf3e08b5f962146e4f990d2eff1dccfe0f13bde0a48f"
+    },
+    {
+      "scope": "232233D",
+      "commit_url": "https://github.com/kissmvp8-afk/study/commit/42c5ae52ffbc4dbb849e325b82f3bab5a522c3ef",
+      "commit": "42c5ae52ffbc4dbb849e325b82f3bab5a522c3ef",
+      "receipt_file": "node-232233D-remote-receipt.json",
+      "receipt_sha256": "11b56b4407bf05665c4fdef104af7c6282354213d8528cc4a18a02cccc2d249e"
+    },
+    {
+      "scope": "232233S",
+      "commit_url": "https://github.com/kissmvp8-afk/study/commit/5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "receipt_file": "node-232233S-remote-receipt.json",
+      "receipt_sha256": "c96878c131c9a6bbccdec9f7d32c1e37cfb676b34f3200ba0ceed7a1b0519617"
+    },
+    {
+      "scope": "234235D",
+      "commit_url": "https://github.com/kissmvp8-afk/study/commit/b08dc1534eccb021f8622690acfbfe767a80a79a",
+      "commit": "b08dc1534eccb021f8622690acfbfe767a80a79a",
+      "receipt_file": "node-234235D-remote-receipt.json",
+      "receipt_sha256": "416870a121637c78833ef55332d650b61b041553fc2be4ea6155158416689e0d"
+    },
+    {
+      "scope": "234235S",
+      "commit_url": "https://github.com/kissmvp8-afk/study/commit/98e97ae0946f53349a4ce451bd06027269c88529",
+      "commit": "98e97ae0946f53349a4ce451bd06027269c88529",
+      "receipt_file": "node-234235S-remote-receipt.json",
+      "receipt_sha256": "96140571efcf89685d4404a2ef5559e1ca40f14d72dee69c7e71e30d429b6cc5"
+    }
+  ],
+  "scope": "Six L24 nodes; no C2 access or publication",
+  "created_epoch": 1794229691.8425143
+}
