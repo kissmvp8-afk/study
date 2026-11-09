@@ -1,14 +1,14 @@
 {
-  "snapshot_utc": "20261109T005016Z",
+  "snapshot_utc": "20261109T005231Z",
   "controller": {
     "status": "preparing"
   },
-  "evidence_sha256": "7d4f9f55d9ade04174881b1513c8e95d3fb7b7d380c2ab9cbe7c763ca8cf3dd2",
+  "evidence_sha256": "f74dd19c73cb91eedd52dd91a3438bf6cf7d0a335ba8b9c090a6ffaf31e9c38c",
   "parts": [
     {
       "file": "evidence.zip.part001",
-      "bytes": 4023344,
-      "sha256": "7d4f9f55d9ade04174881b1513c8e95d3fb7b7d380c2ab9cbe7c763ca8cf3dd2"
+      "bytes": 6889557,
+      "sha256": "f74dd19c73cb91eedd52dd91a3438bf6cf7d0a335ba8b9c090a6ffaf31e9c38c"
     }
   ],
   "model_weights_included": false,
