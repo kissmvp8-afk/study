@@ -1,0 +1,21 @@
+{
+  "snapshot_utc": "20261109T011012Z",
+  "controller": {
+    "status": "preparing"
+  },
+  "evidence_sha256": "276a9e14c7dc77779f26c7851f7337fbafd53b4778e427be4a366dd4d8a6b0be",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "d482b44a6b4d667d31c5cda78199bead382cf9ff7fa8ccd5fefe0462434d61f5"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 21514534,
+      "sha256": "420812ca0f147667cc0900f39c0f2d73ff35cca5da816e75865146d597f8f7ca"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
