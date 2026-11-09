@@ -1,0 +1,32 @@
+{
+  "files": [
+    {
+      "name": "c4-supplement.json",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-l24-fair-summary-20261109/c4-supplement.json",
+      "bytes": 525769,
+      "sha256": "5bf8da7d2d65585c2e84971078c95afb781042b7e684f87c95dd16a84356cd57"
+    },
+    {
+      "name": "c4_supplement.py",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-c4-publisher-20261109/c4_supplement.py",
+      "bytes": 7418,
+      "sha256": "ba25148ebd8276168ded503b60f09b88f7ed1a22c73fb095ab77ae08d5a7e837"
+    },
+    {
+      "name": "summarize_l24_l48.py",
+      "original_path": "/root/rivermind-data/tita-check/sac-r7p-c4-publisher-20261109/summarize_l24_l48.py",
+      "bytes": 9601,
+      "sha256": "bcddd17ad4dc122c9999e6e6aaf58fdcd59fab9d21b894783f61e3aca4e8249b"
+    },
+    {
+      "name": "README.txt",
+      "sha256": "a172c16fb0e34fdc812625bf0f6af6cbe1341c18ed4dbd46f6430681f27f270a",
+      "bytes": 919
+    }
+  ],
+  "original_summary_commit": "d504e397ca0b07200abe0f8eb5195773c0ae799d",
+  "publisher_original_sha256": "72143a980590c426397888eb85bcfcf62a3a2dcfa59a9558bd625c4ecf397f44",
+  "publisher_adapted_sha256": "4a7ba0bd777206662898baf933eb71545d5eab36ca55183807e460b6a5533301",
+  "policy": "Only supplement JSON, two frozen analysis sources, README and manifest; no recursion, C2, models or original summary overwrite",
+  "created_epoch": 1794230821.1554296
+}
