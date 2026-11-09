@@ -1,0 +1,3 @@
+Four L24 exploratory probes
+Status: completed
+Raw technical failures and partial trajectories are preserved. No training, model selection, score replacement, or model re-upload. See JSON for per-case status, frozen-source checks and model hashes.
