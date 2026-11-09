@@ -1,0 +1,73 @@
+{
+  "P0-1401": {
+    "cases": 6,
+    "passed": 1,
+    "survived": 6,
+    "motion": 6,
+    "P": 0.05957621519305952,
+    "yaw": 0.10689333828592984,
+    "moving_mae": 0.06202822632709285,
+    "failures": {
+      "stop2_speed": 3,
+      "stop2_yaw": 2,
+      "stop1_speed": 1
+    }
+  },
+  "P0-1402": {
+    "cases": 6,
+    "passed": 2,
+    "survived": 6,
+    "motion": 6,
+    "P": 0.09437776517778729,
+    "yaw": 0.08517516172296989,
+    "moving_mae": 0.06610442666795278,
+    "failures": {
+      "stop2_speed": 3,
+      "stop2_yaw": 2,
+      "stop1_speed": 2,
+      "reverse_mae": 2,
+      "stop1_yaw": 1
+    }
+  },
+  "P1-1401": {
+    "cases": 6,
+    "passed": 2,
+    "survived": 6,
+    "motion": 6,
+    "P": 0.06313429698518022,
+    "yaw": 0.080136653650358,
+    "moving_mae": 0.05877815835789079,
+    "failures": {
+      "stop1_yaw": 2,
+      "stop2_yaw": 2,
+      "stop2_speed": 2,
+      "stop1_speed": 1
+    }
+  },
+  "P1-1402": {
+    "cases": 6,
+    "passed": 2,
+    "survived": 6,
+    "motion": 6,
+    "P": 0.06216140990932372,
+    "yaw": 0.07548383094312157,
+    "moving_mae": 0.06211720426935547,
+    "failures": {
+      "stop1_speed": 3,
+      "stop2_speed": 4
+    }
+  },
+  "parent-1201": {
+    "cases": 6,
+    "passed": 2,
+    "survived": 6,
+    "motion": 6,
+    "P": 0.08225796252804239,
+    "yaw": 0.0668608761197053,
+    "moving_mae": 0.04851514639381397,
+    "failures": {
+      "stop1_speed": 2,
+      "stop2_speed": 4
+    }
+  }
+}

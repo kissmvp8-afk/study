@@ -1,0 +1,346 @@
+[
+  {
+    "name": "P0-1401-learning48-f918d54b8ddeaab0.pt",
+    "sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+    "bytes": 9167731,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 230,
+    "alpha": 8.301896741613746e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1541136,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": false,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    }
+  },
+  {
+    "name": "P0-1402-learning48-18e70c5e63a32974.pt",
+    "sha256": "18e70c5e63a329743794ea6da3ddf59b25ae3e111c0d6e1d0acc04c50413303a",
+    "bytes": 9167731,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 230,
+    "alpha": 8.403402171097696e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1542621,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": false,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    }
+  },
+  {
+    "name": "P1-1401-learning48-c0f1befd1985b997.pt",
+    "sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1",
+    "bytes": 9167731,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 230,
+    "alpha": 8.638313738629222e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1541328,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": false,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    }
+  },
+  {
+    "name": "P1-1402-learning48-6b71a242bb92188f.pt",
+    "sha256": "6b71a242bb92188f835be8ba70b459a7ee271792ebf0127e0a9b7050c2bc27c4",
+    "bytes": 9167731,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 230,
+    "alpha": 8.568221528548747e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1542908,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": false,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    }
+  },
+  {
+    "name": "P0-1401-fullresume-learning48-37eff9fd47272546.pt",
+    "sha256": "37eff9fd47272546435be69c2f5f85738c111a0a4b6542e17d1a9cd9144d8d17",
+    "bytes": 216136021,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 245,
+    "alpha": 8.301896741613746e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1541136,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": true,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    },
+    "replay_keys": [
+      "num_envs",
+      "capacity_per_env",
+      "q_dim",
+      "storage",
+      "write_seq",
+      "writes"
+    ]
+  },
+  {
+    "name": "P0-1402-fullresume-learning48-c1eae067de2d8dda.pt",
+    "sha256": "c1eae067de2d8dda5344b74f12e0ab9585df6cc391188ed89cab2f90c4de9a57",
+    "bytes": 216136021,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 245,
+    "alpha": 8.403402171097696e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1542621,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": true,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    },
+    "replay_keys": [
+      "num_envs",
+      "capacity_per_env",
+      "q_dim",
+      "storage",
+      "write_seq",
+      "writes"
+    ]
+  },
+  {
+    "name": "P1-1401-fullresume-learning48-9db99e7f39721b20.pt",
+    "sha256": "9db99e7f39721b207d7ec357545e4139619c940499ca47911ab98d315428639d",
+    "bytes": 216136021,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 245,
+    "alpha": 8.638313738629222e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1541328,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": true,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    },
+    "replay_keys": [
+      "num_envs",
+      "capacity_per_env",
+      "q_dim",
+      "storage",
+      "write_seq",
+      "writes"
+    ]
+  },
+  {
+    "name": "P1-1402-fullresume-learning48-b79e24a8488145a7.pt",
+    "sha256": "b79e24a8488145a74097f68a0e09bc5836b131d7484ccea408c36b3f9d5f8582",
+    "bytes": 216136021,
+    "status": "downloaded_SHA_size_weights_only_CPU_finite_passed",
+    "finite_tensor_count": 245,
+    "alpha": 8.568221528548747e-05,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1542908,
+      "learning_skipped_iterations": 0
+    },
+    "replay_present": true,
+    "environment_state_saved": false,
+    "actual_training_continuation": "not_run",
+    "optimizer_steps": {
+      "critic": [
+        279552.0
+      ],
+      "actor": [
+        139776.0
+      ],
+      "alpha": [
+        279552.0
+      ],
+      "auxiliary": [
+        279552.0
+      ]
+    },
+    "replay_keys": [
+      "num_envs",
+      "capacity_per_env",
+      "q_dim",
+      "storage",
+      "write_seq",
+      "writes"
+    ]
+  }
+]

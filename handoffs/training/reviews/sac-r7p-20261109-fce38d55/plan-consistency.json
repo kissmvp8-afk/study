@@ -1,0 +1,12 @@
+{
+  "status": "static_plan_counts_checked",
+  "frozen_models": 5,
+  "new_seeds": 5,
+  "executions": 2,
+  "new_cases": 50,
+  "case_cap_with_legacy_parity": 51,
+  "required_s": 3795,
+  "phase_hardcap_s": 3900,
+  "new_gradient_updates": 0,
+  "Isaac_evaluation_by_reviewer": "not_run"
+}

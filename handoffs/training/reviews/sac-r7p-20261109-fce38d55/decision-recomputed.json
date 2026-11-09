@@ -1,0 +1,44 @@
+{
+  "pair": {
+    "P0": {
+      "worst_fork_pass": 1,
+      "overall_pass": 3,
+      "worst_fork_survival": 6,
+      "worst_fork_motion": 6,
+      "P": 0.09437776517778729,
+      "yaw": 0.10689333828592984,
+      "moving_mae": 0.06610442666795278,
+      "pooled_P": 0.07697699018542341
+    },
+    "P1": {
+      "worst_fork_pass": 2,
+      "overall_pass": 4,
+      "worst_fork_survival": 6,
+      "worst_fork_motion": 6,
+      "P": 0.06313429698518022,
+      "yaw": 0.080136653650358,
+      "moving_mae": 0.06211720426935547,
+      "pooled_P": 0.06264785344725197
+    }
+  },
+  "promising_short_budget": true,
+  "checks": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "benefit": [
+    true,
+    true
+  ],
+  "inconsistent_parking_fork_signs": true,
+  "worst_fork_P_relative_change": -0.3310469169698088,
+  "pooled_P_relative_change": -0.18614831138052002,
+  "P1_pooled_task_pass_fraction": 0.3333333333333333,
+  "independent_acceptance": false,
+  "direction_reproduced_on_unseen_seeds": "not_tested"
+}

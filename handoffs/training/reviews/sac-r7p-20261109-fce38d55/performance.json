@@ -1,0 +1,16 @@
+{
+  "training_all_worker_start_to_learning_complete_s": 423.53247809410095,
+  "training_started_UTC": "2026-11-09T10:32:51.697931+00:00",
+  "training_completed_UTC": "2026-11-09T10:39:55.230408+00:00",
+  "all30_evaluation_launch_to_complete_s": 1061.5936741828918,
+  "all30_evaluation_s_per_case_amortized": 35.38645580609639,
+  "rollout_summary_elapsed_p75_s_excludes_process_initialization": 17.952816776014515,
+  "GPU_common_learning_window_s": 305.43753480911255,
+  "GPU_samples": 61,
+  "GPU_mean": 94.37704918032787,
+  "GPU_min": 52.0,
+  "GPU_below80": 1,
+  "finish_train_plus_endpoint_s": 1509.8108921051025,
+  "archive_fullZIP_build_s": 36.39712929725647,
+  "note": "423s is only startup plus training; not total evidence/backup/readback queue. Earlier135min short-trial forecast is not a measured bound for this run."
+}

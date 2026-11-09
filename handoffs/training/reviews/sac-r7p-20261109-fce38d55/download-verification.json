@@ -1,0 +1,72 @@
+{
+  "input_commit": "fce38d5557595c9aaae8652a8d5593b8e2851b63",
+  "CRC": "passed",
+  "archive_sha256": "9ae8adc772aead8a4ecd510d8566d300a27089836b5d94af02b608383ea1fab3",
+  "files": [
+    {
+      "name": "r7p-raw-cd00b78d7bc1222d8b31f181.zip.part000",
+      "bytes": 24000000,
+      "sha256": "cd00b78d7bc1222d8b31f18163705280b6f03e5080be019e2aae0c8b68a3866f"
+    },
+    {
+      "name": "r7p-raw-5b7aeb407d0120f0a09feb4b.zip.part001",
+      "bytes": 24000000,
+      "sha256": "5b7aeb407d0120f0a09feb4bc2f8c6be2974bf6831f4990a270a71ff686b1dd4"
+    },
+    {
+      "name": "r7p-raw-28e4295ed54d62b14a67960e.zip.part002",
+      "bytes": 24000000,
+      "sha256": "28e4295ed54d62b14a67960ed959087eac7ed3e7b71904339a3ec7e14af5bc6d"
+    },
+    {
+      "name": "r7p-raw-85cc637c761591c2148348d5.zip.part003",
+      "bytes": 24000000,
+      "sha256": "85cc637c761591c2148348d516c150dbae7db2addd61f809d59713999196eae3"
+    },
+    {
+      "name": "r7p-raw-2bd1a4e178531f446792ac10.zip.part004",
+      "bytes": 24000000,
+      "sha256": "2bd1a4e178531f446792ac109d7a283dcd4b8dc2a649525cba2221ce1394a11b"
+    },
+    {
+      "name": "r7p-raw-9c56201073edcc044ff9f106.zip.part005",
+      "bytes": 24000000,
+      "sha256": "9c56201073edcc044ff9f106dac8731286a330e41f3754bc97668bed308072c4"
+    },
+    {
+      "name": "r7p-raw-ae48f229ed64b65804ea5bcb.zip.part006",
+      "bytes": 24000000,
+      "sha256": "ae48f229ed64b65804ea5bcb90dac77c5346e179faffdf909293aa272a2f6dec"
+    },
+    {
+      "name": "r7p-raw-682651dce0b2424307e37623.zip.part007",
+      "bytes": 24000000,
+      "sha256": "682651dce0b2424307e3762386426f4f6b0d27e89274b4aa3a63ff5948673d3a"
+    },
+    {
+      "name": "r7p-raw-eea860cd8c92055bf6f2fee5.zip.part008",
+      "bytes": 2219707,
+      "sha256": "eea860cd8c92055bf6f2fee5cf6586a92c19e4b1b66cf3340d4bb3ff292e1fc0"
+    },
+    {
+      "name": "P0-1401-learning48-f918d54b8ddeaab0.pt",
+      "bytes": 9167731,
+      "sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783"
+    },
+    {
+      "name": "P0-1402-learning48-18e70c5e63a32974.pt",
+      "bytes": 9167731,
+      "sha256": "18e70c5e63a329743794ea6da3ddf59b25ae3e111c0d6e1d0acc04c50413303a"
+    },
+    {
+      "name": "P1-1401-learning48-c0f1befd1985b997.pt",
+      "bytes": 9167731,
+      "sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1"
+    },
+    {
+      "name": "P1-1402-learning48-6b71a242bb92188f.pt",
+      "bytes": 9167731,
+      "sha256": "6b71a242bb92188f835be8ba70b459a7ee271792ebf0127e0a9b7050c2bc27c4"
+    }
+  ]
+}

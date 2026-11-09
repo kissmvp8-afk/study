@@ -1,0 +1,186 @@
+{
+  "input_commit": "fce38d5557595c9aaae8652a8d5593b8e2851b63",
+  "raw_archive_sha256": "9ae8adc772aead8a4ecd510d8566d300a27089836b5d94af02b608383ea1fab3",
+  "manifest_files_verified": 575,
+  "evaluation_cases": 30,
+  "evaluation_steps": 18000,
+  "training_macros": 256,
+  "training_learning_macros": 192,
+  "training_transitions": 262144,
+  "reward_contributions_recomputed": 262144,
+  "groups": {
+    "P0-1401": {
+      "cases": 6,
+      "passed": 1,
+      "survived": 6,
+      "motion": 6,
+      "P": 0.05957621519305952,
+      "yaw": 0.10689333828592984,
+      "moving_mae": 0.06202822632709285,
+      "failures": {
+        "stop2_speed": 3,
+        "stop2_yaw": 2,
+        "stop1_speed": 1
+      }
+    },
+    "P0-1402": {
+      "cases": 6,
+      "passed": 2,
+      "survived": 6,
+      "motion": 6,
+      "P": 0.09437776517778729,
+      "yaw": 0.08517516172296989,
+      "moving_mae": 0.06610442666795278,
+      "failures": {
+        "stop2_speed": 3,
+        "stop2_yaw": 2,
+        "stop1_speed": 2,
+        "reverse_mae": 2,
+        "stop1_yaw": 1
+      }
+    },
+    "P1-1401": {
+      "cases": 6,
+      "passed": 2,
+      "survived": 6,
+      "motion": 6,
+      "P": 0.06313429698518022,
+      "yaw": 0.080136653650358,
+      "moving_mae": 0.05877815835789079,
+      "failures": {
+        "stop1_yaw": 2,
+        "stop2_yaw": 2,
+        "stop2_speed": 2,
+        "stop1_speed": 1
+      }
+    },
+    "P1-1402": {
+      "cases": 6,
+      "passed": 2,
+      "survived": 6,
+      "motion": 6,
+      "P": 0.06216140990932372,
+      "yaw": 0.07548383094312157,
+      "moving_mae": 0.06211720426935547,
+      "failures": {
+        "stop1_speed": 3,
+        "stop2_speed": 4
+      }
+    },
+    "parent-1201": {
+      "cases": 6,
+      "passed": 2,
+      "survived": 6,
+      "motion": 6,
+      "P": 0.08225796252804239,
+      "yaw": 0.0668608761197053,
+      "moving_mae": 0.04851514639381397,
+      "failures": {
+        "stop1_speed": 2,
+        "stop2_speed": 4
+      }
+    }
+  },
+  "fork_differences": [
+    {
+      "fork": 1401,
+      "P0": {
+        "cases": 6,
+        "passed": 1,
+        "survived": 6,
+        "motion": 6,
+        "P": 0.05957621519305952,
+        "yaw": 0.10689333828592984,
+        "moving_mae": 0.06202822632709285,
+        "failures": {
+          "stop2_speed": 3,
+          "stop2_yaw": 2,
+          "stop1_speed": 1
+        }
+      },
+      "P1": {
+        "cases": 6,
+        "passed": 2,
+        "survived": 6,
+        "motion": 6,
+        "P": 0.06313429698518022,
+        "yaw": 0.080136653650358,
+        "moving_mae": 0.05877815835789079,
+        "failures": {
+          "stop1_yaw": 2,
+          "stop2_yaw": 2,
+          "stop2_speed": 2,
+          "stop1_speed": 1
+        }
+      },
+      "P1_minus_P0_P": 0.0035580817921207,
+      "P_relative_change": 0.059723192898215594,
+      "pass_gain": 1
+    },
+    {
+      "fork": 1402,
+      "P0": {
+        "cases": 6,
+        "passed": 2,
+        "survived": 6,
+        "motion": 6,
+        "P": 0.09437776517778729,
+        "yaw": 0.08517516172296989,
+        "moving_mae": 0.06610442666795278,
+        "failures": {
+          "stop2_speed": 3,
+          "stop2_yaw": 2,
+          "stop1_speed": 2,
+          "reverse_mae": 2,
+          "stop1_yaw": 1
+        }
+      },
+      "P1": {
+        "cases": 6,
+        "passed": 2,
+        "survived": 6,
+        "motion": 6,
+        "P": 0.06216140990932372,
+        "yaw": 0.07548383094312157,
+        "moving_mae": 0.06211720426935547,
+        "failures": {
+          "stop1_speed": 3,
+          "stop2_speed": 4
+        }
+      },
+      "P1_minus_P0_P": -0.032216355268463566,
+      "P_relative_change": -0.34135535216133717,
+      "pass_gain": 0
+    }
+  ],
+  "training_totals": {
+    "transitions": 262144,
+    "critic_updates": 24576,
+    "actor_updates": 12288,
+    "alpha_updates": 24576,
+    "target_updates": 24576,
+    "auxiliary_updates": 24576,
+    "auxiliary_skipped": 0
+  },
+  "gpu_report": {
+    "window": "all four workers learning overlap, includes checkpoint pauses",
+    "start_epoch": 1794220464.6683745,
+    "end_epoch": 1794220770.1059093,
+    "sample_interval_s": 5,
+    "samples": 61,
+    "mean": 94.37704918032787,
+    "minimum": 52.0,
+    "maximum": 98.0,
+    "below80": 1
+  },
+  "gpu_csv_header": [
+    "timestamp",
+    " utilization.gpu [%]",
+    " utilization.memory [%]",
+    " memory.used [MiB]",
+    " memory.total [MiB]",
+    " power.draw [W]"
+  ],
+  "stale_git_controller_index": true,
+  "no_gpu_or_simulation_run_by_reviewer": true
+}

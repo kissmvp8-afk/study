@@ -1,0 +1,28 @@
+{
+  "run_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "result_status": "completed",
+  "independent_control_acceptance": "not_tested",
+  "development_control_gate": "not_passed",
+  "predeclared_short_budget_rule_recomputed": true,
+  "status": "promising_short_budget_with_inconsistent_fork_parking_effect",
+  "P0_pass": {
+    "numerator": 3,
+    "denominator": 12
+  },
+  "P1_pass": {
+    "numerator": 4,
+    "denominator": 12
+  },
+  "parent_pass": {
+    "numerator": 2,
+    "denominator": 6
+  },
+  "all_survived": {
+    "numerator": 30,
+    "denominator": 30
+  },
+  "parent_replacement": false,
+  "new_training_started": false,
+  "next_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+  "next_step": "freeze all five models; independent same-budget new-seed confirmation, no new gradient updates"
+}

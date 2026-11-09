@@ -1,0 +1,76 @@
+{
+  "evidence_commit": "fce38d5557595c9aaae8652a8d5593b8e2851b63",
+  "raw_archive_commit": "986c9781afd0c0ed56ffb4e22e5e0c382e6d831e",
+  "raw_archive_sha256": "9ae8adc772aead8a4ecd510d8566d300a27089836b5d94af02b608383ea1fab3",
+  "key_content_fingerprint": "1c899736d4185dd66706651688a68f9610aa4e59216a8b4f6b55cedb3b428017",
+  "fingerprint_algorithm": "SHA256 of sorted(relative_path TAB SHA256 LF) over fixed result/config/source/macro files; backup progress excluded",
+  "critical_files": [
+    {
+      "path": "arms/P0-1401/effective-settings.json",
+      "sha256": "0a92baf9b3e3466ba085cab1a94ad606d66732e97772c03f5ff5071828d382f7"
+    },
+    {
+      "path": "arms/P0-1401/macros.jsonl",
+      "sha256": "3e5c57fccee88a0fd425989f3094780812111a73afef0b85e2467854d6134dfc"
+    },
+    {
+      "path": "arms/P0-1402/effective-settings.json",
+      "sha256": "0a92baf9b3e3466ba085cab1a94ad606d66732e97772c03f5ff5071828d382f7"
+    },
+    {
+      "path": "arms/P0-1402/macros.jsonl",
+      "sha256": "56adb76a0f1ae4f319c446d1e7894e07c8ccbbae7c383d0a3a9e3cef5a9ff427"
+    },
+    {
+      "path": "arms/P1-1401/effective-settings.json",
+      "sha256": "fad969e81be00e4d831ee5a11af6c1bb1e2a8b1dac5b2474a06edefffa868efc"
+    },
+    {
+      "path": "arms/P1-1401/macros.jsonl",
+      "sha256": "a073142ce3de2c6d556266fa3f1d5b6f3742ccf532824387f8fd34a75e56d361"
+    },
+    {
+      "path": "arms/P1-1402/effective-settings.json",
+      "sha256": "fad969e81be00e4d831ee5a11af6c1bb1e2a8b1dac5b2474a06edefffa868efc"
+    },
+    {
+      "path": "arms/P1-1402/macros.jsonl",
+      "sha256": "c53bbf5f89806e91ca8a161b45fff2d398452657fc95c099ad056ad165be241b"
+    },
+    {
+      "path": "endpoint-development.json",
+      "sha256": "18a2f2e5dad55da36a0128d0292d9929a531f4e1514d81cdd6db7f0cc80ae73d"
+    },
+    {
+      "path": "parameters.json",
+      "sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e"
+    },
+    {
+      "path": "parent-selection.json",
+      "sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3"
+    },
+    {
+      "path": "trainer/r7p_train.py",
+      "sha256": "01b6f5e96d49b387b1e509b3e01887135f2b080d878c14c59433ee170ab511d8"
+    },
+    {
+      "path": "trainer/r7p_training.py",
+      "sha256": "96c8253c844fba757fd21a8b64a0c15bfcf425968d6156353e17897709a74487"
+    }
+  ],
+  "review_scope": [
+    "575 full raw archive members SHA/size and ZIP CRC",
+    "30 evaluations /18000 physical steps recomputed",
+    "256 macro rows /192 learning /262144 transitions and reward contributions checked",
+    "four final models and four final fullresumes actually downloaded and CPU weights_only read",
+    "all16 release metadata digest/size checked",
+    "actual source/runtime settings and pairing fingerprints checked"
+  ],
+  "not_run": [
+    "Isaac or GPU evaluation by reviewer",
+    "actual training continuation from fullresume",
+    "full review of external R6 source dependency snapshot",
+    "independent heldout/turn/pulse"
+  ],
+  "archival_note": "Git partial snapshot has stale running controller; full raw archive controller is training_completed. Two postprefill pairing files are independently preserved in fixed Git, omitted from raw archive."
+}

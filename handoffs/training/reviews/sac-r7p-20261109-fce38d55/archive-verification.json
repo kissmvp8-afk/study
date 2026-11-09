@@ -1,0 +1,14 @@
+{
+  "bytes": 194219707,
+  "sha256": "9ae8adc772aead8a4ecd510d8566d300a27089836b5d94af02b608383ea1fab3",
+  "CRC": "passed",
+  "members_SHA_size_verified": 575,
+  "pieces": 9,
+  "postprefill_pairing": "two files separately fetched from fixed Git snapshot; omitted from raw archive inclusion but preserved in Git",
+  "partial_git_controller_status": "running",
+  "full_raw_controller_status": "training_completed",
+  "report_and_raw_fixed_commits": [
+    "fce38d5557595c9aaae8652a8d5593b8e2851b63",
+    "986c9781afd0c0ed56ffb4e22e5e0c382e6d831e"
+  ]
+}

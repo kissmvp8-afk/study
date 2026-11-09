@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+  "status": "issued_to_Dot_frozen_evaluation_only_not_started_by_reviewer",
+  "based_on_run": "SAC-R7P-PRECISION-PILOT-20261109",
+  "based_on_evidence_commit": "fce38d5557595c9aaae8652a8d5593b8e2851b63",
+  "raw_archive_commit": "986c9781afd0c0ed56ffb4e22e5e0c382e6d831e",
+  "objective": "test whether short-budget reward signal reproduces on previously unused physics seeds; no gradient updates or new training",
+  "models": [
+    {
+      "id": "parent-R6-R1-1201",
+      "reference": true,
+      "direction": "R1",
+      "fork_seed": 1201,
+      "learning_macros": 48,
+      "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/inputs/parent.pt",
+      "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+      "bytes": 9167667
+    },
+    {
+      "id": "P0-1401",
+      "reference": false,
+      "direction": "P0",
+      "fork_seed": 1401,
+      "learning_macros": 48,
+      "model_path": "arms/P0-1401/model-learning-48.pt",
+      "sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+      "bytes": 9167731
+    },
+    {
+      "id": "P0-1402",
+      "reference": false,
+      "direction": "P0",
+      "fork_seed": 1402,
+      "learning_macros": 48,
+      "model_path": "arms/P0-1402/model-learning-48.pt",
+      "sha256": "18e70c5e63a329743794ea6da3ddf59b25ae3e111c0d6e1d0acc04c50413303a",
+      "bytes": 9167731
+    },
+    {
+      "id": "P1-1401",
+      "reference": false,
+      "direction": "P1",
+      "fork_seed": 1401,
+      "learning_macros": 48,
+      "model_path": "arms/P1-1401/model-learning-48.pt",
+      "sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1",
+      "bytes": 9167731
+    },
+    {
+      "id": "P1-1402",
+      "reference": false,
+      "direction": "P1",
+      "fork_seed": 1402,
+      "learning_macros": 48,
+      "model_path": "arms/P1-1402/model-learning-48.pt",
+      "sha256": "6b71a242bb92188f835be8ba70b459a7ee271792ebf0127e0a9b7050c2bc27c4",
+      "bytes": 9167731
+    }
+  ],
+  "all_five_fixed_before_new_results": true,
+  "new_training_allowed": false,
+  "update_model_optimizer_BN_normalizer_stats": false,
+  "parent_replacement": false,
+  "automatic_hyperparameter_changes": false,
+  "evaluation": {
+    "phase_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+    "base_protocol": "unchanged R7P nominal standard",
+    "seed_bank": [
+      231,
+      232,
+      233,
+      234,
+      235
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "models": 5,
+    "new_standard_cases": 50,
+    "legacy_parity_case": {
+      "model": "parent-R6-R1-1201",
+      "seed": 141,
+      "execution": "D",
+      "max_cases": 1,
+      "purpose": "only if a seed-whitelist/phase adapter is needed; compare numerical action/state rows against original archive, ignore clocks/phase metadata"
+    },
+    "case_cap_including_legacy": 51,
+    "duration_s": 12,
+    "commands": [
+      [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        6,
+        0.3,
+        0,
+        0
+      ],
+      [
+        6,
+        8,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        12,
+        -0.3,
+        0,
+        0
+      ]
+    ],
+    "stop_windows_s": [
+      [
+        1,
+        2
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "gate": {
+      "each_moving_mae_max_m_s": 0.12,
+      "each_moving_mean_abs_wz_max": 0.2,
+      "each_stop_mean_planar_max_m_s": 0.05,
+      "each_stop_mean_abs_wz_max": 0.1,
+      "height_mean_2_to12_min_m": 0.25,
+      "all600_steps_no_termination_timeout": true,
+      "base_contact_max_N": 1
+    },
+    "actual_initial_physics_pairing": true,
+    "D": "deterministic mean action",
+    "S": "native checkpoint learned std, no scaling",
+    "policy_noise": "on",
+    "reset_wrench": "zero",
+    "interval_push": "off",
+    "TF32": "off",
+    "turn": "not_run_by_scope",
+    "pulse": "not_run_by_scope",
+    "no_case_seed_substitution": true,
+    "no_dev_seed_relabeling_as_heldout": true
+  },
+  "adapter": {
+    "allowed": "separate output root, metadata phase_id, allow fixed231-235 seed bank; reuse frozen original metric/action/observation/physics/RNG and Kit repair semantics",
+    "keep_base_evaluator_plan_id_for_compatibility": true,
+    "required_source_diff_and_SHA": true,
+    "no_unimplemented_CLI_claim": "Dot records actual runnable command after adapter, not a fabricated flag",
+    "legacy600_step_parity_required_if_adapter_changes": true,
+    "prepare_cap_s": 300
+  },
+  "decision": {
+    "primary_reproduction": "both P1 forks improve parkingP by at least .005m/s vs matching P0 fork AND each pass-count not lower AND no new moving or yaw regression",
+    "moving_regression": "P1 movingMAE>.12 or >matching P0+.01",
+    "yaw_regression": "P1 parkingYaw>max(.10,matching P0 parkingYaw)",
+    "no_training_seed_significance_claim": true,
+    "model_standard_pass": "10/10 fixed new cases for that model",
+    "P1_direction_standard_reproduced": "both P1 models independently10/10, do not confuse with reward-effect reproduction",
+    "one_model_only": "single_model_standard_pass direction_not_reproduced",
+    "if_effect_not_reproduced": "keep parent; no automatic reward increase/continuation; report per-case counterexamples",
+    "if_reproduced": "report for subsequent paired training proposal, do not automatically run it",
+    "never_select_or_tune_after_heldout": true
+  },
+  "budget": {
+    "hard_phase_s": 3900,
+    "fixed_finish_UTC8": "2026-11-09T20:45:00+08:00",
+    "fixed_finish_UTC": "2026-11-09T12:45:00Z",
+    "reported_lease_end_UTC": "2026-11-09T14:15:00Z",
+    "lease_source": "runtime records user-reported lease; Dot must verify current instance lease, not assume renewal",
+    "effective_deadline": "min(T0+3900, fixed finish12:45UTC, verified lease end minus90min)",
+    "archive_reserve_s": 1200,
+    "prepare_cap_s": 300,
+    "case_planning_s": 45,
+    "required_total_s_with51": 3795,
+    "time_gate": "remaining>=max(3795,300+51*max(45,observed_full_case_p75_s)+1200) before start; otherwise backup only",
+    "latest_nominal_start_UTC8": "2026-11-09T19:40:00+08:00",
+    "no_135min_floor": true,
+    "original_measured_amortized_case_s": 35.38645580609639,
+    "do_not_use_rollout_only_17s_for_queue_prediction": true,
+    "reforecast_after_first3_cases_and_each_case": true,
+    "no_new_case_inside_archive_reserve": true,
+    "auto_renew_or_new_rental": false,
+    "do_not_roll_date_to_tomorrow": true
+  },
+  "backup": {
+    "16_L24_L48_metadata_checked": true,
+    "four_final_models_and_four_final_fullresumes_downloaded_CPU_read_by_reviewer": true,
+    "do_not_repeat_all_large_downloads_on_training_server_as_launch_gate": true,
+    "actual_training_restore_test": "not_run, not required for this frozen-only phase, required before subsequent fullresume training",
+    "keep_unique_parent_and_originals": true,
+    "refresh_stale_terminal_indexes_without_rewriting_history": true,
+    "new_phase_disk_target_max_GiB": 2
+  },
+  "stops": {
+    "technical_case_retry_max": 1,
+    "actual_fall": "valid failure no retry",
+    "second_technical_failure": "infra_blocked preserve incomplete data",
+    "not_all50_fit": "stop before archive reserve, report incomplete; no cross-model conclusion from unbalanced case subsets",
+    "source_or_model_hash_or_frozen_stat_mismatch": "stop immediately",
+    "no_new_work_below_disk_GiB": 12,
+    "orderly_stop_below_disk_GiB": 10
+  },
+  "deliverables": [
+    "sourceSHA/actual command/allowed adapter diff, frozen model SHA manifest",
+    "all50 per-step trajectories and config/RNG/physical initial-state/frozen-before-after fingerprints",
+    "parent/control/treatment per-case gates plus matching fork/seed contrasts",
+    "actual counters update0 and input output model hashes unchanged",
+    "controller terminal state, confirmation-results.json, scope-specific report, raw archive and remote SHA/readback receipt",
+    "fixed evidence commit returned into current conversation"
+  ]
+}

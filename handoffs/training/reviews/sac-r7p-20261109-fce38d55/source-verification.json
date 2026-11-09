@@ -1,0 +1,50 @@
+{
+  "frozen_runtime_inputs_verified": [
+    {
+      "path": "trainer/r7p_train.py",
+      "sha256": "01b6f5e96d49b387b1e509b3e01887135f2b080d878c14c59433ee170ab511d8",
+      "bytes": 27935
+    },
+    {
+      "path": "trainer/r7p_training.py",
+      "sha256": "96c8253c844fba757fd21a8b64a0c15bfcf425968d6156353e17897709a74487",
+      "bytes": 12194
+    },
+    {
+      "path": "trainer/r7p_counts.py",
+      "sha256": "6fb3a4fa13dffdbb5a97b1763e0556470f6f34c2f8b0cf552ead2a46d433474c",
+      "bytes": 317
+    },
+    {
+      "path": "parameters.json",
+      "sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+      "bytes": 9392
+    },
+    {
+      "path": "parent-selection.json",
+      "sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+      "bytes": 780
+    },
+    {
+      "path": "worker-config.json",
+      "sha256": "eba794715d6880d3b8cd92648cae13b204592c920cc7f7f908f00ebd4f85d7cc",
+      "bytes": 548
+    },
+    {
+      "path": "user-execution-override.json",
+      "sha256": "f8e3c145f0b472bb1e58cdef4a2a9884a429397ef5b77a741a082a844e985b5e",
+      "bytes": 1027
+    }
+  ],
+  "not_verified_from_this_archive": [
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/arms/R1-1201/effective-settings.json",
+      "status": "external_dependency_not_in_R7P_archive"
+    },
+    {
+      "path": "inputs/parent.pt",
+      "status": "not_in_archive"
+    }
+  ],
+  "actual_source_not_executed": true
+}

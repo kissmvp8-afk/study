@@ -1,0 +1,114 @@
+[
+  {
+    "source": "arms/P0-1401/model-learning-24.pt",
+    "name": "P0-1401-learning24-1122c2d6a2d06d69.pt",
+    "bytes": 9167731,
+    "sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P0-1401/fullresume-learning-24.pt",
+    "name": "P0-1401-fullresume-learning24-7407e28bee87f271.pt",
+    "bytes": 216136021,
+    "sha256": "7407e28bee87f27103d65537f8e7980ce3aab46368bf6385c54a1115ad23b520",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P0-1401/model-learning-48.pt",
+    "name": "P0-1401-learning48-f918d54b8ddeaab0.pt",
+    "bytes": 9167731,
+    "sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P0-1401/fullresume-learning-48.pt",
+    "name": "P0-1401-fullresume-learning48-37eff9fd47272546.pt",
+    "bytes": 216136021,
+    "sha256": "37eff9fd47272546435be69c2f5f85738c111a0a4b6542e17d1a9cd9144d8d17",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P0-1402/model-learning-24.pt",
+    "name": "P0-1402-learning24-e715f2ac43dba125.pt",
+    "bytes": 9167731,
+    "sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P0-1402/fullresume-learning-24.pt",
+    "name": "P0-1402-fullresume-learning24-9821a8ae76bbc30e.pt",
+    "bytes": 216136021,
+    "sha256": "9821a8ae76bbc30e861007664c8263740c1a1f8ab224843f7986a2baa9d7c5fe",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P0-1402/model-learning-48.pt",
+    "name": "P0-1402-learning48-18e70c5e63a32974.pt",
+    "bytes": 9167731,
+    "sha256": "18e70c5e63a329743794ea6da3ddf59b25ae3e111c0d6e1d0acc04c50413303a",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P0-1402/fullresume-learning-48.pt",
+    "name": "P0-1402-fullresume-learning48-c1eae067de2d8dda.pt",
+    "bytes": 216136021,
+    "sha256": "c1eae067de2d8dda5344b74f12e0ab9585df6cc391188ed89cab2f90c4de9a57",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1401/model-learning-24.pt",
+    "name": "P1-1401-learning24-6116c514595f1f2a.pt",
+    "bytes": 9167731,
+    "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1401/fullresume-learning-24.pt",
+    "name": "P1-1401-fullresume-learning24-b6d646cb190f0ecc.pt",
+    "bytes": 216136021,
+    "sha256": "b6d646cb190f0ecc6e1ffdcd87c95c1160769c1e6b62668cbcf6f86e4c512298",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1401/model-learning-48.pt",
+    "name": "P1-1401-learning48-c0f1befd1985b997.pt",
+    "bytes": 9167731,
+    "sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1401/fullresume-learning-48.pt",
+    "name": "P1-1401-fullresume-learning48-9db99e7f39721b20.pt",
+    "bytes": 216136021,
+    "sha256": "9db99e7f39721b207d7ec357545e4139619c940499ca47911ab98d315428639d",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1402/model-learning-24.pt",
+    "name": "P1-1402-learning24-4cfc80e3673f0cd0.pt",
+    "bytes": 9167731,
+    "sha256": "4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1402/fullresume-learning-24.pt",
+    "name": "P1-1402-fullresume-learning24-aa8e78c127a610f3.pt",
+    "bytes": 216136021,
+    "sha256": "aa8e78c127a610f35b5653f1f96be94a711a667f653c07d4d1f2b2ec9a22b4ca",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1402/model-learning-48.pt",
+    "name": "P1-1402-learning48-6b71a242bb92188f.pt",
+    "bytes": 9167731,
+    "sha256": "6b71a242bb92188f835be8ba70b459a7ee271792ebf0127e0a9b7050c2bc27c4",
+    "verification": "remote_digest_and_size_metadata_match"
+  },
+  {
+    "source": "arms/P1-1402/fullresume-learning-48.pt",
+    "name": "P1-1402-fullresume-learning48-b79e24a8488145a7.pt",
+    "bytes": 216136021,
+    "sha256": "b79e24a8488145a74097f68a0e09bc5836b131d7484ccea408c36b3f9d5f8582",
+    "verification": "remote_digest_and_size_metadata_match"
+  }
+]
