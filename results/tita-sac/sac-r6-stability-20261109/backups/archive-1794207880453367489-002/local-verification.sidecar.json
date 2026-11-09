@@ -1,0 +1,19 @@
+{
+  "bytes": 10985381,
+  "core_bytes": 47974716,
+  "core_sha256": "19aca81d99c6ec7a15b72b5227245874414f147f140fc5104186a7f977fb19c2",
+  "created_epoch": 1794207934.2984662,
+  "manifest_sha256": "3088077d38fa609e35059997d0df9bb0f724aec2ef1cffcc6fdbb5086f3e7749",
+  "pieces": [
+    {
+      "bytes": 10985381,
+      "path": "core.zip.part000",
+      "sha256": "19aca81d99c6ec7a15b72b5227245874414f147f140fc5104186a7f977fb19c2"
+    }
+  ],
+  "recombined_sha256": "19aca81d99c6ec7a15b72b5227245874414f147f140fc5104186a7f977fb19c2",
+  "remote_verification": "not_run",
+  "skipped": [],
+  "status": "local_verified",
+  "zip_crc": "passed"
+}
