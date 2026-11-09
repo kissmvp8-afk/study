@@ -1,0 +1,100 @@
+{
+  "snapshot_utc": "20261109T024039Z",
+  "controller": {
+    "plan_id": "SAC-R5-PARK-20261109",
+    "status": "running",
+    "completed_round": 1,
+    "runtime_sha256": "30419fb36f1bd00b9da61b2e0141bbdb64b2b9ee6ff62168fa7cebbce1a16d33",
+    "lease_verified": false,
+    "lease_unknown_user_authorized": true,
+    "hard_deadline_utc": "2026-11-09T10:09:28.263565+00:00",
+    "active_job": "r2-C0-1102",
+    "heartbeat_utc": "2026-11-09T02:40:38.550792+00:00",
+    "last_decision": "round-1.decision.json"
+  },
+  "evidence_sha256": "ef9850e129f414b7d70dd9bdaf103739fbcf8dccd63dcd613e467a0c0bbb9a9d",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "4df9d1027d7e030f0d6b57833f5429db369cd435de6e65af5a650269f630ee98"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 24000000,
+      "sha256": "7b50442ba57df825a15de6b8f0b5ae2de3f3b1a69c13d2b6443f9080ac08762c"
+    },
+    {
+      "file": "evidence.zip.part003",
+      "bytes": 24000000,
+      "sha256": "1586944bb65ae5be0cde8236b910e3881325aef0f97dd9a3f2dc4f851c562fe6"
+    },
+    {
+      "file": "evidence.zip.part004",
+      "bytes": 24000000,
+      "sha256": "95faa1ccb5e6a1a6e38ef8baf8263793be4eafbdf3370c3a2ae095049aa0c8fc"
+    },
+    {
+      "file": "evidence.zip.part005",
+      "bytes": 24000000,
+      "sha256": "ee6d4b1269f5fc71c2f5274e5c10d26f17279b8c7c11e9c1d668ad1f8f8c2da4"
+    },
+    {
+      "file": "evidence.zip.part006",
+      "bytes": 24000000,
+      "sha256": "44707a9531c6c8e20e8bd7c11888366631372b56c9334178821d81814dbf98ba"
+    },
+    {
+      "file": "evidence.zip.part007",
+      "bytes": 24000000,
+      "sha256": "2bc85b79eb39a95216ea575c30cdb3d6161441c6e448cc5a8f683cee955814d4"
+    },
+    {
+      "file": "evidence.zip.part008",
+      "bytes": 24000000,
+      "sha256": "56fd0c349138250b053f252f08902bc8a19f4bdf42c0787eeea833d7dec5f434"
+    },
+    {
+      "file": "evidence.zip.part009",
+      "bytes": 24000000,
+      "sha256": "ef7c9221e482e7fce956babc1d852b49b1583df876f98fb2360e84f5bd7e5069"
+    },
+    {
+      "file": "evidence.zip.part010",
+      "bytes": 24000000,
+      "sha256": "7aa3ea6f10fe8919dbe03e59676f5f30c2123790ae1ba966ceed37a9b6a87ed0"
+    },
+    {
+      "file": "evidence.zip.part011",
+      "bytes": 24000000,
+      "sha256": "18257e915a0702e89fc409941bc5b86808180292a64bb93abb6d966f174cc8fe"
+    },
+    {
+      "file": "evidence.zip.part012",
+      "bytes": 24000000,
+      "sha256": "fb6db5675ec320d75c6496ee7421e9b1a18d55ccee3d86517588dfcff9873618"
+    },
+    {
+      "file": "evidence.zip.part013",
+      "bytes": 24000000,
+      "sha256": "e93f52cdb99b47f95bd96e1d1719a3be05f2f792f53f2d0857a00bb48e3e96fc"
+    },
+    {
+      "file": "evidence.zip.part014",
+      "bytes": 24000000,
+      "sha256": "96999c3c0ce9b2bade737f6a2a198c032cf8ef02ee6c185f47edad5e08508460"
+    },
+    {
+      "file": "evidence.zip.part015",
+      "bytes": 24000000,
+      "sha256": "364251d867d0a6a11778c34670693fcda031fc6877f994bfa95f145d6ba07fe1"
+    },
+    {
+      "file": "evidence.zip.part016",
+      "bytes": 13816402,
+      "sha256": "cd1ee0758f846c51efd94498fe5fbef9151af36417deebce79881005c035a742"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
