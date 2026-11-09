@@ -1,0 +1,51 @@
+[
+  {
+    "path": "evaluations/c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1/development/standard-D-231/attempt-1/steps.jsonl",
+    "mode": "four_lane",
+    "seed": 231,
+    "execution": "D",
+    "steps": 29,
+    "elapsed_sim_s": 0.58,
+    "terminal_step": 28,
+    "terminal_terms": {
+      "base_contact": true,
+      "time_out": false
+    },
+    "base_contact_history_peak_N": 2829.680419921875,
+    "height_m": 0.25187885761260986,
+    "body_tilt_deg": 48.629267855769875,
+    "wheel_targets_rad_s": [
+      17.700637817382812,
+      -19.776424407958984
+    ],
+    "external_command_force_zero": true,
+    "first_base_contact_step": 28,
+    "other_rollout_intervals_overlapping": []
+  },
+  {
+    "path": "evaluations/c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1/development/standard-S-231/attempt-1/steps.jsonl",
+    "mode": "four_lane",
+    "seed": 231,
+    "execution": "S",
+    "steps": 29,
+    "elapsed_sim_s": 0.58,
+    "terminal_step": 28,
+    "terminal_terms": {
+      "base_contact": true,
+      "time_out": false
+    },
+    "base_contact_history_peak_N": 110.55506134033203,
+    "height_m": 0.25596824288368225,
+    "body_tilt_deg": 52.65539494277319,
+    "wheel_targets_rad_s": [
+      15.022622108459473,
+      -19.989521026611328
+    ],
+    "external_command_force_zero": true,
+    "first_base_contact_step": 28,
+    "other_rollout_intervals_overlapping": [
+      "evaluations/c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1/development/standard-S-232/attempt-1/steps.jsonl",
+      "evaluations/c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1/development/standard-S-233/attempt-1/steps.jsonl"
+    ]
+  }
+]

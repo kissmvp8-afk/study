@@ -1,0 +1,24 @@
+[
+  {
+    "fork": 1401,
+    "checks": {
+      "complete_metrics": false,
+      "parking_improves_005": false,
+      "passes_not_lower": true,
+      "moving_gate": false,
+      "yaw_gate": false
+    },
+    "effect_reproduced": false
+  },
+  {
+    "fork": 1402,
+    "checks": {
+      "complete_metrics": true,
+      "parking_improves_005": true,
+      "passes_not_lower": true,
+      "moving_gate": true,
+      "yaw_gate": true
+    },
+    "effect_reproduced": true
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "status": "static_plan_counts_checked",
+  "diagnostic_cases": 4,
+  "new_gradient_updates": 0,
+  "overwrite_C1": false,
+  "original50_unique_cases": 50,
+  "full600_cases": 48,
+  "terminated29_cases": 2,
+  "standard_physical_steps": 28858,
+  "legacy_parity_physical_steps": 600,
+  "simulation_by_reviewer": "not_run"
+}

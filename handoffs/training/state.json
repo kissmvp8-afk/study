@@ -592,6 +592,49 @@
       "next_plan_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/next-plan.txt",
       "parameters_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/parameters.json",
       "next_plan_status": "issued_frozen_evaluation_only_not_started"
+    },
+    {
+      "run_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+      "result_path": "results/tita-sac/sac-r7p-confirm-20261109/20261109T113422Z",
+      "evidence_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+      "archive_sha256": "ab9319596b6119b4762eadd106ad59d24aa58f0393177d337eb9dc631d9a72a5",
+      "key_content_fingerprint": "c4e633af0e8580469b7fb73bd4959d6e1126c690463e3a0fdca3f67d0f8b45ba",
+      "fingerprint_algorithm": "SHA256 sorted(relative_path TAB SHA256 LF) over configs, sources, fixed results/takeover and all51 raw step files; backup receipts excluded",
+      "result_status": "completed_50_processed_48_full_2_real_terminated",
+      "review_status": "independently_recomputed_all50_and_legacy_control_with_mode_comparability_limitation",
+      "reviewed_at_utc": "2026-11-09T12:16:58.150Z",
+      "review_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/review.txt",
+      "input_evidence_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/input-evidence.json",
+      "remote_parts_redownloaded": 2,
+      "archive_member_hashes_verified": 763,
+      "standard_case_count": 50,
+      "complete600_cases": 48,
+      "terminated29_cases": 2,
+      "standard_physical_steps": 28858,
+      "legacy_control_steps": 600,
+      "parent_control_pass": "6/10",
+      "P0_1401_control_pass": "2/10",
+      "P0_1402_control_pass": "2/10",
+      "P1_1401_control_pass": "3/10",
+      "P1_1401_survival": "8/10",
+      "P1_1401_full_metric_aggregates": null,
+      "P1_1402_control_pass": "4/10",
+      "reward_effect_reproduced": false,
+      "standard_gate_reproduced": false,
+      "serial_cases": 14,
+      "four_lane_cases": 36,
+      "no_duplicate_cases": true,
+      "same_source_physics_rng_frozen_checks": true,
+      "cross_mode_numerical_equivalence_tested": false,
+      "legacy600_step_bytes_equal": true,
+      "training_updates_requested": 0,
+      "update_evidence": "evaluation-only sources and all frozen fingerprints equal; optimizer steps not independently instrumented",
+      "parent_replacement": false,
+      "automatic_continuation": false,
+      "next_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+      "next_plan_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/parameters.json",
+      "next_plan_status": "issued_conditional_four_case_serial_diagnostic_not_started"
     }
   ],
   "pending_results": [
@@ -623,7 +666,7 @@
       "missing": "All R6 training attempt/success counters, all original development raw cases, source/recovery equivalence audit not independently audited in this plan turn."
     }
   ],
-  "latest_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+  "latest_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -641,19 +684,19 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/next-plan.txt",
-  "updated_at_utc": "2026-11-09T11:25:12.881Z",
-  "latest_review_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/review.txt",
+  "latest_plan_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
+  "updated_at_utc": "2026-11-09T12:16:58.150Z",
+  "latest_review_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/review.txt",
   "latest_plan_addendum_path": null,
-  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/parameters.json",
-  "latest_plan_status": "issued_frozen_evaluation_only_not_started",
+  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/parameters.json",
+  "latest_plan_status": "issued_conditional_four_case_serial_diagnostic_not_started",
   "active_plan": {
-    "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
-    "execution_status": "completed_independently_reviewed_promising_short_budget_development_control_failed",
-    "evidence_commit": "fce38d5557595c9aaae8652a8d5593b8e2851b63",
-    "review_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/review.txt",
-    "training_started_by_reviewer": false,
-    "parent_replacement": false
+    "plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+    "execution_status": "completed_independently_reviewed_control_and_effect_not_reproduced_mode_equivalence_unresolved",
+    "evidence_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+    "review_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/review.txt",
+    "parent_replacement": false,
+    "training_started_by_reviewer": false
   },
   "plan_supersessions": [
     {
@@ -673,30 +716,30 @@
       "original_training_started_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-  "latest_issued_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+  "latest_proposed_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+  "latest_issued_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-    "status": "issued_frozen_evaluation_only_not_started",
-    "path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/next-plan.txt",
-    "parameters_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/parameters.json",
-    "frozen_model_count": 5,
-    "new_seed_bank": [
-      231,
-      232,
-      233,
-      234,
-      235
+    "plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+    "status": "issued_conditional_four_case_serial_diagnostic_not_started",
+    "path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
+    "parameters_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/parameters.json",
+    "case_cap": 4,
+    "mode": "serial",
+    "seed": 231,
+    "models": [
+      "R6-parent-R1-1201-L48",
+      "P1-1401-L48"
     ],
-    "new_standard_cases": 50,
     "new_gradient_updates_allowed": 0,
+    "does_not_replace_original_C1_cases": true,
     "phase_started": false,
-    "hard_cap_s": 3900,
+    "hard_cap_s": 900,
+    "archive_reserve_s": 300,
     "fixed_finish_UTC8": "2026-11-09T20:45:00+08:00",
     "no_auto_renew": true
   },
-  "latest_executed_plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
-  "latest_plan_start_path": "handoffs/training/reviews/sac-r7p-20261109-fce38d55/next-plan.txt",
+  "latest_executed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+  "latest_plan_start_path": "handoffs/training/reviews/sac-r7pc1-20261109-94ec37af/next-plan.txt",
   "original_R7_block": {
     "status": "withdrawn_do_not_execute",
     "parent_parking_weight_actual": -8,

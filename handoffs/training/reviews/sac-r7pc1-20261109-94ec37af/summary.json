@@ -1,0 +1,130 @@
+{
+  "input_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+  "archive": {
+    "commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+    "bytes": 34730701,
+    "sha256": "ab9319596b6119b4762eadd106ad59d24aa58f0393177d337eb9dc631d9a72a5",
+    "pieces": 2,
+    "members_verified": 763,
+    "CRC": "passed"
+  },
+  "standard_cases": 50,
+  "standard_physical_steps": 28858,
+  "legacy_parity_steps": 600,
+  "total_physical_steps_read": 29458,
+  "all_frozen_checks_pass": true,
+  "same_source_identity_all50": true,
+  "unique_case_count": 50,
+  "mode_counts": {
+    "four_lane": 36,
+    "serial": 14
+  },
+  "groups": {
+    "P0-1401": {
+      "cases": 10,
+      "survived": 10,
+      "passed": 2,
+      "motion": 10,
+      "P": 0.07211598139454273,
+      "yaw": 0.0823289511660114,
+      "moving_mae": 0.05871489826877951,
+      "modes": {
+        "serial": 4,
+        "four_lane": 6
+      },
+      "failures": {
+        "stop1_speed": 5,
+        "stop2_speed": 4,
+        "reverse_mae": 2,
+        "stop1_yaw": 2,
+        "reverse_yaw": 1
+      }
+    },
+    "P0-1402": {
+      "cases": 10,
+      "survived": 10,
+      "passed": 2,
+      "motion": 10,
+      "P": 0.0717422192439455,
+      "yaw": 0.09896348029072397,
+      "moving_mae": 0.07118545531759446,
+      "modes": {
+        "four_lane": 10
+      },
+      "failures": {
+        "stop1_speed": 6,
+        "stop1_yaw": 3,
+        "stop2_speed": 6,
+        "stop2_yaw": 3,
+        "forward_mae": 2
+      }
+    },
+    "P1-1401": {
+      "cases": 10,
+      "survived": 8,
+      "passed": 3,
+      "motion": 8,
+      "P": null,
+      "yaw": null,
+      "moving_mae": null,
+      "modes": {
+        "four_lane": 10
+      },
+      "failures": {
+        "stop1_unobserved": 2,
+        "stop2_unobserved": 2,
+        "forward_unobserved": 2,
+        "reverse_unobserved": 2,
+        "survival": 2,
+        "height_unobserved": 2,
+        "stop1_speed": 4,
+        "stop2_speed": 5,
+        "stop2_yaw": 2,
+        "reverse_mae": 2,
+        "stop1_yaw": 1
+      }
+    },
+    "P1-1402": {
+      "cases": 10,
+      "survived": 10,
+      "passed": 4,
+      "motion": 10,
+      "P": 0.06151690078566025,
+      "yaw": 0.07421946804143954,
+      "moving_mae": 0.06293344724702184,
+      "modes": {
+        "four_lane": 10
+      },
+      "failures": {
+        "stop1_speed": 5,
+        "reverse_mae": 2,
+        "stop2_speed": 3,
+        "stop1_yaw": 1,
+        "stop2_yaw": 1
+      }
+    },
+    "parent-1201": {
+      "cases": 10,
+      "survived": 10,
+      "passed": 6,
+      "motion": 10,
+      "P": 0.05560245386584361,
+      "yaw": 0.06754536278545856,
+      "moving_mae": 0.05518543734849664,
+      "modes": {
+        "serial": 10
+      },
+      "failures": {
+        "stop1_speed": 2,
+        "stop2_speed": 2
+      }
+    }
+  },
+  "effect_reproduced": false,
+  "standard_replication": false,
+  "legacy_step_bytes_equal": true,
+  "cross_mode_same_model_seed_pair_in_original50": false,
+  "cross_mode_numerical_equivalence_proven": false,
+  "new_training_or_simulation_started_by_reviewer": false,
+  "zero_update_evidence": "Evaluation-only sources, unchanged model hashes and all frozen-before/after fingerprints; optimizer updates not independently instrumented"
+}

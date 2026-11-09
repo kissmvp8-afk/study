@@ -1,0 +1,119 @@
+[
+  {
+    "path": "confirm-config.json",
+    "status": "sha_match",
+    "sha256": "62d5fd4f543af368d9019581b1809717f0a34fa3120f71113e404da61ae2c757"
+  },
+  {
+    "path": "timing-report.json",
+    "status": "sha_match",
+    "sha256": "4fc6a69071036c42edfbde1bd5adb25e0a5659857806d3b4282c3af2212c3aa0"
+  },
+  {
+    "path": "inputs/parent-1201.pt",
+    "status": "not_in_archive"
+  },
+  {
+    "path": "inputs/P0-1401.pt",
+    "status": "not_in_archive"
+  },
+  {
+    "path": "inputs/P0-1402.pt",
+    "status": "not_in_archive"
+  },
+  {
+    "path": "inputs/P1-1401.pt",
+    "status": "not_in_archive"
+  },
+  {
+    "path": "inputs/P1-1402.pt",
+    "status": "not_in_archive"
+  },
+  {
+    "path": "evaluation/c1_metrics.py",
+    "status": "sha_match",
+    "sha256": "e6e22a78de17b2f3bd920293ea677eef7dc48a155cf8a1ecefe93b29f9c8cde9"
+  },
+  {
+    "path": "evaluation/compare_c1_probe.py",
+    "status": "sha_match",
+    "sha256": "eb7845b03ffaa5ec5260b36d41e955b2635e7076341cd7f15beadb67d65cbf5e"
+  },
+  {
+    "path": "evaluation/evaluate_with_kit_repair.py",
+    "status": "sha_match",
+    "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c"
+  },
+  {
+    "path": "evaluation/test_c1_adapter.py",
+    "status": "sha_match",
+    "sha256": "74dc1f3fb1a36251314708ee7663cc306babbea12f7d90407e4e60e2160e85d1"
+  },
+  {
+    "path": "evaluation/r7p_evaluation.py",
+    "status": "sha_match",
+    "sha256": "6105b09c3fddea31cfcb737650f56fd8440f481437f67e4f3d30d7da900ded83"
+  },
+  {
+    "path": "evaluation/evaluation_r7p_helpers.py",
+    "status": "sha_match",
+    "sha256": "29083b2d19c324868e0a2a0ba39a3f3e2f0d513e7c7d78107e3ac242ad598099"
+  },
+  {
+    "path": "evaluation/r4_protocol.py",
+    "status": "sha_match",
+    "sha256": "d94d1fd0ab1aef20a09bf5a960c02a89842575f737e3e7e42c8b7f7c755842f6"
+  },
+  {
+    "path": "evaluation/evaluate_sac_r7p.py",
+    "status": "sha_match",
+    "sha256": "eccc490245fe43295618438ce9cf4f71278c70c999b9b9b115b75cdf06ce38a3"
+  },
+  {
+    "path": "evaluation/evaluation_r7p_runner.py",
+    "status": "sha_match",
+    "sha256": "a23e4cf8e951a990f83fa8a4902f7cdb06bf650ce1834ea0381c933b1816e633"
+  },
+  {
+    "path": "evaluation/kit_command_repair.py",
+    "status": "sha_match",
+    "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22"
+  },
+  {
+    "path": "controller/prepare_confirm.py",
+    "status": "sha_match",
+    "sha256": "7ed018a27b7869ddc7977013dfabedbf444be5044438b9633fbc6b6c7c78ebf9"
+  },
+  {
+    "path": "controller/test_controller.py",
+    "status": "sha_match",
+    "sha256": "7a2060910df6277941e16d9bb643d11ba46be91c8377b382bbe27bc5859ca13c"
+  },
+  {
+    "path": "controller/r7p_ops.py",
+    "status": "sha_match",
+    "sha256": "8c94d8924d541ebbdfd48b276259db74e488b46336d4312ae80769ca27e2e8d5"
+  },
+  {
+    "path": "controller/r7p_confirm_adapter.py",
+    "status": "sha_match",
+    "sha256": "0dd5c355b0c6ef1e0e55a0d28b1360f9650db6fac952f663b314fc447566bdec"
+  },
+  {
+    "path": "controller/r7p_confirm_controller.py",
+    "status": "sha_match",
+    "sha256": "d8e2bd16952c4db6036097b3941771f3cac8fb32a3172b7c0d89fe11b98d84e8"
+  },
+  {
+    "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/evaluate_with_kit_repair.py",
+    "status": "external_dependency_not_in_archive"
+  },
+  {
+    "path": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/kit-repair/providers.json",
+    "status": "external_dependency_not_in_archive"
+  },
+  {
+    "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/kit_command_repair.py",
+    "status": "external_dependency_not_in_archive"
+  }
+]

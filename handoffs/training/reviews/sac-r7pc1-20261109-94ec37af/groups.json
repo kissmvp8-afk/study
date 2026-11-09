@@ -1,0 +1,101 @@
+{
+  "P0-1401": {
+    "cases": 10,
+    "survived": 10,
+    "passed": 2,
+    "motion": 10,
+    "P": 0.07211598139454273,
+    "yaw": 0.0823289511660114,
+    "moving_mae": 0.05871489826877951,
+    "modes": {
+      "serial": 4,
+      "four_lane": 6
+    },
+    "failures": {
+      "stop1_speed": 5,
+      "stop2_speed": 4,
+      "reverse_mae": 2,
+      "stop1_yaw": 2,
+      "reverse_yaw": 1
+    }
+  },
+  "P0-1402": {
+    "cases": 10,
+    "survived": 10,
+    "passed": 2,
+    "motion": 10,
+    "P": 0.0717422192439455,
+    "yaw": 0.09896348029072397,
+    "moving_mae": 0.07118545531759446,
+    "modes": {
+      "four_lane": 10
+    },
+    "failures": {
+      "stop1_speed": 6,
+      "stop1_yaw": 3,
+      "stop2_speed": 6,
+      "stop2_yaw": 3,
+      "forward_mae": 2
+    }
+  },
+  "P1-1401": {
+    "cases": 10,
+    "survived": 8,
+    "passed": 3,
+    "motion": 8,
+    "P": null,
+    "yaw": null,
+    "moving_mae": null,
+    "modes": {
+      "four_lane": 10
+    },
+    "failures": {
+      "stop1_unobserved": 2,
+      "stop2_unobserved": 2,
+      "forward_unobserved": 2,
+      "reverse_unobserved": 2,
+      "survival": 2,
+      "height_unobserved": 2,
+      "stop1_speed": 4,
+      "stop2_speed": 5,
+      "stop2_yaw": 2,
+      "reverse_mae": 2,
+      "stop1_yaw": 1
+    }
+  },
+  "P1-1402": {
+    "cases": 10,
+    "survived": 10,
+    "passed": 4,
+    "motion": 10,
+    "P": 0.06151690078566025,
+    "yaw": 0.07421946804143954,
+    "moving_mae": 0.06293344724702184,
+    "modes": {
+      "four_lane": 10
+    },
+    "failures": {
+      "stop1_speed": 5,
+      "reverse_mae": 2,
+      "stop2_speed": 3,
+      "stop1_yaw": 1,
+      "stop2_yaw": 1
+    }
+  },
+  "parent-1201": {
+    "cases": 10,
+    "survived": 10,
+    "passed": 6,
+    "motion": 10,
+    "P": 0.05560245386584361,
+    "yaw": 0.06754536278545856,
+    "moving_mae": 0.05518543734849664,
+    "modes": {
+      "serial": 10
+    },
+    "failures": {
+      "stop1_speed": 2,
+      "stop2_speed": 2
+    }
+  }
+}

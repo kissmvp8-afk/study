@@ -1,0 +1,43 @@
+{
+  "commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+  "result_base": "results/tita-sac/sac-r7p-confirm-20261109/20261109T113422Z",
+  "manifest_url": "https://raw.githubusercontent.com/kissmvp8-afk/study/94ec37af230d8ec0364dece1ee77fa15eacc9eab/results/tita-sac/sac-r7p-confirm-20261109/20261109T113422Z/raw-evidence/raw-1794225524000265770/manifest.json",
+  "sidecar": {
+    "bytes": 34730701,
+    "core_bytes": 149661999,
+    "core_sha256": "ab9319596b6119b4762eadd106ad59d24aa58f0393177d337eb9dc631d9a72a5",
+    "created_epoch": 1794225530.8130138,
+    "manifest_sha256": "4908d718f3c7ad18f1cc371b8a702fc047c3a18ad9b01cf90d50d347bb86228c",
+    "pieces": [
+      {
+        "bytes": 24000000,
+        "path": "core.zip.part000",
+        "sha256": "52bc6eff464272757a4f98b3c31978ebb8d9fdfc8d00e9eac43fd90f6233667c"
+      },
+      {
+        "bytes": 10730701,
+        "path": "core.zip.part001",
+        "sha256": "6c1969f49c5d75bb123878f9665bf2e6cfe1e49efa6937a874975983ac2849ef"
+      }
+    ],
+    "recombined_sha256": "ab9319596b6119b4762eadd106ad59d24aa58f0393177d337eb9dc631d9a72a5",
+    "remote_verification": "not_run",
+    "skipped": [],
+    "status": "local_verified",
+    "zip_crc": "passed"
+  },
+  "parts": [
+    {
+      "name": "r7p-raw-52bc6eff464272757a4f98b3.zip.part000",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r7p-precision-20261109/r7p-raw-52bc6eff464272757a4f98b3.zip.part000",
+      "bytes": 24000000,
+      "sha256": "52bc6eff464272757a4f98b3c31978ebb8d9fdfc8d00e9eac43fd90f6233667c"
+    },
+    {
+      "name": "r7p-raw-6c1969f49c5d75bb123878f9.zip.part001",
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r7p-precision-20261109/r7p-raw-6c1969f49c5d75bb123878f9.zip.part001",
+      "bytes": 10730701,
+      "sha256": "6c1969f49c5d75bb123878f9665bf2e6cfe1e49efa6937a874975983ac2849ef"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "run_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+  "status": "completed_50_processed_48_full_2_terminated",
+  "independently_recomputed": true,
+  "standard_pass_counts": {
+    "parent": "6/10",
+    "P0-1401": "2/10",
+    "P0-1402": "2/10",
+    "P1-1401": "3/10",
+    "P1-1402": "4/10"
+  },
+  "P1_1401_survival": "8/10",
+  "P1_1401_P_yaw_moving_aggregate": null,
+  "reward_effect_reproduced_both_forks": false,
+  "standard_task_reproduced": false,
+  "parent_replacement": false,
+  "automatic_continuation": false,
+  "new_training_started": false,
+  "mode_comparability": "configs/physical/RNG/frozen/source identities checked, full cross-mode numerical equivalence remains untested",
+  "next_plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+  "next_step": "at most four separate serial diagnostic cases, do not replace original C1 failures"
+}

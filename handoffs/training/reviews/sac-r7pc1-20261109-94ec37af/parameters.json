@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R7P-C2-SERIAL-DIAG-20261109",
+  "status": "issued_conditional_diagnostic_only_not_started_by_reviewer",
+  "based_on_evidence_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+  "C1_result_path": "results/tita-sac/sac-r7p-confirm-20261109/20261109T113422Z",
+  "new_training_allowed": false,
+  "parent_replacement": false,
+  "automatic_continuation": false,
+  "purpose": "reproduce the seed231 P1/1401 failure in serial mode with serial parent controls, without changing the C1 score",
+  "models": [
+    {
+      "id": "parent-R6-R1-1201-L48",
+      "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+    },
+    {
+      "id": "P1-1401-L48",
+      "sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1"
+    }
+  ],
+  "cases": [
+    {
+      "model": "parent-R6-R1-1201-L48",
+      "seed": 231,
+      "execution": "D",
+      "mode": "serial",
+      "max_simulated_s": 12,
+      "max_steps": 600
+    },
+    {
+      "model": "parent-R6-R1-1201-L48",
+      "seed": 231,
+      "execution": "S",
+      "mode": "serial",
+      "max_simulated_s": 12,
+      "max_steps": 600
+    },
+    {
+      "model": "P1-1401-L48",
+      "seed": 231,
+      "execution": "D",
+      "mode": "serial",
+      "max_simulated_s": 12,
+      "max_steps": 600
+    },
+    {
+      "model": "P1-1401-L48",
+      "seed": 231,
+      "execution": "S",
+      "mode": "serial",
+      "max_simulated_s": 12,
+      "max_steps": 600
+    }
+  ],
+  "case_count": 4,
+  "order": "parentD, parentS, P1D, P1S",
+  "same_seed_physical_fingerprint_and_RNG_required": true,
+  "protocol": {
+    "evaluator": "exact frozen C1 evaluator/wrapper and source hashes",
+    "changes_allowed": "new output_dir and external diagnostic manifest only; base C1 phase metadata can remain; no child numerical-code edits",
+    "argv": "derive original configuration.json argv, replace output_dir only; record runnable command and environment",
+    "all_settings": "same observation noise on, native std, TF32off, reset wrench0, push off, dt.02, actual checkpoint, script/URDF/versions/RNG as original",
+    "commands": "same original12s idle/forward/idle/reverse",
+    "frozen_before_after_equal": true,
+    "no_new_seed_or_reward_or_action_changes": true,
+    "one_process_at_once": true,
+    "other_GPU_sim_or_training_processes": "must be absent; if busy do not kill unrelated jobs, report resource_blocked"
+  },
+  "comparison": {
+    "parent_controls": "compare old C1 parent231 D/S to new serial D/S; record exact equality and first numerical divergence, initial physical/RNG equality required",
+    "parent_numerical_difference_only": "do not claim exact equivalence; retain differences; remaining P1 diagnoses descriptive only unless protocol mismatch",
+    "P1_diagnostics": "compare original C1 four-lane231 D/S to new serial; terminal step, base-contact peak, body tilt, action/state first divergence and maximal absolute difference on common prefix",
+    "preserve_physical_t_start_t_end": true,
+    "exclude_only_metadata_and_wall_clocks": true,
+    "do_not_replace_C1_failures_or_recompute_50_case_score": true
+  },
+  "decision": {
+    "serial_reproduces_base_contact": "failure exists without four-lane scheduling; candidate not suitable for continuation; keep parent",
+    "serial_both_survive": "mode/numerical/running-conditions sensitivity remains; not proof original failure invalid; require separately budgeted balanced comparison before conclusions",
+    "mixed_or_nonidentical": "report uncertainty and per-case evidence; no automatic training",
+    "parent_config_physics_RNG_mismatch": "stop immediately, do not infer mode cause",
+    "no_model_promotion": true
+  },
+  "budget": {
+    "hard_cap_s": 900,
+    "archive_reserve_s": 300,
+    "fixed_finish_UTC8": "2026-11-09T20:45:00+08:00",
+    "fixed_finish_UTC": "2026-11-09T12:45:00Z",
+    "effective_deadline": "min(T0+900, fixed finish12:45UTC, verified lease expiry minus90min)",
+    "require_remaining_s_before_start": 900,
+    "latest_nominal_start_UTC8": "2026-11-09T20:30:00+08:00",
+    "no_new_case_inside_archive_reserve": true,
+    "no_auto_renew_or_date_rollover": true,
+    "current_C1_archival_and_external_backup_has_priority": true
+  },
+  "stops": {
+    "case_attempts_per_identity": 1,
+    "technical_failure": "preserve log and stop this small diagnostic; do not spend time looping restarts",
+    "actual_base_contact": "valid diagnostic result, not a technical retry",
+    "model_or_source_or_frozen_state_mismatch": "stop",
+    "no_time_for_all4_and_archive": "budget_blocked or incomplete; no selection from subset",
+    "free_disk_GiB_min": 12
+  },
+  "deliverables": [
+    "4 separate raw trajectories and configuration/frozen/initial/RNG fingerprints",
+    "original-vs-diagnostic state/action comparisons with event timing and contact",
+    "model/source SHA before and after, update count0 from evaluation-only source",
+    "serial GPU process isolation evidence, runtime and technical status",
+    "diagnostic-results.json separate from immutable C1 results, raw archive and external hash check, fixed commit"
+  ],
+  "future_training": "not issued by this plan; if a later experiment is proposed, do not automatically continue these R7P candidates or reuse231-235 as unseen tests"
+}
