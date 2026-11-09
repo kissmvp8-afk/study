@@ -1,0 +1,23 @@
+{
+  "snapshot_utc": "20261109T010841Z",
+  "controller": {
+    "plan_id": "SAC-R5-PARK-20261109",
+    "status": "preflight_failed",
+    "error": "CalledProcessError(-9, [PosixPath('/root/rivermind-data/tita-check/.venv/bin/python'), PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/night128_train.py'), '--worker-config', PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/worker-config.json'), '--request', PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/preflight-request.json'), '--response', PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/preflight-report.json'), '--headless', '--device', 'cuda:0'])"
+  },
+  "evidence_sha256": "f83bde4f2c8ef9b2c0108f5fa29b04ce55320b24735ac04e72806d3b0edbc13f",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 24000000,
+      "sha256": "3a528e6daf5edbd5b8753473be73ef076f75152b41ee26d2facc67549c0add50"
+    },
+    {
+      "file": "evidence.zip.part002",
+      "bytes": 4588387,
+      "sha256": "b173fcfee861ef043bf929fbf2ac60debf50fc3912013c068a7829205ce81c9b"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
