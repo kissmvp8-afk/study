@@ -1,16 +1,14 @@
 {
-  "snapshot_utc": "20261109T004421Z",
+  "snapshot_utc": "20261109T004603Z",
   "controller": {
-    "plan_id": "SAC-R5-PARK-20261109",
-    "status": "preflight_failed",
-    "error": "CalledProcessError(1, [PosixPath('/root/rivermind-data/tita-check/.venv/bin/python'), PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/run_parent_r5.py')])"
+    "status": "preparing"
   },
-  "evidence_sha256": "186e7a06115f561483615192944313b07b0b6d64635ff9ab91e35d06acea8d56",
+  "evidence_sha256": "2e30a350db019e97f984dec9cdbe87eb00559c35a05ada5256600288d7bef1da",
   "parts": [
     {
       "file": "evidence.zip.part001",
-      "bytes": 92915,
-      "sha256": "186e7a06115f561483615192944313b07b0b6d64635ff9ab91e35d06acea8d56"
+      "bytes": 95604,
+      "sha256": "2e30a350db019e97f984dec9cdbe87eb00559c35a05ada5256600288d7bef1da"
     }
   ],
   "model_weights_included": false,
