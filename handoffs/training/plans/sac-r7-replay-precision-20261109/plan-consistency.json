@@ -1,0 +1,49 @@
+{
+  "status": "passed_static_arithmetic_and_defined_formula_only",
+  "new_implementation_tests_run": false,
+  "GPU_tests_run": false,
+  "R7_started": false,
+  "reward_examples_zero_command": [
+    {
+      "planar_m_s": 0,
+      "yaw_rad_s": 0,
+      "extra_reward_per_step": -0.0
+    },
+    {
+      "planar_m_s": 0.05,
+      "yaw_rad_s": 0,
+      "extra_reward_per_step": -0.0022119921692859514
+    },
+    {
+      "planar_m_s": 0.1,
+      "yaw_rad_s": 0,
+      "extra_reward_per_step": -0.006321205588285576
+    },
+    {
+      "planar_m_s": 0,
+      "yaw_rad_s": 0.1,
+      "extra_reward_per_step": -0.0005529980423214879
+    },
+    {
+      "planar_m_s": 0.05,
+      "yaw_rad_s": 0.1,
+      "extra_reward_per_step": -0.0027649902116074388
+    },
+    {
+      "planar_m_s": 10,
+      "yaw_rad_s": 10,
+      "extra_reward_per_step": -0.0125
+    }
+  ],
+  "same_budget_all_eight_until256": true,
+  "capacity_fill_macros": [
+    48,
+    112
+  ],
+  "max_learning_macros": 2560,
+  "max_new_transitions": 2752512,
+  "max_critic_updates_attempted": 327680,
+  "max_actor_updates_attempted": 163840,
+  "max_formal_development_cases": 120,
+  "max_final_cases_with_parent": 90
+}

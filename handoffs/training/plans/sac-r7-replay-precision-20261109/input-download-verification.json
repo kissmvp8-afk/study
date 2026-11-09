@@ -1,0 +1,26 @@
+{
+  "commit": "1e69eb8390c2b5cb4353e01acb0f0bf3aacadcf4",
+  "archives": [
+    {
+      "archive": "/workspace/sac-r7-plan/core-0.zip",
+      "sha256": "e486d699bdb472ece19377ca9865a6c86fa01b6ac94db0b8124f90bf3401347f",
+      "bytes": 10113477,
+      "members_verified": 337,
+      "crc": "passed"
+    },
+    {
+      "archive": "/workspace/sac-r7-plan/core-1.zip",
+      "sha256": "a21436543f0f05ab5eef3695011b1e7ce69e7636a797b7709d24431be2887001",
+      "bytes": 9723186,
+      "members_verified": 56,
+      "crc": "passed"
+    },
+    {
+      "archive": "/workspace/sac-r7-plan/core-2.zip",
+      "sha256": "e0cdecc8ef742c0e8c74be2c701467dd14f73968e8a3a6c96f45e7ddbff666b5",
+      "bytes": 7901097,
+      "members_verified": 106,
+      "crc": "passed"
+    }
+  ]
+}

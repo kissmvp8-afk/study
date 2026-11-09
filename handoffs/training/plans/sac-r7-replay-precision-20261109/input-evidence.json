@@ -1,0 +1,37 @@
+{
+  "r6_evidence_commit": "1e69eb8390c2b5cb4353e01acb0f0bf3aacadcf4",
+  "branch": "experiment/sac-r6-stability-20261109",
+  "archive_inputs": [
+    {
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r6-stability-20261109/r6-core-e486d699bdb472ec-e486d699bdb472ec-core.zip.part000",
+      "sha256": "e486d699bdb472ece19377ca9865a6c86fa01b6ac94db0b8124f90bf3401347f",
+      "bytes": 10113477,
+      "manifest_path": "results/tita-sac/sac-r6-stability-20261109/backups/archive-1794216881830068148-000/MANIFEST.json"
+    },
+    {
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r6-stability-20261109/r6-core-a21436543f0f05ab-a21436543f0f05ab-core.zip.part000",
+      "sha256": "a21436543f0f05ab5eef3695011b1e7ce69e7636a797b7709d24431be2887001",
+      "bytes": 9723186,
+      "manifest_path": "results/tita-sac/sac-r6-stability-20261109/backups/archive-1794216881830068148-001/MANIFEST.json"
+    },
+    {
+      "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r6-stability-20261109/r6-core-e0cdecc8ef742c0e-e0cdecc8ef742c0e-core.zip.part000",
+      "sha256": "e0cdecc8ef742c0e8c74be2c701467dd14f73968e8a3a6c96f45e7ddbff666b5",
+      "bytes": 7901097,
+      "manifest_path": "results/tita-sac/sac-r6-stability-20261109/backups/archive-1794201360775574876-000/MANIFEST.json"
+    }
+  ],
+  "r6_full_review_completed": false,
+  "checks": [
+    "archive digest/size/CRC and listed file hashes",
+    "20 raw heldout cases 12000 steps: metrics, gate, physical pairing, commands, frozen-state, nominal wrench",
+    "selected parent downloaded/hashes/weights_only CPU finite tensors"
+  ],
+  "unverified": [
+    "all R6 training success/attempt counts",
+    "all R6 original development raw trajectories",
+    "all R6 recovery code diffs and equivalence audit",
+    "32 complete model/resume binary redownloads"
+  ],
+  "next_execution_prerequisite": "Dot bind source/recovery audit, actual versions and configs before R7; no claim all R6 reviewed"
+}

@@ -560,9 +560,20 @@
       "key_content_fingerprint": "6aa6158114fda586e08344b81891f64dacc45dc47c02c7ae0429ec0c8458bf36",
       "review_path": "handoffs/training/reviews/sac-r2-20261108-6aa61581/review.txt",
       "missing": "Final GitHub raw-result commit/tree; uploaded full evidence and both model archives are readable and reviewed."
+    },
+    {
+      "run_id": "SAC-R6-STABILITY-20261109",
+      "result_path": "results/tita-sac/sac-r6-stability-20261109",
+      "evidence_commit": "1e69eb8390c2b5cb4353e01acb0f0bf3aacadcf4",
+      "status": "limited_heldout_and_parent_audit_completed_full_R6_review_pending",
+      "limited_audit_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/R6-heldout-limited-audit.json",
+      "raw_heldout_cases_recomputed": 20,
+      "raw_heldout_steps": 12000,
+      "parent_weight_downloaded_CPU_verified": true,
+      "missing": "All R6 training attempt/success counters, all original development raw cases, source/recovery equivalence audit not independently audited in this plan turn."
     }
   ],
-  "latest_plan_id": "SAC-R6-STABILITY-20261109",
+  "latest_plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -580,20 +591,22 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/next-plan.txt",
-  "updated_at_utc": "2026-11-09 04:49:02 UTC",
+  "latest_plan_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/execution-plan.txt",
+  "updated_at_utc": "2026-11-09T09:48:00.219Z",
   "latest_review_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/review.txt",
   "latest_plan_addendum_path": null,
-  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/parameters.json",
-  "latest_plan_status": "proposal_only_not_implemented_not_started_requires_separate_start_instruction",
+  "latest_plan_parameters_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/parameters.json",
+  "latest_plan_status": "issued_to_Dot_conditional_execution_not_started_by_reviewer",
   "active_plan": {
-    "plan_id": "SAC-R5-PARK-20261109",
-    "execution_status": "completed_independently_reviewed_control_failed",
-    "evidence_commit": "0cac03f0869039ece66dd410f66631f61d663195",
-    "review_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/review.txt",
-    "finished_at_utc": "2026-11-09T04:03:38.231046+00:00",
-    "archive_error_recorded": true,
-    "local_repair_unverified": true
+    "plan_id": "SAC-R6-STABILITY-20261109",
+    "execution_status": "recovery_controller_reports_completed_20_heldout_cases_independently_recomputed_full_training_review_pending",
+    "evidence_commit": "1e69eb8390c2b5cb4353e01acb0f0bf3aacadcf4",
+    "primary_standard_pass": "2/10",
+    "secondary_standard_pass": "7/10",
+    "each_standard_survival": "10/10",
+    "turn": "not_run",
+    "pulse": "not_run",
+    "limited_audit_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/R6-heldout-limited-audit.json"
   },
   "plan_supersessions": [
     {
@@ -604,26 +617,20 @@
       "old_plan_execution_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R6-STABILITY-20261109",
-  "latest_issued_plan_id": "SAC-R4-128-SCREEN-20261108",
+  "latest_proposed_plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
+  "latest_issued_plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R6-STABILITY-20261109",
-    "status": "proposal_only",
-    "path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/next-plan.txt",
-    "execution_authorized_by_this_review": false,
-    "requires_separate_start_instruction": true,
+    "plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
+    "status": "issued_to_Dot_conditional_execution_not_started_by_reviewer",
+    "path": "handoffs/training/plans/sac-r7-replay-precision-20261109/execution-plan.txt",
+    "parameters_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/parameters.json",
+    "entry_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/DOT_START_HERE.txt",
+    "execution_authorized_by_user_for_Dot_after_preflight": true,
+    "requires_separate_routine_user_confirmation": false,
     "training_started": false,
-    "default_parent_sha256": "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
-    "allowed_parent_pool_sha256": [
-      "9278c0c35e3c971699050e2b747f46c8a3ad54a6684e9c1cf427b22d36d872b7",
-      "1e1a983c0a0e07594c930c99c257daf149c877763f574c555dfd296c0d18ef6b",
-      "52868414e1d097f011a4da94b45cd8b0267b705708dec1bd45ad3b58470319f8",
-      "2ba45d6241125b8ab852f0765f17003700faf0b52a573bc3dbcf40ef5f9ae28e",
-      "16c6025df4c216fab66b928eca4d6b863699b1d1eb957b22cb0a9becc64759ad",
-      "41bacf48ea850d6a20798d5025e8eede2f1d6b4e5c40f1dd4e848eb0e4368d19"
-    ],
-    "hard_cap_s": 21600,
-    "phase_A_read_only_first": true
+    "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+    "hard_cap_s": 34200
   },
-  "latest_executed_plan_id": "SAC-R5-PARK-20261109"
+  "latest_executed_plan_id": "SAC-R6-STABILITY-20261109",
+  "latest_plan_start_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/DOT_START_HERE.txt"
 }

@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
+  "status": "issued_to_Dot_conditional_execution_not_started_by_reviewer",
+  "created_at_utc": "2026-11-09T09:48:30.519723+00:00",
+  "handoff_path": "handoffs/training/plans/sac-r7-replay-precision-20261109",
+  "authorization": {
+    "user_request": "嗯，你安排训练计划吧",
+    "execute_by": "Dot on existing authorized rented instance after preflight",
+    "reviewer_started_training": false,
+    "automatic_purchase_or_rental_extension": false,
+    "formal_config_replacement": false,
+    "real_robot_execution": false
+  },
+  "basis": {
+    "r6_evidence_commit": "1e69eb8390c2b5cb4353e01acb0f0bf3aacadcf4",
+    "r6_branch": "experiment/sac-r6-stability-20261109",
+    "r5_evidence_commit": "0cac03f0869039ece66dd410f66631f61d663195",
+    "independent_r6_scope": "20 heldout trajectories / 12000 steps and selected parent binary only, not full R6 training/source/recovery audit",
+    "r6_heldout_primary_pass": [
+      2,
+      10
+    ],
+    "r6_heldout_secondary_pass": [
+      7,
+      10
+    ],
+    "r6_each_survival": [
+      10,
+      10
+    ],
+    "R6_role_names_preserved": true,
+    "old_heldout_seeds_now_used_for_parent_choice_not_unseen": [
+      221,
+      222,
+      223,
+      224,
+      225
+    ]
+  },
+  "parent": {
+    "run_id": "SAC-R6-STABILITY-20261109/R1-1201",
+    "learning_macros": 48,
+    "asset_name": "R1-1201-learning48-cbcd57a45c5addf7.pt",
+    "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+    "bytes": 9167667,
+    "url": "https://github.com/kissmvp8-afk/study/releases/download/sac-r6-stability-20261109/R1-1201-learning48-cbcd57a45c5addf7.pt",
+    "server_relative_path": "sac-r6-stability-20261109/arms/R1-1201/model-learning-48.pt",
+    "native_alpha": 7.544342952314764e-05,
+    "warm_start": "inherit all modules, target critics, optimizer states, both normalizers; new replay, counters, per-fork RNG and simulator; not exact physical resume",
+    "full_resume_required_for_fresh_R7_fork": false,
+    "parent_binary_downloaded_hashed_CPU_read": true,
+    "physical_environment_state_in_checkpoint": false,
+    "unique_parent_for_all_arms": true,
+    "fallback_parent_allowed": false
+  },
+  "fork_seeds": [
+    1301,
+    1302
+  ],
+  "independent_from_scratch_training_seeds": false,
+  "directions": [
+    {
+      "id": "B0",
+      "capacity_per_env": 512,
+      "parking_precision_weight": 0.0
+    },
+    {
+      "id": "B1",
+      "capacity_per_env": 1024,
+      "parking_precision_weight": 0.0
+    },
+    {
+      "id": "B2",
+      "capacity_per_env": 512,
+      "parking_precision_weight": 0.5
+    },
+    {
+      "id": "B3",
+      "capacity_per_env": 1024,
+      "parking_precision_weight": 0.5
+    }
+  ],
+  "common": {
+    "num_envs": 128,
+    "control_dt_s": 0.02,
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "steps_per_macro": 8,
+    "new_transitions_per_learning_macro": 1024,
+    "warmup_macros": 16,
+    "microcycles_per_learning_macro": 8,
+    "critic_updates_per_microcycle": 16,
+    "auxiliary_attempts_per_microcycle": 16,
+    "critic_updates_per_learning_macro": 128,
+    "actor_updates_per_learning_macro": 64,
+    "alpha_updates_per_learning_macro": 128,
+    "target_updates_per_learning_macro": 128,
+    "auxiliary_attempts_per_learning_macro": 128,
+    "batch_size": 256,
+    "auxiliary_batch_size": 256,
+    "actor_lr": 5e-05,
+    "critic_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "max_grad_norm": 1.0,
+    "actor_update_every": 2,
+    "target_entropy_scale": 1.0,
+    "temperature_and_std": "inherit learned values; no entry rescale; do not reload initial_alpha=.05 or initial_std=.15",
+    "representation": "train existing encoder/projector and both normalizer statistics as R6 R1; freeze all during evaluation",
+    "standing_command_fraction": 0.2,
+    "command_resampling_s": [
+      10,
+      10
+    ],
+    "existing_parking_body_velocity_weight": 0,
+    "policy_observation_noise": "on",
+    "reset_force_N": [
+      0,
+      0
+    ],
+    "reset_torque_Nm": [
+      0,
+      0
+    ],
+    "interval_push": "off",
+    "tf32_matmul": false,
+    "tf32_cudnn": false,
+    "use_cache": false,
+    "replay_device": "cpu",
+    "network_action_bounds_timeout_nstep": "unchanged from verified R6 parent and source after preflight",
+    "optimizer_betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0
+  },
+  "parking_precision": {
+    "mask": "hypot(command_vx,command_vy)<0.001 AND abs(command_wz)<0.001",
+    "speed_scale_m_s": 0.1,
+    "yaw_scale_rad_s": 0.2,
+    "yaw_relative_weight": 0.25,
+    "unweighted_cost": "(1-exp(-(vx_body**2+vy_body**2)/0.10**2)) + 0.25*(1-exp(-wz_body**2/0.20**2))",
+    "reward": "-parking_precision_weight * mask * unweighted_cost * control_dt",
+    "weight_fixed_from_prefill": true,
+    "reward_dt_applied_exactly_once": true,
+    "reward_timing": "same command/state timing as existing velocity tracking and transition record; no reset-state or next-command mixing",
+    "zero_target_pitch_constraint": false,
+    "action_postprocessing_change": false,
+    "training_reward_for_cross_direction_ranking": false,
+    "not_potential_based_reward_shaping": true,
+    "preserves_original_optimum_not_claimed": true
+  },
+  "replay": {
+    "B0_B2_total": 65536,
+    "B1_B3_total": 131072,
+    "uniform_sampling": true,
+    "raw_storage_renormalized_by_current_statistics": true,
+    "relabel_old_rewards": false,
+    "fresh_pool_for_every_arm": true,
+    "gradient_updates_per_new_individual_transition": 0.125,
+    "sampled_transitions_per_new_individual_transition": 32,
+    "512_pool_full_after_learning_macros": 48,
+    "1024_pool_full_after_learning_macros": 112,
+    "primary_capacity_comparison_stages": [
+      256,
+      384
+    ]
+  },
+  "schedule": {
+    "all_eight_stages": [
+      128,
+      256
+    ],
+    "optional_final_stage": 384,
+    "after_256": "stop if no intervention meets benefit gate; else retain B0 plus exactly one best eligible intervention, both forks, advance to384",
+    "complete_pair_stage_history_eligible": true,
+    "last_stage_direction_filter": false,
+    "no_extra_blocks": true,
+    "maximum_learning_macros_total": 2560,
+    "maximum_new_transitions_with_prefill": 2752512,
+    "maximum_critic_alpha_target_auxiliary_attempts": 327680,
+    "maximum_actor_updates": 163840,
+    "max_model_only_assets": 20,
+    "latest_full_resumes_per_arm": 8
+  },
+  "evaluation": {
+    "protocol": "R6 nominal standard semantics after recovery-source equivalence verified",
+    "development_seeds": [
+      131,
+      132,
+      133
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "heldout_seeds": [
+      231,
+      232,
+      233,
+      234,
+      235
+    ],
+    "initial_physics_pairing": "same actual physical state fingerprint per seed across all models and both D/S; sensor/action RNG identity separately logged",
+    "no_test_seed_training_or_tuning": true,
+    "observation_noise": "on",
+    "D": "mean deterministic action",
+    "S": "native checkpoint learned action std; no rescaling",
+    "standard_duration_s": 12,
+    "standard_commands": [
+      [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        6,
+        0.3,
+        0,
+        0
+      ],
+      [
+        6,
+        8,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        12,
+        -0.3,
+        0,
+        0
+      ]
+    ],
+    "stop_tail_windows_s": [
+      [
+        1,
+        2
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "moving_windows_s": [
+      [
+        2,
+        6
+      ],
+      [
+        8,
+        12
+      ]
+    ],
+    "gate": {
+      "no_termination_or_time_out": true,
+      "base_contact_max_N": 1,
+      "each_moving_vx_mae_max_m_s": 0.12,
+      "each_moving_mean_abs_wz_max_rad_s": 0.2,
+      "each_stop_tail_mean_planar_speed_max_m_s": 0.05,
+      "each_stop_tail_mean_abs_wz_max_rad_s": 0.1,
+      "mean_height_2_to_12_min_m": 0.25
+    },
+    "motion_competence": {
+      "forward_mean_vx_min": 0.1,
+      "reverse_mean_vx_max": -0.1,
+      "each_moving_mae_max": 0.2,
+      "full_survival_required": true
+    },
+    "freeze_parent_development_cases": 6,
+    "formal_development_max_cases": 120,
+    "heldout_standard_cases_with_frozen_parent": 30,
+    "turn_and_pulse_gate": "independently for each selected candidate: standard10/10 -> turn10/10 -> pulse20/20 D; frozen parent standard only, not a candidate",
+    "final_total_cases_max": 90,
+    "no_heldout_champion_reshuffle": true
+  },
+  "selection": {
+    "pair_ranking": [
+      "worst_fork_survival descending",
+      "worst_fork_task_pass descending",
+      "overall_task_pass descending",
+      "worst_fork_motion_competence descending",
+      "worst_fork_mean(max(stop1_speed,stop2_speed)) ascending",
+      "worst_fork_mean(max(stop1_abs_wz,stop2_abs_wz)) ascending",
+      "worst_fork_mean((forward_mae+reverse_mae)/2) ascending",
+      "B0,B1,B2,B3",
+      "lower learning macros"
+    ],
+    "fork_ranking": "same metrics within selected direction/stage, then lower fork seed; freeze before heldout",
+    "parent_eligible_as_safety_reference_not_random_winner": true,
+    "final_may_retain_frozen_parent": true
+  },
+  "benefit_gate_256": {
+    "require_all": {
+      "both_forks_survival_cases": [
+        6,
+        6
+      ],
+      "both_forks_motion_cases": [
+        6,
+        6
+      ],
+      "worst_fork_moving_mae_max": 0.12,
+      "worst_fork_parking_yaw_max": "max(.10, B0 same-stage parking_yaw)"
+    },
+    "require_any": {
+      "worst_fork_task_pass_gain_vs_B0_min_cases": 1,
+      "parking_P_ratio_vs_B0_max": 0.8
+    },
+    "for_parking_ratio_also_require": "both baselines finite complete and B0 P>0; intervention P<=frozen parent P; overall pass not below B0",
+    "all_gates_false": "stop learning as no_progress; final-check best historical pair; no spend-to-fill"
+  },
+  "regression_stop_128": {
+    "all_interventions_worst_fork_pass_lost_at_least_cases_vs_frozen_parent": 2,
+    "all_interventions_parking_P_ratio_vs_parent_min": 1.25,
+    "all_interventions_reproduce_moving_gate_failure": true,
+    "combination": "if every intervention meets any one of the three, and none beats B0/parent in pass -> stop; otherwise complete common256; never prune a fork alone"
+  },
+  "budget": {
+    "target_wall_s": [
+      25200,
+      32400
+    ],
+    "hard_cap_s": 34200,
+    "prepare_audit_implementation_calibration_cap_s": 5400,
+    "stop_new_training_inside_lease_s": 7200,
+    "finish_before_lease_s": 5400,
+    "archive_reserve_s": 1200,
+    "heldout_reserve_floor_s": 5400,
+    "actual_eval_reserve": "max(5400,1.25*90*measured_p75_case_s); if infeasible reduce endpoint before formal start, do not delete required holdout seeds",
+    "endpoint_fallback_before_formal_start": 256,
+    "sufficient_measured_budget_required": true,
+    "automatic_purchase_renewal": false,
+    "no_idle_padding": true,
+    "not_a_promise_of_hours_or_task_success": true
+  },
+  "resources": {
+    "gpu": "one RTX4090 24GiB or equivalent currently authorized GPU",
+    "cpu_logical_min": 12,
+    "ram_GiB_min": 64,
+    "training_workers_concurrent": 4,
+    "preformal_concurrency_fallback_allowed": 2,
+    "fallback_requires_new_frozen_actual_parameters_and_budget": true,
+    "num_envs_per_worker": 128,
+    "new_run_disk_cap_GiB": 8,
+    "start_free_disk_GiB_min": 20,
+    "no_new_job_below_free_GiB": 12,
+    "orderly_save_stop_free_GiB": 10,
+    "keep_lease_resource_checks_in_preflight": true,
+    "four_lane": "fixed same mode for all formal arms, independent pools/optimizers/RNG/config/output; explicit queue order; startup serialized with global RNG reset after initialization",
+    "no_mixed_mode_formal_training": true,
+    "worker_gpu_memory_cap_fraction_total": 0.85
+  },
+  "stops": {
+    "nonfinite_OOM_contract_counter_mismatch": "stop affected stage and preserve all evidence; do not silently shrink batch/envs or resume a failed numeric run as if unchanged",
+    "technical_eval_retries": 1,
+    "actual_falls_are_valid_failures": true,
+    "material_init_failure": "before physical steps only, retain failure and retry once identical model/seed/config; second failure pause as infra_blocked, never substitute seed",
+    "skipped_critic_actor_alpha_target_updates": "unexpected skip stops stage; attempts/successes must both be logged",
+    "auxiliary_skips": "log eligible sample count and cause; observed skip ratio>.01 in an arm stops stage, not counted as successful updates",
+    "heartbeat_s_max": 30,
+    "latest_resume_period_s_max": 300
+  },
+  "deliverables": [
+    "frozen-plan.json and actual command/source SHA/config diffs",
+    "parent origin + binary SHA + clone equivalence + optimizer/statistic fingerprints",
+    "arms/*/training.jsonl attempted/successful/skipped updates and replay coverage",
+    "stage128/stage256/optional384 models and all common-stage decisions",
+    "latest full-resume/arm with real resume smoke test",
+    "raw per-step nominal/turn/pulse trajectories with exact config initial-state/RNG/frozen-state fingerprints",
+    "Q/target/TD/gradient-feature-weight diagnostics and stop-state estimator/balance logs",
+    "controller-state.json final-selection.json heldout-results.json immutable-asset manifest and external readback receipts",
+    "unweighted light evidence and model/resume separate release assets; final immutable result commit"
+  ],
+  "not_in_this_batch": [
+    "full FlashSAC/FastSAC/CrossQ migration",
+    "new critic LayerNorm or weight-normalization architecture",
+    "PI/LQR or fixed wheel offset",
+    "encoder freeze as a new untested default",
+    "changed actions/robot physics/observation dimensions",
+    "jumping or real robot deployment",
+    "automatic broad hyperparameter search after heldout failure"
+  ]
+}

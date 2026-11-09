@@ -1,0 +1,35 @@
+文献与实验依据（2026-11-09）
+
+结果版本：R6 1e69eb8390c2b5cb4353e01acb0f0bf3aacadcf4，R5 0cac03f0869039ece66dd410f66631f61d663195。
+R6审阅范围为末次2轻量归档与初次参数归档的SHA/CRC/成员校验，20条留出原始轨迹、选中父模型CPU读取；不是R6全源码/训练更新/恢复修复审核通过。R6主备角色保留，主2/10、备7/10；本轮选择旧备作新训练父，是使用已知留出信息的后续开发决策。231–235才是R7新独立留出。
+
+1. FlashSAC: Fast and Stable Off-Policy Reinforcement Learning for High-Dimensional Robot Control (2026)
+https://arxiv.org/html/2604.04539v1
+阅读第4节方法、第6节消融。论文采用大型并行采样、回放和网络规范化以稳定SAC。可借鉴保留数据覆盖，不能把其1024环境、10M回放、2048batch、规范化架构与低UTD整套结果外推为TITA同等速度或效果。R7只检验较小容量变更，65536→131072，保留原网络与优化密度；不是实现完整FlashSAC。原实验容量只保存每环境10.24秒，本轮为20.48秒；缺乏覆盖是待验证假设，不是已确认根因。大池也会保留旧劣质数据，因此有对照和收益停止。
+
+2. Learning Sim-to-Real Humanoid Locomotion in 15 Minutes / FastSAC (2025)
+https://arxiv.org/html/2512.01996v1
+阅读配置及动作边界/归一化/探索消融。论文站立命令20%、速度跟踪γ=.97等本项目早已采用，不作为R7新发明。15分钟为论文特定机器人与并行规模，不是128环境训练承诺。该文的关节位置动作界限也不能直接照搬到TITA轮速通道。R7保留已验证混合动作。
+
+3. Adaptive optimal output regulation for wheel-legged robot Ollie: A data-driven approach (2023)
+https://www.frontiersin.org/journals/neurorobotics/articles/10.3389/fnbot.2022.1102259/full
+阅读模型、平衡偏置及4.3节实测。能平衡却持续运动的轮腿机器人问题具有直接参考价值，但其AOOR并非SAC。R7只先记录零指令下姿态与速度/执行器/估计偏差，不实现PI/LQR、不加固定轮速偏移，也不以pitch绝对为零作为静止必要条件。
+
+4. Addressing Function Approximation Error in Actor-Critic Methods (ICML2018)
+https://proceedings.mlr.press/v80/fujimoto18a.html
+https://proceedings.mlr.press/v80/fujimoto18a/fujimoto18a.pdf
+第5.2节讨论策略更新与价值估计误差的相互影响，支持分开研究更新时标。R6低Actor LR已经有信号，R7沿用5e-5；降低LR不等于降低更新频率，不以TD3证据断言SAC一定改善。
+
+5. Hybrid Internal Model: Learning Agile Legged Locomotion with Simulated Robot Response (ICLR2024)
+https://arxiv.org/html/2312.11460
+原方法PPO与历史表征交替学习，不是SAC。现有TITA已经使用历史速度/隐变量和辅助学习，本轮继续而非盲目永久冻结；具体更新方式与原HIM不同，不称完整复现。
+
+6. CAPS / Regularizing Action Policies for Smooth Control with Reinforcement Learning (ICRA2021)
+https://ai.bu.edu/caps/
+时间与空间平滑主要处理动作高频抖动，不能保证恒定静止误差消失。本项目已有action-rate惩罚，R7不叠加CAPS；停车基本控制通过后再考虑。
+
+7. CrossQ (ICLR2024)
+https://arxiv.org/html/1902.05605v4
+该方法包含Critic BatchRenorm、当前/下一状态动作混合前向及取消target的配套设计，不能简化为给现有encoder加BN。R7不做这类检查点架构迁移；后续是否开支线由新的Q/梯度/表征诊断决定。
+
+新增停车精度函数为本计划针对.05m/s/.10rad/s验收目标提出的工程假设，不是上述论文给出的TITA验证公式。它改变奖励目标，不保证改善。四组因子实验将它与容量效应分开，参数在正式学习前冻结，不能按留出结果反复调参。

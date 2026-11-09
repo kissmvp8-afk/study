@@ -1,0 +1,218 @@
+{
+  "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+  "bytes": 9167667,
+  "torch_read": "weights_only_CPU",
+  "finite_tensor_count": 230,
+  "config": {
+    "name": "SAC-R6-STABILITY-20261109",
+    "mode": "isaac_sim",
+    "seed": 1201,
+    "device": "cuda:0",
+    "task": {
+      "task": "isaac_flat",
+      "q_dim": 54,
+      "velocity_label_columns": [
+        0,
+        3
+      ],
+      "joint_pos_limits": {
+        "joint_left_leg_1": [
+          -0.7068581581115723,
+          0.7068581581115723
+        ],
+        "joint_left_leg_2": [
+          -1.6493356227874756,
+          3.22013258934021
+        ],
+        "joint_left_leg_3": [
+          -2.571742534637451,
+          -0.7967431545257568
+        ],
+        "joint_right_leg_1": [
+          -0.7068581581115723,
+          0.7068581581115723
+        ],
+        "joint_right_leg_2": [
+          -1.6493356227874756,
+          3.22013258934021
+        ],
+        "joint_right_leg_3": [
+          -2.571742534637451,
+          -0.7967431545257568
+        ]
+      },
+      "wheel_speed_ranges": {
+        "joint_left_leg_4": [
+          -20.0,
+          20.0
+        ],
+        "joint_right_leg_4": [
+          -20.0,
+          20.0
+        ]
+      },
+      "action_limits_artificial": false,
+      "initial_targets": null
+    },
+    "algorithm": {
+      "gamma": 0.97,
+      "n_steps": 5,
+      "tau": 0.003,
+      "target_update_every": 1,
+      "actor_lr": 5e-05,
+      "critic_lr": 0.0002,
+      "alpha_lr": 2e-05,
+      "auxiliary_lr": 0.001,
+      "initial_alpha": 0.05,
+      "target_entropy_scale": 1.0,
+      "initial_std": 0.15,
+      "max_grad_norm": 1.0,
+      "batch_size": 256,
+      "critic_updates_per_iteration": 128,
+      "actor_update_every": 2,
+      "alpha_update_every": 1,
+      "auxiliary_updates_per_iteration": 128,
+      "auxiliary_batch_size": 256,
+      "normalizer_eps": 0.01
+    },
+    "network": {
+      "encoder_backbone_dims": [
+        128,
+        64
+      ],
+      "encoder_latent_hidden_dim": 32,
+      "actor_hidden_dims": [
+        512,
+        256,
+        128
+      ],
+      "critic_hidden_dims": [
+        512,
+        256,
+        128
+      ]
+    },
+    "collection": {
+      "num_envs": 128,
+      "steps_per_iteration": 8,
+      "warmup_iterations": 16,
+      "capacity_per_env": 512
+    },
+    "environment": {
+      "isaac_sim": "5.1",
+      "isaac_lab": "2.3.0",
+      "python": "3.11",
+      "robot_assets_commit": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+      "sim_device": "cuda:0",
+      "sac_task_id": "Tita-SAC-Velocity-Flat-v0"
+    },
+    "sources": {
+      "algorithm.gamma": "论文候选",
+      "algorithm.n_steps": "论文候选",
+      "algorithm.tau": "论文候选",
+      "algorithm.target_update_every": "作者：每次 Critic 更新都慢更新",
+      "algorithm.actor_lr": "论文候选",
+      "algorithm.critic_lr": "论文候选",
+      "algorithm.alpha_lr": "论文候选",
+      "algorithm.auxiliary_lr": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） learning_rate 初值",
+      "algorithm.initial_alpha": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.target_entropy_scale": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.initial_std": "论文候选",
+      "algorithm.max_grad_norm": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.batch_size": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.critic_updates_per_iteration": "SAC-R6-STABILITY-20261109",
+      "algorithm.actor_update_every": "作者默认（rsl_rl_sac e0d243a）",
+      "algorithm.alpha_update_every": "作者：每次 Critic 更新都更新 alpha",
+      "algorithm.auxiliary_updates_per_iteration": "SAC-R6-STABILITY-20261109",
+      "algorithm.auxiliary_batch_size": "TITA 适配暂定值（未经训练验证）",
+      "algorithm.normalizer_eps": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa） 与作者 EmpiricalNormalization 的 eps",
+      "network.encoder_backbone_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.encoder_latent_hidden_dim": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.actor_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "network.critic_hidden_dims": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）",
+      "collection.num_envs": "用户设置（实际创建的环境数）",
+      "collection.steps_per_iteration": "用户设置",
+      "collection.warmup_iterations": "SAC-R6-STABILITY-20261109",
+      "collection.capacity_per_env": "用户设置",
+      "task.task": "E01 平地 / 复杂地形任务（接入前不能运行）",
+      "task.q_dim": "E02 运行时 group_obs_term_dim（validate_observations 核对）",
+      "task.velocity_label_columns": "原 PPO（DDT_Lab 701a49c / 快照 8fe40aa）：critic 第一项 base_lin_vel × 2.0（E02 运行时核对）",
+      "task.joint_pos_limits": "E01 运行时 soft_joint_pos_limits（factor 0.9）",
+      "task.wheel_speed_ranges": "用户设置 ±20.0 rad/s（跟踪最大指令所需 13.87，模型上限 30.0）",
+      "task.initial_targets": "E03 默认目标",
+      "seed": "用户设置",
+      "device": "SAC-R6-STABILITY-20261109: explicitly selected, independently validated learner"
+    }
+  },
+  "r6_identity": {
+    "plan_id": "SAC-R6-STABILITY-20261109",
+    "direction": "R1",
+    "fork_seed": 1201,
+    "parameters_sha256": "ee9150496beae6a924955edf6dd2b01c4235f6105aaebf7b24764d2f70064837",
+    "parent_selection_sha256": "60438b7b57f7867a6e14b6421062ecc547988eb16c309e5363a4c001ea345b0c",
+    "execution_mode": "four_lane"
+  },
+  "counters": {
+    "iterations": 64,
+    "env_steps": 512,
+    "transitions": 65536,
+    "critic_updates": 6144,
+    "actor_updates": 3072,
+    "alpha_updates": 6144,
+    "target_updates": 6144,
+    "auxiliary_updates": 6144,
+    "auxiliary_skipped": 0,
+    "replay_samples": 1572864,
+    "auxiliary_samples": 1540774,
+    "learning_skipped_iterations": 0
+  },
+  "alpha": 7.544342952314764e-05,
+  "optimizer_hyperparameters": {
+    "critic": [
+      {
+        "lr": 0.0002,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decay": 0,
+        "eps": 1e-08
+      }
+    ],
+    "actor": [
+      {
+        "lr": 5e-05,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decay": 0,
+        "eps": 1e-08
+      }
+    ],
+    "alpha": [
+      {
+        "lr": 2e-05,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decay": 0,
+        "eps": 1e-08
+      }
+    ],
+    "auxiliary": [
+      {
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decay": 0,
+        "eps": 1e-08
+      }
+    ]
+  },
+  "physical_environment_state_saved": false,
+  "replay_present": false
+}
