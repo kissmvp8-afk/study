@@ -1,0 +1,18 @@
+{
+  "snapshot_utc": "20261109T004415Z",
+  "controller": {
+    "plan_id": "SAC-R5-PARK-20261109",
+    "status": "preflight_failed",
+    "error": "CalledProcessError(1, [PosixPath('/root/rivermind-data/tita-check/.venv/bin/python'), PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/run_parent_r5.py')])"
+  },
+  "evidence_sha256": "097652a62d9948d2430c6b1383944edd729f402f71eb088df5febd22e930c369",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 91900,
+      "sha256": "097652a62d9948d2430c6b1383944edd729f402f71eb088df5febd22e930c369"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}
