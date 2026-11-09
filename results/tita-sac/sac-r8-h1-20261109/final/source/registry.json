@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "seeds": [
+    261,
+    262,
+    263,
+    264,
+    265
+  ],
+  "server_scan_complete": true,
+  "published_actual_cases_scan_complete": true,
+  "used_seeds": [
+    101,
+    102,
+    103,
+    111,
+    112,
+    113,
+    121,
+    122,
+    123,
+    124,
+    125,
+    141,
+    142,
+    143,
+    201,
+    202,
+    203,
+    211,
+    212,
+    213,
+    221,
+    222,
+    223,
+    224,
+    225,
+    231,
+    232,
+    233,
+    234,
+    235,
+    301,
+    302,
+    303
+  ],
+  "evidence": [
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-proof/h1-published-release-coverage.json",
+      "sha256": "2000b0e895e54cbe446caa3f5ccee1e1adead4e06c320c21e5140217bc31ce8e"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-proof/h1-published-seed-check.json",
+      "sha256": "e20170e185caf693e1597115ef4c2865a6f438e6158e2d991850fecc505c54fa"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r8-h1-proof/local-seed-check.json",
+      "sha256": "0a2e4db0969c34650f8b6390972cf466e0efba6389225042259521cbbb0e2365"
+    }
+  ],
+  "scope": "995 server actual configs and all currently published SAC case lists across20branches/5Releases; no claim about inaccessible deleted history"
+}
