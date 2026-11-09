@@ -1,0 +1,11 @@
+{
+  "status": "failed_or_incomplete",
+  "asset_id": 728052348,
+  "expected_sha256": "a93a21e46c1e08d3adccb5ecfe592507325ede0f53ac6a0612be634b9fab261c",
+  "expected_bytes": 15662091,
+  "timeout_seconds": 120,
+  "scope": "Actual remote H1 evidence ZIP download, SHA and CRC; no model restore claim",
+  "error": "Command '['/root/rivermind-data/tita-check/tools/github-cli-v2.103.3/gh', 'api', 'repos/kissmvp8-afk/study/releases/assets/728052348', '-H', 'Accept: application/octet-stream']' timed out after 120 seconds",
+  "actual_bytes": 4928448,
+  "completed_epoch": 1794240197.404514
+}

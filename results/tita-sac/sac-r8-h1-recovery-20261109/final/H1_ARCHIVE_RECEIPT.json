@@ -1,0 +1,35 @@
+{
+  "archive": "/root/rivermind-data/tita-check/sac-r8-h1-recovery-20261109/archive-backup/raw-1794239691177341035",
+  "plan_sha256": "20941e2c55a1f3383e84d5ae994733d75eb02dbf7e78cb90c87194efa8d70930",
+  "receipt": {
+    "branch": "experiment/sac-r8-actor-rate-20261109",
+    "commit_url": "https://github.com/kissmvp8-afk/study/commit/7935a653b8f801fa946cbc6676e061a4438de39e",
+    "completed_epoch": 1794239740.1679966,
+    "credential_scan": "passed_actual_staging",
+    "files": [
+      {
+        "bytes": 15662091,
+        "name": "r8-h1-recovery-raw-a93a21e46c1e08d3adccb5ec.zip.part000",
+        "sha256": "a93a21e46c1e08d3adccb5ecfe592507325ede0f53ac6a0612be634b9fab261c",
+        "status": "upload_pending"
+      },
+      {
+        "actual_redownload": false,
+        "asset_id": 728052348,
+        "bytes": 15662091,
+        "name": "r8-h1-recovery-raw-a93a21e46c1e08d3adccb5ec.zip.part000",
+        "sha256": "a93a21e46c1e08d3adccb5ecfe592507325ede0f53ac6a0612be634b9fab261c",
+        "status": "remote_digest_size_verified"
+      }
+    ],
+    "parent_commit": "f8c4a3f67aa9de61217415f4ecbe556895bd01ac",
+    "pending_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+    "plan_sha256": "20941e2c55a1f3383e84d5ae994733d75eb02dbf7e78cb90c87194efa8d70930",
+    "repository": "kissmvp8-afk/study",
+    "started_epoch": 1794239707.1938097,
+    "status": "remote_verified",
+    "tag": "sac-r8-actor-rate-20261109",
+    "verified_commit": "7935a653b8f801fa946cbc6676e061a4438de39e"
+  },
+  "status": "remote_verified"
+}
