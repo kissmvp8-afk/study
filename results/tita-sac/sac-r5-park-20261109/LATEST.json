@@ -1,21 +1,19 @@
 {
-  "snapshot_utc": "20261109T010841Z",
+  "snapshot_utc": "20261109T010945Z",
   "controller": {
-    "plan_id": "SAC-R5-PARK-20261109",
-    "status": "preflight_failed",
-    "error": "CalledProcessError(-9, [PosixPath('/root/rivermind-data/tita-check/.venv/bin/python'), PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/night128_train.py'), '--worker-config', PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/worker-config.json'), '--request', PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/preflight-request.json'), '--response', PosixPath('/root/rivermind-data/tita-check/sac-r5-park-20261109/preflight-report.json'), '--headless', '--device', 'cuda:0'])"
+    "status": "preparing"
   },
-  "evidence_sha256": "f83bde4f2c8ef9b2c0108f5fa29b04ce55320b24735ac04e72806d3b0edbc13f",
+  "evidence_sha256": "6794d0df0edab874eafa9ea85fb8f05dc6006b220373788dad506b15d39c85b1",
   "parts": [
     {
       "file": "evidence.zip.part001",
       "bytes": 24000000,
-      "sha256": "3a528e6daf5edbd5b8753473be73ef076f75152b41ee26d2facc67549c0add50"
+      "sha256": "96fd66eabc72c6aeed92abbe78ebfe55131e003dbe1fdf6c34df9db1844af7c0"
     },
     {
       "file": "evidence.zip.part002",
-      "bytes": 4588387,
-      "sha256": "b173fcfee861ef043bf929fbf2ac60debf50fc3912013c068a7829205ce81c9b"
+      "bytes": 21318328,
+      "sha256": "174fda94f6b925c49b6d87882372bb518a15e5766b5604ae88729e58df1a69f3"
     }
   ],
   "model_weights_included": false,
