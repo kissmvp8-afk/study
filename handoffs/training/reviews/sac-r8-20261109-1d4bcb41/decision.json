@@ -1,0 +1,42 @@
+{
+  "pairs": [
+    {
+      "fork_seed": 1501,
+      "checks": {
+        "survival10": true,
+        "passes_vs_control": true,
+        "passes_vs_parent": false,
+        "P_vs_control": true,
+        "P_vs_parent": false,
+        "Mavg_vs_control": true,
+        "Mavg_vs_parent": false,
+        "W": true
+      },
+      "direction_signal": false
+    },
+    {
+      "fork_seed": 1502,
+      "checks": {
+        "survival10": true,
+        "passes_vs_control": true,
+        "passes_vs_parent": true,
+        "P_vs_control": true,
+        "P_vs_parent": true,
+        "Mavg_vs_control": true,
+        "Mavg_vs_parent": true,
+        "W": true
+      },
+      "direction_signal": true
+    }
+  ],
+  "direction_reproduced": false,
+  "parent_replaced": false,
+  "heldout_run": false,
+  "development_seed_set": [
+    231,
+    232,
+    233,
+    234,
+    235
+  ]
+}

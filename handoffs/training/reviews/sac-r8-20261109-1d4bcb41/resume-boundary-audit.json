@@ -1,0 +1,28 @@
+[
+  {
+    "name": "r8-resume-A0-1502-fullresume-ed5364e4e80f32c1.pt",
+    "envs_checked": 128,
+    "writes_per_env": 512,
+    "boundary_old_seq": 143,
+    "boundary_new_seq": 144,
+    "new_episode_ids_strictly_larger": true,
+    "first_new_step_zero": true,
+    "first_new_valid_history_length_one": true,
+    "first_history_padded_by_repeated_initial_frame": true,
+    "future_restore_episode_ids_above_replay_max": true,
+    "continuous_physics": false
+  },
+  {
+    "name": "r8-resume-A1-1502-fullresume-0a023b9bd043d71c.pt",
+    "envs_checked": 128,
+    "writes_per_env": 512,
+    "boundary_old_seq": 143,
+    "boundary_new_seq": 144,
+    "new_episode_ids_strictly_larger": true,
+    "first_new_step_zero": true,
+    "first_new_valid_history_length_one": true,
+    "first_history_padded_by_repeated_initial_frame": true,
+    "future_restore_episode_ids_above_replay_max": true,
+    "continuous_physics": false
+  }
+]

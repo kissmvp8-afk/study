@@ -1,0 +1,182 @@
+[
+  {
+    "arm": "A0-1501",
+    "kind": "model-L12",
+    "sha256": "a32d78b176717ddabc583f1ea2caeb0d3f7537d15562cca0534428695a71107a",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A0-1501-learning12-a32d78b176717dda.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1501",
+    "kind": "model-L24",
+    "sha256": "0a3376e3e8e445cee54f394cccea18b7cf07df1b9889cc182e983ff9e52fdd7f",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A0-1501-learning24-0a3376e3e8e445ce.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1501",
+    "kind": "full-L24",
+    "sha256": "24642b61bbae5404cf9a20fca40f17a290376e52c7ad719ec71cc3226dc838ed",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A0-1501-fullresume-learning24-24642b61bbae5404.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1501",
+    "kind": "model-L48",
+    "sha256": "8d314620d4976e2a77f9e98145f139d388580bcded8591abd51955e6b72b9c15",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A0-1501-learning48-8d314620d4976e2a.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1501",
+    "kind": "full-L48-latest",
+    "sha256": "ae95d9cfc6bd8ced12d976e240a36b0ada2cf46fb82591c552ea460ed4e5df6c",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A0-1501-fullresume-ae95d9cfc6bd8ced.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1502",
+    "kind": "model-L12",
+    "sha256": "36bb9f6715ff2286243a04eb730de366889c53aa08989e87606f33b27345d5c9",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A0-1502-learning12-36bb9f6715ff2286.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1502",
+    "kind": "model-L24",
+    "sha256": "10c7f6c20d9e2a65c53fac882d8c3c298b46814c9b59840dfa8bdbc1e1a2b83c",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A0-1502-learning24-10c7f6c20d9e2a65.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1502",
+    "kind": "full-L24",
+    "sha256": "5fea5c4961b000fed756a884985270bf6d59d0a761abaaedc99580f2cd515b9b",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A0-1502-fullresume-learning24-5fea5c4961b000fe.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1502",
+    "kind": "model-L48",
+    "sha256": "834b40a39865e6cbf7ddcc546f68569da8af3b5e53ddeb2e184bf346382fa6da",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A0-1502-learning48-834b40a39865e6cb.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A0-1502",
+    "kind": "full-L48-latest",
+    "sha256": "ed5364e4e80f32c1d10aaa5f933ca6a2f1d583277dda366eec39f4b2c73dd51f",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A0-1502-fullresume-ed5364e4e80f32c1.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1501",
+    "kind": "model-L12",
+    "sha256": "cdc71730dc3d955f0b263830d71f1b3751a1608bb0398d641ca8ff1b5934667e",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A1-1501-learning12-cdc71730dc3d955f.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1501",
+    "kind": "model-L24",
+    "sha256": "2af7adaef33ef11b3a79d8171e0372ffbd22f6d257c76003521d1e47f51365fe",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A1-1501-learning24-2af7adaef33ef11b.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1501",
+    "kind": "full-L24",
+    "sha256": "d77fb23fac0cdfbb0546339e653264877edd981e4b6029cefa46f89338fb6f84",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A1-1501-fullresume-learning24-d77fb23fac0cdfbb.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1501",
+    "kind": "model-L48",
+    "sha256": "96c4dfa680453122807f9a20692d809a520d565e5ccd30c5d0673e64a764635e",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A1-1501-learning48-96c4dfa680453122.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1501",
+    "kind": "full-L48-latest",
+    "sha256": "8cf0c2eb07cf87225220878fdfb96feefbf7eb670cb480725130723404af9e6a",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A1-1501-fullresume-8cf0c2eb07cf8722.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1502",
+    "kind": "model-L12",
+    "sha256": "4e435aa2eceac049b83edb1baae07c319818b5b97b65389feadd6928ba75c03d",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A1-1502-learning12-4e435aa2eceac049.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1502",
+    "kind": "model-L24",
+    "sha256": "11224f550fb1b5c492b213d5e07627041291bcb1e243dd46a1a52732f14293fb",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A1-1502-learning24-11224f550fb1b5c4.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1502",
+    "kind": "full-L24",
+    "sha256": "b00ca0f983131affc09e2db74925e145b682ede022cb23338b912f4730c5fc3f",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A1-1502-fullresume-learning24-b00ca0f983131aff.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1502",
+    "kind": "model-L48",
+    "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
+    "bytes": 9168307,
+    "asset_name": "r8-resume-A1-1502-learning48-7da5bcb7929d162d.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  },
+  {
+    "arm": "A1-1502",
+    "kind": "full-L48-latest",
+    "sha256": "0a023b9bd043d71cdf5f6576314c8ddb7c3c9a6911359a344d0aa24acede5971",
+    "bytes": 216136597,
+    "asset_name": "r8-resume-A1-1502-fullresume-0a023b9bd043d71c.pt",
+    "digest_size_match": true,
+    "actual_downloaded_by_this_check": false
+  }
+]

@@ -1,0 +1,876 @@
+[
+  {
+    "name": "A0-1501-learning0-8bfd67e812e11abf.pt",
+    "sha256": "8bfd67e812e11abf559363fb3533fdd71f773638495b6c738b0e628c3c8f7041",
+    "bytes": 9168243,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 16,
+      "env_steps": 128,
+      "transitions": 16384,
+      "critic_updates": 0,
+      "actor_updates": 0,
+      "alpha_updates": 0,
+      "target_updates": 0,
+      "auxiliary_updates": 0,
+      "auxiliary_skipped": 0,
+      "replay_samples": 0,
+      "auxiliary_samples": 0,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        5e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 136704.0,
+        "max": 136704.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.544342952314764e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false,
+    "parent_modules_and_Adam_except_actor_lr_equal": true,
+    "L0_is_after_prefill_not_before_collection": true,
+    "normalizer_count_increase_during_prefill": {
+      "policy": 16524,
+      "q": 16524
+    }
+  },
+  {
+    "name": "A0-1502-learning0-406ae79e73e13c61.pt",
+    "sha256": "406ae79e73e13c61f715690c700f50f69328edfc8772434176fd26570d81fe84",
+    "bytes": 9168179,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 16,
+      "env_steps": 128,
+      "transitions": 16384,
+      "critic_updates": 0,
+      "actor_updates": 0,
+      "alpha_updates": 0,
+      "target_updates": 0,
+      "auxiliary_updates": 0,
+      "auxiliary_skipped": 0,
+      "replay_samples": 0,
+      "auxiliary_samples": 0,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        5e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 136704.0,
+        "max": 136704.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.544342952314764e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false,
+    "parent_modules_and_Adam_except_actor_lr_equal": true,
+    "L0_is_after_prefill_not_before_collection": true,
+    "normalizer_count_increase_during_prefill": {
+      "policy": 16520,
+      "q": 16520
+    }
+  },
+  {
+    "name": "A1-1501-learning0-af04e51c302f2576.pt",
+    "sha256": "af04e51c302f25761d62aeb1a578dff901504520e392bffddc87da00605ac73d",
+    "bytes": 9168243,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 16,
+      "env_steps": 128,
+      "transitions": 16384,
+      "critic_updates": 0,
+      "actor_updates": 0,
+      "alpha_updates": 0,
+      "target_updates": 0,
+      "auxiliary_updates": 0,
+      "auxiliary_skipped": 0,
+      "replay_samples": 0,
+      "auxiliary_samples": 0,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        1e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 136704.0,
+        "max": 136704.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.544342952314764e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false,
+    "parent_modules_and_Adam_except_actor_lr_equal": true,
+    "L0_is_after_prefill_not_before_collection": true,
+    "normalizer_count_increase_during_prefill": {
+      "policy": 16524,
+      "q": 16524
+    }
+  },
+  {
+    "name": "A1-1502-learning0-e15fde0b6653876a.pt",
+    "sha256": "e15fde0b6653876a8712e11df29bf3116fed77738fb93f47c0a698669600dbcd",
+    "bytes": 9168179,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 16,
+      "env_steps": 128,
+      "transitions": 16384,
+      "critic_updates": 0,
+      "actor_updates": 0,
+      "alpha_updates": 0,
+      "target_updates": 0,
+      "auxiliary_updates": 0,
+      "auxiliary_skipped": 0,
+      "replay_samples": 0,
+      "auxiliary_samples": 0,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        1e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 136704.0,
+        "max": 136704.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 273408.0,
+        "max": 273408.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.544342952314764e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false,
+    "parent_modules_and_Adam_except_actor_lr_equal": true,
+    "L0_is_after_prefill_not_before_collection": true,
+    "normalizer_count_increase_during_prefill": {
+      "policy": 16520,
+      "q": 16520
+    }
+  },
+  {
+    "name": "r8-resume-A0-1501-learning48-8d314620d4976e2a.pt",
+    "sha256": "8d314620d4976e2a77f9e98145f139d388580bcded8591abd51955e6b72b9c15",
+    "bytes": 9168307,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1514991,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        5e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 139776.0,
+        "max": 139776.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.456015009665862e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false
+  },
+  {
+    "name": "r8-resume-A0-1502-learning48-834b40a39865e6cb.pt",
+    "sha256": "834b40a39865e6cbf7ddcc546f68569da8af3b5e53ddeb2e184bf346382fa6da",
+    "bytes": 9168307,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1515676,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        5e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 139776.0,
+        "max": 139776.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.688866026001051e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false
+  },
+  {
+    "name": "r8-resume-A1-1501-learning48-96c4dfa680453122.pt",
+    "sha256": "96c4dfa680453122807f9a20692d809a520d565e5ccd30c5d0673e64a764635e",
+    "bytes": 9168307,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1515460,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        1e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 139776.0,
+        "max": 139776.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.177974475780502e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false
+  },
+  {
+    "name": "r8-resume-A1-1502-learning48-7da5bcb7929d162d.pt",
+    "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
+    "bytes": 9168307,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1515099,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        1e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 139776.0,
+        "max": 139776.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 8.011374302441254e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false
+  },
+  {
+    "name": "r8-resume-A0-1502-fullresume-ed5364e4e80f32c1.pt",
+    "sha256": "ed5364e4e80f32c1d10aaa5f933ca6a2f1d583277dda366eec39f4b2c73dd51f",
+    "bytes": 216136597,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1515676,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        5e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 139776.0,
+        "max": 139776.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 7.688866026001051e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false,
+    "replay_keys": [
+      "num_envs",
+      "capacity_per_env",
+      "q_dim",
+      "storage",
+      "write_seq",
+      "writes"
+    ],
+    "replay_float_tensors_finite": 15,
+    "matches_L48_model_sections": true
+  },
+  {
+    "name": "r8-resume-A1-1502-fullresume-0a023b9bd043d71c.pt",
+    "sha256": "0a023b9bd043d71cdf5f6576314c8ddb7c3c9a6911359a344d0aa24acede5971",
+    "bytes": 216136597,
+    "modules_tensors_checked": 80,
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1515099,
+      "learning_skipped_iterations": 0
+    },
+    "actual_optimizer_lrs": {
+      "critic": [
+        0.0002
+      ],
+      "actor": [
+        1e-05
+      ],
+      "alpha": [
+        2e-05
+      ],
+      "auxiliary": [
+        0.001
+      ]
+    },
+    "optimizer_steps": {
+      "critic": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 16
+      },
+      "actor": {
+        "min": 139776.0,
+        "max": 139776.0,
+        "state_count": 10
+      },
+      "alpha": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 1
+      },
+      "auxiliary": {
+        "min": 279552.0,
+        "max": 279552.0,
+        "state_count": 20
+      }
+    },
+    "alpha": 8.011374302441254e-05,
+    "top_keys": [
+      "format",
+      "version",
+      "config",
+      "versions",
+      "action_bounds",
+      "contract_joint_names",
+      "modules",
+      "optimizers",
+      "normalizers",
+      "counters",
+      "generators",
+      "next_episode_ids",
+      "environment_state_saved",
+      "replay",
+      "r8"
+    ],
+    "r8_metadata_keys": [
+      "identity",
+      "entry",
+      "use_cache",
+      "global_rng",
+      "frozen_bundle",
+      "actual_update_counts"
+    ],
+    "physical_simulation_restore_tested": false,
+    "replay_keys": [
+      "num_envs",
+      "capacity_per_env",
+      "q_dim",
+      "storage",
+      "write_seq",
+      "writes"
+    ],
+    "replay_float_tensors_finite": 15,
+    "matches_L48_model_sections": true
+  }
+]

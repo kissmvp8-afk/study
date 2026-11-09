@@ -1,0 +1,17 @@
+{
+  "fixed_final_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
+  "new_macro_rows_recomputed": 256,
+  "successful_updates_per_trajectory": {
+    "critic": 6144,
+    "actor": 3072,
+    "alpha": 6144,
+    "target": 6144,
+    "auxiliary": 6144
+  },
+  "raw_development_cases": 40,
+  "raw_development_steps": 24000,
+  "all_survived": true,
+  "source_physical_initial_RNG_and_frozen_checks": true,
+  "continuous_physics": false,
+  "new_training_or_simulation_started_by_reviewer": false
+}

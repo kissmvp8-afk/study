@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+  "status": "issued_conditional_seed_registry_source_equivalence_and_budget_not_started",
+  "based_on_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
+  "models": [
+    {
+      "id": "candidate-A1-1502-L48",
+      "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
+      "bytes": 9168307
+    },
+    {
+      "id": "parent-R6-R1-1201-L48",
+      "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+      "bytes": 9167667
+    }
+  ],
+  "training_updates_allowed": 0,
+  "freeze_selected_candidate": true,
+  "parent_replacement": false,
+  "proposed_heldout_seeds": [
+    261,
+    262,
+    263,
+    264,
+    265
+  ],
+  "seed_registry_server_check_required": true,
+  "seed_replacements_allowed": false,
+  "split": "heldout",
+  "executions": [
+    "D",
+    "S"
+  ],
+  "compatibility_cases": [
+    {
+      "model": "parent",
+      "seed": 231,
+      "execution": "D"
+    },
+    {
+      "model": "candidate",
+      "seed": 231,
+      "execution": "D"
+    }
+  ],
+  "compatibility_max_abs_physics_action_reward_difference": 0,
+  "max_total_cases": 22,
+  "heldout_cases": 20,
+  "max_sim_seconds": 12,
+  "max_steps": 600,
+  "control_dt": 0.02,
+  "condition": "standard",
+  "observation_noise": "on",
+  "S_std": "native_unscaled",
+  "TF32": false,
+  "reset_wrench": 0,
+  "interval_push": false,
+  "max_processes": 4,
+  "serialize_initialization": true,
+  "no_training_overlap": true,
+  "pass_candidate_cases_required": 10,
+  "pass_candidate_total_cases": 10,
+  "independent_for_selected_policy_only": true,
+  "proves_training_direction_reproduction": false,
+  "thresholds": {
+    "parking_speed_each_window": 0.05,
+    "parking_abs_wz_each_window": 0.1,
+    "forward_reverse_MAE_each": 0.12,
+    "moving_abs_wz_each": 0.2,
+    "mean_height": 0.25
+  },
+  "budget": {
+    "hard_cap_seconds": 1500,
+    "archive_reserve_seconds": 480,
+    "lease_margin_seconds": 1200,
+    "current_lease_reverification_required": true,
+    "old_R8_reference_finish_UTC8": "2026-11-09T23:55:00+08:00",
+    "automatic_renewal": false,
+    "free_disk_GiB_min": 12
+  },
+  "retries": {
+    "max_prephysics_initialization_retry": 1,
+    "true_termination_retry": 0,
+    "incomplete_physics_case_retry": 0
+  },
+  "later_turn_push_auto_start": false,
+  "new_training_fork_replication_auto_start": false,
+  "adapter_not_yet_implemented_or_GPU_validated_by_reviewer": true
+}

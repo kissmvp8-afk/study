@@ -760,6 +760,52 @@
       "next_plan_id": "SAC-R8-ACTOR-RATE-20261109",
       "next_plan_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/execution-plan.txt",
       "parameters_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/parameters.json"
+    },
+    {
+      "run_id": "SAC-R8-ACTOR-RATE-20261109/L2",
+      "result_path": "results/tita-sac/sac-r8-actor-rate-20261109",
+      "evidence_commit": "d0343a6107a6ca7ea875a519f95027c2ee387e4d",
+      "result_status": "budget_stopped_L2_then_resumed_in_separate_directory",
+      "review_status": "independently_verified131_archive_items_L0_inheritance_and_72_initial_macro_rows",
+      "verified_downloaded_sha256_files": 131,
+      "review_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt",
+      "associated_final_run": "SAC-R8-ACTOR-RATE-20261109"
+    },
+    {
+      "run_id": "SAC-R8-ACTOR-RATE-20261109",
+      "phase_id": "SAC-R8-L48-FINAL40-20261109",
+      "result_path": "results/tita-sac/sac-r8-resume-20261109",
+      "evidence_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
+      "result_status": "completed",
+      "review_status": "independently_recomputed256_training_macro_rows40_cases24000_steps_and_checked_restoration_boundary",
+      "key_content_fingerprint": "278a4f0858b4b84a9e09e089a54a1a9511b39ac798b59c0b64422d82b4573651",
+      "fingerprint_algorithm": "SHA256 sorted critical_path TAB SHA256 LF",
+      "critical_files_count": 205,
+      "verified_downloaded_sha256_files": 787,
+      "control_acceptance": "development_only_no_independent_heldout",
+      "survival_counts": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "pass_counts": [
+        2,
+        0,
+        4,
+        10
+      ],
+      "direction_reproduced": false,
+      "resume_semantics": "L2_learning_state_restored_new_physical_episodes_not_continuous",
+      "final_asset_metadata_verified": 20,
+      "final_models_actual_download_and_CPU_read": 4,
+      "final_full_resume_actual_download_and_CPU_read": 2,
+      "physics_restore_tested_by_reviewer": false,
+      "reviewed_at_utc": "2026-11-09T15:22:45.209742+00:00",
+      "review_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt",
+      "next_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+      "next_plan_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/parameters.json"
     }
   ],
   "pending_results": [
@@ -803,7 +849,7 @@
       "missing": "fixed C2 raw manifest, archive and initial failure/retry provenance"
     }
   ],
-  "latest_plan_id": "SAC-R8-ACTOR-RATE-20261109",
+  "latest_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -821,18 +867,18 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/execution-plan.txt",
-  "updated_at_utc": "2026-11-09T13:28:10.256367+00:00",
-  "latest_review_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
-  "latest_plan_addendum_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
-  "latest_plan_parameters_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/parameters.json",
-  "latest_plan_status": "R8_training_issued_conditional_implementation_effective_config_and_budget_checks_not_started_by_reviewer",
+  "latest_plan_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
+  "updated_at_utc": "2026-11-09T15:22:45.209742+00:00",
+  "latest_review_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt",
+  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt",
+  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/parameters.json",
+  "latest_plan_status": "issued_conditional_frozen_candidate_new_seed_heldout_not_started",
   "active_plan": {
-    "plan_id": "R7P_L24_all40_matched_diagnostic_cases",
-    "execution_status": "completed_independently_reviewed",
-    "review_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/basis-review.txt",
+    "plan_id": "SAC-R8-ACTOR-RATE-20261109",
+    "execution_status": "completed_independently_reviewed_development_only_two_phase_L2_reset",
+    "evidence_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
     "parent_replacement": false,
-    "training_started_by_reviewer": false
+    "review_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/review.txt"
   },
   "plan_supersessions": [
     {
@@ -852,20 +898,26 @@
       "original_training_started_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R8-ACTOR-RATE-20261109",
-  "latest_issued_plan_id": "SAC-R8-ACTOR-RATE-20261109",
+  "latest_proposed_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+  "latest_issued_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R8-ACTOR-RATE-20261109",
-    "status": "issued_to_Dot_training_if_effective_config_and_budget_checks_pass",
-    "path": "handoffs/training/plans/sac-r8-actor-rate-20261109/execution-plan.txt",
-    "start_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/DOT_START_HERE.txt",
-    "parameters_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/parameters.json",
-    "trajectories": 4,
-    "num_envs_per_trajectory": 128,
-    "max_learning_macros_per_trajectory": 48
+    "plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+    "status": "conditional_source_compatibility_seed_registry_current_resource_verification",
+    "path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
+    "parameters_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/parameters.json",
+    "max_cases": 22,
+    "training_updates_allowed": 0,
+    "heldout_cases": 20,
+    "proposed_seeds": [
+      261,
+      262,
+      263,
+      264,
+      265
+    ]
   },
   "latest_executed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-  "latest_plan_start_path": "handoffs/training/plans/sac-r8-actor-rate-20261109/DOT_START_HERE.txt",
+  "latest_plan_start_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
   "original_R7_block": {
     "status": "withdrawn_do_not_execute",
     "parent_parking_weight_actual": -8,
@@ -880,5 +932,10 @@
       "separate_short_pilot": 135
     },
     "current_window_finish_UTC8": "2026-11-09T20:45:00+08:00"
+  },
+  "pending_candidate": {
+    "model": "A1-1502-L48",
+    "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
+    "status": "frozen_for_H1_not_promoted"
   }
 }

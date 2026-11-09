@@ -1,0 +1,86 @@
+{
+  "README.md": {
+    "bytes": 1296,
+    "sha256": "84b221ab66d7115699c7d215f600e542d0ac999ea23b39f888864241ecc55ef4"
+  },
+  "README_HUMAN.md": {
+    "bytes": 776,
+    "sha256": "d7d150a580d68722ccd00e08f57f0aec1576607458addd4eeff8c01c8dea73a3"
+  },
+  "archive-verification.json": {
+    "bytes": 296,
+    "sha256": "9226f8344c95e731641b35408ce66372daa1c4570c1dbe689127fb592d0b8c1a"
+  },
+  "audit-receipt.json": {
+    "bytes": 489,
+    "sha256": "db0e2177c6dd112bd9fd062d47c6f060623ed69106886cb702379e7b1cd5946d"
+  },
+  "audit_r8.py": {
+    "bytes": 12182,
+    "sha256": "6d58136498da4fc4f00eb81739d309c96a0bc9a5c749544d89bf53de80eeea61"
+  },
+  "case-gates.svg": {
+    "bytes": 78041,
+    "sha256": "b5fc8c15891f7ab509bdef1f9653cc42cf1699c9a68c5e8303fdfe254256057f"
+  },
+  "cases.csv": {
+    "bytes": 16602,
+    "sha256": "9641d6d0e76f0d94ea097253432e208854a46b2e9eedf489f7c4932dc93fbae0"
+  },
+  "check_models.py": {
+    "bytes": 6601,
+    "sha256": "d15eb5c71e494a87336d362fbbb762a777b2dd698665645afdc2003fabb729b4"
+  },
+  "decision.json": {
+    "bytes": 856,
+    "sha256": "df1b0335e93260af05cf041876e0fe4e4408c6c9fc11a593aad1b5249b6fbfb7"
+  },
+  "download_evidence.py": {
+    "bytes": 2216,
+    "sha256": "b09fcda682c22d5dca8627705c521b03fab4231aeaeccafe529e4db7744da009"
+  },
+  "final-archive-verification.json": {
+    "bytes": 1575,
+    "sha256": "f321c5c1225113e0cc0dbb97df6ffb62cb7da60e8cbb820da3326715b51e3c04"
+  },
+  "group-results.json": {
+    "bytes": 1950,
+    "sha256": "c9dcbd4ee6852cce6377a31a71f6f473afd5579632d2592f72d840e9a2f75669"
+  },
+  "input-evidence.json": {
+    "bytes": 978,
+    "sha256": "119139ce8e5387e36cc9a815b4dd37aa405ab22546f880ece7206652a0ebcb75"
+  },
+  "model-and-resume-verification.json": {
+    "bytes": 19283,
+    "sha256": "3d9f0295bcd7dede0a957e24edaebe850225203ccc660f84efd3debd71f55e17"
+  },
+  "next-plan.txt": {
+    "bytes": 5583,
+    "sha256": "dfe31c131c9ea192b8bb66cf595136b6e1291ae323a609792ae18ef00665358a"
+  },
+  "optimizer-step-increment-audit.json": {
+    "bytes": 875,
+    "sha256": "24cb6042886d8b799d36f8e3d7119fd071016273774b51bebcffe4612fab34be"
+  },
+  "parameters.json": {
+    "bytes": 2462,
+    "sha256": "420a7b2537e7bc0a9916ed4a2de7772965ecc3fa1ca50152113008d0f4407253"
+  },
+  "release-20-metadata-verification.json": {
+    "bytes": 6203,
+    "sha256": "98acb50f9f0ad1f7282e7d829d6106de056ef1e5e69e98c70bb7cb9b46ba7a3f"
+  },
+  "resume-boundary-audit.json": {
+    "bytes": 919,
+    "sha256": "34f6ae2fb0998acc07064c895c01af03b3edfdb25ad1742b1d721c2c82cd5186"
+  },
+  "review.txt": {
+    "bytes": 6179,
+    "sha256": "e856090f892e7abbfca27435eb15018d6c2d387cf873cc747e5a9b745bfeef2c"
+  },
+  "training-audit.json": {
+    "bytes": 3126,
+    "sha256": "6b40d458456469ae04490b1fd48c9bbbf23ccac2dbed2abf9b83deb57cf7cfd6"
+  }
+}

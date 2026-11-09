@@ -1,0 +1,42 @@
+[
+  {
+    "arm": "A0-1501",
+    "Adam_step_delta": {
+      "critic": 6144,
+      "actor": 3072,
+      "alpha": 6144,
+      "auxiliary": 6144
+    },
+    "inherited_cumulative_steps_not_confused_with_R8_counts": true
+  },
+  {
+    "arm": "A0-1502",
+    "Adam_step_delta": {
+      "critic": 6144,
+      "actor": 3072,
+      "alpha": 6144,
+      "auxiliary": 6144
+    },
+    "inherited_cumulative_steps_not_confused_with_R8_counts": true
+  },
+  {
+    "arm": "A1-1501",
+    "Adam_step_delta": {
+      "critic": 6144,
+      "actor": 3072,
+      "alpha": 6144,
+      "auxiliary": 6144
+    },
+    "inherited_cumulative_steps_not_confused_with_R8_counts": true
+  },
+  {
+    "arm": "A1-1502",
+    "Adam_step_delta": {
+      "critic": 6144,
+      "actor": 3072,
+      "alpha": 6144,
+      "auxiliary": 6144
+    },
+    "inherited_cumulative_steps_not_confused_with_R8_counts": true
+  }
+]

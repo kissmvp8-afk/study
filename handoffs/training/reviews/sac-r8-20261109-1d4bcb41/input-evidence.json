@@ -1,0 +1,19 @@
+{
+  "L2_fixed_commit": "d0343a6107a6ca7ea875a519f95027c2ee387e4d",
+  "final_fixed_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
+  "final_result_path": "results/tita-sac/sac-r8-resume-20261109",
+  "L2_result_path": "results/tita-sac/sac-r8-actor-rate-20261109",
+  "original_plan_commit": "3165420f7d8abb06c4d12c6dab135340534f4b2d",
+  "raw_development_cases": 40,
+  "raw_development_steps": 24000,
+  "source_checkpoint_sha256": "7abd950cf4215fbdacf6f988b8a64c9848658cb15c4e55ee2fd65941f12b311e",
+  "selected_candidate_sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
+  "retained_parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+  "L2_files_verified": 131,
+  "final_files_verified": 787,
+  "final_asset_metadata_records_checked": 20,
+  "L0_models_actually_downloaded": 4,
+  "L48_models_actually_downloaded": 4,
+  "L48_full_resumes_actually_downloaded_and_CPU_read": 2,
+  "no_reviewer_Isaac_or_training": true
+}

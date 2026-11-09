@@ -1,0 +1,44 @@
+{
+  "fixed_commit": "1d4bcb41aa8171d36008425c7554ffb1a2747dca",
+  "sha256": "df26df520d3833ccace73a381afba223aa2a301caf1ea3c2080f1c5ee24ee29f",
+  "bytes": 152721719,
+  "CRC": true,
+  "files_SHA_size_verified": 787,
+  "parts_actually_downloaded": [
+    {
+      "name": "r8-resume-raw-0454e4c059502c8e25c467d3.zip.part002",
+      "bytes": 24000000,
+      "sha256": "0454e4c059502c8e25c467d3bf9ddfd10dd9375529a239f3f5f0c0bbaf6d1245"
+    },
+    {
+      "name": "r8-resume-raw-29d5dba58a58dde4defd7f9b.zip.part006",
+      "bytes": 8721719,
+      "sha256": "29d5dba58a58dde4defd7f9b30ab05864989815ed5be3ff225a897acfc6b7491"
+    },
+    {
+      "name": "r8-resume-raw-33980ba6fb1640aefc6ad922.zip.part004",
+      "bytes": 24000000,
+      "sha256": "33980ba6fb1640aefc6ad92272fb6734c27b984b1f5a0e223d522ad6d83f2f79"
+    },
+    {
+      "name": "r8-resume-raw-6adcce15819c845f3e9dba73.zip.part001",
+      "bytes": 24000000,
+      "sha256": "6adcce15819c845f3e9dba738fc0cbe789adfc098f1dff1c299a45699b7a6016"
+    },
+    {
+      "name": "r8-resume-raw-824d76459cdd7a434564e6d9.zip.part003",
+      "bytes": 24000000,
+      "sha256": "824d76459cdd7a434564e6d9a2d617b6251e4b1c4a0b3e045b18e32f1e51f56e"
+    },
+    {
+      "name": "r8-resume-raw-bb715654cf380d28d43da571.zip.part005",
+      "bytes": 24000000,
+      "sha256": "bb715654cf380d28d43da57148f11fff173a029d201e5bffd534411b70f2b2e3"
+    },
+    {
+      "name": "r8-resume-raw-d9c050a9560a680c8edcaf45.zip.part000",
+      "bytes": 24000000,
+      "sha256": "d9c050a9560a680c8edcaf45e4d39bec9d88b96277dc1a299515339f910c153f"
+    }
+  ]
+}
