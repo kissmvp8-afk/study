@@ -1,0 +1,641 @@
+{
+  "R1-1201-learning48-cbcd57a45c5addf7.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1540774,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.492127418518066
+    }
+  },
+  "P0-1401-learning24-1122c2d6a2d06d69.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 40,
+      "env_steps": 320,
+      "transitions": 40960,
+      "critic_updates": 3072,
+      "actor_updates": 1536,
+      "alpha_updates": 3072,
+      "target_updates": 3072,
+      "auxiliary_updates": 3072,
+      "auxiliary_skipped": 0,
+      "replay_samples": 786432,
+      "auxiliary_samples": 765618,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.427606582641602
+    }
+  },
+  "P0-1402-learning24-e715f2ac43dba125.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 40,
+      "env_steps": 320,
+      "transitions": 40960,
+      "critic_updates": 3072,
+      "actor_updates": 1536,
+      "alpha_updates": 3072,
+      "target_updates": 3072,
+      "auxiliary_updates": 3072,
+      "auxiliary_skipped": 0,
+      "replay_samples": 786432,
+      "auxiliary_samples": 766865,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.430377006530762
+    }
+  },
+  "P1-1401-learning24-6116c514595f1f2a.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 40,
+      "env_steps": 320,
+      "transitions": 40960,
+      "critic_updates": 3072,
+      "actor_updates": 1536,
+      "alpha_updates": 3072,
+      "target_updates": 3072,
+      "auxiliary_updates": 3072,
+      "auxiliary_skipped": 0,
+      "replay_samples": 786432,
+      "auxiliary_samples": 765729,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.412342071533203
+    }
+  },
+  "P1-1402-learning24-4cfc80e3673f0cd0.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 40,
+      "env_steps": 320,
+      "transitions": 40960,
+      "critic_updates": 3072,
+      "actor_updates": 1536,
+      "alpha_updates": 3072,
+      "target_updates": 3072,
+      "auxiliary_updates": 3072,
+      "auxiliary_skipped": 0,
+      "replay_samples": 786432,
+      "auxiliary_samples": 766941,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.419066429138184
+    }
+  },
+  "P0-1401-learning48-f918d54b8ddeaab0.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1541136,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.396441459655762
+    }
+  },
+  "P0-1402-learning48-18e70c5e63a32974.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1542621,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.384288787841797
+    }
+  },
+  "P1-1401-learning48-c0f1befd1985b997.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1541328,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.356718063354492
+    }
+  },
+  "P1-1402-learning48-6b71a242bb92188f.pt": {
+    "action_bounds": {
+      "joint_names": [
+        "joint_left_leg_1",
+        "joint_left_leg_2",
+        "joint_left_leg_3",
+        "joint_left_leg_4",
+        "joint_right_leg_1",
+        "joint_right_leg_2",
+        "joint_right_leg_3",
+        "joint_right_leg_4"
+      ],
+      "lower": [
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0,
+        -3.227432632446289,
+        -9.797342491149902,
+        -4.286970138549805,
+        -4.0
+      ],
+      "upper": [
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0,
+        2.427432632446289,
+        9.68053035736084,
+        2.8130273818969727,
+        4.0
+      ],
+      "center": [
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0,
+        -0.3999999999999999,
+        -0.05840606689453054,
+        -0.736971378326416,
+        0.0
+      ],
+      "half_width": [
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0,
+        2.827432632446289,
+        9.738936424255371,
+        3.5499987602233887,
+        4.0
+      ]
+    },
+    "counters": {
+      "iterations": 64,
+      "env_steps": 512,
+      "transitions": 65536,
+      "critic_updates": 6144,
+      "actor_updates": 3072,
+      "alpha_updates": 6144,
+      "target_updates": 6144,
+      "auxiliary_updates": 6144,
+      "auxiliary_skipped": 0,
+      "replay_samples": 1572864,
+      "auxiliary_samples": 1542908,
+      "learning_skipped_iterations": 0
+    },
+    "temperature": {
+      "log_alpha": -9.36486530303955
+    }
+  }
+}

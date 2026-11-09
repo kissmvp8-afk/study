@@ -651,6 +651,75 @@
       "next_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
       "next_plan_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
       "reviewed_at_utc": "2026-11-09T12:54:32.870157+00:00"
+    },
+    {
+      "run_id": "SAC-R7P-L24-232233D-EXPLORATORY-20261109",
+      "result_path": "results/tita-sac/sac-r7p-l24-232233d-explore-20261109",
+      "evidence_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "result_status": "completed",
+      "review_status": "independently_recomputed_raw_cases_source_freeze_initial_RNG_and_original_thresholds",
+      "control_acceptance": "diagnostic_only_not_independent_acceptance",
+      "key_content_fingerprint": "c786802d184b1a7be6688f91d486309fdc14fb3608d32ea94d864ed39575fadf",
+      "fingerprint_algorithm": "SHA256 UTF8 sorted critical_path TAB SHA256 LF",
+      "critical_files_count": 41,
+      "manifest_git_blob_sha": "a3114b18f95070dc646cc91a9ef86a37f7111c81",
+      "actual_downloaded_archive_sha256": "1f3010b6831386faf06d8e09a3b53587408ad0cbae72e3f2acbef86c8144f645",
+      "verified_downloaded_sha256_files": 159,
+      "cases_recomputed": 8,
+      "steps_recomputed": 4800,
+      "survival_count": 8,
+      "pass_count": 2,
+      "review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
+      "next_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+      "next_plan_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
+      "reviewed_at_utc": "2026-11-09T13:12:09.894943+00:00"
+    },
+    {
+      "run_id": "SAC-R7P-L24-232233S-EXPLORATORY-20261109",
+      "result_path": "results/tita-sac/sac-r7p-l24-232233s-explore-20261109",
+      "evidence_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "result_status": "completed",
+      "review_status": "independently_recomputed_raw_cases_source_freeze_initial_RNG_and_original_thresholds",
+      "control_acceptance": "diagnostic_only_not_independent_acceptance",
+      "key_content_fingerprint": "c85c0366b7376f18576689cb44aa77cd2313027dada93792bd4789043b52fca5",
+      "fingerprint_algorithm": "SHA256 UTF8 sorted critical_path TAB SHA256 LF",
+      "critical_files_count": 41,
+      "manifest_git_blob_sha": "cb3ffe969605af633285da7d1e8688432e87ffe1",
+      "actual_downloaded_archive_sha256": "924a77895d100ded02acf5428d074d2638fdbf9fcac9246430aa35db5f2fb691",
+      "verified_downloaded_sha256_files": 159,
+      "cases_recomputed": 8,
+      "steps_recomputed": 4800,
+      "survival_count": 8,
+      "pass_count": 0,
+      "review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
+      "next_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+      "next_plan_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
+      "reviewed_at_utc": "2026-11-09T13:12:09.894943+00:00"
+    },
+    {
+      "run_id": "SAC-R7P-L24S-EXPLORATORY-20261109",
+      "result_path": "results/tita-sac/sac-r7p-l24s-explore-20261109",
+      "evidence_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "result_status": "completed",
+      "review_status": "independently_recomputed_raw_cases_source_freeze_initial_RNG_and_original_thresholds",
+      "control_acceptance": "diagnostic_only_not_independent_acceptance",
+      "key_content_fingerprint": "6bbc106d70a2221071a4c03eccadc8db0672f9d2b1ea52986d1bea1d4ce8c5b8",
+      "fingerprint_algorithm": "SHA256 UTF8 sorted critical_path TAB SHA256 LF",
+      "critical_files_count": 21,
+      "manifest_git_blob_sha": "0453cd1b5e6a3fe60dc2796347dbeab494bf1271",
+      "actual_downloaded_archive_sha256": "f6781f9b137e86ac5a708dc64e2e4c1edbddd7c45df9ae7c7e5af995d83bc79b",
+      "verified_downloaded_sha256_files": 99,
+      "cases_recomputed": 4,
+      "steps_recomputed": 2400,
+      "survival_count": 4,
+      "pass_count": 1,
+      "review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
+      "next_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+      "next_plan_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
+      "parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
+      "reviewed_at_utc": "2026-11-09T13:12:09.894943+00:00"
     }
   ],
   "pending_results": [
@@ -692,9 +761,27 @@
       "initial_GPU_PID_check_abort_and_user_approved_retry_reported": true,
       "limited_review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
       "missing": "fixed C2 raw manifest, archive and initial failure/retry provenance"
+    },
+    {
+      "run_id": "SAC-R7P-L24-234235-PAIRED-EXPLORATORY-20261109",
+      "actual_run_identity_not_yet_verified": true,
+      "result_path": null,
+      "evidence_commit": null,
+      "status": "user_reported_running_not_independently_verified",
+      "intended_evaluation_seeds": [
+        234,
+        235
+      ],
+      "intended_executions": [
+        "D",
+        "S"
+      ],
+      "intended_models": 4,
+      "expected_cases_to_complete_L24_suite": 16,
+      "review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt"
     }
   ],
-  "latest_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
+  "latest_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -712,18 +799,18 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
-  "updated_at_utc": "2026-11-09T12:54:32.870157+00:00",
-  "latest_review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
-  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
-  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/parameters.json",
-  "latest_plan_status": "inflight_user_authorized_simulation_reported_await_results_no_duplicate_launch",
+  "latest_plan_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
+  "updated_at_utc": "2026-11-09T13:12:09.894943+00:00",
+  "latest_review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
+  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
+  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
+  "latest_plan_status": "complete_existing_authorized_234235_and_archive_no_new_launch_or_training",
   "active_plan": {
-    "plan_id": "same_condition_simulation_user_reported_inflight_case_manifest_pending",
-    "execution_status": "user_reported_running_explicitly_authorized_this_turn",
-    "review_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/review.txt",
-    "training_started_by_reviewer": false,
-    "parent_replacement": false
+    "plan_id": "user_authorized_234235_pairing_actual_manifest_pending",
+    "execution_status": "user_reported_running_unverified",
+    "review_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/review.txt",
+    "parent_replacement": false,
+    "new_training_started_by_reviewer": false
   },
   "plan_supersessions": [
     {
@@ -743,19 +830,18 @@
       "original_training_started_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
-  "latest_issued_plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
+  "latest_proposed_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+  "latest_issued_plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R7P-C3-L24-TIMING-20261109",
-    "status": "await_current_authorized_diagnosis_no_additional_launch",
-    "path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
-    "parameters_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/parameters.json",
+    "plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+    "status": "await_already_authorized_inflight_234235_complete_matched40_only",
+    "path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
+    "parameters_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/parameters.json",
     "new_gradient_updates_allowed": 0,
-    "exact_inflight_manifest_verified": false,
-    "new_cases_launched_by_reviewer": 0
+    "new_GPU_cases_issued": 0
   },
   "latest_executed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-  "latest_plan_start_path": "handoffs/training/reviews/sac-r7pc2-20261109-c1-prefix/next-plan.txt",
+  "latest_plan_start_path": "handoffs/training/reviews/sac-r7p-l24-ds-20261109-5a7ba076/next-plan.txt",
   "original_R7_block": {
     "status": "withdrawn_do_not_execute",
     "parent_parking_weight_actual": -8,

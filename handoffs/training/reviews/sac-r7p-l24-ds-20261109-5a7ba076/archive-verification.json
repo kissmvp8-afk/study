@@ -1,0 +1,32 @@
+[
+  {
+    "batch": "232233d",
+    "fixed_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+    "path": "results/tita-sac/sac-r7p-l24-232233d-explore-20261109",
+    "asset_name": "l24-raw-1f3010b6831386faf06d8e09.zip.part000",
+    "bytes": 5812301,
+    "sha256": "1f3010b6831386faf06d8e09a3b53587408ad0cbae72e3f2acbef86c8144f645",
+    "CRC": true,
+    "files_SHA_size_verified": 159
+  },
+  {
+    "batch": "232233s",
+    "fixed_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+    "path": "results/tita-sac/sac-r7p-l24-232233s-explore-20261109",
+    "asset_name": "l24-raw-924a77895d100ded02acf542.zip.part000",
+    "bytes": 5818746,
+    "sha256": "924a77895d100ded02acf5428d074d2638fdbf9fcac9246430aa35db5f2fb691",
+    "CRC": true,
+    "files_SHA_size_verified": 159
+  },
+  {
+    "batch": "231s",
+    "fixed_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+    "path": "results/tita-sac/sac-r7p-l24s-explore-20261109",
+    "asset_name": "l24s-raw-f6781f9b137e86ac5a708dc6.zip.part000",
+    "bytes": 2961995,
+    "sha256": "f6781f9b137e86ac5a708dc64e2e4c1edbddd7c45df9ae7c7e5af995d83bc79b",
+    "CRC": true,
+    "files_SHA_size_verified": 99
+  }
+]

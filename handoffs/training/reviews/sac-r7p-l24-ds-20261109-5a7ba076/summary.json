@@ -1,0 +1,81 @@
+{
+  "primary_seed_set": [
+    232,
+    233
+  ],
+  "n_primary_cases": 16,
+  "groups": [
+    {
+      "learning": 24,
+      "execution": "D",
+      "n": 8,
+      "survived": 8,
+      "passed": 2,
+      "P": 0.06518967494407335,
+      "W": 0.07542855360603426,
+      "Mavg": 0.0657498399483302,
+      "Mmax": 0.08549816354308859
+    },
+    {
+      "learning": 24,
+      "execution": "S",
+      "n": 8,
+      "survived": 8,
+      "passed": 0,
+      "P": 0.07263221359523397,
+      "W": 0.08934640604129526,
+      "Mavg": 0.06677879450728141,
+      "Mmax": 0.08855439499955536
+    },
+    {
+      "learning": 48,
+      "execution": "D",
+      "n": 8,
+      "survived": 8,
+      "passed": 3,
+      "P": 0.066782807832457,
+      "W": 0.0772707376514154,
+      "Mavg": 0.06838943692848261,
+      "Mmax": 0.08571005240795784
+    },
+    {
+      "learning": 48,
+      "execution": "S",
+      "n": 8,
+      "survived": 8,
+      "passed": 1,
+      "P": 0.06396534092088077,
+      "W": 0.09029693690710701,
+      "Mavg": 0.06716965066885677,
+      "Mmax": 0.08188149010500638
+    }
+  ],
+  "S_failed_gates": {
+    "parking_speed": 8,
+    "parking_yaw": 3,
+    "moving_mae": 1,
+    "moving_yaw": 1,
+    "height": 0
+  },
+  "S_P_range": [
+    0.050496563606480055,
+    0.11556084857146949
+  ],
+  "paired_P_S_minus_D": {
+    "mean": 0.007442538651160624,
+    "improved_pairs": 3,
+    "worsened_pairs": 5
+  },
+  "paired_W_S_minus_D": {
+    "mean": 0.013917852435261002,
+    "improved_pairs": 2,
+    "worsened_pairs": 6
+  },
+  "same_S_state_instantaneous_sample_deviation": {
+    "parking_wheel_mean_abs_radps": 0.6400182321660933,
+    "parking_leg_mean_abs_rad": 0.015215188554096827,
+    "not_actual_D_S_closed_loop_difference": true
+  },
+  "independence_limit": "Two shared physical reset seeds, four warm-start candidates; one S sampling sequence per model/seed; not independent acceptance, and pairs are not eight independent training seeds",
+  "mode_limit": "Both new batches max_lanes8 with actual physical rollout overlap peak3; L48 C1 included serial/four-lane cases. No same-model same-seed balanced scheduling test for232/233."
+}

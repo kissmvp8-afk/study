@@ -1,0 +1,59 @@
+{
+  "batches": [
+    {
+      "batch": "232233d",
+      "fixed_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "result_path": "results/tita-sac/sac-r7p-l24-232233d-explore-20261109",
+      "manifest_path": "results/tita-sac/sac-r7p-l24-232233d-explore-20261109/raw-1794228788793971085/manifest.json",
+      "asset_name": "l24-raw-1f3010b6831386faf06d8e09.zip.part000",
+      "sha256": "1f3010b6831386faf06d8e09a3b53587408ad0cbae72e3f2acbef86c8144f645",
+      "manifest_sha256_from_archival_receipt": "4cffe056e41036159f282b1276e245a2eef8f761c500cc3cbeb11ce3ddb04028",
+      "files_SHA_size_checked": 159
+    },
+    {
+      "batch": "232233s",
+      "fixed_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "result_path": "results/tita-sac/sac-r7p-l24-232233s-explore-20261109",
+      "manifest_path": "results/tita-sac/sac-r7p-l24-232233s-explore-20261109/raw-1794229086612667360/manifest.json",
+      "asset_name": "l24-raw-924a77895d100ded02acf542.zip.part000",
+      "sha256": "924a77895d100ded02acf5428d074d2638fdbf9fcac9246430aa35db5f2fb691",
+      "manifest_sha256_from_archival_receipt": "f94ef57f891564a64d368d8de61f6f44406cb8d975ff311cadb6c1e924f2500b",
+      "files_SHA_size_checked": 159
+    },
+    {
+      "batch": "231s",
+      "fixed_commit": "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+      "result_path": "results/tita-sac/sac-r7p-l24s-explore-20261109",
+      "manifest_path": "results/tita-sac/sac-r7p-l24s-explore-20261109/raw-1794228532467039330/manifest.json",
+      "asset_name": "l24s-raw-f6781f9b137e86ac5a708dc6.zip.part000",
+      "sha256": "f6781f9b137e86ac5a708dc64e2e4c1edbddd7c45df9ae7c7e5af995d83bc79b",
+      "manifest_sha256_from_archival_receipt": "c6142c2a659b6cd056f34928fd9d7e955099ab5d0bac443181e26d774bffdfbf",
+      "files_SHA_size_checked": 99
+    }
+  ],
+  "prior_C1_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab",
+  "prior_231D_commit": "32f519378e1d55173ceca46984d26ee19d0eb0de",
+  "prior_C1_full_archive_sha256": "ab9319596b6119b4762eadd106ad59d24aa58f0393177d337eb9dc631d9a72a5",
+  "prior_231D_archive_sha256": "633695d6857e87791bc7e7785194a4c74a1d374b1bd2c6e6ee07e0625502abdf",
+  "original_C1_and_models_previously_actually_downloaded": true,
+  "fixed_manifest_blobs": [
+    {
+      "batch": "232233d",
+      "path": "results/tita-sac/sac-r7p-l24-232233d-explore-20261109/raw-1794228788793971085/manifest.json",
+      "git_blob_sha": "a3114b18f95070dc646cc91a9ef86a37f7111c81",
+      "bytes": 54590
+    },
+    {
+      "batch": "232233s",
+      "path": "results/tita-sac/sac-r7p-l24-232233s-explore-20261109/raw-1794229086612667360/manifest.json",
+      "git_blob_sha": "cb3ffe969605af633285da7d1e8688432e87ffe1",
+      "bytes": 54601
+    },
+    {
+      "batch": "231s",
+      "path": "results/tita-sac/sac-r7p-l24s-explore-20261109/raw-1794228532467039330/manifest.json",
+      "git_blob_sha": "0453cd1b5e6a3fe60dc2796347dbeab494bf1271",
+      "bytes": 34172
+    }
+  ]
+}

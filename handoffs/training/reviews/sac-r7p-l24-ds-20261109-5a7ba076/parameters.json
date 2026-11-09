@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "plan_id": "SAC-R7P-C4-COMPLETE-MATCHED-DIAG-20261109",
+  "based_on_commits": [
+    "5a7ba07632abb15be4ba6fc19618a628055bc6d3",
+    "94ec37af230d8ec0364dece1ee77fa15eacc9eab"
+  ],
+  "status": "complete_already_authorized_inflight_234235_only_no_new_launch",
+  "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+  "training_updates_allowed": 0,
+  "parent_replacement": false,
+  "new_cases_started_by_reviewer": 0,
+  "existing_L24_primary": {
+    "seeds": [
+      232,
+      233
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "cases": 16
+  },
+  "supplementary_231": {
+    "executions": [
+      "D",
+      "S"
+    ],
+    "cases": 8
+  },
+  "pending_user_reported_234235": {
+    "seeds": [
+      234,
+      235
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "expected_cases": 16,
+    "independent_verification": false
+  },
+  "intended_full_L24_cases": 40,
+  "C1_matching_candidate_cases": 40,
+  "parent_reference_cases": 10,
+  "case_identity": [
+    "direction",
+    "fork_seed",
+    "evaluation_seed",
+    "execution"
+  ],
+  "thresholds": {
+    "parking_P_mps": 0.05,
+    "parking_W_radps": 0.1,
+    "moving_Mmax_mps": 0.12,
+    "moving_abs_yaw_radps": 0.2,
+    "mean_height_m": 0.25
+  },
+  "windows_steps": {
+    "stop1": [
+      50,
+      100
+    ],
+    "forward": [
+      100,
+      300
+    ],
+    "stop2": [
+      350,
+      400
+    ],
+    "reverse": [
+      400,
+      600
+    ],
+    "height": [
+      100,
+      600
+    ]
+  },
+  "no_new_seeds": true,
+  "no_retries_to_replace_actual_failures": true,
+  "no_new_simulation_launch": true,
+  "no_threshold_or_std_changes": true,
+  "no_lease_extension_or_automatic_purchase": true,
+  "partial_stage_metrics_rule": "null for incomplete group; retain each true failure, no survivor-only substitution",
+  "raw_C2_independent_review_pending": true,
+  "full_policy_history_missing": true
+}
