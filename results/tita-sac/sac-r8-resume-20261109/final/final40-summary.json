@@ -1,0 +1,97 @@
+{
+  "models": [
+    {
+      "direction": "A0",
+      "fork_seed": 1501,
+      "summary": {
+        "survival_count": 10,
+        "pass_count": 2,
+        "motion_count": 10,
+        "parking_P": 0.0728059588308888,
+        "parking_yaw": 0.07936951202095952,
+        "moving_mae": 0.0586332952437806
+      }
+    },
+    {
+      "direction": "A0",
+      "fork_seed": 1502,
+      "summary": {
+        "survival_count": 10,
+        "pass_count": 0,
+        "motion_count": 10,
+        "parking_P": 0.10981287002548776,
+        "parking_yaw": 0.0744115907873347,
+        "moving_mae": 0.09603728631325066
+      }
+    },
+    {
+      "direction": "A1",
+      "fork_seed": 1501,
+      "summary": {
+        "survival_count": 10,
+        "pass_count": 4,
+        "motion_count": 10,
+        "parking_P": 0.06510026208681507,
+        "parking_yaw": 0.09128474446665495,
+        "moving_mae": 0.06843813482939731
+      }
+    },
+    {
+      "direction": "A1",
+      "fork_seed": 1502,
+      "summary": {
+        "survival_count": 10,
+        "pass_count": 10,
+        "motion_count": 10,
+        "parking_P": 0.035261709202865046,
+        "parking_yaw": 0.07548892584582792,
+        "moving_mae": 0.055734294507041336
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "fork_seed": 1501,
+      "checks": {
+        "survival10": true,
+        "passes_vs_control": true,
+        "passes_vs_parent": false,
+        "P_vs_control": true,
+        "P_vs_parent": false,
+        "Mavg_vs_control": true,
+        "Mavg_vs_parent": false,
+        "W": true
+      },
+      "direction_signal": false
+    },
+    {
+      "fork_seed": 1502,
+      "checks": {
+        "survival10": true,
+        "passes_vs_control": true,
+        "passes_vs_parent": true,
+        "P_vs_control": true,
+        "P_vs_parent": true,
+        "Mavg_vs_control": true,
+        "Mavg_vs_parent": true,
+        "W": true
+      },
+      "direction_signal": true
+    }
+  ],
+  "direction_reproduced": false,
+  "parent_reference": {
+    "P": 0.055602453865843615,
+    "W": 0.06754536278545856,
+    "Mavg": 0.05518543734849664,
+    "Mmax": 0.06410342056362424,
+    "n": 10,
+    "passed": 6,
+    "survived": 10,
+    "source_commit": "94ec37af230d8ec0364dece1ee77fa15eacc9eab"
+  },
+  "model_promotion": false,
+  "independent_acceptance": false,
+  "heldout": "not_run",
+  "training_updates": 0
+}

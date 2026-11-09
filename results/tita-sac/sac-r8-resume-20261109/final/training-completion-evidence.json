@@ -1,0 +1,244 @@
+{
+  "status": "L48_completed_evaluation_pending",
+  "epoch": 1794234729.2457514,
+  "resume_semantics": "L2 learning/replay/optimizer/RNG restoration with new physical episodes; not same-process continuation",
+  "arms": [
+    {
+      "arm": "A0-1501",
+      "counters": {
+        "iterations": 64,
+        "env_steps": 512,
+        "transitions": 65536,
+        "critic_updates": 6144,
+        "actor_updates": 3072,
+        "alpha_updates": 6144,
+        "target_updates": 6144,
+        "auxiliary_updates": 6144,
+        "auxiliary_skipped": 0,
+        "replay_samples": 1572864,
+        "auxiliary_samples": 1514991,
+        "learning_skipped_iterations": 0
+      },
+      "fullresume": {
+        "path": "arms/A0-1501/latest-fullresume.pt",
+        "sha256": "ae95d9cfc6bd8ced12d976e240a36b0ada2cf46fb82591c552ea460ed4e5df6c",
+        "bytes": 216136597,
+        "counters": {
+          "iterations": 64,
+          "env_steps": 512,
+          "transitions": 65536,
+          "critic_updates": 6144,
+          "actor_updates": 3072,
+          "alpha_updates": 6144,
+          "target_updates": 6144,
+          "auxiliary_updates": 6144,
+          "auxiliary_skipped": 0,
+          "replay_samples": 1572864,
+          "auxiliary_samples": 1514991,
+          "learning_skipped_iterations": 0
+        },
+        "readback_verified": true
+      },
+      "restoration": {
+        "status": "passed_runtime",
+        "checkpoint_sha256": "ba77c38bbbedbc4057c3d526d24b1ac59a80f767f0419fc48d6d5c56b403a4e6",
+        "counters": {
+          "iterations": 18,
+          "env_steps": 144,
+          "transitions": 18432,
+          "critic_updates": 256,
+          "actor_updates": 128,
+          "alpha_updates": 256,
+          "target_updates": 256,
+          "auxiliary_updates": 256,
+          "auxiliary_skipped": 0,
+          "replay_samples": 65536,
+          "auxiliary_samples": 62963,
+          "learning_skipped_iterations": 0
+        },
+        "environment_state_restored": false,
+        "semantics": "Replay, models, optimizer, counters and RNG restored; physics reset to new episodes, not same-process continuation"
+      }
+    },
+    {
+      "arm": "A0-1502",
+      "counters": {
+        "iterations": 64,
+        "env_steps": 512,
+        "transitions": 65536,
+        "critic_updates": 6144,
+        "actor_updates": 3072,
+        "alpha_updates": 6144,
+        "target_updates": 6144,
+        "auxiliary_updates": 6144,
+        "auxiliary_skipped": 0,
+        "replay_samples": 1572864,
+        "auxiliary_samples": 1515676,
+        "learning_skipped_iterations": 0
+      },
+      "fullresume": {
+        "path": "arms/A0-1502/latest-fullresume.pt",
+        "sha256": "ed5364e4e80f32c1d10aaa5f933ca6a2f1d583277dda366eec39f4b2c73dd51f",
+        "bytes": 216136597,
+        "counters": {
+          "iterations": 64,
+          "env_steps": 512,
+          "transitions": 65536,
+          "critic_updates": 6144,
+          "actor_updates": 3072,
+          "alpha_updates": 6144,
+          "target_updates": 6144,
+          "auxiliary_updates": 6144,
+          "auxiliary_skipped": 0,
+          "replay_samples": 1572864,
+          "auxiliary_samples": 1515676,
+          "learning_skipped_iterations": 0
+        },
+        "readback_verified": true
+      },
+      "restoration": {
+        "status": "passed_runtime",
+        "checkpoint_sha256": "aad53d42875f38861f0461eab2da3be92f53d2f64cc484fdd6846010d5950186",
+        "counters": {
+          "iterations": 18,
+          "env_steps": 144,
+          "transitions": 18432,
+          "critic_updates": 256,
+          "actor_updates": 128,
+          "alpha_updates": 256,
+          "target_updates": 256,
+          "auxiliary_updates": 256,
+          "auxiliary_skipped": 0,
+          "replay_samples": 65536,
+          "auxiliary_samples": 63033,
+          "learning_skipped_iterations": 0
+        },
+        "environment_state_restored": false,
+        "semantics": "Replay, models, optimizer, counters and RNG restored; physics reset to new episodes, not same-process continuation"
+      }
+    },
+    {
+      "arm": "A1-1501",
+      "counters": {
+        "iterations": 64,
+        "env_steps": 512,
+        "transitions": 65536,
+        "critic_updates": 6144,
+        "actor_updates": 3072,
+        "alpha_updates": 6144,
+        "target_updates": 6144,
+        "auxiliary_updates": 6144,
+        "auxiliary_skipped": 0,
+        "replay_samples": 1572864,
+        "auxiliary_samples": 1515460,
+        "learning_skipped_iterations": 0
+      },
+      "fullresume": {
+        "path": "arms/A1-1501/latest-fullresume.pt",
+        "sha256": "8cf0c2eb07cf87225220878fdfb96feefbf7eb670cb480725130723404af9e6a",
+        "bytes": 216136597,
+        "counters": {
+          "iterations": 64,
+          "env_steps": 512,
+          "transitions": 65536,
+          "critic_updates": 6144,
+          "actor_updates": 3072,
+          "alpha_updates": 6144,
+          "target_updates": 6144,
+          "auxiliary_updates": 6144,
+          "auxiliary_skipped": 0,
+          "replay_samples": 1572864,
+          "auxiliary_samples": 1515460,
+          "learning_skipped_iterations": 0
+        },
+        "readback_verified": true
+      },
+      "restoration": {
+        "status": "passed_runtime",
+        "checkpoint_sha256": "fc995c7d12b4a7d6f6bc38363900920a1822956864558cd306bb119a744f7cb7",
+        "counters": {
+          "iterations": 18,
+          "env_steps": 144,
+          "transitions": 18432,
+          "critic_updates": 256,
+          "actor_updates": 128,
+          "alpha_updates": 256,
+          "target_updates": 256,
+          "auxiliary_updates": 256,
+          "auxiliary_skipped": 0,
+          "replay_samples": 65536,
+          "auxiliary_samples": 62963,
+          "learning_skipped_iterations": 0
+        },
+        "environment_state_restored": false,
+        "semantics": "Replay, models, optimizer, counters and RNG restored; physics reset to new episodes, not same-process continuation"
+      }
+    },
+    {
+      "arm": "A1-1502",
+      "counters": {
+        "iterations": 64,
+        "env_steps": 512,
+        "transitions": 65536,
+        "critic_updates": 6144,
+        "actor_updates": 3072,
+        "alpha_updates": 6144,
+        "target_updates": 6144,
+        "auxiliary_updates": 6144,
+        "auxiliary_skipped": 0,
+        "replay_samples": 1572864,
+        "auxiliary_samples": 1515099,
+        "learning_skipped_iterations": 0
+      },
+      "fullresume": {
+        "path": "arms/A1-1502/latest-fullresume.pt",
+        "sha256": "0a023b9bd043d71cdf5f6576314c8ddb7c3c9a6911359a344d0aa24acede5971",
+        "bytes": 216136597,
+        "counters": {
+          "iterations": 64,
+          "env_steps": 512,
+          "transitions": 65536,
+          "critic_updates": 6144,
+          "actor_updates": 3072,
+          "alpha_updates": 6144,
+          "target_updates": 6144,
+          "auxiliary_updates": 6144,
+          "auxiliary_skipped": 0,
+          "replay_samples": 1572864,
+          "auxiliary_samples": 1515099,
+          "learning_skipped_iterations": 0
+        },
+        "readback_verified": true
+      },
+      "restoration": {
+        "status": "passed_runtime",
+        "checkpoint_sha256": "7ea277af2bbfee8fbaf7a56ff4cb611c2fb47f95784885d6e5411767bd205db4",
+        "counters": {
+          "iterations": 18,
+          "env_steps": 144,
+          "transitions": 18432,
+          "critic_updates": 256,
+          "actor_updates": 128,
+          "alpha_updates": 256,
+          "target_updates": 256,
+          "auxiliary_updates": 256,
+          "auxiliary_skipped": 0,
+          "replay_samples": 65536,
+          "auxiliary_samples": 63033,
+          "learning_skipped_iterations": 0
+        },
+        "environment_state_restored": false,
+        "semantics": "Replay, models, optimizer, counters and RNG restored; physics reset to new episodes, not same-process continuation"
+      }
+    }
+  ],
+  "gpu": {
+    "samples": 312,
+    "mean": 89.44871794871794,
+    "minimum": 4.0,
+    "maximum": 99.0,
+    "window_start": 1794234381.1345968,
+    "window_end": 1794234693.416233
+  },
+  "free_gib": 12.469451904296875
+}

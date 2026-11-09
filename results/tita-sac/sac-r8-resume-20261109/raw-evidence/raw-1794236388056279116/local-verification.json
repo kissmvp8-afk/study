@@ -1,0 +1,3993 @@
+{
+  "bytes": 152721719,
+  "core_bytes": 517065511,
+  "core_sha256": "df26df520d3833ccace73a381afba223aa2a301caf1ea3c2080f1c5ee24ee29f",
+  "created_epoch": 1794236418.5206442,
+  "disk_estimate": {
+    "files": [
+      {
+        "deflate_bytes": 263,
+        "path": "L2-budget.json",
+        "raw_bytes": 446
+      },
+      {
+        "deflate_bytes": 1375,
+        "path": "R8_RESUME_HANDOFF.txt",
+        "raw_bytes": 2436
+      },
+      {
+        "deflate_bytes": 649,
+        "path": "arms/A0-1501/L2-effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 331,
+        "path": "arms/A0-1501/STATUS.json",
+        "raw_bytes": 635
+      },
+      {
+        "deflate_bytes": 649,
+        "path": "arms/A0-1501/effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 1603,
+        "path": "arms/A0-1501/effective_make_trainer.py",
+        "raw_bytes": 3898
+      },
+      {
+        "deflate_bytes": 129,
+        "path": "arms/A0-1501/entry-exploration-1794234336838815526.json",
+        "raw_bytes": 177
+      },
+      {
+        "deflate_bytes": 965,
+        "path": "arms/A0-1501/entry-fingerprints-1794234336865665937.json",
+        "raw_bytes": 2156
+      },
+      {
+        "deflate_bytes": 5085,
+        "path": "arms/A0-1501/environment_config.yaml",
+        "raw_bytes": 39705
+      },
+      {
+        "deflate_bytes": 3381,
+        "path": "arms/A0-1501/first-step-reward-check.json",
+        "raw_bytes": 13850
+      },
+      {
+        "deflate_bytes": 160,
+        "path": "arms/A0-1501/initial-physical-1794234336762092483.json",
+        "raw_bytes": 206
+      },
+      {
+        "deflate_bytes": 280,
+        "path": "arms/A0-1501/latest-fullresume.json",
+        "raw_bytes": 542
+      },
+      {
+        "deflate_bytes": 31063951,
+        "path": "arms/A0-1501/macros.jsonl",
+        "raw_bytes": 98592086
+      },
+      {
+        "deflate_bytes": 947,
+        "path": "arms/A0-1501/metadata.json",
+        "raw_bytes": 4658
+      },
+      {
+        "deflate_bytes": 283,
+        "path": "arms/A0-1501/node-learning-12.json",
+        "raw_bytes": 590
+      },
+      {
+        "deflate_bytes": 357,
+        "path": "arms/A0-1501/node-learning-24.json",
+        "raw_bytes": 1186
+      },
+      {
+        "deflate_bytes": 359,
+        "path": "arms/A0-1501/node-learning-48.json",
+        "raw_bytes": 1190
+      },
+      {
+        "deflate_bytes": 667,
+        "path": "arms/A0-1501/resume-1794234336455243222.json",
+        "raw_bytes": 1324
+      },
+      {
+        "deflate_bytes": 344,
+        "path": "arms/A0-1501/resume-restoration-check.json",
+        "raw_bytes": 648
+      },
+      {
+        "deflate_bytes": 2003,
+        "path": "arms/A0-1501/run_config.json",
+        "raw_bytes": 6139
+      },
+      {
+        "deflate_bytes": 3517,
+        "path": "arms/A0-1501/source_hashes.json",
+        "raw_bytes": 11722
+      },
+      {
+        "deflate_bytes": 1597,
+        "path": "arms/A0-1501/timings.jsonl",
+        "raw_bytes": 12681
+      },
+      {
+        "deflate_bytes": 649,
+        "path": "arms/A0-1502/L2-effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 330,
+        "path": "arms/A0-1502/STATUS.json",
+        "raw_bytes": 634
+      },
+      {
+        "deflate_bytes": 649,
+        "path": "arms/A0-1502/effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 1603,
+        "path": "arms/A0-1502/effective_make_trainer.py",
+        "raw_bytes": 3898
+      },
+      {
+        "deflate_bytes": 131,
+        "path": "arms/A0-1502/entry-exploration-1794234365992336021.json",
+        "raw_bytes": 177
+      },
+      {
+        "deflate_bytes": 965,
+        "path": "arms/A0-1502/entry-fingerprints-1794234366024601007.json",
+        "raw_bytes": 2156
+      },
+      {
+        "deflate_bytes": 5085,
+        "path": "arms/A0-1502/environment_config.yaml",
+        "raw_bytes": 39705
+      },
+      {
+        "deflate_bytes": 3387,
+        "path": "arms/A0-1502/first-step-reward-check.json",
+        "raw_bytes": 13836
+      },
+      {
+        "deflate_bytes": 159,
+        "path": "arms/A0-1502/initial-physical-1794234365915293199.json",
+        "raw_bytes": 206
+      },
+      {
+        "deflate_bytes": 280,
+        "path": "arms/A0-1502/latest-fullresume.json",
+        "raw_bytes": 542
+      },
+      {
+        "deflate_bytes": 31084246,
+        "path": "arms/A0-1502/macros.jsonl",
+        "raw_bytes": 98698034
+      },
+      {
+        "deflate_bytes": 947,
+        "path": "arms/A0-1502/metadata.json",
+        "raw_bytes": 4658
+      },
+      {
+        "deflate_bytes": 285,
+        "path": "arms/A0-1502/node-learning-12.json",
+        "raw_bytes": 590
+      },
+      {
+        "deflate_bytes": 356,
+        "path": "arms/A0-1502/node-learning-24.json",
+        "raw_bytes": 1186
+      },
+      {
+        "deflate_bytes": 356,
+        "path": "arms/A0-1502/node-learning-48.json",
+        "raw_bytes": 1190
+      },
+      {
+        "deflate_bytes": 667,
+        "path": "arms/A0-1502/resume-1794234365598514642.json",
+        "raw_bytes": 1324
+      },
+      {
+        "deflate_bytes": 343,
+        "path": "arms/A0-1502/resume-restoration-check.json",
+        "raw_bytes": 648
+      },
+      {
+        "deflate_bytes": 2004,
+        "path": "arms/A0-1502/run_config.json",
+        "raw_bytes": 6139
+      },
+      {
+        "deflate_bytes": 3517,
+        "path": "arms/A0-1502/source_hashes.json",
+        "raw_bytes": 11722
+      },
+      {
+        "deflate_bytes": 1613,
+        "path": "arms/A0-1502/timings.jsonl",
+        "raw_bytes": 12679
+      },
+      {
+        "deflate_bytes": 650,
+        "path": "arms/A1-1501/L2-effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 330,
+        "path": "arms/A1-1501/STATUS.json",
+        "raw_bytes": 632
+      },
+      {
+        "deflate_bytes": 650,
+        "path": "arms/A1-1501/effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 1603,
+        "path": "arms/A1-1501/effective_make_trainer.py",
+        "raw_bytes": 3898
+      },
+      {
+        "deflate_bytes": 130,
+        "path": "arms/A1-1501/entry-exploration-1794234350926459565.json",
+        "raw_bytes": 177
+      },
+      {
+        "deflate_bytes": 1006,
+        "path": "arms/A1-1501/entry-fingerprints-1794234350952725271.json",
+        "raw_bytes": 2156
+      },
+      {
+        "deflate_bytes": 5085,
+        "path": "arms/A1-1501/environment_config.yaml",
+        "raw_bytes": 39705
+      },
+      {
+        "deflate_bytes": 3385,
+        "path": "arms/A1-1501/first-step-reward-check.json",
+        "raw_bytes": 13873
+      },
+      {
+        "deflate_bytes": 160,
+        "path": "arms/A1-1501/initial-physical-1794234350849610147.json",
+        "raw_bytes": 206
+      },
+      {
+        "deflate_bytes": 281,
+        "path": "arms/A1-1501/latest-fullresume.json",
+        "raw_bytes": 542
+      },
+      {
+        "deflate_bytes": 31086972,
+        "path": "arms/A1-1501/macros.jsonl",
+        "raw_bytes": 98680144
+      },
+      {
+        "deflate_bytes": 947,
+        "path": "arms/A1-1501/metadata.json",
+        "raw_bytes": 4658
+      },
+      {
+        "deflate_bytes": 284,
+        "path": "arms/A1-1501/node-learning-12.json",
+        "raw_bytes": 590
+      },
+      {
+        "deflate_bytes": 354,
+        "path": "arms/A1-1501/node-learning-24.json",
+        "raw_bytes": 1186
+      },
+      {
+        "deflate_bytes": 359,
+        "path": "arms/A1-1501/node-learning-48.json",
+        "raw_bytes": 1190
+      },
+      {
+        "deflate_bytes": 667,
+        "path": "arms/A1-1501/resume-1794234350548382131.json",
+        "raw_bytes": 1324
+      },
+      {
+        "deflate_bytes": 345,
+        "path": "arms/A1-1501/resume-restoration-check.json",
+        "raw_bytes": 648
+      },
+      {
+        "deflate_bytes": 2003,
+        "path": "arms/A1-1501/run_config.json",
+        "raw_bytes": 6139
+      },
+      {
+        "deflate_bytes": 3517,
+        "path": "arms/A1-1501/source_hashes.json",
+        "raw_bytes": 11722
+      },
+      {
+        "deflate_bytes": 1606,
+        "path": "arms/A1-1501/timings.jsonl",
+        "raw_bytes": 12678
+      },
+      {
+        "deflate_bytes": 650,
+        "path": "arms/A1-1502/L2-effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 335,
+        "path": "arms/A1-1502/STATUS.json",
+        "raw_bytes": 636
+      },
+      {
+        "deflate_bytes": 650,
+        "path": "arms/A1-1502/effective-settings.json",
+        "raw_bytes": 1523
+      },
+      {
+        "deflate_bytes": 1603,
+        "path": "arms/A1-1502/effective_make_trainer.py",
+        "raw_bytes": 3898
+      },
+      {
+        "deflate_bytes": 129,
+        "path": "arms/A1-1502/entry-exploration-1794234380801893437.json",
+        "raw_bytes": 176
+      },
+      {
+        "deflate_bytes": 1000,
+        "path": "arms/A1-1502/entry-fingerprints-1794234380828928112.json",
+        "raw_bytes": 2156
+      },
+      {
+        "deflate_bytes": 5085,
+        "path": "arms/A1-1502/environment_config.yaml",
+        "raw_bytes": 39705
+      },
+      {
+        "deflate_bytes": 3252,
+        "path": "arms/A1-1502/first-step-reward-check.json",
+        "raw_bytes": 13852
+      },
+      {
+        "deflate_bytes": 159,
+        "path": "arms/A1-1502/initial-physical-1794234380724638054.json",
+        "raw_bytes": 206
+      },
+      {
+        "deflate_bytes": 280,
+        "path": "arms/A1-1502/latest-fullresume.json",
+        "raw_bytes": 542
+      },
+      {
+        "deflate_bytes": 31034143,
+        "path": "arms/A1-1502/macros.jsonl",
+        "raw_bytes": 98596198
+      },
+      {
+        "deflate_bytes": 947,
+        "path": "arms/A1-1502/metadata.json",
+        "raw_bytes": 4658
+      },
+      {
+        "deflate_bytes": 285,
+        "path": "arms/A1-1502/node-learning-12.json",
+        "raw_bytes": 590
+      },
+      {
+        "deflate_bytes": 356,
+        "path": "arms/A1-1502/node-learning-24.json",
+        "raw_bytes": 1186
+      },
+      {
+        "deflate_bytes": 358,
+        "path": "arms/A1-1502/node-learning-48.json",
+        "raw_bytes": 1190
+      },
+      {
+        "deflate_bytes": 668,
+        "path": "arms/A1-1502/resume-1794234380427845705.json",
+        "raw_bytes": 1324
+      },
+      {
+        "deflate_bytes": 344,
+        "path": "arms/A1-1502/resume-restoration-check.json",
+        "raw_bytes": 648
+      },
+      {
+        "deflate_bytes": 2004,
+        "path": "arms/A1-1502/run_config.json",
+        "raw_bytes": 6139
+      },
+      {
+        "deflate_bytes": 3517,
+        "path": "arms/A1-1502/source_hashes.json",
+        "raw_bytes": 11722
+      },
+      {
+        "deflate_bytes": 1622,
+        "path": "arms/A1-1502/timings.jsonl",
+        "raw_bytes": 12683
+      },
+      {
+        "deflate_bytes": 1622,
+        "path": "backup-evaluation/421028fc1978e4e2--manifest.json",
+        "raw_bytes": 61283
+      },
+      {
+        "deflate_bytes": 615,
+        "path": "backup-evaluation/478e15bf515599c0--final40-summary.json",
+        "raw_bytes": 2330
+      },
+      {
+        "deflate_bytes": 55,
+        "path": "backup-evaluation/7e427c142caff710--gpu-before.json",
+        "raw_bytes": 62
+      },
+      {
+        "deflate_bytes": 1579,
+        "path": "backup-evaluation/A0-1501-L48-231-D--05c80b96b7d3025e--stage-metrics.csv",
+        "raw_bytes": 3465
+      },
+      {
+        "deflate_bytes": 669990,
+        "path": "backup-evaluation/A0-1501-L48-231-D--1b1a7efd54eee7e7--steps.jsonl",
+        "raw_bytes": 2895698
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-231-D--3df72309b3ae4963--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A0-1501-L48-231-D--48576008a17ca11c--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A0-1501-L48-231-D--4d77263525f9f12d--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1760,
+        "path": "backup-evaluation/A0-1501-L48-231-D--4ff802a59b8de7d2--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-231-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1501-L48-231-D--700aad7f14dd3b26--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 11728,
+        "path": "backup-evaluation/A0-1501-L48-231-D--7613850a1eb6877a--configuration.json",
+        "raw_bytes": 69701
+      },
+      {
+        "deflate_bytes": 4926,
+        "path": "backup-evaluation/A0-1501-L48-231-D--847ed4d65fdd946a--summary.json",
+        "raw_bytes": 19640
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-231-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-231-D--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-231-D--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1921,
+        "path": "backup-evaluation/A0-1501-L48-231-D--e9177d2ee36c2a87--stage-metrics.json",
+        "raw_bytes": 7934
+      },
+      {
+        "deflate_bytes": 623,
+        "path": "backup-evaluation/A0-1501-L48-231-D--fccf74b2b6e3ff38--protocol-result.json",
+        "raw_bytes": 1647
+      },
+      {
+        "deflate_bytes": 626,
+        "path": "backup-evaluation/A0-1501-L48-231-S--1082ea49160930fa--protocol-result.json",
+        "raw_bytes": 1649
+      },
+      {
+        "deflate_bytes": 670483,
+        "path": "backup-evaluation/A0-1501-L48-231-S--2755a0f5776f45b9--steps.jsonl",
+        "raw_bytes": 2894239
+      },
+      {
+        "deflate_bytes": 4930,
+        "path": "backup-evaluation/A0-1501-L48-231-S--2901bd60b182e481--summary.json",
+        "raw_bytes": 19638
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A0-1501-L48-231-S--5843ad6237eec96b--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-231-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 11726,
+        "path": "backup-evaluation/A0-1501-L48-231-S--7003072623a994e1--configuration.json",
+        "raw_bytes": 69700
+      },
+      {
+        "deflate_bytes": 78,
+        "path": "backup-evaluation/A0-1501-L48-231-S--7f0476e8b8231404--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1834,
+        "path": "backup-evaluation/A0-1501-L48-231-S--86c1a4fe8f5e60cd--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-231-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1588,
+        "path": "backup-evaluation/A0-1501-L48-231-S--a9fa453ef5e7dcb5--stage-metrics.csv",
+        "raw_bytes": 3462
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-231-S--b03b2c17b2ee986b--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1501-L48-231-S--b4e2ea246828fde6--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-231-S--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-231-S--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1923,
+        "path": "backup-evaluation/A0-1501-L48-231-S--f470f61e11c971e0--stage-metrics.json",
+        "raw_bytes": 7931
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1501-L48-232-D--06f770e26d915b32--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1611,
+        "path": "backup-evaluation/A0-1501-L48-232-D--1829a196e6188d06--stage-metrics.csv",
+        "raw_bytes": 3492
+      },
+      {
+        "deflate_bytes": 645,
+        "path": "backup-evaluation/A0-1501-L48-232-D--3d7fbe429a4486a5--protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 670135,
+        "path": "backup-evaluation/A0-1501-L48-232-D--55e1ebd69af55472--steps.jsonl",
+        "raw_bytes": 2899361
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-232-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-232-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 4959,
+        "path": "backup-evaluation/A0-1501-L48-232-D--a7eb22fc79043961--summary.json",
+        "raw_bytes": 19670
+      },
+      {
+        "deflate_bytes": 502,
+        "path": "backup-evaluation/A0-1501-L48-232-D--a867b5cb11fe597a--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A0-1501-L48-232-D--aa1f4776d7b76c0c--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1950,
+        "path": "backup-evaluation/A0-1501-L48-232-D--baf3ec6d1da92c5d--stage-metrics.json",
+        "raw_bytes": 7961
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-232-D--bdf2964873f356d9--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-232-D--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-232-D--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 11737,
+        "path": "backup-evaluation/A0-1501-L48-232-D--c77a428f3d36d360--configuration.json",
+        "raw_bytes": 69703
+      },
+      {
+        "deflate_bytes": 1834,
+        "path": "backup-evaluation/A0-1501-L48-232-D--f7f1900eb4f004af--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-232-S--08e0999f86d7aae0--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 11737,
+        "path": "backup-evaluation/A0-1501-L48-232-S--1194c617d1bf1457--configuration.json",
+        "raw_bytes": 69704
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A0-1501-L48-232-S--13d567716f512450--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 635,
+        "path": "backup-evaluation/A0-1501-L48-232-S--3c96d1e4796260c5--protocol-result.json",
+        "raw_bytes": 1647
+      },
+      {
+        "deflate_bytes": 98,
+        "path": "backup-evaluation/A0-1501-L48-232-S--41f6cc663901c9d5--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 1829,
+        "path": "backup-evaluation/A0-1501-L48-232-S--5e0cee79d7892db7--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-232-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 1956,
+        "path": "backup-evaluation/A0-1501-L48-232-S--6541397d83bf1a41--stage-metrics.json",
+        "raw_bytes": 7955
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-232-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 4959,
+        "path": "backup-evaluation/A0-1501-L48-232-S--ba6e264a233138da--summary.json",
+        "raw_bytes": 19663
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-232-S--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-232-S--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 671005,
+        "path": "backup-evaluation/A0-1501-L48-232-S--cb8dc419aa09b62e--steps.jsonl",
+        "raw_bytes": 2898385
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A0-1501-L48-232-S--cbcf90514295395f--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1608,
+        "path": "backup-evaluation/A0-1501-L48-232-S--f3eb5e0ad9483c31--stage-metrics.csv",
+        "raw_bytes": 3486
+      },
+      {
+        "deflate_bytes": 11702,
+        "path": "backup-evaluation/A0-1501-L48-233-D--0c7f9b50ca952ea9--configuration.json",
+        "raw_bytes": 69696
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-233-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 643,
+        "path": "backup-evaluation/A0-1501-L48-233-D--63d83b253a030292--protocol-result.json",
+        "raw_bytes": 1662
+      },
+      {
+        "deflate_bytes": 669519,
+        "path": "backup-evaluation/A0-1501-L48-233-D--73aaca7eae0a0678--steps.jsonl",
+        "raw_bytes": 2893391
+      },
+      {
+        "deflate_bytes": 1826,
+        "path": "backup-evaluation/A0-1501-L48-233-D--77878f90751df293--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 1618,
+        "path": "backup-evaluation/A0-1501-L48-233-D--7a18c7eb04959017--stage-metrics.csv",
+        "raw_bytes": 3488
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-233-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1501-L48-233-D--936659b6e8dafa73--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-233-D--b243744416f975bb--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1501-L48-233-D--b546ba77fae9f6b0--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-233-D--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-233-D--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A0-1501-L48-233-D--d0c9bf58fcecf21d--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1940,
+        "path": "backup-evaluation/A0-1501-L48-233-D--d6bf74812422bff3--stage-metrics.json",
+        "raw_bytes": 7957
+      },
+      {
+        "deflate_bytes": 4927,
+        "path": "backup-evaluation/A0-1501-L48-233-D--e2af5734dd8754e5--summary.json",
+        "raw_bytes": 19657
+      },
+      {
+        "deflate_bytes": 4927,
+        "path": "backup-evaluation/A0-1501-L48-233-S--21d56ad7e2c772e5--summary.json",
+        "raw_bytes": 19630
+      },
+      {
+        "deflate_bytes": 1827,
+        "path": "backup-evaluation/A0-1501-L48-233-S--327d8c4b38df281a--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A0-1501-L48-233-S--3dda830f0c40bf5a--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A0-1501-L48-233-S--40bf7709f6a52f76--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 638,
+        "path": "backup-evaluation/A0-1501-L48-233-S--480f8add70afeb9f--protocol-result.json",
+        "raw_bytes": 1657
+      },
+      {
+        "deflate_bytes": 1931,
+        "path": "backup-evaluation/A0-1501-L48-233-S--5d68d79cc5f220ac--stage-metrics.json",
+        "raw_bytes": 7930
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-233-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1501-L48-233-S--81915b482b1db3c8--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-233-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1600,
+        "path": "backup-evaluation/A0-1501-L48-233-S--9f10f5100de8a8bc--stage-metrics.csv",
+        "raw_bytes": 3461
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-233-S--a707bf15f4b93fe2--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 670141,
+        "path": "backup-evaluation/A0-1501-L48-233-S--bd309a1dc3eaab20--steps.jsonl",
+        "raw_bytes": 2892147
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-233-S--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-233-S--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 11701,
+        "path": "backup-evaluation/A0-1501-L48-233-S--e4a12618841e45b6--configuration.json",
+        "raw_bytes": 69697
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1501-L48-234-D--38e184b780ea830c--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 502,
+        "path": "backup-evaluation/A0-1501-L48-234-D--549684029d52de63--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-234-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1501-L48-234-D--732deead9e01f06a--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 670019,
+        "path": "backup-evaluation/A0-1501-L48-234-D--7814bd29de9a8bbf--steps.jsonl",
+        "raw_bytes": 2890762
+      },
+      {
+        "deflate_bytes": 638,
+        "path": "backup-evaluation/A0-1501-L48-234-D--7f031eea66c50c36--protocol-result.json",
+        "raw_bytes": 1656
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-234-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-234-D--97a6efab10e897e3--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1829,
+        "path": "backup-evaluation/A0-1501-L48-234-D--a9a9aae9000d7823--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 1595,
+        "path": "backup-evaluation/A0-1501-L48-234-D--b267597a20e4f31d--stage-metrics.csv",
+        "raw_bytes": 3464
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-234-D--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-234-D--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1943,
+        "path": "backup-evaluation/A0-1501-L48-234-D--c12def809c303189--stage-metrics.json",
+        "raw_bytes": 7933
+      },
+      {
+        "deflate_bytes": 4956,
+        "path": "backup-evaluation/A0-1501-L48-234-D--ed62a566a5786ba8--summary.json",
+        "raw_bytes": 19610
+      },
+      {
+        "deflate_bytes": 11728,
+        "path": "backup-evaluation/A0-1501-L48-234-D--ef5659b60ec4cad1--configuration.json",
+        "raw_bytes": 69677
+      },
+      {
+        "deflate_bytes": 1594,
+        "path": "backup-evaluation/A0-1501-L48-234-S--12925d48dbda6870--stage-metrics.csv",
+        "raw_bytes": 3455
+      },
+      {
+        "deflate_bytes": 1935,
+        "path": "backup-evaluation/A0-1501-L48-234-S--171f048efe5a7469--stage-metrics.json",
+        "raw_bytes": 7924
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A0-1501-L48-234-S--286754dd9ae329b2--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1501-L48-234-S--3f8d3e37813871f7--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 11729,
+        "path": "backup-evaluation/A0-1501-L48-234-S--44837b51d030d107--configuration.json",
+        "raw_bytes": 69676
+      },
+      {
+        "deflate_bytes": 1827,
+        "path": "backup-evaluation/A0-1501-L48-234-S--46d8ad2a3dbdcdcc--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1501-L48-234-S--57c274c8c3d78e3a--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-234-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-234-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 639,
+        "path": "backup-evaluation/A0-1501-L48-234-S--9eb3d53961c576c3--protocol-result.json",
+        "raw_bytes": 1654
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-234-S--af7e7784e05af710--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-234-S--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-234-S--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 670523,
+        "path": "backup-evaluation/A0-1501-L48-234-S--e2cff5a2d3b981c8--steps.jsonl",
+        "raw_bytes": 2890223
+      },
+      {
+        "deflate_bytes": 4944,
+        "path": "backup-evaluation/A0-1501-L48-234-S--e3ae3c899b1be549--summary.json",
+        "raw_bytes": 19602
+      },
+      {
+        "deflate_bytes": 502,
+        "path": "backup-evaluation/A0-1501-L48-235-D--0ba32a25cbca6cb0--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 4957,
+        "path": "backup-evaluation/A0-1501-L48-235-D--0e0c673ad02a5d39--summary.json",
+        "raw_bytes": 19626
+      },
+      {
+        "deflate_bytes": 669832,
+        "path": "backup-evaluation/A0-1501-L48-235-D--2419a51a55dc49ea--steps.jsonl",
+        "raw_bytes": 2892577
+      },
+      {
+        "deflate_bytes": 1821,
+        "path": "backup-evaluation/A0-1501-L48-235-D--2f593e807af09d53--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 11741,
+        "path": "backup-evaluation/A0-1501-L48-235-D--2ffc8bad7d7b700c--configuration.json",
+        "raw_bytes": 69686
+      },
+      {
+        "deflate_bytes": 1594,
+        "path": "backup-evaluation/A0-1501-L48-235-D--41c510f2a067d302--stage-metrics.csv",
+        "raw_bytes": 3465
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-235-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-235-D--6d35066eeb7ee7e3--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A0-1501-L48-235-D--86f9a59c1aadb855--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 627,
+        "path": "backup-evaluation/A0-1501-L48-235-D--8f80d1fbdcb5c577--protocol-result.json",
+        "raw_bytes": 1656
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-235-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1923,
+        "path": "backup-evaluation/A0-1501-L48-235-D--b5eea3527bb6292b--stage-metrics.json",
+        "raw_bytes": 7934
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-235-D--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-235-D--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1501-L48-235-D--e8a6d6f0a30debd4--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 670527,
+        "path": "backup-evaluation/A0-1501-L48-235-S--08800d801575a2f6--steps.jsonl",
+        "raw_bytes": 2891540
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1501-L48-235-S--1b175525c0318ef3--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A0-1501-L48-235-S--2f2f61c641630532--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1501-L48-235-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 1826,
+        "path": "backup-evaluation/A0-1501-L48-235-S--65651b588afd75c7--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1501-L48-235-S--8d1c51c796144a4c--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1501-L48-235-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 11742,
+        "path": "backup-evaluation/A0-1501-L48-235-S--b84e5772ec2beba4--configuration.json",
+        "raw_bytes": 69687
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1501-L48-235-S--bd03d5f870fde7ed--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-235-S--bfc3bcfb977cf526--frozen-after.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 1494,
+        "path": "backup-evaluation/A0-1501-L48-235-S--bfc3bcfb977cf526--frozen-before.json",
+        "raw_bytes": 4894
+      },
+      {
+        "deflate_bytes": 4965,
+        "path": "backup-evaluation/A0-1501-L48-235-S--ca933943b08c8710--summary.json",
+        "raw_bytes": 19621
+      },
+      {
+        "deflate_bytes": 622,
+        "path": "backup-evaluation/A0-1501-L48-235-S--f4bb27cba4dc98db--protocol-result.json",
+        "raw_bytes": 1647
+      },
+      {
+        "deflate_bytes": 1594,
+        "path": "backup-evaluation/A0-1501-L48-235-S--f6a11b75e0ebdefa--stage-metrics.csv",
+        "raw_bytes": 3461
+      },
+      {
+        "deflate_bytes": 1940,
+        "path": "backup-evaluation/A0-1501-L48-235-S--fd331e9614899de1--stage-metrics.json",
+        "raw_bytes": 7930
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-231-D--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-231-D--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1502-L48-231-D--3a63a13038dcbadb--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 1909,
+        "path": "backup-evaluation/A0-1502-L48-231-D--47fcba2014ad4f06--stage-metrics.json",
+        "raw_bytes": 7927
+      },
+      {
+        "deflate_bytes": 1568,
+        "path": "backup-evaluation/A0-1502-L48-231-D--567c36e1d2a82424--stage-metrics.csv",
+        "raw_bytes": 3458
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-231-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 4919,
+        "path": "backup-evaluation/A0-1502-L48-231-D--71070fd9a6f142c4--summary.json",
+        "raw_bytes": 19632
+      },
+      {
+        "deflate_bytes": 669757,
+        "path": "backup-evaluation/A0-1502-L48-231-D--8a03b2eb254618a8--steps.jsonl",
+        "raw_bytes": 2897205
+      },
+      {
+        "deflate_bytes": 625,
+        "path": "backup-evaluation/A0-1502-L48-231-D--8ddc2e56d3a540b6--protocol-result.json",
+        "raw_bytes": 1644
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-231-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-231-D--94b3d3e29214534c--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1826,
+        "path": "backup-evaluation/A0-1502-L48-231-D--b3d70a5f99006c13--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1502-L48-231-D--c0b6a002f2d47ffb--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "backup-evaluation/A0-1502-L48-231-D--dc38215804f7dcf5--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 11727,
+        "path": "backup-evaluation/A0-1502-L48-231-D--e67f6271656c2842--configuration.json",
+        "raw_bytes": 69701
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-231-S--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-231-S--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-231-S--1e48c661b20919ec--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 631,
+        "path": "backup-evaluation/A0-1502-L48-231-S--2fd4c5172c385dd8--protocol-result.json",
+        "raw_bytes": 1645
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "backup-evaluation/A0-1502-L48-231-S--3aefacdba87592ae--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 75,
+        "path": "backup-evaluation/A0-1502-L48-231-S--431bfd91d450aaba--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 1826,
+        "path": "backup-evaluation/A0-1502-L48-231-S--4ca11691ab032693--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1502-L48-231-S--563d4c71930e03c7--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 670346,
+        "path": "backup-evaluation/A0-1502-L48-231-S--59037b3924795061--steps.jsonl",
+        "raw_bytes": 2896067
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-231-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 11725,
+        "path": "backup-evaluation/A0-1502-L48-231-S--790aa6bb80a34fc6--configuration.json",
+        "raw_bytes": 69701
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-231-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 4918,
+        "path": "backup-evaluation/A0-1502-L48-231-S--d0ac1c8d4f9cf97a--summary.json",
+        "raw_bytes": 19624
+      },
+      {
+        "deflate_bytes": 1570,
+        "path": "backup-evaluation/A0-1502-L48-231-S--f37ee49401cb2429--stage-metrics.csv",
+        "raw_bytes": 3448
+      },
+      {
+        "deflate_bytes": 1907,
+        "path": "backup-evaluation/A0-1502-L48-231-S--fcfe481057c46e30--stage-metrics.json",
+        "raw_bytes": 7917
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-232-D--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-232-D--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1827,
+        "path": "backup-evaluation/A0-1502-L48-232-D--1848724376efc23c--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 669475,
+        "path": "backup-evaluation/A0-1502-L48-232-D--360f2874846f865f--steps.jsonl",
+        "raw_bytes": 2896420
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A0-1502-L48-232-D--4b2b7eb1dd124f18--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-232-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 4933,
+        "path": "backup-evaluation/A0-1502-L48-232-D--8b49b7a2d0f51432--summary.json",
+        "raw_bytes": 19633
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-232-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 11737,
+        "path": "backup-evaluation/A0-1502-L48-232-D--956d7618ae13eacf--configuration.json",
+        "raw_bytes": 69703
+      },
+      {
+        "deflate_bytes": 1576,
+        "path": "backup-evaluation/A0-1502-L48-232-D--9da1d220e2ec04a7--stage-metrics.csv",
+        "raw_bytes": 3454
+      },
+      {
+        "deflate_bytes": 626,
+        "path": "backup-evaluation/A0-1502-L48-232-D--a8a2f0554f02f668--protocol-result.json",
+        "raw_bytes": 1644
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1502-L48-232-D--ca943192b59c9703--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1906,
+        "path": "backup-evaluation/A0-1502-L48-232-D--d8241167b6090748--stage-metrics.json",
+        "raw_bytes": 7923
+      },
+      {
+        "deflate_bytes": 78,
+        "path": "backup-evaluation/A0-1502-L48-232-D--dd599a8f7d361c8b--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-232-D--e9a8582b335cc2b5--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-232-S--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-232-S--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 4933,
+        "path": "backup-evaluation/A0-1502-L48-232-S--11baad78410aa59c--summary.json",
+        "raw_bytes": 19642
+      },
+      {
+        "deflate_bytes": 670311,
+        "path": "backup-evaluation/A0-1502-L48-232-S--153d02434482a7f2--steps.jsonl",
+        "raw_bytes": 2895203
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-232-S--1676c9580686f641--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1822,
+        "path": "backup-evaluation/A0-1502-L48-232-S--28307e3a390d5a47--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 1917,
+        "path": "backup-evaluation/A0-1502-L48-232-S--2ea2adba79e8ac07--stage-metrics.json",
+        "raw_bytes": 7931
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-232-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "backup-evaluation/A0-1502-L48-232-S--6583804e32cafa16--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 11739,
+        "path": "backup-evaluation/A0-1502-L48-232-S--895946cbf2faf94d--configuration.json",
+        "raw_bytes": 69703
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-232-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1502-L48-232-S--c9ee2bdfb8f8e351--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 1578,
+        "path": "backup-evaluation/A0-1502-L48-232-S--d1a65abcc34e4959--stage-metrics.csv",
+        "raw_bytes": 3462
+      },
+      {
+        "deflate_bytes": 627,
+        "path": "backup-evaluation/A0-1502-L48-232-S--d4ecadf17b4732a4--protocol-result.json",
+        "raw_bytes": 1640
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1502-L48-232-S--e7efc21aea6896a8--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 635,
+        "path": "backup-evaluation/A0-1502-L48-233-D--09a5f6bb9f912f6c--protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-233-D--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-233-D--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-233-D--105c07ce885e16e3--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A0-1502-L48-233-D--24d334fb0927ad22--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1618,
+        "path": "backup-evaluation/A0-1502-L48-233-D--41246cb20b824021--stage-metrics.csv",
+        "raw_bytes": 3469
+      },
+      {
+        "deflate_bytes": 1972,
+        "path": "backup-evaluation/A0-1502-L48-233-D--62011f96b7e9807f--stage-metrics.json",
+        "raw_bytes": 7938
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-233-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1502-L48-233-D--82a221fc20bdb794--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-233-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 668101,
+        "path": "backup-evaluation/A0-1502-L48-233-D--9b2dc304996a5739--steps.jsonl",
+        "raw_bytes": 2895534
+      },
+      {
+        "deflate_bytes": 4948,
+        "path": "backup-evaluation/A0-1502-L48-233-D--c876dddc5ea0709b--summary.json",
+        "raw_bytes": 19638
+      },
+      {
+        "deflate_bytes": 1832,
+        "path": "backup-evaluation/A0-1502-L48-233-D--d0fe1a282071db29--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 11702,
+        "path": "backup-evaluation/A0-1502-L48-233-D--d2b02279a00f9366--configuration.json",
+        "raw_bytes": 69697
+      },
+      {
+        "deflate_bytes": 78,
+        "path": "backup-evaluation/A0-1502-L48-233-D--fbc84063ecbcdaf3--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-233-S--0231a0fbbb86a019--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1957,
+        "path": "backup-evaluation/A0-1502-L48-233-S--07de9c0c61749698--stage-metrics.json",
+        "raw_bytes": 7926
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-233-S--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-233-S--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 640,
+        "path": "backup-evaluation/A0-1502-L48-233-S--0b7ee0e321b5d874--protocol-result.json",
+        "raw_bytes": 1650
+      },
+      {
+        "deflate_bytes": 1602,
+        "path": "backup-evaluation/A0-1502-L48-233-S--21e4680e011e8939--stage-metrics.csv",
+        "raw_bytes": 3457
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1502-L48-233-S--285b693d95d134e5--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 4947,
+        "path": "backup-evaluation/A0-1502-L48-233-S--4b11385b1c1f58c0--summary.json",
+        "raw_bytes": 19626
+      },
+      {
+        "deflate_bytes": 669058,
+        "path": "backup-evaluation/A0-1502-L48-233-S--56db5d7a4812abaf--steps.jsonl",
+        "raw_bytes": 2894429
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-233-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 75,
+        "path": "backup-evaluation/A0-1502-L48-233-S--6ea2d81c9df7f6cc--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-233-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1827,
+        "path": "backup-evaluation/A0-1502-L48-233-S--c168df859ba10e93--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "backup-evaluation/A0-1502-L48-233-S--e28b81b1b41a7da1--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 11700,
+        "path": "backup-evaluation/A0-1502-L48-233-S--f560c433fc8e4e91--configuration.json",
+        "raw_bytes": 69696
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-234-D--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-234-D--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1560,
+        "path": "backup-evaluation/A0-1502-L48-234-D--0ea5177ad7923b7a--stage-metrics.csv",
+        "raw_bytes": 3429
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-234-D--24382b94f2677aac--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 75,
+        "path": "backup-evaluation/A0-1502-L48-234-D--304fdb6cef09aeec--progress.json",
+        "raw_bytes": 109
+      },
+      {
+        "deflate_bytes": 622,
+        "path": "backup-evaluation/A0-1502-L48-234-D--4aafa395314cb2d2--protocol-result.json",
+        "raw_bytes": 1640
+      },
+      {
+        "deflate_bytes": 4906,
+        "path": "backup-evaluation/A0-1502-L48-234-D--5fecaa81e9c0b739--summary.json",
+        "raw_bytes": 19576
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-234-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 668615,
+        "path": "backup-evaluation/A0-1502-L48-234-D--757103892d4c1656--steps.jsonl",
+        "raw_bytes": 2892800
+      },
+      {
+        "deflate_bytes": 95,
+        "path": "backup-evaluation/A0-1502-L48-234-D--770e3bd483423ff2--process-result.json",
+        "raw_bytes": 112
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-234-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A0-1502-L48-234-D--b7ebeecee2194265--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 11727,
+        "path": "backup-evaluation/A0-1502-L48-234-D--c1ac123f01af2818--configuration.json",
+        "raw_bytes": 69677
+      },
+      {
+        "deflate_bytes": 1895,
+        "path": "backup-evaluation/A0-1502-L48-234-D--cc992ddc60a052d1--stage-metrics.json",
+        "raw_bytes": 7898
+      },
+      {
+        "deflate_bytes": 1831,
+        "path": "backup-evaluation/A0-1502-L48-234-D--fbc8eefa46707e94--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 11726,
+        "path": "backup-evaluation/A0-1502-L48-234-S--07e4ad3353831dd6--configuration.json",
+        "raw_bytes": 69677
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-234-S--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-234-S--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1502-L48-234-S--1f9b62f567154ca9--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "backup-evaluation/A0-1502-L48-234-S--21c527a9913b132d--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1566,
+        "path": "backup-evaluation/A0-1502-L48-234-S--30e571f0a686d497--stage-metrics.csv",
+        "raw_bytes": 3429
+      },
+      {
+        "deflate_bytes": 1895,
+        "path": "backup-evaluation/A0-1502-L48-234-S--456aa3b5cf7e7c23--stage-metrics.json",
+        "raw_bytes": 7898
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-234-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669402,
+        "path": "backup-evaluation/A0-1502-L48-234-S--6564b538f424d898--steps.jsonl",
+        "raw_bytes": 2891529
+      },
+      {
+        "deflate_bytes": 622,
+        "path": "backup-evaluation/A0-1502-L48-234-S--7acbc0b43273e944--protocol-result.json",
+        "raw_bytes": 1644
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-234-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 4902,
+        "path": "backup-evaluation/A0-1502-L48-234-S--b8d7d142bc33b0d8--summary.json",
+        "raw_bytes": 19575
+      },
+      {
+        "deflate_bytes": 1820,
+        "path": "backup-evaluation/A0-1502-L48-234-S--bda5ed9ea7f1655b--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A0-1502-L48-234-S--c008f3eeadcee25e--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-234-S--eeb335c45cb01b66--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-235-D--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-235-D--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1502-L48-235-D--0dd626f1092828f1--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-235-D--2a5eff6c4288bd6d--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1824,
+        "path": "backup-evaluation/A0-1502-L48-235-D--303fd7e52a6caeef--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 669217,
+        "path": "backup-evaluation/A0-1502-L48-235-D--34315177304f9ebd--steps.jsonl",
+        "raw_bytes": 2894975
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-235-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 1915,
+        "path": "backup-evaluation/A0-1502-L48-235-D--80f6d46a96d0f712--stage-metrics.json",
+        "raw_bytes": 7933
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1502-L48-235-D--82eaaed2dd822239--progress.json",
+        "raw_bytes": 109
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A0-1502-L48-235-D--8d52c05b8edd2100--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-235-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 4945,
+        "path": "backup-evaluation/A0-1502-L48-235-D--a650c64aa23cc654--summary.json",
+        "raw_bytes": 19624
+      },
+      {
+        "deflate_bytes": 11737,
+        "path": "backup-evaluation/A0-1502-L48-235-D--b554dfc4a8898996--configuration.json",
+        "raw_bytes": 69687
+      },
+      {
+        "deflate_bytes": 1578,
+        "path": "backup-evaluation/A0-1502-L48-235-D--b5d4b35fcc86b0d4--stage-metrics.csv",
+        "raw_bytes": 3464
+      },
+      {
+        "deflate_bytes": 627,
+        "path": "backup-evaluation/A0-1502-L48-235-D--b935419f3e73ee59--protocol-result.json",
+        "raw_bytes": 1647
+      },
+      {
+        "deflate_bytes": 11738,
+        "path": "backup-evaluation/A0-1502-L48-235-S--00c85b2f4751dec6--configuration.json",
+        "raw_bytes": 69687
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-235-S--0b6ded52f350d5ab--frozen-after.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 1505,
+        "path": "backup-evaluation/A0-1502-L48-235-S--0b6ded52f350d5ab--frozen-before.json",
+        "raw_bytes": 4921
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A0-1502-L48-235-S--29431f5b955d2ec2--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1941,
+        "path": "backup-evaluation/A0-1502-L48-235-S--2fa4dbbc22730bb5--stage-metrics.json",
+        "raw_bytes": 7928
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "backup-evaluation/A0-1502-L48-235-S--376fed049d3c8bdb--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 630,
+        "path": "backup-evaluation/A0-1502-L48-235-S--394c4bb662c21be0--protocol-result.json",
+        "raw_bytes": 1642
+      },
+      {
+        "deflate_bytes": 1575,
+        "path": "backup-evaluation/A0-1502-L48-235-S--3e332c2b799f50f1--stage-metrics.csv",
+        "raw_bytes": 3459
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A0-1502-L48-235-S--54a716f159f43309--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A0-1502-L48-235-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 4961,
+        "path": "backup-evaluation/A0-1502-L48-235-S--83acc09a11ad3f94--summary.json",
+        "raw_bytes": 19618
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A0-1502-L48-235-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 669907,
+        "path": "backup-evaluation/A0-1502-L48-235-S--9935be28e48b9795--steps.jsonl",
+        "raw_bytes": 2893134
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A0-1502-L48-235-S--e4b7249162be6cc4--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 1823,
+        "path": "backup-evaluation/A0-1502-L48-235-S--e552290828840027--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 1925,
+        "path": "backup-evaluation/A1-1501-L48-231-D--2e521bea0095e18f--stage-metrics.json",
+        "raw_bytes": 7923
+      },
+      {
+        "deflate_bytes": 1824,
+        "path": "backup-evaluation/A1-1501-L48-231-D--31424801f3ef17f9--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 632,
+        "path": "backup-evaluation/A1-1501-L48-231-D--47043ddea42aedda--protocol-result.json",
+        "raw_bytes": 1641
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A1-1501-L48-231-D--5149135a7e5760ff--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1591,
+        "path": "backup-evaluation/A1-1501-L48-231-D--53f04626846248d3--stage-metrics.csv",
+        "raw_bytes": 3454
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-231-D--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-231-D--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-231-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 669908,
+        "path": "backup-evaluation/A1-1501-L48-231-D--70f5c48755cb307e--steps.jsonl",
+        "raw_bytes": 2897222
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-231-D--78237848ed6aed5d--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 4935,
+        "path": "backup-evaluation/A1-1501-L48-231-D--83c53fdd3e935ba3--summary.json",
+        "raw_bytes": 19629
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-231-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 11724,
+        "path": "backup-evaluation/A1-1501-L48-231-D--b602c5795beb0c54--configuration.json",
+        "raw_bytes": 69700
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A1-1501-L48-231-D--b8aa47f0129db20e--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1501-L48-231-D--ccf7876cbde91009--process-result.json",
+        "raw_bytes": 113
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A1-1501-L48-231-S--18155ff3c6d7977a--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 1597,
+        "path": "backup-evaluation/A1-1501-L48-231-S--441429e4a31c43ea--stage-metrics.csv",
+        "raw_bytes": 3456
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1501-L48-231-S--4ce09f173338952f--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-231-S--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-231-S--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-231-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 632,
+        "path": "backup-evaluation/A1-1501-L48-231-S--706203a853a17cad--protocol-result.json",
+        "raw_bytes": 1642
+      },
+      {
+        "deflate_bytes": 11726,
+        "path": "backup-evaluation/A1-1501-L48-231-S--7b35afdc8ab6fce7--configuration.json",
+        "raw_bytes": 69701
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1501-L48-231-S--80529c156203c473--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1936,
+        "path": "backup-evaluation/A1-1501-L48-231-S--83c9dff2d0d25797--stage-metrics.json",
+        "raw_bytes": 7925
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-231-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-231-S--b0ad4707a82b80a5--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 4935,
+        "path": "backup-evaluation/A1-1501-L48-231-S--bfb530b616518f1f--summary.json",
+        "raw_bytes": 19632
+      },
+      {
+        "deflate_bytes": 1775,
+        "path": "backup-evaluation/A1-1501-L48-231-S--eba9e886b19a3d04--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 670411,
+        "path": "backup-evaluation/A1-1501-L48-231-S--f0c5fb8b38f484dd--steps.jsonl",
+        "raw_bytes": 2895349
+      },
+      {
+        "deflate_bytes": 4950,
+        "path": "backup-evaluation/A1-1501-L48-232-D--1ee6fae9e0ff2d2e--summary.json",
+        "raw_bytes": 19650
+      },
+      {
+        "deflate_bytes": 1605,
+        "path": "backup-evaluation/A1-1501-L48-232-D--1effdb87a40c1be2--stage-metrics.csv",
+        "raw_bytes": 3472
+      },
+      {
+        "deflate_bytes": 11738,
+        "path": "backup-evaluation/A1-1501-L48-232-D--21e29ad9cfdea03c--configuration.json",
+        "raw_bytes": 69704
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-232-D--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-232-D--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-232-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-232-D--6cc956475ee7946e--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 670244,
+        "path": "backup-evaluation/A1-1501-L48-232-D--701f037ff5aaf199--steps.jsonl",
+        "raw_bytes": 2900676
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-232-D--7499ec8f45f99786--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 1929,
+        "path": "backup-evaluation/A1-1501-L48-232-D--7609361ab8fdf5aa--stage-metrics.json",
+        "raw_bytes": 7941
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-232-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1501-L48-232-D--98c4fd4671d953c5--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1760,
+        "path": "backup-evaluation/A1-1501-L48-232-D--d389f95491c69fb6--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A1-1501-L48-232-D--d4f4cc756d1f9292--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 649,
+        "path": "backup-evaluation/A1-1501-L48-232-D--f25b4d9cd7468da5--protocol-result.json",
+        "raw_bytes": 1659
+      },
+      {
+        "deflate_bytes": 4965,
+        "path": "backup-evaluation/A1-1501-L48-232-S--0d7ce533fcce1d5b--summary.json",
+        "raw_bytes": 19659
+      },
+      {
+        "deflate_bytes": 1961,
+        "path": "backup-evaluation/A1-1501-L48-232-S--17b89d80fcf195a9--stage-metrics.json",
+        "raw_bytes": 7949
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-232-S--188ba03f2f8a60ee--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1501-L48-232-S--3514d812bf77e52b--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A1-1501-L48-232-S--3b647a5af3360f09--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-232-S--500d4a2e0f83089e--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-232-S--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-232-S--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-232-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 670826,
+        "path": "backup-evaluation/A1-1501-L48-232-S--88ed9c5c5fba0491--steps.jsonl",
+        "raw_bytes": 2899282
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-232-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1621,
+        "path": "backup-evaluation/A1-1501-L48-232-S--9436867c32d49b3e--stage-metrics.csv",
+        "raw_bytes": 3480
+      },
+      {
+        "deflate_bytes": 1831,
+        "path": "backup-evaluation/A1-1501-L48-232-S--a84b2a2215b3a057--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 11736,
+        "path": "backup-evaluation/A1-1501-L48-232-S--c6d02fd762bf8feb--configuration.json",
+        "raw_bytes": 69704
+      },
+      {
+        "deflate_bytes": 643,
+        "path": "backup-evaluation/A1-1501-L48-232-S--f95eee33d82a21c7--protocol-result.json",
+        "raw_bytes": 1650
+      },
+      {
+        "deflate_bytes": 668310,
+        "path": "backup-evaluation/A1-1501-L48-233-D--2fb7fae92d8b23e8--steps.jsonl",
+        "raw_bytes": 2895315
+      },
+      {
+        "deflate_bytes": 1616,
+        "path": "backup-evaluation/A1-1501-L48-233-D--34a05f8402904c08--stage-metrics.csv",
+        "raw_bytes": 3466
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-233-D--3d0278255ecc24a6--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-233-D--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-233-D--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1956,
+        "path": "backup-evaluation/A1-1501-L48-233-D--623d89e6903eb236--stage-metrics.json",
+        "raw_bytes": 7935
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-233-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 634,
+        "path": "backup-evaluation/A1-1501-L48-233-D--70495a875f0bff02--protocol-result.json",
+        "raw_bytes": 1646
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-233-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-233-D--a371d58b2d65692b--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A1-1501-L48-233-D--c009365f1e1a0c19--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1831,
+        "path": "backup-evaluation/A1-1501-L48-233-D--cfefaa72e547f409--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1501-L48-233-D--dae3969fa0dfa3a9--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 11701,
+        "path": "backup-evaluation/A1-1501-L48-233-D--db98b43d5b22d06f--configuration.json",
+        "raw_bytes": 69697
+      },
+      {
+        "deflate_bytes": 4929,
+        "path": "backup-evaluation/A1-1501-L48-233-D--fa721c75b09b577a--summary.json",
+        "raw_bytes": 19635
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1501-L48-233-S--057fabddc2adffd9--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 11700,
+        "path": "backup-evaluation/A1-1501-L48-233-S--1f1ca9e450d6dd2f--configuration.json",
+        "raw_bytes": 69696
+      },
+      {
+        "deflate_bytes": 637,
+        "path": "backup-evaluation/A1-1501-L48-233-S--367b43a62d0c3e5d--protocol-result.json",
+        "raw_bytes": 1653
+      },
+      {
+        "deflate_bytes": 1822,
+        "path": "backup-evaluation/A1-1501-L48-233-S--3ceb2061d21c908f--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 669541,
+        "path": "backup-evaluation/A1-1501-L48-233-S--3ebb5cbde08666da--steps.jsonl",
+        "raw_bytes": 2894257
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1501-L48-233-S--56311a661a3a84e5--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-233-S--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-233-S--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-233-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-233-S--6e2392fc38f6765c--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 4936,
+        "path": "backup-evaluation/A1-1501-L48-233-S--78e253ce719c3128--summary.json",
+        "raw_bytes": 19641
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-233-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-233-S--997956d3becf75aa--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1616,
+        "path": "backup-evaluation/A1-1501-L48-233-S--b4b49780ac69fe6b--stage-metrics.csv",
+        "raw_bytes": 3473
+      },
+      {
+        "deflate_bytes": 1945,
+        "path": "backup-evaluation/A1-1501-L48-233-S--bdd786503236cdc9--stage-metrics.json",
+        "raw_bytes": 7942
+      },
+      {
+        "deflate_bytes": 632,
+        "path": "backup-evaluation/A1-1501-L48-234-D--333ffa8af9da7d4f--protocol-result.json",
+        "raw_bytes": 1654
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A1-1501-L48-234-D--517b570fe04bc88a--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-234-D--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-234-D--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-234-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-234-D--68206a9e64ab069f--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-234-D--77b26ca7c45be741--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 668835,
+        "path": "backup-evaluation/A1-1501-L48-234-D--81e8e857469fe4a1--steps.jsonl",
+        "raw_bytes": 2891789
+      },
+      {
+        "deflate_bytes": 11727,
+        "path": "backup-evaluation/A1-1501-L48-234-D--8d12cbda46bfa6bd--configuration.json",
+        "raw_bytes": 69676
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-234-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1827,
+        "path": "backup-evaluation/A1-1501-L48-234-D--a5fa8d1dbd5447db--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 1914,
+        "path": "backup-evaluation/A1-1501-L48-234-D--ae7bb41033a97ab1--stage-metrics.json",
+        "raw_bytes": 7931
+      },
+      {
+        "deflate_bytes": 1573,
+        "path": "backup-evaluation/A1-1501-L48-234-D--e0ffc47bc840d49f--stage-metrics.csv",
+        "raw_bytes": 3462
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A1-1501-L48-234-D--f142332cd8fc4054--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 4922,
+        "path": "backup-evaluation/A1-1501-L48-234-D--fea2f550c7e35cb5--summary.json",
+        "raw_bytes": 19607
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1501-L48-234-S--0eb2959c9bb28a16--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 669435,
+        "path": "backup-evaluation/A1-1501-L48-234-S--3e35f840e8728715--steps.jsonl",
+        "raw_bytes": 2890298
+      },
+      {
+        "deflate_bytes": 1592,
+        "path": "backup-evaluation/A1-1501-L48-234-S--4d1695c8055dc5d7--stage-metrics.csv",
+        "raw_bytes": 3447
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-234-S--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-234-S--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-234-S--58677303c733999d--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-234-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-234-S--64d09d7857e3bd39--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1926,
+        "path": "backup-evaluation/A1-1501-L48-234-S--79c95b428fe5eb1e--stage-metrics.json",
+        "raw_bytes": 7916
+      },
+      {
+        "deflate_bytes": 4918,
+        "path": "backup-evaluation/A1-1501-L48-234-S--7ea38e5b5299a94a--summary.json",
+        "raw_bytes": 19592
+      },
+      {
+        "deflate_bytes": 95,
+        "path": "backup-evaluation/A1-1501-L48-234-S--92899ff314893201--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-234-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 638,
+        "path": "backup-evaluation/A1-1501-L48-234-S--9b97aa9c01a1c89b--protocol-result.json",
+        "raw_bytes": 1641
+      },
+      {
+        "deflate_bytes": 1821,
+        "path": "backup-evaluation/A1-1501-L48-234-S--d31d1755ec5be204--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 11725,
+        "path": "backup-evaluation/A1-1501-L48-234-S--ff697ddf226afce8--configuration.json",
+        "raw_bytes": 69676
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-235-D--1ae3407f5342b459--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-235-D--4255a1fd22ac5cf6--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 4935,
+        "path": "backup-evaluation/A1-1501-L48-235-D--4508c30d83f041e4--summary.json",
+        "raw_bytes": 19613
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-235-D--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-235-D--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 628,
+        "path": "backup-evaluation/A1-1501-L48-235-D--627ecb7d48784dcd--protocol-result.json",
+        "raw_bytes": 1649
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-235-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 501,
+        "path": "backup-evaluation/A1-1501-L48-235-D--781f715f451b5073--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-235-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1821,
+        "path": "backup-evaluation/A1-1501-L48-235-D--cc3df5264f8c3f65--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 11739,
+        "path": "backup-evaluation/A1-1501-L48-235-D--cd94e3ecf8211c7d--configuration.json",
+        "raw_bytes": 69687
+      },
+      {
+        "deflate_bytes": 1576,
+        "path": "backup-evaluation/A1-1501-L48-235-D--d27a00cd5fbea0a8--stage-metrics.csv",
+        "raw_bytes": 3453
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1501-L48-235-D--e20125187bce6c5f--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 670024,
+        "path": "backup-evaluation/A1-1501-L48-235-D--f4cab4996fe40c5b--steps.jsonl",
+        "raw_bytes": 2893030
+      },
+      {
+        "deflate_bytes": 1921,
+        "path": "backup-evaluation/A1-1501-L48-235-D--fc6d25493b740b26--stage-metrics.json",
+        "raw_bytes": 7922
+      },
+      {
+        "deflate_bytes": 1925,
+        "path": "backup-evaluation/A1-1501-L48-235-S--1e0f4a5fcc1fec66--stage-metrics.json",
+        "raw_bytes": 7915
+      },
+      {
+        "deflate_bytes": 670387,
+        "path": "backup-evaluation/A1-1501-L48-235-S--1e4d972a3cfa17d9--steps.jsonl",
+        "raw_bytes": 2891497
+      },
+      {
+        "deflate_bytes": 1572,
+        "path": "backup-evaluation/A1-1501-L48-235-S--4062a8f712b5f0d2--stage-metrics.csv",
+        "raw_bytes": 3446
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1501-L48-235-S--5327c352d3d2f818--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-235-S--567b408396d3e94d--frozen-after.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 1502,
+        "path": "backup-evaluation/A1-1501-L48-235-S--567b408396d3e94d--frozen-before.json",
+        "raw_bytes": 4905
+      },
+      {
+        "deflate_bytes": 627,
+        "path": "backup-evaluation/A1-1501-L48-235-S--60a484ef46ce1edb--protocol-result.json",
+        "raw_bytes": 1640
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1501-L48-235-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 4927,
+        "path": "backup-evaluation/A1-1501-L48-235-S--70b84a6dd7648b55--summary.json",
+        "raw_bytes": 19608
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1501-L48-235-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1501-L48-235-S--b70c0175b3179a31--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1501-L48-235-S--c522a56fced20f39--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 11737,
+        "path": "backup-evaluation/A1-1501-L48-235-S--cd5a4e8a393fe891--configuration.json",
+        "raw_bytes": 69687
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1501-L48-235-S--dc02fc5b28cbbd4c--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1818,
+        "path": "backup-evaluation/A1-1501-L48-235-S--ff25d1b3208b7d8c--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 1950,
+        "path": "backup-evaluation/A1-1502-L48-231-D--02bbc24b7ab3349a--stage-metrics.json",
+        "raw_bytes": 7931
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-231-D--25a2ee04730bbfa7--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1765,
+        "path": "backup-evaluation/A1-1502-L48-231-D--3fbe07f41e37c3f7--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 11724,
+        "path": "backup-evaluation/A1-1502-L48-231-D--40175efdc5e1452d--configuration.json",
+        "raw_bytes": 69700
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-231-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-231-D--7b71945c262f6d81--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 670744,
+        "path": "backup-evaluation/A1-1502-L48-231-D--8fabe99bd83e5a5f--steps.jsonl",
+        "raw_bytes": 2899509
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1502-L48-231-D--8faf8871b57c7033--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-231-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-231-D--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-231-D--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1502-L48-231-D--b54af7325d0e47b6--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1602,
+        "path": "backup-evaluation/A1-1502-L48-231-D--b570713c7ca5d6a3--stage-metrics.csv",
+        "raw_bytes": 3462
+      },
+      {
+        "deflate_bytes": 643,
+        "path": "backup-evaluation/A1-1502-L48-231-D--bea6cfefac280934--protocol-result.json",
+        "raw_bytes": 1649
+      },
+      {
+        "deflate_bytes": 4958,
+        "path": "backup-evaluation/A1-1502-L48-231-D--f08e98d2917512be--summary.json",
+        "raw_bytes": 19637
+      },
+      {
+        "deflate_bytes": 671017,
+        "path": "backup-evaluation/A1-1502-L48-231-S--2aebe5c5a99bbcad--steps.jsonl",
+        "raw_bytes": 2898392
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1502-L48-231-S--385c00cff09dec84--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 11725,
+        "path": "backup-evaluation/A1-1502-L48-231-S--479400a03e95d690--configuration.json",
+        "raw_bytes": 69700
+      },
+      {
+        "deflate_bytes": 643,
+        "path": "backup-evaluation/A1-1502-L48-231-S--50bd6ed401c70a4d--protocol-result.json",
+        "raw_bytes": 1648
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-231-S--553743d2a61c8f87--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-231-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-231-S--79b6db0abddff858--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1822,
+        "path": "backup-evaluation/A1-1502-L48-231-S--88180da815e7bb79--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 1611,
+        "path": "backup-evaluation/A1-1502-L48-231-S--902757723558a579--stage-metrics.csv",
+        "raw_bytes": 3456
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-231-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A1-1502-L48-231-S--a44fe4e7cd5a2982--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-231-S--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-231-S--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 4957,
+        "path": "backup-evaluation/A1-1502-L48-231-S--dc7d48c44885ab62--summary.json",
+        "raw_bytes": 19630
+      },
+      {
+        "deflate_bytes": 1962,
+        "path": "backup-evaluation/A1-1502-L48-231-S--fbe04521e1c448a3--stage-metrics.json",
+        "raw_bytes": 7925
+      },
+      {
+        "deflate_bytes": 11738,
+        "path": "backup-evaluation/A1-1502-L48-232-D--027ee670ac214125--configuration.json",
+        "raw_bytes": 69704
+      },
+      {
+        "deflate_bytes": 642,
+        "path": "backup-evaluation/A1-1502-L48-232-D--03c68fb100406cfe--protocol-result.json",
+        "raw_bytes": 1651
+      },
+      {
+        "deflate_bytes": 1602,
+        "path": "backup-evaluation/A1-1502-L48-232-D--36752c8cb2a3be4b--stage-metrics.csv",
+        "raw_bytes": 3470
+      },
+      {
+        "deflate_bytes": 4967,
+        "path": "backup-evaluation/A1-1502-L48-232-D--4e4c92e7d4f71871--summary.json",
+        "raw_bytes": 19649
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-232-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A1-1502-L48-232-D--888c2872aebf5fe2--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 1829,
+        "path": "backup-evaluation/A1-1502-L48-232-D--926c77b000935b91--process.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-232-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1960,
+        "path": "backup-evaluation/A1-1502-L48-232-D--9815ec0a48b645e5--stage-metrics.json",
+        "raw_bytes": 7939
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-232-D--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-232-D--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-232-D--c5788de554f00389--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-232-D--c771c210923ce6b9--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1502-L48-232-D--c867bd5c0bbf6050--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 670514,
+        "path": "backup-evaluation/A1-1502-L48-232-D--e75ec459bf39b0ae--steps.jsonl",
+        "raw_bytes": 2898962
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1502-L48-232-S--34db9fb4a485a008--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-232-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A1-1502-L48-232-S--682666a416fcecf1--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-232-S--6c9eae0c3d195707--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 11740,
+        "path": "backup-evaluation/A1-1502-L48-232-S--7bd23984b3556ad3--configuration.json",
+        "raw_bytes": 69704
+      },
+      {
+        "deflate_bytes": 644,
+        "path": "backup-evaluation/A1-1502-L48-232-S--8cf0f0daa2fdd415--protocol-result.json",
+        "raw_bytes": 1653
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-232-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1941,
+        "path": "backup-evaluation/A1-1502-L48-232-S--afcd5a571c74cc07--stage-metrics.json",
+        "raw_bytes": 7933
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-232-S--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-232-S--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-232-S--c0bd0c9981766241--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1597,
+        "path": "backup-evaluation/A1-1502-L48-232-S--c12c20a1c2f9809d--stage-metrics.csv",
+        "raw_bytes": 3464
+      },
+      {
+        "deflate_bytes": 4949,
+        "path": "backup-evaluation/A1-1502-L48-232-S--d75d4231861c7703--summary.json",
+        "raw_bytes": 19642
+      },
+      {
+        "deflate_bytes": 671177,
+        "path": "backup-evaluation/A1-1502-L48-232-S--e9c4e1a878a2d736--steps.jsonl",
+        "raw_bytes": 2898308
+      },
+      {
+        "deflate_bytes": 1775,
+        "path": "backup-evaluation/A1-1502-L48-232-S--ec4559105d5c5a9e--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 1962,
+        "path": "backup-evaluation/A1-1502-L48-233-D--160c653a088d723e--stage-metrics.json",
+        "raw_bytes": 7960
+      },
+      {
+        "deflate_bytes": 1766,
+        "path": "backup-evaluation/A1-1502-L48-233-D--18086cd6d3341081--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 97,
+        "path": "backup-evaluation/A1-1502-L48-233-D--3b10e567c6047996--process-result.json",
+        "raw_bytes": 115
+      },
+      {
+        "deflate_bytes": 646,
+        "path": "backup-evaluation/A1-1502-L48-233-D--3c17f5149cdae141--protocol-result.json",
+        "raw_bytes": 1662
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-233-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1502-L48-233-D--67069ab272ac89eb--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 1614,
+        "path": "backup-evaluation/A1-1502-L48-233-D--89e62394c41a0df5--stage-metrics.csv",
+        "raw_bytes": 3491
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-233-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 11703,
+        "path": "backup-evaluation/A1-1502-L48-233-D--9a8df62c74a38ab4--configuration.json",
+        "raw_bytes": 69696
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-233-D--a00d18ee246a4e27--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 4931,
+        "path": "backup-evaluation/A1-1502-L48-233-D--ac144920216e941b--summary.json",
+        "raw_bytes": 19659
+      },
+      {
+        "deflate_bytes": 668234,
+        "path": "backup-evaluation/A1-1502-L48-233-D--b2075e609aa2318e--steps.jsonl",
+        "raw_bytes": 2897954
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-233-D--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-233-D--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-233-D--cc8f21dafc84ccac--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1502-L48-233-S--20b4dfb86577c861--progress.json",
+        "raw_bytes": 111
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1502-L48-233-S--3a5092834f60f3bd--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 668653,
+        "path": "backup-evaluation/A1-1502-L48-233-S--438a5b0c5c4f509f--steps.jsonl",
+        "raw_bytes": 2896366
+      },
+      {
+        "deflate_bytes": 1598,
+        "path": "backup-evaluation/A1-1502-L48-233-S--4c20aafb81b9f20f--stage-metrics.csv",
+        "raw_bytes": 3471
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-233-S--557680528fb3fcc5--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1941,
+        "path": "backup-evaluation/A1-1502-L48-233-S--5b9693d8135d551b--stage-metrics.json",
+        "raw_bytes": 7940
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-233-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 4925,
+        "path": "backup-evaluation/A1-1502-L48-233-S--6c666b934deda43b--summary.json",
+        "raw_bytes": 19639
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-233-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 11701,
+        "path": "backup-evaluation/A1-1502-L48-233-S--95aca6d574dea06e--configuration.json",
+        "raw_bytes": 69697
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-233-S--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-233-S--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 499,
+        "path": "backup-evaluation/A1-1502-L48-233-S--b6ea6946b29fe4ab--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1768,
+        "path": "backup-evaluation/A1-1502-L48-233-S--d1e48371ebfd4c09--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 643,
+        "path": "backup-evaluation/A1-1502-L48-233-S--d544f2e3415a8f43--protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 1601,
+        "path": "backup-evaluation/A1-1502-L48-234-D--218e4b5f5cfe9a5c--stage-metrics.csv",
+        "raw_bytes": 3460
+      },
+      {
+        "deflate_bytes": 77,
+        "path": "backup-evaluation/A1-1502-L48-234-D--2421f5036468d5f9--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-234-D--349d28fec7812b84--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-234-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 4946,
+        "path": "backup-evaluation/A1-1502-L48-234-D--6a6b65bc30ea2cce--summary.json",
+        "raw_bytes": 19606
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1502-L48-234-D--7d09ccc60ddc9025--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-234-D--8b26c7887522bef2--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1942,
+        "path": "backup-evaluation/A1-1502-L48-234-D--8c84eca845890933--stage-metrics.json",
+        "raw_bytes": 7929
+      },
+      {
+        "deflate_bytes": 631,
+        "path": "backup-evaluation/A1-1502-L48-234-D--8df30b2224a9d3c5--protocol-result.json",
+        "raw_bytes": 1645
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-234-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 11727,
+        "path": "backup-evaluation/A1-1502-L48-234-D--a4ad6b7601694a88--configuration.json",
+        "raw_bytes": 69676
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-234-D--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-234-D--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 669627,
+        "path": "backup-evaluation/A1-1502-L48-234-D--de8d478a79bd633a--steps.jsonl",
+        "raw_bytes": 2895620
+      },
+      {
+        "deflate_bytes": 1762,
+        "path": "backup-evaluation/A1-1502-L48-234-D--e4e132f3d1aaba74--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 670340,
+        "path": "backup-evaluation/A1-1502-L48-234-S--1d97933be7482497--steps.jsonl",
+        "raw_bytes": 2893614
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-234-S--2c7e89c3e6bbf2a4--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 1594,
+        "path": "backup-evaluation/A1-1502-L48-234-S--30b8565c2d4a40c2--stage-metrics.csv",
+        "raw_bytes": 3447
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-234-S--426545bf02a01003--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 1764,
+        "path": "backup-evaluation/A1-1502-L48-234-S--47dd6448f3102512--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-234-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A1-1502-L48-234-S--8c61185c00194cf2--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-234-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 95,
+        "path": "backup-evaluation/A1-1502-L48-234-S--ae80a0ac40e6c261--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-234-S--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-234-S--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 11727,
+        "path": "backup-evaluation/A1-1502-L48-234-S--e10ba53acd59d907--configuration.json",
+        "raw_bytes": 69676
+      },
+      {
+        "deflate_bytes": 1927,
+        "path": "backup-evaluation/A1-1502-L48-234-S--e91d94cab70da5b8--stage-metrics.json",
+        "raw_bytes": 7916
+      },
+      {
+        "deflate_bytes": 635,
+        "path": "backup-evaluation/A1-1502-L48-234-S--f6ecba21817d3ba8--protocol-result.json",
+        "raw_bytes": 1646
+      },
+      {
+        "deflate_bytes": 4938,
+        "path": "backup-evaluation/A1-1502-L48-234-S--fd313beee5de1043--summary.json",
+        "raw_bytes": 19592
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A1-1502-L48-235-D--07177a4cfa60c351--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 4995,
+        "path": "backup-evaluation/A1-1502-L48-235-D--2e22b1c3134b9e96--summary.json",
+        "raw_bytes": 19639
+      },
+      {
+        "deflate_bytes": 11737,
+        "path": "backup-evaluation/A1-1502-L48-235-D--36012e5d62c0d332--configuration.json",
+        "raw_bytes": 69685
+      },
+      {
+        "deflate_bytes": 1595,
+        "path": "backup-evaluation/A1-1502-L48-235-D--56105d641748d4e2--stage-metrics.csv",
+        "raw_bytes": 3479
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-235-D--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-235-D--713fe712dc265a5a--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-235-D--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 95,
+        "path": "backup-evaluation/A1-1502-L48-235-D--a1beda0904c67d6e--process-result.json",
+        "raw_bytes": 113
+      },
+      {
+        "deflate_bytes": 1954,
+        "path": "backup-evaluation/A1-1502-L48-235-D--abcba47a1b8b0b57--stage-metrics.json",
+        "raw_bytes": 7948
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-235-D--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-235-D--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1773,
+        "path": "backup-evaluation/A1-1502-L48-235-D--c40bede74ada1ea2--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-235-D--ddf8f78335a17287--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 646,
+        "path": "backup-evaluation/A1-1502-L48-235-D--eedc7392f43e2d73--protocol-result.json",
+        "raw_bytes": 1655
+      },
+      {
+        "deflate_bytes": 669782,
+        "path": "backup-evaluation/A1-1502-L48-235-D--fde7da14f377c284--steps.jsonl",
+        "raw_bytes": 2895621
+      },
+      {
+        "deflate_bytes": 1607,
+        "path": "backup-evaluation/A1-1502-L48-235-S--032c2aeab23e2612--stage-metrics.csv",
+        "raw_bytes": 3463
+      },
+      {
+        "deflate_bytes": 1961,
+        "path": "backup-evaluation/A1-1502-L48-235-S--1c760691b8a8e4d3--stage-metrics.json",
+        "raw_bytes": 7932
+      },
+      {
+        "deflate_bytes": 642,
+        "path": "backup-evaluation/A1-1502-L48-235-S--216230f37ddc3e4f--protocol-result.json",
+        "raw_bytes": 1645
+      },
+      {
+        "deflate_bytes": 670563,
+        "path": "backup-evaluation/A1-1502-L48-235-S--3cee71c950672329--steps.jsonl",
+        "raw_bytes": 2894355
+      },
+      {
+        "deflate_bytes": 27,
+        "path": "backup-evaluation/A1-1502-L48-235-S--62a2ec7ea23aed9b--status.json",
+        "raw_bytes": 25
+      },
+      {
+        "deflate_bytes": 1773,
+        "path": "backup-evaluation/A1-1502-L48-235-S--62f5b3bcb3e2cc1c--process.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 4982,
+        "path": "backup-evaluation/A1-1502-L48-235-S--6c7748cec2252d39--summary.json",
+        "raw_bytes": 19624
+      },
+      {
+        "deflate_bytes": 96,
+        "path": "backup-evaluation/A1-1502-L48-235-S--721c353ba48a7eec--process-result.json",
+        "raw_bytes": 114
+      },
+      {
+        "deflate_bytes": 528,
+        "path": "backup-evaluation/A1-1502-L48-235-S--931a483085baba52--kit-command-repair.json",
+        "raw_bytes": 1635
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-235-S--b2daad7821a7a8cc--frozen-after.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 1501,
+        "path": "backup-evaluation/A1-1502-L48-235-S--b2daad7821a7a8cc--frozen-before.json",
+        "raw_bytes": 4906
+      },
+      {
+        "deflate_bytes": 492,
+        "path": "backup-evaluation/A1-1502-L48-235-S--c0add84b4f6159f3--metadata.json",
+        "raw_bytes": 1274
+      },
+      {
+        "deflate_bytes": 76,
+        "path": "backup-evaluation/A1-1502-L48-235-S--ca262fd948a8eaa8--progress.json",
+        "raw_bytes": 110
+      },
+      {
+        "deflate_bytes": 11738,
+        "path": "backup-evaluation/A1-1502-L48-235-S--d34413142c212162--configuration.json",
+        "raw_bytes": 69687
+      },
+      {
+        "deflate_bytes": 500,
+        "path": "backup-evaluation/A1-1502-L48-235-S--d549ad35dabbf0e2--outer-command.json",
+        "raw_bytes": 1356
+      },
+      {
+        "deflate_bytes": 21831,
+        "path": "backup-evaluation/bcef65927b20b438--controller-state.json",
+        "raw_bytes": 219052
+      },
+      {
+        "deflate_bytes": 25920,
+        "path": "backup-evaluation/capture-index.json",
+        "raw_bytes": 188523
+      },
+      {
+        "deflate_bytes": 16903,
+        "path": "backup-evaluation/ed8b41b6bb578bb9--gpu-samples.jsonl",
+        "raw_bytes": 139059
+      },
+      {
+        "deflate_bytes": 1790,
+        "path": "backup-models-result.json",
+        "raw_bytes": 9079
+      },
+      {
+        "deflate_bytes": 3072,
+        "path": "backup-source/10-r8_controller.py",
+        "raw_bytes": 7771
+      },
+      {
+        "deflate_bytes": 813,
+        "path": "backup-source/11-r8_ops.py",
+        "raw_bytes": 1258
+      },
+      {
+        "deflate_bytes": 1673,
+        "path": "backup-source/12-r8_prepare.py",
+        "raw_bytes": 4051
+      },
+      {
+        "deflate_bytes": 572,
+        "path": "backup-source/13-test_r8.py",
+        "raw_bytes": 1039
+      },
+      {
+        "deflate_bytes": 9307,
+        "path": "backup-source/35-r8_train.py",
+        "raw_bytes": 30557
+      },
+      {
+        "deflate_bytes": 704,
+        "path": "backup-source/36-r8_resume_checks.py",
+        "raw_bytes": 1811
+      },
+      {
+        "deflate_bytes": 3173,
+        "path": "backup-source/37-r8_controller.py",
+        "raw_bytes": 8007
+      },
+      {
+        "deflate_bytes": 813,
+        "path": "backup-source/38-r8_ops.py",
+        "raw_bytes": 1258
+      },
+      {
+        "deflate_bytes": 265,
+        "path": "backup-source/39-r8_counts.py",
+        "raw_bytes": 317
+      },
+      {
+        "deflate_bytes": 1095,
+        "path": "backup-source/40-test_r8.py",
+        "raw_bytes": 2591
+      },
+      {
+        "deflate_bytes": 1343,
+        "path": "backup-source/41-test_resume.py",
+        "raw_bytes": 3256
+      },
+      {
+        "deflate_bytes": 4721,
+        "path": "backup-source/42-r8_training.py",
+        "raw_bytes": 13201
+      },
+      {
+        "deflate_bytes": 1882,
+        "path": "backup-source/43-r8_resume_prepare.py",
+        "raw_bytes": 4851
+      },
+      {
+        "deflate_bytes": 265,
+        "path": "backup-source/6-r8_counts.py",
+        "raw_bytes": 317
+      },
+      {
+        "deflate_bytes": 9087,
+        "path": "backup-source/7-r8_train.py",
+        "raw_bytes": 29388
+      },
+      {
+        "deflate_bytes": 4721,
+        "path": "backup-source/8-r8_training.py",
+        "raw_bytes": 13201
+      },
+      {
+        "deflate_bytes": 1095,
+        "path": "backup-source/9-test_r8.py",
+        "raw_bytes": 2591
+      },
+      {
+        "deflate_bytes": 2542,
+        "path": "backup-source/archive-hardlink-completed.json",
+        "raw_bytes": 15704
+      },
+      {
+        "deflate_bytes": 1457,
+        "path": "backup-source/backup-README.txt",
+        "raw_bytes": 3010
+      },
+      {
+        "deflate_bytes": 182,
+        "path": "backup-source/backup-cpu-tests.txt",
+        "raw_bytes": 540
+      },
+      {
+        "deflate_bytes": 5088,
+        "path": "backup-source/backup-r8_archive.py",
+        "raw_bytes": 13471
+      },
+      {
+        "deflate_bytes": 2376,
+        "path": "backup-source/backup-r8_backup.py",
+        "raw_bytes": 5425
+      },
+      {
+        "deflate_bytes": 506,
+        "path": "backup-source/backup-r8_backup_ops.py",
+        "raw_bytes": 772
+      },
+      {
+        "deflate_bytes": 3810,
+        "path": "backup-source/backup-r8_model_backup_loop.py",
+        "raw_bytes": 10700
+      },
+      {
+        "deflate_bytes": 5253,
+        "path": "backup-source/backup-r8_publish.py",
+        "raw_bytes": 14632
+      },
+      {
+        "deflate_bytes": 2090,
+        "path": "backup-source/backup-r8_resume_backup.py",
+        "raw_bytes": 5213
+      },
+      {
+        "deflate_bytes": 1010,
+        "path": "backup-source/backup-test_r8_backup.py",
+        "raw_bytes": 2143
+      },
+      {
+        "deflate_bytes": 1193,
+        "path": "backup-source/backup-test_resume_backup.py",
+        "raw_bytes": 2626
+      },
+      {
+        "deflate_bytes": 2057,
+        "path": "backup-source/evaluation-README.md",
+        "raw_bytes": 4028
+      },
+      {
+        "deflate_bytes": 596,
+        "path": "backup-source/evaluation-adapter-provenance.json",
+        "raw_bytes": 1730
+      },
+      {
+        "deflate_bytes": 1815,
+        "path": "backup-source/evaluation-adapter.diff",
+        "raw_bytes": 5176
+      },
+      {
+        "deflate_bytes": 1833,
+        "path": "backup-source/evaluation-c1_metrics.py",
+        "raw_bytes": 4112
+      },
+      {
+        "deflate_bytes": 208,
+        "path": "backup-source/evaluation-cpu-tests.txt",
+        "raw_bytes": 706
+      },
+      {
+        "deflate_bytes": 8976,
+        "path": "backup-source/evaluation-evaluate_sac_r7p.py",
+        "raw_bytes": 28243
+      },
+      {
+        "deflate_bytes": 697,
+        "path": "backup-source/evaluation-evaluate_with_kit_repair.py",
+        "raw_bytes": 1277
+      },
+      {
+        "deflate_bytes": 1445,
+        "path": "backup-source/evaluation-evaluation_r7p_helpers.py",
+        "raw_bytes": 3565
+      },
+      {
+        "deflate_bytes": 2181,
+        "path": "backup-source/evaluation-evaluation_r7p_runner.py",
+        "raw_bytes": 6500
+      },
+      {
+        "deflate_bytes": 1363,
+        "path": "backup-source/evaluation-kit_command_repair.py",
+        "raw_bytes": 3069
+      },
+      {
+        "deflate_bytes": 1773,
+        "path": "backup-source/evaluation-parameters.json",
+        "raw_bytes": 4186
+      },
+      {
+        "deflate_bytes": 5160,
+        "path": "backup-source/evaluation-r4_protocol.py",
+        "raw_bytes": 14827
+      },
+      {
+        "deflate_bytes": 4973,
+        "path": "backup-source/evaluation-r8_final40-before-pathfix.py",
+        "raw_bytes": 12885
+      },
+      {
+        "deflate_bytes": 5068,
+        "path": "backup-source/evaluation-r8_final40-fixed.py",
+        "raw_bytes": 13226
+      },
+      {
+        "deflate_bytes": 4973,
+        "path": "backup-source/evaluation-r8_final40.py",
+        "raw_bytes": 12885
+      },
+      {
+        "deflate_bytes": 1426,
+        "path": "backup-source/evaluation-test_r8_final40.py",
+        "raw_bytes": 3720
+      },
+      {
+        "deflate_bytes": 5088,
+        "path": "backup-source/r8_archive-before-final-git.py",
+        "raw_bytes": 13471
+      },
+      {
+        "deflate_bytes": 5445,
+        "path": "backup-source/r8_archive-before-sizing.py",
+        "raw_bytes": 14723
+      },
+      {
+        "deflate_bytes": 5445,
+        "path": "backup-source/r8_archive-final-git.py",
+        "raw_bytes": 14723
+      },
+      {
+        "deflate_bytes": 6301,
+        "path": "backup-source/r8_archive-sized.py",
+        "raw_bytes": 17601
+      },
+      {
+        "deflate_bytes": 2539,
+        "path": "backup-source/source-index.json",
+        "raw_bytes": 13414
+      },
+      {
+        "deflate_bytes": 6301,
+        "path": "backup/r8_archive.py",
+        "raw_bytes": 17601
+      },
+      {
+        "deflate_bytes": 2376,
+        "path": "backup/r8_backup.py",
+        "raw_bytes": 5425
+      },
+      {
+        "deflate_bytes": 506,
+        "path": "backup/r8_backup_ops.py",
+        "raw_bytes": 772
+      },
+      {
+        "deflate_bytes": 3810,
+        "path": "backup/r8_model_backup_loop.py",
+        "raw_bytes": 10700
+      },
+      {
+        "deflate_bytes": 5253,
+        "path": "backup/r8_publish.py",
+        "raw_bytes": 14632
+      },
+      {
+        "deflate_bytes": 2090,
+        "path": "backup/r8_resume_backup.py",
+        "raw_bytes": 5213
+      },
+      {
+        "deflate_bytes": 1010,
+        "path": "backup/test_r8_backup.py",
+        "raw_bytes": 2143
+      },
+      {
+        "deflate_bytes": 1193,
+        "path": "backup/test_resume_backup.py",
+        "raw_bytes": 2626
+      },
+      {
+        "deflate_bytes": 307,
+        "path": "checkpoint-hardlink-completed.json",
+        "raw_bytes": 774
+      },
+      {
+        "deflate_bytes": 1130,
+        "path": "controller-state.json",
+        "raw_bytes": 6942
+      },
+      {
+        "deflate_bytes": 2,
+        "path": "controller.log",
+        "raw_bytes": 0
+      },
+      {
+        "deflate_bytes": 384,
+        "path": "evaluation-budget-estimate.json",
+        "raw_bytes": 695
+      },
+      {
+        "deflate_bytes": 351,
+        "path": "final-archive-after-dedup.log",
+        "raw_bytes": 1037
+      },
+      {
+        "deflate_bytes": 2,
+        "path": "final-archive-sized.log",
+        "raw_bytes": 0
+      },
+      {
+        "deflate_bytes": 351,
+        "path": "final-archive.log",
+        "raw_bytes": 1037
+      },
+      {
+        "deflate_bytes": 2,
+        "path": "final-backup-pipeline.log",
+        "raw_bytes": 0
+      },
+      {
+        "deflate_bytes": 2,
+        "path": "final40-launch-fixed.log",
+        "raw_bytes": 0
+      },
+      {
+        "deflate_bytes": 605,
+        "path": "final40-launch.log",
+        "raw_bytes": 1677
+      },
+      {
+        "deflate_bytes": 615,
+        "path": "final40-summary.json",
+        "raw_bytes": 2330
+      },
+      {
+        "deflate_bytes": 61,
+        "path": "gpu-before.json",
+        "raw_bytes": 67
+      },
+      {
+        "deflate_bytes": 9850,
+        "path": "gpu-samples.csv",
+        "raw_bytes": 88685
+      },
+      {
+        "deflate_bytes": 156,
+        "path": "launch-command.json",
+        "raw_bytes": 448
+      },
+      {
+        "deflate_bytes": 839,
+        "path": "model-backup.log",
+        "raw_bytes": 1449
+      },
+      {
+        "deflate_bytes": 1534,
+        "path": "original-input-manifest.json",
+        "raw_bytes": 6581
+      },
+      {
+        "deflate_bytes": 1772,
+        "path": "parameters.json",
+        "raw_bytes": 4185
+      },
+      {
+        "deflate_bytes": 439,
+        "path": "parent-selection.json",
+        "raw_bytes": 774
+      },
+      {
+        "deflate_bytes": 575,
+        "path": "r8-backup-config.json",
+        "raw_bytes": 1195
+      },
+      {
+        "deflate_bytes": 570,
+        "path": "readback.log",
+        "raw_bytes": 1718
+      },
+      {
+        "deflate_bytes": 323,
+        "path": "remote-readback/report.json",
+        "raw_bytes": 454
+      },
+      {
+        "deflate_bytes": 319,
+        "path": "requests/A0-1501.json",
+        "raw_bytes": 551
+      },
+      {
+        "deflate_bytes": 1761,
+        "path": "requests/A0-1501.log",
+        "raw_bytes": 8607
+      },
+      {
+        "deflate_bytes": 469,
+        "path": "requests/A0-1501.response.json",
+        "raw_bytes": 1394
+      },
+      {
+        "deflate_bytes": 319,
+        "path": "requests/A0-1502.json",
+        "raw_bytes": 551
+      },
+      {
+        "deflate_bytes": 1828,
+        "path": "requests/A0-1502.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 468,
+        "path": "requests/A0-1502.response.json",
+        "raw_bytes": 1394
+      },
+      {
+        "deflate_bytes": 319,
+        "path": "requests/A1-1501.json",
+        "raw_bytes": 551
+      },
+      {
+        "deflate_bytes": 1824,
+        "path": "requests/A1-1501.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 469,
+        "path": "requests/A1-1501.response.json",
+        "raw_bytes": 1394
+      },
+      {
+        "deflate_bytes": 319,
+        "path": "requests/A1-1502.json",
+        "raw_bytes": 551
+      },
+      {
+        "deflate_bytes": 1819,
+        "path": "requests/A1-1502.log",
+        "raw_bytes": 8738
+      },
+      {
+        "deflate_bytes": 467,
+        "path": "requests/A1-1502.response.json",
+        "raw_bytes": 1394
+      },
+      {
+        "deflate_bytes": 274,
+        "path": "resume-inputs/A0-1501/L2-fullresume.json",
+        "raw_bytes": 533
+      },
+      {
+        "deflate_bytes": 274,
+        "path": "resume-inputs/A0-1502/L2-fullresume.json",
+        "raw_bytes": 533
+      },
+      {
+        "deflate_bytes": 276,
+        "path": "resume-inputs/A1-1501/L2-fullresume.json",
+        "raw_bytes": 533
+      },
+      {
+        "deflate_bytes": 277,
+        "path": "resume-inputs/A1-1502/L2-fullresume.json",
+        "raw_bytes": 533
+      },
+      {
+        "deflate_bytes": 491,
+        "path": "run_final_after_training.py",
+        "raw_bytes": 995
+      },
+      {
+        "deflate_bytes": 2780,
+        "path": "runtime.json",
+        "raw_bytes": 13269
+      },
+      {
+        "deflate_bytes": 1147,
+        "path": "training-completion-evidence.json",
+        "raw_bytes": 8111
+      },
+      {
+        "deflate_bytes": 199,
+        "path": "worker-config.json",
+        "raw_bytes": 544
+      }
+    ],
+    "manifest_bound_bytes": 8081748,
+    "method": "streamed_raw_deflate_level6_plus_conservative_headers_manifest_and_256MiB_margin",
+    "raw_bytes": 517065511,
+    "required_bytes": 1124806841,
+    "zip_bound_bytes": 169652937
+  },
+  "manifest_sha256": "4d585bb6e8a86082b8f3bcd0039c05dd1b4bdb83a3b0ed8e0e1ac42dd6622b8b",
+  "pieces": [
+    {
+      "bytes": 24000000,
+      "path": "core.zip.part000",
+      "sha256": "d9c050a9560a680c8edcaf45e4d39bec9d88b96277dc1a299515339f910c153f"
+    },
+    {
+      "bytes": 24000000,
+      "path": "core.zip.part001",
+      "sha256": "6adcce15819c845f3e9dba738fc0cbe789adfc098f1dff1c299a45699b7a6016"
+    },
+    {
+      "bytes": 24000000,
+      "path": "core.zip.part002",
+      "sha256": "0454e4c059502c8e25c467d3bf9ddfd10dd9375529a239f3f5f0c0bbaf6d1245"
+    },
+    {
+      "bytes": 24000000,
+      "path": "core.zip.part003",
+      "sha256": "824d76459cdd7a434564e6d9a2d617b6251e4b1c4a0b3e045b18e32f1e51f56e"
+    },
+    {
+      "bytes": 24000000,
+      "path": "core.zip.part004",
+      "sha256": "33980ba6fb1640aefc6ad92272fb6734c27b984b1f5a0e223d522ad6d83f2f79"
+    },
+    {
+      "bytes": 24000000,
+      "path": "core.zip.part005",
+      "sha256": "bb715654cf380d28d43da57148f11fff173a029d201e5bffd534411b70f2b2e3"
+    },
+    {
+      "bytes": 8721719,
+      "path": "core.zip.part006",
+      "sha256": "29d5dba58a58dde4defd7f9b30ab05864989815ed5be3ff225a897acfc6b7491"
+    }
+  ],
+  "recombined_sha256": "df26df520d3833ccace73a381afba223aa2a301caf1ea3c2080f1c5ee24ee29f",
+  "remote_verification": "not_run",
+  "skipped": [],
+  "status": "local_verified",
+  "zip_crc": "passed"
+}

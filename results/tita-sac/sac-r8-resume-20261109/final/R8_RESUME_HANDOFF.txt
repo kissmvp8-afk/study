@@ -1,0 +1,23 @@
+SAC R8 resumed-L2 handoff
+
+Plan: 3165420f7d8abb06c4d12c6dab135340534f4b2d, SAC-R8-ACTOR-RATE-20261109.
+Parent R6 R1/1201 L48 SHA: cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3.
+A0 Actor LR 5e-5; A1 Actor LR 1e-5; forks1501/1502; four lanes128env.
+Parking -8; precision0; command hold2-4s; replay65536; representation and normalizers update; unchanged SAC core.
+Original run budget-stopped at L2. User renewed lease and authorized continuation.
+This run restored L2 models, optimizer states, replay, normalizers, counters and RNG. Physical simulator state was NOT saved; all lanes reset to new episodes. It is not uninterrupted same-process training.
+All four lanes reached total L48 (64total iterations incl16prefill). Each: critic/alpha/target/auxiliary6144, Actor3072; no skipped updates. L12/L24/L48 model nodes and L24/L48 full resumes saved.
+Final evaluation:40/40 technically completed, seeds231-235 D/S,10cases/model. No new heldout; no promotion.
+Initial evaluation dispatch failed BEFORE GPUcases due relative path resolution. Original failure retained; path-only correction applied, scoring/physics unchanged.
+
+A0/1501: survival 10/10, passes 2/10, P=0.072805959, W=0.079369512, Mavg=0.058633295.
+A0/1502: survival 10/10, passes 0/10, P=0.109812870, W=0.074411591, Mavg=0.096037286.
+A1/1501: survival 10/10, passes 4/10, P=0.065100262, W=0.091284744, Mavg=0.068438135.
+A1/1502: survival 10/10, passes 10/10, P=0.035261709, W=0.075488926, Mavg=0.055734295.
+
+Direction reproduced across both forks: False. A1/1502 passes direction gates; A1/1501 does not. Do not replace retained parent or claim robust improvement.
+Parent metrics are prior supplied fixed reference, not rerun in this evaluation.
+Resumed learning GPU window: 312 one-second samples, average 89.448718%, minimum 4.0%, maximum 99.0%. Includes checkpoint pauses; not every second exceeds80%.
+Public backup uses existing R8 branch/Release with r8-resume names, keeps prior data. See model coverage and archive receipts for actual completed assets. Remote SHA/size verification is not actual downloaded recovery. Readback result separately states success/failure.
+Original models and local evidence preserved. Identical inactive duplicates were SHA-verified and hardlinked, preserving all filenames and bytes. No unique data removed.
+Lease user-extended to2026-11-10 00:15CST; no automatic renewal. GitHub CLI reauthorized by user on same server.
