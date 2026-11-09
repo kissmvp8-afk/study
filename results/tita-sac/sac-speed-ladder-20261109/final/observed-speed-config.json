@@ -1,0 +1,1558 @@
+{
+  "phase_id": "SAC-FROZEN-FORWARD-SPEED-LADDER-20261109",
+  "workroot": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109",
+  "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+  "model_sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+  "evaluation_code": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-evaluation",
+  "python": "/root/rivermind-data/tita-check/.venv/bin/python",
+  "wrapper": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/evaluate_with_kit_repair.py",
+  "child_env": {
+    "MKL_NUM_THREADS": "2",
+    "OMNI_KIT_ACCEPT_EULA": "YES",
+    "OMP_NUM_THREADS": "2",
+    "PYTHONPATH": "/root/rivermind-data/tita-check/sac-r2-20261108/training:/root/rivermind-data/tita-check/sac-r2-20261108/tools:/root/rivermind-data/tita-check/tools:/root/rivermind-data/tita-check/sac-r1-20261107/tools",
+    "R6_STUDY_ROOT": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+    "VK_DRIVER_FILES": "/root/rivermind-data/tita-check/runs/nvidia-egl-test.json",
+    "VK_ICD_FILENAMES": "/root/rivermind-data/tita-check/runs/nvidia-egl-test.json",
+    "VK_LOADER_LAYERS_DISABLE": "~implicit~"
+  },
+  "bootstrap_env": {
+    "R6_ORIGINAL_EVALUATOR": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-evaluation/evaluate_speed.py",
+    "R6_ORIGINAL_EVALUATOR_SHA256": "3d7b5baab27b0dd9c8af82760fc303867054e9a63676fc9c6f81c99c9c2735b8",
+    "R6_KIT_PROVIDER_MANIFEST": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/kit-repair/providers.json",
+    "R6_KIT_PROVIDER_MANIFEST_SHA256": "6bd27e268d0aed41f12e605151d811025dd828863fb0958fb73f7386479320bd"
+  },
+  "child_env_remove": [
+    "LD_LIBRARY_PATH",
+    "LD_PRELOAD"
+  ],
+  "templates": {
+    "231": [
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_sac_r7p.py",
+      "--root",
+      "/root/rivermind-data/tita-check",
+      "--study-root",
+      "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+      "--checkpoint",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+      "--output_dir",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1",
+      "--eval_seed",
+      "231",
+      "--seed-split",
+      "development",
+      "--condition",
+      "standard",
+      "--execution",
+      "D",
+      "--factor",
+      "F01",
+      "--policy-noise",
+      "on",
+      "--zero-reset-wrench",
+      "--disable-interval-push",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--startup-lock",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation-init.lock"
+    ],
+    "232": [
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_sac_r7p.py",
+      "--root",
+      "/root/rivermind-data/tita-check",
+      "--study-root",
+      "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+      "--checkpoint",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+      "--output_dir",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-232/attempt-1",
+      "--eval_seed",
+      "232",
+      "--seed-split",
+      "development",
+      "--condition",
+      "standard",
+      "--execution",
+      "D",
+      "--factor",
+      "F01",
+      "--policy-noise",
+      "on",
+      "--zero-reset-wrench",
+      "--disable-interval-push",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--startup-lock",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation-init.lock"
+    ],
+    "233": [
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_sac_r7p.py",
+      "--root",
+      "/root/rivermind-data/tita-check",
+      "--study-root",
+      "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+      "--checkpoint",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+      "--output_dir",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-233/attempt-1",
+      "--eval_seed",
+      "233",
+      "--seed-split",
+      "development",
+      "--condition",
+      "standard",
+      "--execution",
+      "D",
+      "--factor",
+      "F01",
+      "--policy-noise",
+      "on",
+      "--zero-reset-wrench",
+      "--disable-interval-push",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--startup-lock",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation-init.lock"
+    ],
+    "234": [
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_sac_r7p.py",
+      "--root",
+      "/root/rivermind-data/tita-check",
+      "--study-root",
+      "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+      "--checkpoint",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+      "--output_dir",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-234/attempt-1",
+      "--eval_seed",
+      "234",
+      "--seed-split",
+      "development",
+      "--condition",
+      "standard",
+      "--execution",
+      "D",
+      "--factor",
+      "F01",
+      "--policy-noise",
+      "on",
+      "--zero-reset-wrench",
+      "--disable-interval-push",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--startup-lock",
+      "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation-init.lock"
+    ]
+  },
+  "frozen_inputs": [
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/confirm-config.json",
+      "sha256": "62d5fd4f543af368d9019581b1809717f0a34fa3120f71113e404da61ae2c757"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/timing-report.json",
+      "sha256": "4fc6a69071036c42edfbde1bd5adb25e0a5659857806d3b4282c3af2212c3aa0"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+      "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+      "sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1402.pt",
+      "sha256": "18e70c5e63a329743794ea6da3ddf59b25ae3e111c0d6e1d0acc04c50413303a"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P1-1401.pt",
+      "sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P1-1402.pt",
+      "sha256": "6b71a242bb92188f835be8ba70b459a7ee271792ebf0127e0a9b7050c2bc27c4"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/c1_metrics.py",
+      "sha256": "e6e22a78de17b2f3bd920293ea677eef7dc48a155cf8a1ecefe93b29f9c8cde9"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/compare_c1_probe.py",
+      "sha256": "eb7845b03ffaa5ec5260b36d41e955b2635e7076341cd7f15beadb67d65cbf5e"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_with_kit_repair.py",
+      "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/test_c1_adapter.py",
+      "sha256": "74dc1f3fb1a36251314708ee7663cc306babbea12f7d90407e4e60e2160e85d1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/r7p_evaluation.py",
+      "sha256": "6105b09c3fddea31cfcb737650f56fd8440f481437f67e4f3d30d7da900ded83"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluation_r7p_helpers.py",
+      "sha256": "29083b2d19c324868e0a2a0ba39a3f3e2f0d513e7c7d78107e3ac242ad598099"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/r4_protocol.py",
+      "sha256": "d94d1fd0ab1aef20a09bf5a960c02a89842575f737e3e7e42c8b7f7c755842f6"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_sac_r7p.py",
+      "sha256": "eccc490245fe43295618438ce9cf4f71278c70c999b9b9b115b75cdf06ce38a3"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluation_r7p_runner.py",
+      "sha256": "a23e4cf8e951a990f83fa8a4902f7cdb06bf650ce1834ea0381c933b1816e633"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/kit_command_repair.py",
+      "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/prepare_confirm.py",
+      "sha256": "7ed018a27b7869ddc7977013dfabedbf444be5044438b9633fbc6b6c7c78ebf9"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/test_controller.py",
+      "sha256": "7a2060910df6277941e16d9bb643d11ba46be91c8377b382bbe27bc5859ca13c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/r7p_ops.py",
+      "sha256": "8c94d8924d541ebbdfd48b276259db74e488b46336d4312ae80769ca27e2e8d5"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/r7p_confirm_adapter.py",
+      "sha256": "0dd5c355b0c6ef1e0e55a0d28b1360f9650db6fac952f663b314fc447566bdec"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/r7p_confirm_controller.py",
+      "sha256": "d8e2bd16952c4db6036097b3941771f3cac8fb32a3172b7c0d89fe11b98d84e8"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/evaluate_with_kit_repair.py",
+      "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/kit-repair/providers.json",
+      "sha256": "6bd27e268d0aed41f12e605151d811025dd828863fb0958fb73f7386479320bd"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/kit_command_repair.py",
+      "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/configuration.json",
+      "sha256": "28363661ef5f89d39e64fec25362167fbc9d1963a7bc0f463c92b633a04358c1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-232/attempt-1/configuration.json",
+      "sha256": "c7bb4922db980d01544f1cd882f2583bb16ab527c393c5f3aa4dabc0d5af9fb6"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-233/attempt-1/configuration.json",
+      "sha256": "2b6e33f6efe0632d3744b6a20c324c26eede3b5c9990f751a8c09e0c049f5bda"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-234/attempt-1/configuration.json",
+      "sha256": "ebbfe458466effa6455faf9e89f9fcb13bcfe013c65cfe580e9c1a13e0b3a5a9"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+      "sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-speed-posture-20261109/posture-selection.json",
+      "sha256": "a99c882ff4ca95096b339bac2fed58bca8b5da7f20938b5a3a9d0689192369be"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-controller/speed_ladder.py",
+      "sha256": "de8f5b6a8a735533f52d06b8e7202fabe2bd904f5296227d72fd33283e90ea82"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-evaluation/evaluate_speed.py",
+      "sha256": "3d7b5baab27b0dd9c8af82760fc303867054e9a63676fc9c6f81c99c9c2735b8"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-evaluation/evaluate_with_kit_repair.py",
+      "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-evaluation/kit_command_repair.py",
+      "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-evaluation/speed_helpers.py",
+      "sha256": "d47f278722408aa8257b74f080480b6cf97c182e46cece2ca35c14e271a7544e"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-speed-ladder-20261109/sac-speed-evaluation/test_speed.py",
+      "sha256": "d2a7fe087395540230880d4e3e6b68ef503ad878618cacd8d7132aaeee6593b8"
+    }
+  ],
+  "speeds": [
+    0.3,
+    0.5,
+    0.7,
+    0.9,
+    1.1,
+    1.3,
+    1.5,
+    1.7
+  ],
+  "seeds": [
+    231,
+    232,
+    233,
+    234
+  ],
+  "duration_seconds": 20,
+  "planned_total_seconds": 20,
+  "planned_target_command_seconds": 20,
+  "initial_standstill_seconds": 0,
+  "tracking_mae_limit_mps": 0.12,
+  "tracking_window": "entire20seconds; after2seconds auxiliary only",
+  "execution": "D",
+  "deadline": 1794232500.0,
+  "lease_expires_at_utc": "2026-11-09T14:15:00Z",
+  "training_updates": 0,
+  "selection_record": {
+    "top3": [
+      {
+        "label": "P0-1401-L24",
+        "model_sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.028889157254923,
+            "mean_tilt_deg": 2.3742599975376755,
+            "min_height_m": 0.2979035973548889
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.9105449578191465,
+            "mean_tilt_deg": 2.541360395433943,
+            "min_height_m": 0.2956286072731018
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.20359593037034,
+            "mean_tilt_deg": 2.74584990188629,
+            "min_height_m": 0.30849534273147583
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.08468516438052,
+            "mean_tilt_deg": 2.7275897320053555,
+            "min_height_m": 0.2969054579734802
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.4536601371404245,
+            "mean_tilt_deg": 2.7520004568454026,
+            "min_height_m": 0.3073228895664215
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.721713986535895,
+            "mean_tilt_deg": 2.5764017141167925,
+            "min_height_m": 0.2997508645057678
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.037808163168235,
+            "mean_tilt_deg": 2.6738374209081943,
+            "min_height_m": 0.29889634251594543
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.6614607760877345,
+            "mean_tilt_deg": 2.576570023277837,
+            "min_height_m": 0.3098749816417694
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.969418881497169,
+            "mean_tilt_deg": 2.641435285267852,
+            "min_height_m": 0.2989763021469116
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.974395497449239,
+            "mean_tilt_deg": 2.4364583035405594,
+            "min_height_m": 0.3128761649131775
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 5.4536601371404245,
+        "mean_tilt_deg": 2.6045763230819903,
+        "min_height_m": 0.2956286072731018
+      },
+      {
+        "label": "P0-1402-L24",
+        "model_sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/model-learning-24.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.420989274319161,
+            "mean_tilt_deg": 1.9424976019717477,
+            "min_height_m": 0.2991293966770172
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.539378014319123,
+            "mean_tilt_deg": 1.963696729552401,
+            "min_height_m": 0.2976307272911072
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.350148916180334,
+            "mean_tilt_deg": 1.8946273496433879,
+            "min_height_m": 0.30687442421913147
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.304522030745041,
+            "mean_tilt_deg": 2.4220850470848685,
+            "min_height_m": 0.29584261775016785
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.137418486121849,
+            "mean_tilt_deg": 1.868091977681128,
+            "min_height_m": 0.3099692463874817
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.652593245232176,
+            "mean_tilt_deg": 2.185475109182555,
+            "min_height_m": 0.29324162006378174
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.870032359501109,
+            "mean_tilt_deg": 2.320992075027871,
+            "min_height_m": 0.30044025182724
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.441910327736162,
+            "mean_tilt_deg": 3.691722738627304,
+            "min_height_m": 0.3127128481864929
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.828768537940966,
+            "mean_tilt_deg": 2.349009408651812,
+            "min_height_m": 0.30069562792778015
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.201660029861446,
+            "mean_tilt_deg": 3.1190736664288,
+            "min_height_m": 0.31315773725509644
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 6.304522030745041,
+        "mean_tilt_deg": 2.3757271703851877,
+        "min_height_m": 0.29324162006378174
+      },
+      {
+        "label": "P0-1401-L48",
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.7940219508615116,
+            "mean_tilt_deg": 2.027301151610777,
+            "min_height_m": 0.2977748215198517
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.8978574739780445,
+            "mean_tilt_deg": 2.0911214230707955,
+            "min_height_m": 0.31687435507774353
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.022821616068817,
+            "mean_tilt_deg": 3.242222058609873,
+            "min_height_m": 0.29540470242500305
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.167067556230974,
+            "mean_tilt_deg": 3.331493825795688,
+            "min_height_m": 0.29074904322624207
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.334226564850906,
+            "mean_tilt_deg": 2.281750980365663,
+            "min_height_m": 0.30259814858436584
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.845662382364305,
+            "mean_tilt_deg": 2.1738394832347954,
+            "min_height_m": 0.2973193824291229
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.965179118598914,
+            "mean_tilt_deg": 2.1546181195765133,
+            "min_height_m": 0.31734469532966614
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.114379900984592,
+            "mean_tilt_deg": 3.3246369368643145,
+            "min_height_m": 0.29484257102012634
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.300958654202075,
+            "mean_tilt_deg": 3.36299968837629,
+            "min_height_m": 0.290682852268219
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.7246313017614687,
+            "mean_tilt_deg": 2.248415218269113,
+            "min_height_m": 0.3102964758872986
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 7.300958654202075,
+        "mean_tilt_deg": 2.623839888577382,
+        "min_height_m": 0.290682852268219
+      }
+    ],
+    "all_models": [
+      {
+        "label": "parent-1201-L48",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.036447843346344,
+            "mean_tilt_deg": 3.010562592375401,
+            "min_height_m": 0.2993646264076233
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.360685673956648,
+            "mean_tilt_deg": 3.674461697221199,
+            "min_height_m": 0.2995971441268921
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.876742514233086,
+            "mean_tilt_deg": 2.7819025201005942,
+            "min_height_m": 0.3066653907299042
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.514642440894108,
+            "mean_tilt_deg": 3.474615910057133,
+            "min_height_m": 0.29636067152023315
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.366424746100121,
+            "mean_tilt_deg": 3.5369532134495567,
+            "min_height_m": 0.312594473361969
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.213844103834523,
+            "mean_tilt_deg": 3.0008268982514794,
+            "min_height_m": 0.29955869913101196
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.587182039350501,
+            "mean_tilt_deg": 3.68300245924954,
+            "min_height_m": 0.29819077253341675
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.97109018156502,
+            "mean_tilt_deg": 2.8070226501496,
+            "min_height_m": 0.3061428368091583
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.629270826890485,
+            "mean_tilt_deg": 3.491593531134967,
+            "min_height_m": 0.2962387800216675
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.44839329858987,
+            "mean_tilt_deg": 3.612950845835813,
+            "min_height_m": 0.31051671504974365
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 7.587182039350501,
+        "mean_tilt_deg": 3.3073892317825284,
+        "min_height_m": 0.2962387800216675
+      },
+      {
+        "label": "P0-1401-L48",
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.7940219508615116,
+            "mean_tilt_deg": 2.027301151610777,
+            "min_height_m": 0.2977748215198517
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.8978574739780445,
+            "mean_tilt_deg": 2.0911214230707955,
+            "min_height_m": 0.31687435507774353
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.022821616068817,
+            "mean_tilt_deg": 3.242222058609873,
+            "min_height_m": 0.29540470242500305
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.167067556230974,
+            "mean_tilt_deg": 3.331493825795688,
+            "min_height_m": 0.29074904322624207
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.334226564850906,
+            "mean_tilt_deg": 2.281750980365663,
+            "min_height_m": 0.30259814858436584
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.845662382364305,
+            "mean_tilt_deg": 2.1738394832347954,
+            "min_height_m": 0.2973193824291229
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.965179118598914,
+            "mean_tilt_deg": 2.1546181195765133,
+            "min_height_m": 0.31734469532966614
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.114379900984592,
+            "mean_tilt_deg": 3.3246369368643145,
+            "min_height_m": 0.29484257102012634
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.300958654202075,
+            "mean_tilt_deg": 3.36299968837629,
+            "min_height_m": 0.290682852268219
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.7246313017614687,
+            "mean_tilt_deg": 2.248415218269113,
+            "min_height_m": 0.3102964758872986
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 7.300958654202075,
+        "mean_tilt_deg": 2.623839888577382,
+        "min_height_m": 0.290682852268219
+      },
+      {
+        "label": "P0-1402-L48",
+        "model_sha256": "18e70c5e63a329743794ea6da3ddf59b25ae3e111c0d6e1d0acc04c50413303a",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1402.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.756987301619815,
+            "mean_tilt_deg": 1.9070584022791555,
+            "min_height_m": 0.2905583679676056
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.201446466643481,
+            "mean_tilt_deg": 3.064078520356062,
+            "min_height_m": 0.30392757058143616
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.462400367629722,
+            "mean_tilt_deg": 5.151694719716957,
+            "min_height_m": 0.3018758296966553
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.921020984624233,
+            "mean_tilt_deg": 4.9320963157466515,
+            "min_height_m": 0.2721646726131439
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.3232437274019975,
+            "mean_tilt_deg": 1.5449041208328733,
+            "min_height_m": 0.290027916431427
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.146649980447029,
+            "mean_tilt_deg": 2.1039545188719435,
+            "min_height_m": 0.29729601740837097
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.094489593712911,
+            "mean_tilt_deg": 3.614916765499245,
+            "min_height_m": 0.3052839934825897
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.789325173691992,
+            "mean_tilt_deg": 4.970336116286047,
+            "min_height_m": 0.27200645208358765
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.381705906770017,
+            "mean_tilt_deg": 2.0801462257661454,
+            "min_height_m": 0.2989787459373474
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.302288246419355,
+            "mean_tilt_deg": 5.012627531713452,
+            "min_height_m": 0.30129581689834595
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 8.921020984624233,
+        "mean_tilt_deg": 3.4381813237068535,
+        "min_height_m": 0.27200645208358765
+      },
+      {
+        "label": "P1-1401-L48",
+        "model_sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P1-1401.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": false,
+            "steps": 29,
+            "p95_tilt_deg": null,
+            "mean_tilt_deg": null,
+            "min_height_m": null
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.522259557771022,
+            "mean_tilt_deg": 2.208362721191577,
+            "min_height_m": 0.30361831188201904
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.1510975683477,
+            "mean_tilt_deg": 2.8066818518784165,
+            "min_height_m": 0.3017425537109375
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.463153559143481,
+            "mean_tilt_deg": 3.4314175310035524,
+            "min_height_m": 0.31817948818206787
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 10.119603147256276,
+            "mean_tilt_deg": 7.9342446502323085,
+            "min_height_m": 0.34814050793647766
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": false,
+            "steps": 29,
+            "p95_tilt_deg": null,
+            "mean_tilt_deg": null,
+            "min_height_m": null
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.558292271537052,
+            "mean_tilt_deg": 3.4590366009030435,
+            "min_height_m": 0.316596657037735
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.7267469097548975,
+            "mean_tilt_deg": 2.376256801488474,
+            "min_height_m": 0.30361223220825195
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.229128133317475,
+            "mean_tilt_deg": 2.7929442140708804,
+            "min_height_m": 0.30222973227500916
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 10.051499546581297,
+            "mean_tilt_deg": 7.951231956014917,
+            "min_height_m": 0.34826934337615967
+          }
+        ],
+        "survival_count": 8,
+        "eligible": false,
+        "worst_case_p95_tilt_deg": null,
+        "mean_tilt_deg": null,
+        "min_height_m": null
+      },
+      {
+        "label": "P1-1402-L48",
+        "model_sha256": "6b71a242bb92188f835be8ba70b459a7ee271792ebf0127e0a9b7050c2bc27c4",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P1-1402.pt",
+        "cases": [
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.984597945452901,
+            "mean_tilt_deg": 3.3384509540608014,
+            "min_height_m": 0.3020309507846832
+          },
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.051767460822069,
+            "mean_tilt_deg": 2.405246217770749,
+            "min_height_m": 0.2961236238479614
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.9152667437315625,
+            "mean_tilt_deg": 2.9966507510206624,
+            "min_height_m": 0.30148017406463623
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.413252459143169,
+            "mean_tilt_deg": 5.290833579668054,
+            "min_height_m": 0.29633644223213196
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.813757856046131,
+            "mean_tilt_deg": 2.4227734465127835,
+            "min_height_m": 0.29618915915489197
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.728280639253261,
+            "mean_tilt_deg": 2.8524042521082427,
+            "min_height_m": 0.29389065504074097
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.380517800272763,
+            "mean_tilt_deg": 3.8899447082829233,
+            "min_height_m": 0.3063119947910309
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.783510412276486,
+            "mean_tilt_deg": 2.930300670338133,
+            "min_height_m": 0.29470095038414
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.7318131554088865,
+            "mean_tilt_deg": 2.9728790176627515,
+            "min_height_m": 0.3013458549976349
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.220305759097485,
+            "mean_tilt_deg": 5.61651420889707,
+            "min_height_m": 0.30026552081108093
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 8.220305759097485,
+        "mean_tilt_deg": 3.471599780632217,
+        "min_height_m": 0.29389065504074097
+      },
+      {
+        "label": "P0-1401-L24",
+        "model_sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.028889157254923,
+            "mean_tilt_deg": 2.3742599975376755,
+            "min_height_m": 0.2979035973548889
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.9105449578191465,
+            "mean_tilt_deg": 2.541360395433943,
+            "min_height_m": 0.2956286072731018
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.20359593037034,
+            "mean_tilt_deg": 2.74584990188629,
+            "min_height_m": 0.30849534273147583
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.08468516438052,
+            "mean_tilt_deg": 2.7275897320053555,
+            "min_height_m": 0.2969054579734802
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.4536601371404245,
+            "mean_tilt_deg": 2.7520004568454026,
+            "min_height_m": 0.3073228895664215
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.721713986535895,
+            "mean_tilt_deg": 2.5764017141167925,
+            "min_height_m": 0.2997508645057678
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.037808163168235,
+            "mean_tilt_deg": 2.6738374209081943,
+            "min_height_m": 0.29889634251594543
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.6614607760877345,
+            "mean_tilt_deg": 2.576570023277837,
+            "min_height_m": 0.3098749816417694
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.969418881497169,
+            "mean_tilt_deg": 2.641435285267852,
+            "min_height_m": 0.2989763021469116
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 3.974395497449239,
+            "mean_tilt_deg": 2.4364583035405594,
+            "min_height_m": 0.3128761649131775
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 5.4536601371404245,
+        "mean_tilt_deg": 2.6045763230819903,
+        "min_height_m": 0.2956286072731018
+      },
+      {
+        "label": "P0-1402-L24",
+        "model_sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/model-learning-24.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.420989274319161,
+            "mean_tilt_deg": 1.9424976019717477,
+            "min_height_m": 0.2991293966770172
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.539378014319123,
+            "mean_tilt_deg": 1.963696729552401,
+            "min_height_m": 0.2976307272911072
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.350148916180334,
+            "mean_tilt_deg": 1.8946273496433879,
+            "min_height_m": 0.30687442421913147
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.304522030745041,
+            "mean_tilt_deg": 2.4220850470848685,
+            "min_height_m": 0.29584261775016785
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.137418486121849,
+            "mean_tilt_deg": 1.868091977681128,
+            "min_height_m": 0.3099692463874817
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.652593245232176,
+            "mean_tilt_deg": 2.185475109182555,
+            "min_height_m": 0.29324162006378174
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.870032359501109,
+            "mean_tilt_deg": 2.320992075027871,
+            "min_height_m": 0.30044025182724
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.441910327736162,
+            "mean_tilt_deg": 3.691722738627304,
+            "min_height_m": 0.3127128481864929
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.828768537940966,
+            "mean_tilt_deg": 2.349009408651812,
+            "min_height_m": 0.30069562792778015
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.201660029861446,
+            "mean_tilt_deg": 3.1190736664288,
+            "min_height_m": 0.31315773725509644
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 6.304522030745041,
+        "mean_tilt_deg": 2.3757271703851877,
+        "min_height_m": 0.29324162006378174
+      },
+      {
+        "label": "P1-1401-L24",
+        "model_sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1401/model-learning-24.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.116203719893528,
+            "mean_tilt_deg": 4.06368764212204,
+            "min_height_m": 0.3082118332386017
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.506230811746727,
+            "mean_tilt_deg": 3.7485737944828252,
+            "min_height_m": 0.31042638421058655
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.0468673920795135,
+            "mean_tilt_deg": 3.1658072655806833,
+            "min_height_m": 0.3180270493030548
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.759485821173292,
+            "mean_tilt_deg": 3.5245479163659064,
+            "min_height_m": 0.29978683590888977
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.96833787644606,
+            "mean_tilt_deg": 2.9284179144217704,
+            "min_height_m": 0.3186246454715729
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.719071646533845,
+            "mean_tilt_deg": 3.5188027509852917,
+            "min_height_m": 0.29953262209892273
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.621758084502634,
+            "mean_tilt_deg": 3.720452216343357,
+            "min_height_m": 0.3059169054031372
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.689842777095771,
+            "mean_tilt_deg": 6.713230081690506,
+            "min_height_m": 0.33599579334259033
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 8.62262865106006,
+            "mean_tilt_deg": 3.6947382818445274,
+            "min_height_m": 0.305960476398468
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.5533462046656865,
+            "mean_tilt_deg": 4.948612539337317,
+            "min_height_m": 0.32082873582839966
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 8.689842777095771,
+        "mean_tilt_deg": 4.002687040317423,
+        "min_height_m": 0.29953262209892273
+      },
+      {
+        "label": "P1-1402-L24",
+        "model_sha256": "4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037",
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1402/model-learning-24.pt",
+        "cases": [
+          {
+            "seed": 231,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.74978000700994,
+            "mean_tilt_deg": 2.3765640817265914,
+            "min_height_m": 0.2941933274269104
+          },
+          {
+            "seed": 231,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.115424150075148,
+            "mean_tilt_deg": 2.3614544073339947,
+            "min_height_m": 0.2932400703430176
+          },
+          {
+            "seed": 232,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 6.025675764088286,
+            "mean_tilt_deg": 3.0904297877516327,
+            "min_height_m": 0.30173763632774353
+          },
+          {
+            "seed": 233,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.7553529004305926,
+            "mean_tilt_deg": 1.7676833341714158,
+            "min_height_m": 0.29805123805999756
+          },
+          {
+            "seed": 232,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 5.961527905195409,
+            "mean_tilt_deg": 3.0937987542309475,
+            "min_height_m": 0.30200430750846863
+          },
+          {
+            "seed": 233,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.260787404109282,
+            "mean_tilt_deg": 1.7582029700360777,
+            "min_height_m": 0.29718339443206787
+          },
+          {
+            "seed": 234,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.831100534662293,
+            "mean_tilt_deg": 2.8526958546906815,
+            "min_height_m": 0.29629018902778625
+          },
+          {
+            "seed": 235,
+            "execution": "D",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.98590699401882,
+            "mean_tilt_deg": 5.099278412960708,
+            "min_height_m": 0.29722100496292114
+          },
+          {
+            "seed": 234,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 4.670601816196071,
+            "mean_tilt_deg": 2.8369898574427466,
+            "min_height_m": 0.2975858747959137
+          },
+          {
+            "seed": 235,
+            "execution": "S",
+            "survived": true,
+            "steps": 600,
+            "p95_tilt_deg": 7.736298066027965,
+            "mean_tilt_deg": 4.257769825486569,
+            "min_height_m": 0.293765664100647
+          }
+        ],
+        "survival_count": 10,
+        "eligible": true,
+        "worst_case_p95_tilt_deg": 7.98590699401882,
+        "mean_tilt_deg": 2.9494867285831363,
+        "min_height_m": 0.2932400703430176
+      }
+    ],
+    "rule": "Require 10/10 full600 survival; t_start_s>=2; rank worst case nearest-rank p95 total tilt, mean tilt, higher minimum height. Original scores unchanged."
+  }
+}

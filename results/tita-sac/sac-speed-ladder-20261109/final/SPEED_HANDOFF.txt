@@ -1,0 +1,4 @@
+Frozen simulation speed ladder
+Mode: final
+Controller status: finished_ladder
+Four seeds, commands0.3 to1.7m/s, each target20s. Survival-only and survival+tracking are separate, with actual measured vx. Failure and untested reasons are preserved. No model upload or real-robot maximum claim.
