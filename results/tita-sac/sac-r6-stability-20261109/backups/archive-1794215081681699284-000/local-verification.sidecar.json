@@ -1,0 +1,24 @@
+{
+  "bytes": 10242821,
+  "core_bytes": 47999145,
+  "core_sha256": "87795cee7a8c5cc767cbb8ffd8ed6e5b6e3a448fa4020149f5230aa4bdafc7ab",
+  "created_epoch": 1794215083.7268505,
+  "manifest_sha256": "c0b689e090cafdb9ebc253fc590141ef3dafb2495f815087ae775c2b6f9970ca",
+  "pieces": [
+    {
+      "bytes": 10242821,
+      "path": "core.zip.part000",
+      "sha256": "87795cee7a8c5cc767cbb8ffd8ed6e5b6e3a448fa4020149f5230aa4bdafc7ab"
+    }
+  ],
+  "recombined_sha256": "87795cee7a8c5cc767cbb8ffd8ed6e5b6e3a448fa4020149f5230aa4bdafc7ab",
+  "remote_verification": "not_run",
+  "skipped": [
+    {
+      "path": "recovery/infra-eval96-001/evaluations/fa76e64b829eaafca8d682d076df71a13d1e9891b9c407e0a62cf187b4133bd7/development/standard-S-125/attempt-1/metadata.json",
+      "reason": "grew_beyond_batch_cap"
+    }
+  ],
+  "status": "local_verified",
+  "zip_crc": "passed"
+}
