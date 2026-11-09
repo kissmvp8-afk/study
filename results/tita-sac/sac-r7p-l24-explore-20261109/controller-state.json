@@ -1,0 +1,811 @@
+{
+  "phase_id": "SAC-R7P-L24-EXPLORATORY-20261109",
+  "status": "completed",
+  "models": [
+    {
+      "direction": "P0",
+      "fork_seed": 1401,
+      "learning_macros": 24,
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+      "sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+      "node_sha256": "d34315248c148b220cf22485297c2344ff60b0012e3141f134fd5097dff0887e",
+      "asset_record": {
+        "bytes": 9167731,
+        "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031.json",
+        "remote_status": "remote_verified",
+        "sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+        "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+        "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P0-1401-learning24-1122c2d6a2d06d69.pt",
+        "training_identity": {
+          "actual_update_counts": {
+            "actor": 1536,
+            "alpha": 3072,
+            "auxiliary": 3072,
+            "critic": 3072,
+            "target": 3072
+          },
+          "counters": {
+            "actor_updates": 1536,
+            "alpha_updates": 3072,
+            "auxiliary_samples": 765618,
+            "auxiliary_skipped": 0,
+            "auxiliary_updates": 3072,
+            "critic_updates": 3072,
+            "env_steps": 320,
+            "iterations": 40,
+            "learning_skipped_iterations": 0,
+            "replay_samples": 786432,
+            "target_updates": 3072,
+            "transitions": 40960
+          },
+          "identity": {
+            "direction": "P0",
+            "execution_mode": "four_lane",
+            "fork_seed": 1401,
+            "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+            "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+            "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+          },
+          "learning_macros": 24,
+          "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+        },
+        "verified_epoch": 1794220809.658283
+      }
+    },
+    {
+      "direction": "P0",
+      "fork_seed": 1402,
+      "learning_macros": 24,
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/model-learning-24.pt",
+      "sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99",
+      "node_sha256": "8a14415fb1eda26a5361e6fd896053faa460744bbdb0e958d62d04a9d51c9506",
+      "asset_record": {
+        "bytes": 9167731,
+        "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99.json",
+        "remote_status": "remote_verified",
+        "sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99",
+        "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/model-learning-24.pt",
+        "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P0-1402-learning24-e715f2ac43dba125.pt",
+        "training_identity": {
+          "actual_update_counts": {
+            "actor": 1536,
+            "alpha": 3072,
+            "auxiliary": 3072,
+            "critic": 3072,
+            "target": 3072
+          },
+          "counters": {
+            "actor_updates": 1536,
+            "alpha_updates": 3072,
+            "auxiliary_samples": 766865,
+            "auxiliary_skipped": 0,
+            "auxiliary_updates": 3072,
+            "critic_updates": 3072,
+            "env_steps": 320,
+            "iterations": 40,
+            "learning_skipped_iterations": 0,
+            "replay_samples": 786432,
+            "target_updates": 3072,
+            "transitions": 40960
+          },
+          "identity": {
+            "direction": "P0",
+            "execution_mode": "four_lane",
+            "fork_seed": 1402,
+            "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+            "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+            "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+          },
+          "learning_macros": 24,
+          "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+        },
+        "verified_epoch": 1794220949.1184633
+      }
+    },
+    {
+      "direction": "P1",
+      "fork_seed": 1401,
+      "learning_macros": 24,
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1401/model-learning-24.pt",
+      "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+      "node_sha256": "aedd3eb6ef98d445735a8debabc7b6698c9aa53c701a287ac34bd06b259e1dfa",
+      "asset_record": {
+        "bytes": 9167731,
+        "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767.json",
+        "remote_status": "remote_verified",
+        "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+        "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1401/model-learning-24.pt",
+        "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P1-1401-learning24-6116c514595f1f2a.pt",
+        "training_identity": {
+          "actual_update_counts": {
+            "actor": 1536,
+            "alpha": 3072,
+            "auxiliary": 3072,
+            "critic": 3072,
+            "target": 3072
+          },
+          "counters": {
+            "actor_updates": 1536,
+            "alpha_updates": 3072,
+            "auxiliary_samples": 765729,
+            "auxiliary_skipped": 0,
+            "auxiliary_updates": 3072,
+            "critic_updates": 3072,
+            "env_steps": 320,
+            "iterations": 40,
+            "learning_skipped_iterations": 0,
+            "replay_samples": 786432,
+            "target_updates": 3072,
+            "transitions": 40960
+          },
+          "identity": {
+            "direction": "P1",
+            "execution_mode": "four_lane",
+            "fork_seed": 1401,
+            "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+            "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+            "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+          },
+          "learning_macros": 24,
+          "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+        },
+        "verified_epoch": 1794221108.8864124
+      }
+    },
+    {
+      "direction": "P1",
+      "fork_seed": 1402,
+      "learning_macros": 24,
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1402/model-learning-24.pt",
+      "sha256": "4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037",
+      "node_sha256": "dc8be6b019e789247d65987bbffd59e0857ad133300478454baedc2978d2d086",
+      "asset_record": {
+        "bytes": 9167731,
+        "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037.json",
+        "remote_status": "remote_verified",
+        "sha256": "4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037",
+        "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1402/model-learning-24.pt",
+        "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P1-1402-learning24-4cfc80e3673f0cd0.pt",
+        "training_identity": {
+          "actual_update_counts": {
+            "actor": 1536,
+            "alpha": 3072,
+            "auxiliary": 3072,
+            "critic": 3072,
+            "target": 3072
+          },
+          "counters": {
+            "actor_updates": 1536,
+            "alpha_updates": 3072,
+            "auxiliary_samples": 766941,
+            "auxiliary_skipped": 0,
+            "auxiliary_updates": 3072,
+            "critic_updates": 3072,
+            "env_steps": 320,
+            "iterations": 40,
+            "learning_skipped_iterations": 0,
+            "replay_samples": 786432,
+            "target_updates": 3072,
+            "transitions": 40960
+          },
+          "identity": {
+            "direction": "P1",
+            "execution_mode": "four_lane",
+            "fork_seed": 1402,
+            "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+            "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+            "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+          },
+          "learning_macros": 24,
+          "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+        },
+        "verified_epoch": 1794221250.8336363
+      }
+    }
+  ],
+  "cases": [
+    {
+      "model": {
+        "direction": "P0",
+        "fork_seed": 1401,
+        "learning_macros": 24,
+        "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+        "sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+        "node_sha256": "d34315248c148b220cf22485297c2344ff60b0012e3141f134fd5097dff0887e",
+        "asset_record": {
+          "bytes": 9167731,
+          "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031.json",
+          "remote_status": "remote_verified",
+          "sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031",
+          "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+          "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P0-1401-learning24-1122c2d6a2d06d69.pt",
+          "training_identity": {
+            "actual_update_counts": {
+              "actor": 1536,
+              "alpha": 3072,
+              "auxiliary": 3072,
+              "critic": 3072,
+              "target": 3072
+            },
+            "counters": {
+              "actor_updates": 1536,
+              "alpha_updates": 3072,
+              "auxiliary_samples": 765618,
+              "auxiliary_skipped": 0,
+              "auxiliary_updates": 3072,
+              "critic_updates": 3072,
+              "env_steps": 320,
+              "iterations": 40,
+              "learning_skipped_iterations": 0,
+              "replay_samples": 786432,
+              "target_updates": 3072,
+              "transitions": 40960
+            },
+            "identity": {
+              "direction": "P0",
+              "execution_mode": "four_lane",
+              "fork_seed": 1401,
+              "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+              "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+              "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+            },
+            "learning_macros": 24,
+            "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+          },
+          "verified_epoch": 1794220809.658283
+        }
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": true,
+        "motion_competent": true,
+        "loss": 0.6344293753377163,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.2718452093750238,
+            "vx_mae": 0.03680815540254116,
+            "wz_mae": 0.10377918581711128,
+            "wz": 0.08873985609272494,
+            "abs_wz": 0.10377918581711128,
+            "speed": 0.2726039215818437,
+            "height": 0.3156680931150913
+          },
+          "reverse": {
+            "vx": -0.21300543910823763,
+            "vx_mae": 0.0973859112802893,
+            "wz_mae": 0.08588649145676755,
+            "wz": 0.0652093443472404,
+            "abs_wz": 0.08588649145676755,
+            "speed": 0.2147729195028163,
+            "height": 0.31111610785126687
+          },
+          "stop1": {
+            "vx": 0.022585188606753945,
+            "vx_mae": 0.03316551693715155,
+            "wz_mae": 0.06439137428067625,
+            "wz": 0.0013332384265959264,
+            "abs_wz": 0.06439137428067625,
+            "speed": 0.03747074837713472,
+            "height": 0.3240543866157532
+          },
+          "stop2": {
+            "vx": -0.009873132805805653,
+            "vx_mae": 0.018051425262819977,
+            "wz_mae": 0.08481265852227807,
+            "wz": 0.008116205465048551,
+            "abs_wz": 0.08481265852227807,
+            "speed": 0.022509200484774165,
+            "height": 0.3271473664045334
+          },
+          "height": {
+            "vx": 0.026440289379796013,
+            "vx_mae": 0.06089693716377951,
+            "wz_mae": 0.09307915396057069,
+            "wz": 0.060843215422704815,
+            "abs_wz": 0.09307915396057069,
+            "speed": 0.2031128650261468,
+            "height": 0.31589869338274
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 138.3555601509941,
+        "recovery_delay_s": null
+      },
+      "physical_initial_state_sha256": "0d10e1df711c9173a948e99e7634e3dc253fa5d8d877d84f9424cd90df7e0c8d"
+    },
+    {
+      "model": {
+        "direction": "P0",
+        "fork_seed": 1402,
+        "learning_macros": 24,
+        "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/model-learning-24.pt",
+        "sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99",
+        "node_sha256": "8a14415fb1eda26a5361e6fd896053faa460744bbdb0e958d62d04a9d51c9506",
+        "asset_record": {
+          "bytes": 9167731,
+          "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99.json",
+          "remote_status": "remote_verified",
+          "sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99",
+          "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/model-learning-24.pt",
+          "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P0-1402-learning24-e715f2ac43dba125.pt",
+          "training_identity": {
+            "actual_update_counts": {
+              "actor": 1536,
+              "alpha": 3072,
+              "auxiliary": 3072,
+              "critic": 3072,
+              "target": 3072
+            },
+            "counters": {
+              "actor_updates": 1536,
+              "alpha_updates": 3072,
+              "auxiliary_samples": 766865,
+              "auxiliary_skipped": 0,
+              "auxiliary_updates": 3072,
+              "critic_updates": 3072,
+              "env_steps": 320,
+              "iterations": 40,
+              "learning_skipped_iterations": 0,
+              "replay_samples": 786432,
+              "target_updates": 3072,
+              "transitions": 40960
+            },
+            "identity": {
+              "direction": "P0",
+              "execution_mode": "four_lane",
+              "fork_seed": 1402,
+              "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+              "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+              "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+            },
+            "learning_macros": 24,
+            "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+          },
+          "verified_epoch": 1794220949.1184633
+        }
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.9550076780638848,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.292193244099617,
+            "vx_mae": 0.03774680465459824,
+            "wz_mae": 0.09402936309750658,
+            "wz": -0.04784008283575531,
+            "abs_wz": 0.09402936309750658,
+            "speed": 0.29395874983858455,
+            "height": 0.31240709394216537
+          },
+          "reverse": {
+            "vx": -0.21404878661967813,
+            "vx_mae": 0.08793508126400411,
+            "wz_mae": 0.07240412752318662,
+            "wz": -0.03445798231230583,
+            "abs_wz": 0.07240412752318662,
+            "speed": 0.21870438675407056,
+            "height": 0.3072210805118084
+          },
+          "stop1": {
+            "vx": 0.07730209849774837,
+            "vx_mae": 0.07730209849774837,
+            "wz_mae": 0.15288944406434893,
+            "wz": -0.15288944406434893,
+            "abs_wz": 0.15288944406434893,
+            "speed": 0.07810239304466313,
+            "height": 0.31592468440532684
+          },
+          "stop2": {
+            "vx": 0.0800213772803545,
+            "vx_mae": 0.0800213772803545,
+            "wz_mae": 0.19672478176653385,
+            "wz": -0.19672478176653385,
+            "abs_wz": 0.19672478176653385,
+            "speed": 0.08153809303872447,
+            "height": 0.31448822557926176
+          },
+          "height": {
+            "vx": 0.04859023981913924,
+            "vx_mae": 0.06760521119460464,
+            "wz_mae": 0.10655690168077127,
+            "wz": -0.07208905257331208,
+            "abs_wz": 0.10655690168077127,
+            "speed": 0.22287137187331912,
+            "height": 0.3106218466162682
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 142.80815271618707,
+        "recovery_delay_s": null
+      },
+      "physical_initial_state_sha256": "0d10e1df711c9173a948e99e7634e3dc253fa5d8d877d84f9424cd90df7e0c8d"
+    },
+    {
+      "model": {
+        "direction": "P1",
+        "fork_seed": 1401,
+        "learning_macros": 24,
+        "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1401/model-learning-24.pt",
+        "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+        "node_sha256": "aedd3eb6ef98d445735a8debabc7b6698c9aa53c701a287ac34bd06b259e1dfa",
+        "asset_record": {
+          "bytes": 9167731,
+          "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767.json",
+          "remote_status": "remote_verified",
+          "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767",
+          "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1401/model-learning-24.pt",
+          "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P1-1401-learning24-6116c514595f1f2a.pt",
+          "training_identity": {
+            "actual_update_counts": {
+              "actor": 1536,
+              "alpha": 3072,
+              "auxiliary": 3072,
+              "critic": 3072,
+              "target": 3072
+            },
+            "counters": {
+              "actor_updates": 1536,
+              "alpha_updates": 3072,
+              "auxiliary_samples": 765729,
+              "auxiliary_skipped": 0,
+              "auxiliary_updates": 3072,
+              "critic_updates": 3072,
+              "env_steps": 320,
+              "iterations": 40,
+              "learning_skipped_iterations": 0,
+              "replay_samples": 786432,
+              "target_updates": 3072,
+              "transitions": 40960
+            },
+            "identity": {
+              "direction": "P1",
+              "execution_mode": "four_lane",
+              "fork_seed": 1401,
+              "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+              "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+              "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+            },
+            "learning_macros": 24,
+            "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+          },
+          "verified_epoch": 1794221108.8864124
+        }
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 0.7516451946051048,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.28875747364014387,
+            "vx_mae": 0.044238413758575915,
+            "wz_mae": 0.09571872268337757,
+            "wz": 0.040203787381760774,
+            "abs_wz": 0.09571872268337757,
+            "speed": 0.29104921291705915,
+            "height": 0.3166662628948689
+          },
+          "reverse": {
+            "vx": -0.23470687525405082,
+            "vx_mae": 0.07350498212443199,
+            "wz_mae": 0.08972171568311751,
+            "wz": 0.02140950019005686,
+            "abs_wz": 0.08972171568311751,
+            "speed": 0.2373149714629409,
+            "height": 0.31537281706929204
+          },
+          "stop1": {
+            "vx": 0.059382964791730046,
+            "vx_mae": 0.06341561493463814,
+            "wz_mae": 0.08897664645686745,
+            "wz": -0.05202939173206687,
+            "abs_wz": 0.08897664645686745,
+            "speed": 0.06959906175770843,
+            "height": 0.3240878587961197
+          },
+          "stop2": {
+            "vx": 0.057340171001851556,
+            "vx_mae": 0.057340171001851556,
+            "wz_mae": 0.09653815544676035,
+            "wz": -0.011405036034993828,
+            "abs_wz": 0.09653815544676035,
+            "speed": 0.05871253286861898,
+            "height": 0.32703853487968443
+          },
+          "height": {
+            "vx": 0.033482847651233896,
+            "vx_mae": 0.05912927835225128,
+            "wz_mae": 0.09408276813896373,
+            "wz": 0.018771065027918667,
+            "abs_wz": 0.09408276813896373,
+            "speed": 0.22450375809886855,
+            "height": 0.3177939521074295
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 152.53073094422012,
+        "recovery_delay_s": null
+      },
+      "physical_initial_state_sha256": "0d10e1df711c9173a948e99e7634e3dc253fa5d8d877d84f9424cd90df7e0c8d"
+    },
+    {
+      "model": {
+        "direction": "P1",
+        "fork_seed": 1402,
+        "learning_macros": 24,
+        "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1402/model-learning-24.pt",
+        "sha256": "4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037",
+        "node_sha256": "dc8be6b019e789247d65987bbffd59e0857ad133300478454baedc2978d2d086",
+        "asset_record": {
+          "bytes": 9167731,
+          "plan_path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/plan-4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037.json",
+          "remote_status": "remote_verified",
+          "sha256": "4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037",
+          "source": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1402/model-learning-24.pt",
+          "staged": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/model-backup/staging/P1-1402-learning24-4cfc80e3673f0cd0.pt",
+          "training_identity": {
+            "actual_update_counts": {
+              "actor": 1536,
+              "alpha": 3072,
+              "auxiliary": 3072,
+              "critic": 3072,
+              "target": 3072
+            },
+            "counters": {
+              "actor_updates": 1536,
+              "alpha_updates": 3072,
+              "auxiliary_samples": 766941,
+              "auxiliary_skipped": 0,
+              "auxiliary_updates": 3072,
+              "critic_updates": 3072,
+              "env_steps": 320,
+              "iterations": 40,
+              "learning_skipped_iterations": 0,
+              "replay_samples": 786432,
+              "target_updates": 3072,
+              "transitions": 40960
+            },
+            "identity": {
+              "direction": "P1",
+              "execution_mode": "four_lane",
+              "fork_seed": 1402,
+              "parameters_sha256": "883303be8e82bfaca145ee55e4f109a0a94f256b417969c20c08040cf649073e",
+              "parent_selection_sha256": "a65bc48c999164d34d19040c546cca6b637b99e1a31d395840af9ee14631bdf3",
+              "plan_id": "SAC-R7P-PRECISION-PILOT-20261109"
+            },
+            "learning_macros": 24,
+            "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+          },
+          "verified_epoch": 1794221250.8336363
+        }
+      },
+      "returncode": 0,
+      "timed_out": false,
+      "technical_pass": true,
+      "metrics": {
+        "steps": 600,
+        "survived": true,
+        "task_pass": false,
+        "motion_competent": true,
+        "loss": 1.1649752239129174,
+        "loss_is_failure_penalty": false,
+        "base_contact_max_N": 0.0,
+        "metrics": {
+          "forward": {
+            "vx": 0.30587298460304735,
+            "vx_mae": 0.05992008589208126,
+            "wz_mae": 0.09344536070013419,
+            "wz": -0.05094392532715574,
+            "abs_wz": 0.09344536070013419,
+            "speed": 0.3077673577031474,
+            "height": 0.3111468969285488
+          },
+          "reverse": {
+            "vx": -0.18068010434508325,
+            "vx_mae": 0.11931990757584572,
+            "wz_mae": 0.07430844060436356,
+            "wz": -0.017458874245057814,
+            "abs_wz": 0.07430844060436356,
+            "speed": 0.19007411710309366,
+            "height": 0.30433153092861176
+          },
+          "stop1": {
+            "vx": 0.12605927079916002,
+            "vx_mae": 0.12605927079916002,
+            "wz_mae": 0.12836474798619746,
+            "wz": -0.1255666959285736,
+            "abs_wz": 0.12836474798619746,
+            "speed": 0.12703343348855387,
+            "height": 0.3170697033405304
+          },
+          "stop2": {
+            "vx": 0.13380260452628134,
+            "vx_mae": 0.13380260452628134,
+            "wz_mae": 0.08035664601251483,
+            "wz": -0.050231089740991594,
+            "abs_wz": 0.08035664601251483,
+            "speed": 0.13458159355375363,
+            "height": 0.31523107826709745
+          },
+          "height": {
+            "vx": 0.07715514825284481,
+            "vx_mae": 0.09877399353682995,
+            "wz_mae": 0.08538430250319652,
+            "wz": -0.04085389053192921,
+            "abs_wz": 0.08538430250319652,
+            "speed": 0.22651321721278186,
+            "height": 0.3089029418826103
+          }
+        },
+        "wheel_target_change_rate_rad_s2": 140.47625790822798,
+        "recovery_delay_s": null
+      },
+      "physical_initial_state_sha256": "0d10e1df711c9173a948e99e7634e3dc253fa5d8d877d84f9424cd90df7e0c8d"
+    }
+  ],
+  "deadline": 1794232500.0,
+  "training_updates": 0,
+  "original_C1_unchanged": true,
+  "interpretation": "Four single-seed deterministic exploratory diagnostics, not acceptance or model selection",
+  "frozen_inputs": [
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/confirm-config.json",
+      "sha256": "62d5fd4f543af368d9019581b1809717f0a34fa3120f71113e404da61ae2c757"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/timing-report.json",
+      "sha256": "4fc6a69071036c42edfbde1bd5adb25e0a5659857806d3b4282c3af2212c3aa0"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+      "sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+      "sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1402.pt",
+      "sha256": "18e70c5e63a329743794ea6da3ddf59b25ae3e111c0d6e1d0acc04c50413303a"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P1-1401.pt",
+      "sha256": "c0f1befd1985b99776647850001b3be841173a9fe406b7d6b59630722086eba1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P1-1402.pt",
+      "sha256": "6b71a242bb92188f835be8ba70b459a7ee271792ebf0127e0a9b7050c2bc27c4"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/c1_metrics.py",
+      "sha256": "e6e22a78de17b2f3bd920293ea677eef7dc48a155cf8a1ecefe93b29f9c8cde9"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/compare_c1_probe.py",
+      "sha256": "eb7845b03ffaa5ec5260b36d41e955b2635e7076341cd7f15beadb67d65cbf5e"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_with_kit_repair.py",
+      "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/test_c1_adapter.py",
+      "sha256": "74dc1f3fb1a36251314708ee7663cc306babbea12f7d90407e4e60e2160e85d1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/r7p_evaluation.py",
+      "sha256": "6105b09c3fddea31cfcb737650f56fd8440f481437f67e4f3d30d7da900ded83"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluation_r7p_helpers.py",
+      "sha256": "29083b2d19c324868e0a2a0ba39a3f3e2f0d513e7c7d78107e3ac242ad598099"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/r4_protocol.py",
+      "sha256": "d94d1fd0ab1aef20a09bf5a960c02a89842575f737e3e7e42c8b7f7c755842f6"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluate_sac_r7p.py",
+      "sha256": "eccc490245fe43295618438ce9cf4f71278c70c999b9b9b115b75cdf06ce38a3"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/evaluation_r7p_runner.py",
+      "sha256": "a23e4cf8e951a990f83fa8a4902f7cdb06bf650ce1834ea0381c933b1816e633"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation/kit_command_repair.py",
+      "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/prepare_confirm.py",
+      "sha256": "7ed018a27b7869ddc7977013dfabedbf444be5044438b9633fbc6b6c7c78ebf9"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/test_controller.py",
+      "sha256": "7a2060910df6277941e16d9bb643d11ba46be91c8377b382bbe27bc5859ca13c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/r7p_ops.py",
+      "sha256": "8c94d8924d541ebbdfd48b276259db74e488b46336d4312ae80769ca27e2e8d5"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/r7p_confirm_adapter.py",
+      "sha256": "0dd5c355b0c6ef1e0e55a0d28b1360f9650db6fac952f663b314fc447566bdec"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/controller/r7p_confirm_controller.py",
+      "sha256": "d8e2bd16952c4db6036097b3941771f3cac8fb32a3172b7c0d89fe11b98d84e8"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/evaluate_with_kit_repair.py",
+      "sha256": "df6f06d5ce51b34b4eff0cd8d841af35c02f4ed4caf7bb3323ee7d1299da639c"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r6-stability-20261109/kit-repair/providers.json",
+      "sha256": "6bd27e268d0aed41f12e605151d811025dd828863fb0958fb73f7386479320bd"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/kit_command_repair.py",
+      "sha256": "8741af815bce09613c1342cf66769fc102e949e1307fbe6fac0307c4959a1a22"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/model-learning-24.pt",
+      "sha256": "1122c2d6a2d06d69879faf435c7b86a96fa9896c558ffab9e24fb4d6738b0031"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1401/node-learning-24.json",
+      "sha256": "d34315248c148b220cf22485297c2344ff60b0012e3141f134fd5097dff0887e"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/model-learning-24.pt",
+      "sha256": "e715f2ac43dba125b27e4fcfe2d791c49a216cfa38d65c95f9d1f850f0972e99"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P0-1402/node-learning-24.json",
+      "sha256": "8a14415fb1eda26a5361e6fd896053faa460744bbdb0e958d62d04a9d51c9506"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1401/model-learning-24.pt",
+      "sha256": "6116c514595f1f2a563073d1fd73a3e3377474c484d317ae747de8ff5309a767"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1401/node-learning-24.json",
+      "sha256": "aedd3eb6ef98d445735a8debabc7b6698c9aa53c701a287ac34bd06b259e1dfa"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1402/model-learning-24.pt",
+      "sha256": "4cfc80e3673f0cd0376c04a0e1e2f34c35c1dbcb9ade3c29e7f4eccc38e25037"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/arms/P1-1402/node-learning-24.json",
+      "sha256": "dc8be6b019e789247d65987bbffd59e0857ad133300478454baedc2978d2d086"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/configuration.json",
+      "sha256": "28363661ef5f89d39e64fec25362167fbc9d1963a7bc0f463c92b633a04358c1"
+    },
+    {
+      "path": "/root/rivermind-data/tita-check/sac-r7p-l24-explore-20261109/l24_explore.py",
+      "sha256": "6d50443c6052043156a7ebcff2c4beabf45b4bb7cd0459d76d2d6ed6613d5c3a"
+    }
+  ],
+  "ended_epoch": 1794228121.8110943
+}
