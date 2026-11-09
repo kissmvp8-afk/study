@@ -1,0 +1,1061 @@
+{
+  "phase_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
+  "status": "evaluating",
+  "started_epoch": 1794224062.0,
+  "deadline": 1794227962.0,
+  "training_updates": 0,
+  "cases": [
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 231,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-231/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.6166336169662325,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.3047085740044713,
+              "vx_mae": 0.049948168210685255,
+              "wz_mae": 0.09991103670559824,
+              "wz": 0.029277034560218452,
+              "abs_wz": 0.09991103670559824,
+              "speed": 0.3070193146854078,
+              "height": 0.30685602113604543
+            },
+            "reverse": {
+              "vx": -0.22556155177764595,
+              "vx_mae": 0.07443846014328301,
+              "wz_mae": 0.0658785301737953,
+              "wz": 0.033848819612758235,
+              "abs_wz": 0.0658785301737953,
+              "speed": 0.22674146027596465,
+              "height": 0.31423781722784044
+            },
+            "stop1": {
+              "vx": 0.03886125041171908,
+              "vx_mae": 0.041140222381800415,
+              "wz_mae": 0.055917975869961084,
+              "wz": -0.03843473341781646,
+              "abs_wz": 0.055917975869961084,
+              "speed": 0.043792192427438315,
+              "height": 0.3224091970920563
+            },
+            "stop2": {
+              "vx": 0.021747832437977194,
+              "vx_mae": 0.023353622863069176,
+              "wz_mae": 0.06845600200816988,
+              "wz": -0.028567049223929643,
+              "abs_wz": 0.06845600200816988,
+              "speed": 0.02611709835769609,
+              "height": 0.3208027106523514
+            },
+            "height": {
+              "vx": 0.03680547686945647,
+              "vx_mae": 0.05560189318563789,
+              "wz_mae": 0.08228815461369231,
+              "wz": 0.018245858923066408,
+              "abs_wz": 0.08228815461369231,
+              "speed": 0.22072692035589062,
+              "height": 0.31231519544124603
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 173.53931400304558,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "0d10e1df711c9173a948e99e7634e3dc253fa5d8d877d84f9424cd90df7e0c8d"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 232,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-232/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-232/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-232/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-232/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.5784176316522327,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.28051085605286064,
+              "vx_mae": 0.04325265065766871,
+              "wz_mae": 0.09772584452643059,
+              "wz": -0.007724000035086647,
+              "abs_wz": 0.09772584452643059,
+              "speed": 0.2817605798095317,
+              "height": 0.306238052546978
+            },
+            "reverse": {
+              "vx": -0.23967974808067083,
+              "vx_mae": 0.06160318408161402,
+              "wz_mae": 0.05561952043441124,
+              "wz": -0.03892634765128605,
+              "abs_wz": 0.05561952043441124,
+              "speed": 0.24025872204010884,
+              "height": 0.3146856638789177
+            },
+            "stop1": {
+              "vx": -0.030470760078169404,
+              "vx_mae": 0.03196114750113338,
+              "wz_mae": 0.06049818206578493,
+              "wz": 0.007936975322663783,
+              "abs_wz": 0.06049818206578493,
+              "speed": 0.03489092044003648,
+              "height": 0.32005095422267915
+            },
+            "stop2": {
+              "vx": -0.04210258493199945,
+              "vx_mae": 0.04210258493199945,
+              "wz_mae": 0.06752746214158833,
+              "wz": 0.013114280058071017,
+              "abs_wz": 0.06752746214158833,
+              "speed": 0.044307632563047365,
+              "height": 0.3184486639499664
+            },
+            "height": {
+              "vx": 0.01442215867806226,
+              "vx_mae": 0.05528242658730596,
+              "wz_mae": 0.07613208284042776,
+              "wz": -0.01892384783178568,
+              "abs_wz": 0.07613208284042776,
+              "speed": 0.22258621169501297,
+              "height": 0.31205389845371245
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 183.14682476475946,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "4e401208da7129c6ef0944aae36401c220ae005d532fe8a16ffe17da6d858b72"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 233,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-233/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-233/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-233/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-233/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": false,
+          "motion_competent": true,
+          "loss": 0.6263383247954477,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.26076116409618405,
+              "vx_mae": 0.056040226849727336,
+              "wz_mae": 0.04863765125162899,
+              "wz": -0.0018897568108513952,
+              "abs_wz": 0.04863765125162899,
+              "speed": 0.26405047146722643,
+              "height": 0.30984939575195314
+            },
+            "reverse": {
+              "vx": -0.31879665810614827,
+              "vx_mae": 0.05135339003056288,
+              "wz_mae": 0.07931475892910385,
+              "wz": 0.05138749861027463,
+              "abs_wz": 0.07931475892910385,
+              "speed": 0.31945447760794204,
+              "height": 0.3142224268615246
+            },
+            "stop1": {
+              "vx": -0.06501106653362512,
+              "vx_mae": 0.06501106653362512,
+              "wz_mae": 0.04375823424663395,
+              "wz": -0.0026673338701948524,
+              "abs_wz": 0.04375823424663395,
+              "speed": 0.0663882800761082,
+              "height": 0.31298661172389985
+            },
+            "stop2": {
+              "vx": -0.03425193434115499,
+              "vx_mae": 0.03425193434115499,
+              "wz_mae": 0.0510773635096848,
+              "wz": 0.00557389946654439,
+              "abs_wz": 0.0510773635096848,
+              "speed": 0.03604233141462928,
+              "height": 0.3148065459728241
+            },
+            "height": {
+              "vx": -0.022943733799736948,
+              "vx_mae": 0.056363417986314744,
+              "wz_mae": 0.06342547034384916,
+              "wz": 0.01675532179645961,
+              "abs_wz": 0.06342547034384916,
+              "speed": 0.24743077144862435,
+              "height": 0.31283327025175095
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 139.29589503267485,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "bf15456615b78f35ee7f0f0b6066fc33e78be246fb4677fa7b70a198d5ba517b"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 234,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-234/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-234/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-234/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-234/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.4543964362018321,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.3075881585129537,
+              "vx_mae": 0.055983292197342965,
+              "wz_mae": 0.08771287425828632,
+              "wz": 0.05963706209731754,
+              "abs_wz": 0.08771287425828632,
+              "speed": 0.30981486549413434,
+              "height": 0.3120287425816059
+            },
+            "reverse": {
+              "vx": -0.29379330940544607,
+              "vx_mae": 0.03158099792897701,
+              "wz_mae": 0.07441937734663952,
+              "wz": 0.06396814237639774,
+              "abs_wz": 0.07441937734663952,
+              "speed": 0.29490258054936197,
+              "height": 0.3140880981087685
+            },
+            "stop1": {
+              "vx": -0.014623041327577085,
+              "vx_mae": 0.023006367448251696,
+              "wz_mae": 0.04501851581269875,
+              "wz": 0.014355985291767865,
+              "abs_wz": 0.04501851581269875,
+              "speed": 0.027240568594793308,
+              "height": 0.30677475810050964
+            },
+            "stop2": {
+              "vx": -0.021191836108919233,
+              "vx_mae": 0.022483412397559733,
+              "wz_mae": 0.04826785451732576,
+              "wz": -0.011426238222047686,
+              "abs_wz": 0.04826785451732576,
+              "speed": 0.02934487538321243,
+              "height": 0.30900620222091674
+            },
+            "height": {
+              "vx": 0.007687776374863461,
+              "vx_mae": 0.045311272327555344,
+              "wz_mae": 0.0791576071663294,
+              "wz": 0.04237953481101431,
+              "abs_wz": 0.0791576071663294,
+              "speed": 0.25347358545356263,
+              "height": 0.3127591159939766
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 158.5300582171867,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "f8d8dae2bde4e4c9fb98fcfda106f6161d097aadc4745c741a9cf7fd421f4c68"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 235,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-235/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-235/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-235/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-D-235/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": false,
+          "motion_competent": true,
+          "loss": 0.8044350154519899,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.32992661714553834,
+              "vx_mae": 0.05828596591949463,
+              "wz_mae": 0.12204059422481806,
+              "wz": -0.10647545078303665,
+              "abs_wz": 0.12204059422481806,
+              "speed": 0.33069804264745734,
+              "height": 0.31701616421341894
+            },
+            "reverse": {
+              "vx": -0.22667548370547594,
+              "vx_mae": 0.0733454509358853,
+              "wz_mae": 0.058415584501926784,
+              "wz": 0.01018048451456707,
+              "abs_wz": 0.058415584501926784,
+              "speed": 0.2273842493231697,
+              "height": 0.3272347041964531
+            },
+            "stop1": {
+              "vx": 0.018118607532233,
+              "vx_mae": 0.018265897780656813,
+              "wz_mae": 0.06348572665825486,
+              "wz": 0.024093161560595034,
+              "abs_wz": 0.06348572665825486,
+              "speed": 0.020783385201721488,
+              "height": 0.3308395320177078
+            },
+            "stop2": {
+              "vx": 0.08763925291597843,
+              "vx_mae": 0.08763925291597843,
+              "wz_mae": 0.04848755968734622,
+              "wz": -0.003538199495524168,
+              "abs_wz": 0.04848755968734622,
+              "speed": 0.08852940373952536,
+              "height": 0.31783301413059234
+            },
+            "height": {
+              "vx": 0.05426639154064469,
+              "vx_mae": 0.06741199215245433,
+              "wz_mae": 0.08538968687155284,
+              "wz": -0.0434082640951965,
+              "abs_wz": 0.08538968687155284,
+              "speed": 0.23908629735417825,
+              "height": 0.3214135784506798
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 162.43534752055817,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "1649d516836db7e26e8766a755cee0b4bda20e39a777754a8f80c1e8cfa1414d"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "S",
+        "eval_seed": 231,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-231/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-231/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-231/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-231/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.6871698005043307,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.3005631993710995,
+              "vx_mae": 0.051898501664400104,
+              "wz_mae": 0.11607383615511935,
+              "wz": 0.034719279066775924,
+              "abs_wz": 0.11607383615511935,
+              "speed": 0.30435075248268983,
+              "height": 0.3072678069770336
+            },
+            "reverse": {
+              "vx": -0.2250583868380636,
+              "vx_mae": 0.07495141276158393,
+              "wz_mae": 0.07951267505763099,
+              "wz": 0.03882796687656082,
+              "abs_wz": 0.07951267505763099,
+              "speed": 0.22603019023843973,
+              "height": 0.3140346120297909
+            },
+            "stop1": {
+              "vx": 0.0416040561767295,
+              "vx_mae": 0.044055358511395755,
+              "wz_mae": 0.0686286059441045,
+              "wz": -0.027077813628129662,
+              "abs_wz": 0.0686286059441045,
+              "speed": 0.048188334747163226,
+              "height": 0.3212902617454529
+            },
+            "stop2": {
+              "vx": 0.014833466345444322,
+              "vx_mae": 0.02189433326013386,
+              "wz_mae": 0.09046903289854527,
+              "wz": -0.032625273130834104,
+              "abs_wz": 0.09046903289854527,
+              "speed": 0.02764364126958353,
+              "height": 0.3220098865032196
+            },
+            "height": {
+              "vx": 0.03397944763302803,
+              "vx_mae": 0.05608508900366724,
+              "wz_mae": 0.09718773637502454,
+              "wz": 0.02222273928276263,
+              "abs_wz": 0.09718773637502454,
+              "speed": 0.21938645662368556,
+              "height": 0.31259392231702804
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 190.09752365743404,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "0d10e1df711c9173a948e99e7634e3dc253fa5d8d877d84f9424cd90df7e0c8d"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "S",
+        "eval_seed": 232,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-232/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-232/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-232/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-232/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.6214701342049727,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.2801633023098111,
+              "vx_mae": 0.04378278564661741,
+              "wz_mae": 0.11994324339553714,
+              "wz": -0.009872470004484057,
+              "abs_wz": 0.11994324339553714,
+              "speed": 0.2813731134123757,
+              "height": 0.306025937795639
+            },
+            "reverse": {
+              "vx": -0.24075791075825692,
+              "vx_mae": 0.06116248771548271,
+              "wz_mae": 0.06497132396674715,
+              "wz": -0.03850374169531278,
+              "abs_wz": 0.06497132396674715,
+              "speed": 0.24185132928462483,
+              "height": 0.3145238962769508
+            },
+            "stop1": {
+              "vx": -0.025431987433694302,
+              "vx_mae": 0.029142680703662337,
+              "wz_mae": 0.08318202015943825,
+              "wz": 0.010443252986297011,
+              "abs_wz": 0.08318202015943825,
+              "speed": 0.034094437083400084,
+              "height": 0.320001500248909
+            },
+            "stop2": {
+              "vx": -0.04168892692774534,
+              "vx_mae": 0.04168892692774534,
+              "wz_mae": 0.07685055516194553,
+              "wz": 0.012238007034175097,
+              "abs_wz": 0.07685055516194553,
+              "speed": 0.04516622112992537,
+              "height": 0.3181780284643173
+            },
+            "height": {
+              "vx": 0.013857200581347569,
+              "vx_mae": 0.055518908228958025,
+              "wz_mae": 0.09020379715505987,
+              "wz": -0.019710384540259838,
+              "abs_wz": 0.09020379715505987,
+              "speed": 0.22346940232637624,
+              "height": 0.3119095004200935
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 199.66747652527835,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "4e401208da7129c6ef0944aae36401c220ae005d532fe8a16ffe17da6d858b72"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "S",
+        "eval_seed": 233,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-233/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-233/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-233/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-233/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": false,
+          "motion_competent": true,
+          "loss": 0.6470990409340314,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.2604580603621434,
+              "vx_mae": 0.05601524545927532,
+              "wz_mae": 0.06226088637835346,
+              "wz": -0.004477301876759157,
+              "abs_wz": 0.06226088637835346,
+              "speed": 0.26310283815904734,
+              "height": 0.30958779603242875
+            },
+            "reverse": {
+              "vx": -0.31969495717436075,
+              "vx_mae": 0.05084572520107031,
+              "wz_mae": 0.08740944677963852,
+              "wz": 0.05829432529397309,
+              "abs_wz": 0.08740944677963852,
+              "speed": 0.32034666422847624,
+              "height": 0.31352656915783883
+            },
+            "stop1": {
+              "vx": -0.06428288023918867,
+              "vx_mae": 0.06428288023918867,
+              "wz_mae": 0.059551911470480265,
+              "wz": -0.009991075485013426,
+              "abs_wz": 0.059551911470480265,
+              "speed": 0.06594756828029659,
+              "height": 0.3131573301553726
+            },
+            "stop2": {
+              "vx": -0.028404031386598944,
+              "vx_mae": 0.02846920372918248,
+              "wz_mae": 0.04733428267296404,
+              "wz": 0.008527331086806953,
+              "abs_wz": 0.04733428267296404,
+              "speed": 0.03128544831369468,
+              "height": 0.3146567577123642
+            },
+            "height": {
+              "vx": -0.022658349178265782,
+              "vx_mae": 0.054809591154102236,
+              "wz_mae": 0.07266676243254915,
+              "wz": 0.018538944641593842,
+              "abs_wz": 0.07266676243254915,
+              "speed": 0.24614107477499936,
+              "height": 0.312335792183876
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 149.96082273891852,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "bf15456615b78f35ee7f0f0b6066fc33e78be246fb4677fa7b70a198d5ba517b"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "S",
+        "eval_seed": 234,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-234/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-234/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-234/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-234/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.4933594605183271,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.30732725482434037,
+              "vx_mae": 0.05439051676541567,
+              "wz_mae": 0.09470719058124814,
+              "wz": 0.05764068152348045,
+              "abs_wz": 0.09470719058124814,
+              "speed": 0.3096966437894568,
+              "height": 0.31214325249195096
+            },
+            "reverse": {
+              "vx": -0.2962828271836042,
+              "vx_mae": 0.03439936138689518,
+              "wz_mae": 0.08106336616387125,
+              "wz": 0.06457256627676543,
+              "abs_wz": 0.08106336616387125,
+              "speed": 0.29754760651561435,
+              "height": 0.31455354273319247
+            },
+            "stop1": {
+              "vx": -0.01815655956044793,
+              "vx_mae": 0.024914945904165507,
+              "wz_mae": 0.06249147518537938,
+              "wz": 0.02412656326778233,
+              "abs_wz": 0.06249147518537938,
+              "speed": 0.030275633440769837,
+              "height": 0.3070644986629486
+            },
+            "stop2": {
+              "vx": -0.022140621920116246,
+              "vx_mae": 0.0234226492093876,
+              "wz_mae": 0.05370935308281332,
+              "wz": -0.001906815362162888,
+              "abs_wz": 0.05370935308281332,
+              "speed": 0.03141388076151923,
+              "height": 0.3091685664653778
+            },
+            "height": {
+              "vx": 0.006749001284595579,
+              "vx_mae": 0.04570113127911463,
+              "wz_mae": 0.08700858270050958,
+              "wz": 0.042381603259127584,
+              "abs_wz": 0.08700858270050958,
+              "speed": 0.25457121994392135,
+              "height": 0.31302533340454103
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 166.28697751671424,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "f8d8dae2bde4e4c9fb98fcfda106f6161d097aadc4745c741a9cf7fd421f4c68"
+      }
+    },
+    {
+      "model": {
+        "direction": "parent",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/parent-1201.pt",
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3"
+      },
+      "case": {
+        "execution": "S",
+        "eval_seed": 235,
+        "steps_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-235/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-235/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-235/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3/development/standard-S-235/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": false,
+          "motion_competent": true,
+          "loss": 0.8362845319367262,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.31314046546816826,
+              "vx_mae": 0.0473269946873188,
+              "wz_mae": 0.11884291457012296,
+              "wz": -0.09186762569705025,
+              "abs_wz": 0.11884291457012296,
+              "speed": 0.3142285414447418,
+              "height": 0.3173062901198864
+            },
+            "reverse": {
+              "vx": -0.22689881576923654,
+              "vx_mae": 0.07310392872663214,
+              "wz_mae": 0.0757406585724675,
+              "wz": 0.011212570409697946,
+              "abs_wz": 0.0757406585724675,
+              "speed": 0.22807802964560905,
+              "height": 0.3242631430923939
+            },
+            "stop1": {
+              "vx": 0.028253060057759283,
+              "vx_mae": 0.028253060057759283,
+              "wz_mae": 0.08094477930571883,
+              "wz": 0.02767048596870154,
+              "abs_wz": 0.08094477930571883,
+              "speed": 0.0307199988419144,
+              "height": 0.3270709019899368
+            },
+            "stop2": {
+              "vx": 0.09117447096854449,
+              "vx_mae": 0.09117447096854449,
+              "wz_mae": 0.07690922040492296,
+              "wz": -0.025267154164612293,
+              "abs_wz": 0.07690922040492296,
+              "speed": 0.09294614955019999,
+              "height": 0.3152579814195633
+            },
+            "height": {
+              "vx": 0.047642495070584115,
+              "vx_mae": 0.06325281149614602,
+              "wz_mae": 0.09583041528670583,
+              "wz": -0.04093142534943763,
+              "abs_wz": 0.09583041528670583,
+              "speed": 0.23352001189363397,
+              "height": 0.31990345335006715
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 177.2237737908748,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "physical_initial_state_sha256": "1649d516836db7e26e8766a755cee0b4bda20e39a777754a8f80c1e8cfa1414d"
+      }
+    },
+    {
+      "model": {
+        "direction": "P0",
+        "fork_seed": 1401,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 231,
+        "steps_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-231/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-231/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-231/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-231/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": false,
+          "motion_competent": true,
+          "loss": 0.9509754147236014,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.3104486985504627,
+              "vx_mae": 0.035997912436723706,
+              "wz_mae": 0.06832657658029348,
+              "wz": 0.008253299361094833,
+              "abs_wz": 0.06832657658029348,
+              "speed": 0.3114564051249968,
+              "height": 0.32669762343168257
+            },
+            "reverse": {
+              "vx": -0.17658547445200384,
+              "vx_mae": 0.12398373411037028,
+              "wz_mae": 0.07956687829340808,
+              "wz": 0.021402064928552136,
+              "abs_wz": 0.07956687829340808,
+              "speed": 0.18604679111567093,
+              "height": 0.30940731808543204
+            },
+            "stop1": {
+              "vx": 0.09774815186858177,
+              "vx_mae": 0.09774815186858177,
+              "wz_mae": 0.050165788617450746,
+              "wz": 0.020061377969104798,
+              "abs_wz": 0.050165788617450746,
+              "speed": 0.09980677948885827,
+              "height": 0.3314687377214432
+            },
+            "stop2": {
+              "vx": 0.11463734075427055,
+              "vx_mae": 0.11463734075427055,
+              "wz_mae": 0.06722831222228706,
+              "wz": 0.021623519705608486,
+              "abs_wz": 0.06722831222228706,
+              "speed": 0.11529804920921455,
+              "height": 0.33074733555316926
+            },
+            "height": {
+              "vx": 0.07925748578086496,
+              "vx_mae": 0.08970485476031899,
+              "wz_mae": 0.07338666296610609,
+              "wz": 0.01755641792761162,
+              "abs_wz": 0.07338666296610609,
+              "speed": 0.2248750152405027,
+              "height": 0.32051207244396207
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 134.0604667994932,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+        "physical_initial_state_sha256": "0d10e1df711c9173a948e99e7634e3dc253fa5d8d877d84f9424cd90df7e0c8d"
+      }
+    },
+    {
+      "model": {
+        "direction": "P0",
+        "fork_seed": 1401,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 232,
+        "steps_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-232/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-232/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-232/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-232/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.5857557012395813,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.32331631882116196,
+              "vx_mae": 0.06261148797348141,
+              "wz_mae": 0.07573985100374557,
+              "wz": -0.03310054491390474,
+              "abs_wz": 0.07573985100374557,
+              "speed": 0.3240671540210437,
+              "height": 0.331262845993042
+            },
+            "reverse": {
+              "vx": -0.2765069084521383,
+              "vx_mae": 0.04832531192339957,
+              "wz_mae": 0.19753057223977522,
+              "wz": 0.18610541281057522,
+              "abs_wz": 0.19753057223977522,
+              "speed": 0.27692135257697326,
+              "height": 0.32445564165711405
+            },
+            "stop1": {
+              "vx": -0.00928523093694821,
+              "vx_mae": 0.018507876724470407,
+              "wz_mae": 0.06248848774470389,
+              "wz": 0.014073497867211699,
+              "abs_wz": 0.06248848774470389,
+              "speed": 0.021635361742281745,
+              "height": 0.3355158770084381
+            },
+            "stop2": {
+              "vx": 0.028882312886416912,
+              "vx_mae": 0.029895869195461274,
+              "wz_mae": 0.05866606007446535,
+              "wz": -0.00543903904617764,
+              "abs_wz": 0.05866606007446535,
+              "speed": 0.033265156890273186,
+              "height": 0.3348499423265457
+            },
+            "height": {
+              "vx": 0.03424746773019433,
+              "vx_mae": 0.06046715736761689,
+              "wz_mae": 0.12176370720250998,
+              "wz": 0.058567727243411354,
+              "abs_wz": 0.12176370720250998,
+              "speed": 0.25710721226814837,
+              "height": 0.3295866830945015
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 193.9177341538424,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+        "physical_initial_state_sha256": "4e401208da7129c6ef0944aae36401c220ae005d532fe8a16ffe17da6d858b72"
+      }
+    },
+    {
+      "model": {
+        "direction": "P0",
+        "fork_seed": 1401,
+        "learning_macros": 48,
+        "model_path": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783"
+      },
+      "case": {
+        "execution": "D",
+        "eval_seed": 233,
+        "steps_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-233/attempt-1/steps.jsonl",
+        "configuration_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-233/attempt-1/configuration.json",
+        "frozen_before_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-233/attempt-1/frozen-before.json",
+        "frozen_after_path": "evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-233/attempt-1/frozen-after.json",
+        "protocol": "standard",
+        "pulse_direction": null,
+        "result": {
+          "steps": 600,
+          "survived": true,
+          "task_pass": true,
+          "motion_competent": true,
+          "loss": 0.6030112636929515,
+          "loss_is_failure_penalty": false,
+          "base_contact_max_N": 0.0,
+          "metrics": {
+            "forward": {
+              "vx": 0.20827820649952627,
+              "vx_mae": 0.09582685777335427,
+              "wz_mae": 0.05519899431208614,
+              "wz": 0.010722933068755082,
+              "abs_wz": 0.05519899431208614,
+              "speed": 0.21110455147500712,
+              "height": 0.31297547787427904
+            },
+            "reverse": {
+              "vx": -0.29656920159701256,
+              "vx_mae": 0.045842381468974056,
+              "wz_mae": 0.08079639068455435,
+              "wz": 0.06203632707358338,
+              "abs_wz": 0.08079639068455435,
+              "speed": 0.29772460616576085,
+              "height": 0.30328806474804876
+            },
+            "stop1": {
+              "vx": -0.0422071381774731,
+              "vx_mae": 0.043611185683403164,
+              "wz_mae": 0.04353887013625354,
+              "wz": -0.015100793591700494,
+              "abs_wz": 0.04353887013625354,
+              "speed": 0.04783136666867796,
+              "height": 0.31393311500549315
+            },
+            "stop2": {
+              "vx": -0.03263879780424759,
+              "vx_mae": 0.033718194880057124,
+              "wz_mae": 0.03903484357520938,
+              "wz": 0.006191513799130917,
+              "abs_wz": 0.03903484357520938,
+              "speed": 0.035025866364645684,
+              "height": 0.31747196435928343
+            },
+            "height": {
+              "vx": -0.036295788809424266,
+              "vx_mae": 0.06610834807832726,
+              "wz_mae": 0.0635106377999764,
+              "wz": 0.032312286562519145,
+              "abs_wz": 0.0635106377999764,
+              "speed": 0.21416571571107704,
+              "height": 0.31004827564954757
+            }
+          },
+          "wheel_target_change_rate_rad_s2": 118.99759544301405,
+          "recovery_delay_s": null
+        },
+        "model_sha256": "f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783",
+        "physical_initial_state_sha256": "bf15456615b78f35ee7f0f0b6066fc33e78be246fb4677fa7b70a198d5ba517b"
+      }
+    }
+  ],
+  "case_durations": [
+    34.59951347002061,
+    35.84996008500457,
+    35.08330647699768,
+    36.70175887399819,
+    36.19738129997859,
+    34.431770135008264,
+    34.82830012097838,
+    34.511288976005744,
+    39.18568414301262,
+    35.272564848011825,
+    34.828606535011204,
+    35.885420047998196,
+    36.77584172299248,
+    34.92198230599752
+  ],
+  "budget": {
+    "fits": true,
+    "now": 1794224722.4165897,
+    "deadline": 1794227962.0,
+    "remaining": 38,
+    "case_seconds": 45.0,
+    "archive_reserved_seconds": 1200,
+    "required_finish": 1794227632.4165897
+  }
+}

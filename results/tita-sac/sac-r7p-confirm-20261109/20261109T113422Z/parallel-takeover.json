@@ -1,0 +1,72 @@
+{
+  "parent": {
+    "pid": 2117288,
+    "ppid": 2117284,
+    "state": "S",
+    "ticks": "19903817",
+    "exit_code": 0,
+    "cwd": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109",
+    "argv": [
+      "../.venv/bin/python",
+      "../sac-r7p-confirm-20261109/20261109T113422Z/controller/r7p_confirm_controller.py",
+      "--config",
+      "../sac-r7p-confirm-20261109/20261109T113422Z/confirm-config.json"
+    ]
+  },
+  "started_epoch": 1794224767.697471,
+  "actions": [
+    "SIGSTOP parent only",
+    "SIGTERM then SIGCONT original parent only"
+  ],
+  "policy": "User requested remaining evaluations four-lane; preserve current child, never signal its process group",
+  "child_exits": [
+    {
+      "identity": {
+        "pid": 2127829,
+        "ppid": 2117288,
+        "state": "R",
+        "ticks": "19953865",
+        "exit_code": 0,
+        "cwd": "/root/rivermind-data/tita-check/sac-r7p-precision-20261109",
+        "argv": [
+          "/root/rivermind-data/tita-check/.venv/bin/python",
+          "/root/rivermind-data/tita-check/sac-r7p-precision-20261109/evaluation/evaluate_with_kit_repair.py",
+          "--root",
+          "/root/rivermind-data/tita-check",
+          "--study-root",
+          "/root/rivermind-data/tita-check/sac-r6-stability-20261109/study",
+          "--checkpoint",
+          "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/inputs/P0-1401.pt",
+          "--output_dir",
+          "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-234/attempt-1",
+          "--eval_seed",
+          "234",
+          "--seed-split",
+          "development",
+          "--condition",
+          "standard",
+          "--execution",
+          "D",
+          "--factor",
+          "F01",
+          "--policy-noise",
+          "on",
+          "--zero-reset-wrench",
+          "--disable-interval-push",
+          "--headless",
+          "--device",
+          "cuda:0",
+          "--startup-lock",
+          "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluation-init.lock"
+        ],
+        "output": "/root/rivermind-data/tita-check/sac-r7p-confirm-20261109/20261109T113422Z/evaluations/f918d54b8ddeaab05d3b4db0dc012db96e09fd4e223e39c664a1422642c89783/development/standard-D-234/attempt-1"
+      },
+      "raw_wait_status": 0,
+      "returncode": 0
+    }
+  ],
+  "original_state_sha256": "f074bb5fec4450827144d9b7a1f70a91239d167deeb085b741b1701baa7d0b25",
+  "status": "taken_over",
+  "completed_epoch": 1794224792.2484937,
+  "original_source_state_untouched": true
+}

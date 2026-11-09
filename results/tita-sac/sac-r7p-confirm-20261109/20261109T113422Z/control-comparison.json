@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "exact_step_output_equal": true,
+  "steps": 600,
+  "identity_physics_rng_frozen_equal": true,
+  "different_step_count": 0,
+  "first_different_steps": [],
+  "original_steps_sha256": "1f8b880bcf37ce2b89c2999dcff528fbf38d92d52d410058dbbc9fb9d6ec0c7b",
+  "probe_steps_sha256": "1f8b880bcf37ce2b89c2999dcff528fbf38d92d52d410058dbbc9fb9d6ec0c7b",
+  "excluded_fields": [
+    "phase_id",
+    "elapsed_s",
+    "rollout_ready_unix",
+    "rollout_finished_unix"
+  ],
+  "physical_t_start_t_end_not_excluded": true,
+  "source_identity_expected_to_change_for_documented_adapter": true
+}
