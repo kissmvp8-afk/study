@@ -1,0 +1,16 @@
+{
+  "snapshot_utc": "20261109T004326Z",
+  "controller": {
+    "status": "preparing"
+  },
+  "evidence_sha256": "cd8ec27213a104868b7fb2f02da5a1fb6a53351d5ca35b91024e707871568916",
+  "parts": [
+    {
+      "file": "evidence.zip.part001",
+      "bytes": 76582,
+      "sha256": "cd8ec27213a104868b7fb2f02da5a1fb6a53351d5ca35b91024e707871568916"
+    }
+  ],
+  "model_weights_included": false,
+  "note": "Training may still be running. Snapshots are not final experiment conclusions. Model/resume backups are separate."
+}

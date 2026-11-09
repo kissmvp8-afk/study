@@ -163,3 +163,7 @@ T06 将文档、单元、CPU 集成、仿真、性能分开报告；`--docs` 通
 
 ## SAC-R4 independent screening 2026-11-08
 128 environments; fixed plan 1325352f. Actual protocol CPU tests 13 passed, current-event CPU Tensor tests 3 passed, six parent evaluations complete, GPU 16 prefill + 64 learning and strict resume passed. An additional 16 discarded calibration macros correct the plan arithmetic; full-pool iterations65-96 average 4.5374083272809 s. Cache equality failed, so all formal arms disable cache. q=144. Formal status is running only after controller evidence; no control success claimed. Source/config/raw snapshots are under results/tita-sac/sac-r4-128-screen-20261108. Platform lease expiry is unverified; runtime uses an explicitly conservative operational bound and T0+9.5h cap.
+
+
+## R5 parking experiment
+Independent R5 run: results/tita-sac/sac-r5-park-20261109. See timestamped evidence bundles for executable adapter, paired protocol and raw results. Training completion, task passing and remote backup are separate statuses. Mainline configuration unchanged.
