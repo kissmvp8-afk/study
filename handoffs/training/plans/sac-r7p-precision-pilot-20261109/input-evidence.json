@@ -1,0 +1,86 @@
+{
+  "user_reported": {
+    "parent_parking_weight": -8,
+    "parent_command_resampling_s": [
+      2,
+      4
+    ],
+    "full_R7_optimistic_minutes_without_384": 228,
+    "short_pilot_optimistic_minutes": 135,
+    "implementation_and_GPU_calibration_not_included": true,
+    "static_reward_tests_passed": 13,
+    "Isaac_GPU_validation": "not_run",
+    "close_deadline_UTC8": "2026-11-09T20:45:00+08:00"
+  },
+  "r6_handoff_commit": "f0769575d83d3f3cb4f531296c8ecd9830218fbd",
+  "r6_handoff": {
+    "plan_id": "SAC-R6-STABILITY-20261109",
+    "as_of_epoch": 1794217186.396464,
+    "original_plan_status": "stopped",
+    "recovery_status": "completed",
+    "unplanned_infrastructure_recovery": true,
+    "training_arms": 8,
+    "learning_macros_per_arm": 96,
+    "development_cases_per_stage": 80,
+    "completed_development_stages": [
+      48,
+      96
+    ],
+    "final_candidates": {
+      "primary": {
+        "direction": "R1",
+        "fork_seed": 1202,
+        "learning_macros": 48,
+        "model_sha256": "f51acec15b44ee1af72d3ca25815fc1c758d26b596304b4286aebc25dacb51c2",
+        "standard_passes": 2,
+        "standard_cases": 10,
+        "standard_status": "failed",
+        "turn_status": "not_run",
+        "pulse_status": "not_run"
+      },
+      "secondary": {
+        "direction": "R1",
+        "fork_seed": 1201,
+        "learning_macros": 48,
+        "model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+        "standard_passes": 7,
+        "standard_cases": 10,
+        "standard_status": "failed",
+        "turn_status": "not_run",
+        "pulse_status": "not_run"
+      }
+    },
+    "direction_reproduced": false,
+    "replace_parent": false,
+    "remote_model_assets": 32,
+    "full_remote_redownload_verified": false,
+    "stage96_local_to_remote_sha_review": "model-backup/independent-remote-sha-review.json",
+    "source_files": {
+      "controller-state.json": {
+        "bytes": 423573,
+        "sha256": "622f4d6fb62d41290804db510c46d04db48658705cc4695046468fdc9f71f56f"
+      },
+      "recovery/infra-eval96-001/state.json": {
+        "bytes": 76804,
+        "sha256": "858cff1d291a1852cf10d9466461e06fafb17f9b347491653d66868527082c70"
+      },
+      "recovery/infra-eval96-001/stage-96.json": {
+        "bytes": 452914,
+        "sha256": "80d762a24ebf8c5e60c4cf555fab2229350c20f619630a58a3c9e9bc3c0326f0"
+      },
+      "recovery/infra-eval96-001/final-selection.json": {
+        "bytes": 132669,
+        "sha256": "8dea030d4ff5804ad5efb0d763e27be98cc39095335746f9614913fc2168f75b"
+      },
+      "recovery/infra-eval96-001/heldout-results.json": {
+        "bytes": 73579,
+        "sha256": "da7d5e10dd3a12d9c2a95221fa889f9b53b2c8a7ae22601fd5edb604d89b72e4"
+      },
+      "recovery/infra-eval96-001/gate-96.json": {
+        "bytes": 762,
+        "sha256": "4548e28a161bb04f0631a9fa0f235a98c1b22c647fd9086c85ff7278108eb266"
+      }
+    }
+  },
+  "old_plan_commit": "f48554774747d3299c594165295e7f360c9c5d8c"
+}

@@ -1,0 +1,13 @@
+{
+  "observed_at_UTC": "2026-11-09T10:11:31.182202+00:00",
+  "reported_finish_UTC8": "2026-11-09T20:45:00+08:00",
+  "remaining_s_at_issue": 9208.817798,
+  "reported_original_without384_min": 228,
+  "reported_short_baseline_min": 135,
+  "required_after_preflight_min": 162,
+  "required_before_preflight_min": "162 + actual implementation/GPU validation minutes",
+  "full_R7_allowed": false,
+  "short_formal_training_allowed_in_current_window": false,
+  "reason": "available time is already below conservative short-trial requirement even if preflight cost were zero",
+  "source_of_timing": "Dot/user estimates; not this window GPU measurement"
+}

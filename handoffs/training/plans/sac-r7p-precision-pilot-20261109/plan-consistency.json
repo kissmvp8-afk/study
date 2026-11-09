@@ -1,0 +1,23 @@
+{
+  "status": "passed_plan_arithmetic_only",
+  "same_ancestor_environment_both_groups": true,
+  "test13_status": "reported only, not independently rerun",
+  "GPU_validation": "not_run",
+  "current_formal_training": "budget_blocked",
+  "endpoint_cases": 30,
+  "capacity_study": false,
+  "independent_acceptance": false,
+  "counters": {
+    "prefill_macros_per_arm": 16,
+    "learning_macros_per_arm": 48,
+    "single_fixed_endpoint": true,
+    "intermediate_model_only_L24_for_recovery_not_selection": true,
+    "no_pruning_or_extension": true,
+    "learning_macros_total": 192,
+    "new_transitions_including_prefill_total": 262144,
+    "per_arm_critic_alpha_target_auxiliary_attempts": 6144,
+    "per_arm_actor_updates": 3072,
+    "total_critic_alpha_target_auxiliary_attempts": 24576,
+    "total_actor_updates": 12288
+  }
+}

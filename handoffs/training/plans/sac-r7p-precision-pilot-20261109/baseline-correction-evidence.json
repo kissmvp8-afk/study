@@ -1,0 +1,63 @@
+{
+  "selected_R6_model_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
+  "selected_R6_model_bytes": 9167667,
+  "R6_checkpoint_entry_parent_sha256": "52868414e1d097f011a4da94b45cd8b0267b705708dec1bd45ad3b58470319f8",
+  "R5_ancestor_identity": "C3/1101-L144",
+  "R5_ancestor_settings_path": "results/tita-sac/sac-r5-park-20261109/20261109T041342Z/arms/C3-1101/effective-settings.json",
+  "R5_ancestor_fixed_commit": "0cac03f0869039ece66dd410f66631f61d663195",
+  "independently_read_ancestor_settings": {
+    "num_envs": 128,
+    "steps_per_macro": 8,
+    "warmup_macros": 16,
+    "capacity_per_env": 512,
+    "replay_capacity_total": 65536,
+    "critic_updates_per_learning_macro": 128,
+    "actor_updates_per_learning_macro": 64,
+    "alpha_updates_per_learning_macro": 128,
+    "target_updates_per_learning_macro": 128,
+    "auxiliary_attempts_per_learning_macro": 128,
+    "microcycles": 8,
+    "critic_updates_per_microcycle": 16,
+    "auxiliary_attempts_per_microcycle": 16,
+    "batch_size": 256,
+    "auxiliary_batch_size": 256,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "standing_command_fraction": 0.2,
+    "policy_observation_noise": "on",
+    "reset_force_N": [
+      0.0,
+      0.0
+    ],
+    "reset_torque_Nm": [
+      0.0,
+      0.0
+    ],
+    "interval_push": "off",
+    "physics_dt_s": 0.005,
+    "decimation": 4,
+    "control_dt_s": 0.02,
+    "tf32_matmul": false,
+    "tf32_cudnn": false,
+    "alpha_compute": "GPU_tensor_common_to_all",
+    "normalizers": "inherit_then_update_during_training_freeze_during_eval",
+    "network_reward_action_bounds_timeout_semantics": "R4_except_declared_parking_weight_command_duration_and_logging",
+    "initial_std": "restore_learned_value_do_not_reset_or_scale_for_evaluation",
+    "alpha_entry_multiplier": 1.0,
+    "track_ang_vel_z_exp_weight": 0.5,
+    "parking_body_velocity_weight": -8,
+    "command_resampling_time_range": [
+      2,
+      4
+    ],
+    "critic_lr": 0.0002,
+    "actor_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001
+  },
+  "R6_actual_environment_settings_minus8_and_2to4s": "reported by Dot/user; consistent with checkpoint lineage and R5 C3 settings; full R6 live training configuration still must be frozen/verified by Dot",
+  "why_previous_check_was_insufficient": "Weight digest and trainer config do not establish complete Isaac reward/command config. Evaluation configuration is not a substitute for training effective-settings/environment_config.",
+  "static_reward_tests_13": "reported passed, not independently re-run here",
+  "Isaac_GPU_validation": "not_run"
+}

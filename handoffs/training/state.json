@@ -573,7 +573,7 @@
       "missing": "All R6 training attempt/success counters, all original development raw cases, source/recovery equivalence audit not independently audited in this plan turn."
     }
   ],
-  "latest_plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
+  "latest_plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -591,12 +591,12 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/execution-plan.txt",
-  "updated_at_utc": "2026-11-09T09:48:00.219Z",
+  "latest_plan_path": "handoffs/training/plans/sac-r7p-precision-pilot-20261109/execution-plan.txt",
+  "updated_at_utc": "2026-11-09T10:12:39.213Z",
   "latest_review_path": "handoffs/training/reviews/sac-r5-20261109-0cac03f0/review.txt",
   "latest_plan_addendum_path": null,
-  "latest_plan_parameters_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/parameters.json",
-  "latest_plan_status": "issued_to_Dot_conditional_execution_not_started_by_reviewer",
+  "latest_plan_parameters_path": "handoffs/training/plans/sac-r7p-precision-pilot-20261109/parameters.json",
+  "latest_plan_status": "issued_preflight_and_archive_only_current_window_formal_training_budget_blocked",
   "active_plan": {
     "plan_id": "SAC-R6-STABILITY-20261109",
     "execution_status": "recovery_controller_reports_completed_20_heldout_cases_independently_recomputed_full_training_review_pending",
@@ -615,22 +615,48 @@
       "reason": "User requested 128-env overnight multi-direction paired successive-halving before forwarding R3 to Dot",
       "at_utc": "2026-11-08 15:32:09 UTC",
       "old_plan_execution_confirmed": false
+    },
+    {
+      "old_plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
+      "new_plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+      "old_plan_status": "withdrawn",
+      "reason": "Parent training configuration was -8 parking and2-4s commands, not0 and10s; original study does not fit current remaining time. R7P is a separate fixed-capacity short diagnostic with current training budget-blocked.",
+      "original_plan_commit": "f48554774747d3299c594165295e7f360c9c5d8c",
+      "at_utc": "2026-11-09T10:12:39.213Z",
+      "original_training_started_confirmed": false
     }
   ],
-  "latest_proposed_plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
-  "latest_issued_plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
+  "latest_proposed_plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+  "latest_issued_plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
   "latest_proposal": {
-    "plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
-    "status": "issued_to_Dot_conditional_execution_not_started_by_reviewer",
-    "path": "handoffs/training/plans/sac-r7-replay-precision-20261109/execution-plan.txt",
-    "parameters_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/parameters.json",
-    "entry_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/DOT_START_HERE.txt",
-    "execution_authorized_by_user_for_Dot_after_preflight": true,
-    "requires_separate_routine_user_confirmation": false,
+    "plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+    "status": "issued_preflight_and_archive_only_current_window_formal_training_budget_blocked",
+    "path": "handoffs/training/plans/sac-r7p-precision-pilot-20261109/execution-plan.txt",
+    "parameters_path": "handoffs/training/plans/sac-r7p-precision-pilot-20261109/parameters.json",
+    "entry_path": "handoffs/training/plans/sac-r7p-precision-pilot-20261109/DOT_START_HERE.txt",
     "training_started": false,
-    "parent_sha256": "cbcd57a45c5addf7c29d30d40e5f753965bd62da9ba57a227ab0866fcc8acac3",
-    "hard_cap_s": 34200
+    "formal_training_allowed_in_current_window": false,
+    "preflight_allowed": true,
+    "preflight_cap_s": 900,
+    "current_window_finish_UTC8": "2026-11-09T20:45:00+08:00",
+    "minimum_remaining_after_completed_preflight_s": 9720,
+    "original_R7": "withdrawn_parent_config_error_and_insufficient_budget"
   },
   "latest_executed_plan_id": "SAC-R6-STABILITY-20261109",
-  "latest_plan_start_path": "handoffs/training/plans/sac-r7-replay-precision-20261109/DOT_START_HERE.txt"
+  "latest_plan_start_path": "handoffs/training/plans/sac-r7p-precision-pilot-20261109/DOT_START_HERE.txt",
+  "original_R7_block": {
+    "status": "withdrawn_do_not_execute",
+    "parent_parking_weight_actual": -8,
+    "parent_command_resampling_s_actual": [
+      2,
+      4
+    ],
+    "static_reward_tests_reported_passed": 13,
+    "GPU_validation": "not_run",
+    "budget_baselines_minutes": {
+      "original_without384": 228,
+      "separate_short_pilot": 135
+    },
+    "current_window_finish_UTC8": "2026-11-09T20:45:00+08:00"
+  }
 }

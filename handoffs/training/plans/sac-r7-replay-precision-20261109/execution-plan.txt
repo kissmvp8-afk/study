@@ -1,3 +1,8 @@
+【原R7已撤回，不可执行】
+父训练配置应为停车项−8、命令保持2–4秒，旧正文0/10秒错误；当前时间也不足。
+改读 handoffs/training/plans/sac-r7p-precision-pilot-20261109/DOT_START_HERE.txt；当前只预检与归档，不启动正式训练。
+以下旧正文仅作历史，不能作为执行指令。
+
 TITA SAC-R7：回放保留与停车精度配对实验
 计划ID：SAC-R7-REPLAY-PRECISION-20261109
 状态：计划已签发给Dot，服务器未由审阅窗口启动；需要Dot完成以下执行前条件。

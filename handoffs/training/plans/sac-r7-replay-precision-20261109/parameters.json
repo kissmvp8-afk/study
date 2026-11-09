@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_id": "SAC-R7-REPLAY-PRECISION-20261109",
-  "status": "issued_to_Dot_conditional_execution_not_started_by_reviewer",
+  "status": "withdrawn_do_not_execute_parent_config_error_and_budget",
   "created_at_utc": "2026-11-09T09:48:30.519723+00:00",
   "handoff_path": "handoffs/training/plans/sac-r7-replay-precision-20261109",
   "authorization": {
@@ -389,5 +389,30 @@
     "changed actions/robot physics/observation dimensions",
     "jumping or real robot deployment",
     "automatic broad hyperparameter search after heldout failure"
-  ]
+  ],
+  "withdrawal": {
+    "replacement_plan_id": "SAC-R7P-PRECISION-PILOT-20261109",
+    "replacement_path": "handoffs/training/plans/sac-r7p-precision-pilot-20261109/DOT_START_HERE.txt",
+    "errors": [
+      {
+        "field": "common.existing_parking_body_velocity_weight",
+        "original": 0,
+        "actual": -8
+      },
+      {
+        "field": "common.command_resampling_s",
+        "original": [
+          10,
+          10
+        ],
+        "actual": [
+          2,
+          4
+        ]
+      }
+    ],
+    "old_values_retained_for_history_only": true,
+    "user_reported_minimum_duration_without384_minutes": 228,
+    "current_window_training_allowed": false
+  }
 }
