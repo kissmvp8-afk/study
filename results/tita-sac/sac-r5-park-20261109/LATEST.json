@@ -1,5 +1,5 @@
 {
-  "snapshot_utc": "20261109T011046Z",
+  "snapshot_utc": "20261109T014043Z",
   "controller": {
     "plan_id": "SAC-R5-PARK-20261109",
     "status": "running",
@@ -8,20 +8,40 @@
     "lease_verified": false,
     "lease_unknown_user_authorized": true,
     "hard_deadline_utc": "2026-11-09T10:09:28.263565+00:00",
-    "active_job": "r1-C0-1101",
-    "heartbeat_utc": "2026-11-09T01:10:43.457297+00:00"
+    "active_job": "r1-C0-1102",
+    "heartbeat_utc": "2026-11-09T01:40:43.701040+00:00"
   },
-  "evidence_sha256": "1a497a34903b1b960d059d9001e06eb631966f65f8796af43ef057e36df09904",
+  "evidence_sha256": "5ebf2d5366cee26992982ca492b450f376fe71ef074796687cf5bdf268f90930",
   "parts": [
     {
       "file": "evidence.zip.part001",
       "bytes": 24000000,
-      "sha256": "4beeefc7d36944fc10c52918d28922107eac998f51042a74f970beef1e611484"
+      "sha256": "a590c68c42664e1e77d00435b4f2cbfb0fb584669cf00febfc91f7fa58c6a62d"
     },
     {
       "file": "evidence.zip.part002",
-      "bytes": 21520683,
-      "sha256": "3d199640d763e99c9571d56070d12e9d5508c84989840a3e11d7352650d25a40"
+      "bytes": 24000000,
+      "sha256": "be33d11c56aa70bfc841dd30ef154bd195febd86c15050247263308aed0bf002"
+    },
+    {
+      "file": "evidence.zip.part003",
+      "bytes": 24000000,
+      "sha256": "c5e731f931898da97004d27f61e2873b04092f26ea0c582fdb8d29bcdb392800"
+    },
+    {
+      "file": "evidence.zip.part004",
+      "bytes": 24000000,
+      "sha256": "60ffd52cde9a7573166e9247ee3a96a104b11c4cf35d9e2206120a6ddde0dd95"
+    },
+    {
+      "file": "evidence.zip.part005",
+      "bytes": 24000000,
+      "sha256": "056f228614699eafe3342713d3ab3620c2255d6d10ddd65af2b3a6fbd8f9b68a"
+    },
+    {
+      "file": "evidence.zip.part006",
+      "bytes": 1988867,
+      "sha256": "8f72016740d9e97a94cb6b8e570236bc05434e91352ffd0bf352d2bce3aa473b"
     }
   ],
   "model_weights_included": false,
