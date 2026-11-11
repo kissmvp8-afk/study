@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "N": 128,
+      "reference_learning_macros": 1024,
+      "actual_learning_macros": 1024,
+      "prefill_actual_macros": 16,
+      "transitions": 1064960,
+      "critic_updates": 131072,
+      "actor_updates": 65536,
+      "budget_equal": true
+    },
+    {
+      "N": 128,
+      "reference_learning_macros": 2048,
+      "actual_learning_macros": 2048,
+      "prefill_actual_macros": 16,
+      "transitions": 2113536,
+      "critic_updates": 262144,
+      "actor_updates": 131072,
+      "budget_equal": true
+    },
+    {
+      "N": 64,
+      "reference_learning_macros": 1024,
+      "actual_learning_macros": 2048,
+      "prefill_actual_macros": 32,
+      "transitions": 1064960,
+      "critic_updates": 131072,
+      "actor_updates": 65536,
+      "budget_equal": true
+    },
+    {
+      "N": 64,
+      "reference_learning_macros": 2048,
+      "actual_learning_macros": 4096,
+      "prefill_actual_macros": 32,
+      "transitions": 2113536,
+      "critic_updates": 262144,
+      "actor_updates": 131072,
+      "budget_equal": true
+    },
+    {
+      "N": 32,
+      "reference_learning_macros": 1024,
+      "actual_learning_macros": 4096,
+      "prefill_actual_macros": 64,
+      "transitions": 1064960,
+      "critic_updates": 131072,
+      "actor_updates": 65536,
+      "budget_equal": true
+    },
+    {
+      "N": 32,
+      "reference_learning_macros": 2048,
+      "actual_learning_macros": 8192,
+      "prefill_actual_macros": 64,
+      "transitions": 2113536,
+      "critic_updates": 262144,
+      "actor_updates": 131072,
+      "budget_equal": true
+    }
+  ],
+  "all_six_budget_checks_passed": true,
+  "no_training_or_simulation_was_run": true
+}

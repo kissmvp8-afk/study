@@ -890,7 +890,7 @@
       "missing": "fixed C2 raw manifest, archive and initial failure/retry provenance"
     }
   ],
-  "latest_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+  "latest_plan_id": "SAC-R9L-LOCAL-QUALITY-20261111",
   "restrictions": [
     "no_new_conversations_or_windows",
     "no_model_setting_changes",
@@ -908,18 +908,25 @@
     "model_settings": "unchanged",
     "server_reported_next_run_time": null
   },
-  "latest_plan_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
-  "updated_at_utc": "2026-11-09T16:36:31.481084+00:00",
+  "latest_plan_path": "handoffs/training/plans/sac-r9l-local-quality-20261111/R9L_LOCAL_EXECUTION.txt",
+  "updated_at_utc": "2026-11-11T13:38:25Z",
   "latest_review_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
-  "latest_plan_addendum_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
-  "latest_plan_parameters_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/parameters.json",
-  "latest_plan_status": "H1_completed_failed_heldout_R9_proposal_available_not_activated",
+  "latest_plan_addendum_path": "handoffs/training/plans/sac-r9l-local-quality-20261111/LOCAL_3060_NEXT.txt",
+  "latest_plan_parameters_path": "handoffs/training/plans/sac-r9l-local-quality-20261111/parameters.json",
+  "latest_plan_status": "R9L_spec_delivered_local_collection_preflight_reported_pass_complete_learning_and_resume_validation_pending",
   "active_plan": {
-    "plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
-    "execution_status": "completed_independently_reviewed_candidate_failed10of10_gate",
-    "evidence_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
-    "review_path": "handoffs/training/reviews/sac-r8-h1-20261110-7935a653/review.txt",
-    "parent_replacement": false
+    "plan_id": "SAC-R9L-LOCAL-QUALITY-20261111",
+    "execution_status": "issued_pending_local_complete_CUDA_learning_and_resume_acceptance",
+    "entry_path": "handoffs/training/plans/sac-r9l-local-quality-20261111/LOCAL_3060_NEXT.txt",
+    "execution_spec_path": "handoffs/training/plans/sac-r9l-local-quality-20261111/R9L_LOCAL_EXECUTION.txt",
+    "parameters_path": "handoffs/training/plans/sac-r9l-local-quality-20261111/parameters.json",
+    "execution_target": "user_computer_RTX3060_Laptop",
+    "concurrent_processes": 1,
+    "num_envs": 128,
+    "wallclock_hard_cap_hours": null,
+    "parent_replacement": false,
+    "training_started_as_last_reported": false,
+    "reviewer_started_training": false
   },
   "plan_supersessions": [
     {
@@ -937,13 +944,20 @@
       "original_plan_commit": "f48554774747d3299c594165295e7f360c9c5d8c",
       "at_utc": "2026-11-09T10:12:39.213Z",
       "original_training_started_confirmed": false
+    },
+    {
+      "old_plan_id": "SAC-R9-OVERNIGHT-20261110",
+      "new_plan_id": "SAC-R9L-LOCAL-QUALITY-20261111",
+      "scope": "user_local_quality_priority_task",
+      "reason": "User changed to local computer; provided collection-only RTX3060Laptop preflight; retain controlled budgets, remove cloud four-worker and nine-hour requirements.",
+      "no_new_training_started_by_reviewer": true
     }
   ],
   "latest_proposed_plan_id": "SAC-R9-OVERNIGHT-20261110",
-  "latest_issued_plan_id": "SAC-R8-H1-FROZEN-HELDOUT-20261109",
+  "latest_issued_plan_id": "SAC-R9L-LOCAL-QUALITY-20261111",
   "latest_proposal": {
     "plan_id": "SAC-R9-OVERNIGHT-20261110",
-    "status": "planning_only_no_auto_dispatch",
+    "status": "superseded_for_this_local_task_by_issued_R9L",
     "path": "handoffs/training/proposals/sac-r9-overnight-20261110/OVERVIEW_ZH.txt",
     "parameters_path": "handoffs/training/proposals/sac-r9-overnight-20261110/parameters.json",
     "controller_contract": "handoffs/training/proposals/sac-r9-overnight-20261110/controller-contract.txt",
@@ -956,7 +970,7 @@
     "wall_clock_hard_cap_hours": 9
   },
   "latest_executed_plan_id": "SAC-R7P-C1-FROZEN-CONFIRM-20261109",
-  "latest_plan_start_path": "handoffs/training/reviews/sac-r8-20261109-1d4bcb41/next-plan.txt",
+  "latest_plan_start_path": "handoffs/training/plans/sac-r9l-local-quality-20261111/LOCAL_3060_NEXT.txt",
   "original_R7_block": {
     "status": "withdrawn_do_not_execute",
     "parent_parking_weight_actual": -8,
@@ -976,5 +990,16 @@
     "model": "R8 A1/1502-L48",
     "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
     "status": "failed_H1_research_warmstart_only_not_promoted"
+  },
+  "local_preflight_user_report": {
+    "index": "C:/Users/86193/tita-check/runs/r9l-preflight-20261111-201428/INDEX.txt",
+    "gpu": "RTX3060 Laptop",
+    "num_envs": 128,
+    "collected_transitions": 12288,
+    "collection_transitions_per_second_approx": 2265,
+    "whole_GPU_sampled_peak_MiB": 3267,
+    "disk_free_GiB": 153.6,
+    "source": "user_report_not_independently_accessed",
+    "complete_learning_and_resume_validation_pending": true
   }
 }
