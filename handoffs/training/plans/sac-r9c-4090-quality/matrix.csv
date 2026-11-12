@@ -1,0 +1,13 @@
+phase,arm,training_fork,num_envs,prefill_macros,max_learning_macros,expected_transitions_with_new_prefill,expected_attempts_each_critic_alpha_target_aux,expected_actor_attempts,start_parent,conditional_on_A_qualification
+A,Z0,1601,128,16,1024,1064960,131072,65536,R8-A1-1502-L48,False
+A,Z1,1601,128,16,1024,1064960,131072,65536,R8-A1-1502-L48,False
+A,Z0,1602,128,16,1024,1064960,131072,65536,R8-A1-1502-L48,False
+A,Z1,1602,128,16,1024,1064960,131072,65536,R8-A1-1502-L48,False
+A,Z0,1603,128,16,1024,1064960,131072,65536,R8-A1-1502-L48,False
+A,Z1,1603,128,16,1024,1064960,131072,65536,R8-A1-1502-L48,False
+B,B0,1701,128,16,2048,2113536,262144,131072,same_selected_qualified_A_parent,True
+B,B1,1701,128,16,2048,2113536,262144,131072,same_selected_qualified_A_parent,True
+B,B0,1702,128,16,2048,2113536,262144,131072,same_selected_qualified_A_parent,True
+B,B1,1702,128,16,2048,2113536,262144,131072,same_selected_qualified_A_parent,True
+B,B0,1703,128,16,2048,2113536,262144,131072,same_selected_qualified_A_parent,True
+B,B1,1703,128,16,2048,2113536,262144,131072,same_selected_qualified_A_parent,True

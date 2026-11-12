@@ -1,0 +1,9 @@
+# 核心依赖来自既往成功4090运行；冲突必须留证，不能静默升级Torch。
+torch==2.7.0+cu128
+torchvision==0.22.0+cu128
+isaacsim==5.1.0.0
+numpy==1.26.0
+tensordict==0.14.3
+h5py==3.16.0
+rsl-rl-lib==3.0.1
+setuptools<81

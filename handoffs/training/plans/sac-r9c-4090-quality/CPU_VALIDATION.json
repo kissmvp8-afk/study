@@ -1,0 +1,10 @@
+{
+  "shell_syntax_passed": true,
+  "installer_help_and_print_plan_passed": true,
+  "Python_source_compiles_without_importing_Isaac": true,
+  "training_matrix_count_and_expected_counters_passed": true,
+  "matched_pair_wave_rotation_checks_passed": true,
+  "GPU_installation_executed_here": false,
+  "Isaac_or_training_executed_here": false,
+  "new_server_actual_stack_must_be_validated": true
+}

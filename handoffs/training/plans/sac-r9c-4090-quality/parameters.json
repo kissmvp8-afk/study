@@ -1,0 +1,266 @@
+{
+  "basis_commit": "890cacb9d14519bb028c4d51f11d9c4d401d8165",
+  "source_H1_commit": "7935a653b8f801fa946cbc6676e061a4438de39e",
+  "common": {
+    "actor_lr": 1e-05,
+    "critic_lr": 0.0002,
+    "alpha_lr": 2e-05,
+    "auxiliary_lr": 0.001,
+    "replay_capacity_total": 65536,
+    "steps_per_macro": 8,
+    "prefill_macros": 16,
+    "critic_alpha_target_aux_updates_per_learning_macro": 128,
+    "actor_updates_per_learning_macro": 64,
+    "batch_size": 256,
+    "gamma": 0.97,
+    "n_steps": 5,
+    "tau": 0.003,
+    "max_grad_norm": 1.0,
+    "parking_weight": -8,
+    "precision_weight": 0,
+    "observation_noise": "on",
+    "tf32": false,
+    "cache": false,
+    "native_alpha_std_inherited": true,
+    "num_envs": 128
+  },
+  "warmstart": {
+    "name": "R8 A1/1502-L48",
+    "sha256": "7da5bcb7929d162da32735cdf9ec9c37a85a71bd7d2615c4b2b8f674a1ca78d1",
+    "bytes": 9168307,
+    "status": "research_start_not_promoted",
+    "keep_R6_parent": true
+  },
+  "phase_A": {
+    "arms": [
+      "Z0",
+      "Z1"
+    ],
+    "training_forks": [
+      1601,
+      1602,
+      1603
+    ],
+    "max_reference_learning_macros_per_trajectory": 1024,
+    "reset_zero_seconds": {
+      "Z0": 0,
+      "Z1": 3
+    },
+    "full_development_checkpoints": [
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "fast_probe_checkpoints": [
+      16,
+      768
+    ],
+    "development_seeds": [
+      231,
+      232,
+      233,
+      234,
+      235,
+      261,
+      262,
+      263,
+      264,
+      265
+    ],
+    "executions": [
+      "D",
+      "S"
+    ],
+    "qualification": {
+      "survival": 20,
+      "passes": 20,
+      "max_mean_P": 0.04,
+      "max_mean_W": 0.08,
+      "max_mean_Mavg": 0.08
+    },
+    "direction_effect_rule": "at least 2/3 matched forks at equal budget; third always disclosed; all3 required to claim three-fork reproduction",
+    "all_physical_rebuild_barriers": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      768,
+      1024
+    ],
+    "direction_effect_reference_L": 1024
+  },
+  "phase_B": {
+    "conditional_on_qualified_A": true,
+    "arms": [
+      "B0",
+      "B1"
+    ],
+    "training_forks": [
+      1701,
+      1702,
+      1703
+    ],
+    "max_reference_learning_macros_per_trajectory": 2048,
+    "command_mixture": {
+      "zero": 0.3,
+      "straight": 0.35,
+      "arc": 0.35,
+      "straight_abs_vx_range": [
+        0.15,
+        0.45
+      ],
+      "arc_vx_range": [
+        0.1,
+        0.3
+      ],
+      "arc_abs_wz_range": [
+        0.3,
+        0.7
+      ],
+      "vy": 0,
+      "signs_balanced": true,
+      "hold_seconds": [
+        2,
+        4
+      ]
+    },
+    "force_levels_N": [
+      0,
+      5,
+      10,
+      20
+    ],
+    "force_duration_seconds": 0.2,
+    "force_frame": "body",
+    "zero_torque": true,
+    "shared_level_gate_requires_all_three_B1": true,
+    "fast_probe_checkpoints": [
+      256,
+      512,
+      1024,
+      1536
+    ],
+    "full_development_checkpoints": [
+      512,
+      1024,
+      2048
+    ],
+    "direction_effect_reference_L": 2048,
+    "max_curriculum_level_changes_only_at": [
+      256,
+      512,
+      1024,
+      1536
+    ],
+    "full_development_cases_per_model": 27,
+    "full_development_cases_all6": 162,
+    "gates_require_all_B1_forks": 3
+  },
+  "final_test": {
+    "standard_seeds": [
+      271,
+      272,
+      273,
+      274,
+      275
+    ],
+    "turn_seeds": [
+      281,
+      282,
+      283
+    ],
+    "push_seeds": [
+      291,
+      292,
+      293
+    ],
+    "verify_unused_and_lock_before_new_training_results": true,
+    "max_standard_models": 9,
+    "max_turn_models": 7,
+    "max_push_models": 7,
+    "max_standard_cases": 90,
+    "max_turn_cases": 21,
+    "max_push_cases": 84,
+    "max_core_cases": 195,
+    "per_model_gates": {
+      "standard": 10,
+      "turn": 3,
+      "push20N": 12
+    },
+    "no_extra_30N_in_this_local_run": true,
+    "selection_before_opening": true
+  },
+  "checkpoint": {
+    "model_every_reference_learning_macros": 64,
+    "full_every_reference_learning_macros": 256,
+    "full_max_minutes": 30,
+    "physical_state_restored": false,
+    "resume_starts_new_physical_episode": true,
+    "at_least_one_control_and_curriculum_real_resume_test": true,
+    "num_models_per_stage": 6
+  },
+  "training_budget_max_if_both_phases_complete": {
+    "A": {
+      "trajectories": 6,
+      "transitions_per_trajectory": 1064960,
+      "critic_alpha_target_aux_updates_each_per_trajectory": 131072,
+      "actor_updates_per_trajectory": 65536
+    },
+    "B": {
+      "trajectories": 6,
+      "transitions_per_trajectory": 2113536,
+      "critic_alpha_target_aux_updates_each_per_trajectory": 262144,
+      "actor_updates_per_trajectory": 131072
+    },
+    "campaign_transitions": 19070976,
+    "campaign_critic_updates": 2359296,
+    "campaign_actor_updates": 1179648
+  },
+  "plan_id": "SAC-R9C-4090-QUALITY",
+  "status": "issued_spec_pending_actual_server_implementation_and_GPU_acceptance",
+  "execution_controller_implemented_or_GPU_validated_by_reviewer": false,
+  "runtime_policy": {
+    "target_GPU": "RTX4090 24GiB",
+    "num_envs_per_worker": 128,
+    "max_concurrent_training_processes": 4,
+    "fallback_process_counts": [
+      2,
+      1
+    ],
+    "reduce_concurrency_not_sample_density": true,
+    "trajectories_per_phase": 6,
+    "four_worker_wave_sizes": [
+      4,
+      2
+    ],
+    "keep_matched_fork_pairs_in_same_wave": true,
+    "rotate_wave_pair_order_each_common_checkpoint": true,
+    "serial_Kit_initialization": true,
+    "no_training_apps_resident_during_frozen_evaluation": true,
+    "max_wallclock_hours_from_conservative_instance_anchor": 24,
+    "actual_lease_takes_precedence": true,
+    "lease_not_assumed_renewed": true,
+    "finalization_reserve_min_minutes": 90,
+    "formal_parent_replacement": false,
+    "auto_start_after_server_acceptance": true,
+    "no_automatic_purchase_or_renewal": true
+  },
+  "evidence": {
+    "every_eval_step_and_exact_used_noisy_inputs": true,
+    "all_macro_records_lossless": true,
+    "failure_metadata_all": true,
+    "max_complete_failure_windows_per_trajectory_per_phase": 50,
+    "failure_window_frames_before_done": 64,
+    "offline_diagnostic_real_development_states": 256,
+    "max_full_video_replays": 8,
+    "single_final_index": true,
+    "light_review_zip_target_MiB": 20,
+    "do_not_put_weights_or_replay_in_git_history": true,
+    "external_backup_actual_download_required": true
+  }
+}

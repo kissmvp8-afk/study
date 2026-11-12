@@ -1,0 +1,25 @@
+{
+  "source_pins_verified_via_GitHub_metadata": [
+    {
+      "repo": "isaac-sim/IsaacLab",
+      "sha": "3c6e67bb5c7ada942a6d1884ab69338f57596f77",
+      "tree": "7ed2a5984e0a7fd35e7192070b38bfcc2f4c57e1"
+    },
+    {
+      "repo": "DDTRobot/DDT_Lab",
+      "sha": "701a49c6e78dfb93a8b30145f0e7723b22921c0b",
+      "tree": "88bb121c956f8704302cc5fdfae10e614b77c634"
+    },
+    {
+      "repo": "DDTRobot/ddt_ros2_control",
+      "sha": "e7b32d9746df900680641ff2845ffb0b5ffe99ed",
+      "tree": "ff5498eae8bea99d804ef50ee25b65fde21b798f"
+    }
+  ],
+  "official_installation_reference": "https://github.com/isaac-sim/IsaacLab/blob/v2.3.0/docs/source/setup/installation/pip_installation.rst",
+  "official_install_command": "pip install \"isaacsim[all,extscache]==5.1.0\" --extra-index-url https://pypi.nvidia.com",
+  "task_installation_choice": "isaacsim[all]==5.1.0; omit bulk extscache as in previous successful limited-disk server, resolve specific required extensions during smoke",
+  "torch_reference": "torch2.7.0 torchvision0.22.0 --index-url https://download.pytorch.org/whl/cu128",
+  "historical_extra_package_pin_source": "prior successful PPO/R8 evidence metadata, not newly GPU-validated here",
+  "compatibility_cap": "setuptools<81 retains pkg_resources used by older dependencies; record actual chosen version"
+}

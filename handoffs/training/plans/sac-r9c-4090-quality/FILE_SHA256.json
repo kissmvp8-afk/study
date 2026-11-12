@@ -1,0 +1,14 @@
+{
+  "4090_RUN.txt": "c88d536bed0fac31fac6d3726488131f46de6124de1c2129ba587c078c38515a",
+  "CPU_VALIDATION.json": "a109b4ebbace2f1d4ea07c876cdf449fd961c059df5422cedb4f61c969d301be",
+  "README.md": "00cd70cddbee4475a140ebf0cd2c11af6b97e43b9671f8254220eb2fce369fce",
+  "README_HUMAN.md": "af6a28533f27d03d12af1c66d70d0719cb9f844e63b6d0aa8a1961fe056ecb5e",
+  "START_HERE.txt": "e62665fa3f2facc4ec109b6a22c07fc1eb9ede6e30d77a57da7ace7e06419e2c",
+  "budget.json": "6d5082e566da6b272a666ecb2a0235a8f62f45646ba11ca22efd524c3f6fd882",
+  "constraints.txt": "7c08ef8ad56844b480bfa335b48c12a7815180fc441a5698e089c9cb5b29ee43",
+  "matrix.csv": "596e4850b7b3e014d23095347fc23d7f4ff0f2c0a05b00d7f73bd8bcd30f2df3",
+  "parameters.json": "65f6d97dd1e13b4934242ca4afefce9b682833b7fe6d9bff2040360433f29fcb",
+  "setup_4090.sh": "20f08cd59305718625092c00e9e9a088057bc0ed6eb60c69e7f934d5e9fdcc00",
+  "smoke_runtime.py": "eea9068ded6b8a00ee567bfc9e582843de73b32e6e0dc2bcd46db4e02e7bef2c",
+  "source-provenance.json": "108e362bce557c56aba423d85a1780e3393778b10e0ad0a8a6dc37917b2d432a"
+}

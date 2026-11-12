@@ -1,0 +1,98 @@
+{
+  "all_counts_are_expected_not_observed": true,
+  "max_phases": 2,
+  "max_trajectories_each_phase": 6,
+  "max_training_transitions_total": 19070976,
+  "max_each_critic_alpha_target_aux_attempts_total": 2359296,
+  "max_actor_attempts_total": 1179648,
+  "phase_A_learning_reference_L": 1024,
+  "phase_B_learning_reference_L": 2048,
+  "same_endpoint_required_all_six": true,
+  "wave_rotation_examples_zero_based_trajectories": [
+    {
+      "checkpoint_number": 0,
+      "four_slots": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "two_slots": [
+        4,
+        5
+      ]
+    },
+    {
+      "checkpoint_number": 1,
+      "four_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "two_slots": [
+        0,
+        1
+      ]
+    },
+    {
+      "checkpoint_number": 2,
+      "four_slots": [
+        4,
+        5,
+        0,
+        1
+      ],
+      "two_slots": [
+        2,
+        3
+      ]
+    },
+    {
+      "checkpoint_number": 3,
+      "four_slots": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "two_slots": [
+        4,
+        5
+      ]
+    },
+    {
+      "checkpoint_number": 4,
+      "four_slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "two_slots": [
+        0,
+        1
+      ]
+    },
+    {
+      "checkpoint_number": 5,
+      "four_slots": [
+        4,
+        5,
+        0,
+        1
+      ],
+      "two_slots": [
+        2,
+        3
+      ]
+    }
+  ],
+  "development_A_full_case_rows_max": 720,
+  "development_A_fast_probe_case_rows_max": 48,
+  "development_B_full_case_rows_max": 486,
+  "development_B_fast_plan_case_rows_max_before_dedup": 312,
+  "final_core_case_rows_max": 195,
+  "time_prediction_requires_full_learning_and_all_eval_not_collection_speed": true,
+  "total_consumed_compute_differs_from_final_retained_lineage": true
+}
