@@ -1,0 +1,213 @@
+{
+  "candidate_sha256": {
+    "r10_capture.py": "f4662670570631263979b508762b6ecf6cdb807650f5a8e779ebbae262fc3df0",
+    "r10_controller.py": "212792c5c7801780431904ef314570fd74d128816ccb61d18e56be1ceb483a77",
+    "r10_worker.py": "4b9782589a2ecbc68e4e23d678b62ef0e8bc9400385e1bce2f2a2657d148ffad",
+    "validate_r10p.py": "975a5f1e199c6a46b649974fa2bf173fd5d63a50bb5b56f53f2e94a6e0c4e73d"
+  },
+  "code_changes": [
+    {
+      "change": "B5 worker L32 save + rendering read-back asserts + PLAN_ID R11",
+      "files": {
+        "r10_training.py": "104c1fa938ff50cca2947d80dc2b1c8b22ef5ecf58b5faa888dc8d19b60ab49b",
+        "r10_worker.py": "f271018dff806db5a2cc5113a9394e40e18dc8774ee210a49d1e47a7d5e5d823"
+      },
+      "previous_sha256": {
+        "r10_training.py": "646ffef2a1557a703530dd04846a02b960dd70acb2087c9f97b16700c16ce83f",
+        "r10_worker.py": "4b9782589a2ecbc68e4e23d678b62ef0e8bc9400385e1bce2f2a2657d148ffad"
+      },
+      "utc": "2026-11-14T02:14:22.634519Z"
+    },
+    {
+      "change": "B6 smoke --target (1, 32) generalization",
+      "files": {
+        "r10_smoke.py": "a0654ba80e4fe7a0a8d3a0e6789df878a6ff2b44c9272a01d7b2ff140f733168"
+      },
+      "previous_sha256": {
+        "r10_smoke.py": "888191cdb5ef9b1b469c34d73b9d6fa18a8ee36438e69d08a7b3e0d755b4075b"
+      },
+      "utc": "2026-11-14T02:22:53.699976Z"
+    },
+    {
+      "change": "B6-fix smoke LEARN emit counter keys (_updates)",
+      "files": {
+        "r10_smoke.py": "080971d07d92afecea252232a54255080952d2d500f16dcfec3e1902466b4769"
+      },
+      "previous_sha256": {
+        "r10_smoke.py": "a0654ba80e4fe7a0a8d3a0e6789df878a6ff2b44c9272a01d7b2ff140f733168"
+      },
+      "utc": "2026-11-14T02:40:05.712415Z"
+    },
+    {
+      "change": "B6-fix2 smoke RewardOnce.finish + finish_capture target parameterization",
+      "files": {
+        "r10_smoke.py": "ebff6e9d7da90bb743cdb827ca1d1e2fc8c86901896d24f53ca45224822fb73a"
+      },
+      "previous_sha256": {
+        "r10_smoke.py": "080971d07d92afecea252232a54255080952d2d500f16dcfec3e1902466b4769"
+      },
+      "utc": "2026-11-14T02:47:54.765569Z"
+    },
+    {
+      "change": "B9 six-fork R11 controller",
+      "files": {
+        "r11_controller.py": "3fcc1ca424f5c9e9c82416a244b9f5fd36d57dd22c79adc8b878b28112d0855a"
+      },
+      "previous_sha256": {
+        "r10_controller.py": "212792c5c7801780431904ef314570fd74d128816ccb61d18e56be1ceb483a77"
+      },
+      "utc": "2026-11-14T03:06:44.174346Z"
+    },
+    {
+      "change": "B11 eval adapter R11 seeds",
+      "files": {
+        "r11_eval_adapter/evaluation_r9c_helpers.py": "60d3cb06bb2cc78c4810a49f9c1519991b3ea1826d9bac5b5f47ac9a738e232b",
+        "r11_eval_adapter/test_cpu.py": "8fdf22a23264d34de47863cc42635dd91b2c25b8d25ac4ddf0d5db250e276267"
+      },
+      "previous_sha256": {
+        "r10_eval_adapter/evaluation_r9c_helpers.py": "014c8a22aa1e5e903f77fb058a2376a66453dda328c8562ad4b758a52d5cb0c6"
+      },
+      "utc": "2026-11-14T03:12:19.947226Z"
+    },
+    {
+      "change": "B12 eval-adapter subcommand",
+      "files": {
+        "r11_validate.py": "593189316b798a511c60a2e17923a8069783b02e5c703c4c78baa0e792be461d"
+      },
+      "previous_sha256": {
+        "r11_validate.py": "fef82583ecd4db1419eb5864bc56fb1be9a12f5e872ea1eb6176b41cf58ac546"
+      },
+      "utc": "2026-11-14T03:34:20.809270Z"
+    },
+    {
+      "change": "readiness subcommand for r11_preflight.py (delegates to r11_resources.check_readiness)",
+      "files": {
+        "r11_preflight.py": "6d238679a9755edf78698bdea4e68fcba81c2e262dc2d3c1cefdde7df7058c40"
+      },
+      "previous_sha256": {
+        "r11_preflight.py": "49961d31b764fc1472d07e74548f6d755b04688e89717cc4fdb2a1d49c27d827"
+      },
+      "utc": "2026-11-14T03:59:56.681451Z"
+    },
+    {
+      "change": "R11 gate maps: R11 seed sets, 6 forks, L32/L64/L128 nodes; formula unchanged",
+      "files": {
+        "r10_gate.py": "a1f6fb7cb6656115f1d704cdc62cc124f1189640460ada8dd15dec7e969507c1"
+      },
+      "previous_sha256": {
+        "r10_gate.py": "e2c801837bd7db849ab116d9b73801dc7cf2076b06b69860de34de6afa852969"
+      },
+      "utc": "2026-11-14T05:22:22.457938Z"
+    },
+    {
+      "change": "R11 evaluator: locked R11 seeds/amendment, fork seeds, verified L32/L64/L128 headers, and L32 admission",
+      "files": {
+        "r10_eval.py": "35d1b0a4779f3483de5eb8bcb192ed95d8d643513d3c5b82b8c86559e81a5ced"
+      },
+      "previous_sha256": {
+        "r10_eval.py": "86d8bc3489596d1f9be7c7bab0a05d59420c22381b7e23ff277a7805682148bd"
+      },
+      "utc": "2026-11-14T05:23:49.528326Z"
+    }
+  ],
+  "created_utc": "2026-11-14T02:14:16Z",
+  "parent": {
+    "path": "/root/sj-tmp/r9c-source/A-L256-wave1/Z0-1603/full-L0256.pt",
+    "sha256": "83e1d12954c7de7a9a4040635e4ea5a1e2679ae53efc14705412fa5570671063"
+  },
+  "seed_history_audit": {
+    "file": "/root/sj-tmp/r9c-source/R11-precision-replication-20261114/validation/seed-audit.json",
+    "sha256": "ba9835fd35bcfc3630a9be644d7e759dbc3b88dda2a7ddc23a3f841daa7bff74"
+  },
+  "seeds": {
+    "dev": [
+      1301,
+      1302,
+      1303,
+      1304,
+      1305,
+      1111,
+      1112,
+      1113,
+      1114,
+      1115
+    ],
+    "held_out": [
+      1121,
+      1122,
+      1123,
+      1124,
+      1125,
+      1131,
+      1132,
+      1133,
+      1134,
+      1135
+    ],
+    "smoke": [
+      1161,
+      1162,
+      1163,
+      1164,
+      1165,
+      1166,
+      1167,
+      1168,
+      1169,
+      1170,
+      1171,
+      1172,
+      1173,
+      1174,
+      1175,
+      1176,
+      1177,
+      1178,
+      1179,
+      1180,
+      1181,
+      1182,
+      1183,
+      1184
+    ],
+    "smoke_roles": {
+      "eval_restart": 1181,
+      "reserved": [
+        1163,
+        1164,
+        1165,
+        1166,
+        1167,
+        1168,
+        1169,
+        1170,
+        1177,
+        1178,
+        1179,
+        1180,
+        1182,
+        1183,
+        1184
+      ],
+      "single_control": 1161,
+      "single_precision": 1162,
+      "wave_smoke": [
+        1171,
+        1172,
+        1173,
+        1174,
+        1175,
+        1176
+      ]
+    },
+    "training_forks": {
+      "control-1": 1141,
+      "control-2": 1142,
+      "control-3": 1143,
+      "precision-1": 1151,
+      "precision-2": 1152,
+      "precision-3": 1153
+    }
+  },
+  "study_id": "R11-PRECISION-REPLICATION"
+}

@@ -1,0 +1,924 @@
+# No changes yet; inherited copies only.
+--- r10_training.py
++++ r10_training.py
+@@ -43,7 +43,7 @@
+    text=json.dumps(row,allow_nan=False);f.write(text+'\n');f.flush()
+    (out/'heartbeat.json').write_text(text)
+    print('LEARNING_PROGRESS',text,flush=True)
+-   if L%64==0:checkpoint.save_checkpoint(trainer,out/f'model-L{L:04d}.pt',include_replay=False)
++   if L%64==0 or L==32:checkpoint.save_checkpoint(trainer,out/f'model-L{L:04d}.pt',include_replay=False)
+    if L%256==0 or time.monotonic()-last_save>=1800 or L==target:
+     dest=out/f'full-L{L:04d}.pt'
+     checkpoint.save_checkpoint(trainer,dest,include_replay=True)
+--- r10_worker.py
++++ r10_worker.py
+@@ -16,6 +16,8 @@
+ settings=carb.settings.get_settings()
+ settings.set('/app/asyncRendering',False)
+ settings.set('/app/asyncRenderingLowLatency',False)
++assert settings.get('/app/asyncRendering') is False, 'asyncRendering did not stay False after AppLauncher'
++assert settings.get('/app/asyncRenderingLowLatency') is False, 'asyncRenderingLowLatency did not stay False after AppLauncher'
+ print('STAGE_APP_READY',flush=True)
+ from isaac_env import TitaSacHooks
+ from r9_z1_hooks import Z1Hooks
+@@ -322,7 +324,7 @@
+  out=Path(os.environ['R9_OUTPUT'])
+  out.mkdir(exist_ok=False)
+  args=SimpleNamespace(seed=seed,device='cuda:0',learner_device='cuda:0',output_dir=out,arm='R9C')
+- ns=dict(replace=replace,asdict=asdict,write_json=write_json,PLAN_ID='R10P-PRECISION-SCREEN',configure=configure,R8Hooks=(Z1Hooks if arm=='Z1' else TitaSacHooks),DeviceEnv=DeviceEnv)
++ ns=dict(replace=replace,asdict=asdict,write_json=write_json,PLAN_ID='R11-PRECISION-REPLICATION',configure=configure,R8Hooks=(Z1Hooks if arm=='Z1' else TitaSacHooks),DeviceEnv=DeviceEnv)
+  source=(HERE/'effective_make_trainer.py').read_text().replace("EpisodeLifecycle(hooks, 'isaac_flat', q_dim)","EpisodeLifecycle(hooks, 'isaac_flat', q_dim, output_device='cuda:0')").replace('batch_size=256,','actor_lr=1e-5, batch_size=256,')
+  source=source.replace("Trainer(config, EpisodeLifecycle(hooks, 'isaac_flat', q_dim, output_device='cuda:0'), contract)","Trainer(config, DeviceEnv(EpisodeLifecycle(hooks, 'isaac_flat', q_dim, output_device='cuda:0')), contract)")
+  exec(compile(source,'effective_make_trainer-adapted.py','exec'),ns)
+--- r10_smoke.py
++++ r10_smoke.py
+@@ -39,7 +39,7 @@
+     parser.add_argument("--precision", required=True, choices=("0", "0.5"))
+     parser.add_argument("--seed", required=True, type=int)
+     parser.add_argument("--output", required=True, type=Path)
+-    parser.add_argument("--target", type=int, choices=(1,), default=1)
++    parser.add_argument("--target", type=int, choices=(1, 32), default=1)
+     parser.add_argument("--capture-dir", type=Path)
+     args = parser.parse_args()
+ 
+@@ -510,7 +510,7 @@
+         R10_PRECISION=args.precision,
+         R9_SEED=str(args.seed),
+         R9_ARM="Z0",
+-        R9_TARGET="1",
++        R9_TARGET=str(args.target),
+         R9_OUTPUT=str(args.output),
+     )
+     os.environ.pop("R9_START_GATE", None)
+@@ -550,7 +550,7 @@
+         require(out.resolve() == args.output, "worker output mismatch")
+         require(seed == args.seed, "worker seed mismatch")
+         require(worker_locals["arm"] == "Z0", "worker arm mismatch")
+-        require(worker_locals["target"] == 1, "worker target mismatch")
++        require(worker_locals["target"] == args.target, "worker target mismatch")
+ 
+         # Exactly the worker's post-build config replacement and weight asserts.
+         trainer.config = replace(
+@@ -598,21 +598,22 @@
+         emit("WARM_START PASS")
+         emit("PREFILL macros=16")
+ 
+-        row, saved_counters = learning_macro(trainer, run_macro)
+-        require(saved_counters["iterations"] == 17, "learning macro is not L=1")
++        saved_counters = None
+         with (out / "training.jsonl").open("a") as stream:
+-            stream.write(json.dumps(
+-                dict(row, learning_macro=1, smoke=True), allow_nan=False
+-            ) + "\n")
+-
+-        model = out / "model-L0001.pt"
+-        full = out / "full-L0001.pt"
++            for macro_index in range(args.target):
++                row, saved_counters = learning_macro(trainer, run_macro)
++                stream.write(json.dumps(
++                    dict(row, learning_macro=macro_index + 1, smoke=True), allow_nan=False
++                ) + "\n")
++        require(saved_counters["iterations"] == 16 + args.target, "learning macros did not reach target")
++        model = out / f"model-L{args.target:04d}.pt"
++        full = out / f"full-L{args.target:04d}.pt"
+         checkpoint.save_checkpoint(trainer, model, include_replay=False)
+         checkpoint.save_checkpoint(trainer, full, include_replay=True)
+         full.with_suffix(".sha256").write_text(
+             hashlib.sha256(full.read_bytes()).hexdigest()
+         )
+-        emit("LEARN L=1 critic=128 actor=64 alpha=128 target=128 aux=128 fail_delta=0")
++        emit(f"LEARN L={args.target} critic={saved_counters['critic'] - warm['critic']} actor={saved_counters['actor'] - warm['actor']} alpha={saved_counters['alpha'] - warm['alpha']} target={saved_counters['target'] - warm['target']} aux={saved_counters['auxiliary'] - warm['auxiliary']} fail_delta=0")
+ 
+         r10_training.restore(trainer, full)
+         require(
+@@ -621,7 +622,7 @@
+         )
+         check_live_config(trainer, torch)
+         restore_row, restored_after = learning_macro(trainer, run_macro)
+-        require(restored_after["iterations"] == 18, "restore macro count mismatch")
++        require(restored_after["iterations"] == 17 + args.target, "restore macro count mismatch")
+         (out / "restore-smoke.json").write_text(json.dumps(
+             {"row": restore_row, "counters": restored_after},
+             indent=2,
+@@ -638,10 +639,10 @@
+             "precision": precision,
+             "seed": seed,
+             "prefill_macros": 16,
+-            "learning_macros": 1,
++            "learning_macros": args.target,
+             "restore_macros": 1,
+             "outer_env_steps": reward.compute_calls,
+-            "transitions": 18432,
++            "transitions": (17 + args.target) * 1024,
+             "capture_enabled": args.capture_dir is not None,
+             "counters": restored_after,
+             "full_checkpoint": str(full),
+--- r10_smoke.py
++++ r10_smoke.py
+@@ -613,7 +613,7 @@
+         full.with_suffix(".sha256").write_text(
+             hashlib.sha256(full.read_bytes()).hexdigest()
+         )
+-        emit(f"LEARN L={args.target} critic={saved_counters['critic'] - warm['critic']} actor={saved_counters['actor'] - warm['actor']} alpha={saved_counters['alpha'] - warm['alpha']} target={saved_counters['target'] - warm['target']} aux={saved_counters['auxiliary'] - warm['auxiliary']} fail_delta=0")
++        emit(f"LEARN L={args.target} critic={saved_counters['critic_updates'] - warm['critic_updates']} actor={saved_counters['actor_updates'] - warm['actor_updates']} alpha={saved_counters['alpha_updates'] - warm['alpha_updates']} target={saved_counters['target_updates'] - warm['target_updates']} aux={saved_counters['auxiliary_updates'] - warm['auxiliary_updates']} fail_delta=0")
+ 
+         r10_training.restore(trainer, full)
+         require(
+--- r10_smoke.py
++++ r10_smoke.py
+@@ -198,7 +198,7 @@
+ class RewardOnce:
+     """Instrument outer Isaac env steps, not physics substeps."""
+ 
+-    def __init__(self, trainer, step_target, env, precision, torch):
++    def __init__(self, trainer, step_target, env, precision, torch, total_macros=18):
+         # step_target is the DeviceEnv whose step drives collection; the
+         # lifecycle drives physics and rewards via hooks.compute_rewards()
+         # and never calls the raw env step, so wrapping hooks.env.step would
+@@ -209,6 +209,7 @@
+         self.env = env
+         self.manager = env.reward_manager
+         self.precision = precision
++        self.total_macros = total_macros
+         self.torch = torch
+         self.steps = []
+         self.pending = None
+@@ -390,10 +391,10 @@
+             self.pending = None
+ 
+     def finish(self):
+-        require(len(self.steps) == 18 * 8, "expected 144 outer env steps")
+-        require(self.compute_calls == 144, "expected exactly 144 reward computes")
++        require(len(self.steps) == self.total_macros * 8, f"expected {self.total_macros * 8} outer env steps")
++        require(self.compute_calls == self.total_macros * 8, f"expected exactly {self.total_macros * 8} reward computes")
+         learning = [record for record in self.steps if record["learning"]]
+-        require(len(learning) == 16, "expected 8 learning + 8 restore outer steps")
++        require(len(learning) == (self.total_macros - 16) * 8, f"expected {(self.total_macros - 17) * 8} learning + 8 restore outer steps")
+         expected_calls = 1 if self.precision == 0.5 else 0
+         require(
+             all(record["precision_calls"] == expected_calls for record in self.steps),
+@@ -430,7 +431,7 @@
+     return row, after
+ 
+ 
+-def finish_capture(devices, directory, namespace=None):
++def finish_capture(devices, directory, namespace=None, expected_transitions=18432):
+     """Close the worker's capture hook and validate the real index accounting.
+ 
+     The capture is the TransitionCapture opened by the patched worker's
+@@ -495,10 +496,10 @@
+             f"capture segment hash mismatch: {entry['file']}",
+         )
+     require(
+-        transitions == 18432,
+-        f"capture transitions={transitions}, expected=18432",
+-    )
+-    emit("CAPTURE PASS transitions=18432 dropped=0")
++        transitions == expected_transitions,
++        f"capture transitions={transitions}, expected={expected_transitions}",
++    )
++    emit(f"CAPTURE PASS transitions={expected_transitions} dropped=0")
+ 
+ 
+ 
+@@ -580,7 +581,7 @@
+ 
+         # Installed before prefill, including the zero-weight control case.
+         require(len(devices) == 1, "expected exactly one DeviceEnv")
+-        reward = RewardOnce(trainer, devices[0], hooks.env, precision, torch)
++        reward = RewardOnce(trainer, devices[0], hooks.env, precision, torch, total_macros=17 + args.target)
+ 
+         # The smoke intercepts right after trainer assignment, before the
+         # worker's own _r10_open_capture call; open it here so prefill is captured.
+@@ -631,7 +632,7 @@
+ 
+         # Reports follow the requested order; restore has already been checked.
+         reward.finish()
+-        finish_capture(devices, args.capture_dir, namespace)
++        finish_capture(devices, args.capture_dir, namespace, expected_transitions=(17 + args.target) * 1024)
+         emit("CHECKPOINT_RESTORE PASS")
+ 
+         result = {
+--- r10_controller.py
++++ r11_controller.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Four-fork R10P controller. No automatic worker restarts or lock removal."""
++"""Six-fork R11 controller (two waves of 4+2). No automatic worker restarts or lock removal."""
+ import argparse
+ import collections
+ import datetime
+@@ -19,12 +19,14 @@
+ import threading
+ import time
+ 
+-CANDIDATE = Path("/root/sj-tmp/r9c-source/R10P-precision-screen-20261113")
++CANDIDATE = Path("/root/sj-tmp/r9c-source/R11-precision-replication-20261114")
+ PYTHON = "/root/sj-tmp/tita/.venv/bin/python"
+ ACTIVATE = "/root/sj-tmp/tita/activate_task.sh"
+ PARENT = "83e1d12954c7de7a9a4040635e4ea5a1e2679ae53efc14705412fa5570671063"
+-NAMES = ("control-1", "control-2", "precision-1", "precision-2")
+-DEFAULT_TAG = "r10p-precision-screen-20261114"
++NAMES = ("control-1", "control-2", "control-3", "precision-1", "precision-2", "precision-3")
++WAVE1 = ("control-1", "control-2", "precision-1", "precision-2")
++WAVE2 = ("control-3", "precision-3")
++DEFAULT_TAG = "r11-precision-replication-20261114"
+ DEFAULT_REPO = "kissmvp8-afk/study"  # study repo; coordinator-verified, do not change without approval
+ STOP = 0
+ 
+@@ -197,7 +199,7 @@
+                 repo = self.repo
+                 if not re.fullmatch(r"[^/\s]+/[^/\s]+", repo):
+                     raise RuntimeError(f"Invalid release repository: {repo!r}")
+-                asset = f"{name}--{path.stem}--{sha}.pt"
++                asset = f"{name}-{path.stem}-{sha[:12]}.pt"
+                 event.update(repository=repo, tag=self.tag, asset=asset, sha256=sha)
+                 with tempfile.TemporaryDirectory(
+                     prefix=f"{name}-", dir=self.root / "uploads"
+@@ -223,7 +225,7 @@
+                         ])
+                         self.command([
+                             "gh", "release", "download", self.tag, "--repo", repo,
+-                            "--pattern", asset, "--dir", str(download), "--clobber",
++                            "--pattern", asset, "--dir", str(download),
+                         ])
+                     downloaded_sha = digest(download / asset)
+                     event["downloaded_sha256"] = downloaded_sha
+@@ -285,6 +287,10 @@
+             if not isinstance(state, dict) or state.get("schema") != 1:
+                 raise RuntimeError("Missing/invalid controller-state.json")
+             self.state = state
++            self.wave2_launched = bool(state.get("wave2_launched")) or any(
++                state["forks"].get(name, {}).get("status") not in (None, "PENDING")
++                for name in WAVE2
++            )
+             config = state["config"]
+             if config["candidate"] != str(CANDIDATE) or config["parent_sha256"] != PARENT:
+                 raise RuntimeError("Candidate/parent configuration mismatch")
+@@ -310,6 +316,28 @@
+                     row.update(status="UNRESUMABLE", reason="No validated full checkpoint")
+                     emit(f"{name}: UNRESUMABLE")
+                     continue
++                # B4-gap identity guard: a wrong-file resume compatible with the
++                # structural checks would load silently. Verify the fork's own
++                # evidence before accepting the checkpoint.
++                effective = read_json(self.output(name) / "r10-effective.json")
++                if not isinstance(effective, dict):
++                    row.update(status="UNRESUMABLE", reason="r10-effective.json missing for identity check")
++                    emit(f"{name}: UNRESUMABLE")
++                    continue
++                if effective.get("parent_sha256") != PARENT:
++                    row.update(status="UNRESUMABLE", reason="parent SHA mismatch in r10-effective.json")
++                    emit(f"{name}: UNRESUMABLE")
++                    continue
++                expected_weight = -0.0 if row.get("precision") == "0" else -0.5
++                if float(effective.get("precision_weight", 999)) != expected_weight:
++                    row.update(status="UNRESUMABLE", reason="precision weight mismatch in r10-effective.json")
++                    emit(f"{name}: UNRESUMABLE")
++                    continue
++                lock_sha = (CANDIDATE / "seed-lock.sha256").read_text().split()[0]
++                if config.get("seed_lock_sha256") not in (None, lock_sha):
++                    row.update(status="UNRESUMABLE", reason="seed-lock changed since run creation")
++                    emit(f"{name}: UNRESUMABLE")
++                    continue
+                 # Worker uses out.mkdir(exist_ok=False). Preserve the previous
+                 # segment and start a fresh directory at the required output path.
+                 self.archive_for_resume(name, checkpoint)
+@@ -320,19 +348,20 @@
+             if manifest.exists():
+                 raise RuntimeError("Run already exists; use --resume, not a second launch")
+             target = 1 if args.mode == "smoke" else (args.target or 128)
+-            seeds = (481, 482, 483, 484) if args.mode == "smoke" else (461, 462, 471, 472)
++            seeds = (1171, 1172, 1173, 1174, 1175, 1176) if args.mode == "smoke" else (1141, 1142, 1143, 1151, 1152, 1153)
+             self.state = {
+-                "schema": 1, "created_utc": utc(),
++                "schema": 1, "created_utc": utc(), "wave2_launched": False,
+                 "config": {
+                     "mode": args.mode, "target": target,
+                     "stagger_seconds": args.stagger_seconds,
+                     "release_tag": args.release_tag or DEFAULT_TAG,
+                     "repo": args.repo or DEFAULT_REPO,
+                     "candidate": str(CANDIDATE), "parent_sha256": PARENT,
++                    "seed_lock_sha256": (CANDIDATE / "seed-lock.sha256").read_text().split()[0],
+                 },
+                 "forks": {},
+             }
+-            for name, seed, precision in zip(NAMES, seeds, ("0", "0", "0.5", "0.5")):
++            for name, seed, precision in zip(NAMES, seeds, ("0", "0", "0", "0.5", "0.5", "0.5")):
+                 paths = (self.output(name), self.capture(name), self.gate(name))
+                 if any(p.exists() or p.is_symlink() for p in paths):
+                     raise RuntimeError(f"Refusing pre-existing fork paths: {name}")
+@@ -344,7 +373,8 @@
+                     "attempt": 0, "output": str(self.output(name)),
+                     "capture": str(self.capture(name)),
+                 }
+-            self.pending = list(NAMES)
++            self.pending = list(WAVE1)
++            self.wave2_launched = False
+         self.config = self.state["config"]
+         self.stagger = self.config["stagger_seconds"]
+         if self.config["mode"] == "train":
+@@ -365,6 +395,7 @@
+ 
+     def save(self):
+         self.state["updated_utc"] = utc()
++        self.state["wave2_launched"] = getattr(self, "wave2_launched", False)
+         atomic_json(self.root / "controller-state.json", self.state)
+ 
+     def archive_for_resume(self, name, checkpoint):
+@@ -530,9 +561,17 @@
+                     checkpoint = latest_validated(self.output(name))
+                     counters = result.get("counters") if isinstance(result, dict) else None
+                     iterations = counters.get("iterations") if isinstance(counters, dict) else None
+-                    if not isinstance(result, dict) or counters is None or checkpoint is None:
++                    expected_iterations = 16 + self.config["target"]
++                    expected_transitions = expected_iterations * 1024
++                    counters_ok = (
++                        isinstance(counters, dict)
++                        and counters.get("iterations") == expected_iterations
++                        and counters.get("transitions") == expected_transitions
++                        and all(counters.get(k, 1) == 0 for k in counters if "failed" in k)
++                    )
++                    if not isinstance(result, dict) or counters is None or checkpoint is None or not counters_ok:
+                         self.fail(
+-                            name, "Exit 0 but segment-result.json or validated full checkpoint missing", code
++                            name, "Exit 0 but segment-result.json/counters/validated full checkpoint mismatch", code
+                         )
+                     else:
+                         row.update(
+@@ -561,6 +600,15 @@
+             and self.pending and now >= self.next_launch
+         ):
+             self.launch(self.pending.pop(0))
++        if (
++            not STOP and not self.abort_launch and self.waiting is None
++            and not self.pending and not self.processes
++            and not getattr(self, "wave2_launched", False)
++        ):
++            self.pending.extend(WAVE2)
++            self.wave2_launched = True
++            emit("WAVE2: launching control-3 and precision-3 after wave 1 fully exited")
++            self.save()
+ 
+     def sample_vram(self):
+         with (self.root / "vram-samples.txt").open("a", buffering=1) as stream:
+--- r10_eval_adapter/evaluation_r9c_helpers.py
++++ r11_eval_adapter/evaluation_r9c_helpers.py
+@@ -2,11 +2,11 @@
+ import hashlib
+ import json
+ 
+-SEED_SPLITS={'development':(421,422,423,424,425,494,495,496,497,498),'heldout':(431,432,433,434,435,501,502,503,504,505)}
++SEED_SPLITS={'development':(1301,1302,1303,1304,1305,1111,1112,1113,1114,1115),'heldout':(1121,1122,1123,1124,1125,1131,1132,1133,1134,1135)}
+ 
+ def validate_seed(split, seed, condition):
+-    assert split in ('development','heldout'), f'Unknown R10P split {split!r} for seed {seed!r}'
+-    assert seed in SEED_SPLITS[split], f'Unknown R10P seed {seed!r} for split {split!r}'
++    assert split in ('development','heldout'), f'Unknown R11 split {split!r} for seed {seed!r}'
++    assert seed in SEED_SPLITS[split], f'Unknown R11 seed {seed!r} for split {split!r}'
+     assert condition == 'standard', 'A adapter standard protocol only'
+ 
+ 
+--- r11_validate.py
++++ r11_validate.py
+@@ -273,17 +273,394 @@
+     return report
+ 
+ 
++def eval_adapter(args):
++    # B12 eval-adapter subcommand. No GPU, no Kit; stdlib only.
++    # Checks a-f per the B12 spec. Check e generates
++    # config/eval-cases.json and config/eval-matrix.json, but only
++    # from a seed allowlist that already passed check d.
++    root = Path(args.root).resolve()
++    seed_lock_path = Path(args.seed_lock).resolve() if getattr(args, "seed_lock", None) else root / "seed-lock.json"
++    adapter = root / "r11_eval_adapter"
++    helper_name = "evaluation_r9c_helpers.py"
++    frozen_helpers = Path("/root/sj-tmp/r9c-source/r9c-eval-a/evaluation_r9c_helpers.py")
++    venv_python = Path("/root/sj-tmp/tita/.venv/bin/python")
++    r10p_candidates = [root / "reference-r10p" / "r10_eval_adapter",
++                       root / "reference-r10p",
++                       Path("/root/sj-tmp/r9c-source/R10P-precision-screen-20261113/r10_eval_adapter")]
++    r11_seeds = {"development": [1301, 1302, 1303, 1304, 1305, 1111, 1112, 1113, 1114, 1115],
++                 "heldout": [1121, 1122, 1123, 1124, 1125, 1131, 1132, 1133, 1134, 1135]}
++    r10p_seeds = {"development": [421, 422, 423, 424, 425, 494, 495, 496, 497, 498],
++                  "heldout": [431, 432, 433, 434, 435, 501, 502, 503, 504, 505]}
++    r10p_flat = sorted([s for seeds in r10p_seeds.values() for s in seeds])
++    r10p_set = set(r10p_flat)
++    helper_old_new = [
++        ("SEED_SPLITS={'development':(421,422,423,424,425,494,495,496,497,498),'heldout':(431,432,433,434,435,501,502,503,504,505)}",
++         "SEED_SPLITS={'development':(1301,1302,1303,1304,1305,1111,1112,1113,1114,1115),'heldout':(1121,1122,1123,1124,1125,1131,1132,1133,1134,1135)}"),
++        ("    assert split in ('development','heldout'), f'Unknown R10P split {split!r} for seed {seed!r}'",
++         "    assert split in ('development','heldout'), f'Unknown R11 split {split!r} for seed {seed!r}'"),
++        ("    assert seed in SEED_SPLITS[split], f'Unknown R10P seed {seed!r} for split {split!r}'",
++         "    assert seed in SEED_SPLITS[split], f'Unknown R11 seed {seed!r} for split {split!r}'"),
++    ]
++    helper_frozen_old = [
++        "SEED_SPLITS={'development':(231,232,233,234,235,261,262,263,264,265)}",
++        "    assert split == 'development', 'Independent heldout not implemented in A adapter'",
++        "    assert seed in SEED_SPLITS[split], 'Unknown R9C development seed'",
++    ]
++    test_cpu_old = [
++        "  for x in (231,232,233,234,235,261,262,263,264,265):validate_seed('development',x,'standard')",
++        "  with self.assertRaises(AssertionError):validate_seed('development',271,'standard')",
++        "  with self.assertRaises(AssertionError):validate_seed('primary',271,'standard')",
++    ]
++    test_cpu_new = [
++        "  for x in (1301,1302,1303,1304,1305,1111,1112,1113,1114,1115):validate_seed('development',x,'standard')",
++        "  for x in (1121,1122,1123,1124,1125,1131,1132,1133,1134,1135):validate_seed('heldout',x,'standard')",
++        "  with self.assertRaises(AssertionError):validate_seed('development',421,'standard')",
++        "  with self.assertRaises(AssertionError):validate_seed('primary',1301,'standard')",
++    ]
++    test_cpu_reject_line = "with self.assertRaises(AssertionError):validate_seed('development',421,'standard')"
++    fork_order = ["control-1", "control-2", "control-3", "precision-1", "precision-2", "precision-3"]
++    fork_key = {"control-1": "control1", "control-2": "control2", "control-3": "control3",
++                "precision-1": "precision1", "precision-2": "precision2", "precision-3": "precision3"}
++    pinned_precision = {"control-1": 0, "control-2": 0, "control-3": 0,
++                        "precision-1": 0.5, "precision-2": 0.5, "precision-3": 0.5}
++
++    def detail(passed, info):
++        return {"status": "PASS" if passed else "FAIL", "detail": info}
++
++    def rel_files(base):
++        out = []
++        for dirpath, dirnames, filenames in os.walk(base):
++            dirnames[:] = sorted(d for d in dirnames if d != "__pycache__")
++            for name in sorted(filenames):
++                out.append(Path(dirpath, name).relative_to(base))
++        return sorted(out, key=lambda p: p.as_posix())
++
++    def diff_removed_added(old_text, new_text, old_label, new_label):
++        diff = list(difflib.unified_diff(old_text.splitlines(keepends=True),
++                                         new_text.splitlines(keepends=True),
++                                         fromfile=old_label, tofile=new_label))
++        removed = [ln[1:].rstrip("\n") for ln in diff if ln.startswith("-") and not ln.startswith("---")]
++        added = [ln[1:].rstrip("\n") for ln in diff if ln.startswith("+") and not ln.startswith("+++")]
++        return removed, added
++
++    def flatten_seeds(value):
++        if isinstance(value, int):
++            return [value]
++        if isinstance(value, list):
++            out = []
++            for item in value:
++                out += flatten_seeds(item)
++            return out
++        if isinstance(value, dict):
++            out = []
++            for item in value.values():
++                out += flatten_seeds(item)
++            return out
++        return []
++
++    def lock_seed_list(lock, *paths):
++        for keys in paths:
++            node = lock
++            ok = True
++            for key in keys:
++                if not isinstance(node, dict) or key not in node:
++                    ok = False
++                    break
++                node = node[key]
++            if ok:
++                return sorted(set(flatten_seeds(node)))
++        return None
++
++    def lock_dict(lock, *paths):
++        for keys in paths:
++            node = lock
++            ok = True
++            for key in keys:
++                if not isinstance(node, dict) or key not in node:
++                    ok = False
++                    break
++                node = node[key]
++            if ok and isinstance(node, dict):
++                return node
++        return None
++
++    checks = {}
++    parsed_splits = None
++    lock = None
++    # --- check a: ADAPTER_DIFF.json ---
++    try:
++        diff_data = json.loads((adapter / "ADAPTER_DIFF.json").read_text(encoding="utf-8"))
++        changes = diff_data.get("changes")
++        files = sorted(c.get("file") for c in changes) if isinstance(changes, list) else []
++        descriptions = [c.get("description", "") for c in changes] if isinstance(changes, list) else []
++        ok_a = (adapter.is_dir() and (adapter / helper_name).is_file()
++                and isinstance(changes, list) and len(changes) == 2
++                and files == ["evaluation_r9c_helpers.py", "test_cpu.py"]
++                and diff_data.get("all_other_files_identical") is True
++                and any("SEED_SPLITS" in d for d in descriptions)
++                and any("test_seeds" in d for d in descriptions))
++        checks["a"] = detail(ok_a, {"adapter": str(adapter), "changes_files": files,
++                                    "all_other_files_identical": diff_data.get("all_other_files_identical")})
++    except Exception as exc:
++        checks["a"] = detail(False, {"error": str(exc)})
++    # --- check b: R11 adapter vs R10P adapter + SHA256SUMS ---
++    try:
++        r10p = None
++        for cand in r10p_candidates:
++            if cand.is_dir() and (cand / helper_name).is_file() and (cand / "evaluate_sac_r9c_a.py").is_file():
++                r10p = cand
++                break
++        if r10p is None:
++            raise ValueError("R10P adapter not found in reference-r10p or /root/sj-tmp/r9c-source/R10P-precision-screen-20261113/r10_eval_adapter")
++        src_files = rel_files(r10p)
++        dst_files = rel_files(adapter)
++        differing = []
++        for rel in sorted(set(src_files) | set(dst_files), key=lambda p: p.as_posix()):
++            sp, dp = r10p / rel, adapter / rel
++            if not sp.is_file() or not dp.is_file() or sha(sp) != sha(dp):
++                differing.append(rel.as_posix())
++        allowed = {helper_name, "test_cpu.py", "ADAPTER_DIFF.json", "SHA256SUMS"}
++        differs_ok = set(differing) <= allowed and helper_name in differing and "test_cpu.py" in differing
++        h_removed, h_added = diff_removed_added((r10p / helper_name).read_text(encoding="utf-8"),
++                                                (adapter / helper_name).read_text(encoding="utf-8"),
++                                                "r10_eval_adapter/" + helper_name,
++                                                "r11_eval_adapter/" + helper_name)
++        helpers_ok = (h_removed == [old for old, _new in helper_old_new]
++                      and h_added == [new for _old, new in helper_old_new])
++        t_removed, t_added = diff_removed_added((r10p / "test_cpu.py").read_text(encoding="utf-8"),
++                                                (adapter / "test_cpu.py").read_text(encoding="utf-8"),
++                                                "r10_eval_adapter/test_cpu.py",
++                                                "r11_eval_adapter/test_cpu.py")
++        test_cpu_ok = t_removed == test_cpu_old and t_added == test_cpu_new
++        sums_ok = False
++        sums_detail = {}
++        sums_path = adapter / "SHA256SUMS"
++        if sums_path.is_file():
++            listed = {}
++            malformed = []
++            for line in sums_path.read_text(encoding="utf-8").splitlines():
++                if not line.strip():
++                    continue
++                parts = line.split(None, 1)
++                if len(parts) != 2:
++                    malformed.append(line)
++                else:
++                    listed[parts[1].strip()] = parts[0].strip()
++            actual = {p.as_posix() for p in dst_files if p.name != "SHA256SUMS"}
++            bad_shas = [rel for rel, digest in listed.items()
++                        if rel not in actual or sha(adapter / rel) != digest]
++            sums_ok = (not malformed and set(listed) == actual and not bad_shas)
++            sums_detail = {"listed": len(listed), "actual": len(actual),
++                           "malformed_lines": malformed, "bad_sha_files": bad_shas}
++        ok_b = differs_ok and helpers_ok and test_cpu_ok and sums_ok
++        checks["b"] = detail(ok_b, {"r10p_source": str(r10p), "differing_files": differing,
++                                    "helpers_diff_3_lines": helpers_ok,
++                                    "test_cpu_diff_3_to_4_lines": test_cpu_ok,
++                                    "sha256sums_ok": sums_ok, "sha256sums": sums_detail})
++    except Exception as exc:
++        checks["b"] = detail(False, {"error": str(exc)})
++    # --- check c: R11 helpers vs frozen R9C reference ---
++    try:
++        if not frozen_helpers.is_file():
++            raise ValueError("frozen R9C helpers missing: %s" % frozen_helpers)
++        f_removed, f_added = diff_removed_added(
++            frozen_helpers.read_text(encoding="utf-8"),
++            (adapter / helper_name).read_text(encoding="utf-8"),
++            "r9c-eval-a/" + helper_name, "r11_eval_adapter/" + helper_name)
++        ok_c = (f_removed == helper_frozen_old
++                and f_added == [new for _old, new in helper_old_new])
++        checks["c"] = detail(ok_c, {"frozen": str(frozen_helpers),
++                                    "removed_lines": f_removed, "added_lines": f_added})
++    except Exception as exc:
++        checks["c"] = detail(False, {"error": str(exc)})
++    # --- check d: seed allowlist parsed from the helpers file ---
++    try:
++        if not seed_lock_path.is_file():
++            raise ValueError("seed lock missing: %s" % seed_lock_path)
++        lock = json.loads(seed_lock_path.read_text(encoding="utf-8"))
++        helper_text = (adapter / helper_name).read_text(encoding="utf-8")
++        nodes = [n for n in ast.parse(helper_text).body if isinstance(n, ast.Assign)
++                 and any(isinstance(t, ast.Name) and t.id == "SEED_SPLITS" for t in n.targets)]
++        if len(nodes) != 1:
++            raise ValueError("expected exactly one SEED_SPLITS assignment, found %d" % len(nodes))
++        parsed = ast.literal_eval(nodes[0].value)
++        parsed_splits = {split: list(seeds) for split, seeds in parsed.items()}
++        expected_dev = list(EXPECTED["dev"])
++        expected_held = list(EXPECTED["held_out"])
++        lock_dev = lock_seed_list(lock, ("seeds", "dev"), ("seeds", "development"), ("dev",))
++        lock_held = lock_seed_list(lock, ("seeds", "held_out"), ("seeds", "heldout"), ("held_out",))
++        splits_ok = (parsed_splits.get("development") == expected_dev
++                     and parsed_splits.get("heldout") == expected_held
++                     and lock_dev == sorted(expected_dev)
++                     and lock_held == sorted(expected_held))
++        # No R10P seed anywhere in the adapter except ADAPTER_DIFF.json old_seeds
++        # and the single test_cpu.py rejection line for 421.
++        bad_hits = []
++        allowed_old_seeds = []
++        for rel in rel_files(adapter):
++            name = rel.as_posix()
++            if name == "ADAPTER_DIFF.json":
++                data = json.loads((adapter / rel).read_text(encoding="utf-8"))
++                if not isinstance(data, dict):
++                    bad_hits.append({"file": name, "issue": "ADAPTER_DIFF.json is not a JSON object"})
++                    continue
++                old_seeds = None
++                for change in data.get("changes", []):
++                    if isinstance(change, dict) and "old_seeds" in change:
++                        old_seeds = change["old_seeds"]
++                if old_seeds != r10p_seeds:
++                    bad_hits.append({"file": name, "issue": "old_seeds != R10P seeds",
++                                     "old_seeds": old_seeds})
++                def walk(node, path=()):
++                    hits = []
++                    if isinstance(node, int) and node in r10p_set:
++                        hits.append(path)
++                    elif isinstance(node, dict):
++                        for key, value in node.items():
++                            hits += walk(value, path + (key,))
++                    elif isinstance(node, list):
++                        for idx, value in enumerate(node):
++                            hits += walk(value, path + (idx,))
++                    return hits
++                for hit in walk(data):
++                    if len(hit) >= 3 and hit[0] == "changes" and hit[2] == "old_seeds":
++                        allowed_old_seeds.append(hit)
++                    else:
++                        bad_hits.append({"file": name, "issue": "R10P seed outside old_seeds",
++                                         "path": list(hit)})
++                continue
++            text = (adapter / rel).read_text(encoding="utf-8", errors="replace")
++            for lineno, line in enumerate(text.splitlines(), 1):
++                for seed in r10p_flat:
++                    if re.search(r"\b%d\b" % seed, line):
++                        if name == "test_cpu.py" and seed == 421 and line.strip() == test_cpu_reject_line:
++                            continue
++                        bad_hits.append({"file": name, "line": lineno, "seed": seed,
++                                         "text": line.strip()[:160]})
++        scan_ok = not bad_hits
++        ok_d = splits_ok and scan_ok
++        checks["d"] = detail(ok_d, {"parsed_seed_splits": parsed_splits,
++                                    "lock_dev": lock_dev, "lock_held_out": lock_held,
++                                    "expected_dev": expected_dev, "expected_held_out": expected_held,
++                                    "r10p_seed_hits_outside_old_seeds": bad_hits,
++                                    "old_seeds_paths": len(allowed_old_seeds)})
++    except Exception as exc:
++        checks["d"] = detail(False, {"error": str(exc)})
++    # --- check e: case manifest + eval matrix ---
++    try:
++        if parsed_splits is None:
++            raise ValueError("SEED_SPLITS not parsed in check d; refusing to generate manifests")
++        if (parsed_splits.get("development") != list(EXPECTED["dev"])
++                or parsed_splits.get("heldout") != list(EXPECTED["held_out"])):
++            raise ValueError("parsed SEED_SPLITS do not equal the expected R11 sets; refusing to generate manifests")
++        if lock is None:
++            if not seed_lock_path.is_file():
++                raise ValueError("seed lock missing: %s" % seed_lock_path)
++            lock = json.loads(seed_lock_path.read_text(encoding="utf-8"))
++        fork_node = lock_dict(lock, ("seeds", "training_forks"), ("training_forks",))
++        if fork_node is not None:
++            fork_seeds = {str(k).replace("-", ""): v for k, v in fork_node.items()}
++            fork_source = "seed-lock.json"
++        else:
++            fork_seeds = dict(FORKS)
++            fork_source = "r11_validate.FORKS (seed lock has no training_forks field)"
++        fork_ok = fork_seeds == dict(FORKS)
++        precision = dict(pinned_precision)
++        precision_source = "pinned spec (control 0, precision 0.5); seed lock carries no precision-weight field"
++        precision_node = lock_dict(lock, ("precision_weights",), ("seeds", "precision_weights"), ("seeds", "precision"))
++        if precision_node is not None:
++            candidate = {str(k).replace("-", ""): float(v) for k, v in precision_node.items()}
++            mapped = {}
++            for fork in fork_order:
++                key = fork_key[fork]
++                if key in candidate:
++                    mapped[fork] = candidate[key]
++            if mapped:
++                precision = mapped
++                precision_source = "seed-lock.json"
++        precision_ok = precision == pinned_precision
++        cases_by_split = {}
++        for split in ("development", "heldout"):
++            seeds = parsed_splits[split]
++            cases_by_split[split] = [{"seed": s, "execution": e} for s in seeds for e in ("D", "S")]
++        cases_doc = {"development": cases_by_split["development"],
++                     "heldout": cases_by_split["heldout"],
++                     "cases_per_split": 20, "total_cases": 40, "generated_utc": now()}
++        cells = []
++        for fork in fork_order:
++            for level in (32, 64, 128):
++                for split in ("development", "heldout"):
++                    cells.append({"fork": fork, "train_seed": fork_seeds[fork_key[fork]],
++                                  "precision": precision[fork], "L": level, "split": split,
++                                  "cases": cases_by_split[split]})
++        matrix_doc = {"cells": cells, "cell_count": 36, "cases_per_cell": 20,
++                      "total_cases": 720, "generated_utc": now()}
++        write(root / "config" / "eval-cases.json", json.dumps(cases_doc, indent=2) + "\n")
++        write(root / "config" / "eval-matrix.json", json.dumps(matrix_doc, indent=2) + "\n")
++        read_cases = json.loads((root / "config" / "eval-cases.json").read_text(encoding="utf-8"))
++        read_matrix = json.loads((root / "config" / "eval-matrix.json").read_text(encoding="utf-8"))
++        verify_ok = (len(read_cases.get("development", [])) == 20
++                     and len(read_cases.get("heldout", [])) == 20
++                     and len(read_matrix.get("cells", [])) == 36
++                     and all(len(cell.get("cases", [])) == 20 for cell in read_matrix.get("cells", []))
++                     and read_matrix.get("total_cases") == 720
++                     and read_cases["development"][0] == {"seed": 1301, "execution": "D"}
++                     and read_cases["development"][1] == {"seed": 1301, "execution": "S"})
++        ok_e = fork_ok and precision_ok and verify_ok
++        checks["e"] = detail(ok_e, {"cases_file": str(root / "config" / "eval-cases.json"),
++                                    "matrix_file": str(root / "config" / "eval-matrix.json"),
++                                    "fork_seeds_source": fork_source, "fork_seeds_ok": fork_ok,
++                                    "precision_source": precision_source, "precision_ok": precision_ok,
++                                    "cases": 40, "cells": 36, "total_cases": 720})
++    except Exception as exc:
++        checks["e"] = detail(False, {"error": str(exc)})
++    # --- check f: test_cpu.py passes under the venv python ---
++    try:
++        if not venv_python.is_file():
++            raise ValueError("venv python missing: %s" % venv_python)
++        result = subprocess.run([str(venv_python), "test_cpu.py"], cwd=str(adapter),
++                                capture_output=True, text=True, timeout=600)
++        output = (result.stdout or "") + "\n" + (result.stderr or "")
++        ok_f = result.returncode == 0
++        checks["f"] = detail(ok_f, {"returncode": result.returncode,
++                                    "output_tail": output[-2000:]})
++    except subprocess.TimeoutExpired:
++        checks["f"] = detail(False, {"error": "test_cpu.py timed out after 600 seconds"})
++    except Exception as exc:
++        checks["f"] = detail(False, {"error": str(exc)})
++    adapter_sha = None
++    try:
++        adapter_sha = sha(adapter / helper_name)
++    except Exception:
++        adapter_sha = None
++    e_pass = checks.get("e", {}).get("status") == "PASS"
++    cases_n = 40 if e_pass else 0
++    cells_n = 36 if e_pass else 0
++    total_n = 720 if e_pass else 0
++    status = "PASS" if all(c.get("status") == "PASS" for c in checks.values()) and len(checks) == 6 else "FAIL"
++    return {"status": status, "checks": checks, "adapter_sha256": adapter_sha,
++            "test_cpu": checks.get("f", {}).get("status", "FAIL"),
++            "cases": cases_n, "cells": cells_n, "total_cases": total_n, "utc": now()}
++
++
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     commands = parser.add_subparsers(dest="command", required=True)
+-    for name in ("parent-resume", "cpu-five"):
++    for name in ("parent-resume", "cpu-five", "eval-adapter"):
+         command = commands.add_parser(name)
+         command.add_argument("--root", required=True)
+         command.add_argument("--report", required=True)
+         if name == "cpu-five":
+             command.add_argument("--suite", required=True)
++        if name == "eval-adapter":
++            command.add_argument("--seed-lock", default=None)
+     args = parser.parse_args()
+-    report = parent_resume(args) if args.command == "parent-resume" else cpu_five(args)
++    if args.command == "parent-resume":
++        report = parent_resume(args)
++    elif args.command == "cpu-five":
++        report = cpu_five(args)
++    else:
++        report = eval_adapter(args)
+     write(args.report, json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+     print(report["status"] + " " + str(args.report))
+     return int(report["status"] == "FAIL")
+--- r11_preflight.py
++++ r11_preflight.py
+@@ -349,6 +349,43 @@
+             except FileNotFoundError:
+                 pass
+ 
++def readiness(args):
++    """Readiness subcommand: delegate the step-4 checks to r11_resources.
++
++    r11_resources.check_readiness(root) is the single implementation of
++    the readiness checks; this handler only loads that module, writes the
++    report atomically, and maps the result to an exit code.
++    """
++    import importlib.util
++
++    root = Path(args.root).expanduser().resolve()
++    report = Path(args.report).expanduser()
++    resources = root / "r11_resources.py"
++    if not resources.is_file():
++        print("READINESS_FAIL r11_resources.py missing: " + str(resources), file=sys.stderr)
++        return 1
++    spec = importlib.util.spec_from_file_location("r11_resources", str(resources))
++    if spec is None or spec.loader is None:
++        print("READINESS_FAIL cannot load r11_resources.py", file=sys.stderr)
++        return 1
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    try:
++        result = module.check_readiness(root)
++    except Exception as exc:
++        print("READINESS_FAIL check_readiness raised: " + str(exc), file=sys.stderr)
++        return 1
++    result["generated_by"] = "r11_preflight.py readiness (delegates to r11_resources.check_readiness)"
++    text = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    report.parent.mkdir(parents=True, exist_ok=True)
++    temporary = report.with_name("." + report.name + ".tmp")
++    temporary.write_text(text, encoding="utf-8")
++    temporary.replace(report)
++    status = result.get("status")
++    print("READINESS_" + str(status) + " " + str(report))
++    return 0 if status == "PASS" else 1
++
++
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     commands = parser.add_subparsers(dest="command", required=True)
+@@ -360,7 +397,10 @@
+     for option in ("source", "expected-sha", "output"):
+         command.add_argument("--" + option, required=True)
+     command.set_defaults(handler=resolve_parent)
+-    commands.add_parser("readiness")
++    command = commands.add_parser("readiness")
++    command.add_argument("--root", required=True)
++    command.add_argument("--report", required=True)
++    command.set_defaults(handler=readiness)
+     args, extra = parser.parse_known_args()
+     handler = getattr(args, "handler", None)
+     if handler is None:
+--- a/r10_gate.py
++++ b/r10_gate.py
+@@ -1,4 +1,4 @@
+-"""R10P gate computation — same formulas as R9C r9c_gates.summarize_A, R10P seed sets.
++"""R11 gate computation — same formulas as R9C r9c_gates.summarize_A, R11 seed sets.
+ Per-case: P = max(stop1.speed, stop2.speed); W = max(stop1.abs_wz, stop2.abs_wz);
+ Mavg = (forward.vx_mae + reverse.vx_mae) / 2.
+ Gate: survival==20 AND passes==20 AND mean_P<=0.04 AND mean_W<=0.08 AND mean_Mavg<=0.08.
+@@ -6,8 +6,8 @@
+ import json, sys, math
+ from pathlib import Path
+ 
+-DEV = [421, 422, 423, 424, 425, 494, 495, 496, 497, 498]
+-HELD = [431, 432, 433, 434, 435, 501, 502, 503, 504, 505]
++DEV = [1301, 1302, 1303, 1304, 1305, 1111, 1112, 1113, 1114, 1115]
++HELD = [1121, 1122, 1123, 1124, 1125, 1131, 1132, 1133, 1134, 1135]
+ 
+ def case_metrics(m):
+     try:
+@@ -52,8 +52,8 @@
+ if __name__ == "__main__":
+     root = Path(sys.argv[1])
+     out = {}
+-    for fork in ("control-1", "control-2", "precision-1", "precision-2"):
+-        for node in ("L64", "L128"):
++    for fork in ("control-1", "control-2", "control-3", "precision-1", "precision-2", "precision-3"):
++        for node in ("L32", "L64", "L128"):
+             for split, seeds, fname in (("development", DEV, "development-results.json"),
+                                         ("heldout", HELD, "held-out-results.json")):
+                 p = root / fork / node / split / fname
+--- a/r10_eval.py
++++ b/r10_eval.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Sequential R10P evaluation. No training, retries, or promotion."""
++"""Sequential R11 evaluation. No training, retries, or promotion."""
+ 
+ import argparse
+ import hashlib
+@@ -11,28 +11,18 @@
+ from pathlib import Path
+ 
+ 
+-SEEDS = {
+-    "development": (421, 422, 423, 424, 425, 494, 495, 496, 497, 498),
+-    "heldout": (431, 432, 433, 434, 435, 501, 502, 503, 504, 505),
+-}
++SEEDS = {'development': (1301, 1302, 1303, 1304, 1305, 1111, 1112, 1113, 1114, 1115), 'heldout': (1121, 1122, 1123, 1124, 1125, 1131, 1132, 1133, 1134, 1135)}
+ AMENDMENT_FIELDS = {
+     "development": "dev_seeds",
+     "heldout": "held_out_seeds",
+ }
+ AMENDMENT_SHA256 = (
+-    "c6ca3fc3f673e82244aec316ce9fb6034953ab521fa4fbdd7c31fb6dd054771b"
++    '7d552f8b1f9e55fa164e4374cedbc8aff51675767b8e964f6902fc03dfae47ea'
+ )
+-TRAINING_SEEDS = {
+-    "control-1": 461,
+-    "control-2": 462,
+-    "precision-1": 471,
+-    "precision-2": 472,
+-}
+-ITERATIONS = {64: 80, 128: 144}
+-
+-# Verified by the coordinator by loading model-L0064.pt / model-L0128.pt on CPU:
+-# top-level dict with 'counters' (dict, iterations 80 at L64 / 144 at L128)
+-# and 'config' (dict, seed = fork training seed).
++TRAINING_SEEDS = {'control-1': 1141, 'control-2': 1142, 'control-3': 1143, 'precision-1': 1151, 'precision-2': 1152, 'precision-3': 1153}
++ITERATIONS = {32: 48, 64: 80, 128: 144}
++
++# Verified checkpoint headers: iterations 48@L32 / 80@L64 / 144@L128; config seed = fork seed.
+ CHECKPOINT_HEADER_PATHS = {
+     "counters": ("counters",),
+     "config": ("config",),
+@@ -142,11 +132,6 @@
+     parser.add_argument("--device", default="cuda:0")
+     args = parser.parse_args()
+ 
+-    if args.node == 32:
+-        parser.error(
+-            "no L32 checkpoint exists; L32 evaluation is forbidden; "
+-            "no results were written"
+-        )
+     if not args.checkpoint.is_file():
+         parser.error(f"checkpoint must exist and be a file: {args.checkpoint}")
+     if os.path.lexists(args.output):
